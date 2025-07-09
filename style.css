@@ -1,0 +1,1507 @@
+
+/*@font-face {*/
+/*  font-family: "Michroma";*/
+/*  src: url(https://star-mods.github.io/assets/fonts/Michroma-Regular.ttf)*/
+/*}*/
+@font-face {
+  font-family: "SourceSansPro";
+  src: url(https://star-mods.github.io/assets/fonts/SourceSansPro-Regular.ttf)
+}
+
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "SourceSansPro",Open Sans,Helvetica,Arial,sans-serif;
+  margin: 0;
+  background-size: cover;
+  background-color: #002650;
+  background-image: url(https://star-mods.github.io/assets/ui/bg.jpg);
+  background-position: top;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+a.selected{
+  font-weight: bold;
+}
+
+sc-icon.short-icon {
+  width: 25px;
+  background-size: contain;
+  height: 25px;
+  background-image: url(https://star-mods.github.io/assets/ui/ui_ingame_coop_topbar_stetmann_commandbuttons_blue_normal.png);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin: 1px;
+
+  img {
+    width: 25px;
+    height: 25px;
+    top: 0;
+    position: absolute;
+    left: 0;
+  }
+}
+sc-icon.card {
+  display: inline-flex;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  img {
+    width: 62px;
+    height: 62px;
+    margin: 1px;
+  }
+  &:after{
+    background-image: none;
+  }
+}
+
+sc-icon, sc-upload {
+  vertical-align: middle;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  background-size: contain;
+  background-image: url(https://star-mods.github.io/assets/ui/ui_battlenet_glue_coop_commanderlevel_honeycomb.png);
+  text-align: center;
+  position: relative;
+  line-height: 100px;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-size: cover;
+    left: 8%;
+    top: 8%;
+    right: 8%;
+    bottom: 8%;
+    background: #212529;
+    z-index: -1;
+  }
+  &:after {
+    top: 0;
+    content: "";
+    display: block;
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://star-mods.github.io/assets/ui/ui_battlenet_glue_coop_abilityframe_disabled.png);
+  }
+}
+
+sc-icon {
+  width: 64px;
+  height: 64px;
+}
+
+
+a:hover sc-icon:after, sc-upload:hover:after {
+  cursor: pointer;
+  background-image: url(https://star-mods.github.io/assets/ui/ui_battlenet_glue_coop_abilityframe_hover.png);
+}
+
+a.selected sc-icon:after {
+  background-image: url(https://star-mods.github.io/assets/ui/ui_battlenet_glue_coop_abilityframe_hover.png);
+}
+
+sc-upload {
+    width: 40px;
+    height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+}
+sc-upload label{
+  background-image: url(https://star-mods.github.io/assets/icons/ui-editoricon-general_open.png);
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 5;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+sc-upload input{
+  display: none;
+}
+
+
+::-webkit-scrollbar-track {
+}
+::-webkit-scrollbar-corner { background: transparent }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #003f7f;
+}
+
+/*.sc-tooltip {*/
+/*  border: 1px solid #2765a4;*/
+/*  text-align: left !important;*/
+/*  font-size: 12px;*/
+/*  width: 350px !important;*/
+/*  min-width: 350px !important;*/
+/*  ul{*/
+/*    flex-direction: column;*/
+/*    margin: 0;*/
+/*    list-style: disc;*/
+/*    padding: 0 14px;*/
+/*    text-align: left !important;*/
+/*    li{*/
+/*      text-align: left !important;*/
+/*    }*/
+/*  }*/
+/*}*/
+
+
+.sc-button {
+  width: 100%;
+  max-width: 235px;
+  text-decoration: none;
+  height: 50px;
+  text-align: center;
+  position: relative;
+  line-height: 50px;
+  font-weight: 600;
+  font-size: 12px;
+  overflow: hidden;
+  display: inline-block;
+  font-family: sans-serif;
+  cursor: pointer;
+  color: #a4b3bf;
+
+  &:before,&:after {
+    background-image: url(https://star-mods.github.io/assets/ui/ui_battlenet_glues_bluebuttons_largeup.png);
+    content: "";
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-size: auto 100px;
+    z-index: -1;
+  }
+  &:before{
+    left: 0;
+  }
+  &:after{
+    right: 0;
+    background-position: right top;
+  }
+  &:hover {
+    &:before,&:after {
+      background-image: url(https://star-mods.github.io/assets/ui/ui_battlenet_glues_bluebuttons_largeover.png);
+    }
+  }
+  &[disabled]{
+    &:before,&:after {
+      background-image: url(https://star-mods.github.io/assets/ui/ui_battlenet_glues_bluebuttons_largedisabled.png);
+    }
+  }
+  &:active {
+    &:before,&:after {
+      background-image: url(https://star-mods.github.io/assets/ui/ui_battlenet_glues_bluebuttons_largedown.png);
+    }
+  }
+  &.selected{
+    &:before,&:after {
+      background-image: url(https://star-mods.github.io/assets/ui/ui_battlenet_glues_bluebuttons_largeselected.png);
+    }
+  }
+
+  span{
+    height: 20px;
+  }
+  img {
+    margin: -4px 4px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: text-top;
+  }
+  .text-icon {
+    min-width: 20px;
+  }
+}
+
+.units-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li{
+    display: inline-block;
+    a{
+      display: inline-block;
+    }
+  }
+}
+
+.faction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li{
+    display: inline-block;
+    a{
+      display: inline-block;
+    }
+  }
+}
+
+.mod-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li{
+    display: inline-block;
+    position: relative;
+    a{
+      display: inline-block;
+    }
+  }
+}
+h4{
+  margin: 0;
+  font-size: 12px;
+}
+
+header{
+  border-bottom: 1px solid #2765a4;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+
+  text-align: left;
+  min-width: 340px;
+  background: #000000b5;
+  color: #a4b3bf;
+  box-shadow: #000 0 0 5px;
+  display: flex;
+}
+header .separator{
+  width: 1px;
+  display: inline-block;
+  height: 30px;
+  background-color: #2765a4;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+
+
+
+.mod-list li:hover .version-list{
+  display: block;
+}
+
+/*mods*/
+.version-dropdown-toggle {
+  cursor: pointer;
+  position: absolute;
+  color: white;
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  padding: 0;
+  font-size: 10px;
+  margin: 0;
+  border: 1px solid #2e537f;
+  background: black;
+  border-radius: 6px;
+  &.toggled{
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.version-list {
+  position: absolute;
+  background: #0000009e;
+  padding: 0px;
+  margin-top: -1px;
+  z-index: 10;
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  border: 1px solid #2e537f;
+  margin-left: 2px;
+  width: 40px;
+}
+
+.version-list.visible {
+  display: block;
+}
+
+.version-list li {
+  padding: 2px 6px;
+  padding: 0;
+  position: relative;
+  margin: -2px;
+}
+
+.version-span{
+  text-decoration: none;
+  color: black;
+  padding: 0;
+  font-size: 7px;
+  background: #ffffffba;
+  position: absolute;
+  width: 74%;
+  bottom: 6px;
+  left: 13%;
+  line-height: 10px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.version-list li a:hover {
+  text-decoration: underline;
+}
+
+.icon-img {
+  width: 72%;
+  height: 72%;
+  margin: auto;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.preloader {
+  transition: opacity 0.3s ease;
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  z-index: -1;
+}
+
+
+sc-mods, sc-factions{
+  display: inline-block;
+  min-width: 40px;
+}
+sc-factions {
+  flex-grow: 1;
+}
+
+sc-mods sc-icon{
+  width: 40px;
+  height: 40px;
+}
+
+sc-factions sc-icon{
+  width: 40px;
+  height: 40px;
+}
+
+sc-language:before{
+
+  position: absolute;
+  background: #d6ffe4;
+  width: 74%;
+  height: 74%;
+  display: block;
+  content: "";
+  left: 11%;
+  top: 11%;
+  z-index: -1;
+}
+sc-language{
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+
+  vertical-align: middle;
+  margin: 1px;
+  background-size: contain;
+  background-image: url(https://star-mods.github.io/assets/ui/ui_coop_ingame_mutatorframe.png);
+  text-align: center;
+  position: relative;
+  line-height: 100px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  bottom: 100%;
+}
+sc-language:hover .language-dropdown-menu {
+  display: block;
+}
+.language-dropdown-menu{
+  position: absolute;
+  background: #0000009e;
+  padding: 0px;
+  z-index: 10;
+  list-style: none;
+   display: none;
+  flex-direction: column;
+  border: 1px solid #2e537f;
+  margin-left: 0;
+  width: 40px;
+  top: auto;
+  left: 0;
+  bottom: 100%;
+  margin: 0;
+}
+sc-language img {
+  width: 27px;
+  height: 28px;
+  display: block;
+  left: 12px;
+  margin-left: 6px;
+  margin-top: 0px;
+}
+h4{
+  margin: 8PX;
+  display: block;
+  padding-left: 2px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+  border-bottom: 1px solid;
+}
+.btn-discord{
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: url(https://star-mods.github.io/assets/ui/sc2_ui_glues_bluebuttons_taskbarsmalldown.png);
+  background-size: contain;
+}
+.btn-discord span{
+  vertical-align: middle;
+  margin: 1px;
+  text-align: center;
+  position: relative;
+  line-height: 100px;
+  align-items: center;
+  background-image: url(https://star-mods.github.io/assets/lang/discord.svg);
+  width: 26px;
+  background-repeat: no-repeat;
+  height: 26px;
+  background-size: contain;
+  display: inline-block;
+  top: 6px;
+  left: 6px;
+}
+
+
+
+.btn-discord{
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+sc-language{
+  position: absolute;
+  right: 55px;
+  bottom: 15px;
+}
+
+article{
+  flex: 1 1 auto;
+  overflow: hidden;
+  padding: 0;
+}
+
+
+app-root{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+section{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  position: relative;
+  overflow-y: auto;
+  gap: 10px;
+  padding: 5px;
+}
+article{
+  text-align: left;
+  min-width: 340px;
+  background: #000000b5;
+  color: #a4b3bf;
+  overflow-y: auto;
+  box-shadow: #000 0 0 5px;
+  width: 595px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+header h4{
+  display: none;
+}
+
+
+
+
+code {
+  background-color: #252525;
+  color: #747474;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer; /* show pointer cursor */
+  position: relative; /* for tooltip positioning */
+}
+code::after {
+  content: 'Click to copy';
+  position: absolute;
+  top: 100%;
+  width: auto;
+  right: 0;
+  background: #333;
+  color: #fff;
+  font-size: 7px;
+  padding: 3px;
+  border-radius: 4px;
+   opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  line-height: 10px;
+  z-index: 111;
+  white-space: nowrap;
+}
+
+
+code:hover::after {
+  opacity: 1;
+}
+
+code.copied::after {
+  content: 'Copied!';
+  background: #4caf50; /* green */
+}
+
+
+summary{
+  cursor: pointer;
+}
+summary p.sc-unit-category {
+  margin-top: -18px !important;
+}
+.sc-unit-group-container{
+  h3{
+    text-align: left;
+    color: white;
+    margin-bottom: 0;
+    margin-left: 10px;
+  }
+}
+.unit-main-info-container{
+  display: flex;
+  flex-direction: row;
+}
+.unit-stats-info {
+  padding-left: 10px;
+  flex-grow: 1;
+  .unit-description {
+  //min-height: 168px;
+  }
+}
+.unit-main-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.close{
+  background-image: url(https://star-mods.github.io/assets/ui/close.png);
+  display: inline-block;
+  float: right;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  margin: 4px -5px;
+  padding: 0;
+  cursor: pointer;
+}
+details{
+  margin-top: 5px;
+  overflow: hidden;
+}
+.sc-unit-details{
+  width: 522px;
+//width: 685px;
+//height: 851px;
+  color: #dbdbdb;
+  background: #000000b5;
+//border: 2px solid #2765a4;
+  position: relative;
+  text-align: left;
+  flex-direction: column;
+//padding: 10px;
+  display: flex;
+  flex-grow: 1;
+
+  overflow-x: auto;
+  box-shadow: black 0 0 5px;
+}
+.sc-unit-details-content{
+  padding: 1px;
+  font-size: 12px;
+  overflow-y: auto  ;
+  padding: 7px 4px 50px 7px;
+  flex-grow: 1;
+}
+.sc-unit-categories{
+  margin-right: 10px;
+  text-align: left;
+  min-width: 340px;
+//height: 418px;
+  background: #000000b5;
+//border: 2px solid #2765a4;
+  color: #a4b3bf;
+//padding: 10px 0 10px 10px;
+  overflow-y: auto;
+  box-shadow: black 0 0 5px;
+
+  width: 595px;
+  display: flex;
+  flex-direction: column;
+
+  .category-units{
+    margin-bottom: 8px;
+  }
+
+  h4{
+    margin: 5px;
+  }
+  sc-unit{
+    cursor: pointer
+  }
+}
+.unit-link{
+  text-decoration: none;
+  color: white
+}
+.mod-info{
+  flex-grow: 1;
+}
+.upgrade-effect-array{
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  padding-left: 25px;
+  li{
+    overflow-wrap: break-word;
+    margin-bottom: 2px;
+  }
+}
+.sc-unit-category {
+  margin: 8PX;
+  display: block;
+  padding-left: 2px;
+  max-width: 595px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid;
+}
+.raw-container{
+  overflow: auto;
+  max-height: 400px;
+  border: 2px solid #2765a4;
+}
+pre{
+
+}
+sc-unit,sc-upgrade{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+#backdrop{
+  z-index: 9;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+.dialog {
+  z-index: 10;
+  padding: 0;
+  background: #0d1a22f5;
+  border: 0;
+  overflow: auto;
+  overflow-x: hidden;
+
+  >sc-unit{
+    margin: 0;
+  }
+  margin-top: 5%;
+  width: 90%;
+  height: 90%;
+
+}
+
+.race-icon img{
+  filter: grayscale(1) contrast(0.25) brightness(2.5) drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.5))
+}
+
+
+.unit-detailed{
+  display: inline-flex;
+  width: 235px;
+  font-size: 12px;
+  sc-icon.frame{
+    margin: 0;
+  }
+  a{
+
+    text-decoration: none;
+    color: white;
+  }
+}
+
+
+
+
+
+
+h3{
+  margin: 0;
+  background: #2765a452;
+  line-height: 33px;
+  padding: 0 6px;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+/* PROFILE CARDS */
+.results-header {
+
+  --canvasColor: #2a313b;
+  --backgroundColor: #2a313b;
+  --foregroundColor: #367bc3;
+  --primaryColor: #ebe8d8;
+  --primaryShade5: #b5cfe9;
+  --primaryShade4: #91b7de;
+  --primaryShade3: #5a93cd;
+  --primaryShade2: #3270b2;
+  --primaryShade1: #285a8e;
+  --secondaryColor: #38bfa7;
+  --secondaryShade5: #c8ede7;
+  --secondaryShade4: #92dccf;
+  --secondaryShade3: #6ed0be;
+  --secondaryShade2: #33ae98;
+  --secondaryShade1: #2e9d89;
+  --accentColor: #586994;
+  --accentShade5: #d1d6e1;
+  --accentShade4: #a3adc4;
+  --accentShade3: #7684a7;
+  --accentShade2: #49567a;
+  --accentShade1: #39435f;
+  --accent2Color: #8fe1a2;
+  --accent2Shade5: #d6f4dd;
+  --accent2Shade4: #c1eecc;
+  --accent2Shade3: #a3e6b2;
+  --accent2Shade2: #82cd94;
+  --accent2Shade1: #76b985;
+  --accent3Color: #fe938c;
+  --accent3Shade5: #fee1df;
+  --accent3Shade4: #fec4c0;
+  --accent3Shade3: #fea6a0;
+  --accent3Shade2: #e78680;
+  --accent3Shade1: #b96b66;
+  color: #f1f2eb;
+  border-color: #f1f2eb;
+
+
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+
+
+  background-color: #2765a4;
+  margin-right: 0;
+  padding: 8px 8px 4px 8px;
+  text-align: left;
+}
+.results-header__option {
+  display: grid;
+  grid-gap: 8px;
+  grid-template-columns: repeat(2, 1fr);
+  cursor: pointer;
+}
+.results-header .option__button {
+  display: grid;
+  grid-gap: 2px;
+  width: 18px;
+  height: 20px;
+  border-radius: var(--borderRadius);
+  padding: 0px;
+  overflow: hidden;
+  transition: 0.2s ease;
+}
+.results-header .option__button > span {
+  background: var(--foregroundColor);
+  transition: 0.2s ease;
+}
+.results-header .option__button > span:last-child {
+  background: none !important;
+  text-align: center;
+//text-transform: uppercase;
+  font: 500 14px/1 "Poppins", sans-serif;
+  display: block;
+  margin-top: 2px;
+  display: none;
+}
+.results-header .option__button:hover > span {
+  color: var(--primaryShade5);
+  background: var(--primaryShade5);
+}
+.results-header .option__button.selected > span {
+  color: var(--primaryColor);
+  background: var(--primaryColor);
+}
+.results-header .option--grid {
+  grid: repeat(2, 1fr) min-content/repeat(2, 1fr);
+}
+.results-header .option--grid span:last-child {
+  grid-column: span 2;
+  display: none;
+}
+.results-header .option--list {
+  grid: repeat(3, 1fr) min-content/100%;
+}
+
+
+
+.tech-production {
+  border: 1px solid;
+  padding: 1px;
+}
+
+.sc-unit-container{
+  display: inline-block;
+  position: relative;
+}
+
+.phases{
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 32px;
+  display: inline-flex;
+  z-index: 1;
+
+  sc-icon{
+    user-select: none;
+
+    filter: drop-shadow(0px 0px 0px black);
+    width: 32px;
+    height: 32px;
+    margin: 4px -1px;
+
+    img{
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+
+
+.link{
+  cursor: pointer;
+}
+
+.unit-short-stats{
+  display: flex;
+  > div{
+    display: flex;
+  }
+  &.unit-costs{
+    flex-direction: column;
+    > div{
+      width: 75px;
+    }
+  }
+}
+
+.unit-stat{
+  .unit-stat-value {
+    font-weight: bold;
+    text-align: left;
+    padding-top: 7px;
+    line-height: 14px;
+    flex-grow: 1;
+    font-size: 10px;
+    padding-left: 5px;
+  }
+  .smaller{
+    font-weight: normal;
+    font-size: 8px;
+    line-height: 14px;
+  }
+}
+
+
+
+.resources-minerals {
+  display: inline-flex;
+  height: 25px;
+  width: 25px;
+  background-image: url(https://star-mods.github.io/assets/ui/icon-mineral-protoss.png);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  margin: 1px;
+}
+
+.resources-vespene {
+  display: inline-flex;
+  height: 25px;
+  width: 25px;
+  background-image: url(https://star-mods.github.io/assets/ui/icon-gas-protoss.png);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  margin: 1px;
+}
+.resources-supply {
+  display: inline-flex;
+  height: 25px;
+  width: 25px;
+  background-image: url(https://star-mods.github.io/assets/ui/icon-supply-protoss.png);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  margin: 1px;
+}
+.resources-energy {
+  display: inline-flex;
+  height: 25px;
+  width: 25px;
+  background-image: url(https://star-mods.github.io/assets/ui/icon-energy-nobg.png);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  margin: 1px;
+}
+
+
+.unit-shield, .unit-armor {
+  position: relative;
+
+  span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    line-height: 10px;
+    width: 12px;
+    font-size: 9px;
+    background: #40404094;
+    color: white;
+    text-align: center;
+    padding-top: 1px;
+  }
+}
+
+
+/* Dropdown Button */
+.dropbtn {
+  color: white;
+  padding: 0;
+  font-size: 16px;
+  border: none;
+  width: 50px;
+  height: 36px;
+  margin-top: 7px;
+  border-radius: 7px;
+  background-color: grey;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  list-style: none;
+  color: white;
+  padding: 0;
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin: 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+
+
+
+
+.unit-stats {
+  position: relative;
+  display: block;
+  overflow: auto;
+  text-overflow: ellipsis;
+}
+.unit-stat {
+  display: inline-block;
+  width: 120px;
+}
+.cards-container{
+  display: block;
+}
+
+.sc-attribute:not(:last-of-type){
+  &:after{
+    content: " - "
+  }
+}
+
+
+.short-icon span{
+  position:absolute;
+  bottom:0;
+  right: 0;
+  z-index: 1;
+}
+
+.card-slot > div {
+  height: 100%;
+  width: 100%;
+}
+
+
+/*CARDS*/
+sc-icon {
+  display: inline-flex;
+  text-align: center;
+  vertical-align: middle;
+  img {
+    width: 45px;
+    height: 45px;
+    margin: 1px;
+  }
+}
+.table-container{
+  width: 100%;
+  overflow: auto;
+}
+.cards-container{
+  display: block;
+}
+table.cards {
+  border: 2px solid #2765a4;
+  border-spacing: 0;
+  display: inline-block;
+
+  > tr {
+    height: 48px;
+
+    > td {
+      width: 48px;
+      position: relative;
+      height: 48px;
+      padding: 0;
+      min-width: 48px;
+      min-height: 48px;
+
+      .button-placeholder{
+        background-image: url(https://star-mods.github.io/assets/ui/ui_ingame_coop_topbar_stetmann_commandbuttons_blue_normal.png);
+        background-size: 55px;
+        background-position: center;
+      }
+      .button-placeholder.selected{
+        cursor: default;
+        background-image: url(https://star-mods.github.io/assets/ui/ui_ingame_coop_topbar_stetmann_commandbuttons_blue_highlighted.png);
+      }
+
+      &.disabled{
+        opacity: 0.1;
+      }
+      &.interactive{
+        cursor: pointer;
+        &:hover .button-placeholder{
+          background-image: url(https://star-mods.github.io/assets/ui/ui_ingame_coop_topbar_stetmann_commandbuttons_blue_highlighted.png);
+        }
+      }
+
+      .card-more{
+        position: absolute;
+        right: 6px;
+        bottom: 0px;
+        color: white;
+        text-shadow: 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+        z-index: 1;
+        font-size: 16px;
+      }
+      .card-hotkey{
+        position: absolute;
+        left: 6px;
+        top: 6px;
+        color: white;
+        text-shadow: 1px 1px 1px black, -1px -1px 1px black, -1px 1px 1px black, 1px -1px 1px black;
+        z-index: 1;
+      }
+      img {
+        width: 48px;
+        display: block;
+        height: 48px;
+      }
+    }
+  }
+}
+.unit-cost {
+  height: 40px;
+  line-height: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  > span{
+    background-size: 20px;
+    width: 75px;
+    height: 20px;
+    background-repeat: no-repeat;
+    line-height: 20px;
+    padding-left: 25px;
+  }
+  .resources-minerals {
+    background-image: url(https://star-mods.github.io/assets/ui/icon-mineral-nobg.png);
+  }
+
+  .resources-vespene {
+    background-image: url(https://star-mods.github.io/assets/ui/icon-gas-terran_nobg.png);
+  }
+
+  .resources-supply {
+    background-image: url(https://star-mods.github.io/assets/ui/icon-supply-terran_nobg.png);
+  }
+  .resources-energy {
+    background-image: url(https://star-mods.github.io/assets/ui/icon-energy-terran.png);
+  }
+  .resources-vital {
+    background-image: url(https://star-mods.github.io/assets/ui/icon-health-terran.png);
+  }
+  .resources-shields {
+    background-image: url(https://star-mods.github.io/assets/ui/icon-shields.png);
+  }
+  .resources-time {
+    background-image: url(https://star-mods.github.io/assets/ui/icon-time-terran.png);
+  }
+}
+.card-list{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+sc-card{
+  display: inline-flex;
+  flex-direction: column;
+}
+
+sc-button{
+  display: inline-flex;
+  flex-direction: column;
+}
+/*player*/
+sc-model{
+  width: 410px;
+  height: 260px;
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.viewer-small{
+  position: relative;
+  width: 410px;
+  height: 260px;
+  padding: 10px;
+  max-width: 100%;
+  overflow: hidden;
+  &:after{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+    background-size: 100% 100%;
+    border-width: 10px;
+    border-style: solid;
+    border-image-source: url(https://star-mods.github.io/assets/ui/sc2_ui_tradeshow_modeselectionbutton_border_hover.png);
+    border-image-slice: 9;
+    border-image-repeat: stretch;
+    box-sizing: inherit;
+  }
+}
+.viewer-inner {
+  height: 100%;
+}
+
+.viewer-inner:fullscreen #fullscreen {
+    display: none;
+}
+.viewer-inner:not(:fullscreen) #fullscreen-exit {
+  display: none;
+}
+.fullscreen-button{
+  font-weight: bold;
+  position: absolute;
+  right: 11px;
+  bottom: 11px;
+  width: 28px;
+  height: 28px;
+  background: #243957;
+  z-index: 1;
+  text-align: center;
+  cursor: pointer;
+  font-size: 23px;
+  line-height: 26px;
+  border: 1px solid #0f417d;
+}
+
+.tooltip-data{
+  display: none;
+}
+
+/*TOOLTIPS*/
+
+
+.sc-tooltip {
+  max-width: 200px;
+  background-color: black;
+  color: #a4b3bf;
+  border-radius: 6px;
+  position: absolute;
+  pointer-events: none;
+  z-index: 1000;
+  display: block;
+  opacity: 0;
+  -webkit-transition: opacity 300ms;
+  -moz-transition: opacity 300ms;
+  -o-transition: opacity 300ms;
+  transition: opacity 300ms;
+  top: 0;
+  left: 0;
+  box-shadow: 0 7px 15px -5px rgba(0, 0, 0, 0.4);
+  border: 1px solid #2765a4;
+  text-align: left !important;
+  font-size: 12px;
+  width: 350px !important;
+  min-width: 350px !important;
+}
+.sc-tooltip .sc-unit-details-content{
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.sc-tooltip.tooltip-show {
+  opacity: 1;
+}
+
+.sc-tooltip::after , .sc-tooltip::before{
+
+}
+
+.sc-tooltip::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+}
+.sc-tooltip::before{
+  content: "";
+  position: absolute;
+  border-style: solid;
+}
+
+.tooltip-top::after {
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip-top::before {
+  top: 100%;
+  left: 50%;
+  margin-left: -7px;
+  border-width: 7px;
+  border-color:  #2765a4  transparent transparent transparent;
+}
+
+.tooltip-bottom::after {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-color:  transparent transparent black transparent;
+}
+
+.tooltip-bottom::before {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -7px;
+  border-width: 7px;
+  border-color: transparent transparent #2765a4  transparent;
+}
+.tooltip-left::after {
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-color:  transparent  transparent transparent #2765a4;
+}
+
+.tooltip-left::before {
+  top: 50%;
+  left: 100%;
+  margin-top: -7px;
+  border-width: 7px;
+  border-color:  transparent transparent transparent  black;
+}
+
+
+.tooltip-right::after {
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-color:  transparent black transparent   transparent ;
+}
+
+.tooltip-right::before {
+  top: 50%;
+  right: 100%;
+  margin-top: -7px;
+  border-width: 7px;
+  border-color:  transparent #2765a4  transparent transparent  ;
+}
+
+
+sc-icon *{
+  pointer-events: none;
+}
+
+sc-weapon{
+  flex-direction: column;
+  max-width: 300px
+}
+.weapons-list{
+  gap: 10px;
+  display: flex;
+}
+
+
+sc-wiki, sc-race, sc-unit, sc-upgrade{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 799px) {
+  .card-list{
+    flex-direction: column;
+  }
+  .sc-tooltip {
+    display: none !important;
+  }
+
+  sc-language, .btn-discord {
+    margin: -3px;
+  }
+
+  sc-mods sc-icon ,sc-factions sc-icon {
+    margin: -3px;
+  }
+  sc-upload{
+    display:none;
+  }
+  header .separator{
+    display: none; /* hide separators on small screens */
+  }
+  section{
+    flex-direction: column;
+  }
+  article{
+    width: auto;
+    height: auto; /* Let it expand to fit content */
+    max-height: none; /* Remove any max-height limit */
+    overflow: visible; /* Disable scrollbars */
+  }
+
+  
+ sc-race, sc-unit, sc-upgrade{
+    height: auto;
+    display: block;
+    
+}
+
+}
+
+  
