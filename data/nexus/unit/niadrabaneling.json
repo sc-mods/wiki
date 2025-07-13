@@ -1,0 +1,1582 @@
+{
+  "Name": "Echoling",
+  "Description": "Suicide unit. Does damage over a small area on death. **Can attack ground units**",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Zerg",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 40,
+  "LifeMax": 40,
+  "LifeArmorName": "Corrupted Protoss Armor",
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "AISplash",
+    "AIHighPrioTarget",
+    "AIFleeDamageDisabled",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "NiadraBaneling",
+  "HotkeyAlias": "NiadraBaneling",
+  "SelectAlias": "NiadraBaneling",
+  "SubgroupAlias": "NiadraBaneling",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "NiadraBaneling",
+  "AIEvaluateAlias": "NiadraBaneling",
+  "ReviveType": "NiadraBaneling",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "NiadraBaneling/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "NiadraBaneling/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 45,
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Biological",
+    "Psionic"
+  ],
+  "LifeRegenRate": 0.2734,
+  "ShieldArmorName": "Plasma Shield",
+  "Speed": 3.5,
+  "SpeedMultiplierCreep": 1.3,
+  "Acceleration": 1000,
+  "LateralAcceleration": 46.0625,
+  "Sight": 8,
+  "Food": -0.5,
+  "CostResource": {
+    "Minerals": 40,
+    "Vespene": 10
+  },
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1
+              }
+            }
+          },
+          "Unit": "NiadraBanelingBurrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "NiadraBanelingBurrowed",
+        "Cost": {
+          "Minerals": 40,
+          "Vespene": 10,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -0.5
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "NiadraBanelingBurrowDown,Execute",
+        "id": "BurrowDown",
+        "Icon": "btn-ability-zerg-burrow-color",
+        "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "Name": "Burrow",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/NiadraBanelingExplode",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "NiadraBanelingExplode",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1
+          },
+          "Effect": [
+            "NiadraBanelingWeaponSet"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "NiadraBanelingExplode",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "NiadraBanelingExplode"
+            }
+          },
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 0.5
+              }
+            }
+          ],
+          "id": "NiadraBanelingExplode"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "NiadraBanelingExplode,Execute",
+        "id": "NiadraBanelingExplode",
+        "Icon": "btn-ability-zerg-explode-color",
+        "Tooltip": "The Echoling detonates where it is standing, damaging nearby enemy units and structures.",
+        "Name": "Explode",
+        "Hotkey": "X"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/NiadraBanelingWeaponBuilding",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "NiadraBanelingWeaponBuilding",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "EnableBuildingAttack"
+            },
+            "Off": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "DisableBuildingAttack"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "BehaviorArray": [
+            "NiadraBanelingWeaponBuilding"
+          ],
+          "id": "NiadraBanelingWeaponBuilding"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "NiadraBanelingWeaponBuilding,On",
+        "id": "EnableBuildingAttack",
+        "Icon": "btn-ability-zerg-attackstructure-color",
+        "Tooltip": "Allows Banelings to automatically target structures.<br/><br/>Banelings deal <b>80</b> damage to structures.",
+        "Name": "Enable Structure Attack",
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/NiadraBanelingWeaponBuilding",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "NiadraBanelingWeaponBuilding",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "EnableBuildingAttack"
+            },
+            "Off": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "DisableBuildingAttack"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "BehaviorArray": [
+            "NiadraBanelingWeaponBuilding"
+          ],
+          "id": "NiadraBanelingWeaponBuilding"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "NiadraBanelingWeaponBuilding,Off",
+        "id": "DisableBuildingAttack",
+        "Icon": "btn-ability-zerg-explode-color",
+        "Tooltip": "Prevents Banelings from automatically targeting structures. Banelings can still be explicitly ordered to attack structures.<br/><br/>Banelings deal <b>80</b> damage to structures.",
+        "Name": "Disable Structure Attack",
+        "Hotkey": "G"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "NiadraBanelingHeal",
+        "Icon": "btn-upgrade-zerg-empshield",
+        "Tooltip": "Restore 40 shield for nearby friendly units when Echoling detonates.",
+        "Name": "Psionic Echo"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "NiadraBanelingStrike",
+        "Icon": "btn-upgrade-zerg-banelingemp",
+        "Tooltip": "Stun nearby mechanical and psionic units for <b>0.5</b> seconds and add <b>4</b> extra times parasite effect.<br/><br/><span style=\"color: #FFFF80\">Reduce <b>50</b>% attack and movement speed to heroic units.</span>",
+        "Name": "Psicore Blast"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "Passive",
+        "id": "NiadraBanelingParasite",
+        "Icon": "btn-ability-zerg-niadra-core",
+        "Tooltip": "Add <b>8</b> times parasite effect to nearby enemies when Echoling detonates. Inflecting Parasite on the target for the first time will grant biomass 2 times of the target's supply.",
+        "Name": "Parasite"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 0.625
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.125
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Delay": 0.125,
+                "Duration": 0.5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 0.5
+              }
+            }
+          },
+          "Unit": "NiadraBanelingFlying",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "NiadraBanelingFlying",
+        "Cost": {
+          "Minerals": 40,
+          "Vespene": 10,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -0.5
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "NiadraBanelingFly,Execute",
+        "id": "NiadraFly",
+        "Icon": "btn-upgrade-urun-gravitonbeam-damage",
+        "Tooltip": "\"When I was a larva, I used to be lifted into the air by Protoss Air Superior Fighter for half an hour. If I wasn't too huge now, I would fly up and bite all their ships myself!\"<br/><br/>All Zerg forces can become air units and target air units. Unable to burrow.",
+        "Name": "Graviton Reversal",
+        "Hotkey": "G"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "NiadraGuardianShell",
+        "Icon": "btn-ability-spearofadun-guardianshell",
+        "Tooltip": "\"Today, we are all Templars!--That's how Daelaam keep warriors tireless in combat.\"<br/><br/>Become invulnerable in a short time upon taking fatal damage and restore 15% life. Only occur 1 time per 240 seconds.",
+        "Name": "Guardian Shell",
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/NiadraChronoBoostSuper",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "NiadraChronoBoostSuper",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "NiadraChronoBoostSuperAB"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "NiadraChronoBoostSuper",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "NiadraChronoBoost",
+              "Requirements": "NiadraHaveChronoBoost"
+            }
+          },
+          "InfoTooltipPriority": 1,
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 60
+              }
+            }
+          ],
+          "id": "NiadraChronoBoostSuper"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "NiadraChronoBoostSuper,Execute",
+        "id": "NiadraChronoBoost",
+        "Icon": "btn-upgrade-urun-doublechronoboost",
+        "Tooltip": "\"Curiously, this Chrono Boost device is much smaller than others. Why don't they use it to boost troops?\"<br/><br/>The unit operates 15% faster. Can use it to initiate a chrono boost, additionally operating 45% faster in 5 seconds.",
+        "Name": "Chrono Boost",
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/NiadraCloakedSuper",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "NiadraCloakedSuper",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "NiadraCloakedSuperAB"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "NiadraCloakedSuper",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "NiadraCloaked",
+              "Requirements": "NiadraHaveCloaked"
+            }
+          },
+          "InfoTooltipPriority": 1,
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 60
+              }
+            }
+          ],
+          "id": "NiadraCloakedSuper"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "NiadraCloakedSuper,Execute",
+        "id": "NiadraCloaked",
+        "Icon": "btn-ability-spearofadun-massrecall",
+        "Tooltip": "\"I thought that the Protoss would stop eliminating if I hid in a steam valve. Then my Queen showed me in action that eliminating them all can we get peace.\"<br/><br/>Permanently Cloaked. Use it to become super cloaked and immune to damage in 5 seconds.",
+        "Name": "Cloaking Field",
+        "Hotkey": "G"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "NiadraPsiStorm",
+        "Icon": "btn-ability-protoss-psistorm-greater-color",
+        "Tooltip": "\"It's a brilliant idea to gather psioinc energy and strike. Just hope that Amon will let off my baby Hydralisks.\"<br/><br/>Have a chance to release a psi storm at the target location when attack hits.",
+        "Name": "Psionic Storm",
+        "Hotkey": "G"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "NiadraBanelingBurrowmove",
+        "Icon": "btn-ability-zerg-dehaka-mutalisk-shiftingcarapace",
+        "Tooltip": "Echoling can move at 75% speed while burrowed and increase explosion range by 50%.",
+        "Name": "Surprise!"
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "CargoOverlapFilters": "-;Player,Ally,Neutral,Structure",
+  "CargoSize": 2,
+  "SubgroupPriority": 92,
+  "EquipmentArray": [
+    {
+      "Weapon": "NiadraBanelingWeaponDummy"
+    }
+  ],
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "CostCategory": "Army",
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "HotkeyCategory": "Unit/Category/NexusNiadra",
+  "id": "NiadraBaneling",
+  "Icon": "btn-unit-niadra-baneling",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "id": "NiadraBanelingWeaponGround",
+      "Icon": "btn-ability-zerg-explode",
+      "Name": "Volatile Burst",
+      "Amount": 40,
+      "AttributeBonus": {
+        "Structure": 80
+      },
+      "Kind": "Melee",
+      "TargetFilters": "Ground",
+      "Range": 0.25,
+      "Period": 0.2
+    },
+    {
+      "id": "NiadraBanelingWeaponGroundBuilding",
+      "Icon": "btn-ability-zerg-explode",
+      "Name": "Volatile Burst",
+      "Amount": 40,
+      "AttributeBonus": {
+        "Structure": 80
+      },
+      "Kind": "Melee",
+      "TargetFilters": "Ground",
+      "Range": 0.25,
+      "Period": 0.2
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "NiadraBanelingDeath"
+    },
+    {
+      "id": "SupplyLT1"
+    },
+    {
+      "id": "NiadraGuardianShellDeathPrevent"
+    },
+    {
+      "id": "NiadraChronoBoost",
+      "Icon": "btn-ability-protoss-chronoboost",
+      "Tooltip": "This unit is in an accelerated state.",
+      "Name": "Chrono Boost"
+    },
+    {
+      "id": "NiadraCloaked",
+      "Icon": "coop_mutators_ wemoveunseen",
+      "Tooltip": "This unit is in a permanently cloaked state.",
+      "Name": "Cloaking Field"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "NiadraBanelingExplode"
+    },
+    {
+      "id": "NiadraBanelingWeaponBuilding"
+    },
+    {
+      "id": "NiadraBanelingBurrowDown"
+    },
+    {
+      "id": "NiadraBanelingFly"
+    },
+    {
+      "id": "NiadraChronoBoostSuper"
+    },
+    {
+      "id": "NiadraCloakedSuper"
+    }
+  ],
+  "$Upgrades": [
+    "NiadraForgeChronoBoost",
+    "NiadraBaneling",
+    "NiadraForgeCloaked",
+    "NiadraBanelingFlying",
+    "NiadraForgeGravityLift",
+    "NiadraForgeGuardianShell",
+    "NiadraForgePsiStorm",
+    "NiadraBanelingFlyLand",
+    "NiadraBanelingFlyLandManual",
+    "NiadraBanelingStrike",
+    "NiadraBanelingBurrowed",
+    "NiadraBanelingBurrowUp",
+    "NiadraBanelingBurrowmove",
+    "NiadraParasiteTrain",
+    "NiadraWeaponsLevel1",
+    "NiadraWeaponsLevel",
+    "NiadraWeaponsLevel2",
+    "NiadraWeaponsLevel3",
+    "NiadraLifeArmorLevel1",
+    "NiadraBaneling",
+    "NiadraLifeArmorLevel",
+    "NiadraLifeArmorLevel2",
+    "NiadraLifeArmorLevel3",
+    "NiadraHeroIsZergUnit2",
+    "NiadraForgeGuardianShellPurchased",
+    "NiadraForgeChronoBoostPurchased",
+    "NiadraForgeGravityLiftPurchased",
+    "NiadraForgeCloakedPurchased",
+    "NiadraForgePsiStormPurchased",
+    "IsNiadraBaneling",
+    "NiadraShieldArmorLevel",
+    "MasteryNiadraZergUnitShield",
+    "NiadraShieldArmorLevel2",
+    "NiadraShieldArmorLevel3",
+    "NiadraShieldArmorLevel1"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "NiadraBanelingFlying"
+  ],
+  "$Phase": [
+    "NiadraBanelingBurrowed"
+  ],
+  "$Phased": "NiadraBanelingFlying",
+  "$Producers": [
+    "NiadraParasite"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "NiadraBanelingBurrowDown,Execute",
+      "id": "BurrowDown",
+      "Icon": "btn-ability-zerg-burrow-color",
+      "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+      "Name": "Burrow"
+    },
+    {
+      "AbilCmd": "NiadraBanelingExplode,Execute",
+      "id": "NiadraBanelingExplode",
+      "Icon": "btn-ability-zerg-explode-color",
+      "Tooltip": "The Echoling detonates where it is standing, damaging nearby enemy units and structures.",
+      "Name": "Explode"
+    },
+    {
+      "AbilCmd": "NiadraBanelingWeaponBuilding,On",
+      "id": "EnableBuildingAttack",
+      "Icon": "btn-ability-zerg-attackstructure-color",
+      "Tooltip": "Allows Banelings to automatically target structures.<br/><br/>Banelings deal <b>80</b> damage to structures.",
+      "Name": "Enable Structure Attack"
+    },
+    {
+      "AbilCmd": "NiadraBanelingWeaponBuilding,Off",
+      "id": "DisableBuildingAttack",
+      "Icon": "btn-ability-zerg-explode-color",
+      "Tooltip": "Prevents Banelings from automatically targeting structures. Banelings can still be explicitly ordered to attack structures.<br/><br/>Banelings deal <b>80</b> damage to structures.",
+      "Name": "Disable Structure Attack"
+    },
+    {
+      "AbilCmd": "NiadraBanelingFly,Execute",
+      "id": "NiadraFly",
+      "Icon": "btn-upgrade-urun-gravitonbeam-damage",
+      "Tooltip": "\"When I was a larva, I used to be lifted into the air by Protoss Air Superior Fighter for half an hour. If I wasn't too huge now, I would fly up and bite all their ships myself!\"<br/><br/>All Zerg forces can become air units and target air units. Unable to burrow.",
+      "Name": "Graviton Reversal"
+    },
+    {
+      "AbilCmd": "NiadraChronoBoostSuper,Execute",
+      "id": "NiadraChronoBoost",
+      "Icon": "btn-upgrade-urun-doublechronoboost",
+      "Tooltip": "\"Curiously, this Chrono Boost device is much smaller than others. Why don't they use it to boost troops?\"<br/><br/>The unit operates 15% faster. Can use it to initiate a chrono boost, additionally operating 45% faster in 5 seconds.",
+      "Name": "Chrono Boost"
+    },
+    {
+      "AbilCmd": "NiadraCloakedSuper,Execute",
+      "id": "NiadraCloaked",
+      "Icon": "btn-ability-spearofadun-massrecall",
+      "Tooltip": "\"I thought that the Protoss would stop eliminating if I hid in a steam valve. Then my Queen showed me in action that eliminating them all can we get peace.\"<br/><br/>Permanently Cloaked. Use it to become super cloaked and immune to damage in 5 seconds.",
+      "Name": "Cloaking Field"
+    }
+  ]
+}

@@ -1,0 +1,589 @@
+{
+  "Name": "Relay Tower",
+  "Description": "Facilitates global energy management. Can use System Recharge.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Processors at the Processing Core",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Gen",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 600,
+  "LifeMax": 600,
+  "LifeArmorName": "Mechanical Structure Armor",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.5,
+  "SeparationRadius": 0.5,
+  "MinimapRadius": 1.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "PreventDefeat",
+    "PenaltyRevealed",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "RelayTower",
+  "HotkeyAlias": "RelayTower",
+  "SelectAlias": "RelayTower",
+  "SubgroupAlias": "RelayTower",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "RelayTower",
+  "AIEvaluateAlias": "RelayTower",
+  "ReviveType": "RelayTower",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "RelayTower/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "RelayTower/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Burrow",
+    "Structure",
+    "RoachBurrow",
+    "Small"
+  ],
+  "Attributes": [
+    "Mechanical",
+    "Armored",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "ScoreResult": "BuildOrder",
+  "GlossaryAlias": "",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Sight": 9,
+  "AttackTargetPriority": 11,
+  "GlossaryCategory": "",
+  "HotkeyCategory": "Unit/Category/GenetronUnits",
+  "ScoreMakeCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "ScoreKillCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "id": "RelayTower",
+  "Facing": 45,
+  "FogVisibility": "Snapshot",
+  "CostCategory": "Technology",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/RelayTowerLongRangeTransfer",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Genetron,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "RelayTowerLongRangeTransfer",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "-;Self,Ally,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "AutoCast": 1,
+            "AutoCastOn": 1
+          },
+          "Effect": [
+            "RelayTowerLongRangeTransfer"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "RelayTowerLongRangeTransfer",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "RelayTowerLongRangeTransfer",
+              "Requirements": "NotUnderConstruction"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Vital": {
+                "Energy": 25
+              },
+              "Cooldown": {
+                "TimeUse": 1
+              }
+            }
+          ],
+          "TargetFilters": [
+            "Structure;Ally,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden"
+          ],
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "AutoCastRange": 500,
+          "AutoCastValidatorArray": [
+            "CasterEnergyGE125",
+            "TargetEnergyLT100"
+          ],
+          "id": "RelayTowerLongRangeTransfer"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 25,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "RelayTowerLongRangeTransfer,Execute",
+        "id": "RelayTowerLongRangeTransfer",
+        "Icon": "btn-progression-stetmann-02-energyconfiguration",
+        "Tooltip": "Moves energy from the caster to the target.",
+        "Name": "Long Range Transfer",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/CoreSystemRecharge",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Genetron,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "CoreSystemRecharge",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Visible;Neutral,Enemy,Missile,Stasis,Dead,Invulnerable",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "AutoCast": 1,
+            "AutoCastOn": 1,
+            "ReExecutable": 1,
+            "Smart": 1
+          },
+          "Effect": [
+            "SystemRechargeCoreCH"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "SystemRechargeCoreCH",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 0,
+            "Prep": 0,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "CoreSystemRecharge"
+            }
+          },
+          "FollowRange": 5,
+          "Alignment": "Positive",
+          "TargetFilters": [
+            "CanHaveEnergy;Self,Ally,Neutral,Enemy,Missile,Stasis,Dead,Hidden"
+          ],
+          "Range": [
+            8
+          ],
+          "Arc": 360,
+          "SmartValidatorArray": [
+            "healSmartTargetFilters",
+            "NotWarpingIn"
+          ],
+          "AutoCastRange": 8,
+          "AutoCastValidatorArray": [
+            "healCasterMinEnergy",
+            "NotWarpingIn",
+            "IsNotProcessingCore",
+            "IsNotRelayTower",
+            "CasterEnergyGTE5"
+          ],
+          "TargetSorts": {
+            "SortArray": [
+              "TSAlliancePassive",
+              "TSEnergyFraction",
+              "TSDistance"
+            ],
+            "RequestCount": 1
+          },
+          "id": "CoreSystemRecharge"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "CoreSystemRecharge,Execute",
+        "id": "CoreSystemRecharge",
+        "Icon": "btn-upgrade-terran-nova-snipeenergyrefund",
+        "Tooltip": "Transfers energy directly to the target unit.",
+        "Name": "System Recharge",
+        "Hotkey": "C"
+      }
+    ]
+  },
+  "Footprint": "Footprint2x2Contour",
+  "PlacementFootprint": "Footprint2x2",
+  "EnergyMax": 300,
+  "CostResource": {
+    "Minerals": 100,
+    "Vespene": 50
+  },
+  "TechTreeUnlockedUnitArray": [
+    "Processor"
+  ],
+  "GlossaryPriority": 23,
+  "Icon": "btn-building-genetron-relaytower",
+  "LifeArmorIcon": "btn-upgrade-genetron-mechstructurearmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "LockdownMode",
+      "Icon": "btn-ability-genetron-structurelockdownmode",
+      "Tooltip": "Under lockdown due to severe damage. Takes reduced damage, and cannot fully function. Must be repaired in order to resume a regular state.",
+      "Name": "Lockdown Mode"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "RelayTowerLongRangeTransfer",
+      "Name": "Relay Tower - Long Range Transfer"
+    },
+    {
+      "id": "CoreSystemRecharge",
+      "Name": "System Recharge"
+    }
+  ],
+  "$Upgrades": [
+    "IsRelayTower",
+    "RelayTower",
+    "IsNotRelayTower",
+    "CountUnitRelayTowerCompleteOnly",
+    "ACRBuild",
+    "CountUnitRelayTowerCompleteOnlyTechTreeCheat",
+    "RelayTower"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "ACR"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "RelayTowerLongRangeTransfer,Execute",
+      "id": "RelayTowerLongRangeTransfer",
+      "Icon": "btn-progression-stetmann-02-energyconfiguration",
+      "Tooltip": "Moves energy from the caster to the target.",
+      "Name": "Long Range Transfer"
+    },
+    {
+      "AbilCmd": "CoreSystemRecharge,Execute",
+      "id": "CoreSystemRecharge",
+      "Icon": "btn-upgrade-terran-nova-snipeenergyrefund",
+      "Tooltip": "Transfers energy directly to the target unit.",
+      "Name": "System Recharge"
+    }
+  ]
+}

@@ -1,0 +1,961 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Chariot of Hesperus",
+    "zhCN": "赫斯珀洛斯战车"
+  },
+  "Description": {
+    "enUS": "A fast Umoyan chariot that can cause area damage to all enemy units in a straight line. Transforms into a solid combat unit. <br/><br/><span style=\"color: #ffff8a\">Can target the ground. </span>",
+    "zhCN": "快速的尤摩扬战车，可对一条直线上的所有敌方单位造成范围伤害。可变形为坚固的战斗单位。<br/><br/><span style=\"color: #ffff8a\">可以对地。</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 150,
+  "LifeMax": 150,
+  "LifeArmorName": {
+    "enUS": "Umoyan Chariot Armor",
+    "zhCN": "尤摩扬战车护甲"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 1499.9414,
+  "TurningRate": 720,
+  "Radius": 0.625,
+  "SeparationRadius": 0.75,
+  "MinimapRadius": 0.625,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "AISplash",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "HellionU",
+  "HotkeyAlias": "HellionU",
+  "SelectAlias": "HellionU",
+  "SubgroupAlias": "HellionU",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "HellionU",
+  "AIEvaluateAlias": "HellionU",
+  "ReviveType": "HellionU",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "HellionU/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "HellionU/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Mechanical"
+  ],
+  "LifeArmor": 2,
+  "Speed": 4.25,
+  "Acceleration": 1000,
+  "LateralAcceleration": 46,
+  "Sight": 10,
+  "Food": -2,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 125
+  },
+  "RepairTime": 30,
+  "AttackTargetPriority": 20,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 30,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "MorphToHellionTankU"
+  ],
+  "BehaviorArray": [
+    "HellionBhv"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "InfernalFlameThrowerU",
+      "Turret": "Hellion"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Delay": 0.33,
+                "Duration": 2.67
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 3
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 0.33,
+                "Duration": 2.67
+              }
+            }
+          },
+          "Unit": "HellionTankU",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "HellionTankU",
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "MorphToHellionTankU,Execute",
+        "id": "MorphToHellionTankU",
+        "Icon": "btn-unit-collection-hellbat-umojan",
+        "Name": {
+          "enUS": "Warframe Mode",
+          "zhCN": "战甲模式"
+        },
+        "Tooltip": {
+          "enUS": "Close combat unit, causing damage to a small cone-shaped area in front. Can transform into a fast reconnaissance unit. <br/><br/><span style=\"color: #ffff8a\">Can target the ground. </span>",
+          "zhCN": "近距离战斗单位，对前方小范围锥形区域造成伤害。可变形为快速侦察单位。<br/><br/><span style=\"color: #ffff8a\">可以对地。</span>"
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Delay": 0.33,
+                "Duration": 2.67
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 3
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 0.33,
+                "Duration": 2.67
+              }
+            }
+          },
+          "Unit": "HellionU",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "HellionU",
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "MorphToHellionU,Execute",
+        "id": "MorphToHellionU",
+        "Icon": "btn-unit-terran-hellion-umojan",
+        "Name": {
+          "enUS": "Tank Mode",
+          "zhCN": "战车模式"
+        },
+        "Tooltip": {
+          "enUS": "A fast scout that deals fire damage to all enemy units in a line. Can transform into a close combat unit. <br/><br/><span style=\"color: #ffff8a\">Can target the ground. </span>",
+          "zhCN": "快速的侦察者，可对一条直线上的所有敌方单位造成火焰伤害。可变形为近距离战斗单位。<br/><br/><span style=\"color: #ffff8a\">可以对地。</span>"
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "HellionMoAtk",
+        "Icon": "btn-ability-protoss-targetlock",
+        "Name": {
+          "enUS": "Smart Lock",
+          "zhCN": "智能锁定"
+        },
+        "Tooltip": {
+          "enUS": "Enables <span style=\"color: #ffff8a\">Hesperus Chariot</span> to attack while moving.",
+          "zhCN": "使<span style=\"color: #ffff8a\">赫斯珀洛斯战车</span>能够在移动中攻击。"
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "HellionArmor",
+        "Icon": "btn-ability-hornerhan-mechbioarmorupgrades-b",
+        "Name": {
+          "enUS": "Additional Armor",
+          "zhCN": "附加装甲"
+        },
+        "Tooltip": {
+          "enUS": "Increases the health armor of <span style=\"color: #ffff8a\">Hesperus Chariot</span> by <span style=\"color: #ffff8a\">2</span> points.",
+          "zhCN": "使<span style=\"color: #ffff8a\">赫斯珀洛斯战车</span>的生命护甲提高<span style=\"color: #ffff8a\">2</span>点。"
+        }
+      }
+    ]
+  },
+  "InnerRadius": 0.5,
+  "CargoSize": 2,
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 12,
+  "TacticalAIThink": "AIThinkHellion",
+  "TechAliasArray": [
+    "Alias_Hellion",
+    "Alias_Hellion"
+  ],
+  "GlossaryCategory": "Unit/Category/TerranUnits",
+  "GlossaryPriority": 80,
+  "GlossaryStrongArray": [
+    "Zergling",
+    "Zealot"
+  ],
+  "GlossaryWeakArray": [
+    "Marauder",
+    "Roach",
+    "Stalker"
+  ],
+  "HotkeyCategory": "Unit/Category/TerranUnits",
+  "id": "HellionU",
+  "Icon": "btn-unit-terran-hellion-umojan",
+  "LifeArmorIcon": "btn-upgrade-terran-vehicleplatinglevel3",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "Turret": "Hellion",
+      "EditorCategories": "Race:Terran",
+      "Options": {
+        "OnlyFireWhileInAttackOrder": 0,
+        "OnlyFireAtAttackOrderTarget": 0,
+        "LinkedCooldown": 0
+      },
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel3",
+      "TargetFilters": "Ground",
+      "Marker": {
+        "MatchFlags": {
+          "Id": 1
+        }
+      },
+      "Period": 2,
+      "DamagePoint": 0.25,
+      "Backswing": 0.75,
+      "Effect": "InfernalFlameThrowerCPU",
+      "LegacyOptions": {
+        "LockTurretWhileFiring": 1
+      },
+      "AllowedMovement": "Moving",
+      "id": "InfernalFlameThrowerU",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Darkfire Thrower",
+        "zhCN": "冥焰喷射器"
+      },
+      "Amount": 14,
+      "AttributeBonus": {
+        "Light": 12
+      },
+      "Kind": "Ranged",
+      "Range": 5
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "HellionBhv",
+      "Icon": "btn-unit-collection-hellion-umojan",
+      "Name": {
+        "enUS": "Evil behavior",
+        "zhCN": "恶火行为"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "MorphToHellionTankU",
+      "Name": {
+        "enUS": "Shapeshift into Evilbat",
+        "zhCN": "变形为恶蝠"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "FactoryTrainU",
+    "HellionU",
+    "MorphToHellionU",
+    "HellionMorphModelU",
+    "HellionTankMorphModelU",
+    "HellionU"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [
+    "HellionTankU"
+  ],
+  "$Producers": [
+    "FactoryU"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "MorphToHellionTankU,Execute",
+      "id": "MorphToHellionTankU",
+      "Icon": "btn-unit-collection-hellbat-umojan",
+      "Name": {
+        "enUS": "Warframe Mode",
+        "zhCN": "战甲模式"
+      },
+      "Tooltip": {
+        "enUS": "Close combat unit, causing damage to a small cone-shaped area in front. Can transform into a fast reconnaissance unit. <br/><br/><span style=\"color: #ffff8a\">Can target the ground. </span>",
+        "zhCN": "近距离战斗单位，对前方小范围锥形区域造成伤害。可变形为快速侦察单位。<br/><br/><span style=\"color: #ffff8a\">可以对地。</span>"
+      }
+    },
+    {
+      "AbilCmd": "MorphToHellionU,Execute",
+      "id": "MorphToHellionU",
+      "Icon": "btn-unit-terran-hellion-umojan",
+      "Name": {
+        "enUS": "Tank Mode",
+        "zhCN": "战车模式"
+      },
+      "Tooltip": {
+        "enUS": "A fast scout that deals fire damage to all enemy units in a line. Can transform into a close combat unit. <br/><br/><span style=\"color: #ffff8a\">Can target the ground. </span>",
+        "zhCN": "快速的侦察者，可对一条直线上的所有敌方单位造成火焰伤害。可变形为近距离战斗单位。<br/><br/><span style=\"color: #ffff8a\">可以对地。</span>"
+      }
+    }
+  ]
+}

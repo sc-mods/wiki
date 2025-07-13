@@ -1,0 +1,452 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Imperial Radar"
+  },
+  "Description": {
+    "enUS": "Radar can effectively detect enemy threats over a wide range and can also display invisible enemies."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Empire",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1500,
+  "LifeMax": 1500,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.75,
+  "SeparationRadius": 0.75,
+  "MinimapRadius": 0.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:RA2",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "PreventDefeat",
+    "PenaltyRevealed",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "Radar_Model",
+  "HotkeyAlias": "Radar_Model",
+  "SelectAlias": "Radar_Model",
+  "SubgroupAlias": "Radar_Model",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "Radar_Model",
+  "AIEvaluateAlias": "Radar_Model",
+  "ReviveType": "Radar_Model",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "EmpireRadar/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "EmpireRadar/Revive",
+        "Location": "Unit"
+      }
+    },
+    {
+      "Charge": {
+        "Link": "Radar_Model/Revive"
+      },
+      "Cooldown": {
+        "Link": "Radar_Model/Revive"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "ScoreResult": "BuildOrder",
+  "GlossaryAlias": "EmpireRadar",
+  "Sight": 24,
+  "AttackTargetPriority": 10,
+  "ScoreMakeCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "ScoreKillCostFactor": {
+    "Minerals": 1.25,
+    "Vespene": 1.25
+  },
+  "Facing": 315,
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "CostCategory": "Technology",
+  "AbilArray": [
+    "BuildInProgress",
+    "que5PassiveCancelToSelection",
+    "ScannerSweep"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5PassiveCancelToSelection",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5PassiveCancelToSelection",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1,
+            "Passive": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel",
+              "Flags": {
+                "ToSelection": 1
+              }
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "AbilSetId": "QueueCancelToSelection",
+          "QueueSize": 5,
+          "id": "que5PassiveCancelToSelection"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": "-"
+      }
+    ]
+  },
+  "Footprint": "Footprint2x2",
+  "PlacementFootprint": "Footprint2x2",
+  "SubgroupPriority": 3,
+  "id": "EmpireRadar",
+  "GlossaryCategory": "Unit/Category/EmpireUnits",
+  "HotkeyCategory": "Unit/Category/EmpireUnits",
+  "LifeRegenRate": 5,
+  "CostResource": {
+    "Minerals": 1000
+  },
+  "RepairTime": 25,
+  "KillXP": 10,
+  "BehaviorArray": [
+    "SensorTowerRadar",
+    "UnderConstruction",
+    "Detector8",
+    "Detector12"
+  ],
+  "GlossaryPriority": 314,
+  "Icon": "imperial-radar-icon",
+  "LifeArmorIcon": "btn-upgrade-terran-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "SensorTowerRadar",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Radar",
+        "ruRU": "Radar"
+      },
+      "Tooltip": {
+        "enUS": "This structure is able to expose enemy movements within its search radius. Does not reveal the area.",
+        "ruRU": "This structure is able to expose enemy movements within its search radius. Does not reveal the area."
+      }
+    },
+    {
+      "id": "UnderConstruction",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Under Construction",
+        "ruRU": "Under Construction"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Detector12",
+      "Icon": "btn-status-detector",
+      "Name": {
+        "enUS": "Detector",
+        "ruRU": "Детектор "
+      },
+      "Tooltip": {
+        "enUS": "This unit can detect cloaked or burrowed units within its sight range.",
+        "ruRU": "Эта боевая единица может обнаруживать замаскированные или закопанные войска в поле обзора."
+      }
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "-"
+    },
+    {
+      "id": "que5PassiveCancelToSelection",
+      "Name": {
+        "ruRU": "Queue (5) Passive (Cancel to Selection)"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "RAunpackGigaFortress",
+    "EmpireRadar_Actor"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Прервать постройку "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": "-"
+    }
+  ]
+}

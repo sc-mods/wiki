@@ -1,0 +1,923 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Barracks"
+  },
+  "Description": {
+    "enUS": "The Barracks is a self-contained recruitment and training centre. GDI infantry divisions can be outfitted for combat quickly and efficiently here"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "GDI",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1000,
+  "LifeMax": 1000,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.75,
+  "SeparationRadius": 1.75,
+  "MinimapRadius": 1.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:CNC",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "PreventDefeat",
+    "PenaltyRevealed",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "GDIBarracks",
+  "HotkeyAlias": "GDIBarracks",
+  "SelectAlias": "GDIBarracks",
+  "SubgroupAlias": "GDIBarracks",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "Barracks",
+  "AIEvaluateAlias": "GDIBarracks",
+  "ReviveType": "GDIBarracks",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "GDIBarracks/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "GDIBarracks/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "ScoreResult": "BuildOrder",
+  "GlossaryAlias": "GDIBarracks",
+  "Sight": 9,
+  "AttackTargetPriority": 11,
+  "ScoreMakeCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "ScoreKillCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "Facing": 315,
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "CostCategory": "Technology",
+  "AbilArray": [
+    "BuildInProgress",
+    "que5PassiveCancelToSelection",
+    "GDIBarracksTrain",
+    "Rally"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5PassiveCancelToSelection",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5PassiveCancelToSelection",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1,
+            "Passive": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel",
+              "Flags": {
+                "ToSelection": 1
+              }
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "AbilSetId": "QueueCancelToSelection",
+          "QueueSize": 5,
+          "id": "que5PassiveCancelToSelection"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDIRifleman"
+          },
+          "Unit": [
+            "GDIRifleman",
+            "GDIRifleman",
+            "GDIRifleman",
+            "GDIRifleman"
+          ],
+          "Time": 30
+        },
+        "Unit": [
+          "GDIRifleman",
+          "GDIRifleman",
+          "GDIRifleman",
+          "GDIRifleman"
+        ],
+        "Time": 30,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -0.5
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBarracksTrain,Train1",
+        "id": "GDIRifleman",
+        "Icon": "gdirifleman",
+        "Name": {
+          "enUS": "Rifleman"
+        },
+        "Tooltip": {
+          "enUS": "Rifleman Squads are the basic GDI infantry unit. They are effective against other infantry, and perform reasonably in scouting and anti-scouting"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDIMissileTrooper"
+          },
+          "Unit": [
+            "GDIMissileTrooper",
+            "GDIMissileTrooper"
+          ],
+          "Time": 30
+        },
+        "Unit": [
+          "GDIMissileTrooper",
+          "GDIMissileTrooper"
+        ],
+        "Time": 30,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 1
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBarracksTrain,Train2",
+        "id": "GDIMissileTrooper",
+        "Icon": "gdimissiletrooper",
+        "Name": {
+          "enUS": "Misssile Trooper"
+        },
+        "Tooltip": {
+          "enUS": "Missile Squads, the natural complement to Riflemen, provide essential support fire. Their heavy anti-armour/anti-air weapons make them slower than Riflemen."
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDICombatEngineer",
+            "Requirements": "TrainGDICombatEngineer"
+          },
+          "Unit": [
+            "GDICombatEngineer"
+          ],
+          "Time": 30
+        },
+        "Unit": [
+          "GDICombatEngineer"
+        ],
+        "Time": 30,
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBarracksTrain,Train3",
+        "id": "GDICombatEngineer",
+        "Icon": "gdicombatengineer",
+        "Name": {
+          "enUS": "Combat Engineer"
+        },
+        "Tooltip": {
+          "enUS": "With a trusty sidearm, the Combat Engineer is very useful when it comes to taking down enemy Engineers. Combat Engineers are the only units able to capture enemy structures, and now they can take over downed large mechs including the Juggernaut, the Avatar, the Annihilator Tripod, and their variations"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDIGrenadier",
+            "Requirements": "TrainGDIGrenadier"
+          },
+          "Unit": [
+            "GDIGrenadier",
+            "GDIGrenadier"
+          ],
+          "Time": 35
+        },
+        "Unit": [
+          "GDIGrenadier",
+          "GDIGrenadier"
+        ],
+        "Time": 35,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 1
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBarracksTrain,Train4",
+        "id": "GDIGrenadier",
+        "Icon": "gdigrenadier",
+        "Name": {
+          "enUS": "Grenadier"
+        },
+        "Tooltip": {
+          "enUS": "Grenadier Squads serve as GDI’s close assault infantry"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDISniper",
+            "Requirements": "TrainGDISniper"
+          },
+          "Unit": [
+            "GDISniper",
+            "GDISniper"
+          ],
+          "Time": 40
+        },
+        "Unit": [
+          "GDISniper",
+          "GDISniper"
+        ],
+        "Time": 40,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 1
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBarracksTrain,Train5",
+        "id": "GDISniper",
+        "Icon": "gdisniper",
+        "Name": {
+          "enUS": "Sniper"
+        },
+        "Tooltip": {
+          "enUS": "Sniper Teams can kill most infantry from long range with a single well-placed shot. They are stealthed, but can also detect other stealthed units. They are also able to spot targets for Juggernauts to fire from very long range"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDIZoneTrooper",
+            "Requirements": "TrainGDIZoneTrooper"
+          },
+          "Unit": [
+            "GDIZoneTrooper",
+            "GDIZoneTrooper"
+          ],
+          "Time": 45
+        },
+        "Unit": [
+          "GDIZoneTrooper",
+          "GDIZoneTrooper"
+        ],
+        "Time": 45,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 2
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBarracksTrain,Train6",
+        "id": "GDIZoneTrooper",
+        "Icon": "gdizonetrooper",
+        "Name": {
+          "enUS": "Zone Trooper"
+        },
+        "Tooltip": {
+          "enUS": "Capable of surviving in otherwise uninhabitable environments, Zone Troopers are highly mobile, well-protected and trained to destroy enemy vehicles and structures with their heavy duty railguns. They are immune to the effects of Tiberium"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDIZoneRaider",
+            "Requirements": "TrainGDIZoneRaider"
+          },
+          "Unit": [
+            "GDIZoneRaider",
+            "GDIZoneRaider"
+          ],
+          "Time": 45
+        },
+        "Unit": [
+          "GDIZoneRaider",
+          "GDIZoneRaider"
+        ],
+        "Time": 45,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 2
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBarracksTrain,Train7",
+        "id": "GDIZoneRaider",
+        "Icon": "gdizoneraider",
+        "Name": {
+          "enUS": "Zone Raider"
+        },
+        "Tooltip": {
+          "enUS": "Zone Raiders fire area-of-effect sonic shells and shoulder-mounted anti-air rockets, and come equipped with all the benefits of Red Zone armour"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDICommando",
+            "State": "Restricted",
+            "Requirements": "TrainGDICommando"
+          },
+          "Unit": [
+            "GDICommando"
+          ],
+          "Time": 60
+        },
+        "Unit": [
+          "GDICommando"
+        ],
+        "Time": 60,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBarracksTrain,Train8",
+        "id": "GDICommando",
+        "Icon": "gdicommando",
+        "Name": {
+          "enUS": "Commando"
+        },
+        "Tooltip": {
+          "enUS": "Thanks to their burst-firing prototype rail carbines, Commandos are unmatched when fighting enemy infantry. Their explosives can demolish structures and even large walkers like the Nod Avatar"
+        }
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rally,Rally1",
+        "id": "Rally",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Name": "-",
+        "Tooltip": "-"
+      }
+    ]
+  },
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "SubgroupPriority": 3,
+  "id": "GDIBarracks",
+  "GlossaryCategory": "Unit/Category/GDIUnits",
+  "HotkeyCategory": "Unit/Category/GDIUnits",
+  "CostResource": {
+    "Minerals": 150
+  },
+  "RepairTime": 65,
+  "BehaviorArray": [
+    "Deployable",
+    "CNCTabInfantry"
+  ],
+  "ScoreMake": 150,
+  "ScoreKill": 150,
+  "TechAliasArray": [
+    "Alias_Barracks"
+  ],
+  "GlossaryPriority": 252,
+  "TechTreeProducedUnitArray": [
+    "GDIRifleman",
+    "GDIMissileTrooper",
+    "GDICombatEngineer",
+    "GDIGrenadier",
+    "GDISniper",
+    "GDIZoneTrooper",
+    "GDIZoneRaider",
+    "GDICommando"
+  ],
+  "Icon": "gdibarracks",
+  "LifeArmorIcon": "fxnod_enhancedshieldsupgrade",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "Deployable",
+      "Icon": "btn-building-protoss-pylon",
+      "Name": {
+        "enUS": "Deploying"
+      },
+      "Tooltip": {
+        "enUS": "This unit is being materialized"
+      }
+    },
+    {
+      "id": "CNCTabInfantry",
+      "Icon": "btn-missing-kaeo",
+      "Name": "-",
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "-"
+    },
+    {
+      "id": "que5PassiveCancelToSelection",
+      "Name": {
+        "ruRU": "Queue (5) Passive (Cancel to Selection)"
+      }
+    },
+    {
+      "id": "GDIBarracksTrain",
+      "Name": {
+        "enUS": "GDIBarracksTraining"
+      }
+    },
+    {
+      "id": "Rally",
+      "Name": "-"
+    }
+  ],
+  "$Upgrades": [
+    "GDIBuild",
+    "GDIBarracks",
+    "GDIBarracks",
+    "IsGDIBarracks",
+    "UC_GDIBarracks"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "GDIRifleman",
+    "GDIMissileTrooper",
+    "GDICombatEngineer",
+    "GDIGrenadier",
+    "GDISniper",
+    "GDIZoneTrooper",
+    "GDIZoneRaider",
+    "GDICommando"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "GDIConstructionYard",
+    "GDICrane"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Прервать постройку "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "GDIBarracksTrain,Train1",
+      "id": "GDIRifleman",
+      "Icon": "gdirifleman",
+      "Name": {
+        "enUS": "Rifleman"
+      },
+      "Tooltip": {
+        "enUS": "Rifleman Squads are the basic GDI infantry unit. They are effective against other infantry, and perform reasonably in scouting and anti-scouting"
+      }
+    },
+    {
+      "AbilCmd": "GDIBarracksTrain,Train2",
+      "id": "GDIMissileTrooper",
+      "Icon": "gdimissiletrooper",
+      "Name": {
+        "enUS": "Misssile Trooper"
+      },
+      "Tooltip": {
+        "enUS": "Missile Squads, the natural complement to Riflemen, provide essential support fire. Their heavy anti-armour/anti-air weapons make them slower than Riflemen."
+      }
+    },
+    {
+      "AbilCmd": "GDIBarracksTrain,Train3",
+      "id": "GDICombatEngineer",
+      "Icon": "gdicombatengineer",
+      "Name": {
+        "enUS": "Combat Engineer"
+      },
+      "Tooltip": {
+        "enUS": "With a trusty sidearm, the Combat Engineer is very useful when it comes to taking down enemy Engineers. Combat Engineers are the only units able to capture enemy structures, and now they can take over downed large mechs including the Juggernaut, the Avatar, the Annihilator Tripod, and their variations"
+      }
+    },
+    {
+      "AbilCmd": "GDIBarracksTrain,Train4",
+      "id": "GDIGrenadier",
+      "Icon": "gdigrenadier",
+      "Name": {
+        "enUS": "Grenadier"
+      },
+      "Tooltip": {
+        "enUS": "Grenadier Squads serve as GDI’s close assault infantry"
+      }
+    },
+    {
+      "AbilCmd": "GDIBarracksTrain,Train5",
+      "id": "GDISniper",
+      "Icon": "gdisniper",
+      "Name": {
+        "enUS": "Sniper"
+      },
+      "Tooltip": {
+        "enUS": "Sniper Teams can kill most infantry from long range with a single well-placed shot. They are stealthed, but can also detect other stealthed units. They are also able to spot targets for Juggernauts to fire from very long range"
+      }
+    },
+    {
+      "AbilCmd": "GDIBarracksTrain,Train6",
+      "id": "GDIZoneTrooper",
+      "Icon": "gdizonetrooper",
+      "Name": {
+        "enUS": "Zone Trooper"
+      },
+      "Tooltip": {
+        "enUS": "Capable of surviving in otherwise uninhabitable environments, Zone Troopers are highly mobile, well-protected and trained to destroy enemy vehicles and structures with their heavy duty railguns. They are immune to the effects of Tiberium"
+      }
+    },
+    {
+      "AbilCmd": "GDIBarracksTrain,Train7",
+      "id": "GDIZoneRaider",
+      "Icon": "gdizoneraider",
+      "Name": {
+        "enUS": "Zone Raider"
+      },
+      "Tooltip": {
+        "enUS": "Zone Raiders fire area-of-effect sonic shells and shoulder-mounted anti-air rockets, and come equipped with all the benefits of Red Zone armour"
+      }
+    },
+    {
+      "AbilCmd": "GDIBarracksTrain,Train8",
+      "id": "GDICommando",
+      "Icon": "gdicommando",
+      "Name": {
+        "enUS": "Commando"
+      },
+      "Tooltip": {
+        "enUS": "Thanks to their burst-firing prototype rail carbines, Commandos are unmatched when fighting enemy infantry. Their explosives can demolish structures and even large walkers like the Nod Avatar"
+      }
+    },
+    {
+      "AbilCmd": "Rally,Rally1",
+      "id": "Rally",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Name": "-",
+      "Tooltip": "-"
+    }
+  ]
+}

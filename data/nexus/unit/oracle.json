@@ -1,0 +1,2258 @@
+{
+  "Name": "Oracle",
+  "Description": "Flying Caster. Can use Stasis Ward.**Can attack ground units**<br/><span style=\"color: #FFE303\">Detector</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Prot",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 100,
+  "LifeMax": 100,
+  "LifeArmorName": "Protoss Plating",
+  "Mover": "Fly",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.75,
+  "SeparationRadius": 0.75,
+  "MinimapRadius": 1,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 0.3,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "AlwaysThreatens",
+    "AIHighPrioTarget",
+    "AICaster",
+    "AISupport",
+    "AIFleeDamageDisabled",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "Oracle",
+  "HotkeyAlias": "Oracle",
+  "SelectAlias": "Oracle",
+  "SubgroupAlias": "Oracle",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "Oracle",
+  "AIEvaluateAlias": "Oracle",
+  "ReviveType": "Oracle",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "Oracle/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "Oracle/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Air"
+  ],
+  "Collide": [
+    "Flying"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Psionic"
+  ],
+  "EnergyStart": 50,
+  "EnergyMax": 200,
+  "EnergyRegenRate": 0.5625,
+  "ShieldsStart": 60,
+  "ShieldsMax": 60,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": "Protoss Plasma Shields",
+  "Speed": 4,
+  "Acceleration": 3,
+  "Sight": 10,
+  "Height": 3.75,
+  "VisionHeight": 4,
+  "Food": -3,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 100,
+    "Vespene": 75
+  },
+  "RepairTime": 18.75,
+  "AttackTargetPriority": 20,
+  "TacticalAIThink": "AIThinkOracle",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/VoidSiphon",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "VoidSiphon",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Self,Visible;Ally,Neutral,Enemy",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "AllowMovement": 1,
+            "NoDeceleration": 1,
+            "AutoCast": 1,
+            "AutoCastOn": 1
+          },
+          "Effect": [
+            "OracleVoidSiphonPersistentSet"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "VoidSiphon",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "VoidSiphon",
+              "State": "Restricted"
+            }
+          },
+          "FollowRange": 5,
+          "Alignment": "Negative",
+          "Cost": [
+            {
+              "Vital": {
+                "Energy": 0
+              },
+              "Charge": {
+                "Link": "Abil/ViperConsumeStructure"
+              },
+              "Cooldown": {
+                "Link": "Abil/ViperConsumeStructure",
+                "Location": "Unit",
+                "TimeUse": 1
+              }
+            }
+          ],
+          "TargetFilters": [
+            "Self,Structure;Ally,Neutral,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden,Invulnerable"
+          ],
+          "Range": [
+            7
+          ],
+          "id": "VoidSiphon",
+          "Arc": 360,
+          "AutoCastRange": 1
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "VoidSiphon,Execute",
+        "id": "VoidSiphon",
+        "Icon": "btn-ability-protoss-prismaticbeam-color",
+        "Tooltip": "Siphons minerals from an enemy structure, dealing <b>0</b> damage and generating <b>3</b> minerals every second.",
+        "Name": "Void Siphon",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/OracleRevelation",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "OracleRevelation",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "AllowMovement": 1
+          },
+          "Effect": [
+            "OracleRevelationSearch"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "OracleRevelation",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "OracleRevelation"
+            }
+          },
+          "FollowRange": 5,
+          "Range": [
+            12
+          ],
+          "CastOutroTime": [
+            0.5
+          ],
+          "CursorEffect": [
+            "OracleRevelationSearch"
+          ],
+          "Cost": [
+            {
+              "Vital": {
+                "Energy": 25
+              },
+              "Cooldown": {
+                "TimeUse": 14
+              }
+            }
+          ],
+          "id": "OracleRevelation"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 25,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "OracleRevelation,Execute",
+        "id": "OracleRevelation",
+        "Icon": "btn-ability-protoss-preordain",
+        "Tooltip": "Causes enemy units and structures within the target area to grant vision for <b>28</b> seconds. Reveals cloaked or burrowed units and structures.",
+        "Name": "Revelation",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "OracleAttack",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,AcquireMove",
+        "id": "AcquireMove",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Scan-moving units will not engage enemies.",
+        "Name": "Scan Move",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1
+            },
+            "DefaultButtonFace": "OracleBuildStasisTrap"
+          },
+          "Vital": {
+            "Energy": 50
+          },
+          "Unit": "OracleStasisTrap",
+          "Time": 5
+        },
+        "Unit": "OracleStasisTrap",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 50,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "OracleStasisTrapBuild,Build1",
+        "id": "OracleBuildStasisTrap",
+        "Icon": "btn-ability-protoss-oracle-stasisward",
+        "Tooltip": "Places a cloaked Stasis Ward at the target location. Once activated by an enemy ground unit, the ward traps nearby enemies in stasis for <b>15</b> seconds. Trapped units cannot be attacked or affected by abilities.",
+        "Name": "Stasis Ward",
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/OracleWeapon",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "OracleWeapon",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "OracleWeaponOn"
+            },
+            "Off": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "OracleWeaponOff"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 4
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "OracleWeapon"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "OracleWeapon"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "OracleWeapon,On",
+        "id": "OracleWeaponOn",
+        "Icon": "btn-ability-protoss-oraclepulsarcannonon",
+        "Tooltip": "Charges the Oracle's Pulsar Beam and allows it to attack enemy ground units.<br/><br/><span style=\"color: #f078ff\">Drains <b>1.4</b> energy per second.</span>",
+        "Name": "Activate Pulsar Beam",
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/OracleWeapon",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "OracleWeapon",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "OracleWeaponOn"
+            },
+            "Off": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "OracleWeaponOff"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 4
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "OracleWeapon"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "OracleWeapon"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "OracleWeapon,Off",
+        "id": "OracleWeaponOff",
+        "Icon": "btn-ability-protoss-oraclepulsarcannonoff",
+        "Tooltip": "Deactivates the Oracle's Pulsar Beam and prevents it from attacking.",
+        "Name": "Deactivate Pulsar Beam",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/OracleStasisTrapBuild",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "OracleStasisTrapBuild",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Cancel"
+          },
+          "Alert": "BuildComplete",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 1,
+            "PeonMaintained": 1,
+            "RangeIncludesBuilding": 1,
+            "RequireFacing": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ShowInGlossary": 1
+                },
+                "DefaultButtonFace": "OracleBuildStasisTrap"
+              },
+              "Vital": {
+                "Energy": 50
+              },
+              "Unit": "OracleStasisTrap",
+              "Time": 5
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            }
+          },
+          "Range": [
+            5
+          ],
+          "EffectArray": {
+            "Start": "OracleStasisTrapBuildBeamOn",
+            "Finish": "OracleStasisTrapBuildBeamOff",
+            "Cancel": "OracleStasisTrapBuildBeamOff"
+          },
+          "id": "OracleStasisTrapBuild"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "OracleStasisTrapBuild,Halt",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/LightofAiur",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "LightofAiur",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "LightofAiur"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "LightofAiur",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "LightofAiur"
+            }
+          },
+          "Cost": [
+            {
+              "Vital": {
+                "Energy": 50
+              },
+              "Cooldown": {
+                "TimeUse": 60
+              }
+            },
+            {
+              "Vital": {
+                "Energy": 50
+              },
+              "Cooldown": {
+                "TimeUse": 60
+              }
+            }
+          ],
+          "id": "LightofAiur"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 50,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "LightofAiur,Execute",
+        "id": "LightofAiur",
+        "Icon": "btn-ability-protoss-envision",
+        "Tooltip": "Allows the Oracle to detect cloaked, burrowed, and hallucinated units for <b>60</b>.",
+        "Name": "Envision",
+        "Hotkey": "T"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "HaveOracleStasisWardUpgrade",
+        "Icon": "btn-ability-protoss-oracle-stasiscalibration",
+        "Tooltip": "Enemies affected by the Oracle's Stasis Ward can now be attacked.",
+        "Name": "Stasis Calibration"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "Passive",
+        "id": "PermanentlyCloakedOracle",
+        "Icon": "btn-upgrade-vorazun-oraclepermanentlycloaked",
+        "Tooltip": "The Oracle is permanently cloaked.",
+        "Name": "Permanently Cloaked"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/EnterWormhole",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Protoss",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "EnterWormhole",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "AllowMovement": 1
+          },
+          "Effect": [
+            "EnterWormholePersistent"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "EnterWormhole",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "EnterWormhole",
+              "State": "Restricted",
+              "Requirements": "HaveOracleWormhole"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Vital": {
+                "Energy": 25
+              }
+            }
+          ],
+          "TargetFilters": [
+            "-;Neutral,Structure,Heroic,Missile,Stasis,Invulnerable"
+          ],
+          "Range": [
+            11
+          ],
+          "id": "EnterWormhole"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 25,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "EnterWormhole,Execute",
+        "id": "EnterWormhole",
+        "Icon": "btn-upgrade-vorazun-enterwormhole",
+        "Tooltip": "Teleport enemy or ally targets near an existing Wormhole.",
+        "Name": "Enter Wormhole",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/PlaceWormhole",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "PlaceWormhole",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "AllowMovement": 1
+          },
+          "Effect": [
+            "PlaceWormholeInitialSet"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "PlaceWormhole",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "PlaceWormhole",
+              "State": "Restricted",
+              "Requirements": "HaveOracleWormhole"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Vital": {
+                "Energy": 50
+              },
+              "Charge": {
+                "Link": "Abil/EnterWormhole"
+              },
+              "Cooldown": {
+                "Link": "Abil/EnterWormhole",
+                "TimeUse": 5
+              }
+            }
+          ],
+          "Range": [
+            6
+          ],
+          "id": "PlaceWormhole"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 50,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "PlaceWormhole,Execute",
+        "id": "PlaceWormhole",
+        "Icon": "btn-upgrade-vorazun-placewormhole",
+        "Tooltip": "Create a wormhole and teleport units into it. Can exist only one wormhole at a time.",
+        "Name": "Place Wormhole",
+        "Hotkey": "E"
+      }
+    ]
+  },
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 117,
+  "GlossaryCategory": "Unit/Category/ProtossUnits",
+  "HotkeyCategory": "Unit/Category/ProtossStory",
+  "GlossaryPriority": 168,
+  "TauntDuration": {
+    "Dance": 5
+  },
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "GlossaryStrongArray": [
+    "SCV",
+    "Drone",
+    "Probe"
+  ],
+  "GlossaryWeakArray": [
+    "VikingFighter",
+    "Mutalisk",
+    "Phoenix"
+  ],
+  "TacticalAIChannel": "AIChannelOracle",
+  "id": "Oracle",
+  "Icon": "btn-unit-protoss-oracle",
+  "LifeArmorIcon": "btn-upgrade-protoss-airarmorlevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "id": "Oracle",
+      "Icon": "btn-ability-protoss-oraclepulsarcannonon",
+      "Name": "Pulsar Beam",
+      "Amount": 15,
+      "AttributeBonus": {
+        "Light": 7
+      },
+      "Kind": "Spell",
+      "TargetFilters": "Ground",
+      "Range": 4,
+      "Period": 0.86
+    },
+    {
+      "id": "OracleDisplayDummy",
+      "Icon": "btn-ability-protoss-oraclepulsarcannonon",
+      "Name": "Pulsar Beam",
+      "Amount": 15,
+      "AttributeBonus": {
+        "Light": 7
+      },
+      "Kind": "Spell",
+      "TargetFilters": "Ground",
+      "Range": 4,
+      "Period": 0.86
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "Detector11",
+      "Icon": "btn-status-detector",
+      "Tooltip": "This unit can detect cloaked or burrowed units within its sight range.",
+      "Name": "Detector"
+    },
+    {
+      "id": "CorsairPermanentCloak"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "OracleRevelation",
+      "Name": "Oracle Revelation"
+    },
+    {
+      "id": "Warpable",
+      "Name": "Warpable"
+    },
+    {
+      "id": "VoidSiphon",
+      "Name": "Void Siphon"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "OracleWeapon",
+      "Name": "Oracle Weapon"
+    },
+    {
+      "id": "OracleStasisTrapBuild",
+      "Name": "Build Stasis Ward"
+    },
+    {
+      "id": "LightofAiur",
+      "Name": "Envision"
+    },
+    {
+      "id": "EnterWormhole",
+      "Name": "Enter Wormhole"
+    },
+    {
+      "id": "PlaceWormhole",
+      "Name": "Place Wormhole"
+    }
+  ],
+  "$Upgrades": [
+    "HallucinationCreateOracle",
+    "Oracle",
+    "OracleWormhole",
+    "OracleStasisWardUpgrade",
+    "OracleEnergyUpgrade",
+    "StargateWarpTrain",
+    "StargateWarp",
+    "StargateTrain3",
+    "Oracle",
+    "NotOracle",
+    "ProtossAirArmorsLevel1",
+    "ProtossAirArmorsLevel2",
+    "ProtossAirArmorsLevel3",
+    "StargateSelendis",
+    "Oracle_Death",
+    "StargateTrain4",
+    "Stargate",
+    "ProtossShieldsLevel1",
+    "ProtossShieldsLevel2",
+    "ProtossShieldsLevel3",
+    "Stargate222",
+    "DarkProtoss",
+    "AlarakMothershipWarpTrain",
+    "StargateTrain",
+    "VoidRiftTrain",
+    "OracleNormalMode",
+    "SuperWarpGateTrainVoid",
+    "SOAShieldRegen",
+    "VoidOracleFutureSelf",
+    "Oracle2",
+    "IsOracle",
+    "AncientStargate",
+    "Stargate23",
+    "Stargate2",
+    "Stargate22",
+    "Stargate3",
+    "RestoreShields",
+    "SOAQuatro",
+    "SOAEnergy",
+    "HiddenProtossAirArmorsLevel1",
+    "HiddenProtossAirArmorsLevel2",
+    "HiddenProtossAirArmorsLevel3",
+    "MasteryArtanisShieldRegen",
+    "Oracle"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "OracleStasisTrap"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "Stargate",
+    "SuperWarpGate",
+    "StargateWarp",
+    "VoidRift",
+    "VoidRiftUnselectable",
+    "AncientStargate",
+    "Nexus3",
+    "Nexus32",
+    "Stargate2",
+    "AorinpassPlatformDeleted",
+    "GerardOlympus",
+    "TassadarStargate"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "VoidSiphon,Execute",
+      "id": "VoidSiphon",
+      "Icon": "btn-ability-protoss-prismaticbeam-color",
+      "Tooltip": "Siphons minerals from an enemy structure, dealing <b>0</b> damage and generating <b>3</b> minerals every second.",
+      "Name": "Void Siphon"
+    },
+    {
+      "AbilCmd": "OracleRevelation,Execute",
+      "id": "OracleRevelation",
+      "Icon": "btn-ability-protoss-preordain",
+      "Tooltip": "Causes enemy units and structures within the target area to grant vision for <b>28</b> seconds. Reveals cloaked or burrowed units and structures.",
+      "Name": "Revelation"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "OracleAttack",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "move,AcquireMove",
+      "id": "AcquireMove",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Scan-moving units will not engage enemies.",
+      "Name": "Scan Move"
+    },
+    {
+      "AbilCmd": "OracleStasisTrapBuild,Build1",
+      "id": "OracleBuildStasisTrap",
+      "Icon": "btn-ability-protoss-oracle-stasisward",
+      "Tooltip": "Places a cloaked Stasis Ward at the target location. Once activated by an enemy ground unit, the ward traps nearby enemies in stasis for <b>15</b> seconds. Trapped units cannot be attacked or affected by abilities.",
+      "Name": "Stasis Ward"
+    },
+    {
+      "AbilCmd": "OracleWeapon,On",
+      "id": "OracleWeaponOn",
+      "Icon": "btn-ability-protoss-oraclepulsarcannonon",
+      "Tooltip": "Charges the Oracle's Pulsar Beam and allows it to attack enemy ground units.<br/><br/><span style=\"color: #f078ff\">Drains <b>1.4</b> energy per second.</span>",
+      "Name": "Activate Pulsar Beam"
+    },
+    {
+      "AbilCmd": "OracleWeapon,Off",
+      "id": "OracleWeaponOff",
+      "Icon": "btn-ability-protoss-oraclepulsarcannonoff",
+      "Tooltip": "Deactivates the Oracle's Pulsar Beam and prevents it from attacking.",
+      "Name": "Deactivate Pulsar Beam"
+    },
+    {
+      "AbilCmd": "OracleStasisTrapBuild,Halt",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "LightofAiur,Execute",
+      "id": "LightofAiur",
+      "Icon": "btn-ability-protoss-envision",
+      "Tooltip": "Allows the Oracle to detect cloaked, burrowed, and hallucinated units for <b>60</b>.",
+      "Name": "Envision"
+    },
+    {
+      "AbilCmd": "EnterWormhole,Execute",
+      "id": "EnterWormhole",
+      "Icon": "btn-upgrade-vorazun-enterwormhole",
+      "Tooltip": "Teleport enemy or ally targets near an existing Wormhole.",
+      "Name": "Enter Wormhole"
+    },
+    {
+      "AbilCmd": "PlaceWormhole,Execute",
+      "id": "PlaceWormhole",
+      "Icon": "btn-upgrade-vorazun-placewormhole",
+      "Tooltip": "Create a wormhole and teleport units into it. Can exist only one wormhole at a time.",
+      "Name": "Place Wormhole"
+    }
+  ]
+}

@@ -1,0 +1,480 @@
+{
+  "Name": "Norns",
+  "Description": "Support mech. Can repair mechanical allies and be upgraded to build Energy Barricades, Sentry Guns.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 150,
+  "LifeMax": 150,
+  "LifeArmorName": "Umojan Vehicle Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 720,
+  "Radius": 0.75,
+  "SeparationRadius": 0.75,
+  "MinimapRadius": 0.75,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "AIThreatGround",
+    "AIThreatAir",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UmojanNorns",
+  "HotkeyAlias": "VikingFighter",
+  "SelectAlias": "UmojanNorns",
+  "SubgroupAlias": "UmojanNorns",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UmojanNorns",
+  "AIEvaluateAlias": "UmojanNorns",
+  "ReviveType": "UmojanNorns",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 55,
+      "Anim": 15,
+      "Turn": 30
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UmojanNorns/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UmojanNorns/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical"
+  ],
+  "ShieldsStart": 100,
+  "ShieldsMax": 100,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": "Umojan Plasma Shields",
+  "Speed": 2.25,
+  "Acceleration": 1000,
+  "Sight": 10,
+  "Food": -3,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 200,
+    "Vespene": 80
+  },
+  "RepairTime": 41.6667,
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuildNorns,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+        "Name": "Halt",
+        "Hotkey": "T"
+      },
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "TBl1",
+        "id": "TerranBuild",
+        "Icon": "btn-command-terran-buildstructure",
+        "Tooltip": "A list of basic structures.",
+        "Name": "Build Structure",
+        "Hotkey": "B"
+      },
+      {
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanRepairNorns,Execute",
+        "id": "UmojanRepairNorns",
+        "Icon": "btn-ability-terran-repair",
+        "Tooltip": "Restores life to mechanical units and structures at the cost of resources. (only 20% of unit cost)",
+        "Name": "Repair",
+        "Hotkey": "R"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanEngineeringSuit",
+        "Icon": "ui_tipicon_campaign_space01-repair",
+        "Tooltip": "Repair mechanical allies 300% faster.",
+        "Name": "Engineering Suit",
+        "Hotkey": ""
+      }
+    ],
+    "TBl1": [
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuildNorns,Build3",
+        "id": "UmojanBunker",
+        "Icon": "btn-building-terran-bunker",
+        "Tooltip": "Defensive structure. <br/>Infantry fights from inside. <br/><br/><c val=\"#ColorAttackInfo\">Bonus: +1 range to units inside.</span>",
+        "Name": "Build Bunker",
+        "Hotkey": "U"
+      },
+      {
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuildNorns,Build5",
+        "id": "UmojanMissileTurret",
+        "Icon": "btn-building-terran-missileturret",
+        "Tooltip": "Anti-air defensive structure.<br/><br/><c val=\"#ColorAttackInfo\">Can attack air units.</span><br/><span style=\"color: #FFE303\">Detector</span>",
+        "Name": "Build Anti-Air Turret",
+        "Hotkey": "T"
+      },
+      {
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuildNorns,Build1",
+        "id": "UmojanEnergyBarricade",
+        "Icon": "btn-ability-zeratul-immortal-enternitybarrier",
+        "Tooltip": "Small defensive structure that block movements and vision of ground units.",
+        "Name": "Build Energy Barricade",
+        "Hotkey": "B"
+      },
+      {
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuildNorns,Build2",
+        "id": "UmojanSentryGun",
+        "Icon": "btn-unit-terran-popupturret",
+        "Tooltip": "Anti-ground defensive structure. Can burrow to conceal itself. **Can attack ground units**",
+        "Name": "Build Sentry Gun",
+        "Hotkey": "G"
+      },
+      {
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuildNorns,Build4",
+        "id": "UmojanEngineeringTower",
+        "Icon": "btn-building-terran-hivemindemulator",
+        "Tooltip": "Support defensive structure, can repair nearby mechanical ally and build defensive structures.",
+        "Name": "Build Engineering Tower",
+        "Hotkey": "O"
+      },
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "CargoSize": 4,
+  "ScoreKill": 280,
+  "SubgroupPriority": 12,
+  "TacticalAIThink": "AIThinkVikingAssault",
+  "GlossaryCategory": "Unit/Category/UmojanUnits",
+  "GlossaryPriority": 70,
+  "GlossaryStrongArray": [
+    "Reaper"
+  ],
+  "GlossaryWeakArray": [
+    "Hydralisk",
+    "Marine",
+    "Stalker"
+  ],
+  "GlossaryAlias": "VikingFighter",
+  "HotkeyCategory": "Unit/Category/UmojanUnits",
+  "ScoreMake": 280,
+  "ScoreResult": "BuildOrder",
+  "id": "UmojanNorns",
+  "Icon": "btn-unit-terran-goliath-umojan",
+  "LifeArmorIcon": "btn-upgrade-terran-vehicleplatinglevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "Turret": "UmojanNorns",
+      "id": "UmojanNornsTwinGatlingCannonAG",
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel0",
+      "Name": "Gatling Cannon AG",
+      "Amount": 12,
+      "AttributeBonus": {
+        "Light": 6
+      },
+      "Kind": "Ranged",
+      "TargetFilters": "Ground",
+      "Range": 7,
+      "Period": 1
+    },
+    {
+      "Turret": "UmojanNorns",
+      "id": "UmojanHellfireMissiles",
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel0",
+      "Name": "Hellfire Missiles",
+      "Amount": 10,
+      "AttributeBonus": {
+        "Armored": 10
+      },
+      "Kind": "Ranged",
+      "DisplayAttackCount": 2,
+      "TargetFilters": "Air",
+      "Range": 8,
+      "Period": 1.5
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "UmojanRepairNorns",
+      "Name": "Repair"
+    },
+    {
+      "id": "UmojanBuildNorns",
+      "Name": "Build (Norns)"
+    }
+  ],
+  "$Upgrades": [
+    "UmojanNorns",
+    "UmojanNorns",
+    "UmojanEngineeringSuit",
+    "UmojanFactoryTrain",
+    "UmojanFactory",
+    "UmojanShieldsLevel2",
+    "UmojanShields",
+    "UmojanShieldsLevel3",
+    "UmojanVehiclePlatingLevel1",
+    "UmojanVehiclePlating",
+    "UmojanVehiclePlatingLevel2",
+    "UmojanVehiclePlatingLevel3",
+    "UmojanVehicleWeaponsLevel1",
+    "UmojanVehicleWeapons",
+    "UmojanVehicleWeaponsLevel2",
+    "UmojanVehicleWeaponsLevel3",
+    "UmojanShieldsLevel1"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "UmojanBunker",
+    "UmojanAATurret",
+    "UmojanEnergyBarricade",
+    "UmojanSentryGun",
+    "UmojanEngineeringTower"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Producers": [
+    "UmojanFactory"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "UmojanBuildNorns,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+      "Name": "Halt"
+    },
+    {
+      "AbilCmd": "UmojanRepairNorns,Execute",
+      "id": "UmojanRepairNorns",
+      "Icon": "btn-ability-terran-repair",
+      "Tooltip": "Restores life to mechanical units and structures at the cost of resources. (only 20% of unit cost)",
+      "Name": "Repair"
+    },
+    {
+      "AbilCmd": "UmojanBuildNorns,Build3",
+      "id": "UmojanBunker",
+      "Icon": "btn-building-terran-bunker",
+      "Tooltip": "Defensive structure. <br/>Infantry fights from inside. <br/><br/><c val=\"#ColorAttackInfo\">Bonus: +1 range to units inside.</span>",
+      "Name": "Build Bunker"
+    },
+    {
+      "AbilCmd": "UmojanBuildNorns,Build5",
+      "id": "UmojanMissileTurret",
+      "Icon": "btn-building-terran-missileturret",
+      "Tooltip": "Anti-air defensive structure.<br/><br/><c val=\"#ColorAttackInfo\">Can attack air units.</span><br/><span style=\"color: #FFE303\">Detector</span>",
+      "Name": "Build Anti-Air Turret"
+    },
+    {
+      "AbilCmd": "UmojanBuildNorns,Build1",
+      "id": "UmojanEnergyBarricade",
+      "Icon": "btn-ability-zeratul-immortal-enternitybarrier",
+      "Tooltip": "Small defensive structure that block movements and vision of ground units.",
+      "Name": "Build Energy Barricade"
+    },
+    {
+      "AbilCmd": "UmojanBuildNorns,Build2",
+      "id": "UmojanSentryGun",
+      "Icon": "btn-unit-terran-popupturret",
+      "Tooltip": "Anti-ground defensive structure. Can burrow to conceal itself. **Can attack ground units**",
+      "Name": "Build Sentry Gun"
+    },
+    {
+      "AbilCmd": "UmojanBuildNorns,Build4",
+      "id": "UmojanEngineeringTower",
+      "Icon": "btn-building-terran-hivemindemulator",
+      "Tooltip": "Support defensive structure, can repair nearby mechanical ally and build defensive structures.",
+      "Name": "Build Engineering Tower"
+    }
+  ]
+}

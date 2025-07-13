@@ -1,0 +1,2606 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Peasant"
+  },
+  "Description": {
+    "enUS": "Basic worker unit. Can harvest gold and lumber, build structures and Repair. Can become Militia. <br/><br/><span style=\"color: ffcc00\">Attacks land units and trees.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Vision",
+  "Race": "Human",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 40,
+  "LifeMax": 40,
+  "LifeArmorName": "-",
+  "Mover": "foot",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.3125,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "Worker",
+    "ResumeLastMoveOrder"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "hpea",
+  "HotkeyAlias": "hpea",
+  "SelectAlias": "hpea",
+  "SubgroupAlias": "hpea",
+  "OccludeHeight": 0,
+  "TacticalAI": "hpea",
+  "AIEvaluateAlias": "hpea",
+  "ReviveType": "hpea",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "hpea/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "hpea/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Classic",
+  "LifeArmorFormula": {
+    "NegativeArmorMultiplier": 0,
+    "NegativeDamageBase": 0.94,
+    "PositiveArmorMultiplier": 0,
+    "PositiveDamageRatio": 0.06
+  },
+  "LifeArmorTip": "ARMORTIP_MEDIUM",
+  "SpeedDisplayFlags": {
+    "CollapseBuffed": 1
+  },
+  "Acceleration": 2.5,
+  "BehaviorArray": [
+    "hpea",
+    "War3_Unit",
+    "War3_ArmyBlastRemove",
+    "CreepUnitTriggerNotice"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "hpea1"
+    },
+    {
+      "Link": "hpea2"
+    }
+  ],
+  "InnerRadius": 0.375,
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "id": "hpea",
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Small"
+  ],
+  "AbilArray": [
+    "Amov",
+    "stop",
+    "HigherCliffMiss",
+    "AatkTree",
+    "MorphToMilitia",
+    "AHbu",
+    "Ahar",
+    "Amil",
+    "Ahrp",
+    "SprayTerran"
+  ],
+  "CostCategory": "Economy",
+  "ResourceDamageLeechFilters": "-;Player,Ally,Air,Ground,Hover,HarvestableResource,Destructible,Item,Buried,Dead,Invulnerable",
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Amov/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amov",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdMove"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdPatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdHoldPos"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 2,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "FollowFilters": "-;Hover,HarvestableResource,Item",
+          "MoveFilters": "-;Hover,HarvestableResource,Item",
+          "Flags": {
+            "UpdateTarget": 1
+          },
+          "PowerupSmartPriority": 7,
+          "id": "Amov"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Move",
+        "id": "CmdMove",
+        "Icon": "renee_war3_btnmove",
+        "Name": {
+          "enUS": "Move"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Ashm",
+              "Requirements": "Hide"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop",
+          "Flags": {
+            "HoldFire": 1
+          }
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "CmdStop",
+        "Icon": "renee_war3_btnstop",
+        "Name": {
+          "enUS": "Stop"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Amov/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amov",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdMove"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdPatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdHoldPos"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 2,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "FollowFilters": "-;Hover,HarvestableResource,Item",
+          "MoveFilters": "-;Hover,HarvestableResource,Item",
+          "Flags": {
+            "UpdateTarget": 1
+          },
+          "PowerupSmartPriority": 7,
+          "id": "Amov"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,HoldPos",
+        "id": "CmdHoldPos",
+        "Icon": "renee_war3_btnholdposition",
+        "Name": {
+          "enUS": "Hold Position"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Amov/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amov",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdMove"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdPatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdHoldPos"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 2,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "FollowFilters": "-;Hover,HarvestableResource,Item",
+          "MoveFilters": "-;Hover,HarvestableResource,Item",
+          "Flags": {
+            "UpdateTarget": 1
+          },
+          "PowerupSmartPriority": 7,
+          "id": "Amov"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Patrol",
+        "id": "CmdPatrol",
+        "Icon": "renee_war3_btnpatrol",
+        "Name": {
+          "enUS": "Patrol"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Aatk/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "AatkTree",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "Visible;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally,Hover,HarvestableResource",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdAttack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 0
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 5,
+          "MinAttackSpeedMultiplier": 0.2,
+          "AcquirePriority": 2,
+          "id": "AatkTree"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "AatkTree,Execute",
+        "id": "CmdAttack",
+        "Icon": "renee_war3_btnattack",
+        "Name": {
+          "enUS": "Attack"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "Lear",
+        "id": "CmdBuildHuman",
+        "Icon": "renee_war3_btnhumanbuild",
+        "Name": {
+          "enUS": "Build Structure"
+        },
+        "Tooltip": {
+          "enUS": "Brings up a list of the available buildings that you may choose to construct."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Ahar/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Ahar",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Ahar"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AharUn"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "harvest",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "id": "Ahar"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Ahar,Return",
+        "id": "AharUn",
+        "Icon": "renee_war3_btnreturngoods",
+        "Name": {
+          "enUS": "Return Resources"
+        },
+        "Tooltip": {
+          "enUS": ""
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Ahar/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Ahar",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Ahar"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AharUn"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "harvest",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "id": "Ahar"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "Ahar,Gather",
+        "id": "Ahar",
+        "Icon": "renee_war3_btngathergold",
+        "Name": {
+          "enUS": "Gather"
+        },
+        "Tooltip": {
+          "enUS": "Mines gold from gold mines and harvests lumber from trees."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Amil/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Human,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amil",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "SearchForTownHallPeasant"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Amil",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Amil",
+              "Requirements": "Amil"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit"
+              }
+            }
+          ],
+          "LevelButtonTooltip": [
+            "Amil/Ubertip2",
+            "Amil/Ubertip3",
+            "Amil/Ubertip4"
+          ],
+          "PreEffectBehavior": {
+            "Behavior": "SuppressInvisibility",
+            "Count": 1
+          },
+          "id": "Amil",
+          "Alignment": "Positive"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amil,Execute",
+        "id": "Amil",
+        "Icon": "renee_war3_btncalltoarms",
+        "Name": {
+          "enUS": "Call to Arms"
+        },
+        "Tooltip": {
+          "enUS": "Run to the nearest Keep, Castle or starting Town Hall to arm the Peasant, converting him into Militia. <br/>Lasts 45 seconds."
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/Repair",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Arep",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Visible;Neutral,Enemy",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AutoCast": 1,
+            "AutoCastOffOwnerLeave": 1,
+            "ReExecutable": 1,
+            "Smart": 1,
+            "PassengerAcquirePassengers": 1
+          },
+          "Effect": [
+            "Arep"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Repair",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 0,
+            "Prep": 0,
+            "Cast": 0,
+            "Channel": 0
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "RequiresRepairTarget",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Arep",
+              "Requirements": "Arep"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "Mechanical;Self,Enemy,Psionic,Hover,HarvestableResource,Missile,Destructible,Item,Buried,UnderConstruction,Dead"
+          ],
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit",
+                "Link": "repair"
+              }
+            }
+          ],
+          "LevelButtonTooltip": [
+            "Arep/Ubertip2",
+            "Arep/Ubertip3",
+            "Arep/Ubertip4"
+          ],
+          "AutoCastValidatorArray": [
+            "NotHallucination"
+          ],
+          "PreEffectBehavior": {
+            "Behavior": "SuppressInvisibility",
+            "Count": 1
+          },
+          "id": "Ahrp",
+          "AbilSetId": "repair",
+          "AutoCastRange": 7,
+          "Marker": {
+            "MatchFlags": {
+              "Link": 0
+            },
+            "MismatchFlags": {
+              "Id": 0
+            },
+            "Link": "Abil/Repair"
+          },
+          "InheritAttackPriorityArray": {
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "Range": [
+            0.3906
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Ahrp,Execute",
+        "id": "Ahrp",
+        "Icon": "renee_war3_btnrepairon",
+        "Name": {
+          "enUS": "Repair"
+        },
+        "Tooltip": {
+          "enUS": "Repairs mechanical units and structures at the cost of resources."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "AHbu/Name",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:Human,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "AHbu",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "CmdCancel",
+            "Flags": {
+              "ToSelection": 1
+            }
+          },
+          "Alert": "JobDoneSound_Human",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 1,
+            "PeonMaintained": 1,
+            "RangeIncludesBuilding": 1,
+            "Interruptible": 1,
+            "PeonDisableCollision": 0,
+            "RequireFacing": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "htow",
+                "Requirements": "htow"
+              },
+              "Unit": "htow",
+              "Time": 180
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "hhou",
+                "Requirements": "hhou"
+              },
+              "Unit": "hhou",
+              "Time": 35
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "hbar",
+                "Requirements": "HaveHumanFarm"
+              },
+              "Unit": "hbar",
+              "Time": 60
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "hbla",
+                "Requirements": "HaveHumanBarracks"
+              },
+              "Unit": "hbla",
+              "Time": 70
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "hwtw",
+                "Requirements": "HaveHumanBarracks"
+              },
+              "Unit": "hwtw",
+              "Time": 25
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "halt",
+                "Requirements": "HaveHumanBarracks"
+              },
+              "Unit": "halt",
+              "Time": 60
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "harm",
+                "Requirements": "HaveHumanBarracks"
+              },
+              "Unit": "harm",
+              "Time": 60
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "hars",
+                "Requirements": "HaveHumanBarracks"
+              },
+              "Unit": "hars",
+              "Time": 70
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "hlum",
+                "Requirements": "hlum"
+              },
+              "Unit": "hlum",
+              "Time": 60
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "hgra",
+                "Requirements": "HaveHumanBarracks"
+              },
+              "Unit": "hgra",
+              "Time": 75
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "hvlt",
+                "Requirements": "HaveHumanBarracks"
+              },
+              "Unit": "hvlt",
+              "Time": 60
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "hshy",
+                "Requirements": "HaveHumanFactory"
+              },
+              "Unit": "hshy",
+              "Time": 60
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            }
+          },
+          "SmartPriority": 15,
+          "AbilSetId": "build",
+          "id": "AHbu",
+          "Range": [
+            0.5
+          ],
+          "EffectArray": {
+            "Start": "HumanBuildStartSet",
+            "Finish": "WorkerBuildOutdoorEnd",
+            "Cancel": "WorkerBuildOutdoorEnd"
+          }
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Halt",
+        "id": "CmdCancelBuild",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/SprayTerran",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Terran",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SprayTerran",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "SprayTerran",
+            "SprayTerran"
+          ],
+          "EffectRange": [
+            "0,1000",
+            "0,1000"
+          ],
+          "AINotifyEffect": "SprayTerran",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Spray",
+              "Requirements": "HaveSprayTerran"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Charge": {
+                "CountMax": 5,
+                "CountStart": 1,
+                "CountUse": 1,
+                "Link": "Spray",
+                "Location": "Player",
+                "TimeStart": 300,
+                "TimeUse": 300
+              }
+            }
+          ],
+          "Range": [
+            1
+          ],
+          "id": "SprayTerran"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "SprayTerran,Execute",
+        "id": "Spray",
+        "Icon": "btn-command-spray",
+        "Name": {
+          "enUS": "Spray",
+          "ruRU": "Граффити"
+        },
+        "Tooltip": {
+          "enUS": "Orders the unit to apply your currently selected spray to the terrain at the target location.",
+          "ruRU": "Приказать боевой единице отобразить на указанном участке поверхности ваше текущее граффити."
+        },
+        "Hotkey": "Y"
+      }
+    ],
+    "Lear": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "htow",
+            "Requirements": "htow"
+          },
+          "Unit": "htow",
+          "Time": 180
+        },
+        "Unit": "htow",
+        "Time": 180,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 15
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Build1",
+        "id": "htow",
+        "Icon": "renee_war3_btntownhall",
+        "Name": {
+          "enUS": "Build Town Hall"
+        },
+        "Tooltip": {
+          "enUS": "Primary structure, used to train Peasants and receive gathered resources. Can be upgraded to Keep and then Castle to enable the production of additional types of structures and units."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hars",
+            "Requirements": "HaveHumanBarracks"
+          },
+          "Unit": "hars",
+          "Time": 70
+        },
+        "Unit": "hars",
+        "Time": 70,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Build8",
+        "id": "hars",
+        "Icon": "renee_war3_btnarcanesanctum",
+        "Name": {
+          "enUS": "Build Arcane Sanctum"
+        },
+        "Tooltip": {
+          "enUS": "Trains Priests, Sorceresses, and Spell Breakers. <br/>Also contains spell upgrades for Priests and Sorceresses, Control Magic, and Magic Sentry."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hhou",
+            "Requirements": "hhou"
+          },
+          "Unit": "hhou",
+          "Time": 35
+        },
+        "Unit": "hhou",
+        "Time": 35,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Build2",
+        "id": "hhou",
+        "Icon": "renee_war3_btnfarm",
+        "Name": {
+          "enUS": "Build Farm"
+        },
+        "Tooltip": {
+          "enUS": "Provides food, which increases the maximum number of units that can be trained."
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hlum",
+            "Requirements": "hlum"
+          },
+          "Unit": "hlum",
+          "Time": 60
+        },
+        "Unit": "hlum",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Build9",
+        "id": "hlum",
+        "Icon": "renee_war3_btnhumanlumbermill",
+        "Name": {
+          "enUS": "Build Lumber Mill"
+        },
+        "Tooltip": {
+          "enUS": "Serves as a drop-off point for harvested lumber. <br/>Also contains the upgrades for Lumber Harvesting and Masonry."
+        },
+        "Hotkey": "L"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "harm",
+            "Requirements": "HaveHumanBarracks"
+          },
+          "Unit": "harm",
+          "Time": 60
+        },
+        "Unit": "harm",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Build7",
+        "id": "harm",
+        "Icon": "renee_war3_btnworkshop",
+        "Name": {
+          "enUS": "Build Workshop"
+        },
+        "Tooltip": {
+          "enUS": "Produces Siege Engines, Flying Machines, and Mortar Teams. <br/>Also contains the Flare, Fragmentation Shards, Barrage, Flying Machine Bombs, and Flak Cannons upgrades."
+        },
+        "Hotkey": "W"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hbar",
+            "Requirements": "HaveHumanFarm"
+          },
+          "Unit": "hbar",
+          "Time": 60
+        },
+        "Unit": "hbar",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Build3",
+        "id": "hbar",
+        "Icon": "renee_war3_btnhumanbarracks",
+        "Name": {
+          "enUS": "Build Barracks"
+        },
+        "Tooltip": {
+          "enUS": "Primary troop production building. Trains Footmen, Riflemen and Knights. <br/>Also contains the Defend, Long Rifles, and Animal War Training upgrades."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hgra",
+            "Requirements": "HaveHumanBarracks"
+          },
+          "Unit": "hgra",
+          "Time": 75
+        },
+        "Unit": "hgra",
+        "Time": 75,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Build10",
+        "id": "hgra",
+        "Icon": "renee_war3_btngryphonaviary",
+        "Name": {
+          "enUS": "Build Gryphon Aviary"
+        },
+        "Tooltip": {
+          "enUS": "Trains Gryphon Riders, and Dragonhawk Riders. <br/>Also contains the Storm Hammers and Cloud upgrades."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "halt",
+            "Requirements": "HaveHumanBarracks"
+          },
+          "Unit": "halt",
+          "Time": 60
+        },
+        "Unit": "halt",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Build6",
+        "id": "halt",
+        "Icon": "renee_war3_btnaltarofkings",
+        "Name": {
+          "enUS": "Build Altar of Kings"
+        },
+        "Tooltip": {
+          "enUS": "Summons Heroes. Revives slain Heroes."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hbla",
+            "Requirements": "HaveHumanBarracks"
+          },
+          "Unit": "hbla",
+          "Time": 70
+        },
+        "Unit": "hbla",
+        "Time": 70,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Build4",
+        "id": "hbla",
+        "Icon": "renee_war3_btnblacksmith",
+        "Name": {
+          "enUS": "Build Blacksmith"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for improved armor, weaponry and gunpowder."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hwtw",
+            "Requirements": "HaveHumanBarracks"
+          },
+          "Unit": "hwtw",
+          "Time": 25
+        },
+        "Unit": "hwtw",
+        "Time": 25,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Build5",
+        "id": "hwtw",
+        "Icon": "renee_war3_btnhumanwatchtower",
+        "Name": {
+          "enUS": "Build Scout Tower"
+        },
+        "Tooltip": {
+          "enUS": "Basic observation tower. Has no attack, but can be upgraded into a Guard Tower, an Arcane Tower, or a Cannon Tower. Can learn the Magic Sentry ability."
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hvlt",
+            "Requirements": "HaveHumanBarracks"
+          },
+          "Unit": "hvlt",
+          "Time": 60
+        },
+        "Unit": "hvlt",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Build11",
+        "id": "hvlt",
+        "Icon": "renee_war3_btnarcanevault",
+        "Name": {
+          "enUS": "Build Arcane Vault"
+        },
+        "Tooltip": {
+          "enUS": "Creates a shop with purchasable items. The items available depend upon what level of upgrade your Town Hall has (Town Hall, Keep, or Castle) and which buildings you have."
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hshy",
+            "Requirements": "HaveHumanFactory"
+          },
+          "Unit": "hshy",
+          "Time": 60
+        },
+        "Unit": "hshy",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHbu,Build12",
+        "id": "hshy",
+        "Icon": "renee_war3_btnhumanshipyard",
+        "Name": {
+          "enUS": "Build Human Shipyard"
+        },
+        "Tooltip": {
+          "enUS": "Boat construction facility. Produces Human Transport Ships, Human Frigates, and Human Battleships."
+        }
+      }
+    ]
+  },
+  "Attributes": [
+    "Armored"
+  ],
+  "KillXP": 10,
+  "CostResource": {
+    "Minerals": 50
+  },
+  "Food": -1,
+  "Speed": 2.8125,
+  "RepairTime": 16.667,
+  "SightBonus": [
+    6.25,
+    4.6875
+  ],
+  "LifeRegenRate": 0.25,
+  "SubgroupPriority": 58,
+  "DeathTime": 90,
+  "CargoSize": 1,
+  "PlaneArray": [
+    "Ground"
+  ],
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "HotkeyCategory": "UI/HUMAN",
+  "GlossaryPriority": 10,
+  "LateralAcceleration": 46,
+  "AIOverideTargetPriority": 10,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "ScoreResult": "BuildOrder",
+  "Sight": 8,
+  "defType": "MEDIUM",
+  "Icon": "renee_war3_btnpeasant",
+  "LifeArmorIcon": "infocard-armor-medium.tga",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Human",
+      "MinScanRange": 3.9062,
+      "TargetFilters": "",
+      "Range": 0.7031,
+      "RangeSlop": 1.9531,
+      "Period": 2,
+      "DamagePoint": 0.433,
+      "Backswing": 0.567,
+      "id": "hpea1",
+      "parent": "normal",
+      "atkType": "NORMAL",
+      "class": "CWeaponLegacy",
+      "Icon": "infocard-attack-normal.tga",
+      "Name": {
+        "enUS": "Type: <span style=\"color: ffcc00\">Normal</span>"
+      },
+      "Amount": 5,
+      "Kind": "Melee"
+    },
+    {
+      "EditorCategories": "Race:Human",
+      "MinScanRange": 3.9062,
+      "TargetFilters": "",
+      "Options": {
+        "Hidden": 1
+      },
+      "Range": 0.5156,
+      "RangeSlop": 0.9375,
+      "Period": 1.1,
+      "DamagePoint": 0.433,
+      "Backswing": 0.433,
+      "id": "hpea2",
+      "parent": "normal",
+      "atkType": "NORMAL",
+      "class": "CWeaponLegacy",
+      "Icon": "infocard-attack-normal.tga",
+      "Name": {
+        "enUS": "Type: <span style=\"color: ffcc00\">Normal</span>"
+      },
+      "Amount": 1,
+      "Kind": "Melee"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "War3_Unit",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "War3_Unit"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "War3_ArmyBlastRemove",
+      "Icon": "renee_war3_btntemp",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "id": "CreepUnitTriggerNotice",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "CreepUnitTriggerNotice"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "Amov",
+      "Name": {
+        "enUS": "Move"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "HigherCliffMiss",
+      "Name": {
+        "enUS": "Higher Cliff Miss"
+      }
+    },
+    {
+      "id": "AatkTree",
+      "Name": {
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "MorphToMilitia",
+      "Name": "-"
+    },
+    {
+      "id": "AHbu",
+      "Name": {
+        "enUS": "Build (Human)"
+      }
+    },
+    {
+      "id": "Ahar",
+      "Name": {
+        "enUS": "Harvest"
+      }
+    },
+    {
+      "id": "Amil",
+      "Name": {
+        "enUS": "Call to Arms"
+      }
+    },
+    {
+      "id": "Ahrp",
+      "Name": {
+        "enUS": "Repair",
+        "ruRU": "Repair"
+      }
+    },
+    {
+      "id": "SprayTerran",
+      "Name": "-"
+    }
+  ],
+  "$Upgrades": [
+    "MorphToPeasantAuto",
+    "hpea",
+    "IsPeasant",
+    "hcasTrain",
+    "MorphToPeasant",
+    "hkeeTrain",
+    "htowTrain",
+    "Human",
+    "Rhlh",
+    "Rguv",
+    "hpea",
+    "hpeaCount"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "htow",
+    "hars",
+    "hhou",
+    "hlum",
+    "harm",
+    "hbar",
+    "hgra",
+    "halt",
+    "hbla",
+    "hwtw",
+    "hvlt",
+    "hshy"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "hcas",
+    "hkee",
+    "htow"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "Amov,Move",
+      "id": "CmdMove",
+      "Icon": "renee_war3_btnmove",
+      "Name": {
+        "enUS": "Move"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "CmdStop",
+      "Icon": "renee_war3_btnstop",
+      "Name": {
+        "enUS": "Stop"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies."
+      }
+    },
+    {
+      "AbilCmd": "Amov,HoldPos",
+      "id": "CmdHoldPos",
+      "Icon": "renee_war3_btnholdposition",
+      "Name": {
+        "enUS": "Hold Position"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers."
+      }
+    },
+    {
+      "AbilCmd": "Amov,Patrol",
+      "id": "CmdPatrol",
+      "Icon": "renee_war3_btnpatrol",
+      "Name": {
+        "enUS": "Patrol"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior."
+      }
+    },
+    {
+      "AbilCmd": "AatkTree,Execute",
+      "id": "CmdAttack",
+      "Icon": "renee_war3_btnattack",
+      "Name": {
+        "enUS": "Attack"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed."
+      }
+    },
+    {
+      "AbilCmd": "Ahar,Return",
+      "id": "AharUn",
+      "Icon": "renee_war3_btnreturngoods",
+      "Name": {
+        "enUS": "Return Resources"
+      },
+      "Tooltip": {
+        "enUS": ""
+      }
+    },
+    {
+      "AbilCmd": "Ahar,Gather",
+      "id": "Ahar",
+      "Icon": "renee_war3_btngathergold",
+      "Name": {
+        "enUS": "Gather"
+      },
+      "Tooltip": {
+        "enUS": "Mines gold from gold mines and harvests lumber from trees."
+      }
+    },
+    {
+      "AbilCmd": "Amil,Execute",
+      "id": "Amil",
+      "Icon": "renee_war3_btncalltoarms",
+      "Name": {
+        "enUS": "Call to Arms"
+      },
+      "Tooltip": {
+        "enUS": "Run to the nearest Keep, Castle or starting Town Hall to arm the Peasant, converting him into Militia. <br/>Lasts 45 seconds."
+      }
+    },
+    {
+      "AbilCmd": "Ahrp,Execute",
+      "id": "Ahrp",
+      "Icon": "renee_war3_btnrepairon",
+      "Name": {
+        "enUS": "Repair"
+      },
+      "Tooltip": {
+        "enUS": "Repairs mechanical units and structures at the cost of resources."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Halt",
+      "id": "CmdCancelBuild",
+      "Icon": "renee_war3_btncancel",
+      "Name": {
+        "enUS": "Cancel"
+      },
+      "Tooltip": {
+        "enUS": "Drops the current un-issued order and allows you to select a different order."
+      }
+    },
+    {
+      "AbilCmd": "SprayTerran,Execute",
+      "id": "Spray",
+      "Icon": "btn-command-spray",
+      "Name": {
+        "enUS": "Spray",
+        "ruRU": "Граффити"
+      },
+      "Tooltip": {
+        "enUS": "Orders the unit to apply your currently selected spray to the terrain at the target location.",
+        "ruRU": "Приказать боевой единице отобразить на указанном участке поверхности ваше текущее граффити."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Build1",
+      "id": "htow",
+      "Icon": "renee_war3_btntownhall",
+      "Name": {
+        "enUS": "Build Town Hall"
+      },
+      "Tooltip": {
+        "enUS": "Primary structure, used to train Peasants and receive gathered resources. Can be upgraded to Keep and then Castle to enable the production of additional types of structures and units."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Build8",
+      "id": "hars",
+      "Icon": "renee_war3_btnarcanesanctum",
+      "Name": {
+        "enUS": "Build Arcane Sanctum"
+      },
+      "Tooltip": {
+        "enUS": "Trains Priests, Sorceresses, and Spell Breakers. <br/>Also contains spell upgrades for Priests and Sorceresses, Control Magic, and Magic Sentry."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Build2",
+      "id": "hhou",
+      "Icon": "renee_war3_btnfarm",
+      "Name": {
+        "enUS": "Build Farm"
+      },
+      "Tooltip": {
+        "enUS": "Provides food, which increases the maximum number of units that can be trained."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Build9",
+      "id": "hlum",
+      "Icon": "renee_war3_btnhumanlumbermill",
+      "Name": {
+        "enUS": "Build Lumber Mill"
+      },
+      "Tooltip": {
+        "enUS": "Serves as a drop-off point for harvested lumber. <br/>Also contains the upgrades for Lumber Harvesting and Masonry."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Build7",
+      "id": "harm",
+      "Icon": "renee_war3_btnworkshop",
+      "Name": {
+        "enUS": "Build Workshop"
+      },
+      "Tooltip": {
+        "enUS": "Produces Siege Engines, Flying Machines, and Mortar Teams. <br/>Also contains the Flare, Fragmentation Shards, Barrage, Flying Machine Bombs, and Flak Cannons upgrades."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Build3",
+      "id": "hbar",
+      "Icon": "renee_war3_btnhumanbarracks",
+      "Name": {
+        "enUS": "Build Barracks"
+      },
+      "Tooltip": {
+        "enUS": "Primary troop production building. Trains Footmen, Riflemen and Knights. <br/>Also contains the Defend, Long Rifles, and Animal War Training upgrades."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Build10",
+      "id": "hgra",
+      "Icon": "renee_war3_btngryphonaviary",
+      "Name": {
+        "enUS": "Build Gryphon Aviary"
+      },
+      "Tooltip": {
+        "enUS": "Trains Gryphon Riders, and Dragonhawk Riders. <br/>Also contains the Storm Hammers and Cloud upgrades."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Build6",
+      "id": "halt",
+      "Icon": "renee_war3_btnaltarofkings",
+      "Name": {
+        "enUS": "Build Altar of Kings"
+      },
+      "Tooltip": {
+        "enUS": "Summons Heroes. Revives slain Heroes."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Build4",
+      "id": "hbla",
+      "Icon": "renee_war3_btnblacksmith",
+      "Name": {
+        "enUS": "Build Blacksmith"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for improved armor, weaponry and gunpowder."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Build5",
+      "id": "hwtw",
+      "Icon": "renee_war3_btnhumanwatchtower",
+      "Name": {
+        "enUS": "Build Scout Tower"
+      },
+      "Tooltip": {
+        "enUS": "Basic observation tower. Has no attack, but can be upgraded into a Guard Tower, an Arcane Tower, or a Cannon Tower. Can learn the Magic Sentry ability."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Build11",
+      "id": "hvlt",
+      "Icon": "renee_war3_btnarcanevault",
+      "Name": {
+        "enUS": "Build Arcane Vault"
+      },
+      "Tooltip": {
+        "enUS": "Creates a shop with purchasable items. The items available depend upon what level of upgrade your Town Hall has (Town Hall, Keep, or Castle) and which buildings you have."
+      }
+    },
+    {
+      "AbilCmd": "AHbu,Build12",
+      "id": "hshy",
+      "Icon": "renee_war3_btnhumanshipyard",
+      "Name": {
+        "enUS": "Build Human Shipyard"
+      },
+      "Tooltip": {
+        "enUS": "Boat construction facility. Produces Human Transport Ships, Human Frigates, and Human Battleships."
+      }
+    }
+  ]
+}

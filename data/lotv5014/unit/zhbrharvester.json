@@ -1,0 +1,390 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Harvester"
+  },
+  "Description": {
+    "enUS": "Summoned over a Vespene Geyser to allow harvesting of vespene gas."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZHBR",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Harvestable",
+  "ResourceType": "Vespene",
+  "LifeStart": 350,
+  "LifeMax": 350,
+  "LifeArmorName": {
+    "enUS": "Building Plating"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.5,
+  "SeparationRadius": 1.5,
+  "MinimapRadius": 1.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ZHBRHarvester",
+  "HotkeyAlias": "ZHBRHarvester",
+  "SelectAlias": "ZHBRHarvester",
+  "SubgroupAlias": "ZHBRHarvester",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ZHBRHarvester",
+  "AIEvaluateAlias": "ZHBRHarvester",
+  "ReviveType": "ZHBRHarvester",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ZHBRHarvester/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ZHBRHarvester/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Phased",
+    "Small"
+  ],
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Attributes": [
+    "Armored",
+    "Structure"
+  ],
+  "ShieldArmorName": {
+    "enUS": "Protection"
+  },
+  "HotkeyCategory": "Unit/Category/ZHBRUnits",
+  "SubgroupPriority": 1,
+  "DataCollection": "ZHBRHarvester",
+  "BehaviorArray": [
+    "ZHBRCommon@BuildersTracker",
+    "ZHBRVoid@PowerUser",
+    "ZHBRRestorationShield",
+    "ZHBRHarvester@HarvestableVespeneGeyserGasZHBR"
+  ],
+  "AbilArray": [
+    "BuildInProgress",
+    "ZHBRStructureTeleport@Harvester"
+  ],
+  "LifeArmor": 1,
+  "Facing": 315,
+  "ScoreResult": "BuildOrder",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonHarvester"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountStart": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeUse": 140
+          },
+          "ValidatorArray": [
+            "HasVision",
+            "ZHBRVoid@TargetPointWithinPowerRange"
+          ],
+          "Time": 14,
+          "Unit": "ZHBRHarvester"
+        },
+        "Unit": "ZHBRHarvester",
+        "Time": 14,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRStructureTeleport@Harvester,Build1",
+        "id": "ZHBRStructureTeleport",
+        "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+        "Name": {
+          "enUS": "Teleport Structure"
+        },
+        "Tooltip": {
+          "enUS": "Teleport structure to target location over <span style=\"color: ffff8a\"><b>14</b> seconds</span>."
+        },
+        "Hotkey": "T"
+      }
+    ]
+  },
+  "AttackTargetPriority": 11,
+  "Mob": "Multiplayer",
+  "Sight": 9,
+  "ShieldArmorTip": "Unit/ShieldArmorTooltip/ZHBRShields",
+  "EffectArray": {
+    "Birth": "ZHBRRaceControl@AddTrackedUnit"
+  },
+  "id": "ZHBRHarvester",
+  "ShieldsMax": 175,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 75
+  },
+  "Footprint": "FootprintGeyserRoundedBuilt",
+  "PlacementFootprint": "Footprint3x3CappedGeyser",
+  "BuiltOn": [
+    "VespeneGeyser",
+    "SpacePlatformGeyser",
+    "RichVespeneGeyser",
+    "ProtossVespeneGeyser",
+    "PurifierVespeneGeyser",
+    "ShakurasVespeneGeyser"
+  ],
+  "BuildOnAs": [
+    "ZHBRHarvesterRich"
+  ],
+  "ScoreMake": 75,
+  "ScoreKill": 75,
+  "GlossaryPriority": 2,
+  "ShieldRegenRate": 17.5,
+  "TechAliasArray": [
+    "TechAlias_ZHBR_Harvester"
+  ],
+  "Icon": "btn-building-zhybrid-harvester",
+  "LifeArmorIcon": "amonshards _armor",
+  "ShieldArmorIcon": "btn-ability-zhybrid-protection",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "ZHBRCommon@BuildersTracker",
+      "Name": {
+        "enUS": "Builders Tracker"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRVoid@PowerUser",
+      "Name": {
+        "enUS": "Power User"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRRestorationShield",
+      "Icon": "btn-ability-zeratul-warpprism-shieldboosters",
+      "Name": {
+        "enUS": "Restoration Shield"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRHarvester@HarvestableVespeneGeyserGasZHBR",
+      "Icon": "icon-gas",
+      "Name": {
+        "enUS": "Harvestable Vespene Geyser Gas Hybrid"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "ZHBRStructureTeleport@Harvester",
+      "Name": {
+        "enUS": "Structure Teleport (Harvester)"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "ZHBRMinionBuild",
+    "ZHBRHarvester",
+    "ZHBRStructureTeleport@Harvester",
+    "ZHBRHarvesterRich",
+    "ZHBRMinionBuild@Main",
+    "ZHBRStructureTeleport",
+    "ZHBRCommon@IsHarvester",
+    "ZHBRHarvester",
+    "ZHBRHarvester",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "ZHBRHarvester"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "ZHBRRaceControl",
+    "ZHBRHarvesterRich",
+    "ZHBRHarvester",
+    "ZHBRMinion"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "ZHBRStructureTeleport@Harvester,Build1",
+      "id": "ZHBRStructureTeleport",
+      "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+      "Name": {
+        "enUS": "Teleport Structure"
+      },
+      "Tooltip": {
+        "enUS": "Teleport structure to target location over <span style=\"color: ffff8a\"><b>14</b> seconds</span>."
+      }
+    }
+  ]
+}

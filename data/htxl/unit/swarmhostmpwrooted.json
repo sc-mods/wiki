@@ -1,0 +1,959 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "主巢育母",
+    "enUS": "Shuukinkubo"
+  },
+  "Description": {
+    "zhCN": "能够孵化大量蝗虫进行攻击的消耗单位。<br/><br/><span style=\"color: #ffff8a\">蝗虫可以对地和对空。</span>",
+    "enUS": "A consumable unit that can hatch a large number of locusts to attack. <br/><br/><span style=\"color: #ffff8a\">Locust can attack ground and air. </span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZerW",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 275,
+  "LifeMax": 275,
+  "LifeArmorName": {
+    "zhCN": "利维坦地面生物甲壳",
+    "enUS": "Leviathan ground creature carapace"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 360,
+  "Radius": 0.8125,
+  "SeparationRadius": 0,
+  "MinimapRadius": 0.75,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "AIThreatGround",
+    "AIHighPrioTarget",
+    "AIPressForwardDisabled",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SwarmHostMPW",
+  "HotkeyAlias": "SwarmHostMPWRooted",
+  "SelectAlias": "SwarmHostMPW",
+  "SubgroupAlias": "SwarmHostMPW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SwarmHostRooted",
+  "AIEvaluateAlias": "SwarmHostMP",
+  "ReviveType": "SwarmHostMPWRooted",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "SwarmHostMPWRooted/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "SwarmHostMPWRooted/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Subtitle": "UnitSubtitle/SwarmHostW",
+  "Facing": 29.9926,
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "Colossus",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Biological"
+  ],
+  "LifeArmor": 4,
+  "LifeRegenRate": 0.5,
+  "ShieldArmor": 6,
+  "ShieldRegenDelay": 20,
+  "ShieldRegenRate": 1,
+  "ShieldRegenRateCreep": 2,
+  "ShieldArmorName": {
+    "zhCN": "装甲外壳",
+    "enUS": "Armored Shell"
+  },
+  "Sight": 11,
+  "Food": -4,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 275,
+    "Vespene": 250
+  },
+  "AttackTargetPriority": 20,
+  "KillXP": 75,
+  "AbilArray": [
+    "que1",
+    "attack",
+    "stop",
+    "MorphToSwarmHostUprootedW",
+    "LocustLaunchW",
+    "LocustFlyingLaunchW"
+  ],
+  "BehaviorArray": [
+    "SwarmHostWBehavior",
+    "MakeCreepSwarmHostW"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "LocustLaunchW"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackBuilding",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+          "ruRU": "Приказать атаковать цель, пока она не будет уничтожена или не выйдет из зоны досягаемости. "
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/LocustLaunchW",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "LocustLaunchW",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AllowMovement": 1,
+            "NoDeceleration": 1
+          },
+          "Effect": [
+            "LocustCreateSetW"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "LocustLaunchW",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "LocustLaunchW"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit",
+                "TimeUse": 12
+              }
+            }
+          ],
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "id": "LocustLaunchW"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "LocustLaunchW,Execute",
+        "id": "LocustLaunchW",
+        "Icon": "btn-unit-collection-webby-locust",
+        "Name": {
+          "zhCN": "孵化蝗虫",
+          "enUS": "Hatching Locusts"
+        },
+        "Tooltip": {
+          "zhCN": "孵化并向目标位置派遣<span style=\"color: #ffff8a\">6</span>只<span style=\"color: #ffff8a\">蝗虫</span>。",
+          "enUS": "Hatches and dispatches <span style=\"color: #ffff8a\">6</span> locusts</span> to the target location."
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "ZergShieldW",
+        "Icon": "btn-upgrade-lwthd",
+        "Name": {
+          "zhCN": "装甲外壳",
+          "enUS": "Armored Shell"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">拥有护盾</span><br/>护盾在脱战长时间后缓慢恢复，拥有较高的护甲。<br/>在菌毯上时能够更快恢复护盾。",
+          "enUS": "<span style=\"color: #ffff8a\">Has a shield</span><br/>The shield recovers slowly after being out of combat for a long time, and has higher armor. <br/>Restores shields faster while on creep."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "RapidIncubationW",
+        "Icon": "btn-upgrade-zerg-rapidincubationw",
+        "Name": {
+          "zhCN": "急速孵化",
+          "enUS": "Rapid hatching"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">主巢育母</span>能够以极快的速度孵化<span style=\"color: #ffff8a\">蝗虫</span>。<br/><span style=\"color: #ffff8a\">主巢育母</span>的孵化速度增加<span style=\"color: #ffff8a\">20%</span>。",
+          "enUS": "<span style=\"color: #ffff8a\">Main Nest Broodmother</span> can hatch <span style=\"color: #ffff8a\">Locusts</span> very quickly. <br/><span style=\"color: #ffff8a\">Main Brood</span>'s hatching speed is increased by <span style=\"color: #ffff8a\">20%</span>."
+        },
+        "Hotkey": ""
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Delay": 0.1
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Delay": 0.1,
+                "Duration": 1
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Delay": 0.1,
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 0.1,
+                "Duration": 1
+              }
+            }
+          },
+          "Unit": "SwarmHostMPW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "SwarmHostMPW",
+        "Cost": {
+          "Minerals": 275,
+          "Vespene": 250,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -4
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "MorphToSwarmHostUprootedW,Execute",
+        "id": "SwarmHostUprootW",
+        "Icon": "btn-ability-zerg-swarmhost_unroot",
+        "Name": {
+          "zhCN": "拔根",
+          "enUS": "Uproot"
+        },
+        "Tooltip": {
+          "zhCN": "使虫群宿主拔根，允许其进行自由移动。",
+          "enUS": "Uproots the swarm host, allowing it to move freely."
+        },
+        "Hotkey": "Y"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "HotSPressurizedGlandsW",
+        "Icon": "btn-upgrade-zerg-pressurizedglandsw",
+        "Name": {
+          "zhCN": "加压腺体",
+          "enUS": "Pressurized glands"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">蝗虫</span>的武器射程提升<span style=\"color: #ffff8a\">2</span>，并可以攻击空中单位。",
+          "enUS": "<span style=\"color: #ffff8a\">Locust</span>'s weapon range is increased by <span style=\"color: #ffff8a\">2</span> and can attack air units."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "LocustTimeW",
+        "Icon": "btn-upgrade-zerg-abathur-locustinjectionw",
+        "Name": {
+          "zhCN": "顽强生命",
+          "enUS": "Tenacious life"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">蝗虫</span>的最大生命提升，持续时长增加<span style=\"color: #ffff8a\">50%</span>。",
+          "enUS": "<span style=\"color: #ffff8a\">Locust</span>'s maximum health is increased, and its duration is increased by <span style=\"color: #ffff8a\">50%</span>."
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/LocustFlyingLaunchW",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "LocustFlyingLaunchW",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AllowMovement": 1,
+            "NoDeceleration": 1
+          },
+          "Effect": [
+            "LocustFlyingCreateSetW"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "LocustFlyingLaunchW",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "LocustFlyLaunchW"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Cooldown": {
+                "Link": "Abil/LocustLaunchW",
+                "Location": "Unit",
+                "TimeUse": 12
+              }
+            }
+          ],
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "id": "LocustFlyingLaunchW"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "LocustFlyingLaunchW,Execute",
+        "id": "LocustFlyLaunchW",
+        "Icon": "btn-unit-collection-webby-locustflyer",
+        "Name": {
+          "zhCN": "孵化飞行蝗虫",
+          "enUS": "Hatching flying locusts"
+        },
+        "Tooltip": {
+          "zhCN": "孵化并向目标位置派遣<span style=\"color: #ffff8a\">4</span>只<span style=\"color: #ffff8a\">飞行蝗虫</span>。",
+          "enUS": "Hatches and dispatches <span style=\"color: #ffff8a\">4</span> single <span style=\"color: #ffff8a\">Flying Locust</span> to the target location."
+        },
+        "Hotkey": "F"
+      }
+    ]
+  },
+  "InnerRadius": 0.6875,
+  "Footprint": "FootprintSiegedSmall",
+  "ScoreKill": 300,
+  "SubgroupPriority": 18,
+  "TechAliasArray": [
+    "Alias_SwarmHost"
+  ],
+  "GlossaryAlias": "SwarmHostMPWRooted",
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "id": "SwarmHostMPWRooted",
+  "Icon": "btn-unit-collection-webby-swarmhost",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level3w",
+  "ShieldArmorIcon": "btn-upgrade-lwthd",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Zerg",
+      "Options": {
+        "LinkedCooldown": 0,
+        "DisplayCooldown": 1
+      },
+      "Icon": "btn-unit-collection-webby-locust",
+      "DisplayEffect": "LocustMPDamageW",
+      "TargetFilters": "",
+      "Range": 16,
+      "Arc": 360,
+      "Cost": {
+        "Cooldown": {
+          "Link": "Abil/LocustLaunchW",
+          "Location": "Unit",
+          "TimeUse": 12
+        }
+      },
+      "Period": 12,
+      "DamagePoint": 0,
+      "Backswing": 0,
+      "Effect": "LocustWeaponCreateSetW",
+      "AllowedMovement": "Slowing",
+      "id": "LocustLaunchW",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "zhCN": "孵化蝗虫",
+        "enUS": "Hatching locusts"
+      },
+      "Amount": 12,
+      "Kind": "Ranged"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "SwarmHostWBehavior",
+      "Icon": "btn-unit-collection-webby-swarmhost",
+      "Name": {
+        "zhCN": "虫群宿主行为",
+        "enUS": "Swarm Host Behavior"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "MakeCreepSwarmHostW",
+      "Icon": "btn-ability-zerg-creepspread",
+      "Name": {
+        "zhCN": "虫群宿主生成菌毯",
+        "enUS": "Swarm host generates carpet"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "que1",
+      "Name": {
+        "ruRU": "Queue (1)",
+        "enUS": "Queue (1)"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "MorphToSwarmHostUprootedW",
+      "Name": {
+        "zhCN": "拔根(虫群宿主)",
+        "enUS": "Uproot (Insect Swarm Host)"
+      }
+    },
+    {
+      "id": "LocustLaunchW",
+      "Name": {
+        "zhCN": "孵化蝗虫",
+        "enUS": "Hatching Locusts"
+      }
+    },
+    {
+      "id": "LocustFlyingLaunchW",
+      "Name": {
+        "zhCN": "孵化飞行蝗虫",
+        "enUS": "Hatching flying locusts"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "MorphToSwarmHostRootedW",
+    "SwarmHostMPWRooted",
+    "SwarmHostBurrowedSoundW",
+    "SwarmHostMPW"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "LocustMPW",
+    "LocustMPWFlying"
+  ],
+  "$Research": [],
+  "$Morph": [
+    "SwarmHostMPW"
+  ],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackBuilding",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+        "ruRU": "Приказать атаковать цель, пока она не будет уничтожена или не выйдет из зоны досягаемости. "
+      }
+    },
+    {
+      "AbilCmd": "LocustLaunchW,Execute",
+      "id": "LocustLaunchW",
+      "Icon": "btn-unit-collection-webby-locust",
+      "Name": {
+        "zhCN": "孵化蝗虫",
+        "enUS": "Hatching Locusts"
+      },
+      "Tooltip": {
+        "zhCN": "孵化并向目标位置派遣<span style=\"color: #ffff8a\">6</span>只<span style=\"color: #ffff8a\">蝗虫</span>。",
+        "enUS": "Hatches and dispatches <span style=\"color: #ffff8a\">6</span> locusts</span> to the target location."
+      }
+    },
+    {
+      "AbilCmd": "MorphToSwarmHostUprootedW,Execute",
+      "id": "SwarmHostUprootW",
+      "Icon": "btn-ability-zerg-swarmhost_unroot",
+      "Name": {
+        "zhCN": "拔根",
+        "enUS": "Uproot"
+      },
+      "Tooltip": {
+        "zhCN": "使虫群宿主拔根，允许其进行自由移动。",
+        "enUS": "Uproots the swarm host, allowing it to move freely."
+      }
+    },
+    {
+      "AbilCmd": "LocustFlyingLaunchW,Execute",
+      "id": "LocustFlyLaunchW",
+      "Icon": "btn-unit-collection-webby-locustflyer",
+      "Name": {
+        "zhCN": "孵化飞行蝗虫",
+        "enUS": "Hatching flying locusts"
+      },
+      "Tooltip": {
+        "zhCN": "孵化并向目标位置派遣<span style=\"color: #ffff8a\">4</span>只<span style=\"color: #ffff8a\">飞行蝗虫</span>。",
+        "enUS": "Hatches and dispatches <span style=\"color: #ffff8a\">4</span> single <span style=\"color: #ffff8a\">Flying Locust</span> to the target location."
+      }
+    }
+  ]
+}

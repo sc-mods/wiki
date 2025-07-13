@@ -1,0 +1,1380 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Destroyer"
+  },
+  "Description": {
+    "enUS": "Large flying unit that must consume magic to sustain its mana. Excellent at destroying enemy casters and clusters of ground forces. Initially has Spell Immunity, Devour Magic, Absorb Mana, and Orb of Annihilation. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 4,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Vision",
+  "Race": "Undead",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 900,
+  "LifeMax": 900,
+  "LifeArmorName": "-",
+  "Mover": "fly",
+  "StationaryTurningRate": 720,
+  "TurningRate": 399.9023,
+  "Radius": 0.5,
+  "SeparationRadius": 0.5,
+  "MinimapRadius": 0.5,
+  "EditorCategories": "ObjectType:Other,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "CameraFollow",
+    "PreventDestroy",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ubsp",
+  "HotkeyAlias": "ubsp",
+  "SelectAlias": "ubsp",
+  "SubgroupAlias": "ubsp",
+  "OccludeHeight": 0,
+  "TacticalAI": "ubsp",
+  "AIEvaluateAlias": "ubsp",
+  "ReviveType": "ubsp",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ubsp/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ubsp/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Classic",
+  "LifeArmorFormula": {
+    "NegativeArmorMultiplier": 0,
+    "NegativeDamageBase": 0.94,
+    "PositiveArmorMultiplier": 0,
+    "PositiveDamageRatio": 0.06
+  },
+  "LifeArmorTip": "ARMORTIP_SMALL",
+  "SpeedDisplayFlags": {
+    "CollapseBuffed": 1
+  },
+  "Acceleration": 1000,
+  "BehaviorArray": [
+    "ubsp",
+    "War3_Unit",
+    "War3_ArmyBlastRemove",
+    "CreepUnitTriggerNotice",
+    "AfakUnitRegister",
+    "undead",
+    "ACmi"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "ubsp1"
+    },
+    {
+      "Link": "ubsp2"
+    }
+  ],
+  "InnerRadius": 0.5,
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "id": "ubsp",
+  "Collide": [
+    "Flying"
+  ],
+  "AbilArray": [
+    "Amov",
+    "stop",
+    "HigherCliffMiss",
+    "Aatk",
+    "Advm",
+    "Afak",
+    "Aabs"
+  ],
+  "CostCategory": "Army",
+  "ResourceDamageLeechFilters": "-;Player,Ally,Air,Ground,Hover,HarvestableResource,Destructible,Item,Buried,Dead,Invulnerable",
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Amov/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amov",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdMove"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdPatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdHoldPos"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 2,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "FollowFilters": "-;Hover,HarvestableResource,Item",
+          "MoveFilters": "-;Hover,HarvestableResource,Item",
+          "Flags": {
+            "UpdateTarget": 1
+          },
+          "PowerupSmartPriority": 7,
+          "id": "Amov"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Move",
+        "id": "CmdMove",
+        "Icon": "renee_war3_btnmove",
+        "Name": {
+          "enUS": "Move"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Ashm",
+              "Requirements": "Hide"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop",
+          "Flags": {
+            "HoldFire": 1
+          }
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "CmdStop",
+        "Icon": "renee_war3_btnstop",
+        "Name": {
+          "enUS": "Stop"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Amov/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amov",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdMove"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdPatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdHoldPos"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 2,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "FollowFilters": "-;Hover,HarvestableResource,Item",
+          "MoveFilters": "-;Hover,HarvestableResource,Item",
+          "Flags": {
+            "UpdateTarget": 1
+          },
+          "PowerupSmartPriority": 7,
+          "id": "Amov"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,HoldPos",
+        "id": "CmdHoldPos",
+        "Icon": "renee_war3_btnholdposition",
+        "Name": {
+          "enUS": "Hold Position"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Amov/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amov",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdMove"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdPatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdHoldPos"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 2,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "FollowFilters": "-;Hover,HarvestableResource,Item",
+          "MoveFilters": "-;Hover,HarvestableResource,Item",
+          "Flags": {
+            "UpdateTarget": 1
+          },
+          "PowerupSmartPriority": 7,
+          "id": "Amov"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Patrol",
+        "id": "CmdPatrol",
+        "Icon": "renee_war3_btnpatrol",
+        "Name": {
+          "enUS": "Patrol"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Aatk/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aatk",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "Visible;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally,Hover,HarvestableResource",
+          "SupportedFilters": "-;Self,HarvestableResource,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdAttack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 0
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 5,
+          "MinAttackSpeedMultiplier": 0.2,
+          "AcquirePriority": 2,
+          "id": "Aatk"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aatk,Execute",
+        "id": "CmdAttack",
+        "Icon": "renee_war3_btnattack",
+        "Name": {
+          "enUS": "Attack"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Advm/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Undead,AbilityorEffectType:Unit",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Advm",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "Advm"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Advm",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Advm",
+              "Requirements": "Advm"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "-;Air,Ground,Hover,HarvestableResource,Missile,Destructible,Item,PreventDefeat,Buried,Dead,Invulnerable,Unstoppable"
+          ],
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit",
+                "TimeUse": 7
+              }
+            }
+          ],
+          "LevelButtonTooltip": [
+            "Advm/Ubertip2",
+            "Advm/Ubertip3",
+            "Advm/Ubertip4"
+          ],
+          "AutoCastValidatorArray": [
+            "NotHallucination"
+          ],
+          "PreEffectBehavior": {
+            "Behavior": "SuppressInvisibility",
+            "Count": 1
+          },
+          "id": "Advm",
+          "Range": [
+            4.6875
+          ],
+          "PrepTime": [
+            0.83
+          ],
+          "CastOutroTime": [
+            0.51
+          ],
+          "CursorEffect": [
+            "AdvmSearchB"
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Advm,0",
+        "id": "Advm",
+        "Icon": "renee_war3_btndevourmagic",
+        "Name": {
+          "enUS": "Devour Magic"
+        },
+        "Tooltip": {
+          "enUS": "Consumes all magical buffs from units in an area. Each unit that is devoured of magic gives the Destroyer 50 hit points and 75 mana. <br/><span style=\"color: ffcc00\">Deals 180 damage to summoned units.</span>"
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Afak/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Undead,AbilityorEffectType:Unit",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Afak",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AllowMovement": 1,
+            "AutoCast": 1,
+            "AutoCastOn": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "Afak"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Afak",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Afak",
+              "Requirements": "Afak"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "-;Player,Ally,Hover,HarvestableResource,Destructible,Item,Buried,Dead,Invulnerable,Unstoppable"
+          ],
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit"
+              },
+              "Vital": {
+                "Energy": 25
+              }
+            }
+          ],
+          "LevelButtonTooltip": [
+            "Afak/Ubertip2",
+            "Afak/Ubertip3",
+            "Afak/Ubertip4"
+          ],
+          "AutoCastValidatorArray": [
+            "NotHallucination"
+          ],
+          "PreEffectBehavior": {
+            "Behavior": "SuppressInvisibility",
+            "Count": 1
+          },
+          "id": "Afak",
+          "Range": [
+            500
+          ],
+          "Alignment": "Negative",
+          "Arc": 360
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 25,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Afak,0",
+        "id": "Afak",
+        "Icon": "renee_war3_btnorbofdeathon",
+        "Name": {
+          "enUS": "Orb of Annihilation"
+        },
+        "Tooltip": {
+          "enUS": "Adds 20 bonus damage to the Destroyer's attack and causes his attacks to do area of effect damage."
+        },
+        "Hotkey": "O"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Aabs/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Undead,AbilityorEffectType:Unit",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aabs",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "AabsMissile"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Aabs",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Aabs",
+              "Requirements": "Aabs"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "HasEnergy;Ally,Neutral,Enemy,Hover,HarvestableResource,Destructible,Item,Buried,Dead,Unstoppable"
+          ],
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit"
+              }
+            }
+          ],
+          "LevelButtonTooltip": [
+            "Aabs/Ubertip2",
+            "Aabs/Ubertip3",
+            "Aabs/Ubertip4"
+          ],
+          "AutoCastValidatorArray": [
+            "NotHallucination"
+          ],
+          "PreEffectBehavior": {
+            "Behavior": "SuppressInvisibility",
+            "Count": 1
+          },
+          "id": "Aabs",
+          "Range": [
+            7.0312
+          ],
+          "PrepTime": [
+            0.83
+          ],
+          "CastOutroTime": [
+            0.51
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aabs,0",
+        "id": "Aabs",
+        "Icon": "renee_war3_btnabsorbmagic",
+        "Name": {
+          "enUS": "Absorb Mana"
+        },
+        "Tooltip": {
+          "enUS": "Takes all mana from one of your units and gives it to the Destroyer."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "ACmi",
+        "Icon": "renee_war3_btngenericspellimmunity",
+        "Name": {
+          "enUS": "Spell Immunity"
+        },
+        "Tooltip": {
+          "enUS": "Renders this unit immune to all spells."
+        }
+      }
+    ]
+  },
+  "Attributes": [
+    "Light"
+  ],
+  "KillXP": 115,
+  "Subtitle": "UndeadClass",
+  "CostResource": {
+    "Minerals": 300,
+    "Vespene": 85
+  },
+  "Food": -5,
+  "KillResource": {
+    "Minerals": 42
+  },
+  "EnergyMax": 400,
+  "LifeArmor": 3,
+  "Speed": 2.5,
+  "RepairTime": 60,
+  "SightBonus": [
+    10.9375,
+    7.8125
+  ],
+  "EnergyRegenRate": -3,
+  "LifeRegenRateCreep": 2,
+  "SubgroupPriority": 8,
+  "Height": 1.875,
+  "PlaneArray": [
+    "Air"
+  ],
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "TechAliasArray": [
+    "uobs"
+  ],
+  "HotkeyCategory": "UI/UNDEAD",
+  "defType": "SMALL",
+  "Icon": "renee_war3_btndestroyer",
+  "LifeArmorIcon": "infocard-armor-small.tga",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Undead",
+      "MinScanRange": 3.9062,
+      "TargetFilters": "",
+      "Range": 3.5156,
+      "RangeSlop": 1.9531,
+      "Period": 1.35,
+      "DamagePoint": 0.633,
+      "Backswing": 0.337,
+      "Effect": "ubsp1Switch",
+      "id": "ubsp1",
+      "parent": "msplash",
+      "atkType": "MAGIC",
+      "class": "CWeaponLegacy",
+      "Icon": "infocard-attack-magic.tga",
+      "Name": {
+        "enUS": "Type: <span style=\"color: ffcc00\">Magic</span>"
+      },
+      "Amount": 19,
+      "Kind": "Ranged"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "War3_Unit",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "War3_Unit"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "War3_ArmyBlastRemove",
+      "Icon": "renee_war3_btntemp",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "id": "CreepUnitTriggerNotice",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "CreepUnitTriggerNotice"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "AfakUnitRegister",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "AfakUnitRegister"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "undead",
+      "Icon": "btn-missing-kaeo",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "id": "ACmi",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Spell Immunity"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "Amov",
+      "Name": {
+        "enUS": "Move"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "HigherCliffMiss",
+      "Name": {
+        "enUS": "Higher Cliff Miss"
+      }
+    },
+    {
+      "id": "Aatk",
+      "Name": {
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "Advm",
+      "Name": {
+        "enUS": "Devour Magic"
+      }
+    },
+    {
+      "id": "Afak",
+      "Name": {
+        "enUS": "Orb of Annihilation"
+      }
+    },
+    {
+      "id": "Aabs",
+      "Name": {
+        "enUS": "Absorb Mana"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "Rura",
+    "ubsp",
+    "Aave",
+    "Rucr",
+    "Rusp",
+    "Rguv",
+    "ubsp",
+    "ubspCount"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "uobs"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "Amov,Move",
+      "id": "CmdMove",
+      "Icon": "renee_war3_btnmove",
+      "Name": {
+        "enUS": "Move"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "CmdStop",
+      "Icon": "renee_war3_btnstop",
+      "Name": {
+        "enUS": "Stop"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies."
+      }
+    },
+    {
+      "AbilCmd": "Amov,HoldPos",
+      "id": "CmdHoldPos",
+      "Icon": "renee_war3_btnholdposition",
+      "Name": {
+        "enUS": "Hold Position"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers."
+      }
+    },
+    {
+      "AbilCmd": "Amov,Patrol",
+      "id": "CmdPatrol",
+      "Icon": "renee_war3_btnpatrol",
+      "Name": {
+        "enUS": "Patrol"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior."
+      }
+    },
+    {
+      "AbilCmd": "Aatk,Execute",
+      "id": "CmdAttack",
+      "Icon": "renee_war3_btnattack",
+      "Name": {
+        "enUS": "Attack"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed."
+      }
+    },
+    {
+      "AbilCmd": "Advm,0",
+      "id": "Advm",
+      "Icon": "renee_war3_btndevourmagic",
+      "Name": {
+        "enUS": "Devour Magic"
+      },
+      "Tooltip": {
+        "enUS": "Consumes all magical buffs from units in an area. Each unit that is devoured of magic gives the Destroyer 50 hit points and 75 mana. <br/><span style=\"color: ffcc00\">Deals 180 damage to summoned units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "Afak,0",
+      "id": "Afak",
+      "Icon": "renee_war3_btnorbofdeathon",
+      "Name": {
+        "enUS": "Orb of Annihilation"
+      },
+      "Tooltip": {
+        "enUS": "Adds 20 bonus damage to the Destroyer's attack and causes his attacks to do area of effect damage."
+      }
+    },
+    {
+      "AbilCmd": "Aabs,0",
+      "id": "Aabs",
+      "Icon": "renee_war3_btnabsorbmagic",
+      "Name": {
+        "enUS": "Absorb Mana"
+      },
+      "Tooltip": {
+        "enUS": "Takes all mana from one of your units and gives it to the Destroyer."
+      }
+    }
+  ]
+}

@@ -1,0 +1,769 @@
+{
+  "Name": "Gestalt Air Force Command",
+  "Description": "Air Force Command. Can link nearby bomber platforms as Base Station does. Can be installed with nuclear bomber and ion cannon facilities. Provide upgrades for drop pods and buildings.",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Gestalt",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1500,
+  "LifeMax": 1500,
+  "LifeArmorName": "Terran Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.625,
+  "SeparationRadius": 1.625,
+  "MinimapRadius": 1.625,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Coop",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "Invulnerable",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "GestaltTower",
+  "HotkeyAlias": "GestaltTower",
+  "SelectAlias": "GestaltTower",
+  "SubgroupAlias": "GestaltTower",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "GestaltTower",
+  "AIEvaluateAlias": "GestaltTower",
+  "ReviveType": "GestaltTower",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "GestaltTower/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "GestaltTower/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 315,
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "Sight": 9,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 100,
+    "Vespene": 100
+  },
+  "RepairTime": 50,
+  "AttackTargetPriority": 11,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1,
+            "Passive": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "QueueSize": 5,
+          "id": "que5"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Upgrade": "GestaltTowerSateliteGet",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GestaltZResearchGestaltSatellite",
+            "Requirements": "GestaltTowerSateliteGet2"
+          },
+          "Resource": {
+            "Minerals": 2000
+          },
+          "Time": 60,
+          "Upgrade": "GestaltTowerSateliteGet"
+        },
+        "Time": 60,
+        "Cost": {
+          "Minerals": 2000,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltTowerResearch,Research2",
+        "id": "GestaltZResearchGestaltSatellite",
+        "Icon": "btn-upgrade-urun-carrierhero-orbitalsupport",
+        "Tooltip": "Research Gestalt Satellite. Install a orbitall radar to Air Force Command and enable it use top panel to call down continuous ion cannon strike at target location.",
+        "Name": "Research Gestalt Satellite",
+        "Hotkey": "V"
+      },
+      {
+        "Upgrade": "GestaltTowerPlatformGet",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GestaltZResearchProjectGestalt",
+            "Requirements": "GestaltTowerPlatformGet2"
+          },
+          "Resource": {
+            "Minerals": 2000
+          },
+          "Time": 60,
+          "Upgrade": "GestaltTowerPlatformGet"
+        },
+        "Time": 60,
+        "Cost": {
+          "Minerals": 2000,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltTowerResearch,Research1",
+        "id": "GestaltZResearchProjectGestalt",
+        "Icon": "btn-ability-gestalt-nukeresearch",
+        "Tooltip": "Research Project Gestalt. Allow a nuclear bomber to takeoff from Air Force Command. Use top panel: Nuclear Starburst to drop a nuclear warhead at target location, reducing everything to dust around the target area.",
+        "Name": "Research Project Gestalt",
+        "Hotkey": "N"
+      },
+      {
+        "Upgrade": "GestaltElectromagneticShielding",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GestaltResearchElectromagneticShielding",
+            "Requirements": "GestaltDropPodUnitRq32323"
+          },
+          "Resource": {
+            "Minerals": 1500
+          },
+          "Time": 60,
+          "Upgrade": "GestaltElectromagneticShielding"
+        },
+        "Time": 60,
+        "Cost": {
+          "Minerals": 1500,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltEngineeringBayResearch,Research28",
+        "id": "GestaltResearchElectromagneticShielding",
+        "Icon": "btn-ability-stetmann-ultraliskmechanicalassimilation",
+        "Tooltip": "Enable Storm Drop Pod to send out EMP after landed, grant nearby ally units 500 shield pts, and last 10 sec.",
+        "Name": "Research Electromagnetic Shielding",
+        "Hotkey": "S"
+      },
+      {
+        "Upgrade": "GestaltNeuralGas",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GestaltResearchNeuralGas",
+            "Requirements": "GestaltDropPodUnitRq323232"
+          },
+          "Resource": {
+            "Minerals": 1500
+          },
+          "Time": 60,
+          "Upgrade": "GestaltNeuralGas"
+        },
+        "Time": 60,
+        "Cost": {
+          "Minerals": 1500,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltEngineeringBayResearch,Research29",
+        "id": "GestaltResearchNeuralGas",
+        "Icon": "btn-progression-mengsk-11-psychoactivepayload",
+        "Tooltip": "Landing the Storm Drop Pod will emit nerve gas for 5 seconds. The nerve gas will cause 10 points of damage to enemy units every second and cause the affected units to kill each other.",
+        "Name": "Research Neural Gas",
+        "Hotkey": "F"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "Passive",
+        "id": "GestaltInformationCenter",
+        "Icon": "btn-upgrade-mengsk-ghostacademy-guidedtacticalstrike",
+        "Tooltip": "Gestalt Air Force Command and Gestalt Base Station serve as information hub and can provide energy field for Gestalt structures. <br/>Up to 5 Gestalt Bomber Platforms within the energy field can be mobilized by tactic squads via airstrike commands. <br/>Allow nearby Gestalt combat units to switch weapon or recruit inside energy field.",
+        "Name": "Information Center",
+        "Hotkey": ""
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/GestaltTowerPlaneBack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltTowerPlaneBack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "TransientPreferred": 1
+          },
+          "Effect": [
+            "GestaltTowerPlaneBack"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltTowerPlaneBack",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "ImmortalBarrierBase"
+            }
+          },
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 15
+              }
+            }
+          ],
+          "id": "GestaltTowerPlaneBack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltTowerPlaneBack,Execute",
+        "id": "GestaltEmergencyRecall",
+        "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+        "Tooltip": "Order all tactic bombers to return Bomber Platform and cancel all airstrike order.",
+        "Name": "Emergency Recall",
+        "Hotkey": "R"
+      },
+      {
+        "Upgrade": "GestaltUniverseAlloy",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GestaltResearchUniverseAlloy",
+            "Requirements": "GestaltDropPodUnitRq32323232"
+          },
+          "Resource": {
+            "Minerals": 1500
+          },
+          "Time": 60,
+          "Upgrade": "GestaltUniverseAlloy"
+        },
+        "Time": 60,
+        "Cost": {
+          "Minerals": 1500,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltEngineeringBayResearch,Research26",
+        "id": "GestaltResearchUniverseAlloy",
+        "Icon": "btn-upgrade-terran-nova-terrandefendermodestructureattack",
+        "Tooltip": "Increase Gestalt Structure 350 health and 2 armor. Gestalt Structure will also self repair after combat.",
+        "Name": "Research Universe Alloy",
+        "Hotkey": "P"
+      },
+      {
+        "Upgrade": "GestaltForceofMind",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ArtanisForceOfWill42",
+            "Requirements": "GestaltDropPodUnitRq3232323"
+          },
+          "Resource": {
+            "Minerals": 1500
+          },
+          "Time": 60,
+          "Upgrade": "GestaltForceofMind"
+        },
+        "Time": 60,
+        "Cost": {
+          "Minerals": 1500,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltEngineeringBayResearch,Research27",
+        "id": "GestaltResearchForceofMind",
+        "Icon": "btn-ability-spectre-psionicshadow",
+        "Tooltip": "Enables Gestalt Base Station to deploy a force field, granting all allied units and structures nearby invulnerability except itself. Once Gestalt Base Station takes damage from enemy units, the force field will be shattered and redeployed in 30 seconds.",
+        "Name": "Research Force of Mind",
+        "Hotkey": "H"
+      }
+    ]
+  },
+  "Footprint": "Footprint3x3CreepNormalContour",
+  "PlacementFootprint": "Footprint3x3CreepNormal",
+  "SubgroupPriority": 3,
+  "GlossaryPriority": 60,
+  "HotkeyCategory": "Unit/Category/TerranMarauder",
+  "KillDisplay": "Never",
+  "Food": 70,
+  "id": "GestaltTower",
+  "Icon": "btn-building-gestalt-tower",
+  "LifeArmorIcon": "btn-upgrade-terran-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "GestaltTowerPlatformGet"
+    },
+    {
+      "id": "GestaltTowerSateliteGet"
+    },
+    {
+      "id": "GestaltPowerSource2",
+      "Icon": "btn-building-protoss-pylon"
+    },
+    {
+      "id": "GestaltAirportConnectSearch2"
+    },
+    {
+      "id": "GestaltStationChangeEquipmentSearchBig"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "que5",
+      "Name": "Queue (5)"
+    },
+    {
+      "id": "GestaltTowerResearch"
+    },
+    {
+      "id": "GestaltTowerPlaneBack"
+    },
+    {
+      "id": "GestaltEngineeringBayResearch",
+      "Name": "GestaltEngineeringBayResearch"
+    }
+  ],
+  "$Upgrades": [
+    "GestaltTower",
+    "GestaltTower"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [
+    "GestaltTowerSateliteGet",
+    "GestaltTowerPlatformGet",
+    "GestaltElectromagneticShielding",
+    "GestaltNeuralGas",
+    "GestaltUniverseAlloy",
+    "GestaltForceofMind"
+  ],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "GestaltTowerResearch,Research2",
+      "id": "GestaltZResearchGestaltSatellite",
+      "Icon": "btn-upgrade-urun-carrierhero-orbitalsupport",
+      "Tooltip": "Research Gestalt Satellite. Install a orbitall radar to Air Force Command and enable it use top panel to call down continuous ion cannon strike at target location.",
+      "Name": "Research Gestalt Satellite"
+    },
+    {
+      "AbilCmd": "GestaltTowerResearch,Research1",
+      "id": "GestaltZResearchProjectGestalt",
+      "Icon": "btn-ability-gestalt-nukeresearch",
+      "Tooltip": "Research Project Gestalt. Allow a nuclear bomber to takeoff from Air Force Command. Use top panel: Nuclear Starburst to drop a nuclear warhead at target location, reducing everything to dust around the target area.",
+      "Name": "Research Project Gestalt"
+    },
+    {
+      "AbilCmd": "GestaltEngineeringBayResearch,Research28",
+      "id": "GestaltResearchElectromagneticShielding",
+      "Icon": "btn-ability-stetmann-ultraliskmechanicalassimilation",
+      "Tooltip": "Enable Storm Drop Pod to send out EMP after landed, grant nearby ally units 500 shield pts, and last 10 sec.",
+      "Name": "Research Electromagnetic Shielding"
+    },
+    {
+      "AbilCmd": "GestaltEngineeringBayResearch,Research29",
+      "id": "GestaltResearchNeuralGas",
+      "Icon": "btn-progression-mengsk-11-psychoactivepayload",
+      "Tooltip": "Landing the Storm Drop Pod will emit nerve gas for 5 seconds. The nerve gas will cause 10 points of damage to enemy units every second and cause the affected units to kill each other.",
+      "Name": "Research Neural Gas"
+    },
+    {
+      "AbilCmd": "GestaltTowerPlaneBack,Execute",
+      "id": "GestaltEmergencyRecall",
+      "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+      "Tooltip": "Order all tactic bombers to return Bomber Platform and cancel all airstrike order.",
+      "Name": "Emergency Recall"
+    },
+    {
+      "AbilCmd": "GestaltEngineeringBayResearch,Research26",
+      "id": "GestaltResearchUniverseAlloy",
+      "Icon": "btn-upgrade-terran-nova-terrandefendermodestructureattack",
+      "Tooltip": "Increase Gestalt Structure 350 health and 2 armor. Gestalt Structure will also self repair after combat.",
+      "Name": "Research Universe Alloy"
+    },
+    {
+      "AbilCmd": "GestaltEngineeringBayResearch,Research27",
+      "id": "GestaltResearchForceofMind",
+      "Icon": "btn-ability-spectre-psionicshadow",
+      "Tooltip": "Enables Gestalt Base Station to deploy a force field, granting all allied units and structures nearby invulnerability except itself. Once Gestalt Base Station takes damage from enemy units, the force field will be shattered and redeployed in 30 seconds.",
+      "Name": "Research Force of Mind"
+    }
+  ]
+}

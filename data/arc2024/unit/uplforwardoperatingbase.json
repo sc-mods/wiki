@@ -1,0 +1,801 @@
+{
+  "Name": "Forward Operating Base",
+  "Description": "Support Unit Production<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- <b>Infantry Officer</b><br/>- <b>CSV</b>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "UPL",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1250,
+  "LifeMax": 1250,
+  "LifeArmorName": "UPL Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.5,
+  "SeparationRadius": 1.5,
+  "MinimapRadius": 1.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UPLForwardOperatingBase",
+  "HotkeyAlias": "UPLForwardOperatingBase",
+  "SelectAlias": "UPLForwardOperatingBase",
+  "SubgroupAlias": "UPLForwardOperatingBase",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UPLForwardOperatingBase",
+  "AIEvaluateAlias": "UPLForwardOperatingBase",
+  "ReviveType": "UPLForwardOperatingBase",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UPLForwardOperatingBase/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UPLForwardOperatingBase/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "Sight": 9,
+  "AttackTargetPriority": 11,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "SelectBuilder",
+        "id": "UPLSelectBuilder",
+        "Tooltip": "Selects the unit constructing this structure.",
+        "Name": "Select Builder",
+        "Hotkey": "U"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "QueueSize": 5,
+          "id": "que5"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLTrainCSV"
+          },
+          "Unit": [
+            "CSV"
+          ],
+          "Time": 55
+        },
+        "Unit": [
+          "CSV"
+        ],
+        "Time": 55,
+        "Cost": {
+          "Minerals": 225,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -6
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLManufacturingFacilityTrain,Train5",
+        "id": "UPLTrainCSV",
+        "Icon": "btn-unit-upl-csv",
+        "Tooltip": "Mobile Operations Center<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units</span>",
+        "Name": "Build CSV",
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "InfantryOfficer",
+            "Requirements": "InfantryOfficerRequirement"
+          },
+          "Unit": [
+            "InfantryOfficer"
+          ],
+          "Time": 60
+        },
+        "Unit": [
+          "InfantryOfficer"
+        ],
+        "Time": 60,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBilletTrain,Train7",
+        "id": "InfantryOfficer",
+        "Icon": "btn-unit-upl-infantryofficer",
+        "Tooltip": "Company Commander<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units</span> <br/>Grants detection to all transport units and turrets when inside. Condors grants 25% wider detection range. <br/><span style=\"color: #FFE303\">Detector</span>",
+        "Name": "Infantry Officer",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rally,Rally1",
+        "id": "Rally",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Tooltip": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+        "Name": "Set Rally Point",
+        "Hotkey": "Y"
+      },
+      {
+        "Upgrade": "CSVSupplyLineManagement",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1
+            },
+            "DefaultButtonFace": "ResearchCSVSupplyLineManagement",
+            "Requirements": "LearnCSVSupplyLineManagement"
+          },
+          "Resource": {
+            "Minerals": 200,
+            "Vespene": 200
+          },
+          "Time": 175,
+          "Upgrade": "CSVSupplyLineManagement"
+        },
+        "Time": 175,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLForwardOperatingBaseResearch,Research2",
+        "id": "ResearchCSVSupplyLineManagement",
+        "Icon": "btn-ability-upl-supplymanagement",
+        "Tooltip": "When the CSV is deployed nearby mechanical vehicles gain <span style=\"color: #80FFFF\"><b>25</b>%</span> increased weapon speed",
+        "Name": "Research Supply Line Management",
+        "Hotkey": "V"
+      },
+      {
+        "Upgrade": "InfantryOfficerAuraUpgrade",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ResearchInfantryOfficerAuraUpgrade",
+            "Requirements": "LearnInfantryOfficerAuraUpgrade"
+          },
+          "Resource": {
+            "Minerals": 175,
+            "Vespene": 75
+          },
+          "Time": 130,
+          "Upgrade": "InfantryOfficerAuraUpgrade"
+        },
+        "Time": 130,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLForwardOperatingBaseResearch,Research1",
+        "id": "OfficerAuraUpgrade",
+        "Icon": "btn-ability-upl-infantryofficercharge",
+        "Tooltip": "Increase Inspiration Aura range by 25%",
+        "Name": "Infantry Officer Aura Upgrade",
+        "Hotkey": "X"
+      },
+      {
+        "Upgrade": "CSVPersonnelCarrier",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1
+            },
+            "DefaultButtonFace": "ResearchCSVPersonnelCarrier",
+            "Requirements": "LearnCSVPersonnelCarrier"
+          },
+          "Resource": {
+            "Minerals": 175,
+            "Vespene": 75
+          },
+          "Time": 75,
+          "Upgrade": "CSVPersonnelCarrier"
+        },
+        "Time": 75,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLForwardOperatingBaseResearch,Research3",
+        "id": "ResearchCSVPersonnelCarrier",
+        "Icon": "btn-ability-upl-personnelcarrier",
+        "Tooltip": "Allows infantry to load into the CSV.<br/>Infantry loaded into a CSV are healed by <span style=\"color: #f078ff\"><b>5</b> life per <b>1</b> energy.</span>",
+        "Name": "Research Personnel Carrier",
+        "Hotkey": "C"
+      },
+      {
+        "Upgrade": "Z1EnergyUpgrade",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ResearchZ1EnergyUpgrade",
+            "Requirements": "LearnZ1EnergyUpgrade222"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 100
+          },
+          "Time": 45,
+          "Upgrade": "Z1EnergyUpgrade"
+        },
+        "Time": 45,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLManufacturingFacilityResearch,Research5",
+        "id": "ResearchZ1EnergyUpgrade",
+        "Icon": "btn-upgrade-nova-equipment-jetpack",
+        "Tooltip": "Research Improved Z1 Energy Capacitors. Increases the starting and maximum energy of **Z1** by <span style=\"color: #80FFFF\">25</span>",
+        "Name": "Research Improved Z1 Energy Capacitors",
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLTrainZ2"
+          },
+          "Unit": [
+            "UPLZ2"
+          ],
+          "Time": 30
+        },
+        "Unit": [
+          "UPLZ2"
+        ],
+        "Time": 30,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 300,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -6
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLManufacturingFacilityTrain,Train22",
+        "id": "UPLTrainZ2",
+        "Icon": "btn-unit-upl-z2",
+        "Tooltip": "Z-2 Enhanced Battle Suit<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units</span>",
+        "Name": "Build Z2"
+      },
+      {
+        "Upgrade": "InfantryMedkit",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1
+            },
+            "DefaultButtonFace": "InfantryMedkit@Research",
+            "Requirements": "InfantryMedkit@Learn"
+          },
+          "Resource": {
+            "Minerals": 200,
+            "Vespene": 200
+          },
+          "Time": 150,
+          "Upgrade": "InfantryMedkit"
+        },
+        "Time": 150,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBilletResearch,Research3",
+        "id": "InfantryMedkit@Research",
+        "Icon": "btn-ability-upl-medkit",
+        "Tooltip": "Allows some of the infantry to use a Medkit when they have less than 25% of their life, which will heal <span style=\"color: #FFFF80\"><b>45</b></span> life over <span style=\"color: #FFFF80\"><b>8</b></span>. Once activated it will be on cooldown for <b>180</b>.",
+        "Name": "Research Personal Medkit",
+        "Hotkey": "Z"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLTrainZ1"
+          },
+          "Unit": [
+            "Z1"
+          ],
+          "Time": 32
+        },
+        "Unit": [
+          "Z1"
+        ],
+        "Time": 32,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 125,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLManufacturingFacilityTrain,Train21",
+        "id": "UPLTrainZ1",
+        "Icon": "btn-unit-upl-z1",
+        "Tooltip": "Enhanced Infantry<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units</span>",
+        "Name": "Build Z-1",
+        "Hotkey": "W"
+      }
+    ]
+  },
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 3,
+  "GlossaryCategory": "Unit/Category/0UPLBuildings",
+  "GlossaryPriority": 21,
+  "HotkeyCategory": "Unit/Category/UPLUnits",
+  "id": "UPLForwardOperatingBase",
+  "Facing": 315,
+  "LifeArmor": 1,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 150,
+    "Vespene": 50
+  },
+  "RepairTime": 50,
+  "Footprint": "Footprint4x4Contour",
+  "PlacementFootprint": "Footprint4x4",
+  "ScoreMake": 200,
+  "ScoreKill": 200,
+  "TechAliasArray": [
+    "Alias_UPLForwardOperatingBase"
+  ],
+  "TechTreeProducedUnitArray": [
+    "InfantryOfficer",
+    "CSV"
+  ],
+  "DeathTime": 1,
+  "DeadFootprint": "Footprint4x4Contour",
+  "Icon": "btn-building-upl-uplforwardoperatingbase",
+  "LifeArmorIcon": "btn-upgrade-upl-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "UnderConstruction"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "que5",
+      "Name": "Queue (5)"
+    },
+    {
+      "id": "Rally",
+      "Name": "Rally"
+    },
+    {
+      "id": "UPLBilletTrain",
+      "Name": "Train"
+    },
+    {
+      "id": "UPLForwardOperatingBaseResearch",
+      "Name": "Research"
+    },
+    {
+      "id": "UPLBilletResearch",
+      "Name": "Research"
+    },
+    {
+      "id": "UPLManufacturingFacilityTrain",
+      "Name": "Train"
+    },
+    {
+      "id": "UPLManufacturingFacilityResearch",
+      "Name": "Research"
+    }
+  ],
+  "$Upgrades": [
+    "IsUPLForwardOperatingBase",
+    "UPLForwardOperatingBase",
+    "UPLBuild",
+    "UPLForwardOperatingBase",
+    "UPLForwardOperatingBaseSplat",
+    "UPLForwardOperatingBase",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "CSV",
+    "InfantryOfficer",
+    "UPLZ2",
+    "Z1"
+  ],
+  "$Research": [
+    "CSVSupplyLineManagement",
+    "InfantryOfficerAuraUpgrade",
+    "CSVPersonnelCarrier",
+    "Z1EnergyUpgrade",
+    "InfantryMedkit"
+  ],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "MiningDrone"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "UPLManufacturingFacilityTrain,Train5",
+      "id": "UPLTrainCSV",
+      "Icon": "btn-unit-upl-csv",
+      "Tooltip": "Mobile Operations Center<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units</span>",
+      "Name": "Build CSV"
+    },
+    {
+      "AbilCmd": "UPLBilletTrain,Train7",
+      "id": "InfantryOfficer",
+      "Icon": "btn-unit-upl-infantryofficer",
+      "Tooltip": "Company Commander<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units</span> <br/>Grants detection to all transport units and turrets when inside. Condors grants 25% wider detection range. <br/><span style=\"color: #FFE303\">Detector</span>",
+      "Name": "Infantry Officer"
+    },
+    {
+      "AbilCmd": "Rally,Rally1",
+      "id": "Rally",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Tooltip": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+      "Name": "Set Rally Point"
+    },
+    {
+      "AbilCmd": "UPLForwardOperatingBaseResearch,Research2",
+      "id": "ResearchCSVSupplyLineManagement",
+      "Icon": "btn-ability-upl-supplymanagement",
+      "Tooltip": "When the CSV is deployed nearby mechanical vehicles gain <span style=\"color: #80FFFF\"><b>25</b>%</span> increased weapon speed",
+      "Name": "Research Supply Line Management"
+    },
+    {
+      "AbilCmd": "UPLForwardOperatingBaseResearch,Research1",
+      "id": "OfficerAuraUpgrade",
+      "Icon": "btn-ability-upl-infantryofficercharge",
+      "Tooltip": "Increase Inspiration Aura range by 25%",
+      "Name": "Infantry Officer Aura Upgrade"
+    },
+    {
+      "AbilCmd": "UPLForwardOperatingBaseResearch,Research3",
+      "id": "ResearchCSVPersonnelCarrier",
+      "Icon": "btn-ability-upl-personnelcarrier",
+      "Tooltip": "Allows infantry to load into the CSV.<br/>Infantry loaded into a CSV are healed by <span style=\"color: #f078ff\"><b>5</b> life per <b>1</b> energy.</span>",
+      "Name": "Research Personnel Carrier"
+    },
+    {
+      "AbilCmd": "UPLManufacturingFacilityResearch,Research5",
+      "id": "ResearchZ1EnergyUpgrade",
+      "Icon": "btn-upgrade-nova-equipment-jetpack",
+      "Tooltip": "Research Improved Z1 Energy Capacitors. Increases the starting and maximum energy of **Z1** by <span style=\"color: #80FFFF\">25</span>",
+      "Name": "Research Improved Z1 Energy Capacitors"
+    },
+    {
+      "AbilCmd": "UPLManufacturingFacilityTrain,Train22",
+      "id": "UPLTrainZ2",
+      "Icon": "btn-unit-upl-z2",
+      "Tooltip": "Z-2 Enhanced Battle Suit<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units</span>",
+      "Name": "Build Z2"
+    },
+    {
+      "AbilCmd": "UPLBilletResearch,Research3",
+      "id": "InfantryMedkit@Research",
+      "Icon": "btn-ability-upl-medkit",
+      "Tooltip": "Allows some of the infantry to use a Medkit when they have less than 25% of their life, which will heal <span style=\"color: #FFFF80\"><b>45</b></span> life over <span style=\"color: #FFFF80\"><b>8</b></span>. Once activated it will be on cooldown for <b>180</b>.",
+      "Name": "Research Personal Medkit"
+    },
+    {
+      "AbilCmd": "UPLManufacturingFacilityTrain,Train21",
+      "id": "UPLTrainZ1",
+      "Icon": "btn-unit-upl-z1",
+      "Tooltip": "Enhanced Infantry<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units</span>",
+      "Name": "Build Z-1"
+    }
+  ]
+}

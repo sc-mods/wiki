@@ -1,0 +1,2829 @@
+{
+  "Name": "Precursor Squad",
+  "Description": "Squad composed of Precursor agents. Precursor Squad can continuously and stably deal damage to enemies. Can use Annihilation Command. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Gestalt",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 130,
+  "LifeMax": 130,
+  "LifeArmorName": "Terran Infantry Armor",
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Coop",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "GestaltZForerunnerSquadLeader",
+  "HotkeyAlias": "GestaltZForerunnerSquadLeader",
+  "SelectAlias": "GestaltZForerunnerSquadMember",
+  "SubgroupAlias": "GestaltZForerunnerSquadMember",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "GestaltZForerunnerSquadLeader",
+  "AIEvaluateAlias": "GestaltZForerunnerSquadLeader",
+  "ReviveType": "GestaltZForerunnerSquadLeader",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33,
+      "Turn": 33
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "GestaltZForerunnerSquadLeader/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "GestaltZForerunnerSquadLeader/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Campaign",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Light",
+    "Biological",
+    "Heroic"
+  ],
+  "LifeArmor": 4,
+  "Speed": 2.25,
+  "Acceleration": 1000,
+  "LateralAcceleration": 46.0625,
+  "Sight": 10,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 300
+  },
+  "RepairTime": 20,
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltZForerunnerSquadSkillStunGrenade",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Gestalt",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadSkillStunGrenade",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "GestaltZForerunnerSquadStunGrenadeLaunchMissile"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZForerunnerSquadSkillStunGrenade",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadSkillStunGrenade"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 20
+              }
+            }
+          ],
+          "Range": [
+            6
+          ],
+          "Arc": 9.9975,
+          "UninterruptibleArray": {
+            "Prep": 1,
+            "Cast": 1
+          },
+          "CursorEffect": [
+            "GestaltZForerunnerSquadStunGrenadeSearchArea"
+          ],
+          "id": "GestaltZForerunnerSquadSkillStunGrenade"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadSkillStunGrenade,Execute",
+        "id": "GestaltZForerunnerSquadSkillStunGrenade",
+        "Icon": "btn-upgrade-nova-btn-upgrade-nova-flashgrenade",
+        "Tooltip": "Squad Leader will throw a Shock Grenade. Reduce 50% atk speed and movement speed of enemy units at target area.",
+        "Name": "Shock Grenade",
+        "Hotkey": "Q"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltZForerunnerSquadSkillMK10Armor",
+        "Icon": "btn-upgrade-mengsk-engineeringbay-dominionarmorlevel3",
+        "Tooltip": "Precursor Squad are equipped with heavy armor. Squad members gain 40 additional health.",
+        "Name": "Heavy Armor",
+        "Hotkey": ""
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltZForerunnerSquadGedgetTPA",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadGedgetTPA",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0
+          },
+          "Effect": [
+            "GestaltZForerunnerSquadGedgetTPASet"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZForerunnerSquadGedgetTPA",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerRaiderSquadGedgetTPA",
+              "Requirements": "GestaltZSquadeVeterancy1Get23"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 18
+              }
+            }
+          ],
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "id": "GestaltZForerunnerSquadGedgetTPA"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadGedgetTPA,Execute",
+        "id": "GestaltZForerunnerRaiderSquadGedgetTPA",
+        "Icon": "btn-upgrade-karass-blinkcore",
+        "Tooltip": "Grant each Squad member additional 110 health, 4 armor, and 15% dmg reduction. <br/>Active skill will let the Squad blink to target direction.",
+        "Name": "Terminator EXO Teleport",
+        "Hotkey": "Z"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "AbilCmd": "GestaltZForerunnerSquadGedgetMedicalProbe,Execute",
+        "id": "GestaltZForerunnerSquadGedgetMedicalProbe",
+        "Icon": "btn-upgrade-terran-reapercombatdrugs",
+        "Tooltip": "Precursor Squad gain detection and group healing at rate of 6 per sec.",
+        "Name": "Medical Detector",
+        "Hotkey": "X"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltZForerunnerSquadGedgetMechaArm",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadGedgetMechaArm",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 0.5,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Visible;Neutral,Enemy",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AutoCast": 1,
+            "AutoCastOffOwnerLeave": 1,
+            "ReExecutable": 1,
+            "Smart": 1,
+            "PassengerAcquirePassengers": 1
+          },
+          "Effect": [
+            "GestaltZForerunnerSquadGedgetMechaArmCreateHealer"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Repair",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 0,
+            "Prep": 0,
+            "Cast": 0,
+            "Channel": 0
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "RequiresRepairTarget",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadGedgetMechaArm",
+              "Requirements": "GestaltZSquadeVeterancy1Get242"
+            }
+          },
+          "FollowRange": 5,
+          "Alignment": "Positive",
+          "AbilSetId": "Repair",
+          "TargetFilters": [
+            "Mechanical,Visible;Self,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden"
+          ],
+          "Range": [
+            1
+          ],
+          "Arc": 360,
+          "AutoCastRange": 2.5,
+          "InheritAttackPriorityArray": {
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "id": "GestaltZForerunnerSquadGedgetMechaArm"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadGedgetMechaArm,Execute",
+        "id": "GestaltZForerunnerSquadGedgetMechaArm",
+        "Icon": "btn-upgrade-karass-colossusspeed",
+        "Tooltip": "Increase movement by 1 and atk speed by 50% of mechanic units near Precursor Squad. <br/>Active skill will let the Squad to repair a mechanic unit at rate of 50 per sec.",
+        "Name": "Mechanical Maintenance",
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "GestaltRanking",
+        "Icon": "btn-upgrade-shadowswordspectre-permanentcloak",
+        "Tooltip": "Gestalt Zero's tactic squad can gain experience in combat to achieve higher ranking, gaining additional abilities and have slightly improved stats. Squad will gain experience equal to twice of the supply cost for every enemy unit killed nearby. If a tactic squad dealt the killing blow, it will gain additional 100% experience.",
+        "Name": "Gestalt Ranking"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "Submenu",
+        "SubmenuCardId": "0002",
+        "id": "GestaltZSquadChangeEquipment",
+        "Icon": "btn-ability-terran-raynorplasmagun-color",
+        "Tooltip": "Switch the weapon of this tactic squad.",
+        "Name": "Switch Armory",
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/GestaltZForerunnerSquadCalldownCancel",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadCalldownCancel",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "GestaltZForerunnerSquadCalldownCancelAB"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "AdeptPhaseShiftCancel",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Cancel",
+              "Requirements": "GestaltZForerunnerSquadCalldown"
+            }
+          },
+          "id": "GestaltZForerunnerSquadCalldownCancel"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadCalldownCancel,Execute",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Charge": {
+            "HideCount": 1,
+            "Link": "KaraxMicroBotActivated",
+            "Location": "Unit"
+          },
+          "Cooldown": {
+            "Link": "Abil/noniononoX",
+            "TimeUse": 30
+          },
+          "Button": {
+            "Flags": {
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "GestaltZForerunnerSquad",
+            "Requirements": "GestaltZSquadeVeterancy"
+          },
+          "Flags": {
+            "AutoBuild": 1,
+            "External": 1
+          },
+          "Time": 0.125,
+          "Manage": "Recall",
+          "Unit": "GestaltZForerunnerSquadMember"
+        },
+        "Unit": "GestaltZForerunnerSquadMember",
+        "Time": 0.125,
+        "Cost": {
+          "Minerals": 300,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquad,Ammo1",
+        "id": "GestaltZForerunnerSquad",
+        "Icon": "btn-unit-terran-gestalt-squadbmember",
+        "Tooltip": "Recruit a soldier for the squad. At most 4 soldiers can be recruited.",
+        "Name": "Recruit Soldier",
+        "Hotkey": "I"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/GestaltZSquadCalldownMJ",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZSquadCalldownMJ",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "GestaltZSquadCalldownMJ"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZSquadCalldownMJ",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Cancel",
+              "Requirements": "BomberUsable"
+            }
+          },
+          "Cost": [
+            {
+              "Charge": {
+                "Link": "Abil/GestaltZForerunnerSquadCalldown"
+              },
+              "Cooldown": {
+                "Link": "Abil/GestaltAirStrikeCalldown",
+                "Location": "Player",
+                "TimeUse": 90
+              }
+            }
+          ],
+          "id": "GestaltZSquadCalldownMJ"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZSquadCalldownMJ,Execute",
+        "id": "GestaltZForerunnerSquadCalldown",
+        "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+        "Tooltip": "Order all tactic bombers to continuously attack enemy ground units within target area, until every units is destroyed or cancelled. Every round of bombos can deal 300 dmg, and will reload for 10 sec after that. <br/><br/><span style=\"color: #FFFF00\">Airstrike Order CD applies to all Tactic Squad. <br/>More Gestalt Bomber Platforms you have, larger the area Airstrike Order can apply to.",
+        "Name": "Annihilation Command",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltZForerunnerSquadCalldown",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Gestalt",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadCalldown",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "GestaltZForerunnerSquadCalldownCreatePersitent"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZForerunnerSquadCalldown",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadCalldown"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Cooldown": {
+                "Link": "Abil/GestaltAirStrikeCalldown",
+                "Location": "Player",
+                "TimeUse": 90
+              }
+            }
+          ],
+          "Range": [
+            18
+          ],
+          "CursorEffect": [
+            "GestaltZForerunnerSquadCalldownSearchArea"
+          ],
+          "id": "GestaltZForerunnerSquadCalldown"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadCalldown,Execute",
+        "id": "GestaltZForerunnerSquadCalldown",
+        "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+        "Tooltip": "Order all tactic bombers to continuously attack enemy ground units within target area, until every units is destroyed or cancelled. Every round of bombos can deal 300 dmg, and will reload for 10 sec after that. <br/><br/><span style=\"color: #FFFF00\">Airstrike Order CD applies to all Tactic Squad. <br/>More Gestalt Bomber Platforms you have, larger the area Airstrike Order can apply to.",
+        "Name": "Annihilation Command",
+        "Hotkey": "D"
+      }
+    ],
+    "0002": [
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZForerunnerSquadBolter",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadBolter",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadBolter",
+              "Requirements": "GestaltZSquadeVeterancy"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZForerunnerSquadBolter"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "ToggledOn": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZForerunnerSquadBolter"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadBolter,On",
+        "id": "GestaltZForerunnerSquadBolter",
+        "Icon": "btn-upgrade-terran-nova-shotgunaoe",
+        "Tooltip": "Equip Assault Rifle. Basic ranged weapon. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Equip Assault Rifle",
+        "Hotkey": "Q"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "GestaltZForerunnerSquadBolterEquiping",
+        "Icon": "btn-upgrade-terran-nova-shotgunaoe",
+        "Tooltip": "Assault Rifle Equipped",
+        "Name": "Assault Rifle Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZForerunnerSquadBuyFlameThrower",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadBuyFlameThrower",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadBuyFlameThrower",
+              "Requirements": "GestaltZSquadeVeterancy0GetEquiped1"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 750
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZForerunnerSquadFlameThrower"
+          ],
+          "id": "GestaltZForerunnerSquadBuyFlameThrower"
+        },
+        "Cost": {
+          "Minerals": 750,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadBuyFlameThrower,On",
+        "id": "GestaltZForerunnerSquadBuyFlameThrower",
+        "Icon": "btn-upgrade-mengsk-trooper-flamethrower",
+        "Tooltip": "Purchase and equip Flamethrower. Effective against light unit. Can deal aoe dmg. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Purchase And Equip Flamethrower",
+        "Hotkey": "W"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZForerunnerSquadFlameThrower",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadFlameThrower",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadFlameThrower",
+              "Requirements": "GestaltZSquadeVeterancy"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZForerunnerSquadFlameThrower"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZForerunnerSquadFlameThrower"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadFlameThrower,On",
+        "id": "GestaltZForerunnerSquadFlameThrower",
+        "Icon": "btn-upgrade-mengsk-trooper-flamethrower",
+        "Tooltip": "Equip Flamethrower. Effective against light unit. Can deal aoe dmg. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Equip Flamethrower",
+        "Hotkey": "W"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltZForerunnerSquadFlameThrowerEquiping",
+        "Icon": "btn-upgrade-mengsk-trooper-flamethrower",
+        "Tooltip": "Flamethrower Equipped",
+        "Name": "Flamethrower Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZForerunnerSquadBuyStormBolter",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadBuyStormBolter",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadBuyStormBolter",
+              "Requirements": "GestaltZSquadeVeterancy1GetEquiped2"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 1500
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZForerunnerSquadStormBolter"
+          ],
+          "id": "GestaltZForerunnerSquadBuyStormBolter"
+        },
+        "Cost": {
+          "Minerals": 1500,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadBuyStormBolter,On",
+        "id": "GestaltZForerunnerSquadBuyStormBolter",
+        "Icon": "btn-upgrade-mengsk-engineeringbay-dominionweaponslevel3",
+        "Tooltip": "Purchase and equip Storm Assault Rifle. Ranged weapon with extremely fast atk speed. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Purchase And Equip Storm Assault Rifle",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZForerunnerSquadStormBolter",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadStormBolter",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadStormBolter",
+              "Requirements": "GestaltZSquadeVeterancy1"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZForerunnerSquadStormBolter"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZForerunnerSquadStormBolter"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadStormBolter,On",
+        "id": "GestaltZForerunnerSquadStormBolter",
+        "Icon": "btn-upgrade-mengsk-engineeringbay-dominionweaponslevel3",
+        "Tooltip": "Equip Storm Assault Rifle. Ranged weapon with extremely fast atk speed. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Equip Storm Assault Rifle",
+        "Hotkey": "A"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "GestaltZForerunnerSquadStormBolterEquiping",
+        "Icon": "btn-upgrade-mengsk-engineeringbay-dominionweaponslevel3",
+        "Tooltip": "Storm Assault Rifle Equipped",
+        "Name": "Storm Assault Rifle Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZForerunnerSquadBuyWhirlwindMissile",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadBuyWhirlwindMissile",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadBuyWhirlwindMissile",
+              "Requirements": "GestaltZSquadeVeterancy1GetEquiped3"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 1500
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZForerunnerSquadWhirlwindMissile"
+          ],
+          "id": "GestaltZForerunnerSquadBuyWhirlwindMissile"
+        },
+        "Cost": {
+          "Minerals": 1500,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadBuyWhirlwindMissile,On",
+        "id": "GestaltZForerunnerSquadBuyWhirlwindMissile",
+        "Icon": "btn-ability-stetmann-hydraliskmissilepoweron",
+        "Tooltip": "Purchase and equip SAM Assault Rifle. Added anti-air missile module to Assault Rifle. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Purchase And Equip SAM Assault Rifle",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZForerunnerSquadWhirlwindMissile",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadWhirlwindMissile",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadWhirlwindMissile",
+              "Requirements": "GestaltZSquadeVeterancy1"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZForerunnerSquadWhirlwindMissile"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZForerunnerSquadWhirlwindMissile"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadWhirlwindMissile,On",
+        "id": "GestaltZForerunnerSquadWhirlwindMissile",
+        "Icon": "btn-ability-stetmann-hydraliskmissilepoweron",
+        "Tooltip": "Equip SAM Assault Rifle. Added anti-air missile module to Assault Rifle. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Equip SAM Assault Rifle",
+        "Hotkey": "S"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltZForerunnerSquadWhirlwindMissileEquiping",
+        "Icon": "btn-ability-stetmann-hydraliskmissilepoweron",
+        "Tooltip": "SAM Assault Rifle Equipped",
+        "Name": "SAM Assault Rifle Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZForerunnerSquadBuyStuG",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadBuyStuG",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadBuyStuG",
+              "Requirements": "GestaltZSquadeVeterancy2GetEquiped4"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 2250
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZForerunnerSquadStuG"
+          ],
+          "id": "GestaltZForerunnerSquadBuyStuG"
+        },
+        "Cost": {
+          "Minerals": 2250,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadBuyStuG,On",
+        "id": "GestaltZForerunnerSquadBuyStuG",
+        "Icon": "btn-upgrade-hanson-viking-hypergatlingcannons",
+        "Tooltip": "Purchase and equip Vulcan Shock Cannon. Well-balanced raid weapon. Can deal aoe dmg within a tiny range. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Purchase And Equip Vulcan Shock Cannon",
+        "Hotkey": "Z"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZForerunnerSquadStuG",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadStuG",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadStuG",
+              "Requirements": "GestaltZSquadeVeterancy2"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZForerunnerSquadStuG"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZForerunnerSquadStuG"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadStuG,On",
+        "id": "GestaltZForerunnerSquadStuG",
+        "Icon": "btn-upgrade-hanson-viking-hypergatlingcannons",
+        "Tooltip": "Equip Vulcan Shock Cannon. Well-balanced raid weapon. Can deal aoe dmg within a tiny range. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Equip Vulcan Shock Cannon",
+        "Hotkey": "Z"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "GestaltZForerunnerSquadStuGEquiping",
+        "Icon": "btn-upgrade-hanson-viking-hypergatlingcannons",
+        "Tooltip": "Vulcan Shock Cannon Equipped",
+        "Name": "Vulcan Shock Cannon Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZForerunnerSquadBuyLaserGun",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadBuyLaserGun",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadBuyLaserGun",
+              "Requirements": "GestaltZSquadeVeterancy2GetEquiped42"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 2250
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZForerunnerSquadLaserGun"
+          ],
+          "id": "GestaltZForerunnerSquadBuyLaserGun"
+        },
+        "Cost": {
+          "Minerals": 2250,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadBuyLaserGun,On",
+        "id": "GestaltZForerunnerSquadBuyLaserGun",
+        "Icon": "btn-upgrade-protoss-fenix-carrier-solarbeam",
+        "Tooltip": "Purchase and equip Heavy Laser Cannon. Extremely effective against armored units but with slow atk speed. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Purchase And Equip Heavy Laser Cannon",
+        "Hotkey": "X"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZForerunnerSquadLaserGun",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadLaserGun",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerSquadLaserGun",
+              "Requirements": "GestaltZSquadeVeterancy2"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZForerunnerSquadLaserGun"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZForerunnerSquadLaserGun"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadLaserGun,On",
+        "id": "GestaltZForerunnerSquadLaserGun",
+        "Icon": "btn-upgrade-protoss-fenix-carrier-solarbeam",
+        "Tooltip": "Equip Heavy Laser Cannon. Extremely effective against armored units but with slow atk speed. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Equip Heavy Laser Cannon",
+        "Hotkey": "X"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltZForerunnerSquadLaserGunEquiping",
+        "Icon": "btn-upgrade-protoss-fenix-carrier-solarbeam",
+        "Tooltip": "Heavy Laser Cannon Equipped",
+        "Name": "Heavy Laser Cannon Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "CargoSize": 1,
+  "SubgroupPriority": 23,
+  "GlossaryCategory": "Unit/Category/TerranUnits",
+  "GlossaryPriority": 31,
+  "GlossaryStrongArray": [
+    "Marauder",
+    "Immortal",
+    "Hydralisk"
+  ],
+  "GlossaryWeakArray": [
+    "SiegeTankSieged",
+    "Colossus",
+    "Baneling"
+  ],
+  "AlliedPushPriority": 1,
+  "Food": -10,
+  "id": "GestaltZForerunnerSquadLeader",
+  "Icon": "btn-unit-terran-gestalt-squadbleader",
+  "LifeArmorIcon": "btn-upgrade-terran-infantryarmorlevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "GestaltZSquadeVeterancy",
+      "Name": "GestaltZ Squade Veterancy"
+    },
+    {
+      "id": "GestaltZeroTeamCaptainCreate"
+    },
+    {
+      "id": "GestaltZeroTeamCaptainProtect"
+    },
+    {
+      "id": "GestaltStationController"
+    },
+    {
+      "id": "GestaltSquadDummy"
+    },
+    {
+      "id": "GestaltZForerunnerSquadBolter",
+      "Icon": "btn-upgrade-mengsk-engineeringbay-dominionweaponslevel2"
+    },
+    {
+      "id": "GestaltZForerunnerSquadGedgetTPA",
+      "Icon": "btn-upgrade-nova-blink"
+    },
+    {
+      "id": "GestaltZForerunnerSquadGedgetMedicalProbe",
+      "Icon": "btn-ability-tychus-medic-restorativeburst"
+    },
+    {
+      "id": "GestaltZForerunnerSquadGedgetMechaArm",
+      "Icon": "btn-upgrade-karass-colossusspeed"
+    },
+    {
+      "id": "PreventKnockback"
+    },
+    {
+      "id": "GestaltZRaiderSquadGadgetJetpackJump",
+      "Icon": "btn-upgrade-nova-jetpack"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "GestaltHangarQueue53",
+      "Name": "GestaltHangarQueue53 (Unnamed)"
+    },
+    {
+      "id": "GestaltZForerunnerSquad"
+    },
+    {
+      "id": "GestaltZForerunnerSquadSkillStunGrenade"
+    },
+    {
+      "id": "GestaltZForerunnerSquadCalldown"
+    },
+    {
+      "id": "GestaltZForerunnerSquadGedgetTPA"
+    },
+    {
+      "id": "GestaltZForerunnerSquadGedgetMedicalProbe"
+    },
+    {
+      "id": "GestaltZForerunnerSquadGedgetMechaArm"
+    },
+    {
+      "id": "GestaltZForerunnerSquadCalldownCancel"
+    },
+    {
+      "id": "GestaltZSquadCalldownMJ"
+    },
+    {
+      "id": "GestaltZForerunnerSquadBolter"
+    },
+    {
+      "id": "GestaltZForerunnerSquadFlameThrower"
+    },
+    {
+      "id": "GestaltZForerunnerSquadStormBolter"
+    },
+    {
+      "id": "GestaltZForerunnerSquadWhirlwindMissile"
+    },
+    {
+      "id": "GestaltZForerunnerSquadStuG"
+    },
+    {
+      "id": "GestaltZForerunnerSquadLaserGun"
+    },
+    {
+      "id": "GestaltZForerunnerSquadBuyLaserGun"
+    },
+    {
+      "id": "GestaltZForerunnerSquadBuyFlameThrower"
+    },
+    {
+      "id": "GestaltZForerunnerSquadBuyStormBolter"
+    },
+    {
+      "id": "GestaltZForerunnerSquadBuyStuG"
+    },
+    {
+      "id": "GestaltZForerunnerSquadBuyWhirlwindMissile"
+    }
+  ],
+  "$Upgrades": [
+    "GestaltTerminatorEXO",
+    "GestaltZForerunnerSquadLeader",
+    "GestaltZForerunnerSquadLeader"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "GestaltZForerunnerSquadMember"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadSkillStunGrenade,Execute",
+      "id": "GestaltZForerunnerSquadSkillStunGrenade",
+      "Icon": "btn-upgrade-nova-btn-upgrade-nova-flashgrenade",
+      "Tooltip": "Squad Leader will throw a Shock Grenade. Reduce 50% atk speed and movement speed of enemy units at target area.",
+      "Name": "Shock Grenade"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadGedgetTPA,Execute",
+      "id": "GestaltZForerunnerRaiderSquadGedgetTPA",
+      "Icon": "btn-upgrade-karass-blinkcore",
+      "Tooltip": "Grant each Squad member additional 110 health, 4 armor, and 15% dmg reduction. <br/>Active skill will let the Squad blink to target direction.",
+      "Name": "Terminator EXO Teleport"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadGedgetMedicalProbe,Execute",
+      "id": "GestaltZForerunnerSquadGedgetMedicalProbe",
+      "Icon": "btn-upgrade-terran-reapercombatdrugs",
+      "Tooltip": "Precursor Squad gain detection and group healing at rate of 6 per sec.",
+      "Name": "Medical Detector"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadGedgetMechaArm,Execute",
+      "id": "GestaltZForerunnerSquadGedgetMechaArm",
+      "Icon": "btn-upgrade-karass-colossusspeed",
+      "Tooltip": "Increase movement by 1 and atk speed by 50% of mechanic units near Precursor Squad. <br/>Active skill will let the Squad to repair a mechanic unit at rate of 50 per sec.",
+      "Name": "Mechanical Maintenance"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadCalldownCancel,Execute",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquad,Ammo1",
+      "id": "GestaltZForerunnerSquad",
+      "Icon": "btn-unit-terran-gestalt-squadbmember",
+      "Tooltip": "Recruit a soldier for the squad. At most 4 soldiers can be recruited.",
+      "Name": "Recruit Soldier"
+    },
+    {
+      "AbilCmd": "GestaltZSquadCalldownMJ,Execute",
+      "id": "GestaltZForerunnerSquadCalldown",
+      "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+      "Tooltip": "Order all tactic bombers to continuously attack enemy ground units within target area, until every units is destroyed or cancelled. Every round of bombos can deal 300 dmg, and will reload for 10 sec after that. <br/><br/><span style=\"color: #FFFF00\">Airstrike Order CD applies to all Tactic Squad. <br/>More Gestalt Bomber Platforms you have, larger the area Airstrike Order can apply to.",
+      "Name": "Annihilation Command"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadCalldown,Execute",
+      "id": "GestaltZForerunnerSquadCalldown",
+      "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+      "Tooltip": "Order all tactic bombers to continuously attack enemy ground units within target area, until every units is destroyed or cancelled. Every round of bombos can deal 300 dmg, and will reload for 10 sec after that. <br/><br/><span style=\"color: #FFFF00\">Airstrike Order CD applies to all Tactic Squad. <br/>More Gestalt Bomber Platforms you have, larger the area Airstrike Order can apply to.",
+      "Name": "Annihilation Command"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadBolter,On",
+      "id": "GestaltZForerunnerSquadBolter",
+      "Icon": "btn-upgrade-terran-nova-shotgunaoe",
+      "Tooltip": "Equip Assault Rifle. Basic ranged weapon. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Equip Assault Rifle"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadBuyFlameThrower,On",
+      "id": "GestaltZForerunnerSquadBuyFlameThrower",
+      "Icon": "btn-upgrade-mengsk-trooper-flamethrower",
+      "Tooltip": "Purchase and equip Flamethrower. Effective against light unit. Can deal aoe dmg. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Purchase And Equip Flamethrower"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadFlameThrower,On",
+      "id": "GestaltZForerunnerSquadFlameThrower",
+      "Icon": "btn-upgrade-mengsk-trooper-flamethrower",
+      "Tooltip": "Equip Flamethrower. Effective against light unit. Can deal aoe dmg. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Equip Flamethrower"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadBuyStormBolter,On",
+      "id": "GestaltZForerunnerSquadBuyStormBolter",
+      "Icon": "btn-upgrade-mengsk-engineeringbay-dominionweaponslevel3",
+      "Tooltip": "Purchase and equip Storm Assault Rifle. Ranged weapon with extremely fast atk speed. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Purchase And Equip Storm Assault Rifle"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadStormBolter,On",
+      "id": "GestaltZForerunnerSquadStormBolter",
+      "Icon": "btn-upgrade-mengsk-engineeringbay-dominionweaponslevel3",
+      "Tooltip": "Equip Storm Assault Rifle. Ranged weapon with extremely fast atk speed. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Equip Storm Assault Rifle"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadBuyWhirlwindMissile,On",
+      "id": "GestaltZForerunnerSquadBuyWhirlwindMissile",
+      "Icon": "btn-ability-stetmann-hydraliskmissilepoweron",
+      "Tooltip": "Purchase and equip SAM Assault Rifle. Added anti-air missile module to Assault Rifle. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Purchase And Equip SAM Assault Rifle"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadWhirlwindMissile,On",
+      "id": "GestaltZForerunnerSquadWhirlwindMissile",
+      "Icon": "btn-ability-stetmann-hydraliskmissilepoweron",
+      "Tooltip": "Equip SAM Assault Rifle. Added anti-air missile module to Assault Rifle. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Equip SAM Assault Rifle"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadBuyStuG,On",
+      "id": "GestaltZForerunnerSquadBuyStuG",
+      "Icon": "btn-upgrade-hanson-viking-hypergatlingcannons",
+      "Tooltip": "Purchase and equip Vulcan Shock Cannon. Well-balanced raid weapon. Can deal aoe dmg within a tiny range. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Purchase And Equip Vulcan Shock Cannon"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadStuG,On",
+      "id": "GestaltZForerunnerSquadStuG",
+      "Icon": "btn-upgrade-hanson-viking-hypergatlingcannons",
+      "Tooltip": "Equip Vulcan Shock Cannon. Well-balanced raid weapon. Can deal aoe dmg within a tiny range. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Equip Vulcan Shock Cannon"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadBuyLaserGun,On",
+      "id": "GestaltZForerunnerSquadBuyLaserGun",
+      "Icon": "btn-upgrade-protoss-fenix-carrier-solarbeam",
+      "Tooltip": "Purchase and equip Heavy Laser Cannon. Extremely effective against armored units but with slow atk speed. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Purchase And Equip Heavy Laser Cannon"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadLaserGun,On",
+      "id": "GestaltZForerunnerSquadLaserGun",
+      "Icon": "btn-upgrade-protoss-fenix-carrier-solarbeam",
+      "Tooltip": "Equip Heavy Laser Cannon. Extremely effective against armored units but with slow atk speed. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Equip Heavy Laser Cannon"
+    }
+  ]
+}

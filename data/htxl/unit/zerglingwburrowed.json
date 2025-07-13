@@ -1,0 +1,575 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "噬兽",
+    "enUS": "Devouring Beast"
+  },
+  "Description": {
+    "enUS": "Fast melee creature. Can morph into a Baneling.<br/><br/><span style=\"color: FFFF8A\">Can attack ground units.</span>",
+    "ruRU": "Быстрая единица ближнего боя. Может мутировать в гиблинга.<br/><br/><span style=\"color: FFFF8A\">Атакует только наземные цели.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZerW",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 60,
+  "LifeMax": 60,
+  "LifeArmorName": {
+    "zhCN": "利维坦地面生物甲壳",
+    "enUS": "Leviathan ground creature carapace"
+  },
+  "Mover": "Burrowed",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.375,
+  "SeparationRadius": 0,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "Cloaked",
+    "Buried",
+    "AIThreatGround",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ZerglingW",
+  "HotkeyAlias": "ZerglingW",
+  "SelectAlias": "ZerglingW",
+  "SubgroupAlias": "ZerglingW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ZerglingBurrowed",
+  "AIEvaluateAlias": "Zergling",
+  "ReviveType": "ZerglingWBurrowed",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ZerglingWBurrowed/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ZerglingWBurrowed/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Subtitle": "UnitSubtitle/ZerglingW",
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow"
+  ],
+  "Attributes": [
+    "Light",
+    "Biological"
+  ],
+  "LifeArmor": 1,
+  "LifeRegenRate": 0.5,
+  "ShieldArmor": 5,
+  "ShieldRegenDelay": 20,
+  "ShieldRegenRate": 1,
+  "ShieldRegenRateCreep": 2,
+  "ShieldArmorName": {
+    "zhCN": "装甲外壳",
+    "enUS": "Armored Shell"
+  },
+  "Sight": 5,
+  "Food": -1,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 50
+  },
+  "AttackTargetPriority": 20,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 5,
+  "AbilArray": [
+    "BurrowZerglingUpW"
+  ],
+  "BehaviorArray": [
+    "ZerglingWBehavior"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Delay": 1.0625
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            }
+          },
+          "Unit": "ZerglingW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "ZerglingW",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowZerglingUpW,Execute",
+        "id": "BurrowUpW",
+        "Icon": "btn-ability-zerg-upburrow-color",
+        "Name": {
+          "zhCN": "出地",
+          "enUS": "Out of the ground"
+        },
+        "Tooltip": {
+          "zhCN": "命令单位钻回地表。",
+          "enUS": "Order units to drill back to the surface."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1
+              }
+            }
+          },
+          "Unit": "ZerglingWBurrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "ZerglingWBurrowed",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowZerglingDownW,Execute",
+        "id": "BurrowDownW",
+        "Icon": "btn-ability-zerg-burrow-color",
+        "Name": {
+          "zhCN": "潜地",
+          "enUS": "Burrow"
+        },
+        "Tooltip": {
+          "zhCN": "命令单位潜入地下。单位潜地后无法移动或攻击，但处于隐形状态。",
+          "enUS": "Order units to go underground. A unit cannot move or attack while burrowed, but is invisible."
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "ZergShieldW",
+        "Icon": "btn-upgrade-lwthd",
+        "Name": {
+          "zhCN": "装甲外壳",
+          "enUS": "Armored Shell"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">拥有护盾</span><br/>护盾在脱战长时间后缓慢恢复，拥有较高的护甲。<br/>在菌毯上时能够更快恢复护盾。",
+          "enUS": "<span style=\"color: #ffff8a\">Has a shield</span><br/>The shield recovers slowly after being out of combat for a long time, and has higher armor. <br/>Restores shields faster while on creep."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "RedundantMembranesW",
+        "Icon": "btn-upgrade-zerg-buildingarmor",
+        "Name": {
+          "zhCN": "硬化鳞甲",
+          "enUS": "Hardened Scale Armor"
+        },
+        "Tooltip": {
+          "zhCN": "提升<span style=\"color: #ffff8a\">噬兽</span>的最大生命与护甲。",
+          "enUS": "Increases <span style=\"color: #ffff8a\">Beast</span>'s maximum health and armor."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "ZerglingBleedW",
+        "Icon": "btn-upgrade-zergling-armorshredding",
+        "Name": {
+          "zhCN": "血腥撕咬",
+          "enUS": "bloody bite"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">噬兽</span>的攻击对生物单位造成额外伤害。能使生物单位流血，使目标在一段时间内持续受到法术伤害。",
+          "enUS": "<span style=\"color: #ffff8a\">Beast</span>'s attack causes additional damage to biological units. Can cause biological units to bleed, causing the target to continue to receive spell damage for a period of time."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "Passive",
+        "id": "ZerglingDodgeW",
+        "Icon": "btn-upgrade-zerg-zagara-zerglingdodge",
+        "Name": {
+          "zhCN": "灵敏机动",
+          "enUS": "Agility and maneuverability"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">噬兽</span>能够闪避一次不超过<span style=\"color: #ffff8a\">50</span>点伤害的攻击，使受到的伤害降低<span style=\"color: #ffff8a\">80%</span>。该效果每<span style=\"color: #ffff8a\"><b>3</b></span>秒最多触发一次。<br/><span style=\"color: #ffff8a\">噬兽</span>能够跳跃悬崖与扑向周围的敌方单位。<br/><span style=\"color: #ffff8a\">无法在潜地时生效。</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Eating Beast</span> can dodge an attack that does not exceed <span style=\"color: #ffff8a\">50</span> points of damage, reducing the damage received <c val= \"#ColorAttackInfo\">80%</span>. This effect can trigger at most once every <span style=\"color: #ffff8a\"><b>3</b></span> seconds. <br/><span style=\"color: #ffff8a\">The Eater</span> can jump over cliffs and pounce on surrounding enemy units. <br/><span style=\"color: #ffff8a\">Does not take effect while burrowed. </span>"
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "ZerglingTearW",
+        "Icon": "btn-upgrade-zerg-adrenaloverload",
+        "Name": {
+          "zhCN": "利齿撕扯",
+          "enUS": "Teeth tearing"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">噬兽</span>的攻击使自己射程短暂提高。并使目标单位移动速度降低<span style=\"color: #ffff8a\">0.3</span>，每个施法者最多叠加一层。",
+          "enUS": "<span style=\"color: #ffff8a\">Eating Beast</span>'s attack briefly increases its range. And reduces the target unit's movement speed by <span style=\"color: #ffff8a\">0.3</span>, stacking up to one layer per caster."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "ZerglingFrenzyW",
+        "Icon": "btn-upgrade-zerg-adrenalglands",
+        "Name": {
+          "zhCN": "过载腺体",
+          "enUS": "Overloaded glands"
+        },
+        "Tooltip": {
+          "zhCN": "使<span style=\"color: #ffff8a\">噬兽</span>的攻击速度提高<span style=\"color: #ffff8a\">50%</span>。",
+          "enUS": "Increases the attack speed of <span style=\"color: #ffff8a\">Beast</span> by <span style=\"color: #ffff8a\">50%</span>."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "MetabolicBoostW",
+        "Icon": "btn-upgrade-zerg-hotsmetabolicboost",
+        "Name": {
+          "zhCN": "代谢加速",
+          "enUS": "Metabolism acceleration"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">噬兽</span>的移动速度增加<span style=\"color: #ffff8a\">60%</span>。",
+          "enUS": "<span style=\"color: #ffff8a\">Eater</span>'s movement speed is increased by <span style=\"color: #ffff8a\">60%</span>."
+        }
+      }
+    ]
+  },
+  "ScoreKill": 50,
+  "SubgroupPriority": 8,
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "id": "ZerglingWBurrowed",
+  "Icon": "btn-unit-collection-webby-zerglingupgrade",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level3w",
+  "ShieldArmorIcon": "btn-upgrade-lwthd",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "ZerglingWBehavior",
+      "Icon": "btn-unit-collection-webby-zerglingupgrade",
+      "Name": {
+        "zhCN": "跳虫行为",
+        "enUS": "Springtail Behavior"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BurrowZerglingUpW",
+      "Name": {
+        "zhCN": "出地(跳虫)",
+        "enUS": "Out of the Earth (Springtail)"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "BurrowZerglingDownW",
+    "ZerglingWBurrowed",
+    "ZerglingBurrowedSplatW",
+    "ZerglingW",
+    "Zergling_DeathW"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "ZerglingW"
+  ],
+  "$Phase": [],
+  "$Phased": "ZerglingW",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "BurrowZerglingUpW,Execute",
+      "id": "BurrowUpW",
+      "Icon": "btn-ability-zerg-upburrow-color",
+      "Name": {
+        "zhCN": "出地",
+        "enUS": "Out of the ground"
+      },
+      "Tooltip": {
+        "zhCN": "命令单位钻回地表。",
+        "enUS": "Order units to drill back to the surface."
+      }
+    },
+    {
+      "AbilCmd": "BurrowZerglingDownW,Execute",
+      "id": "BurrowDownW",
+      "Icon": "btn-ability-zerg-burrow-color",
+      "Name": {
+        "zhCN": "潜地",
+        "enUS": "Burrow"
+      },
+      "Tooltip": {
+        "zhCN": "命令单位潜入地下。单位潜地后无法移动或攻击，但处于隐形状态。",
+        "enUS": "Order units to go underground. A unit cannot move or attack while burrowed, but is invisible."
+      }
+    }
+  ]
+}

@@ -1,0 +1,679 @@
+{
+  "Name": "Science Facility",
+  "Description": "Contains upgrades for all Umojan Units. <br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Energy Generator from Supply Cache<br/>- Advanced units at all nearby production facilities",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 850,
+  "LifeMax": 850,
+  "LifeArmorName": "Umojan Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.25,
+  "SeparationRadius": 1.25,
+  "MinimapRadius": 1.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UmojanScienceFacilityGreen",
+  "HotkeyAlias": "UmojanScienceFacilityRed",
+  "SelectAlias": "UmojanScienceFacilityGreen",
+  "SubgroupAlias": "UmojanScienceFacilityGreen",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UmojanScienceFacilityRed",
+  "AIEvaluateAlias": "UmojanScienceFacilityRed",
+  "ReviveType": "UmojanScienceFacilityGreen",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UmojanScienceFacilityRed/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UmojanScienceFacilityRed/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 315,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Phased",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "ShieldsStart": 850,
+  "ShieldsMax": 850,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": "Umojan Plasma Shields",
+  "Sight": 9,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 100,
+    "Vespene": 25
+  },
+  "RepairTime": 35,
+  "AttackTargetPriority": 11,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+        "Name": "Halt",
+        "Hotkey": "T"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel4MCS",
+        "Icon": "btn-upgrade-stetmann-hivestetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/>Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.<br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.</span>",
+        "Name": "Power Overcharge 3"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel3MCS",
+        "Icon": "btn-upgrade-stetmann-lairstetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/>Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.</span><br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Power Overcharge 2"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel2MCS",
+        "Icon": "btn-upgrade-stetmann-hatcherystetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.</span><br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Power Overcharge 1"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel1MCS",
+        "Icon": "btn-ability-mengsk-thor-bigboycover",
+        "Tooltip": "<span style=\"color: #55FFFF\">Normal Power Level: Normal operation speed, no shield.</span><br/>Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.<br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Normal Power Level"
+      },
+      {
+        "Row": 2,
+        "Column": 2,
+        "Type": "SelectBuilder",
+        "id": "SelectBuilder",
+        "Icon": "btn-upgrade-terran-weaponrefit",
+        "Tooltip": "Selects the unit constructing this structure.",
+        "Name": "Select Builder",
+        "Hotkey": "Q"
+      },
+      {
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanScienceGreen,Execute",
+        "id": "UmojanScienceGreen",
+        "Icon": "btn-building-terran-starport",
+        "Tooltip": "Specialize this Science Facility in Starships Researches.",
+        "Name": "Specialize in Starship"
+      },
+      {
+        "Row": 2,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "UmojanScienceGreen",
+        "Icon": "btn-building-terran-starport",
+        "Tooltip": "Specialize this Science Facility in Starships Researches.",
+        "Name": "Specialize in Starship"
+      },
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanScienceRed,Execute",
+        "id": "UmojanScienceRed",
+        "Icon": "btn-building-terran-barracks",
+        "Tooltip": "Specialize this Science Facility in Infantries Researches.",
+        "Name": "Specialize in Infantry"
+      },
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "UmojanScienceRed",
+        "Icon": "btn-building-terran-barracks",
+        "Tooltip": "Specialize this Science Facility in Infantries Researches.",
+        "Name": "Specialize in Infantry"
+      },
+      {
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanScienceBlue,Execute",
+        "id": "UmojanScienceBlue",
+        "Icon": "btn-building-terran-factory",
+        "Tooltip": "Specialize this Science Facility in Vehicles Researches.",
+        "Name": "Specialize in Vehicle"
+      },
+      {
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "UmojanScienceBlue",
+        "Icon": "btn-building-terran-factory",
+        "Tooltip": "Specialize this Science Facility in Vehicles Researches.",
+        "Name": "Specialize in Vehicle"
+      },
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceRed,Research3",
+        "id": "UmojanResearchCombatShield",
+        "Icon": "btn-techupgrade-terran-combatshield-color",
+        "Tooltip": "**Preatorians** gain +10 life and +10 shield.",
+        "Name": "Research Combat Shield",
+        "Hotkey": "C"
+      },
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceGreen,Research1",
+        "id": "UmojanResearchCloak",
+        "Icon": "btn-ability-mengsk-ghost-supercloak",
+        "Tooltip": "Permanently cloak **Mists** and **Howlers** and make **Crows** cloak nearby allies. Cloak renders the unit invisible to enemies unless the unit is revealed by detectors or effects.",
+        "Name": "Research Cloaking Field",
+        "Hotkey": "C"
+      },
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceBlue,Research1",
+        "id": "UmojanResearchBlink",
+        "Icon": "btn-ability-protoss-blink-color",
+        "Tooltip": "Allows **Battlecat** to teleport to a nearby target location.",
+        "Name": "Research Blink",
+        "Hotkey": "M"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceRed,Research1",
+        "id": "UmojanResearchPowertotheWeapon",
+        "Icon": "btn-upgrade-raynor-phobosclassweaponssystem",
+        "Tooltip": "Allows **Preatorians** to channel theirs shields into theirs weapons.",
+        "Name": "Research Power to the Weapon",
+        "Hotkey": "W"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceGreen,Research2",
+        "id": "UmojanResearchHighOutputThruster",
+        "Icon": "btn-ability-mengsk-viking-speed",
+        "Tooltip": "Increases the movement speed of **Mists** and **Howlers**.",
+        "Name": "Research High Output Thruster",
+        "Hotkey": "C"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceBlue,Research3",
+        "id": "UmojanResearchBattlelinkSystem",
+        "Icon": "btn-upgrade-terran-internalizedtechmodule",
+        "Tooltip": "Allow **Battlecats** to interface with a rider, granting them a bonus.**Preatorian**'s Power To The Weapon grant to the **Battlecat** a 0.5 speed boost.**Plasmabat**'s Corrosive Blast is applied against the primary target of the **Battlecat**'s attacks.**Shadowguard**'s Cloak is applied to the **Battlecat**.",
+        "Name": "Research Battlelink System",
+        "Hotkey": "L"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceRed,Research2",
+        "id": "UmojanResearchPlasmaRecycler",
+        "Icon": "btn-upgrade-terran-plasmashot",
+        "Tooltip": "Allows **Plasmabat** to fire 2 additional Corrosive Blast before needing to reload. All charges are refueled at the same time.",
+        "Name": "Research Plasma Recycler",
+        "Hotkey": "R"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceGreen,Research3",
+        "id": "UmojanResearchOverloadWeapons",
+        "Icon": "btn-ability-stetmann-corruptormissilebarrage",
+        "Tooltip": "Allows **Howlers** to fire a Missile Barrage at either ground or air targets.",
+        "Name": "Research Overload Weapons",
+        "Hotkey": "C"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceBlue,Research4",
+        "id": "UmojanResearchEngineeringSuit",
+        "Icon": "ui_tipicon_campaign_space01-repair",
+        "Tooltip": "Allows **Norns** to build **Sentry Guns**, **Energy Barricades** and to repair mechanical allies 300% faster.",
+        "Name": "Research Engineering Suit",
+        "Hotkey": "L"
+      },
+      {
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceRed,Research4",
+        "id": "UmojanResearchDisruptionWeb",
+        "Icon": "btn-ability-protoss-disruptionweb",
+        "Tooltip": "Allows **Harmonisers** to use Disruption Web. Ground units and structures under the Disruption Web cannot attack. Last <b>15</b> seconds.",
+        "Name": "Research Disruption Web",
+        "Hotkey": "W"
+      },
+      {
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceGreen,Research4",
+        "id": "UmojanResearchRavenEnergyUpgrade",
+        "Icon": "btn-upgrade-terran-corvidreactor",
+        "Tooltip": "Increases the starting energy of **Crow** by <b>25</b>.",
+        "Name": "Research Corvid Reactor",
+        "Hotkey": "T"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceAll,Research1",
+        "id": "UmojanShieldsLevel1",
+        "Icon": "btn-upgrade-protoss-shieldslevel1",
+        "Tooltip": "Upgrades the shields of all Umojan units and structures.",
+        "Name": "Upgrade Shields Level 1",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceAll,Research2",
+        "id": "UmojanShieldsLevel2",
+        "Icon": "btn-upgrade-protoss-shieldslevel2",
+        "Tooltip": "Further upgrades the shields of all Umojan units and structures.",
+        "Name": "Upgrade Shields Level 2",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceAll,Research3",
+        "id": "UmojanShieldsLevel3",
+        "Icon": "btn-upgrade-protoss-shieldslevel3",
+        "Tooltip": "Maximizes the shields of all Umojan units and structures.",
+        "Name": "Upgrade Shields Level 3",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanResearchScienceAll,Research4",
+        "id": "UmojanResearchOverchargeGenerator",
+        "Icon": "btn-upgrade-terran-mobiusreactor",
+        "Tooltip": "Equip the **Command Hub** with external generators, making it produce a <span style=\"color: #00FFFF\">Power Level</span> in an area and an additional level for itself.",
+        "Name": "Research Overcharge Generator",
+        "Hotkey": "O"
+      }
+    ]
+  },
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "ScoreMake": 125,
+  "ScoreKill": 125,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 3,
+  "TechAliasArray": [
+    "Alias_Umojan_ScienceFacility"
+  ],
+  "id": "UmojanScienceFacilityGreen",
+  "GlossaryCategory": "Unit/Category/UmojanUnits",
+  "GlossaryPriority": 38,
+  "HotkeyCategory": "Unit/Category/UmojanUnits",
+  "Icon": "btn-building-terran-sciencefacility",
+  "LifeArmorIcon": "btn-upgrade-terran-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "UmojanPowerUpgradeOtherBuilding"
+    },
+    {
+      "id": "UmojanPowerUpgradeHiddenConstructionSpeed"
+    },
+    {
+      "id": "UmojanPowerLevel0"
+    },
+    {
+      "id": "UmojanPowerLevel1"
+    },
+    {
+      "id": "UmojanPowerLevel2"
+    },
+    {
+      "id": "UmojanPowerLevel3"
+    },
+    {
+      "id": "UmojanScienceGreen",
+      "Icon": "btn-building-terran-sciencefacility"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "que5",
+      "Name": "Queue (5)"
+    },
+    {
+      "id": "UmojanResearchScienceAll",
+      "Name": "Umojan - Research (Science All)"
+    },
+    {
+      "id": "UmojanResearchScienceGreen",
+      "Name": "Umojan - Research (Science Green)"
+    },
+    {
+      "id": "UmojanScienceBlue",
+      "Name": "Science! (Blue)"
+    },
+    {
+      "id": "UmojanScienceRed",
+      "Name": "Science! (Red)"
+    },
+    {
+      "id": "UmojanScienceGreen",
+      "Name": "Science! (Green)"
+    }
+  ],
+  "$Upgrades": [
+    "UmojanScienceFacilityStarshipSpecialisedGreenSearchValidator",
+    "UmojanScienceFacilityGreen",
+    "UmojanScienceGreen",
+    "UmojanScienceFacilityGreen",
+    "UmojanShieldsLevel2",
+    "UmojanShields",
+    "UmojanShieldsLevel3",
+    "UmojanShieldsLevel1"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [
+    "UmojanCombatShield",
+    "UmojanCloakingField",
+    "UmojanBlink",
+    "UmojanPowertotheWeapons",
+    "UmojanHighOutputThruster",
+    "UmojanBattlelinkSystem",
+    "UmojanPlasmaRecycler",
+    "UmojanOverloadWeapons",
+    "UmojanEngineeringSuit",
+    "UmojanDisruptionWeb",
+    "UmojanCorvidReactor",
+    "UmojanShieldsLevel1",
+    "UmojanShieldsLevel2",
+    "UmojanShieldsLevel3",
+    "UmojanOverchargeGenerator"
+  ],
+  "$Morph": [
+    "UmojanScienceFacilityGreen",
+    "UmojanScienceFacilityRed",
+    "UmojanScienceFacilityBlue"
+  ],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+      "Name": "Halt"
+    },
+    {
+      "AbilCmd": "UmojanScienceGreen,Execute",
+      "id": "UmojanScienceGreen",
+      "Icon": "btn-building-terran-starport",
+      "Tooltip": "Specialize this Science Facility in Starships Researches.",
+      "Name": "Specialize in Starship"
+    },
+    {
+      "AbilCmd": "UmojanScienceRed,Execute",
+      "id": "UmojanScienceRed",
+      "Icon": "btn-building-terran-barracks",
+      "Tooltip": "Specialize this Science Facility in Infantries Researches.",
+      "Name": "Specialize in Infantry"
+    },
+    {
+      "AbilCmd": "UmojanScienceBlue,Execute",
+      "id": "UmojanScienceBlue",
+      "Icon": "btn-building-terran-factory",
+      "Tooltip": "Specialize this Science Facility in Vehicles Researches.",
+      "Name": "Specialize in Vehicle"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceRed,Research3",
+      "id": "UmojanResearchCombatShield",
+      "Icon": "btn-techupgrade-terran-combatshield-color",
+      "Tooltip": "**Preatorians** gain +10 life and +10 shield.",
+      "Name": "Research Combat Shield"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceGreen,Research1",
+      "id": "UmojanResearchCloak",
+      "Icon": "btn-ability-mengsk-ghost-supercloak",
+      "Tooltip": "Permanently cloak **Mists** and **Howlers** and make **Crows** cloak nearby allies. Cloak renders the unit invisible to enemies unless the unit is revealed by detectors or effects.",
+      "Name": "Research Cloaking Field"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceBlue,Research1",
+      "id": "UmojanResearchBlink",
+      "Icon": "btn-ability-protoss-blink-color",
+      "Tooltip": "Allows **Battlecat** to teleport to a nearby target location.",
+      "Name": "Research Blink"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceRed,Research1",
+      "id": "UmojanResearchPowertotheWeapon",
+      "Icon": "btn-upgrade-raynor-phobosclassweaponssystem",
+      "Tooltip": "Allows **Preatorians** to channel theirs shields into theirs weapons.",
+      "Name": "Research Power to the Weapon"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceGreen,Research2",
+      "id": "UmojanResearchHighOutputThruster",
+      "Icon": "btn-ability-mengsk-viking-speed",
+      "Tooltip": "Increases the movement speed of **Mists** and **Howlers**.",
+      "Name": "Research High Output Thruster"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceBlue,Research3",
+      "id": "UmojanResearchBattlelinkSystem",
+      "Icon": "btn-upgrade-terran-internalizedtechmodule",
+      "Tooltip": "Allow **Battlecats** to interface with a rider, granting them a bonus.**Preatorian**'s Power To The Weapon grant to the **Battlecat** a 0.5 speed boost.**Plasmabat**'s Corrosive Blast is applied against the primary target of the **Battlecat**'s attacks.**Shadowguard**'s Cloak is applied to the **Battlecat**.",
+      "Name": "Research Battlelink System"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceRed,Research2",
+      "id": "UmojanResearchPlasmaRecycler",
+      "Icon": "btn-upgrade-terran-plasmashot",
+      "Tooltip": "Allows **Plasmabat** to fire 2 additional Corrosive Blast before needing to reload. All charges are refueled at the same time.",
+      "Name": "Research Plasma Recycler"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceGreen,Research3",
+      "id": "UmojanResearchOverloadWeapons",
+      "Icon": "btn-ability-stetmann-corruptormissilebarrage",
+      "Tooltip": "Allows **Howlers** to fire a Missile Barrage at either ground or air targets.",
+      "Name": "Research Overload Weapons"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceBlue,Research4",
+      "id": "UmojanResearchEngineeringSuit",
+      "Icon": "ui_tipicon_campaign_space01-repair",
+      "Tooltip": "Allows **Norns** to build **Sentry Guns**, **Energy Barricades** and to repair mechanical allies 300% faster.",
+      "Name": "Research Engineering Suit"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceRed,Research4",
+      "id": "UmojanResearchDisruptionWeb",
+      "Icon": "btn-ability-protoss-disruptionweb",
+      "Tooltip": "Allows **Harmonisers** to use Disruption Web. Ground units and structures under the Disruption Web cannot attack. Last <b>15</b> seconds.",
+      "Name": "Research Disruption Web"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceGreen,Research4",
+      "id": "UmojanResearchRavenEnergyUpgrade",
+      "Icon": "btn-upgrade-terran-corvidreactor",
+      "Tooltip": "Increases the starting energy of **Crow** by <b>25</b>.",
+      "Name": "Research Corvid Reactor"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceAll,Research1",
+      "id": "UmojanShieldsLevel1",
+      "Icon": "btn-upgrade-protoss-shieldslevel1",
+      "Tooltip": "Upgrades the shields of all Umojan units and structures.",
+      "Name": "Upgrade Shields Level 1"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceAll,Research2",
+      "id": "UmojanShieldsLevel2",
+      "Icon": "btn-upgrade-protoss-shieldslevel2",
+      "Tooltip": "Further upgrades the shields of all Umojan units and structures.",
+      "Name": "Upgrade Shields Level 2"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceAll,Research3",
+      "id": "UmojanShieldsLevel3",
+      "Icon": "btn-upgrade-protoss-shieldslevel3",
+      "Tooltip": "Maximizes the shields of all Umojan units and structures.",
+      "Name": "Upgrade Shields Level 3"
+    },
+    {
+      "AbilCmd": "UmojanResearchScienceAll,Research4",
+      "id": "UmojanResearchOverchargeGenerator",
+      "Icon": "btn-upgrade-terran-mobiusreactor",
+      "Tooltip": "Equip the **Command Hub** with external generators, making it produce a <span style=\"color: #00FFFF\">Power Level</span> in an area and an additional level for itself.",
+      "Name": "Research Overcharge Generator"
+    }
+  ]
+}

@@ -1,0 +1,502 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Comm Station"
+  },
+  "Description": {
+    "enUS": "SatNet Communications<br/><br/>Increases speed of nearby allied units and detects cloaked units.<br/><br/><span style=\"color: FFE303\">Detector</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "UPLL",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 450,
+  "LifeMax": 450,
+  "LifeArmorName": {
+    "enUS": "UPL Building Plating"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.75,
+  "SeparationRadius": 0.75,
+  "MinimapRadius": 0.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UPLCommStation",
+  "HotkeyAlias": "UPLCommStation",
+  "SelectAlias": "UPLCommStation",
+  "SubgroupAlias": "UPLCommStation",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UPLCommStation",
+  "AIEvaluateAlias": "UPLCommStation",
+  "ReviveType": "UPLCommStation",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "UPLCommStation/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "UPLCommStation/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "Sight": 12,
+  "AttackTargetPriority": 11,
+  "AbilArray": [
+    "BuildInProgress",
+    "UPLCommStationActiveBuff"
+  ],
+  "BehaviorArray": [
+    "UnderConstruction",
+    "UPLCommStationPassive",
+    "Detector12"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "UPLCommStationPassive",
+        "Icon": "btn-ability-upl-commbuff",
+        "Name": {
+          "enUS": "Comm Station Dispatching"
+        },
+        "Tooltip": {
+          "enUS": "Land Link communications facilitate faster unit response.  Increases movement speed of all friendly units in area of effect."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "Detector",
+        "Icon": "btn-status-detector",
+        "Name": {
+          "enUS": "Detector",
+          "ruRU": "Детектор "
+        },
+        "Tooltip": {
+          "enUS": "This unit can detect cloaked, burrowed, and hallucinated units.",
+          "ruRU": "Эта боевая единица может обнаруживать замаскированные или закопанные войска, а также распознавать иллюзии."
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/UPLCommStationActiveBuff",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:UPL",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "UPLCommStationActiveBuff",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "UPLCommStationActiveBuffSwitch"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "UPLCommStationActiveBuff",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "UPLCommStationCommandLink"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Vital": {
+                "Energy": 50
+              }
+            }
+          ],
+          "TargetFilters": [
+            "Mechanical;Neutral,Enemy,Missile,Stasis,Dead,Hidden"
+          ],
+          "Range": [
+            12
+          ],
+          "Arc": 360,
+          "id": "UPLCommStationActiveBuff"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 50,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLCommStationActiveBuff,Execute",
+        "id": "UPLCommStationCommandLink",
+        "Icon": "btn-ability-upl-commandlink",
+        "Name": {
+          "enUS": "Command Link"
+        },
+        "Tooltip": {
+          "enUS": "Provides bonuses to UPL structures & mech units for 18 seconds<br/> <br/>Increases move, attack and production speed by <span style=\"color: 80FFFF\">25%</span><br/>Additionally Turrets gain <span style=\"color: 80FFFF\">+2</span> range."
+        },
+        "Hotkey": "C"
+      }
+    ]
+  },
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 0,
+  "GlossaryCategory": "Unit/Category/0UPLBuildings",
+  "GlossaryPriority": 12,
+  "HotkeyCategory": "Unit/Category/UPLUnits",
+  "id": "UPLCommStation",
+  "Facing": 315,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 100
+  },
+  "RepairTime": 18,
+  "Footprint": "Footprint2x2Contour",
+  "PlacementFootprint": "Footprint2x2",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "TechAliasArray": [
+    "Alias_UPLCommStation"
+  ],
+  "DataCollection": "UPLCommStation",
+  "DeathTime": 1,
+  "DeadFootprint": "Footprint2x2Contour",
+  "EnergyStart": 150,
+  "EnergyMax": 150,
+  "EnergyRegenRate": 0.5625,
+  "Icon": "btn-building-upl-uplcommstation",
+  "Model": "UPLCommStation",
+  "LifeArmorIcon": "btn-upgrade-upl-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "UnderConstruction",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Under Construction",
+        "ruRU": "Under Construction"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "UPLCommStationPassive",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "UPLCommStationPassive"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Detector12",
+      "Icon": "btn-status-detector",
+      "Name": {
+        "enUS": "Detector",
+        "ruRU": "Детектор "
+      },
+      "Tooltip": {
+        "enUS": "This unit can detect cloaked or burrowed units within its sight range.",
+        "ruRU": "Эта боевая единица может обнаруживать замаскированные или закопанные войска в поле обзора."
+      }
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "UPLCommStationActiveBuff",
+      "Name": {
+        "enUS": "UPLComm Station Command Link"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "UPLBuild",
+    "UPLCommStation",
+    "UPLCommStation",
+    "UPLCommStationSplat",
+    "IsUPLCommStation"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "MiningDrone"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "UPLCommStationActiveBuff,Execute",
+      "id": "UPLCommStationCommandLink",
+      "Icon": "btn-ability-upl-commandlink",
+      "Name": {
+        "enUS": "Command Link"
+      },
+      "Tooltip": {
+        "enUS": "Provides bonuses to UPL structures & mech units for 18 seconds<br/> <br/>Increases move, attack and production speed by <span style=\"color: 80FFFF\">25%</span><br/>Additionally Turrets gain <span style=\"color: 80FFFF\">+2</span> range."
+      }
+    }
+  ]
+}

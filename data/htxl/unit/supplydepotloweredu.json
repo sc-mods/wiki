@@ -1,0 +1,274 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Supply Depot",
+    "zhCN": "补给站"
+  },
+  "Description": {
+    "enUS": "<span style=\"color: #ffff8a\">Basic buildings</span><br/> provide supplies. <br/>Having supplies is a prerequisite for producing more units. <br/>Supply depots can be raised, blocking access and revealing ground units.",
+    "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>提供补给。<br/>拥有补给是生产更多单位的前提。<br/>补给站可以升起，阻止地面单位出入并显形。"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 500,
+  "LifeMax": 500,
+  "LifeArmorName": {
+    "enUS": "Umoyan Architectural Armor",
+    "zhCN": "尤摩扬建筑护甲"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.25,
+  "SeparationRadius": 1.25,
+  "MinimapRadius": 1.25,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "Cloaked",
+    "Buried",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SupplyDepotU",
+  "HotkeyAlias": "SupplyDepotU",
+  "SelectAlias": "SupplyDepotU",
+  "SubgroupAlias": "SupplyDepotU",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SupplyDepotLoweredU",
+  "AIEvaluateAlias": "SupplyDepotLowered",
+  "ReviveType": "SupplyDepotLoweredU",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "SupplyDepotLoweredU/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "SupplyDepotLoweredU/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 315,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 4,
+  "Sight": 9,
+  "Food": 10,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 75
+  },
+  "RepairTime": 30,
+  "AttackTargetPriority": 11,
+  "AbilArray": [
+    "BuildInProgressU",
+    "SupplyDepotRaiseU"
+  ],
+  "BehaviorArray": [
+    "TerranBuildingBurnDown",
+    "FireSuppressionSystemU"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "EffectArray": {
+                "Start": "SupplyDepotMorphingApplyBehavior"
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.3
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Duration": 1.3
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.3
+              }
+            }
+          },
+          "Unit": "SupplyDepotU",
+          "CollideRange": 0
+        },
+        "Unit": "SupplyDepotU",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 10
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SupplyDepotRaiseU,Execute",
+        "id": "RaiseU",
+        "Icon": "btn-building-terran-supplydepot",
+        "Name": {
+          "enUS": "rise",
+          "zhCN": "升起"
+        },
+        "Tooltip": {
+          "enUS": "Raise the building to prevent ground units from entering and exiting and revealing themselves.",
+          "zhCN": "升起建筑，阻止地面单位出入并显形。"
+        },
+        "Hotkey": "R"
+      }
+    ]
+  },
+  "Footprint": "Footprint2x2Underground",
+  "ScoreKill": 100,
+  "SubgroupPriority": 3,
+  "TechAliasArray": [
+    "Alias_SupplyDepot"
+  ],
+  "id": "SupplyDepotLoweredU",
+  "Icon": "btn-building-terran-supplydepotlowered",
+  "Model": "SupplyDepot_Umojan",
+  "LifeArmorIcon": "btn-ability-mengsk-thor-bigboycover",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "TerranBuildingBurnDown",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Building Burnout",
+        "ruRU": "Building Burnout"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "FireSuppressionSystemU",
+      "Icon": "btn-upgrade-swann-firesuppressionsystem",
+      "Name": {
+        "enUS": "Damage Control System",
+        "zhCN": "损管系统"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgressU",
+      "Name": {
+        "enUS": "Construction in progress",
+        "zhCN": "正在进行的建造"
+      }
+    },
+    {
+      "id": "SupplyDepotRaiseU",
+      "Name": {
+        "enUS": "rise",
+        "zhCN": "升起"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "SupplyDepotLowerU",
+    "SupplyDepotLoweredU",
+    "SupplyDepotLoweredU",
+    "SupplyDepotU",
+    "SupplyDropModelU",
+    "TerranBuildingLandU"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "SupplyDepotU"
+  ],
+  "$Phase": [],
+  "$Phased": "SupplyDepotU",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "SupplyDepotRaiseU,Execute",
+      "id": "RaiseU",
+      "Icon": "btn-building-terran-supplydepot",
+      "Name": {
+        "enUS": "rise",
+        "zhCN": "升起"
+      },
+      "Tooltip": {
+        "enUS": "Raise the building to prevent ground units from entering and exiting and revealing themselves.",
+        "zhCN": "升起建筑，阻止地面单位出入并显形。"
+      }
+    }
+  ]
+}

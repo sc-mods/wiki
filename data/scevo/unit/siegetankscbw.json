@@ -1,0 +1,854 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Siege Tank",
+    "zhCN": "Siege Tank",
+    "koKR": "Siege Tank"
+  },
+  "Description": {
+    "enUS": "Heavy Tank. Can switch into <span class=\"style-TooltipHighlightSCBW\"><b>Siege Mode</b></span> to provide long-range artillery support. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground units.</span>",
+    "zhCN": "Heavy Tank. Can switch into <span class=\"style-TooltipHighlightSCBW\"><b>Siege Mode</b></span> to provide long-range artillery support. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground units.</span>",
+    "koKR": "Heavy Tank. Can switch into <span class=\"style-TooltipHighlightSCBW\"><b>Siege Mode</b></span> to provide long-range artillery support. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground units.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "BWTe",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 150,
+  "LifeMax": 150,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 360,
+  "Radius": 0.875,
+  "SeparationRadius": 1,
+  "MinimapRadius": 1,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1.5,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "PreventDestroy",
+    "TurnBeforeMove",
+    "AIPressForwardDisabled",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SiegeTankSCBW",
+  "HotkeyAlias": "SiegeTankSCBW",
+  "SelectAlias": "SiegeTankSCBW",
+  "SubgroupAlias": "SiegeTankSCBW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SiegeTankSCBW",
+  "AIEvaluateAlias": "SiegeTankSCBW",
+  "ReviveType": "SiegeTankSCBW",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33,
+      "Turn": 33
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "SiegeTankSCBW/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "SiegeTankSCBW/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "EnergyRegenRate": 0.5,
+  "id": "SiegeTankSCBW",
+  "GlossaryCategory": "Unit/Category/TerranUnitsSCBW",
+  "HotkeyCategory": "Unit/Category/TerranUnitsSCBW",
+  "CostCategory": "Army",
+  "Attributes": [
+    "Mechanical",
+    "Armored"
+  ],
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "LifeArmor": 1,
+  "Speed": 2.25,
+  "Acceleration": 1000,
+  "LateralAcceleration": 64,
+  "Sight": 11,
+  "Food": -2,
+  "CostResource": {
+    "Minerals": 150,
+    "Vespene": 100
+  },
+  "BuildTime": 38,
+  "RepairTime": 45,
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "SiegeTankSCBW@Siege"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "SiegeTankSCBWWeapon",
+      "Turret": "SiegeTankSCBW"
+    },
+    {
+      "Link": "SiegeTankSCBWWeapon@Fake",
+      "Turret": "SiegeTankSCBW"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": "-",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": "-",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Move Hold Position",
+          "ruRU": "Двигаться, удерживая позицию "
+        },
+        "Tooltip": "-",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Move Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": "-",
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Delay": 0.5
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Delay": 0.5,
+                "Duration": 3.5417
+              }
+            },
+            "Facing": {
+              "DurationArray": {
+                "Duration": 0.5
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Delay": 0.5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 0.5,
+                "Duration": 3.5417
+              }
+            }
+          },
+          "Unit": "SiegeTankSCBWSieged",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "SiegeTankSCBWSieged",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SiegeTankSCBW@Siege,Execute",
+        "id": "SiegeTankSCBW@Siege",
+        "Icon": "btn-unit-terran-siegetank-sieged@scbw",
+        "Name": {
+          "enUS": "Siege Mode",
+          "zhCN": "Siege Mode",
+          "koKR": "Siege Mode"
+        },
+        "Tooltip": {
+          "enUS": "Deploys into <span class=\"style-TooltipHighlightSCBW\">Siege Mode</span>. In this mode <span class=\"style-TooltipHighlightSCBW\"><b>Siege Tank</b>s</span> have very long range and inflict area damage. <span class=\"style-TooltipHighlightSCBW\"><b>Siege Tank</b>s</span> in this mode cannot move or attack targets at close range.",
+          "zhCN": "Deploys into <span class=\"style-TooltipHighlightSCBW\">Siege Mode</span>. In this mode <span class=\"style-TooltipHighlightSCBW\"><b>Siege Tank</b>s</span> have very long range and inflict area damage. <span class=\"style-TooltipHighlightSCBW\"><b>Siege Tank</b>s</span> in this mode cannot move or attack targets at close range.",
+          "koKR": "Deploys into <span class=\"style-TooltipHighlightSCBW\">Siege Mode</span>. In this mode <span class=\"style-TooltipHighlightSCBW\"><b>Siege Tank</b>s</span> have very long range and inflict area damage. <span class=\"style-TooltipHighlightSCBW\"><b>Siege Tank</b>s</span> in this mode cannot move or attack targets at close range."
+        },
+        "Hotkey": "E"
+      }
+    ]
+  },
+  "CargoSize": 4,
+  "ScoreMake": 250,
+  "ScoreKill": 250,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 74,
+  "TechAliasArray": [
+    "Alias_SiegeTankSCBW"
+  ],
+  "GlossaryPriority": 130,
+  "GlossaryStrongArray": [
+    "MarineSCBW",
+    "ZerglingSCBW",
+    "ZealotSCBW"
+  ],
+  "GlossaryWeakArray": [
+    "BattlecruiserSCBW",
+    "GuardianSCBW",
+    "CarrierSCBW"
+  ],
+  "TacticalAIThink": "AIThinkSiegeTankSCBW",
+  "Icon": "btn-unit-terran-siegetank@scbw",
+  "LifeArmorIcon": "btn-upgrade-terran-vehicleplatinglevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "Turret": "SiegeTankSCBW",
+      "EditorCategories": "Race:Terran",
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel0",
+      "DisplayEffect": "SiegeTankSCBWWeapon@DamageExpl",
+      "TargetFilters": "Ground",
+      "Range": 7,
+      "Period": 2.212,
+      "Effect": "SiegeTankSCBWWeapon@Impact",
+      "DamagePoint": 0.0834,
+      "Options": {
+        "NeverMiss": 0
+      },
+      "AcquirePrioritization": "ByDistanceFromTarget",
+      "Tip": "Weapon/Tip/ExplosiveWeapon",
+      "MinScanRange": 7.5,
+      "Arc": 360,
+      "id": "SiegeTankSCBWWeapon",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "80mm PPG-7 Plasma Cannon",
+        "zhCN": "80mm PPG-7 Plasma Cannon",
+        "koKR": "80mm PPG-7 Plasma Cannon"
+      },
+      "Amount": 22.5,
+      "Kind": "Ranged"
+    },
+    {
+      "Turret": "SiegeTankSCBW",
+      "EditorCategories": "Race:Terran",
+      "Options": {
+        "Hidden": 1,
+        "CanInitiateAttackOrder": 0,
+        "OnlyFireWhileInAttackOrder": 0,
+        "OnlyFireAtAttackOrderTarget": 0,
+        "LinkedCooldown": 0
+      },
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel0",
+      "TargetFilters": "Ground",
+      "AcquirePrioritization": "ByDistanceFromTarget",
+      "MinScanRange": 7.5,
+      "Range": 7,
+      "Period": 1.04,
+      "Effect": "FakeWeaponDummy",
+      "id": "SiegeTankSCBWWeapon@Fake",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Fake ",
+        "zhCN": "Fake ",
+        "koKR": "Fake "
+      }
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "SiegeTankSCBW@Siege",
+      "Name": {
+        "enUS": "Siege Mode",
+        "zhCN": "Siege Mode",
+        "koKR": "Siege Mode"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "Button/Tooltip/SiegeTankSCBW@Siege",
+    "SiegeTankSCBW",
+    "SiegeModeSCBWResearch",
+    "SiegeTankSCBWSieged",
+    "Button/Tooltip/SiegeTankSCBW@Unsiege",
+    "SiegeTankSCBWSieged@Unsiege",
+    "Button/Tooltip/MachineShopSCBW",
+    "Button/Tooltip/SiegeModeSCBWResearch",
+    "SiegeTankSCBW@AllowUnit",
+    "FactorySCBW@Train",
+    "FactorySCBW",
+    "SiegeTankSCBW",
+    "IsSiegeTankSCBW",
+    "SiegeTankSCBW@Range",
+    "SiegeTankSCBW@Turret",
+    "SiegeTankSCBW@SiegeModeMorphModel",
+    "SiegeTankSCBW@TankModeMorphModel",
+    "SiegeTankSCBW@UnsiegeSound",
+    "Button/Tooltip/SiegeTankSCBW@SiegeResearch",
+    "NotSiegeTankSCBW",
+    "CasterIsSiegeTankSCBW",
+    "SiegeTankSCBW",
+    null,
+    null,
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "SiegeTankSCBWSieged"
+  ],
+  "$Phase": [],
+  "$Producers": [
+    "AbilTrainHolderSCBW",
+    "FactorySCBW"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Move Hold Position",
+        "ruRU": "Двигаться, удерживая позицию "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Move Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "SiegeTankSCBW@Siege,Execute",
+      "id": "SiegeTankSCBW@Siege",
+      "Icon": "btn-unit-terran-siegetank-sieged@scbw",
+      "Name": {
+        "enUS": "Siege Mode",
+        "zhCN": "Siege Mode",
+        "koKR": "Siege Mode"
+      },
+      "Tooltip": {
+        "enUS": "Deploys into <span class=\"style-TooltipHighlightSCBW\">Siege Mode</span>. In this mode <span class=\"style-TooltipHighlightSCBW\"><b>Siege Tank</b>s</span> have very long range and inflict area damage. <span class=\"style-TooltipHighlightSCBW\"><b>Siege Tank</b>s</span> in this mode cannot move or attack targets at close range.",
+        "zhCN": "Deploys into <span class=\"style-TooltipHighlightSCBW\">Siege Mode</span>. In this mode <span class=\"style-TooltipHighlightSCBW\"><b>Siege Tank</b>s</span> have very long range and inflict area damage. <span class=\"style-TooltipHighlightSCBW\"><b>Siege Tank</b>s</span> in this mode cannot move or attack targets at close range.",
+        "koKR": "Deploys into <span class=\"style-TooltipHighlightSCBW\">Siege Mode</span>. In this mode <span class=\"style-TooltipHighlightSCBW\"><b>Siege Tank</b>s</span> have very long range and inflict area damage. <span class=\"style-TooltipHighlightSCBW\"><b>Siege Tank</b>s</span> in this mode cannot move or attack targets at close range."
+      }
+    }
+  ]
+}

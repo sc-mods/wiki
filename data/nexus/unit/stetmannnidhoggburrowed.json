@@ -1,0 +1,859 @@
+{
+  "Name": "Nidhogg",
+  "Description": "Heavy melee unit. Good at using flames to burn enemy units. Can use Focused Flamethrower to continuously burn enemy target and Deflagration Bite. After advanced evolution, it can use Nibelungian Fire. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Stetmann",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 750,
+  "LifeMax": 750,
+  "LifeArmorName": "Mechanical Zerg Armor",
+  "Mover": "Burrowed",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.875,
+  "SeparationRadius": 0,
+  "MinimapRadius": 0.875,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Coop",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "Cloaked",
+    "Buried",
+    "AIThreatGround",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "StetmannNidhogg",
+  "HotkeyAlias": "StetmannNidhogg",
+  "SelectAlias": "StetmannNidhogg",
+  "SubgroupAlias": "StetmannNidhogg",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UltraliskBurrowed",
+  "AIEvaluateAlias": "Ultralisk",
+  "ReviveType": "UltraliskBurrowed",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UltraliskBurrowed/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UltraliskBurrowed/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "LifeArmor": 1,
+  "LifeRegenRate": 0.2734,
+  "Food": -6,
+  "AttackTargetPriority": 20,
+  "InnerRadius": 0.6875,
+  "SubgroupPriority": 5,
+  "TacticalAIThink": "AIThinkUltralisk",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Sight": 5,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2
+              }
+            }
+          },
+          "Unit": "StetmannNidhogg",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "StetmannNidhogg",
+        "Cost": {
+          "Minerals": 300,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -6
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowUltraliskUp22,Execute",
+        "id": "BurrowUp",
+        "Icon": "btn-ability-zerg-upburrow-color",
+        "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+        "Name": "Unburrow",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.8332
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.1665
+              }
+            }
+          },
+          "Unit": "DroneBurrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "DroneBurrowed",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowDroneDown,Execute",
+        "id": "TissueAssimilation",
+        "Icon": "btn-upgrade-zerg-tissueassimilation",
+        "Tooltip": "Gains life equal to 40% of all damage dealt from normal attacks.",
+        "Name": "Tissue Assimilation"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.8332
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.1665
+              }
+            }
+          },
+          "Unit": "DroneBurrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "DroneBurrowed",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowDroneDown,Execute",
+        "id": "BurrowDown",
+        "Icon": "btn-ability-zerg-burrow-color",
+        "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "Name": "Burrow",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1
+              }
+            }
+          },
+          "Unit": "BanelingBurrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "BanelingBurrowed",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 15,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -0.5
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowBanelingDown,Execute",
+        "id": "BurrowDown",
+        "Icon": "btn-ability-zerg-burrow-color",
+        "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "Name": "Burrow",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.166
+              }
+            }
+          },
+          "Unit": "HydraliskBurrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "HydraliskBurrowed",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowHydraliskDown,Execute",
+        "id": "BurrowDown",
+        "Icon": "btn-ability-zerg-burrow-color",
+        "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "Name": "Burrow",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2.5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 2.5
+              }
+            }
+          },
+          "Unit": "SwarmHostBurrowedMP",
+          "RallyResetPhase": "Delay",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "SwarmHostBurrowedMP",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "MorphToSwarmHostBurrowedMP,Execute",
+        "id": "BurrowDown",
+        "Icon": "btn-ability-zerg-burrow-color",
+        "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "Name": "Burrow",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1
+              }
+            }
+          },
+          "Unit": "InfestorTerranBurrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "InfestorTerranBurrowed",
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowInfestorTerranDown,Execute",
+        "id": "BurrowDown",
+        "Icon": "btn-ability-zerg-burrow-color",
+        "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "Name": "Burrow",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 1.5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.8332
+              }
+            }
+          },
+          "Unit": "UltraliskBurrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "UltraliskBurrowed",
+        "Cost": {
+          "Minerals": 300,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -6
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowUltraliskDown,Execute",
+        "id": "BurrowUp",
+        "Icon": "btn-ability-zerg-upburrow-color",
+        "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+        "Name": "Unburrow",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Delay": 1.0625
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            }
+          },
+          "Unit": "Zergling",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "Zergling",
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -0.5
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowZerglingUp,Execute",
+        "id": "BurrowUp",
+        "Icon": "btn-ability-zerg-upburrow-color",
+        "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+        "Name": "Unburrow",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            }
+          },
+          "Unit": "Roach",
+          "RandomDelayMax": 0.1
+        },
+        "Unit": "Roach",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowRoachUp,Execute",
+        "id": "BurrowUp",
+        "Icon": "btn-ability-zerg-upburrow-color",
+        "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+        "Name": "Unburrow",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            }
+          },
+          "Unit": "Ravager",
+          "RandomDelayMax": 0.1
+        },
+        "Unit": "Ravager",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowRavagerUp,Execute",
+        "id": "BurrowUp",
+        "Icon": "btn-ability-zerg-upburrow-color",
+        "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+        "Name": "Unburrow",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            }
+          },
+          "Unit": "Queen",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "Queen",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowQueenUp,Execute",
+        "id": "BurrowUp",
+        "Icon": "btn-ability-zerg-upburrow-color",
+        "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+        "Name": "Unburrow",
+        "Hotkey": "R"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "AbilCmd": "BurrowInfestorUp,Execute",
+        "id": "MonarchBlades",
+        "Icon": "btn-upgrade-zerg-monarchblades",
+        "Tooltip": "Splash damage of Ultralisk attacks increased to <b>25</b>.",
+        "Name": "Monarch Blades"
+      }
+    ]
+  },
+  "Attributes": [
+    "Armored",
+    "Biological",
+    "Massive",
+    "Mechanical"
+  ],
+  "Collide": [
+    "Burrow"
+  ],
+  "CostResource": {
+    "Minerals": 300,
+    "Vespene": 200
+  },
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "CostCategory": "Army",
+  "ShieldArmorName": "<span style=\"color: #59ACFF\">Nano Medic Shield</span>",
+  "id": "StetmannNidhoggBurrowed",
+  "Subtitle": "Unit/Name/MechaUltraliskNB",
+  "Icon": "btn-unit-collection-ultralisk-mecha",
+  "LifeArmorIcon": "btn-upgrade-terran-vehicleplatinglevel0",
+  "ShieldArmorIcon": "btn-techupgrade-terran-combatshield-color",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "Frenzy",
+      "Icon": "btn-ability-zerg-creepmove"
+    },
+    {
+      "id": "Frenzy",
+      "Icon": "btn-ability-zerg-creepmove"
+    },
+    {
+      "id": "UltraliskOutOfCombat1"
+    },
+    {
+      "id": "NoxiousDamageAura82"
+    },
+    {
+      "id": "StukovInfestedCivilianSpawnBroodlingOnDeath73322222",
+      "Icon": "talent-zagara-level08-incubatebroodlings"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BurrowUltraliskUp22"
+    }
+  ],
+  "$Upgrades": [
+    "BurrowUltraliskDown22",
+    "Ultralisk22",
+    "UnknownUpgrade265",
+    "UnknownUpgrade2652",
+    "UnknownUpgrade26522"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "DroneBurrowed",
+    "BanelingBurrowed",
+    "HydraliskBurrowed",
+    "SwarmHostBurrowedMP",
+    "InfestorTerranBurrowed",
+    "UltraliskBurrowed",
+    "Zergling",
+    null,
+    "Roach",
+    "Ravager",
+    "Queen"
+  ],
+  "$Phase": [
+    "StetmannNidhogg"
+  ],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "BurrowUltraliskUp22,Execute",
+      "id": "BurrowUp",
+      "Icon": "btn-ability-zerg-upburrow-color",
+      "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+      "Name": "Unburrow"
+    },
+    {
+      "AbilCmd": "BurrowDroneDown,Execute",
+      "id": "TissueAssimilation",
+      "Icon": "btn-upgrade-zerg-tissueassimilation",
+      "Tooltip": "Gains life equal to 40% of all damage dealt from normal attacks.",
+      "Name": "Tissue Assimilation"
+    },
+    {
+      "AbilCmd": "BurrowDroneDown,Execute",
+      "id": "BurrowDown",
+      "Icon": "btn-ability-zerg-burrow-color",
+      "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+      "Name": "Burrow"
+    },
+    {
+      "AbilCmd": "BurrowBanelingDown,Execute",
+      "id": "BurrowDown",
+      "Icon": "btn-ability-zerg-burrow-color",
+      "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+      "Name": "Burrow"
+    },
+    {
+      "AbilCmd": "BurrowHydraliskDown,Execute",
+      "id": "BurrowDown",
+      "Icon": "btn-ability-zerg-burrow-color",
+      "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+      "Name": "Burrow"
+    },
+    {
+      "AbilCmd": "MorphToSwarmHostBurrowedMP,Execute",
+      "id": "BurrowDown",
+      "Icon": "btn-ability-zerg-burrow-color",
+      "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+      "Name": "Burrow"
+    },
+    {
+      "AbilCmd": "BurrowInfestorTerranDown,Execute",
+      "id": "BurrowDown",
+      "Icon": "btn-ability-zerg-burrow-color",
+      "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+      "Name": "Burrow"
+    },
+    {
+      "AbilCmd": "BurrowUltraliskDown,Execute",
+      "id": "BurrowUp",
+      "Icon": "btn-ability-zerg-upburrow-color",
+      "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+      "Name": "Unburrow"
+    },
+    {
+      "AbilCmd": "BurrowZerglingUp,Execute",
+      "id": "BurrowUp",
+      "Icon": "btn-ability-zerg-upburrow-color",
+      "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+      "Name": "Unburrow"
+    },
+    {
+      "AbilCmd": "BurrowRoachUp,Execute",
+      "id": "BurrowUp",
+      "Icon": "btn-ability-zerg-upburrow-color",
+      "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+      "Name": "Unburrow"
+    },
+    {
+      "AbilCmd": "BurrowRavagerUp,Execute",
+      "id": "BurrowUp",
+      "Icon": "btn-ability-zerg-upburrow-color",
+      "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+      "Name": "Unburrow"
+    },
+    {
+      "AbilCmd": "BurrowQueenUp,Execute",
+      "id": "BurrowUp",
+      "Icon": "btn-ability-zerg-upburrow-color",
+      "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+      "Name": "Unburrow"
+    },
+    {
+      "AbilCmd": "BurrowInfestorUp,Execute",
+      "id": "MonarchBlades",
+      "Icon": "btn-upgrade-zerg-monarchblades",
+      "Tooltip": "Splash damage of Ultralisk attacks increased to <b>25</b>.",
+      "Name": "Monarch Blades"
+    }
+  ]
+}

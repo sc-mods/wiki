@@ -1,0 +1,1109 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Voodoo Lounge"
+  },
+  "Description": {
+    "enUS": "Creates a shop with purchasable items. The items available depend upon what level of upgrade your Great Hall has (Great Hall, Stronghold, or Fortress) and which buildings you have."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 4,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Vision",
+  "Race": "Orc",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 500,
+  "LifeMax": 500,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.6875,
+  "SeparationRadius": 0.6875,
+  "MinimapRadius": 0.6875,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "PreventDefeat",
+    "PenaltyRevealed",
+    "TownAlert",
+    "NoPortraitTalk"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ovln",
+  "HotkeyAlias": "ovln",
+  "SelectAlias": "ovln",
+  "SubgroupAlias": "ovln",
+  "OccludeHeight": 0,
+  "TacticalAI": "ovln",
+  "AIEvaluateAlias": "ovln",
+  "ReviveType": "ovln",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ovln/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ovln/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Classic",
+  "LifeArmorFormula": {
+    "NegativeArmorMultiplier": 0,
+    "NegativeDamageBase": 0.94,
+    "PositiveArmorMultiplier": 0,
+    "PositiveDamageRatio": 0.06
+  },
+  "LifeArmorTip": "ARMORTIP_FORT",
+  "SpeedDisplayFlags": {
+    "CollapseBuffed": 1
+  },
+  "Acceleration": 1000,
+  "BehaviorArray": [
+    "ovln",
+    "War3_Unit",
+    "SuppressXPGrantOnKill",
+    "Buns",
+    "CloseAlliedShopIfNoBuyer",
+    "Abds",
+    "Aspi"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "ovln1",
+      "Turret": "Attu"
+    },
+    {
+      "Link": "ovln2",
+      "Turret": "Attu"
+    }
+  ],
+  "InnerRadius": 0.6875,
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "id": "ovln",
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField"
+  ],
+  "AbilArray": [
+    "War3_Buildable",
+    "ovlnTrain",
+    "Purchaseshas",
+    "Purchasehslv",
+    "Purchaseplcl",
+    "Purchasephea",
+    "Purchasepman",
+    "Purchasestwp",
+    "Purchasetgrh",
+    "Purchaseoli2",
+    "Aall",
+    "War3_Pawn",
+    "War3_PawnDummyInventory"
+  ],
+  "CostCategory": "Technology",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/War3_Buildable",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "War3_Buildable",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/CONSTRUCTING",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "MaxBuilders": 2147483648,
+          "PowerBuildBonusRate": 0.6,
+          "PowerBuildCostFactor": 0.15,
+          "id": "War3_Buildable"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "War3_Buildable,Cancel",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/Aque",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aque",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "CmdCancelTrain"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CmdCancelTrain"
+            }
+          },
+          "QueueSize": 7,
+          "id": "Aque"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aque,CancelLast",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "ARal,Rally1",
+        "id": "CmdRally",
+        "Icon": "renee_war3_btnrallypoint",
+        "Name": {
+          "enUS": "Set Rally Point"
+        },
+        "Tooltip": {
+          "enUS": "Orders units that pop out of the building to immediately attack move to the targeted area. You can rally point gold mines or trees to auto-harvest. You can rally point a unit to have new units follow it when they finish building."
+        },
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "shas",
+            "Requirements": "shas"
+          },
+          "Charge": {
+            "CountUse": 1,
+            "Link": "Sell/shas",
+            "CountMax": 1,
+            "CountStart": 1,
+            "TimeUse": 60
+          },
+          "Unit": [
+            "shas"
+          ]
+        },
+        "Unit": [
+          "shas"
+        ],
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Purchaseshas,Train1",
+        "id": "Purchaseshas",
+        "Icon": "renee_war3_btnscrollofhaste",
+        "Name": {
+          "enUS": "Purchase Scroll of Speed"
+        },
+        "Tooltip": {
+          "enUS": "Increases the movement speed of the Hero and nearby allied units to the maximum movement speed. <br/>Lasts 10 seconds."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hslv",
+            "Requirements": "hslv"
+          },
+          "Charge": {
+            "CountUse": 1,
+            "Link": "Sell/hslv",
+            "CountMax": 2,
+            "CountStart": 2,
+            "TimeUse": 60
+          },
+          "Unit": [
+            "hslv"
+          ]
+        },
+        "Unit": [
+          "hslv"
+        ],
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Purchasehslv,Train1",
+        "id": "Purchasehslv",
+        "Icon": "renee_war3_btnhealingsalve",
+        "Name": {
+          "enUS": "Purchase Healing Salve"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: 87ceeb\">Non-Combat Consumable</span><br/>Regenerates a target unit's hit points by 400 over 45 seconds when used. <br/>Contains 3 charges."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "plcl",
+            "Requirements": "plcl"
+          },
+          "Charge": {
+            "CountUse": 1,
+            "Link": "Sell/plcl",
+            "CountMax": 2,
+            "CountStart": 2,
+            "TimeUse": 30
+          },
+          "Unit": [
+            "plcl"
+          ]
+        },
+        "Unit": [
+          "plcl"
+        ],
+        "Cost": {
+          "Minerals": 70,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Purchaseplcl,Train1",
+        "id": "Purchaseplcl",
+        "Icon": "renee_war3_btnlesserclaritypotion",
+        "Name": {
+          "enUS": "Purchase Lesser Clarity Potion"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: 87ceeb\">Non-Combat Consumable</span><br/>Regenerates the Hero's mana by 100 over 30 seconds when used."
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "phea",
+            "Requirements": "phea"
+          },
+          "Charge": {
+            "CountUse": 1,
+            "Link": "Sell/phea",
+            "CountMax": 3,
+            "CountStart": 3,
+            "TimeUse": 120
+          },
+          "Unit": [
+            "phea"
+          ]
+        },
+        "Unit": [
+          "phea"
+        ],
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Purchasephea,Train1",
+        "id": "Purchasephea",
+        "Icon": "renee_war3_btnpotiongreensmall",
+        "Name": {
+          "enUS": "Purchase Potion of Healing"
+        },
+        "Tooltip": {
+          "enUS": "Heals 250 hit points when used."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "pman",
+            "Requirements": "pman"
+          },
+          "Charge": {
+            "CountUse": 1,
+            "Link": "Sell/pman",
+            "CountMax": 2,
+            "CountStart": 2,
+            "TimeUse": 120
+          },
+          "Unit": [
+            "pman"
+          ]
+        },
+        "Unit": [
+          "pman"
+        ],
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Purchasepman,Train1",
+        "id": "Purchasepman",
+        "Icon": "renee_war3_btnpotionbluesmall",
+        "Name": {
+          "enUS": "Purchase Potion of Mana"
+        },
+        "Tooltip": {
+          "enUS": "Restores 150 mana when used."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "stwp",
+            "Requirements": "stwp"
+          },
+          "Charge": {
+            "CountUse": 1,
+            "Link": "Sell/stwp",
+            "CountMax": 2,
+            "CountStart": 2,
+            "TimeUse": 120
+          },
+          "Unit": [
+            "stwp"
+          ]
+        },
+        "Unit": [
+          "stwp"
+        ],
+        "Cost": {
+          "Minerals": 350,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Purchasestwp,Train1",
+        "id": "Purchasestwp",
+        "Icon": "renee_war3_btnscrolluber",
+        "Name": {
+          "enUS": "Purchase Scroll of Town Portal"
+        },
+        "Tooltip": {
+          "enUS": "Teleports the Hero and any of its nearby troops to a target friendly town hall."
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "tgrh",
+            "Requirements": "tgrh"
+          },
+          "Charge": {
+            "CountUse": 1,
+            "Link": "Sell/tgrh",
+            "CountMax": 1,
+            "CountStart": 1,
+            "TimeUse": 120
+          },
+          "Unit": [
+            "tgrh"
+          ]
+        },
+        "Unit": [
+          "tgrh"
+        ],
+        "Cost": {
+          "Minerals": 600,
+          "Vespene": 185,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Purchasetgrh,Train1",
+        "id": "Purchasetgrh",
+        "Icon": "renee_war3_btngreathall",
+        "Name": {
+          "enUS": "Purchase Tiny Great Hall"
+        },
+        "Tooltip": {
+          "enUS": "Creates a Great Hall at a target location. Human, Night Elf, and Undead players will get their racial equivalent town hall."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "oli2",
+            "Requirements": "oli2"
+          },
+          "Charge": {
+            "CountUse": 1,
+            "Link": "Sell/oli2",
+            "CountMax": 1,
+            "CountStart": 1,
+            "TimeUse": 120
+          },
+          "Unit": [
+            "oli2"
+          ]
+        },
+        "Unit": [
+          "oli2"
+        ],
+        "Cost": {
+          "Minerals": 375,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Purchaseoli2,Train1",
+        "id": "Purchaseoli2",
+        "Icon": "renee_war3_btnorboflightning",
+        "Name": {
+          "enUS": "Purchase Orb of Lightning"
+        },
+        "Tooltip": {
+          "enUS": "Adds 5 bonus damage to the attack of a Hero when carried. The Hero's attacks also become ranged when attacking air, and have a chance to dispel magic and slow the movement speed of the enemy for 3 seconds. <br/><span style=\"color: ffcc00\">Deals 150 bonus damage to summoned units."
+        },
+        "Hotkey": "L"
+      },
+      {
+        "Info": {
+          "class": "CAbilInteract",
+          "Name": "Aall/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aall",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "id": "Aall",
+          "Alignment": "Positive",
+          "Flags": {
+            "AutoCast": 1,
+            "ShareControl": 1,
+            "Smart": 1
+          },
+          "TargetFilters": [
+            "-;Neutral,Enemy,Dead,Hidden,Hallucination"
+          ],
+          "Range": [
+            4.6875
+          ],
+          "AutoCastRange": 3.1875,
+          "ValidatorArray": [
+            "InventoryIsNotFull",
+            "CanUseAnyInventory",
+            "IsNotEnemy"
+          ],
+          "AutoCastFilters": "-;Neutral,Enemy,Dead,Hidden,Hallucination",
+          "AutoCastValidatorArray": [
+            "CanUseAnyInventory",
+            "InventoryIsNotFull",
+            "IsNotEnemy"
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aall,Designate",
+        "id": "Anei",
+        "Icon": "renee_war3_btnselectunit",
+        "Name": {
+          "enUS": "Select User"
+        },
+        "Tooltip": {
+          "enUS": ""
+        },
+        "Hotkey": "U"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "SelectBuilder",
+        "id": "SelectBuilderOrc",
+        "Icon": "renee_war3_btnpeon",
+        "Name": {
+          "enUS": "Select Builder"
+        },
+        "Tooltip": {
+          "enUS": "Selects the unit constructing this structure."
+        },
+        "Hotkey": "Q"
+      }
+    ]
+  },
+  "Attributes": [
+    "Structure",
+    "Mechanical",
+    "User1"
+  ],
+  "FogVisibility": "Snapshot",
+  "PlacementFootprint": "12x12Simple",
+  "AttackTargetPriority": 11,
+  "ResourceDamageLeechFilters": "Self;-",
+  "ResourceDamageLeech": {
+    "Spell": {
+      "Amount": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "CostResource": {
+    "Minerals": 130,
+    "Vespene": 30
+  },
+  "LifeArmor": 5,
+  "RepairTime": 60,
+  "SightBonus": [
+    7.8125,
+    5.8593
+  ],
+  "SubgroupPriority": 1,
+  "Footprint": "12x12Simple",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "HotkeyCategory": "UI/ORC",
+  "defType": "FORT",
+  "Icon": "renee_war3_btnvoodoolounge",
+  "LifeArmorIcon": "infocard-armor-fort.tga",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "War3_Unit",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "War3_Unit"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "SuppressXPGrantOnKill",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "SuppressXPGrantOnKill"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Buns",
+      "Icon": "renee_war3_btnunsummonbuilding",
+      "Name": {
+        "enUS": "Unsummon"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "CloseAlliedShopIfNoBuyer",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "CloseAlliedShopIfNoBuyer"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Abds",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Blight Dispel Small"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Aspi",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Spiked Barricades"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "War3_Buildable",
+      "Name": {
+        "enUS": "War3_Buildable"
+      }
+    },
+    {
+      "id": "Purchaseshas",
+      "Name": {
+        "enUS": "Purchase Scroll of Speed"
+      }
+    },
+    {
+      "id": "Purchasehslv",
+      "Name": {
+        "enUS": "Purchase Healing Salve"
+      }
+    },
+    {
+      "id": "Purchaseplcl",
+      "Name": {
+        "enUS": "Purchase Lesser Clarity Potion"
+      }
+    },
+    {
+      "id": "Purchasephea",
+      "Name": {
+        "enUS": "Purchase Potion of Healing"
+      }
+    },
+    {
+      "id": "Purchasepman",
+      "Name": {
+        "enUS": "Purchase Potion of Mana"
+      }
+    },
+    {
+      "id": "Purchasestwp",
+      "Name": {
+        "enUS": "Purchase Scroll of Town Portal"
+      }
+    },
+    {
+      "id": "Purchasetgrh",
+      "Name": {
+        "enUS": "Purchase Tiny Great Hall"
+      }
+    },
+    {
+      "id": "Purchaseoli2",
+      "Name": {
+        "enUS": "Purchase Orb of Lightning"
+      }
+    },
+    {
+      "id": "Aall",
+      "Name": {
+        "enUS": "Shop Sharing, Allied Bldg."
+      }
+    },
+    {
+      "id": "War3_Pawn",
+      "Name": {
+        "enUS": "War3_Pawn"
+      }
+    },
+    {
+      "id": "War3_PawnDummyInventory",
+      "Name": {
+        "enUS": "War3_PawnDummyInventory"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "Rosp",
+    "ovln",
+    "AObu",
+    "Rgfo",
+    "ovln",
+    "ovlnCount"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "shas",
+    "hslv",
+    "plcl",
+    "phea",
+    "pman",
+    "stwp",
+    "tgrh",
+    "oli2"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "opeo"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "War3_Buildable,Cancel",
+      "id": "CmdCancel",
+      "Icon": "renee_war3_btncancel",
+      "Name": {
+        "enUS": "Cancel"
+      },
+      "Tooltip": {
+        "enUS": "Drops the current un-issued order and allows you to select a different order."
+      }
+    },
+    {
+      "AbilCmd": "Aque,CancelLast",
+      "id": "CmdCancel",
+      "Icon": "renee_war3_btncancel",
+      "Name": {
+        "enUS": "Cancel"
+      },
+      "Tooltip": {
+        "enUS": "Drops the current un-issued order and allows you to select a different order."
+      }
+    },
+    {
+      "AbilCmd": "ARal,Rally1",
+      "id": "CmdRally",
+      "Icon": "renee_war3_btnrallypoint",
+      "Name": {
+        "enUS": "Set Rally Point"
+      },
+      "Tooltip": {
+        "enUS": "Orders units that pop out of the building to immediately attack move to the targeted area. You can rally point gold mines or trees to auto-harvest. You can rally point a unit to have new units follow it when they finish building."
+      }
+    },
+    {
+      "AbilCmd": "Purchaseshas,Train1",
+      "id": "Purchaseshas",
+      "Icon": "renee_war3_btnscrollofhaste",
+      "Name": {
+        "enUS": "Purchase Scroll of Speed"
+      },
+      "Tooltip": {
+        "enUS": "Increases the movement speed of the Hero and nearby allied units to the maximum movement speed. <br/>Lasts 10 seconds."
+      }
+    },
+    {
+      "AbilCmd": "Purchasehslv,Train1",
+      "id": "Purchasehslv",
+      "Icon": "renee_war3_btnhealingsalve",
+      "Name": {
+        "enUS": "Purchase Healing Salve"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: 87ceeb\">Non-Combat Consumable</span><br/>Regenerates a target unit's hit points by 400 over 45 seconds when used. <br/>Contains 3 charges."
+      }
+    },
+    {
+      "AbilCmd": "Purchaseplcl,Train1",
+      "id": "Purchaseplcl",
+      "Icon": "renee_war3_btnlesserclaritypotion",
+      "Name": {
+        "enUS": "Purchase Lesser Clarity Potion"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: 87ceeb\">Non-Combat Consumable</span><br/>Regenerates the Hero's mana by 100 over 30 seconds when used."
+      }
+    },
+    {
+      "AbilCmd": "Purchasephea,Train1",
+      "id": "Purchasephea",
+      "Icon": "renee_war3_btnpotiongreensmall",
+      "Name": {
+        "enUS": "Purchase Potion of Healing"
+      },
+      "Tooltip": {
+        "enUS": "Heals 250 hit points when used."
+      }
+    },
+    {
+      "AbilCmd": "Purchasepman,Train1",
+      "id": "Purchasepman",
+      "Icon": "renee_war3_btnpotionbluesmall",
+      "Name": {
+        "enUS": "Purchase Potion of Mana"
+      },
+      "Tooltip": {
+        "enUS": "Restores 150 mana when used."
+      }
+    },
+    {
+      "AbilCmd": "Purchasestwp,Train1",
+      "id": "Purchasestwp",
+      "Icon": "renee_war3_btnscrolluber",
+      "Name": {
+        "enUS": "Purchase Scroll of Town Portal"
+      },
+      "Tooltip": {
+        "enUS": "Teleports the Hero and any of its nearby troops to a target friendly town hall."
+      }
+    },
+    {
+      "AbilCmd": "Purchasetgrh,Train1",
+      "id": "Purchasetgrh",
+      "Icon": "renee_war3_btngreathall",
+      "Name": {
+        "enUS": "Purchase Tiny Great Hall"
+      },
+      "Tooltip": {
+        "enUS": "Creates a Great Hall at a target location. Human, Night Elf, and Undead players will get their racial equivalent town hall."
+      }
+    },
+    {
+      "AbilCmd": "Purchaseoli2,Train1",
+      "id": "Purchaseoli2",
+      "Icon": "renee_war3_btnorboflightning",
+      "Name": {
+        "enUS": "Purchase Orb of Lightning"
+      },
+      "Tooltip": {
+        "enUS": "Adds 5 bonus damage to the attack of a Hero when carried. The Hero's attacks also become ranged when attacking air, and have a chance to dispel magic and slow the movement speed of the enemy for 3 seconds. <br/><span style=\"color: ffcc00\">Deals 150 bonus damage to summoned units."
+      }
+    },
+    {
+      "AbilCmd": "Aall,Designate",
+      "id": "Anei",
+      "Icon": "renee_war3_btnselectunit",
+      "Name": {
+        "enUS": "Select User"
+      },
+      "Tooltip": {
+        "enUS": ""
+      }
+    }
+  ]
+}

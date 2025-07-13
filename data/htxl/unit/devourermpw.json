@@ -1,0 +1,914 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "母巢吞噬者",
+    "enUS": "Brood Devourer"
+  },
+  "Description": {
+    "zhCN": "非常强大的对空飞行单位。攻击能够削弱敌人。<br/><br/><span style=\"color: #ffff8a\">可以对空。</span>",
+    "enUS": "Very powerful anti-air flying unit. Attacks weaken enemies. <br/><br/><span style=\"color: #ffff8a\">Can be empty. </span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZerW",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 350,
+  "LifeMax": 350,
+  "LifeArmorName": {
+    "zhCN": "利维坦飞行生物甲壳",
+    "enUS": "Leviathan Flying Creature Carapace"
+  },
+  "Mover": "Fly",
+  "StationaryTurningRate": 539.4726,
+  "TurningRate": 539.4726,
+  "Radius": 1,
+  "SeparationRadius": 1,
+  "MinimapRadius": 1,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1.2,
+  "Mass": 0.6,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "DevourerMPW",
+  "HotkeyAlias": "DevourerMPW",
+  "SelectAlias": "DevourerMPW",
+  "SubgroupAlias": "DevourerMPW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "DevourerMPW",
+  "AIEvaluateAlias": "DevourerMP",
+  "ReviveType": "DevourerMPW",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "DevourerMPW/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "DevourerMPW/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Subtitle": "UnitSubtitle/DevourerW",
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Air"
+  ],
+  "Collide": [
+    "Flying"
+  ],
+  "Attributes": [
+    "Armored",
+    "Biological",
+    "Massive"
+  ],
+  "LifeArmor": 6,
+  "LifeRegenRate": 1.5,
+  "ShieldArmor": 8,
+  "ShieldRegenDelay": 20,
+  "ShieldRegenRate": 3,
+  "ShieldArmorName": {
+    "zhCN": "装甲外壳",
+    "enUS": "Armored Shell"
+  },
+  "Speed": 2.25,
+  "Acceleration": 1.875,
+  "Sight": 11,
+  "Height": 3.75,
+  "VisionHeight": 4,
+  "Food": -5,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 400,
+    "Vespene": 200
+  },
+  "AttackTargetPriority": 20,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 55,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move"
+  ],
+  "BehaviorArray": [
+    "DevourerWBehavior",
+    "CrashLargeBHV"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "DevourerMPWeaponW"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "ZergShieldW",
+        "Icon": "btn-upgrade-lwthd",
+        "Name": {
+          "zhCN": "装甲外壳",
+          "enUS": "Armored Shell"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">拥有护盾</span><br/>护盾在脱战长时间后缓慢恢复，拥有较高的护甲。<br/>在菌毯上时能够更快恢复护盾。",
+          "enUS": "<span style=\"color: #ffff8a\">Has a shield</span><br/>The shield recovers slowly after being out of combat for a long time, and has higher armor. <br/>Restores shields faster while on creep."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "HotSImprovedOsmosisW",
+        "Icon": "btn-upgrade-zerg-bileductsw",
+        "Name": {
+          "zhCN": "强化渗透",
+          "enUS": "Enhanced Penetration"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">腐蚀孢子</span>的持续时间增加<span style=\"color: #ffff8a\">300%</span>，受影响的单位无法隐形并能够无限叠加。<br/><span style=\"color: #ffff8a\">每次叠加都能够刷新持续时间</span>",
+          "enUS": "The duration of <span style=\"color: #ffff8a\">Corruption Spores</span> is increased by <span style=\"color: #ffff8a\">300%</span>, affected units become invisible and can stack indefinitely. <br/><span style=\"color: #ffff8a\">The duration can be refreshed with each overlay</span>"
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "DevourerHeavyKillerW",
+        "Icon": "btn-upgrade-zerg-abathur-devourer-corrosivespray",
+        "Name": {
+          "zhCN": "强酸喷涌",
+          "enUS": "Acid Spurt"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">母巢吞噬者</span>的攻击将会造成大范围全额法术伤害。",
+          "enUS": "<span style=\"color: #ffff8a\">Brood Devourer</span>'s attack will cause full spell damage in a large area."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "Passive",
+        "id": "DevourerSpeedArmorW",
+        "Icon": "btn-upgrade-kerrigan-broodlordspeedw",
+        "Name": {
+          "zhCN": "利维坦腱甲",
+          "enUS": "Leviathan's Tendon Armor"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">母巢吞噬者</span>的移动速度提升<span style=\"color: #ffff8a\">25%</span>。生命护甲与护盾护甲提升<span style=\"color: #ffff8a\">2</span>。受到来自空中单位的伤害降低<span style=\"color: #ffff8a\">50%</span>。",
+          "enUS": "<span style=\"color: #ffff8a\">Brood Devourer</span>'s movement speed is increased by <span style=\"color: #ffff8a\">25%</span>. Health armor and shield armor increased by <span style=\"color: #ffff8a\">2</span>. Damage taken from air units is reduced by <span style=\"color: #ffff8a\">50%</span>."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "CorrosiveAcidDevourerW",
+        "Icon": "btn-ability-zerg-acidspores",
+        "Name": {
+          "zhCN": "腐蚀孢子",
+          "enUS": "Corrosion Spores"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">母巢吞噬者</span>的每次攻击会为受影响的单位增加一层<span style=\"color: #ffff8a\">腐蚀孢子</span>。<br/>每层<span style=\"color: #ffff8a\">腐蚀孢子</span>会降低<span style=\"color: #ffff8a\">2</span>点护甲与<span style=\"color: #ffff8a\">15%</span>的攻击速度和移动速度。",
+          "enUS": "Each attack by the <span style=\"color: #ffff8a\">Brood Devourer</span> adds a layer of <span style=\"color: #ffff8a\">Corruption Spores</span> to the affected unit. <br/>Each stack of <span style=\"color: #ffff8a\">Corrosive Spores</span> reduces armor by <span style=\"color: #ffff8a\">2</span> and <span style=\"color: #ffff8a\"> 15%</span> of attack speed and movement speed."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "HotSGapingMawW",
+        "Icon": "btn-upgrade-zerg-stukov-researchqueenfungalgrowth",
+        "Name": {
+          "zhCN": "张裂巨胃",
+          "enUS": "Split giant stomach"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">母巢吞噬者</span>的攻击速度提高<span style=\"color: #ffff8a\">30%</span>，每造成<span style=\"color: #ffff8a\">5</span>点伤害将恢复<span style=\"color: #ffff8a\">1</span>点护盾。",
+          "enUS": "<span style=\"color: #ffff8a\">Brood Devourer</span>'s attack speed increased by <span style=\"color: #ffff8a\">30%</span> for every <span style=\"color: #ffff8a\"> 5</span> points of damage will restore <span style=\"color: #ffff8a\">1</span> point of shield."
+        }
+      }
+    ]
+  },
+  "ScoreMake": 400,
+  "ScoreKill": 400,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 19,
+  "GlossaryCategory": "Unit/Category/WebbyZergUnits",
+  "GlossaryPriority": 200,
+  "GlossaryStrongArray": [
+    "Battlecruiser",
+    "Mutalisk",
+    "Phoenix"
+  ],
+  "GlossaryWeakArray": [
+    "MissileTurret",
+    "VikingFighter",
+    "Corruptor"
+  ],
+  "HotkeyCategory": "Unit/Category/WebbyZergUnits",
+  "id": "DevourerMPW",
+  "Icon": "btn-unit-zerg-devourer-webbycollection",
+  "LifeArmorIcon": "btn-upgrade-zerg-flyercarapace-level3w",
+  "ShieldArmorIcon": "btn-upgrade-lwthd",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Zerg",
+      "Icon": "btn-upgrade-zerg-airattacks-level3w",
+      "DisplayEffect": "DevourerMPWeaponDamageW",
+      "TargetFilters": "Air",
+      "MinScanRange": 6.5,
+      "Range": 6,
+      "Period": 3,
+      "Effect": "DevourerMPWeaponLaunchW",
+      "AllowedMovement": "Slowing",
+      "id": "DevourerMPWeaponW",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "zhCN": "腐蚀强酸",
+        "enUS": "Corrosive acid"
+      },
+      "Amount": 50,
+      "AttributeBonus": {
+        "Massive": 30
+      },
+      "Kind": "Spell"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "DevourerWBehavior",
+      "Icon": "btn-unit-zerg-devourer-webbycollection",
+      "Name": {
+        "zhCN": "吞噬者行为",
+        "enUS": "Devourer Behavior"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "CrashLargeBHV",
+      "Icon": "btn-unit-protoss-carrier",
+      "Name": "-",
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "MorphToDevourerMPW",
+    "DevourerMPW",
+    "LarvaTrainW",
+    "DevourerMPW"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "LarvaW"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    }
+  ]
+}

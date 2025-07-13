@@ -1,0 +1,1775 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Drone Platform"
+  },
+  "Description": {
+    "enUS": "The Drone Platform can construct other Scrin buildings to form a base. It can pack back into a Drone Ship when needed."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Scrin",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1500,
+  "LifeMax": 1500,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 3,
+  "SeparationRadius": 2.5,
+  "MinimapRadius": 2.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:CNC",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 0.7,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "PreventDefeat",
+    "PenaltyRevealed",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing",
+    "PreventReveal",
+    "TownCamera"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ScrinDronePlatform",
+  "HotkeyAlias": "ScrinDronePlatform",
+  "SelectAlias": "ScrinDronePlatform",
+  "SubgroupAlias": "ScrinDronePlatform",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ScrinDronePlatform",
+  "AIEvaluateAlias": "ScrinDronePlatform",
+  "ReviveType": "ScrinDronePlatform",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ScrinDronePlatform/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ScrinDronePlatform/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "ScoreResult": "BuildOrder",
+  "GlossaryAlias": "ScrinDronePlatform",
+  "Sight": 11,
+  "AttackTargetPriority": 20,
+  "ScoreMakeCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "ScoreKillCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "Facing": 45,
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 3,
+  "CostCategory": "Technology",
+  "AbilArray": [
+    "BuildInProgress",
+    "que5PassiveCancelToSelection",
+    "ScrinBuild",
+    "ScrinDefenseBuild",
+    "ScrinBuildAdvanced",
+    "ScrinDefenseBuildAdvanced",
+    "ScrinDronePlatformPack",
+    "ScrinDronePlatformTrain",
+    "Rally"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5PassiveCancelToSelection",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5PassiveCancelToSelection",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1,
+            "Passive": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel",
+              "Flags": {
+                "ToSelection": 1
+              }
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "AbilSetId": "QueueCancelToSelection",
+          "QueueSize": 5,
+          "id": "que5PassiveCancelToSelection"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            }
+          }
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinDronePlatformTrain,Train1",
+        "id": "ScrinExplorer",
+        "Icon": "scrinexplorer",
+        "Name": {
+          "enUS": "Explorer"
+        },
+        "Tooltip": {
+          "enUS": "The Scrin, seemingly obsessed with Tiberium, often send Explorers to establish a presence in Tiberium-rich areas to expand ground control."
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5PassiveCancelToSelection",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5PassiveCancelToSelection",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1,
+            "Passive": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel",
+              "Flags": {
+                "ToSelection": 1
+              }
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "AbilSetId": "QueueCancelToSelection",
+          "QueueSize": 5,
+          "id": "que5PassiveCancelToSelection"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rally,Rally1",
+        "id": "Rally",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 3.5417
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 3.5417
+              }
+            }
+          },
+          "Unit": "ScrinDroneShip",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "ScrinDroneShip",
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinDronePlatformPack,Execute",
+        "id": "ScrinDronePlatformPack",
+        "Icon": "pack",
+        "Name": {
+          "enUS": "Pack into Drone Ship"
+        },
+        "Tooltip": {
+          "enUS": "Orders the Drone Platform to pack into a Drone Ship. This order is reversible"
+        }
+      }
+    ],
+    "BLD": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinExtractor"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "ScrinExtractor",
+          "Time": 3
+        },
+        "Unit": "ScrinExtractor",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 14
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinBuild,Build1",
+        "id": "ScrinExtractor",
+        "Icon": "scrinextractor",
+        "Name": {
+          "enUS": "Extractor"
+        },
+        "Tooltip": {
+          "enUS": "The Extractor collects and stores Tiberium delivered by the Shielded Harvester. It comes with a free Shielded Harvester and is essential for generating the currency Scrin needs to mount their war efforts."
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinReactor"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "ScrinReactor",
+          "Time": 3
+        },
+        "Unit": "ScrinReactor",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 12
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinBuild,Build2",
+        "id": "ScrinReactor",
+        "Icon": "scrinreactor",
+        "Name": {
+          "enUS": "Reactor"
+        },
+        "Tooltip": {
+          "enUS": "The primary power source for Scrin bases, the Reactor makes efficient use of Tiberium radiation to supply energy to other alien structures."
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinPortal",
+            "Requirements": "BuildScrinPortal"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "ScrinPortal",
+          "Time": 3
+        },
+        "Unit": "ScrinPortal",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinBuild,Build4",
+        "id": "ScrinPortal",
+        "Icon": "scrinportal",
+        "Name": {
+          "enUS": "Portal"
+        },
+        "Tooltip": {
+          "enUS": "Transport Scrin infantry to the battlefield with a Portal."
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinWarpSphere",
+            "Requirements": "BuildScrinWarpSphere"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "ScrinWarpSphere",
+          "Time": 3
+        },
+        "Unit": "ScrinWarpSphere",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinBuild,Build5",
+        "id": "ScrinWarpSphere",
+        "Icon": "scrinwarpsphere",
+        "Name": {
+          "enUS": "Warp Sphere"
+        },
+        "Tooltip": {
+          "enUS": "The Warp Sphere creates a gateway capable of teleporting Scrin vehicles. It contains drones that repair friendly damaged vehicles within range."
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinGravityStabilizer",
+            "Requirements": "BuildScrinGravityStabilizer"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "ScrinGravityStabilizer",
+          "Time": 3
+        },
+        "Unit": "ScrinGravityStabilizer",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinBuild,Build7",
+        "id": "ScrinGravityStabilizer",
+        "Icon": "scringravitystabilizer",
+        "Name": {
+          "enUS": "Gravity Stabilizer"
+        },
+        "Tooltip": {
+          "enUS": "The Gravity Stabilizer controls the gravitational fluctuations of the planetary body it is built on in order it allow a safe teleportation destination for the Reaper17 starship fleets. It has four landing pads for Stormriders."
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinWarpChasm",
+            "State": "Restricted",
+            "Requirements": "BuildScrinWarpChasm"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Link": "Abil/ScrinBuild",
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Link": "Abil/ScrinBuild",
+            "Location": "Unit"
+          },
+          "Unit": "ScrinWarpChasm",
+          "Time": 3
+        },
+        "Unit": "ScrinWarpChasm",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinBuildAdvanced,Build14",
+        "id": "ScrinWarpChasm",
+        "Icon": "scrinwarpchasm",
+        "Name": {
+          "enUS": "Warp Chasm"
+        },
+        "Tooltip": {
+          "enUS": "The Warp Chasm can build all Scrin vehicles like a standard Warp Sphere, and is the only structure capable of deploying the Eradicator Hexapod."
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinNerveCenter",
+            "Requirements": "BuildScrinNerveCenter"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "ScrinNerveCenter",
+          "Time": 3
+        },
+        "Unit": "ScrinNerveCenter",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinBuild,Build6",
+        "id": "ScrinNerveCenter",
+        "Icon": "scrinnervecenter",
+        "Name": {
+          "enUS": "Nerve Center"
+        },
+        "Tooltip": {
+          "enUS": "Required for advanced alien technologies, the Nerve Center can do everything from networking with distant Scrin forces to calling a Lightning Spike to help defend a base."
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinStasisChamber",
+            "Requirements": "BuildScrinStasisChamber"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "ScrinStasisChamber",
+          "Time": 3
+        },
+        "Unit": "ScrinStasisChamber",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinBuild,Build8",
+        "id": "ScrinStasisChamber",
+        "Icon": "scrinstasischamber",
+        "Name": {
+          "enUS": "Stasis Chamber"
+        },
+        "Tooltip": {
+          "enUS": "A Stasis Chamber can sustain advanced Scrin infantry and project a Stasis Shield anywhere on the battlefield."
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinTechnologyAssembler",
+            "Requirements": "BuildScrinTechnologyAssembler"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "ScrinTechnologyAssembler",
+          "Time": 3
+        },
+        "Unit": "ScrinTechnologyAssembler",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinBuild,Build9",
+        "id": "ScrinTechnologyAssembler",
+        "Icon": "scrintechnologyassembler",
+        "Name": {
+          "enUS": "Technology Assembler"
+        },
+        "Tooltip": {
+          "enUS": "The Technology Assembler enables production of the Scrin strongest units, outfits forces with improvements and can render ground units impervious to attack for a short period of time."
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinSignalTransmitter",
+            "State": "Restricted",
+            "Requirements": "BuildScrinSignalTransmitter"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "ScrinSignalTransmitter",
+          "Time": 3
+        },
+        "Unit": "ScrinSignalTransmitter",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinBuild,Build10",
+        "id": "ScrinFoundry",
+        "Icon": "scrinfoundry",
+        "Name": {
+          "enUS": "Foundry"
+        },
+        "Tooltip": {
+          "enUS": "A Foundry acts like Drone Platform when creating structures, thereby granting Reaper-17 foremen access to expedited base construction by adding one extra building production queue."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      }
+    ],
+    "DEF": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            }
+          }
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinDefenseBuild,Build7",
+        "id": "ScrinGrowthStimulator",
+        "Icon": "scringrowthstimulator",
+        "Name": {
+          "enUS": "Growth Stimulator"
+        },
+        "Tooltip": {
+          "enUS": "The Scrin are known to construct these mysterious Growth Accelerators to increase the growth rate of their Tiberium fields. The structure needs to be placed in the center of Tiberium fields"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinBuzzerHive",
+            "Requirements": "BuildScrinBuzzerHive"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Link": "Abil/ScrinDefenseBuild",
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Link": "Abil/ScrinDefenseBuild",
+            "Location": "Unit"
+          },
+          "Unit": "ScrinBuzzerHive",
+          "Time": 3
+        },
+        "Unit": "ScrinBuzzerHive",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinDefenseBuildAdvanced,Build1",
+        "id": "ScrinBuzzerHive",
+        "Icon": "scrinbuzzerhive",
+        "Name": {
+          "enUS": "Buzzer Hive"
+        },
+        "Tooltip": {
+          "enUS": "Buzzer Hives store countless numbers of vicious Buzzers. If the Buzzers are killed, the Hive rapidly regenerates new ones free of charge. They are capable of detecting stealthed units. They deactivate if the base’s power is low, killing the Buzzer swarms currently attached to them."
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinPlasmaMissileBattery",
+            "Requirements": "BuildScrinPlasmaMissileBattery"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Link": "Abil/ScrinDefenseBuild",
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Link": "Abil/ScrinDefenseBuild",
+            "Location": "Unit"
+          },
+          "Unit": "ScrinPlasmaMissileBattery",
+          "Time": 3
+        },
+        "Unit": "ScrinPlasmaMissileBattery",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinDefenseBuildAdvanced,Build3",
+        "id": "ScrinPlasmaMissileBattery",
+        "Icon": "scrinplasmamissilebattery",
+        "Name": {
+          "enUS": "Plasma Missile Battery"
+        },
+        "Tooltip": {
+          "enUS": "The Plasma Missile Battery unleashes ultra-hot discs, capable of incineration enemy aircraft. It is capable of detecting stealthed units. It deactivates if the base’s power is low.<br/><br/><span style=\"color: #ffff8a\">Can attack air units.</span>"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinPhotonCannon",
+            "Requirements": "BuildScrinPhotonCannon"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Link": "Abil/ScrinDefenseBuild",
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Link": "Abil/ScrinDefenseBuild",
+            "Location": "Unit"
+          },
+          "Unit": "ScrinPhotonCannon",
+          "Time": 3
+        },
+        "Unit": "ScrinPhotonCannon",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinDefenseBuildAdvanced,Build2",
+        "id": "ScrinPhotonCannon",
+        "Icon": "scrinphotoncannon",
+        "Name": {
+          "enUS": "Photon Cannon"
+        },
+        "Tooltip": {
+          "enUS": "Photon Cannon blasts are capable of decimating ground vehicles. However, infantry are small enough to avoid taking direct damage. They are capable of detecting stealthed units. They deactivate if the base’s power is low. <br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinStormColumn",
+            "Requirements": "BuildScrinStormColumn"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Link": "Abil/ScrinDefenseBuild",
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Link": "Abil/ScrinDefenseBuild",
+            "Location": "Unit"
+          },
+          "Unit": "ScrinStormColumn",
+          "Time": 3
+        },
+        "Unit": "ScrinStormColumn",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinDefenseBuildAdvanced,Build4",
+        "id": "ScrinStormColumn",
+        "Icon": "scrinstormcolumn",
+        "Name": {
+          "enUS": "Storm Column"
+        },
+        "Tooltip": {
+          "enUS": "The Storm Column generates a localised ion storm that aids alien spacecraft. It can focus this storm into a lightning bolt that severely damages aircraft, vehicles and infantry. It is capable of detecting stealthed units. It deactivates if the base’s power is low."
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ScrinRiftGenerator",
+            "State": "Restricted",
+            "Requirements": "BuildScrinRiftGenerator"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Link": "Abil/ScrinDefenseBuild",
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Link": "Abil/ScrinDefenseBuild",
+            "Location": "Unit"
+          },
+          "Unit": "ScrinRiftGenerator",
+          "Time": 3
+        },
+        "Unit": "ScrinRiftGenerator",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ScrinDefenseBuildAdvanced,Build5",
+        "id": "ScrinRiftGenerator",
+        "Icon": "scrinriftgenerator",
+        "Name": {
+          "enUS": "Rift Generator"
+        },
+        "Tooltip": {
+          "enUS": "The Scrin use this profoundly dangerous device to cut a hole in the fabric of space which sucks up anything and everything in vicinity, then ejecting everything into deep space. Like with other superweapons, when the Rift Generator is built, all players are notified."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      }
+    ]
+  },
+  "Footprint": "Footprint4x4Contour",
+  "PlacementFootprint": "Footprint4x4",
+  "SubgroupPriority": 3,
+  "id": "ScrinDronePlatform",
+  "GlossaryCategory": "Unit/Category/ScrinUnits",
+  "HotkeyCategory": "Unit/Category/ScrinUnits",
+  "BehaviorArray": [
+    "CNCTabConstruction",
+    "CNCConstructionRadius"
+  ],
+  "CostResource": {
+    "Minerals": 400
+  },
+  "ScoreMake": 700,
+  "ScoreKill": 700,
+  "RepairTime": 150,
+  "TacticalAIThink": "AIThinkCommandCenter",
+  "Icon": "scrindroneplatform",
+  "LifeArmorIcon": "btn-upgrade-terran-buildingarmor",
+  "ShieldArmorIcon": "scrinlaserfencing",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "CNCTabConstruction",
+      "Icon": "btn-missing-kaeo",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "id": "CNCConstructionRadius",
+      "Icon": "btn-building-protoss-pylon",
+      "Name": {
+        "enUS": "CNC construction range"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "-"
+    },
+    {
+      "id": "que5PassiveCancelToSelection",
+      "Name": {
+        "ruRU": "Queue (5) Passive (Cancel to Selection)"
+      }
+    },
+    {
+      "id": "ScrinBuild",
+      "Name": "-"
+    },
+    {
+      "id": "ScrinDefenseBuild",
+      "Name": "-"
+    },
+    {
+      "id": "ScrinBuildAdvanced",
+      "Name": "-"
+    },
+    {
+      "id": "ScrinDefenseBuildAdvanced",
+      "Name": "-"
+    },
+    {
+      "id": "ScrinDronePlatformPack",
+      "Name": {
+        "enUS": "Pack into Drone Ship"
+      }
+    },
+    {
+      "id": "ScrinDronePlatformTrain",
+      "Name": "-"
+    },
+    {
+      "id": "Rally",
+      "Name": "-"
+    }
+  ],
+  "$Upgrades": [
+    "ScrinDroneShipDeploy",
+    "ScrinDronePlatform",
+    "ScrinDronePlatform",
+    "UC_ScrinDronePlatform"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    null,
+    "ScrinExtractor",
+    "ScrinReactor",
+    "ScrinFoundry",
+    "ScrinPortal",
+    "ScrinWarpSphere",
+    "ScrinGravityStabilizer",
+    "ScrinWarpChasm",
+    "ScrinNerveCenter",
+    "ScrinStasisChamber",
+    "ScrinTechnologyAssembler",
+    "ScrinSignalTransmitter",
+    "ScrinBuzzerHive",
+    "ScrinPlasmaMissileBattery",
+    "ScrinPhotonCannon",
+    "ScrinStormColumn",
+    "ScrinRiftGenerator"
+  ],
+  "$Research": [],
+  "$Morph": [
+    "ScrinDroneShip"
+  ],
+  "$Phase": [],
+  "$Phased": "ScrinDroneShip",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Прервать постройку "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "ScrinDronePlatformTrain,Train1",
+      "id": "ScrinExplorer",
+      "Icon": "scrinexplorer",
+      "Name": {
+        "enUS": "Explorer"
+      },
+      "Tooltip": {
+        "enUS": "The Scrin, seemingly obsessed with Tiberium, often send Explorers to establish a presence in Tiberium-rich areas to expand ground control."
+      }
+    },
+    {
+      "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Прервать постройку "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "Rally,Rally1",
+      "id": "Rally",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "ScrinDronePlatformPack,Execute",
+      "id": "ScrinDronePlatformPack",
+      "Icon": "pack",
+      "Name": {
+        "enUS": "Pack into Drone Ship"
+      },
+      "Tooltip": {
+        "enUS": "Orders the Drone Platform to pack into a Drone Ship. This order is reversible"
+      }
+    },
+    {
+      "AbilCmd": "ScrinBuild,Build1",
+      "id": "ScrinExtractor",
+      "Icon": "scrinextractor",
+      "Name": {
+        "enUS": "Extractor"
+      },
+      "Tooltip": {
+        "enUS": "The Extractor collects and stores Tiberium delivered by the Shielded Harvester. It comes with a free Shielded Harvester and is essential for generating the currency Scrin needs to mount their war efforts."
+      }
+    },
+    {
+      "AbilCmd": "ScrinBuild,Build2",
+      "id": "ScrinReactor",
+      "Icon": "scrinreactor",
+      "Name": {
+        "enUS": "Reactor"
+      },
+      "Tooltip": {
+        "enUS": "The primary power source for Scrin bases, the Reactor makes efficient use of Tiberium radiation to supply energy to other alien structures."
+      }
+    },
+    {
+      "AbilCmd": "ScrinBuild,Build4",
+      "id": "ScrinPortal",
+      "Icon": "scrinportal",
+      "Name": {
+        "enUS": "Portal"
+      },
+      "Tooltip": {
+        "enUS": "Transport Scrin infantry to the battlefield with a Portal."
+      }
+    },
+    {
+      "AbilCmd": "ScrinBuild,Build5",
+      "id": "ScrinWarpSphere",
+      "Icon": "scrinwarpsphere",
+      "Name": {
+        "enUS": "Warp Sphere"
+      },
+      "Tooltip": {
+        "enUS": "The Warp Sphere creates a gateway capable of teleporting Scrin vehicles. It contains drones that repair friendly damaged vehicles within range."
+      }
+    },
+    {
+      "AbilCmd": "ScrinBuild,Build7",
+      "id": "ScrinGravityStabilizer",
+      "Icon": "scringravitystabilizer",
+      "Name": {
+        "enUS": "Gravity Stabilizer"
+      },
+      "Tooltip": {
+        "enUS": "The Gravity Stabilizer controls the gravitational fluctuations of the planetary body it is built on in order it allow a safe teleportation destination for the Reaper17 starship fleets. It has four landing pads for Stormriders."
+      }
+    },
+    {
+      "AbilCmd": "ScrinBuildAdvanced,Build14",
+      "id": "ScrinWarpChasm",
+      "Icon": "scrinwarpchasm",
+      "Name": {
+        "enUS": "Warp Chasm"
+      },
+      "Tooltip": {
+        "enUS": "The Warp Chasm can build all Scrin vehicles like a standard Warp Sphere, and is the only structure capable of deploying the Eradicator Hexapod."
+      }
+    },
+    {
+      "AbilCmd": "ScrinBuild,Build6",
+      "id": "ScrinNerveCenter",
+      "Icon": "scrinnervecenter",
+      "Name": {
+        "enUS": "Nerve Center"
+      },
+      "Tooltip": {
+        "enUS": "Required for advanced alien technologies, the Nerve Center can do everything from networking with distant Scrin forces to calling a Lightning Spike to help defend a base."
+      }
+    },
+    {
+      "AbilCmd": "ScrinBuild,Build8",
+      "id": "ScrinStasisChamber",
+      "Icon": "scrinstasischamber",
+      "Name": {
+        "enUS": "Stasis Chamber"
+      },
+      "Tooltip": {
+        "enUS": "A Stasis Chamber can sustain advanced Scrin infantry and project a Stasis Shield anywhere on the battlefield."
+      }
+    },
+    {
+      "AbilCmd": "ScrinBuild,Build9",
+      "id": "ScrinTechnologyAssembler",
+      "Icon": "scrintechnologyassembler",
+      "Name": {
+        "enUS": "Technology Assembler"
+      },
+      "Tooltip": {
+        "enUS": "The Technology Assembler enables production of the Scrin strongest units, outfits forces with improvements and can render ground units impervious to attack for a short period of time."
+      }
+    },
+    {
+      "AbilCmd": "ScrinBuild,Build10",
+      "id": "ScrinFoundry",
+      "Icon": "scrinfoundry",
+      "Name": {
+        "enUS": "Foundry"
+      },
+      "Tooltip": {
+        "enUS": "A Foundry acts like Drone Platform when creating structures, thereby granting Reaper-17 foremen access to expedited base construction by adding one extra building production queue."
+      }
+    },
+    {
+      "AbilCmd": "ScrinDefenseBuild,Build7",
+      "id": "ScrinGrowthStimulator",
+      "Icon": "scringrowthstimulator",
+      "Name": {
+        "enUS": "Growth Stimulator"
+      },
+      "Tooltip": {
+        "enUS": "The Scrin are known to construct these mysterious Growth Accelerators to increase the growth rate of their Tiberium fields. The structure needs to be placed in the center of Tiberium fields"
+      }
+    },
+    {
+      "AbilCmd": "ScrinDefenseBuildAdvanced,Build1",
+      "id": "ScrinBuzzerHive",
+      "Icon": "scrinbuzzerhive",
+      "Name": {
+        "enUS": "Buzzer Hive"
+      },
+      "Tooltip": {
+        "enUS": "Buzzer Hives store countless numbers of vicious Buzzers. If the Buzzers are killed, the Hive rapidly regenerates new ones free of charge. They are capable of detecting stealthed units. They deactivate if the base’s power is low, killing the Buzzer swarms currently attached to them."
+      }
+    },
+    {
+      "AbilCmd": "ScrinDefenseBuildAdvanced,Build3",
+      "id": "ScrinPlasmaMissileBattery",
+      "Icon": "scrinplasmamissilebattery",
+      "Name": {
+        "enUS": "Plasma Missile Battery"
+      },
+      "Tooltip": {
+        "enUS": "The Plasma Missile Battery unleashes ultra-hot discs, capable of incineration enemy aircraft. It is capable of detecting stealthed units. It deactivates if the base’s power is low.<br/><br/><span style=\"color: #ffff8a\">Can attack air units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "ScrinDefenseBuildAdvanced,Build2",
+      "id": "ScrinPhotonCannon",
+      "Icon": "scrinphotoncannon",
+      "Name": {
+        "enUS": "Photon Cannon"
+      },
+      "Tooltip": {
+        "enUS": "Photon Cannon blasts are capable of decimating ground vehicles. However, infantry are small enough to avoid taking direct damage. They are capable of detecting stealthed units. They deactivate if the base’s power is low. <br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "ScrinDefenseBuildAdvanced,Build4",
+      "id": "ScrinStormColumn",
+      "Icon": "scrinstormcolumn",
+      "Name": {
+        "enUS": "Storm Column"
+      },
+      "Tooltip": {
+        "enUS": "The Storm Column generates a localised ion storm that aids alien spacecraft. It can focus this storm into a lightning bolt that severely damages aircraft, vehicles and infantry. It is capable of detecting stealthed units. It deactivates if the base’s power is low."
+      }
+    },
+    {
+      "AbilCmd": "ScrinDefenseBuildAdvanced,Build5",
+      "id": "ScrinRiftGenerator",
+      "Icon": "scrinriftgenerator",
+      "Name": {
+        "enUS": "Rift Generator"
+      },
+      "Tooltip": {
+        "enUS": "The Scrin use this profoundly dangerous device to cut a hole in the fabric of space which sucks up anything and everything in vicinity, then ejecting everything into deep space. Like with other superweapons, when the Rift Generator is built, all players are notified."
+      }
+    }
+  ]
+}

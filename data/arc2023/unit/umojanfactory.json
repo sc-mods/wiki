@@ -1,0 +1,453 @@
+{
+  "Name": "Workshop",
+  "Description": "Vehicle-production facility.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Battlecat<br/>- Norns<br/>- Foundry at the MCSs",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1250,
+  "LifeMax": 1250,
+  "LifeArmorName": "Umojan Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.625,
+  "SeparationRadius": 1.625,
+  "MinimapRadius": 1.625,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UmojanFactory",
+  "HotkeyAlias": "UmojanFactory",
+  "SelectAlias": "UmojanFactory",
+  "SubgroupAlias": "UmojanFactory",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "Factory",
+  "AIEvaluateAlias": "UmojanFactory",
+  "ReviveType": "UmojanFactory",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UmojanFactory/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UmojanFactory/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 315,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Phased",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "ShieldsStart": 1250,
+  "ShieldsMax": 1250,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": "Umojan Plasma Shields",
+  "Sight": 9,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 150,
+    "Vespene": 100
+  },
+  "RepairTime": 60,
+  "AttackTargetPriority": 11,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanFactoryTrain,Train3",
+        "id": "UmojanBattlecat",
+        "Icon": "btn-unit-terran-predator",
+        "Tooltip": "Anti-infantry specialist that deals area damage with each attack. Can be mounted by infantry. Can be upgraded to use Blink.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+        "Name": "Build Battlecat",
+        "Hotkey": "B"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanFactoryTrain,Train2",
+        "id": "UmojanNorns",
+        "Icon": "btn-unit-terran-goliath-umojan",
+        "Tooltip": "Support mech. Can repair mechanical allies and be upgraded to build Energy Barricades, Sentry Guns.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units.</span>",
+        "Name": "Build Norns",
+        "Hotkey": "N"
+      },
+      {
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rally,Rally1",
+        "id": "Rally",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Tooltip": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+        "Name": "Set Rally Point",
+        "Hotkey": "Y"
+      },
+      {
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+        "Name": "Halt",
+        "Hotkey": "T"
+      },
+      {
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanWarpWorkshop,Execute",
+        "id": "UmojanWarptoLocation",
+        "Icon": "btn-ability-zeratul-warpprism-transferlink",
+        "Tooltip": "Warp the building to the targeted powered location. <br/>Takes <b>20.0</b>/<b>17.9</b> seconds to finish at <span style=\"color: #00FFFF\">Power Level 2/3</span>.<br/><br/><span style=\"color: #FF0000\">Warning: once Warping is triggered, it cannot be canceled.<br/>This will also cancel any ongoing production.</span>",
+        "Name": "Warp to Location",
+        "Hotkey": "L"
+      },
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel4",
+        "Icon": "btn-upgrade-stetmann-hivestetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/>Power Overcharge 1: Operate +<b>15</b>% faster. <b>25</b>% of max HP as max shield.<br/>Power Overcharge 2: Operate +<b>30</b>% faster. <b>50</b>% of max HP as max shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 3: Operate +<b>45</b>% faster. <b>100</b>% of max HP as max shield.</span>",
+        "Name": "Power Overcharge 3"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel3",
+        "Icon": "btn-upgrade-stetmann-lairstetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/>Power Overcharge 1: Operate +<b>15</b>% faster. <b>25</b>% of max HP as max shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 2: Operate +<b>30</b>% faster. <b>50</b>% of max HP as max shield.</span><br/>Power Overcharge 3: Operate +<b>45</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Power Overcharge 2"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel2",
+        "Icon": "btn-upgrade-stetmann-hatcherystetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 1: Operate +<b>15</b>% faster. <b>25</b>% of max HP as max shield.</span><br/>Power Overcharge 2: Operate +<b>30</b>% faster. <b>50</b>% of max HP as max shield.<br/>Power Overcharge 3: Operate +<b>45</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Power Overcharge 1"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel1",
+        "Icon": "btn-ability-mengsk-thor-bigboycover",
+        "Tooltip": "<span style=\"color: #55FFFF\">Normal Power Level: Normal operation speed, no shield.</span><br/>Power Overcharge 1: Operate +<b>15</b>% faster. <b>25</b>% of max HP as max shield.<br/>Power Overcharge 2: Operate +<b>30</b>% faster. <b>50</b>% of max HP as max shield.<br/>Power Overcharge 3: Operate +<b>45</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Normal Power Level"
+      },
+      {
+        "Row": 2,
+        "Column": 2,
+        "Type": "SelectBuilder",
+        "id": "SelectBuilder",
+        "Icon": "btn-upgrade-terran-weaponrefit",
+        "Tooltip": "Selects the unit constructing this structure.",
+        "Name": "Select Builder",
+        "Hotkey": "Q"
+      },
+      {
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanFactoryTrain,Train5",
+        "id": "UmojanSpySatellite",
+        "Icon": "btn-building-stetmann-stetellite",
+        "Tooltip": "Flying spy. Cloak renders the unit invisible to enemies without detection. Can use Deep Cloak.<br/><br/><span style=\"color: #FFE303\">Detector</span>",
+        "Name": "Build Spy Satellite",
+        "Hotkey": "D"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanFactoryTrain,Train4",
+        "id": "UmojanBattleTank",
+        "Icon": "btn-unit-terran-siegetank-umojan",
+        "Tooltip": "Massive tank. Can switch into Anti-Aerospace Mode to provide long-range anti air support.**Can attack ground units****Can attack air units if deployed**",
+        "Name": "Build Battle Tank",
+        "Hotkey": "T"
+      },
+      {
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanFactoryTrain,Train6",
+        "id": "UmojanWhirlwind",
+        "Icon": "btn-unit-terran-cyclone-umojan",
+        "Tooltip": "Slow missile artillery. With the help of a spotter can bombard at extreme range.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+        "Name": "Build Whirlwind",
+        "Hotkey": "W"
+      }
+    ]
+  },
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "ScoreMake": 250,
+  "ScoreKill": 250,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 3,
+  "GlossaryPriority": 90,
+  "HotkeyCategory": "Unit/Category/UmojanUnits",
+  "TechTreeProducedUnitArray": [
+    "UmojanBattlecat",
+    "UmojanNorns",
+    "UmojanSpySatellite",
+    "UmojanBattleTankAA",
+    "UmojanWhirlwind"
+  ],
+  "GlossaryCategory": "Unit/Category/UmojanUnits",
+  "id": "UmojanFactory",
+  "Icon": "btn-building-terran-factory",
+  "LifeArmorIcon": "btn-upgrade-terran-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "UmojanPowerUpgrade",
+      "Icon": "btn-boss-prisongenerator"
+    },
+    {
+      "id": "UmojanPowerLevel0"
+    },
+    {
+      "id": "UmojanPowerLevel1"
+    },
+    {
+      "id": "UmojanPowerLevel2"
+    },
+    {
+      "id": "UmojanPowerLevel3"
+    },
+    {
+      "id": "UmojanScienceConsumerBlue",
+      "Icon": "btn-building-terran-factory"
+    },
+    {
+      "id": "UmojanScienceConsumerValidatorRed",
+      "Name": "Science Facility (Infantry Specialised) (Red)"
+    },
+    {
+      "id": "UmojanScienceConsumerValidatorGreen",
+      "Name": "Science Facility (Starship Specialised) (Green)"
+    },
+    {
+      "id": "UmojanScienceConsumerValidatorBlue",
+      "Name": "Science Facility (Vehicle Specialised) (Blue)"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "que5",
+      "Name": "Queue (5)"
+    },
+    {
+      "id": "UmojanFactoryTrain",
+      "Name": "Train"
+    },
+    {
+      "id": "Rally",
+      "Name": "Rally"
+    },
+    {
+      "id": "UmojanWarpWorkshop",
+      "Name": "Warp Workshop"
+    }
+  ],
+  "$Upgrades": [
+    "CountUnitUmojanFactoryCompleteOnlyTechTreeCheat",
+    "UmojanFactory",
+    "CountUnitUmojanFactoryCompleteOnly",
+    "UmojanFactory",
+    "UmojanShieldsLevel2",
+    "UmojanShields",
+    "UmojanShieldsLevel3",
+    "UmojanShieldsLevel1",
+    "UmojanBuild"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "UmojanBattlecat",
+    "UmojanNorns",
+    "UmojanSpySatellite",
+    "UmojanBattleTank",
+    "UmojanWhirlwind",
+    "UmojanWarpingSignatureWorkshop"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Producers": [
+    "UmojanMCS"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "UmojanFactoryTrain,Train3",
+      "id": "UmojanBattlecat",
+      "Icon": "btn-unit-terran-predator",
+      "Tooltip": "Anti-infantry specialist that deals area damage with each attack. Can be mounted by infantry. Can be upgraded to use Blink.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+      "Name": "Build Battlecat"
+    },
+    {
+      "AbilCmd": "UmojanFactoryTrain,Train2",
+      "id": "UmojanNorns",
+      "Icon": "btn-unit-terran-goliath-umojan",
+      "Tooltip": "Support mech. Can repair mechanical allies and be upgraded to build Energy Barricades, Sentry Guns.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units.</span>",
+      "Name": "Build Norns"
+    },
+    {
+      "AbilCmd": "Rally,Rally1",
+      "id": "Rally",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Tooltip": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+      "Name": "Set Rally Point"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+      "Name": "Halt"
+    },
+    {
+      "AbilCmd": "UmojanWarpWorkshop,Execute",
+      "id": "UmojanWarptoLocation",
+      "Icon": "btn-ability-zeratul-warpprism-transferlink",
+      "Tooltip": "Warp the building to the targeted powered location. <br/>Takes <b>20.0</b>/<b>17.9</b> seconds to finish at <span style=\"color: #00FFFF\">Power Level 2/3</span>.<br/><br/><span style=\"color: #FF0000\">Warning: once Warping is triggered, it cannot be canceled.<br/>This will also cancel any ongoing production.</span>",
+      "Name": "Warp to Location"
+    },
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "UmojanFactoryTrain,Train5",
+      "id": "UmojanSpySatellite",
+      "Icon": "btn-building-stetmann-stetellite",
+      "Tooltip": "Flying spy. Cloak renders the unit invisible to enemies without detection. Can use Deep Cloak.<br/><br/><span style=\"color: #FFE303\">Detector</span>",
+      "Name": "Build Spy Satellite"
+    },
+    {
+      "AbilCmd": "UmojanFactoryTrain,Train4",
+      "id": "UmojanBattleTank",
+      "Icon": "btn-unit-terran-siegetank-umojan",
+      "Tooltip": "Massive tank. Can switch into Anti-Aerospace Mode to provide long-range anti air support.**Can attack ground units****Can attack air units if deployed**",
+      "Name": "Build Battle Tank"
+    },
+    {
+      "AbilCmd": "UmojanFactoryTrain,Train6",
+      "id": "UmojanWhirlwind",
+      "Icon": "btn-unit-terran-cyclone-umojan",
+      "Tooltip": "Slow missile artillery. With the help of a spotter can bombard at extreme range.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+      "Name": "Build Whirlwind"
+    }
+  ]
+}

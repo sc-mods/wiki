@@ -1,0 +1,332 @@
+{
+  "Name": "Naga Siren",
+  "Description": "Powerful spellcaster. Can initially cast Parasite, which damages an enemy unit over time and can spawn a Watery Minion from their corpse. Can also learn Frost Armor, and Cyclone. <br/><br/><span style=\"color: #ffcc00\">Attacks land and air units.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 4,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Vision",
+  "Race": "Naga",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 350,
+  "LifeMax": 350,
+  "Mover": "amph",
+  "StationaryTurningRate": 720,
+  "TurningRate": 599.9414,
+  "Radius": 0.3125,
+  "SeparationRadius": 0.3125,
+  "MinimapRadius": 0.3125,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Campaign",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "nnsw",
+  "HotkeyAlias": "nnsw",
+  "SelectAlias": "nnsw",
+  "SubgroupAlias": "nnsw",
+  "OccludeHeight": 0,
+  "TacticalAI": "nnsw",
+  "AIEvaluateAlias": "nnsw",
+  "ReviveType": "nnsw",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "nnsw/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "nnsw/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "LifeArmorTip": "ARMORTIP_NONE",
+  "Acceleration": 1000,
+  "Mob": "Classic",
+  "LifeArmorFormula": {
+    "NegativeArmorMultiplier": 0,
+    "NegativeDamageBase": 0.94,
+    "PositiveArmorMultiplier": 0,
+    "PositiveDamageRatio": 0.06
+  },
+  "SpeedDisplayFlags": {
+    "CollapseBuffed": 1
+  },
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "InnerRadius": 0.3125,
+  "id": "nnsw",
+  "Collide": [
+    "Ground",
+    "ForceField"
+  ],
+  "CostCategory": "Army",
+  "ResourceDamageLeechFilters": "-;Player,Ally,Air,Ground,Hover,HarvestableResource,Destructible,Item,Buried,Dead,Invulnerable",
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Move",
+        "id": "CmdMove",
+        "Tooltip": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "CmdStop",
+        "Tooltip": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,HoldPos",
+        "id": "CmdHoldPos",
+        "Tooltip": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Patrol",
+        "id": "CmdPatrol",
+        "Tooltip": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aatk,Execute",
+        "id": "CmdAttack",
+        "Tooltip": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Acny,0",
+        "id": "Acny",
+        "Tooltip": "Tosses a target non-mechanical enemy unit into the air, rendering it unable to move, attack or cast spells, and stopping others from attacking or casting on it. <br/>Lasts 20 seconds.",
+        "Name": "Cyclone",
+        "Hotkey": "C"
+      },
+      {
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACfu,0",
+        "id": "ACfu",
+        "Tooltip": "Creates a shield of frost around a target friendly unit. The shield adds 3 armor and slows melee units that attack it for 5 seconds. <br/>Lasts 45 seconds.",
+        "Name": "Frost Armor",
+        "Hotkey": "F"
+      },
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ANpa,0",
+        "id": "ANpa",
+        "Tooltip": "Afflicts a target enemy unit with a deadly parasite that deals 5 damage per second for 30 seconds. If the afflicted unit dies while under the effect of Parasite, a minor minion will spawn from its corpse.",
+        "Name": "Parasite",
+        "Hotkey": "R"
+      }
+    ]
+  },
+  "Attributes": [
+    "Biological"
+  ],
+  "KillXP": 40,
+  "CostResource": {
+    "Minerals": 130,
+    "Vespene": 20
+  },
+  "Food": -2,
+  "KillResource": {
+    "Minerals": 7
+  },
+  "EnergyMax": 200,
+  "EnergyStart": 200,
+  "Speed": 2.1093,
+  "RepairTime": 28,
+  "SightBonus": [
+    10.9375,
+    6.25
+  ],
+  "EnergyRegenRate": 0.5,
+  "LifeRegenRate": 1,
+  "SubgroupPriority": 8,
+  "DeathTime": 90,
+  "CargoSize": 1,
+  "PlaneArray": [
+    "Ground"
+  ],
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "defType": "NONE",
+  "Icon": "renee_war3_btnseawitch",
+  "LifeArmorIcon": "infocard-armor-none.tga",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "id": "nnsw1",
+      "Name": "Type: <span style=\"color: #ffcc00\">Magic</span>",
+      "Amount": 9,
+      "Kind": "Ranged",
+      "TargetFilters": "",
+      "Range": 4.6875,
+      "Period": 1.75
+    },
+    {}
+  ],
+  "Behaviors": [
+    {},
+    {
+      "id": "War3_Unit"
+    },
+    {
+      "id": "War3_ArmyBlastRemove"
+    },
+    {
+      "id": "CreepUnitTriggerNotice"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "Amov",
+      "Name": "Move"
+    },
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "HigherCliffMiss",
+      "Name": "Higher Cliff Miss"
+    },
+    {
+      "id": "Aatk",
+      "Name": "Attack"
+    },
+    {},
+    {},
+    {}
+  ],
+  "$Upgrades": [
+    "nnsaTrain",
+    "nnsw",
+    "Rnsw",
+    "Rguv",
+    "nnsw",
+    "nnswCount"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Producers": [
+    "nnsa"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "Amov,Move",
+      "id": "CmdMove",
+      "Tooltip": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "CmdStop",
+      "Tooltip": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "Amov,HoldPos",
+      "id": "CmdHoldPos",
+      "Tooltip": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "Amov,Patrol",
+      "id": "CmdPatrol",
+      "Tooltip": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "Aatk,Execute",
+      "id": "CmdAttack",
+      "Tooltip": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "Acny,0",
+      "id": "Acny",
+      "Tooltip": "Tosses a target non-mechanical enemy unit into the air, rendering it unable to move, attack or cast spells, and stopping others from attacking or casting on it. <br/>Lasts 20 seconds.",
+      "Name": "Cyclone"
+    },
+    {
+      "AbilCmd": "ACfu,0",
+      "id": "ACfu",
+      "Tooltip": "Creates a shield of frost around a target friendly unit. The shield adds 3 armor and slows melee units that attack it for 5 seconds. <br/>Lasts 45 seconds.",
+      "Name": "Frost Armor"
+    },
+    {
+      "AbilCmd": "ANpa,0",
+      "id": "ANpa",
+      "Tooltip": "Afflicts a target enemy unit with a deadly parasite that deals 5 damage per second for 30 seconds. If the afflicted unit dies while under the effect of Parasite, a minor minion will spawn from its corpse.",
+      "Name": "Parasite"
+    }
+  ]
+}

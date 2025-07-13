@@ -1,0 +1,835 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "孢子爬虫",
+    "enUS": "Spore Crawler"
+  },
+  "Description": {
+    "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>主要防空建筑。<br/><br/><span style=\"color: ffff8a\">可以对空。</span><br/><span style=\"color: FFE303\">侦测单位</span>",
+    "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/>Main air defense building. <br/><br/><span style=\"color: ffff8a\">Can be used against air. </span><br/><span style=\"color: FFE303\">Detection unit</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZerW",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 400,
+  "LifeMax": 400,
+  "LifeArmorName": {
+    "zhCN": "利维坦建筑甲壳",
+    "enUS": "Leviathan Architecture Carapace"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 0.875,
+  "SeparationRadius": 0.875,
+  "MinimapRadius": 0.875,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 0.65,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "AIThreatAir",
+    "AIDefense",
+    "ArmorDisabledWhileConstructing",
+    "AIPressForwardDisabled"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SporeCrawlerW",
+  "HotkeyAlias": "SporeCrawlerW",
+  "SelectAlias": "SporeCrawlerW",
+  "SubgroupAlias": "SporeCrawlerW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SporeCrawlerW",
+  "AIEvaluateAlias": "SporeCrawler",
+  "ReviveType": "SporeCrawlerW",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "SporeCrawlerW/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "SporeCrawlerW/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 315,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Biological",
+    "Structure"
+  ],
+  "LifeArmor": 3,
+  "LifeRegenRate": 1,
+  "ShieldArmor": 5,
+  "ShieldRegenDelay": 20,
+  "ShieldRegenRate": 1,
+  "ShieldRegenRateCreep": 2,
+  "ShieldArmorName": {
+    "zhCN": "装甲外壳",
+    "enUS": "Armored Shell"
+  },
+  "Sight": 11,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 125
+  },
+  "AttackTargetPriority": 19,
+  "AbilArray": [
+    "BuildInProgress",
+    "stop",
+    "attack",
+    "SporeCrawlerUprootW"
+  ],
+  "BehaviorArray": [
+    "Detector12",
+    "OnCreep",
+    "UnderConstruction",
+    "ZergBuildingDies4W",
+    "SporeCrawlerWBHV"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "AcidSpewW",
+      "Turret": "SporeCrawler"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackBuilding",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+          "ruRU": "Приказать атаковать цель, пока она не будет уничтожена или не выйдет из зоны досягаемости. "
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "Detector",
+        "Icon": "btn-status-detector",
+        "Name": {
+          "enUS": "Detector",
+          "ruRU": "Детектор "
+        },
+        "Tooltip": {
+          "enUS": "This unit can detect cloaked, burrowed, and hallucinated units.",
+          "ruRU": "Эта боевая единица может обнаруживать замаскированные или закопанные войска, а также распознавать иллюзии."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "ZergShieldW",
+        "Icon": "btn-upgrade-lwthd",
+        "Name": {
+          "zhCN": "装甲外壳",
+          "enUS": "Armored Shell"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">拥有护盾</span><br/>护盾在脱战长时间后缓慢恢复，拥有较高的护甲。<br/>在菌毯上时能够更快恢复护盾。",
+          "enUS": "<span style=\"color: #ffff8a\">Has a shield</span><br/>The shield recovers slowly after being out of combat for a long time, and has higher armor. <br/>Restores shields faster while on creep."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "WebbyBuidingBroodlingW",
+        "Icon": "btn-ability-kerrigan-broodlingnest",
+        "Name": {
+          "zhCN": "寄生巢群",
+          "enUS": "Parasitic Hive"
+        },
+        "Tooltip": {
+          "zhCN": "死亡后生成等于占地面积的<span style=\"color: #ffff8a\">母巢寄生虫</span>。",
+          "enUS": "Upon death, <span style=\"color: #ffff8a\">Brood Parasites</span> are spawned equal to the area occupied."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "SporeCrawlerCreepW",
+        "Icon": "btn-ability-zerg-creepteleport",
+        "Name": {
+          "zhCN": "快速爬行",
+          "enUS": "Fast crawl"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">孢子爬虫</span>在菌毯外的移动速度提升。",
+          "enUS": "<span style=\"color: #ffff8a\">Spore Crawlers</span> move faster outside creep."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "SporeCrawlerFreeRootW",
+        "Icon": "btn-ability-zerg-dehaka-root-color",
+        "Name": {
+          "zhCN": "自由扎根",
+          "enUS": "Free to take root"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">孢子爬虫</span>扎根更快且无需菌毯可在任何位置扎根。",
+          "enUS": "<span style=\"color: #ffff8a\">Spore Crawler</span> takes root faster and can take root anywhere without creep."
+        }
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1
+              }
+            }
+          },
+          "Unit": "SporeCrawlerUprootedW"
+        },
+        "Unit": "SporeCrawlerUprootedW",
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "SporeCrawlerUprootW,Execute",
+        "id": "SporeCrawlerUprootW",
+        "Icon": "btn-ability-zerg-uproot-color",
+        "Name": {
+          "zhCN": "站起",
+          "enUS": "stand up"
+        },
+        "Tooltip": {
+          "zhCN": "使孢子爬虫站起。站起的孢子爬虫能够移动，但无法攻击。在菌毯上的移动速度大幅提升。",
+          "enUS": "Makes the spore crawler stand up. A standing spore crawler can move but cannot attack. Movement speed on creep is greatly increased."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Delay": 2.5
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2.5
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Delay": 2.5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 2.5
+              }
+            }
+          },
+          "Unit": "SporeCrawlerW",
+          "CollideRange": 0
+        },
+        "Unit": "SporeCrawlerW",
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SporeCrawlerRootW,Execute",
+        "id": "SporeCrawlerRootW",
+        "Icon": "btn-ability-zerg-root-color",
+        "Name": {
+          "zhCN": "扎根",
+          "enUS": "Take root"
+        },
+        "Tooltip": {
+          "zhCN": "使孢子爬虫扎根。扎根的孢子爬虫可以攻击空中单位和侦测隐形单位，但无法移动。",
+          "enUS": "Make the spore crawlers take root. Rooted Spore Crawlers can attack airborne units and detect invisible units, but cannot move."
+        },
+        "Hotkey": "D"
+      }
+    ]
+  },
+  "Footprint": "FootprintSiegedW",
+  "ScoreMake": 75,
+  "ScoreKill": 125,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 2,
+  "TacticalAIThink": "AIThinkCrawler",
+  "GlossaryCategory": "Unit/Category/WebbyZergUnits",
+  "GlossaryPriority": 230,
+  "GlossaryStrongArray": [
+    "Banshee",
+    "Mutalisk",
+    "VoidRay"
+  ],
+  "GlossaryWeakArray": [
+    "Marine",
+    "Zergling",
+    "Zealot"
+  ],
+  "HotkeyCategory": "Unit/Category/WebbyZergUnits",
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "PlacementFootprint": "Footprint2x2Creep2",
+  "id": "SporeCrawlerW",
+  "Icon": "btn-building-zerg-sporecrawler",
+  "LifeArmorIcon": "btn-upgrade-zerg-ancillaryarmorw",
+  "ShieldArmorIcon": "btn-upgrade-lwthd",
+  "Weapons": [
+    {
+      "Turret": "SporeCrawler",
+      "EditorCategories": "Race:Zerg",
+      "Icon": "btn-upgrade-zerg-missileattacks-level3w",
+      "DisplayEffect": "SporeCrawlerUW",
+      "TargetFilters": "Air",
+      "Range": 12,
+      "RangeSlop": 0,
+      "Period": 2,
+      "Effect": "SporeCrawlerW",
+      "id": "AcidSpewW",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "zhCN": "酸涌",
+        "enUS": "Acid surge"
+      },
+      "Amount": 36,
+      "AttributeBonus": {
+        "Biological": 14
+      },
+      "Kind": "Ranged"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "Detector12",
+      "Icon": "btn-status-detector",
+      "Name": {
+        "enUS": "Detector",
+        "ruRU": "Детектор "
+      },
+      "Tooltip": {
+        "enUS": "This unit can detect cloaked or burrowed units within its sight range.",
+        "ruRU": "Эта боевая единица может обнаруживать замаскированные или закопанные войска в поле обзора."
+      }
+    },
+    {
+      "id": "OnCreep",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "On Creep",
+        "ruRU": "On Creep"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "UnderConstruction",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Under Construction",
+        "ruRU": "Under Construction"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZergBuildingDies4W",
+      "Icon": "btn-ability-kerrigan-broodlingnest",
+      "Name": {
+        "zhCN": "死亡生成巢虫",
+        "enUS": "Death Spawn Brood"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "SporeCrawlerWBHV",
+      "Icon": "btn-building-zerg-sporecrawler",
+      "Name": {
+        "zhCN": "孢子爬虫行为",
+        "enUS": "Spore crawler behavior"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "SporeCrawlerUprootW",
+      "Name": {
+        "zhCN": "站起",
+        "enUS": "stand up"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "SporeCrawlerUprootedW",
+    "SporeCrawlerW",
+    "SporeCrawlerRootW",
+    "ZergBuildW",
+    "IsSporeCrawlerRootedW",
+    "SporeCrawlerW",
+    "SporeCrawlerSplatW",
+    "SporeCrawler_DeathW"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "BroodlingW"
+  ],
+  "$Research": [],
+  "$Morph": [
+    "SporeCrawlerUprootedW"
+  ],
+  "$Phase": [],
+  "$Phased": "SporeCrawlerUprootedW",
+  "$Producers": [
+    "DroneW"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackBuilding",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+        "ruRU": "Приказать атаковать цель, пока она не будет уничтожена или не выйдет из зоны досягаемости. "
+      }
+    },
+    {
+      "AbilCmd": "SporeCrawlerUprootW,Execute",
+      "id": "SporeCrawlerUprootW",
+      "Icon": "btn-ability-zerg-uproot-color",
+      "Name": {
+        "zhCN": "站起",
+        "enUS": "stand up"
+      },
+      "Tooltip": {
+        "zhCN": "使孢子爬虫站起。站起的孢子爬虫能够移动，但无法攻击。在菌毯上的移动速度大幅提升。",
+        "enUS": "Makes the spore crawler stand up. A standing spore crawler can move but cannot attack. Movement speed on creep is greatly increased."
+      }
+    },
+    {
+      "AbilCmd": "SporeCrawlerRootW,Execute",
+      "id": "SporeCrawlerRootW",
+      "Icon": "btn-ability-zerg-root-color",
+      "Name": {
+        "zhCN": "扎根",
+        "enUS": "Take root"
+      },
+      "Tooltip": {
+        "zhCN": "使孢子爬虫扎根。扎根的孢子爬虫可以攻击空中单位和侦测隐形单位，但无法移动。",
+        "enUS": "Make the spore crawlers take root. Rooted Spore Crawlers can attack airborne units and detect invisible units, but cannot move."
+      }
+    }
+  ]
+}

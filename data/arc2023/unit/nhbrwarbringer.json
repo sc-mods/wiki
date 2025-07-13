@@ -1,0 +1,918 @@
+{
+  "Name": "Warbringer",
+  "Description": "Potent mid-game destroyer of armored units. Can use «Mace Strike» to provide long-range support.**Can attack ground units**",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "NHbr",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 90,
+  "LifeMax": 90,
+  "LifeArmorName": "Hybrid Armor",
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.625,
+  "SeparationRadius": 0.625,
+  "MinimapRadius": 0.625,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1.8,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "ArmySelect",
+    "AlwaysThreatens",
+    "AIThreatGround",
+    "AIThreatAir",
+    "AISplash",
+    "AIHighPrioTarget",
+    "AICaster",
+    "AIPressForwardDisabled"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "NHbrWarbringer",
+  "HotkeyAlias": "NHbrWarbringer",
+  "SelectAlias": "NHbrWarbringer",
+  "SubgroupAlias": "NHbrWarbringer",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "HighTemplar",
+  "AIEvaluateAlias": "NHbrWarbringer",
+  "ReviveType": "NHbrWarbringer",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 70,
+      "Anim": 20,
+      "Turn": 10
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "NHbrWarbringer/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "NHbrWarbringer/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "DataCollection": "NHbrWarbringer",
+  "ShieldArmorName": "Hybrid Protection",
+  "Acceleration": 1000,
+  "LateralAcceleration": 46,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 40,
+  "LifeArmor": 1,
+  "ShieldArmor": 1,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/NHbrWarbringerMaceStrike",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:NHbr,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "NHbrWarbringerMaceStrike",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "NHbrWarbringerMaceStrike"
+            },
+            "Off": {
+              "DefaultButtonFace": "NHbrWarbringerMaceStrike@MaceCannon"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "BehaviorArray": [
+            "NHbrWarbringerMaceStrike"
+          ],
+          "ValidatorArray": [
+            "NHbrWarbringerMaceStrike@CasterNetworkGE20"
+          ],
+          "id": "NHbrWarbringerMaceStrike"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrWarbringerMaceStrike,Off",
+        "id": "NHbrWarbringerMaceStrike@MaceCannon",
+        "Icon": "btn-ability-protoss-shadowcannon",
+        "Tooltip": "Activate to make weapon deals base damage with base range and without <c val=\"#Network\">Network</span> cost.",
+        "Name": "Mace Cannon",
+        "Hotkey": "Q"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "NHbrWarbringerMaceStrike@MaceCannonPassive",
+        "Icon": "btn-ability-protoss-shadowcannon",
+        "Tooltip": "Weapon deals base damage with base range and without <c val=\"#Network\">Network</span> cost.",
+        "Name": "Mace Cannon"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/NHbrWarbringerMaceStrike",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:NHbr,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "NHbrWarbringerMaceStrike",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "NHbrWarbringerMaceStrike"
+            },
+            "Off": {
+              "DefaultButtonFace": "NHbrWarbringerMaceStrike@MaceCannon"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "BehaviorArray": [
+            "NHbrWarbringerMaceStrike"
+          ],
+          "ValidatorArray": [
+            "NHbrWarbringerMaceStrike@CasterNetworkGE20"
+          ],
+          "id": "NHbrWarbringerMaceStrike"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrWarbringerMaceStrike,On",
+        "id": "NHbrWarbringerMaceStrike",
+        "Icon": "btn-ability-spearofadun-orbitalstrike",
+        "Tooltip": "Activate to increase weapon damage by <span style=\"color: #ffff8a\"><b>41</b>%</span> and range to <span style=\"color: #ffff8a\"><b>10</b></span>. Each weapon attack deals <span style=\"color: #ffff8a\"><b>12</b></span> to <span style=\"color: #ffff8a\"><b>24</b></span> splash damage, depending on distance from center and costs <span style=\"color: #ffff8a\"><b>20</b></span> <c val=\"#Network\">Network</span>.",
+        "Name": "Mace Strike",
+        "Hotkey": "W"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "AbilCmd": "NHbrWarbringerMaceStrike,On",
+        "id": "NHbrWarbringerMaceStrike@Passive",
+        "Icon": "btn-ability-spearofadun-orbitalstrike",
+        "Tooltip": "Weapon damage increase by <span style=\"color: #ffff8a\"><b>41</b>%</span> and range to <span style=\"color: #ffff8a\"><b>10</b></span>. Each weapon attack deals <span style=\"color: #ffff8a\"><b>12</b></span> to <span style=\"color: #ffff8a\"><b>24</b></span> splash damage, depending on distance from center and costs <span style=\"color: #ffff8a\"><b>20</b></span> <c val=\"#Network\">Network</span>.",
+        "Name": "Mace Strike"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "NHbrWarbringerOrbitalGuidance",
+        "Icon": "btn-upgrade-mengsk-engineeringbay-orbitaldrop",
+        "Tooltip": "Increases Warbringer's attack range of <span style=\"color: #FFFF80\">Mace Strike</span> by <span style=\"color: #ffff8a\"><b>2.00</b></span>.",
+        "Name": "Orbital Guidance",
+        "Hotkey": "A"
+      }
+    ]
+  },
+  "GlossaryCategory": "Unit/Category/NHbrUnits",
+  "TauntDuration": {
+    "Cheer": 5,
+    "Dance": 5
+  },
+  "Mob": "Multiplayer",
+  "AttackTargetPriority": 20,
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "Locust",
+    "Small",
+    "ForceField"
+  ],
+  "HotkeyCategory": "Unit/Category/NHbrUnits",
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "ScoreResult": "BuildOrder",
+  "ShieldArmorTip": "Unit/ShieldArmorTooltip/NHbrShields",
+  "LifeRegenDelay": 10,
+  "ShieldRegenDelay": 10,
+  "id": "NHbrWarbringer",
+  "Attributes": [
+    "Armored",
+    "Biological",
+    "Psionic"
+  ],
+  "EnergyStart": 100,
+  "EnergyMax": 100,
+  "Speed": 2.6796,
+  "Deceleration": 1000,
+  "Sight": 10,
+  "Height": 0.5,
+  "Food": -3,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 125,
+    "Vespene": 100
+  },
+  "InnerRadius": 0.625,
+  "CargoSize": 2,
+  "ScoreMake": 200,
+  "ScoreKill": 200,
+  "SubgroupPriority": 56,
+  "TacticalAIThink": "AIThinkHighTemplar",
+  "GlossaryPriority": 13,
+  "GlossaryStrongArray": [
+    "Marine",
+    "Hydralisk",
+    "Sentry"
+  ],
+  "GlossaryWeakArray": [
+    "Ghost",
+    "Roach",
+    "Colossus"
+  ],
+  "ShieldsStart": 50,
+  "ShieldsMax": 50,
+  "Icon": "btn-hybrid-unit-shifter",
+  "LifeArmorIcon": "btn-upgrade-protoss-groundarmorlevel0",
+  "ShieldArmorIcon": "btn-ability-zeratul-warpprism-shieldboosters",
+  "Weapons": [
+    {
+      "id": "NHbrWarbringerWeaponMaceCannon",
+      "Icon": "btn-ability-protoss-shadowcannon",
+      "Name": "Mace Cannon",
+      "Amount": 17,
+      "Kind": "Ranged",
+      "TargetFilters": "Ground",
+      "Range": 6.5,
+      "Period": 1.5
+    },
+    {
+      "id": "NHbrWarbringerWeaponMaceStrike",
+      "Icon": "btn-ability-spearofadun-orbitalstrike",
+      "Name": "Mace Strike",
+      "Amount": 24,
+      "Kind": "Splash",
+      "TargetFilters": "Ground",
+      "Range": 10,
+      "Period": 2.25
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "NHbrProtection@SpellArmor"
+    },
+    {
+      "id": "NHbrNetwork@PowerUser",
+      "Icon": "btn-upgrade-artanis-pylonpower",
+      "Name": "Power User"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "NHbrWarbringerMaceStrike",
+      "Name": "Mace Strike"
+    }
+  ],
+  "$Upgrades": [
+    "NHbrVoidRiftTrain",
+    "NHbrWarbringer",
+    "NHbrEngineResearch@ProtectionArmor",
+    "NHbrEngineUpgrades@GroundArmorsLevel1",
+    "NHbrWarbringer",
+    "NHbrGroundArmors",
+    "NHbrEngineUpgrades@GroundArmorsLevel2",
+    "NHbrEngineUpgrades@GroundArmorsLevel3",
+    "NHbrEngineUpgrades@GroundWeaponsLevel1",
+    "NHbrGroundWeapons",
+    "NHbrEngineUpgrades@GroundWeaponsLevel2",
+    "NHbrEngineUpgrades@GroundWeaponsLevel3",
+    "NHbrCommon@IsWarbringer",
+    "NHbrWarbringer"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "NHbrVoidRift"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "NHbrWarbringerMaceStrike,Off",
+      "id": "NHbrWarbringerMaceStrike@MaceCannon",
+      "Icon": "btn-ability-protoss-shadowcannon",
+      "Tooltip": "Activate to make weapon deals base damage with base range and without <c val=\"#Network\">Network</span> cost.",
+      "Name": "Mace Cannon"
+    },
+    {
+      "AbilCmd": "NHbrWarbringerMaceStrike,On",
+      "id": "NHbrWarbringerMaceStrike",
+      "Icon": "btn-ability-spearofadun-orbitalstrike",
+      "Tooltip": "Activate to increase weapon damage by <span style=\"color: #ffff8a\"><b>41</b>%</span> and range to <span style=\"color: #ffff8a\"><b>10</b></span>. Each weapon attack deals <span style=\"color: #ffff8a\"><b>12</b></span> to <span style=\"color: #ffff8a\"><b>24</b></span> splash damage, depending on distance from center and costs <span style=\"color: #ffff8a\"><b>20</b></span> <c val=\"#Network\">Network</span>.",
+      "Name": "Mace Strike"
+    },
+    {
+      "AbilCmd": "NHbrWarbringerMaceStrike,On",
+      "id": "NHbrWarbringerMaceStrike@Passive",
+      "Icon": "btn-ability-spearofadun-orbitalstrike",
+      "Tooltip": "Weapon damage increase by <span style=\"color: #ffff8a\"><b>41</b>%</span> and range to <span style=\"color: #ffff8a\"><b>10</b></span>. Each weapon attack deals <span style=\"color: #ffff8a\"><b>12</b></span> to <span style=\"color: #ffff8a\"><b>24</b></span> splash damage, depending on distance from center and costs <span style=\"color: #ffff8a\"><b>20</b></span> <c val=\"#Network\">Network</span>.",
+      "Name": "Mace Strike"
+    }
+  ]
+}

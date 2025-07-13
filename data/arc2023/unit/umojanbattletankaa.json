@@ -1,0 +1,323 @@
+{
+  "Name": "Battle Tank",
+  "Description": "Massive anti-air. Can switch into Tank Mode to provide mobile tank support.<br/><br/><c val=\"#ColorAttackInfo\">Can attack air units.</span>**Can attack ground units if undeployed**",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 225,
+  "LifeMax": 225,
+  "LifeArmorName": "Umojan Vehicle Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 360,
+  "Radius": 0.9375,
+  "SeparationRadius": 1,
+  "MinimapRadius": 1,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1.5,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "ArmySelect",
+    "AIDefense"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UmojanBattleTank",
+  "HotkeyAlias": "UmojanBattleTankAA",
+  "SelectAlias": "UmojanBattleTank",
+  "SubgroupAlias": "UmojanBattleTank",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UmojanBattleTankSieged",
+  "AIEvaluateAlias": "UmojanBattleTankAA",
+  "ReviveType": "UmojanBattleTankAA",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100,
+      "Anim": 0,
+      "Turn": 0
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UmojanBattleTankAA/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UmojanBattleTankAA/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Massive"
+  ],
+  "LifeArmor": 1,
+  "ShieldsStart": 175,
+  "ShieldsMax": 175,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": "Umojan Plasma Shields",
+  "Speed": 0,
+  "Acceleration": 0,
+  "LateralAcceleration": 0,
+  "Sight": 11,
+  "Food": -5,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 250,
+    "Vespene": 250
+  },
+  "RepairTime": 45,
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackBuilding",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanRetractFlak,Execute",
+        "id": "UmojanUnsiege",
+        "Icon": "btn-unit-terran-siegetank-umojan",
+        "Tooltip": "Reverts to Tank Mode. In this mode Battle Tanks can move and only attack ground targets.",
+        "Name": "Tank Mode",
+        "Hotkey": "D"
+      },
+      {
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "UmojanTitanKillerAmmunition",
+        "Icon": "btn-upgrade-terran-enhancedmunitions",
+        "Tooltip": "The unit Railgun deal 10% of the target health and shield as bonus damage.",
+        "Name": "Titan Killer Ammunition"
+      }
+    ]
+  },
+  "InnerRadius": 0.9375,
+  "CargoSize": 0,
+  "ScoreMake": 500,
+  "ScoreKill": 500,
+  "ScoreResult": "",
+  "SubgroupPriority": 13,
+  "TechAliasArray": [
+    "Alias_Umojan_BattleTank"
+  ],
+  "GlossaryCategory": "",
+  "GlossaryPriority": 0,
+  "GlossaryStrongArray": [
+    "Colossus"
+  ],
+  "GlossaryWeakArray": [
+    "Mutalisk"
+  ],
+  "HotkeyCategory": "Unit/Category/UmojanUnits",
+  "id": "UmojanBattleTankAA",
+  "Facing": 45,
+  "Footprint": "FootprintSieged",
+  "Icon": "btn-unit-terran-siegetanksieged-umojan",
+  "LifeArmorIcon": "btn-upgrade-terran-vehicleplatinglevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "Turret": "SiegeTankSieged",
+      "id": "UmojanFocalised60mmRailcannon",
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel0",
+      "Name": "Focalised 60mm Railcannon",
+      "Amount": 25,
+      "AttributeBonus": {
+        "Massive": 20,
+        "Structure": 20
+      },
+      "Kind": "Ranged",
+      "TargetFilters": "Air",
+      "Range": 13,
+      "Period": 2
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "UmojanRetractFlak",
+      "Name": "Retract Flak"
+    }
+  ],
+  "$Upgrades": [
+    "UmojanDeployFlak",
+    "UmojanBattleTankAA",
+    "UmojanBattleTankAA",
+    "UmojanFactory",
+    "UmojanShieldsLevel2",
+    "UmojanShields",
+    "UmojanShieldsLevel3",
+    "UmojanVehiclePlatingLevel1",
+    "UmojanVehiclePlating",
+    "UmojanVehiclePlatingLevel2",
+    "UmojanVehiclePlatingLevel3",
+    "UmojanVehicleWeaponsLevel1",
+    "UmojanVehicleWeapons",
+    "UmojanVehicleWeaponsLevel2",
+    "UmojanVehicleWeaponsLevel3",
+    "UmojanShieldsLevel1",
+    "UmojanBattleTankAARange",
+    "UmojanBattleTankModeMorphModel"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "UmojanBattleTank"
+  ],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackBuilding",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "UmojanRetractFlak,Execute",
+      "id": "UmojanUnsiege",
+      "Icon": "btn-unit-terran-siegetank-umojan",
+      "Tooltip": "Reverts to Tank Mode. In this mode Battle Tanks can move and only attack ground targets.",
+      "Name": "Tank Mode"
+    }
+  ]
+}

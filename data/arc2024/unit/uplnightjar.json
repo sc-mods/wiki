@@ -1,0 +1,733 @@
+{
+  "Name": "Nightjar",
+  "Description": "Anti-Armor / Anti-Air Cannon<br/><br/><c val=\"#ColorAttackInfo\">Can Attack Ground and Air units.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "UPL",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 400,
+  "LifeMax": 400,
+  "LifeArmorName": "UPL Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.75,
+  "SeparationRadius": 0.75,
+  "MinimapRadius": 0.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing",
+    "HiddenCargoUI",
+    "AIDefense"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UPLNightjar",
+  "HotkeyAlias": "UPLNightjar",
+  "SelectAlias": "UPLNightjar",
+  "SubgroupAlias": "UPLNightjar",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UPLNightjar",
+  "AIEvaluateAlias": "UPLNightjar",
+  "ReviveType": "UPLNightjar",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UPLNightjar/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UPLNightjar/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "Sight": 6,
+  "AttackTargetPriority": 19,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "SelectBuilder",
+        "id": "UPLSelectBuilder",
+        "Tooltip": "Selects the unit constructing this structure.",
+        "Name": "Select Builder",
+        "Hotkey": "U"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackBuilding",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilTransport",
+          "Name": "Abil/Name/UPLTurretCargo",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:UPL",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "UPLTurretCargo",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Load": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "UPLTurretCargoLoad"
+            },
+            "LoadAll": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "Hidden": 1
+              }
+            },
+            "UnloadAll": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "UPLTurretCargoUnload"
+            },
+            "UnloadAt": {
+              "Flags": {
+                "Hidden": 1
+              }
+            },
+            "UnloadUnit": {
+              "Flags": {
+                "Hidden": 1
+              }
+            }
+          },
+          "Alignment": "Positive",
+          "Range": [
+            1,
+            0
+          ],
+          "MaxUnloadRange": 3,
+          "TargetFilters": [
+            "Visible;Ally,Neutral,Enemy,Buried,Dead,Hidden",
+            "Biological,Visible;Ally,Neutral,Enemy,UnderConstruction,Dead,Hidden"
+          ],
+          "Flags": {
+            "AllowPassengerSmartCmd": 1,
+            "AllowSmartCmd": 1,
+            "ShowCargoSize": 1,
+            "ShowStatus": 1,
+            "CargoDeath": 1
+          },
+          "TargetSorts": {
+            "SortArray": [
+              "TSInterruptible",
+              "TSDistance"
+            ]
+          },
+          "ErrorAlert": "Error",
+          "AbilSetId": "ULdS",
+          "MaxCargoCount": 1,
+          "MaxCargoSize": 1,
+          "TotalCargoSpace": 1,
+          "LoadCargoEffect": "UPLTurretCargoLoad2",
+          "UnloadCargoEffect": "UPLOspreyTransportCargoUnload",
+          "LoadTransportEffect": "UPLTurretCargoTransportLoadDummy",
+          "UnloadTransportEffect": "UPLTurretCargoTransportUnloadDummy",
+          "LoadValidatorArray": [
+            "RequiresUPL",
+            "TargetIsTransportable",
+            "TargetNotRooted",
+            "TargetNotStunnedCombine",
+            "TargetNotStasis"
+          ],
+          "id": "UPLTurretCargo"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLTurretCargo,Load",
+        "id": "UPLTurretCargoLoad",
+        "Icon": "btn-ability-terran-load",
+        "Tooltip": "Infantry unit pilots the structure.  Structure can attack while it has an active pilot.  If the structure is destroyed, the pilot is killed.",
+        "Name": "Enter Structure",
+        "Hotkey": "L"
+      },
+      {
+        "Info": {
+          "class": "CAbilTransport",
+          "Name": "Abil/Name/UPLTurretCargo",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:UPL",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "UPLTurretCargo",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Load": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "UPLTurretCargoLoad"
+            },
+            "LoadAll": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "Hidden": 1
+              }
+            },
+            "UnloadAll": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "UPLTurretCargoUnload"
+            },
+            "UnloadAt": {
+              "Flags": {
+                "Hidden": 1
+              }
+            },
+            "UnloadUnit": {
+              "Flags": {
+                "Hidden": 1
+              }
+            }
+          },
+          "Alignment": "Positive",
+          "Range": [
+            1,
+            0
+          ],
+          "MaxUnloadRange": 3,
+          "TargetFilters": [
+            "Visible;Ally,Neutral,Enemy,Buried,Dead,Hidden",
+            "Biological,Visible;Ally,Neutral,Enemy,UnderConstruction,Dead,Hidden"
+          ],
+          "Flags": {
+            "AllowPassengerSmartCmd": 1,
+            "AllowSmartCmd": 1,
+            "ShowCargoSize": 1,
+            "ShowStatus": 1,
+            "CargoDeath": 1
+          },
+          "TargetSorts": {
+            "SortArray": [
+              "TSInterruptible",
+              "TSDistance"
+            ]
+          },
+          "ErrorAlert": "Error",
+          "AbilSetId": "ULdS",
+          "MaxCargoCount": 1,
+          "MaxCargoSize": 1,
+          "TotalCargoSpace": 1,
+          "LoadCargoEffect": "UPLTurretCargoLoad2",
+          "UnloadCargoEffect": "UPLOspreyTransportCargoUnload",
+          "LoadTransportEffect": "UPLTurretCargoTransportLoadDummy",
+          "UnloadTransportEffect": "UPLTurretCargoTransportUnloadDummy",
+          "LoadValidatorArray": [
+            "RequiresUPL",
+            "TargetIsTransportable",
+            "TargetNotRooted",
+            "TargetNotStunnedCombine",
+            "TargetNotStasis"
+          ],
+          "id": "UPLTurretCargo"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLTurretCargo,UnloadAll",
+        "id": "UPLTurretCargoUnload",
+        "Icon": "btn-ability-terran-unloadall",
+        "Tooltip": "Infantry unit leaves the structure.  The structure deactivates without a pilot and cannot attack.",
+        "Name": "Exit Structure",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rally,Rally1",
+        "id": "SetRallyPointTransport",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Tooltip": "Sends unloaded units to designated point.",
+        "Name": "Set Rally Point",
+        "Hotkey": "Y"
+      }
+    ]
+  },
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 3,
+  "GlossaryCategory": "Unit/Category/0UPLBuildings",
+  "GlossaryPriority": 250,
+  "HotkeyCategory": "Unit/Category/UPLUnits",
+  "id": "UPLNightjar",
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 225,
+    "Vespene": 50
+  },
+  "RepairTime": 20,
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "Facing": 45,
+  "LifeArmor": 2,
+  "Footprint": "Footprint2x2Contour",
+  "DeadFootprint": "Footprint2x2Contour",
+  "PlacementFootprint": "Footprint2x2",
+  "Icon": "btn-building-upl-uplnightjar",
+  "LifeArmorIcon": "genericbuildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "Turret": "UPLNightjarTurret",
+      "id": "UPLNightjarWeapon",
+      "Icon": "btn-upgrades-upl-vehicleweapons-lvl0",
+      "Name": "GAL 8.5mm Dual Barrel Rotating Assembly",
+      "Amount": 26,
+      "AttributeBonus": {
+        "Armored": 10
+      },
+      "Kind": "Ranged",
+      "TargetFilters": "",
+      "Range": 7,
+      "Period": 1.2
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "UnderConstruction"
+    },
+    {
+      "id": "UPLTurretCargoEmpty"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "UPLTurretCargo",
+      "Name": "UPLTurretCargo"
+    },
+    {
+      "id": "Rally",
+      "Name": "Rally"
+    }
+  ],
+  "$Upgrades": [
+    "UPLVehicleWeaponsLevel1",
+    "UPLNightjar",
+    "UPLVehicleWeapons",
+    "UPLVehicleWeaponsLevel2",
+    "UPLVehicleWeaponsLevel3",
+    "UPLBuild",
+    "IsUPLNightjar",
+    "UPLNightjar",
+    "UPLNightjar"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "MiningDrone"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackBuilding",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "UPLTurretCargo,Load",
+      "id": "UPLTurretCargoLoad",
+      "Icon": "btn-ability-terran-load",
+      "Tooltip": "Infantry unit pilots the structure.  Structure can attack while it has an active pilot.  If the structure is destroyed, the pilot is killed.",
+      "Name": "Enter Structure"
+    },
+    {
+      "AbilCmd": "UPLTurretCargo,UnloadAll",
+      "id": "UPLTurretCargoUnload",
+      "Icon": "btn-ability-terran-unloadall",
+      "Tooltip": "Infantry unit leaves the structure.  The structure deactivates without a pilot and cannot attack.",
+      "Name": "Exit Structure"
+    },
+    {
+      "AbilCmd": "Rally,Rally1",
+      "id": "SetRallyPointTransport",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Tooltip": "Sends unloaded units to designated point.",
+      "Name": "Set Rally Point"
+    }
+  ]
+}

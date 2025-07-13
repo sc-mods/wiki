@@ -1,0 +1,506 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Battleship"
+  },
+  "Description": {
+    "enUS": "Powerful capital ship. Can use Stasis Gun and Tactical Jump.**Can attack ground and air units**<br/><br/>Role: Playmaker<br/>Strong: Heavy/Bunched up army<br/>Weak: Light"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 700,
+  "LifeMax": 700,
+  "LifeArmorName": {
+    "enUS": "Umojan Ship Plating"
+  },
+  "Mover": "Fly",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.8125,
+  "SeparationRadius": 1.8,
+  "MinimapRadius": 1.8,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1.1,
+  "Mass": 0.6,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UmojanBattleship",
+  "HotkeyAlias": "UmojanBattleship",
+  "SelectAlias": "UmojanBattleship",
+  "SubgroupAlias": "UmojanBattleship",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UmojanAIBattelship",
+  "AIEvaluateAlias": "UmojanBattleship",
+  "ReviveType": "UmojanBattleship",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "UmojanBattleship/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "UmojanBattleship/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Air"
+  ],
+  "Collide": [
+    "Flying"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Massive",
+    "Heroic"
+  ],
+  "LifeArmor": 3,
+  "ShieldsStart": 700,
+  "ShieldsMax": 700,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": {
+    "enUS": "Umojan Plasma Shields"
+  },
+  "Speed": 2.25,
+  "Acceleration": 1,
+  "Sight": 12,
+  "Height": 3.75,
+  "VisionHeight": 4,
+  "Food": -10,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 1000,
+    "Vespene": 800
+  },
+  "RepairTime": 45,
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "UmojanStasisGun",
+    "UmojanHyperjump",
+    "UmojanTrackingTarget"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "UmojanBattleshipWeaponSet",
+      "Turret": "Battlecruiser"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilAugment",
+          "Name": "Abil/Name/UmojanTrackingTarget",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:TerU,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "UmojanTrackingTarget",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "MothershipCoreAttack"
+            }
+          },
+          "Alignment": "Positive",
+          "Effect": [
+            "UmojanTrackingTarget",
+            "UmojanTrancientWeaponTrackerSet"
+          ],
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "Smart": 1
+          },
+          "AbilCmd": "attack,Execute",
+          "Cost": {
+            "Cooldown": {
+              "TimeUse": 0.1
+            }
+          },
+          "SmartValidatorArray": [
+            "EnemyTarget"
+          ],
+          "id": "UmojanTrackingTarget"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanTrackingTarget,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      }
+    ]
+  },
+  "ScoreMake": 1800,
+  "ScoreKill": 1800,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 60,
+  "GlossaryCategory": "Unit/Category/UmojanUnits",
+  "GlossaryPriority": 150,
+  "GlossaryStrongArray": [
+    "Thor",
+    "Mutalisk",
+    "Carrier"
+  ],
+  "GlossaryWeakArray": [
+    "Hydralisk",
+    "Phoenix",
+    "Marine"
+  ],
+  "HotkeyCategory": "Unit/Category/UmojanUnits",
+  "AIKiteRange": 6,
+  "EquipmentArray": [
+    {
+      "Effect": "UmojanATSPlasmaBatteryU",
+      "Icon": "Assets\\Textures\\btn-upgrade-terran-shipweaponslevel0.dds",
+      "Weapon": "UmojanATSPlasmaBattery"
+    },
+    {
+      "Effect": "UmojanATAPlasmaBatteryU",
+      "Icon": "Assets\\Textures\\btn-upgrade-terran-shipweaponslevel0.dds",
+      "Weapon": "UmojanATAPlasmaBattery"
+    }
+  ],
+  "BehaviorArray": [
+    "UmojanBattleshipMaginotLineShielding",
+    "UmojanTransientAttackTracker"
+  ],
+  "id": "UmojanBattleship",
+  "Icon": "btn-unit-terran-battlecruiser-umojan",
+  "Model": "Battlecruiser_Umojan",
+  "LifeArmorIcon": "btn-upgrade-terran-shipplatinglevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "Turret": "Battlecruiser",
+      "EditorCategories": "Race:Terran",
+      "Options": {
+        "Hidden": 1,
+        "OnlyFireWhileInAttackOrder": 0,
+        "OnlyFireAtAttackOrderTarget": 0,
+        "IgnoreThreat": 1,
+        "IgnoreAttackPriority": 1
+      },
+      "Icon": "btn-upgrade-terran-shipweaponslevel0",
+      "DisplayEffect": "UmojanATSPlasmaBatteryU",
+      "TargetFilters": "",
+      "AcquireTargetSorts": {
+        "SortArray": [
+          {
+            "value": "UmojanTSTrackedBy"
+          },
+          {
+            "value": "UmojanTSThreatenAir"
+          },
+          {
+            "value": "UmojanTSPriorityDesc"
+          },
+          {
+            "value": "UmojanGroundTarget"
+          }
+        ]
+      },
+      "Range": 9,
+      "Arc": 360,
+      "Period": 3.5,
+      "AllowedMovement": "Moving",
+      "Effect": "UmojanBattleshipWeaponSwitch",
+      "id": "UmojanBattleshipWeaponSet",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Battleship Weapon Set"
+      },
+      "Amount": 12,
+      "Kind": "Ranged"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "UmojanBattleshipMaginotLineShielding",
+      "Icon": "btn-ability-protoss-hardenedshields",
+      "Name": {
+        "enUS": "Umojan - Battleship - Maginot Line Shielding"
+      },
+      "Tooltip": {
+        "enUS": "This unit takes a maximum of 40 damage from any single source."
+      }
+    },
+    {
+      "id": "UmojanTransientAttackTracker",
+      "Name": {
+        "enUS": "Umojan - Transient - Attack Tracker"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "UmojanStasisGun",
+      "Name": {
+        "enUS": "Stasis Gun"
+      }
+    },
+    {
+      "id": "UmojanHyperjump",
+      "Name": {
+        "enUS": "Tactical Jump"
+      }
+    },
+    {
+      "id": "UmojanTrackingTarget",
+      "Name": {
+        "enUS": "Umojan - Tracking Target"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "UmojanBattleship",
+    "UmojanBattleship",
+    "UmojanBattleshipPlacementCheck",
+    "UmojanHyperjumpCreatePrecursor",
+    "UmojanThreatensAir",
+    "UmojanShipPlatingLevel1",
+    "UmojanShipPlating",
+    "UmojanShipPlatingLevel2",
+    "UmojanShipPlatingLevel3",
+    "UmojanShipWeaponsLevel1",
+    "UmojanShipWeapons",
+    "UmojanShipWeaponsLevel2",
+    "UmojanShipWeaponsLevel3",
+    "UmojanVehicleandShipPlatingLevel1",
+    "UmojanVehicleandShipPlating",
+    "UmojanVehicleandShipPlatingLevel2",
+    "UmojanVehicleandShipPlatingLevel3",
+    "UmojanStasisGun",
+    "UmojanFusionCore",
+    "UmojanShieldsLevel1",
+    "UmojanShields",
+    "UmojanShieldsLevel2",
+    "UmojanShieldsLevel3",
+    "CountUnitUmojanBattleshipQueuedOrBetter",
+    "UmojanCommandCenterTrain",
+    "UmojanCommandCenter"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "UmojanBattleship"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "UmojanCommandCenter"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "UmojanStasisGun,Execute",
+      "id": "UmojanStasisField",
+      "Icon": "btn-ability-protoss-stasistrap",
+      "Name": {
+        "enUS": "Stasis Gun"
+      },
+      "Tooltip": {
+        "enUS": "Puts enemies in target area into stasis. Units in Stasis cannot be attacked or affected by abilities for <b>14</b> seconds."
+      }
+    },
+    {
+      "AbilCmd": "UmojanHyperjump,Execute",
+      "id": "UmojanHyperjump",
+      "Icon": "btn-ability-terran-warpjump",
+      "Name": {
+        "enUS": "Tactical Jump"
+      },
+      "Tooltip": {
+        "enUS": "After <b>6</b> seconds, warps to the target location. Battleship is invulnerable while warping. Stuns and puts the Battleship into a 1 second vulnerability phase before it teleports. In this state, the Battleship can be damaged, but Tactical Jump may not be canceled.**Does not require vision**"
+      }
+    },
+    {
+      "AbilCmd": "UmojanTrackingTarget,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    }
+  ]
+}

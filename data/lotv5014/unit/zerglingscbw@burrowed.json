@@ -1,0 +1,750 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Zergling",
+    "zhCN": "Zergling",
+    "koKR": "Zergling"
+  },
+  "Description": {
+    "enUS": "Fast melee creature. <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b></span> hatch in pairs from a single <span class=\"style-TooltipHighlightSCBW\"><b>Larva</b></span>**Can attack ground units**",
+    "zhCN": "Fast melee creature. <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b></span> hatch in pairs from a single <span class=\"style-TooltipHighlightSCBW\"><b>Larva</b></span>**Can attack ground units**",
+    "koKR": "Fast melee creature. <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b></span> hatch in pairs from a single <span class=\"style-TooltipHighlightSCBW\"><b>Larva</b></span>**Can attack ground units**"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "BWZe",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 35,
+  "LifeMax": 35,
+  "LifeArmorName": {
+    "enUS": "Zerg Ground Carapace",
+    "ruRU": "Панцирь наземных зергов"
+  },
+  "Mover": "Burrowed",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.375,
+  "SeparationRadius": 0,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "PreventDestroy",
+    "Cloaked",
+    "Buried",
+    "AIThreatGround",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ZerglingSCBW",
+  "HotkeyAlias": "ZerglingSCBW",
+  "SelectAlias": "ZerglingSCBW",
+  "SubgroupAlias": "ZerglingSCBW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ZerglingSCBW@Burrowed",
+  "AIEvaluateAlias": "ZerglingSCBW",
+  "ReviveType": "ZerglingSCBW@Burrowed",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ZerglingSCBW@Burrowed/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ZerglingSCBW@Burrowed/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "EnergyRegenRate": 0.5,
+  "id": "ZerglingSCBW@Burrowed",
+  "LifeRegenRate": 0.2734,
+  "GlossaryCategory": "",
+  "HotkeyCategory": "",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow"
+  ],
+  "Attributes": [
+    "Light",
+    "Biological"
+  ],
+  "Sight": 4,
+  "Food": -0.5,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 25
+  },
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "ZerglingSCBW@BurrowUp"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Delay": 1.0625
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            }
+          },
+          "Unit": "ZerglingSCBW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "ZerglingSCBW",
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -0.5
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZerglingSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": {
+          "enUS": "Unburrow",
+          "ruRU": "Выкопаться "
+        },
+        "Tooltip": {
+          "enUS": "Returns the unit to the surface.",
+          "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.166
+              }
+            }
+          },
+          "Unit": "DefilerSCBW@Burrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "DefilerSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "DefilerSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": {
+          "enUS": "Burrow",
+          "ruRU": "Закопаться "
+        },
+        "Tooltip": {
+          "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+          "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.8332
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.1665
+              }
+            }
+          },
+          "Unit": "DroneSCBW@Burrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "DroneSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": {
+          "enUS": "Burrow",
+          "ruRU": "Закопаться "
+        },
+        "Tooltip": {
+          "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+          "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Delay": 1.333
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.166
+              }
+            }
+          },
+          "Unit": "HydraliskSCBW@Burrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "HydraliskSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "HydraliskSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": {
+          "enUS": "Burrow",
+          "ruRU": "Закопаться "
+        },
+        "Tooltip": {
+          "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+          "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 1.5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.8332
+              }
+            }
+          },
+          "Unit": "UltraliskSCBW@Burrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "UltraliskSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -4
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UltraliskSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": {
+          "enUS": "Burrow",
+          "ruRU": "Закопаться "
+        },
+        "Tooltip": {
+          "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+          "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1
+              }
+            }
+          },
+          "Unit": "ZerglingSCBW@Burrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "ZerglingSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -0.5
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZerglingSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": {
+          "enUS": "Burrow",
+          "ruRU": "Закопаться "
+        },
+        "Tooltip": {
+          "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+          "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 1.5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.8332
+              }
+            }
+          },
+          "Unit": "UltraliskSCBW@Burrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "UltraliskSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -4
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UltraliskSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": {
+          "enUS": "Burrow",
+          "ruRU": "Закопаться "
+        },
+        "Tooltip": {
+          "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+          "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "ZerglingSCBWSpeedUpgrade@Passive",
+        "Icon": "btn-upgrade-zerg-hotsmetabolicboost",
+        "Name": {
+          "enUS": "Metabolic Boost",
+          "zhCN": "Metabolic Boost",
+          "koKR": "Metabolic Boost"
+        },
+        "Tooltip": {
+          "enUS": "Increases <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b></span> movement speed by <span class=\"style-TooltipBuffSCBW\"><b>50</b>%</span>.",
+          "zhCN": "Increases <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b></span> movement speed by <span class=\"style-TooltipBuffSCBW\"><b>50</b>%</span>.",
+          "koKR": "Increases <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b></span> movement speed by <span class=\"style-TooltipBuffSCBW\"><b>50</b>%</span>."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "ZerglingSCBWAttackSpeedUpgrade@Passive",
+        "Icon": "btn-upgrade-zerg-adrenalglands",
+        "Name": {
+          "enUS": "Adrenal Glands",
+          "zhCN": "Adrenal Glands",
+          "koKR": "Adrenal Glands"
+        },
+        "Tooltip": {
+          "enUS": "Increases <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b></span> attack speed by <span class=\"style-TooltipBuffSCBW\"><b>45</b>%</span>.",
+          "zhCN": "Increases <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b></span> attack speed by <span class=\"style-TooltipBuffSCBW\"><b>45</b>%</span>.",
+          "koKR": "Increases <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b></span> attack speed by <span class=\"style-TooltipBuffSCBW\"><b>45</b>%</span>."
+        }
+      }
+    ]
+  },
+  "ScoreKill": 25,
+  "SubgroupPriority": 68,
+  "RankDisplay": "Always",
+  "TechAliasArray": [
+    "ZerglingSCBW"
+  ],
+  "TacticalAIThink": "AIThinkZerglingSCBW",
+  "InnerRadius": 0.25,
+  "KillDisplay": "Always",
+  "Icon": "btn-unit-zerg-zergling@scbw",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level0",
+  "ShieldArmorIcon": "btn-upgrade-zerg-swarmfrenzy",
+  "Weapons": [],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "ZerglingSCBW@BurrowUp",
+      "Name": {
+        "enUS": "Unburrow",
+        "zhCN": "Unburrow",
+        "koKR": "Unburrow"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "ZerglingSCBW@BurrowDown",
+    "ZerglingSCBW@Burrowed",
+    "ZerglingSCBWSpeedUpgrade",
+    "ZerglingSCBWAttackSpeedUpgrade",
+    "IsZerglingSCBW@Burrowed",
+    "ZerglingSCBW@BurrowedSplat",
+    "ZerglingSCBW@Death",
+    "ZerglingSCBW",
+    "ZerglingSCBW@TacticalBurrowBurrowedBullyTest",
+    "ZerglingSCBW@Burrowed"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "ZerglingSCBW"
+  ],
+  "$Phase": [],
+  "$Phased": "ZerglingSCBW",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "ZerglingSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": {
+        "enUS": "Unburrow",
+        "ruRU": "Выкопаться "
+      },
+      "Tooltip": {
+        "enUS": "Returns the unit to the surface.",
+        "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+      }
+    },
+    {
+      "AbilCmd": "DefilerSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": {
+        "enUS": "Burrow",
+        "ruRU": "Закопаться "
+      },
+      "Tooltip": {
+        "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": {
+        "enUS": "Burrow",
+        "ruRU": "Закопаться "
+      },
+      "Tooltip": {
+        "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+      }
+    },
+    {
+      "AbilCmd": "HydraliskSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": {
+        "enUS": "Burrow",
+        "ruRU": "Закопаться "
+      },
+      "Tooltip": {
+        "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+      }
+    },
+    {
+      "AbilCmd": "UltraliskSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": {
+        "enUS": "Burrow",
+        "ruRU": "Закопаться "
+      },
+      "Tooltip": {
+        "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+      }
+    },
+    {
+      "AbilCmd": "ZerglingSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": {
+        "enUS": "Burrow",
+        "ruRU": "Закопаться "
+      },
+      "Tooltip": {
+        "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+      }
+    },
+    {
+      "AbilCmd": "UltraliskSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": {
+        "enUS": "Burrow",
+        "ruRU": "Закопаться "
+      },
+      "Tooltip": {
+        "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+      }
+    }
+  ]
+}

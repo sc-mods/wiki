@@ -1,0 +1,1801 @@
+{
+  "Name": "Drone",
+  "Description": "Basic worker unit. Can harvest minerals and vespene gas. Can mutate into structures.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Zerg",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 40,
+  "LifeMax": 40,
+  "LifeArmorName": "Zerg Ground Carapace",
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "Worker",
+    "PreventDestroy",
+    "UseLineOfSight"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "Drone",
+  "HotkeyAlias": "Drone",
+  "SelectAlias": "Drone",
+  "SubgroupAlias": "Drone",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "Drone",
+  "AIEvaluateAlias": "Drone",
+  "ReviveType": "Drone",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "Drone/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "Drone/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "LifeRegenRate": 0.2734,
+  "Speed": 2.8125,
+  "Acceleration": 2.5,
+  "LateralAcceleration": 46.0625,
+  "Food": -1,
+  "AttackTargetPriority": 20,
+  "AIOverideTargetPriority": 10,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 10,
+  "InnerRadius": 0.375,
+  "CargoSize": 1,
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 60,
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Small"
+  ],
+  "Sight": 8,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackWorker",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/DroneHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "DroneHarvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "id": "DroneHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneHarvest,Return",
+        "id": "ReturnCargo",
+        "Icon": "btn-command-returncargo",
+        "Tooltip": "Returns the carried resources to the nearest drop-off point.",
+        "Name": "Return Cargo",
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "AbilCmd": "255,255",
+        "SubmenuCardId": "ZBl1",
+        "id": "ZergBuild",
+        "Icon": "btn-ability-zerg-basicmutation",
+        "Tooltip": "A list of basic structures.",
+        "Name": "Basic Mutation",
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "AbilCmd": "255,255",
+        "SubmenuCardId": "ZBl2",
+        "id": "ZergBuildAdvanced",
+        "Icon": "btn-ability-zerg-advancedmutation",
+        "Tooltip": "A list of advanced structures.",
+        "Name": "Advanced Mutation",
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.8332
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.1665
+              }
+            }
+          },
+          "Unit": "DroneBurrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "DroneBurrowed",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowDroneDown,Execute",
+        "id": "BurrowDown",
+        "Icon": "btn-ability-zerg-burrow-color",
+        "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "Name": "Burrow",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/DroneHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "DroneHarvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "id": "DroneHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneHarvest,Gather",
+        "id": "GatherZerg",
+        "Icon": "btn-ability-zerg-gather",
+        "Tooltip": "Orders Drone to gather resources from a selected Mineral Field or Vespene Geyser.",
+        "Name": "Gather",
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/SprayZerg",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Zerg",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SprayZerg",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "SprayZerg"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "SprayZerg",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Spray",
+              "Requirements": "HaveSprayZerg"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Charge": {
+                "CountMax": 5,
+                "CountStart": 1,
+                "CountUse": 1,
+                "Link": "Spray",
+                "Location": "Player",
+                "TimeStart": 300,
+                "TimeUse": 300
+              }
+            }
+          ],
+          "Range": [
+            1
+          ],
+          "id": "SprayZerg"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "SprayZerg,Execute",
+        "id": "Spray",
+        "Icon": "btn-command-spray",
+        "Tooltip": "Orders the unit to apply your currently selected spray to the terrain at the target location.",
+        "Name": "Spray",
+        "Hotkey": "Y"
+      }
+    ],
+    "ZBl1": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Hatchery"
+          },
+          "Unit": "Hatchery",
+          "Time": 100
+        },
+        "Unit": "Hatchery",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 350,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 6
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build1",
+        "id": "Hatchery",
+        "Icon": "btn-building-zerg-hatchery",
+        "Tooltip": "Primary structure. Used to spawn all Zerg units and receive gathered resources. Grows creep used to feed nearby Zerg structures. Can mutate into a Lair.<br/><br/><c val=\"#ColorAttackInfo\">Bonus: Zerg move faster on creep.</span>",
+        "Name": "Mutate into Hatchery",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Extractor"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "Extractor",
+          "Time": 30
+        },
+        "Unit": "Extractor",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build3",
+        "id": "Extractor",
+        "Icon": "btn-building-zerg-extractor",
+        "Tooltip": "Mutated over a Vespene Geyser to allow harvesting of vespene gas.",
+        "Name": "Mutate into Extractor",
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SpawningPool",
+            "Requirements": "HaveHatchery"
+          },
+          "Unit": "SpawningPool",
+          "Time": 65
+        },
+        "Unit": "SpawningPool",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 250,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build4",
+        "id": "SpawningPool",
+        "Icon": "btn-building-zerg-spawningpool",
+        "Tooltip": "Contains upgrades for Zerglings.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Queens at the Hatchery, Lair, or Hive<br/>- Zerglings from Larvae<br/>- Spine Crawlers from Drones<br/>- Spore Crawlers from Drones",
+        "Name": "Mutate into Spawning Pool",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "EvolutionChamber",
+            "Requirements": "HaveHatchery"
+          },
+          "Unit": "EvolutionChamber",
+          "Time": 35
+        },
+        "Unit": "EvolutionChamber",
+        "Time": 35,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build5",
+        "id": "EvolutionChamber",
+        "Icon": "btn-building-zerg-evolutionchamber",
+        "Tooltip": "Contains upgrades for Zerg ground units.",
+        "Name": "Mutate into Evolution Chamber",
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "BanelingNest",
+            "Requirements": "HaveSpawningPool"
+          },
+          "Unit": "BanelingNest",
+          "Time": 60
+        },
+        "Unit": "BanelingNest",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build11",
+        "id": "BanelingNest",
+        "Icon": "btn-building-zerg-banelingnest",
+        "Tooltip": "Contains an upgrade for Banelings.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Banelings from Zerglings",
+        "Name": "Mutate into Baneling Nest",
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "RoachWarren",
+            "Requirements": "HaveSpawningPool"
+          },
+          "Unit": "RoachWarren",
+          "Time": 55
+        },
+        "Unit": "RoachWarren",
+        "Time": 55,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build14",
+        "id": "RoachWarren",
+        "Icon": "btn-building-zerg-roachwarren",
+        "Tooltip": "Contains upgrades for Roaches.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Roaches from Larvae<br/>- Ravagers from Roaches",
+        "Name": "Mutate into Roach Warren",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SpineCrawler",
+            "Requirements": "HaveSpawningPool"
+          },
+          "Unit": "SpineCrawler",
+          "Time": 50
+        },
+        "Unit": "SpineCrawler",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build15",
+        "id": "SpineCrawler",
+        "Icon": "btn-building-zerg-spinecrawler",
+        "Tooltip": "Anti-ground defensive structure. **Can attack ground units**",
+        "Name": "Mutate into Spine Crawler",
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SporeCrawler",
+            "Requirements": "HaveSpawningPool"
+          },
+          "Unit": "SporeCrawler",
+          "Time": 30
+        },
+        "Unit": "SporeCrawler",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build16",
+        "id": "SporeCrawler",
+        "Icon": "btn-building-zerg-sporecrawler",
+        "Tooltip": "Anti-air defensive structure. **Can attack air units**<br/><span style=\"color: #FFE303\">Detector</span>",
+        "Name": "Mutate into Spore Crawler",
+        "Hotkey": "A"
+      }
+    ],
+    "ZBl2": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Spire",
+            "Requirements": "HaveLair"
+          },
+          "Unit": "Spire",
+          "Time": 100
+        },
+        "Unit": "Spire",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 250,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build7",
+        "id": "Spire",
+        "Icon": "btn-building-zerg-spire",
+        "Tooltip": "Contains upgrades for Zerg air units. Can mutate into a Greater Spire.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Mutalisks from Larvae<br/>- Corruptors from Larvae",
+        "Name": "Mutate into Spire",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UltraliskCavern",
+            "Requirements": "HaveHive"
+          },
+          "Unit": "UltraliskCavern",
+          "Time": 65
+        },
+        "Unit": "UltraliskCavern",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build8",
+        "id": "UltraliskCavern",
+        "Icon": "btn-building-zerg-ultraliskcavern",
+        "Tooltip": "Contains an upgrade for Ultralisks.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Ultralisks from Larvae",
+        "Name": "Mutate into Ultralisk Cavern",
+        "Hotkey": "U"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NydusNetwork",
+            "Requirements": "HaveLair"
+          },
+          "Unit": "NydusNetwork",
+          "Time": 50
+        },
+        "Unit": "NydusNetwork",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build10",
+        "id": "NydusNetwork",
+        "Icon": "btn-building-zerg-nydusnetwork",
+        "Tooltip": "Friendly ground units can use the Nydus Network to instantly travel to any other Nydus Network or Nydus Worm owned by the player.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Nydus Worm",
+        "Name": "Mutate into Nydus Network",
+        "Hotkey": "N"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "InfestationPit",
+            "Requirements": "HaveLair"
+          },
+          "Unit": "InfestationPit",
+          "Time": 50
+        },
+        "Unit": "InfestationPit",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build9",
+        "id": "InfestationPit",
+        "Icon": "btn-building-zerg-infestationpit",
+        "Tooltip": "Contains upgrades for Infestors and Swarm Hosts.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Infestors from Larvae<br/>- Swarm Hosts from Larvae",
+        "Name": "Mutate into Infestation Pit",
+        "Hotkey": "I"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "HydraliskDen",
+            "Requirements": "HaveLair"
+          },
+          "Unit": "HydraliskDen",
+          "Time": 40
+        },
+        "Unit": "HydraliskDen",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build6",
+        "id": "HydraliskDen",
+        "Icon": "btn-building-zerg-hydraliskden",
+        "Tooltip": "Contains an upgrade for Hydralisks. Can mutate into a Lurker Den.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Hydralisks from Larvae",
+        "Name": "Mutate into Hydralisk Den",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "MutateintoLurkerDen",
+            "Requirements": "HaveHydraliskDen"
+          },
+          "Unit": "LurkerDenMP",
+          "Time": 80
+        },
+        "Unit": "LurkerDenMP",
+        "Time": 80,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZergBuild,Build12",
+        "id": "MutateintoLurkerDen",
+        "Icon": "btn-building-zerg-lurkerden",
+        "Tooltip": "Morph into a Lurker Den, allowing Hydralisks to morph into Lurkers.",
+        "Name": "Mutate into Lurker Den",
+        "Hotkey": "D"
+      }
+    ]
+  },
+  "Attributes": [
+    "Light",
+    "Biological"
+  ],
+  "GlossaryCategory": "Unit/Category/ZergUnits",
+  "HotkeyCategory": "Unit/Category/ZergUnits",
+  "GlossaryPriority": 20,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 50
+  },
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "id": "Drone",
+  "Icon": "btn-unit-zerg-drone",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "id": "Spines",
+      "Icon": "btn-upgrade-zerg-meleeattacks-level0",
+      "Name": "Claws",
+      "Amount": 5,
+      "Kind": "Melee",
+      "TargetFilters": "Ground",
+      "Range": 0.1,
+      "Period": 1.5
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "ZergBuild",
+      "Name": "Morph Unit (Drone -> Zerg Buildings)"
+    },
+    {
+      "id": "DroneHarvest",
+      "Name": "Gather (Drone)"
+    },
+    {
+      "id": "BurrowDroneDown",
+      "Name": "Burrow (Drone)"
+    },
+    {
+      "id": "SprayZerg"
+    }
+  ],
+  "$Upgrades": [
+    "Zerg",
+    "Drone",
+    "LarvaTrain",
+    "IsDrone",
+    "BurrowDroneUp",
+    "DroneBurrowed",
+    "NotWorkerDrone",
+    "Larva",
+    "Burrow",
+    "ZergGroundArmorsLevel1",
+    "Drone",
+    "ZergGroundArmors",
+    "ZergGroundArmorsLevel2",
+    "ZergGroundArmorsLevel3",
+    "DigesterDrone",
+    "Prospector",
+    "Drone_Death",
+    "DroneBurrowedSplat",
+    "ThreatensDrone",
+    "Drone",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "Hatchery",
+    "Extractor",
+    "SpawningPool",
+    "EvolutionChamber",
+    "BanelingNest",
+    "RoachWarren",
+    "SpineCrawler",
+    "SporeCrawler",
+    "Spire",
+    "UltraliskCavern",
+    "NydusNetwork",
+    "InfestationPit",
+    "HydraliskDen",
+    "LurkerDenMP"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [
+    "DroneBurrowed"
+  ],
+  "$Producers": [
+    "Larva"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackWorker",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "DroneHarvest,Return",
+      "id": "ReturnCargo",
+      "Icon": "btn-command-returncargo",
+      "Tooltip": "Returns the carried resources to the nearest drop-off point.",
+      "Name": "Return Cargo"
+    },
+    {
+      "AbilCmd": "255,255",
+      "id": "ZergBuild",
+      "Icon": "btn-ability-zerg-basicmutation",
+      "Tooltip": "A list of basic structures.",
+      "Name": "Basic Mutation"
+    },
+    {
+      "AbilCmd": "255,255",
+      "id": "ZergBuildAdvanced",
+      "Icon": "btn-ability-zerg-advancedmutation",
+      "Tooltip": "A list of advanced structures.",
+      "Name": "Advanced Mutation"
+    },
+    {
+      "AbilCmd": "BurrowDroneDown,Execute",
+      "id": "BurrowDown",
+      "Icon": "btn-ability-zerg-burrow-color",
+      "Tooltip": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+      "Name": "Burrow"
+    },
+    {
+      "AbilCmd": "DroneHarvest,Gather",
+      "id": "GatherZerg",
+      "Icon": "btn-ability-zerg-gather",
+      "Tooltip": "Orders Drone to gather resources from a selected Mineral Field or Vespene Geyser.",
+      "Name": "Gather"
+    },
+    {
+      "AbilCmd": "SprayZerg,Execute",
+      "id": "Spray",
+      "Icon": "btn-command-spray",
+      "Tooltip": "Orders the unit to apply your currently selected spray to the terrain at the target location.",
+      "Name": "Spray"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build1",
+      "id": "Hatchery",
+      "Icon": "btn-building-zerg-hatchery",
+      "Tooltip": "Primary structure. Used to spawn all Zerg units and receive gathered resources. Grows creep used to feed nearby Zerg structures. Can mutate into a Lair.<br/><br/><c val=\"#ColorAttackInfo\">Bonus: Zerg move faster on creep.</span>",
+      "Name": "Mutate into Hatchery"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build3",
+      "id": "Extractor",
+      "Icon": "btn-building-zerg-extractor",
+      "Tooltip": "Mutated over a Vespene Geyser to allow harvesting of vespene gas.",
+      "Name": "Mutate into Extractor"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build4",
+      "id": "SpawningPool",
+      "Icon": "btn-building-zerg-spawningpool",
+      "Tooltip": "Contains upgrades for Zerglings.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Queens at the Hatchery, Lair, or Hive<br/>- Zerglings from Larvae<br/>- Spine Crawlers from Drones<br/>- Spore Crawlers from Drones",
+      "Name": "Mutate into Spawning Pool"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build5",
+      "id": "EvolutionChamber",
+      "Icon": "btn-building-zerg-evolutionchamber",
+      "Tooltip": "Contains upgrades for Zerg ground units.",
+      "Name": "Mutate into Evolution Chamber"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build11",
+      "id": "BanelingNest",
+      "Icon": "btn-building-zerg-banelingnest",
+      "Tooltip": "Contains an upgrade for Banelings.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Banelings from Zerglings",
+      "Name": "Mutate into Baneling Nest"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build14",
+      "id": "RoachWarren",
+      "Icon": "btn-building-zerg-roachwarren",
+      "Tooltip": "Contains upgrades for Roaches.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Roaches from Larvae<br/>- Ravagers from Roaches",
+      "Name": "Mutate into Roach Warren"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build15",
+      "id": "SpineCrawler",
+      "Icon": "btn-building-zerg-spinecrawler",
+      "Tooltip": "Anti-ground defensive structure. **Can attack ground units**",
+      "Name": "Mutate into Spine Crawler"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build16",
+      "id": "SporeCrawler",
+      "Icon": "btn-building-zerg-sporecrawler",
+      "Tooltip": "Anti-air defensive structure. **Can attack air units**<br/><span style=\"color: #FFE303\">Detector</span>",
+      "Name": "Mutate into Spore Crawler"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build7",
+      "id": "Spire",
+      "Icon": "btn-building-zerg-spire",
+      "Tooltip": "Contains upgrades for Zerg air units. Can mutate into a Greater Spire.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Mutalisks from Larvae<br/>- Corruptors from Larvae",
+      "Name": "Mutate into Spire"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build8",
+      "id": "UltraliskCavern",
+      "Icon": "btn-building-zerg-ultraliskcavern",
+      "Tooltip": "Contains an upgrade for Ultralisks.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Ultralisks from Larvae",
+      "Name": "Mutate into Ultralisk Cavern"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build10",
+      "id": "NydusNetwork",
+      "Icon": "btn-building-zerg-nydusnetwork",
+      "Tooltip": "Friendly ground units can use the Nydus Network to instantly travel to any other Nydus Network or Nydus Worm owned by the player.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Nydus Worm",
+      "Name": "Mutate into Nydus Network"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build9",
+      "id": "InfestationPit",
+      "Icon": "btn-building-zerg-infestationpit",
+      "Tooltip": "Contains upgrades for Infestors and Swarm Hosts.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Infestors from Larvae<br/>- Swarm Hosts from Larvae",
+      "Name": "Mutate into Infestation Pit"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build6",
+      "id": "HydraliskDen",
+      "Icon": "btn-building-zerg-hydraliskden",
+      "Tooltip": "Contains an upgrade for Hydralisks. Can mutate into a Lurker Den.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Hydralisks from Larvae",
+      "Name": "Mutate into Hydralisk Den"
+    },
+    {
+      "AbilCmd": "ZergBuild,Build12",
+      "id": "MutateintoLurkerDen",
+      "Icon": "btn-building-zerg-lurkerden",
+      "Tooltip": "Morph into a Lurker Den, allowing Hydralisks to morph into Lurkers.",
+      "Name": "Mutate into Lurker Den"
+    }
+  ]
+}

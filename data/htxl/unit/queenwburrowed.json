@@ -1,0 +1,480 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "虫巢女王",
+    "enUS": "Hive Queen"
+  },
+  "Description": {
+    "enUS": "Defensive unit. Can use Spawn Larvae, Spawn Creep Tumor, and Transfusion. Moves much faster on creep.<br/><br/><span style=\"color: ffff8a\">Can attack ground and air units.</span>",
+    "ruRU": "Служит для обороны базы. Может создавать опухоли, порождать личинки и использовать способность «Переливание». Намного быстрее передвигается по слизи.<br/><br/><span style=\"color: ffff8a\">Атакует наземные и воздушные цели.</span> "
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZerW",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 600,
+  "LifeMax": 600,
+  "LifeArmorName": {
+    "zhCN": "利维坦地面生物甲壳",
+    "enUS": "Leviathan ground creature carapace"
+  },
+  "Mover": "Burrowed",
+  "StationaryTurningRate": 540,
+  "TurningRate": 540,
+  "Radius": 1.1875,
+  "SeparationRadius": 1.1875,
+  "MinimapRadius": 1.25,
+  "EditorCategories": "ObjectType:Hero,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "Hero",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "Cloaked",
+    "Buried",
+    "AIThreatGround",
+    "AIThreatAir",
+    "AIDefense",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "QueenW",
+  "HotkeyAlias": "QueenW",
+  "SelectAlias": "QueenW",
+  "SubgroupAlias": "QueenW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "QueenBurrowed",
+  "AIEvaluateAlias": "Queen",
+  "ReviveType": "QueenWBurrowed",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "QueenWBurrowed/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "QueenWBurrowed/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Subtitle": "UnitSubtitle/QueenW",
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow"
+  ],
+  "Attributes": [
+    "Biological",
+    "Psionic",
+    "Heroic"
+  ],
+  "LifeArmor": 5,
+  "LifeRegenRate": 2,
+  "EnergyStart": 150,
+  "EnergyMax": 300,
+  "EnergyRegenRate": 2.5,
+  "ShieldArmor": 6,
+  "ShieldRegenDelay": 20,
+  "ShieldRegenRate": 1,
+  "ShieldRegenRateCreep": 2,
+  "ShieldArmorName": {
+    "zhCN": "装甲外壳",
+    "enUS": "Armored Shell"
+  },
+  "Sight": 7,
+  "Food": 20,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 350,
+    "Vespene": 350
+  },
+  "AttackTargetPriority": 20,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 30,
+  "AbilArray": [
+    "stop",
+    "BurrowQueenUpW",
+    "QueenBuildW"
+  ],
+  "BehaviorArray": [
+    "QueenWBehavior"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            }
+          },
+          "Unit": "QueenW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "QueenW",
+        "Cost": {
+          "Minerals": 350,
+          "Vespene": 350,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 20
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowQueenUpW,Execute",
+        "id": "BurrowUpW",
+        "Icon": "btn-ability-zerg-upburrow-color",
+        "Name": {
+          "zhCN": "出地",
+          "enUS": "Out of the ground"
+        },
+        "Tooltip": {
+          "zhCN": "命令单位钻回地表。",
+          "enUS": "Order units to drill back to the surface."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 0.8332
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 0.6665
+              }
+            }
+          },
+          "Unit": "QueenWBurrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "QueenWBurrowed",
+        "Cost": {
+          "Minerals": 350,
+          "Vespene": 350,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 20
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowQueenDownW,Execute",
+        "id": "BurrowDownW",
+        "Icon": "btn-ability-zerg-burrow-color",
+        "Name": {
+          "zhCN": "潜地",
+          "enUS": "Burrow"
+        },
+        "Tooltip": {
+          "zhCN": "命令单位潜入地下。单位潜地后无法移动或攻击，但处于隐形状态。",
+          "enUS": "Order units to go underground. A unit cannot move or attack while burrowed, but is invisible."
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "ZergShieldW",
+        "Icon": "btn-upgrade-lwthd",
+        "Name": {
+          "zhCN": "装甲外壳",
+          "enUS": "Armored Shell"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">拥有护盾</span><br/>护盾在脱战长时间后缓慢恢复，拥有较高的护甲。<br/>在菌毯上时能够更快恢复护盾。",
+          "enUS": "<span style=\"color: #ffff8a\">Has a shield</span><br/>The shield recovers slowly after being out of combat for a long time, and has higher armor. <br/>Restores shields faster while on creep."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "QueenGroovedSpinesW",
+        "Icon": "btn-upgrade-zerg-hotsgroovedspines",
+        "Name": {
+          "zhCN": "爆裂脊刺",
+          "enUS": "Exploding Spine"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">虫巢女王</span>的攻击在命中后爆炸，造成范围伤害。",
+          "enUS": "<span style=\"color: #ffff8a\">Hive Queen</span>'s attack explodes upon impact, causing area damage."
+        }
+      }
+    ]
+  },
+  "InnerRadius": 0.8125,
+  "ScoreKill": 500,
+  "SubgroupPriority": 41,
+  "TacticalAIThink": "AIThinkQueen",
+  "TechAliasArray": [
+    "Alias_Queen"
+  ],
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "id": "QueenWBurrowed",
+  "Icon": "btn-unit-collection-webby-queen",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level3w",
+  "ShieldArmorIcon": "btn-upgrade-lwthd",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "QueenWBehavior",
+      "Icon": "btn-unit-collection-webby-queen",
+      "Name": {
+        "zhCN": "虫后行为",
+        "enUS": "Queen Behavior"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "BurrowQueenUpW",
+      "Name": {
+        "zhCN": "出地(虫后)",
+        "enUS": "Out of the Earth (Queen of Worms)"
+      }
+    },
+    {
+      "id": "QueenBuildW",
+      "Name": {
+        "zhCN": "孵化菌毯肿瘤",
+        "enUS": "Hatching Creep Tumors"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "BurrowQueenDownW",
+    "QueenWBurrowed",
+    "CountUnitQueenWBurrowedQueuedOrBetter",
+    "QueenBurrowedSplatW",
+    "QueenW",
+    "Queen_DeathW"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "QueenW"
+  ],
+  "$Phase": [],
+  "$Phased": "QueenW",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "BurrowQueenUpW,Execute",
+      "id": "BurrowUpW",
+      "Icon": "btn-ability-zerg-upburrow-color",
+      "Name": {
+        "zhCN": "出地",
+        "enUS": "Out of the ground"
+      },
+      "Tooltip": {
+        "zhCN": "命令单位钻回地表。",
+        "enUS": "Order units to drill back to the surface."
+      }
+    },
+    {
+      "AbilCmd": "BurrowQueenDownW,Execute",
+      "id": "BurrowDownW",
+      "Icon": "btn-ability-zerg-burrow-color",
+      "Name": {
+        "zhCN": "潜地",
+        "enUS": "Burrow"
+      },
+      "Tooltip": {
+        "zhCN": "命令单位潜入地下。单位潜地后无法移动或攻击，但处于隐形状态。",
+        "enUS": "Order units to go underground. A unit cannot move or attack while burrowed, but is invisible."
+      }
+    }
+  ]
+}

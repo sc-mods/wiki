@@ -1,0 +1,589 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Particle Cannon"
+  },
+  "Description": {
+    "enUS": "Primary defensive structure.**Can attack ground units**"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "PrTD",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 250,
+  "LifeMax": 250,
+  "LifeArmorName": {
+    "enUS": "Synoid Armor",
+    "ruRU": "Броня протоссов "
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.75,
+  "SeparationRadius": 1.75,
+  "MinimapRadius": 1.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "AIDefense",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "TalDarimParticleCannon",
+  "HotkeyAlias": "TalDarimParticleCannon",
+  "SelectAlias": "TalDarimParticleCannon",
+  "SubgroupAlias": "TalDarimParticleCannon",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "TalDarimParticleCannon",
+  "AIEvaluateAlias": "TalDarimParticleCannon",
+  "ReviveType": "TalDarimParticleCannon",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 1,
+    "DelayMin": 0.2,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 50,
+      "Turn": 50
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "TalDarimParticleCannon/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "TalDarimParticleCannon/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 315,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "ShieldsStart": 250,
+  "ShieldsMax": 250,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": {
+    "enUS": "Protoss Plasma Shields",
+    "ruRU": "Плазменные щиты протоссов "
+  },
+  "Sight": 9,
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "BuildInProgress",
+    "stop",
+    "attack"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "TalDarimParticleCannonParticleBeam",
+      "Turret": "TalDarimParticleCannonTurret"
+    },
+    {
+      "Link": "TalDarimParticleCannonParticleBeamAAMono",
+      "Turret": "TalDarimParticleCannonTurret"
+    },
+    {
+      "Link": "TalDarimParticleCannonParticleBeamAAMulti",
+      "Turret": "TalDarimParticleCannonTurret"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackBuilding",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+          "ruRU": "Приказать атаковать цель, пока она не будет уничтожена или не выйдет из зоны досягаемости. "
+        },
+        "Hotkey": "A"
+      }
+    ]
+  },
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 2,
+  "GlossaryPriority": 200,
+  "BehaviorArray": [
+    "PowerUserBaseDefenseSmall",
+    "UnderConstruction"
+  ],
+  "CostResource": {
+    "Minerals": 250
+  },
+  "ScoreMake": 250,
+  "ScoreKill": 250,
+  "HotkeyCategory": "Unit/Category/TalDarimUnits",
+  "CostCategory": "Technology",
+  "GlossaryCategory": "Unit/Category/TalDarimUnits",
+  "TurretArray": [
+    "TalDarimParticleCannonTurret"
+  ],
+  "id": "TalDarimParticleCannon",
+  "Icon": "btn-building-protoss-particlecanon-taldarim",
+  "LifeArmorIcon": "btn-armor-taldarim-buildingplating",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "Turret": "TalDarimParticleCannonTurret",
+      "EditorCategories": "Race:PrTD",
+      "Options": {
+        "LinkedCooldown": 0
+      },
+      "Icon": "btn-upgrade-protoss-particlecannon-taldarim",
+      "DisplayEffect": "TalDarimParticleCannonParticleBeamDamage",
+      "DisplayAttackCount": 3,
+      "TargetFilters": "Ground",
+      "Range": 9,
+      "Period": 2.5,
+      "DamagePoint": 0.75,
+      "Effect": "TalDarimParticleCannonParticleBeamCP",
+      "Arc": 29.9926,
+      "MinScanRange": 11,
+      "id": "TalDarimParticleCannonParticleBeam",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Particle Beam"
+      },
+      "Amount": 15,
+      "AttributeBonus": {
+        "Armored": 5
+      },
+      "Kind": "Ranged"
+    },
+    {
+      "Turret": "TalDarimParticleCannonTurret",
+      "EditorCategories": "Race:PrTD",
+      "Options": {
+        "Hidden": 1,
+        "LinkedCooldown": 0
+      },
+      "Icon": "btn-upgrade-protoss-particlecannon-taldarim",
+      "DisplayEffect": "TalDarimParticleCannonParticleBeamMonoAADamage",
+      "DisplayAttackCount": 3,
+      "TargetFilters": "Ground",
+      "Range": 9,
+      "Period": 2.5,
+      "DamagePoint": 0.75,
+      "Effect": "TalDarimParticleCannonParticleBeamMonoAACP",
+      "Arc": 29.9926,
+      "id": "TalDarimParticleCannonParticleBeamAAMono",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Particle Beam - AA - Mono"
+      },
+      "Amount": 20,
+      "AttributeBonus": {
+        "Armored": 5
+      },
+      "Kind": "Ranged"
+    },
+    {
+      "Turret": "TalDarimParticleCannonTurret",
+      "EditorCategories": "Race:PrTD",
+      "Options": {
+        "Hidden": 1,
+        "LinkedCooldown": 0
+      },
+      "Icon": "btn-upgrade-protoss-particlecannon-taldarim",
+      "DisplayEffect": "TalDarimParticleCannonParticleBeamMultiAADamage",
+      "DisplayAttackCount": 3,
+      "TargetFilters": "Ground",
+      "Range": 9,
+      "Period": 2.5,
+      "DamagePoint": 0.75,
+      "Effect": "TalDarimParticleCannonParticleBeamMultiAACP",
+      "Arc": 29.9926,
+      "id": "TalDarimParticleCannonParticleBeamAAMulti",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Particle Beam - AA - Multi"
+      },
+      "Amount": 20,
+      "AttributeBonus": {
+        "Armored": 5
+      },
+      "Kind": "Ranged"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "PowerUserBaseDefenseSmall",
+      "Name": {
+        "enUS": "Power User (Queue, Base defense)",
+        "ruRU": "Power User (Queue, Base defense)"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "UnderConstruction",
+      "Name": {
+        "enUS": "Under Construction",
+        "ruRU": "Under Construction"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "TalDarimTargetisParticleCannon",
+    "TalDarimParticleCannon",
+    "TalDarimParticleCannon",
+    "TalDarimShieldsLevel1",
+    "TalDarimShields",
+    "TalDarimShieldsLevel2",
+    "TalDarimShieldsLevel3",
+    "TalDarimBuildDef",
+    "PhotonCannonSplat"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "TalDarimLocust"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackBuilding",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+        "ruRU": "Приказать атаковать цель, пока она не будет уничтожена или не выйдет из зоны досягаемости. "
+      }
+    }
+  ]
+}

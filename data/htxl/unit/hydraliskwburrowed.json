@@ -1,0 +1,559 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "屠猎者",
+    "enUS": "Slaughterer"
+  },
+  "Description": {
+    "zhCN": "致命的远程攻击单位。能够使用狂暴技能。可以变异为<span style=\"color: #ffff8a\">裂地者</span>。<br/><br/><span style=\"color: ffff8a\">可以对地和对空。</span>",
+    "enUS": "Deadly ranged attack unit. Able to use rage skills. Can mutate into <span style=\"color: #ffff8a\">Earthbreaker</span>. <br/><br/><span style=\"color: ffff8a\">Can be used against ground and air. </span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZerW",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 160,
+  "LifeMax": 160,
+  "LifeArmorName": {
+    "zhCN": "利维坦地面生物甲壳",
+    "enUS": "Leviathan ground creature carapace"
+  },
+  "Mover": "Burrowed",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.625,
+  "SeparationRadius": 0,
+  "MinimapRadius": 0.5,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "Cloaked",
+    "Buried",
+    "AIThreatGround",
+    "AIThreatAir",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "HydraliskW",
+  "HotkeyAlias": "HydraliskW",
+  "SelectAlias": "HydraliskW",
+  "SubgroupAlias": "HydraliskW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "HydraliskBurrowed",
+  "AIEvaluateAlias": "Hydralisk",
+  "ReviveType": "HydraliskW",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "HydraliskWBurrowed/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "HydraliskWBurrowed/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Subtitle": "UnitSubtitle/HydraliskW",
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow"
+  ],
+  "Attributes": [
+    "Light",
+    "Biological"
+  ],
+  "LifeArmor": 2,
+  "LifeRegenRate": 0.5,
+  "ShieldArmor": 5,
+  "ShieldArmorName": {
+    "zhCN": "装甲外壳",
+    "enUS": "Armored Shell"
+  },
+  "Sight": 6,
+  "Food": -3,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 125,
+    "Vespene": 125
+  },
+  "AttackTargetPriority": 20,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 20,
+  "AbilArray": [
+    "BurrowHydraliskUpW",
+    "HydraliskFrenzyW"
+  ],
+  "BehaviorArray": [
+    "HydraliskWBehavior"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            }
+          },
+          "Unit": "HydraliskW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "HydraliskW",
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 125,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowHydraliskUpW,Execute",
+        "id": "BurrowUpW",
+        "Icon": "btn-ability-zerg-upburrow-color",
+        "Name": {
+          "zhCN": "出地",
+          "enUS": "Out of the ground"
+        },
+        "Tooltip": {
+          "zhCN": "命令单位钻回地表。",
+          "enUS": "Order units to drill back to the surface."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.166
+              }
+            }
+          },
+          "Unit": "HydraliskWBurrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "HydraliskWBurrowed",
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 125,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowHydraliskDownW,Execute",
+        "id": "BurrowDownW",
+        "Icon": "btn-ability-zerg-burrow-color",
+        "Name": {
+          "zhCN": "潜地",
+          "enUS": "Burrow"
+        },
+        "Tooltip": {
+          "zhCN": "命令单位潜入地下。单位潜地后无法移动或攻击，但处于隐形状态。",
+          "enUS": "Order units to go underground. A unit cannot move or attack while burrowed, but is invisible."
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "ZergShieldW",
+        "Icon": "btn-upgrade-lwthd",
+        "Name": {
+          "zhCN": "装甲外壳",
+          "enUS": "Armored Shell"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">拥有护盾</span><br/>护盾在脱战长时间后缓慢恢复，拥有较高的护甲。<br/>在菌毯上时能够更快恢复护盾。",
+          "enUS": "<span style=\"color: #ffff8a\">Has a shield</span><br/>The shield recovers slowly after being out of combat for a long time, and has higher armor. <br/>Restores shields faster while on creep."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "HydraliskBleedW",
+        "Icon": "btn-ability-zerg-stabw",
+        "Name": {
+          "zhCN": "剧毒脊刺",
+          "enUS": "Venomous Spines"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">屠猎者</span>的攻击穿透<span style=\"color: #ffff8a\">50%</span>的护甲并使目标受到持续法术伤害。",
+          "enUS": "<span style=\"color: #ffff8a\">The Hunter</span>'s attack penetrates <span style=\"color: #ffff8a\">50%</span>'s armor and causes the target to take continuous spell damage."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "AncillaryCarapaceHydraliskW",
+        "Icon": "btn-upgrade-zerg-ancillaryarmorw",
+        "Name": {
+          "zhCN": "附属甲壳",
+          "enUS": "Accessory carapace"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">屠猎者</span>的最大生命值与护甲提高，护盾存在时变为<span style=\"color: #ffff8a\">重甲</span>单位。",
+          "enUS": "The <span style=\"color: #ffff8a\">Hunter</span>'s maximum health and armor are increased, and it becomes a <span style=\"color: #ffff8a\">heavy armor</span> unit when the shield is present."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "GroovedSpinesW",
+        "Icon": "btn-upgrade-zerg-hotsgroovedspines",
+        "Name": {
+          "zhCN": "深槽脊刺",
+          "enUS": "Deep grooved spines"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">屠猎者</span>的攻击范围增加<span style=\"color: #ffff8a\">2</span>。",
+          "enUS": "<span style=\"color: #ffff8a\">Slayer</span>'s attack range increased by <span style=\"color: #ffff8a\">2</span>."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "HydraliskFrenzyAugmentsW",
+        "Icon": "btn-upgrade-zerg-frenzy",
+        "Name": {
+          "zhCN": "杀戮专精",
+          "enUS": "Killing Expertise"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">屠猎者</span>的每次攻击使自身攻击速度提升<span style=\"color: #ffff8a\">5%</span>。持续<span style=\"color: #ffff8a\"><b>8</b></span>秒。<br/><span style=\"color: #ffff8a\">最多叠加10层</span>",
+          "enUS": "Each attack of the <span style=\"color: #ffff8a\">Hunter</span> increases its attack speed by <span style=\"color: #ffff8a\">5%</span>. Lasts <span style=\"color: #ffff8a\"><b>8</b></span> seconds. <br/><span style=\"color: #ffff8a\">Up to 10 layers</span>"
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "Passive",
+        "id": "MuscularAugmentsW",
+        "Icon": "btn-upgrade-zerg-evolvemuscularaugments",
+        "Name": {
+          "zhCN": "肌腱扩增",
+          "enUS": "Tendon Expansion"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">屠猎者</span>的移动速度提高<span style=\"color: #ffff8a\">30%</span>。<br/><span style=\"color: #ffff8a\">刺蛇</span>的最大生命提高。",
+          "enUS": "<span style=\"color: #ffff8a\">The Hunter</span>'s movement speed is increased by <span style=\"color: #ffff8a\">30%</span>. <br/><span style=\"color: #ffff8a\">Hydralisk</span>'s maximum health increased."
+        }
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "ScoreKill": 150,
+  "SubgroupPriority": 16,
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "ShieldRegenDelay": 20,
+  "ShieldRegenRate": 1,
+  "ShieldRegenRateCreep": 2,
+  "id": "HydraliskWBurrowed",
+  "Icon": "btn-unit-collection-noxious-hydralisk",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level3w",
+  "ShieldArmorIcon": "btn-upgrade-lwthd",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "HydraliskWBehavior",
+      "Icon": "btn-unit-collection-noxious-hydraliskw",
+      "Name": {
+        "zhCN": "刺蛇行为",
+        "enUS": "Hydralisk Behavior"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BurrowHydraliskUpW",
+      "Name": {
+        "zhCN": "出地(刺蛇)",
+        "enUS": "Out of the Earth (Hydralisk)"
+      }
+    },
+    {
+      "id": "HydraliskFrenzyW",
+      "Name": {
+        "zhCN": "狂暴",
+        "enUS": "Fury"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "BurrowHydraliskDownW",
+    "HydraliskBurrowedSplatW",
+    "HydraliskW"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "HydraliskW"
+  ],
+  "$Phase": [],
+  "$Phased": "HydraliskW",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "BurrowHydraliskUpW,Execute",
+      "id": "BurrowUpW",
+      "Icon": "btn-ability-zerg-upburrow-color",
+      "Name": {
+        "zhCN": "出地",
+        "enUS": "Out of the ground"
+      },
+      "Tooltip": {
+        "zhCN": "命令单位钻回地表。",
+        "enUS": "Order units to drill back to the surface."
+      }
+    },
+    {
+      "AbilCmd": "BurrowHydraliskDownW,Execute",
+      "id": "BurrowDownW",
+      "Icon": "btn-ability-zerg-burrow-color",
+      "Name": {
+        "zhCN": "潜地",
+        "enUS": "Burrow"
+      },
+      "Tooltip": {
+        "zhCN": "命令单位潜入地下。单位潜地后无法移动或攻击，但处于隐形状态。",
+        "enUS": "Order units to go underground. A unit cannot move or attack while burrowed, but is invisible."
+      }
+    }
+  ]
+}

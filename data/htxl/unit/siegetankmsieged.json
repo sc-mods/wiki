@@ -1,0 +1,960 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "军团超重型攻城坦克",
+    "enUS": "Legion Super Heavy Siege Tank"
+  },
+  "Description": {
+    "zhCN": "莫比斯超重型火力支援单位。能够造成大量范围伤害。可切换至坦克模式提供机动火力支援。<br/><br/><span style=\"color: FFFF8A\">可以对地。</span>",
+    "enUS": "Moebius super heavy fire support unit. Can cause a lot of area damage. Can switch to tank mode to provide mobile fire support. <br/><br/><span style=\"color: FFFF8A\">Can target the ground. </span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Moebius",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 380,
+  "LifeMax": 380,
+  "LifeArmorName": {
+    "zhCN": "莫比斯载具精钢护板",
+    "enUS": "Moebius Vehicle Steel Guard Plate"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1,
+  "SeparationRadius": 1,
+  "MinimapRadius": 1,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1.5,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "AISplash",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SiegeTankM",
+  "HotkeyAlias": "SiegeTankM",
+  "SelectAlias": "SiegeTankM",
+  "SubgroupAlias": "SiegeTankM",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SiegeTankSieged",
+  "AIEvaluateAlias": "SiegeTankSieged",
+  "ReviveType": "SiegeTankMSieged",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "SiegeTankMSieged/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "SiegeTankMSieged/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 45,
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Massive"
+  ],
+  "LifeArmor": 6,
+  "ShieldsStart": 120,
+  "ShieldsMax": 120,
+  "ShieldArmor": 3,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": {
+    "zhCN": "莫比斯等离子护盾",
+    "enUS": "Moebius Plasma Shield"
+  },
+  "Sight": 12,
+  "Food": -5,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 350,
+    "Vespene": 300
+  },
+  "RepairTime": 45,
+  "AttackTargetPriority": 20,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 100,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "SiegeTankUnsiegeM",
+    "Warpable"
+  ],
+  "BehaviorArray": [
+    "MoebiusShieldM"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "CrucioShockCannonM",
+      "Turret": "SiegeTankSieged"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackBuildingPFortM",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+          "ruRU": "Приказать атаковать цель, пока она не будет уничтожена или не выйдет из зоны досягаемости. "
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "MoebiusShieldM",
+        "Icon": "btn-ability-protoss-stasisfieldm",
+        "Name": {
+          "zhCN": "莫比斯暗影护盾生成器",
+          "enUS": "Moebius Shadow Shield Generator"
+        },
+        "Tooltip": {
+          "zhCN": "该单位拥有额外的护盾与护盾护甲。",
+          "enUS": "This unit has additional shields and shield armor."
+        }
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 5
+              }
+            }
+          },
+          "Unit": "SiegeTankM",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "SiegeTankM",
+        "Cost": {
+          "Minerals": 350,
+          "Vespene": 300,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -5
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "SiegeTankUnsiegeM,Execute",
+        "id": "SiegeTankUnsiegeM",
+        "Icon": "btn-unit-collection-siegetank-covertopsm",
+        "Name": {
+          "zhCN": "坦克模式",
+          "enUS": "Tank Mode"
+        },
+        "Tooltip": {
+          "zhCN": "返回坦克模式。在该模式下，<span style=\"color: #ffff8a\">军团超重型攻城坦克</span>可以移动，但火力有所下降。",
+          "enUS": "Return to tank mode. In this mode, the <span style=\"color: #ffff8a\">Legion Super Heavy Siege Tank</span> can move, but has reduced firepower."
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "MaelstromRoundsM",
+        "Icon": "btn-upgrade-raynor-maelstromrounds",
+        "Name": {
+          "zhCN": "漩流弹",
+          "enUS": "Swirl Bullet"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">军团超重型攻城坦克</span>对主目标额外造成<span style=\"color: #ffff8a\">60</span>点无视护甲的伤害。",
+          "enUS": "<span style=\"color: #ffff8a\">Legion Super Heavy Siege Tank</span> deals an additional <span style=\"color: #ffff8a\">60</span> points of damage to the main target that ignores armor."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "SiegeTankMissileM",
+        "Icon": "btn-ability-stetmann-corruptormissilebarrage",
+        "Name": {
+          "zhCN": "火箭弹幕",
+          "enUS": "Rocket Barrage"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">军团超重型攻城坦克</span>对主目标额外发射<span style=\"color: #ffff8a\">4</span>枚导弹，每发造成<span style=\"color: #ffff8a\">15</span>点伤害。",
+          "enUS": "<span style=\"color: #ffff8a\">Legion Super Heavy Siege Tank</span> fires <span style=\"color: #ffff8a\">4</span> additional missiles at the main target, each shot causing <c val= \"#ColorAttackInfo\">15</span> damage."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "ShapedBlastM",
+        "Icon": "btn-techupgrade-terran-shapedblast",
+        "Name": {
+          "zhCN": "定向冲击",
+          "enUS": "Directional Impact"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">军团超重型攻城坦克</span>的攻击不会对友方单位造成溅射伤害。",
+          "enUS": "<span style=\"color: #ffff8a\">Legion Super Heavy Siege Tank</span>'s attacks will not cause splash damage to friendly units."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "SiegeTankTerrazineMissileM",
+        "Icon": "btn-ability-protoss-confusionm",
+        "Name": {
+          "zhCN": "狂乱气体",
+          "enUS": "Crazy Gas"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">军团超重型攻城坦克</span>在攻城模式时攻击将额外发射一枚混合地嗪液化气体罐，命中后使小范围的敌方单位在短时间内互相攻击。",
+          "enUS": "<span style=\"color: #ffff8a\">Legion Super Heavy Siege Tank</span> When attacking in siege mode, it will launch an additional mixed terazine liquefied gas tank. After hitting, enemy units in a small area will be fired within a short time. attack each other within a certain period of time."
+        }
+      }
+    ]
+  },
+  "InnerRadius": 1,
+  "Footprint": "FootprintSieged",
+  "ScoreKill": 275,
+  "SubgroupPriority": 13,
+  "TechAliasArray": [
+    "Alias_SiegeTank"
+  ],
+  "GlossaryCategory": "Unit/Category/MoebiusUnits",
+  "GlossaryPriority": 135,
+  "GlossaryStrongArray": [
+    "Marine",
+    "Hydralisk",
+    "Stalker"
+  ],
+  "GlossaryWeakArray": [
+    "Banshee",
+    "Mutalisk",
+    "Immortal"
+  ],
+  "HotkeyCategory": "Unit/Category/MoebiusUnits",
+  "id": "SiegeTankMSieged",
+  "Icon": "btn-unit-collection-siegetankstatic-covertopsm",
+  "LifeArmorIcon": "btn-upgrade-terran-vehicleplatinglevel3m",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0m",
+  "Weapons": [
+    {
+      "Turret": "SiegeTankSieged",
+      "EditorCategories": "Race:Terran",
+      "Options": {
+        "DisplayCooldown": 1
+      },
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel3m",
+      "DisplayEffect": "CrucioShockCannonDirectedM",
+      "TargetFilters": "Ground",
+      "Range": 17,
+      "MinimumRange": 6,
+      "Period": 3,
+      "Effect": "SiegeTankSiegedVoidM",
+      "id": "CrucioShockCannonM",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "zhCN": "末日炮击",
+        "enUS": "Doomsday Bombardment"
+      },
+      "Amount": 80,
+      "Kind": "Ranged"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "MoebiusShieldM",
+      "Icon": "btn-ability-protoss-stasisfieldm",
+      "Name": {
+        "zhCN": "莫比斯暗影护盾生成器",
+        "enUS": "Moebius Shadow Shield Generator"
+      },
+      "Tooltip": {
+        "zhCN": "该单位拥有额外的护盾与护盾护甲。",
+        "enUS": "This unit has additional shields and shield armor."
+      }
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "SiegeTankUnsiegeM",
+      "Name": {
+        "zhCN": "坦克模式",
+        "enUS": "Tank Mode"
+      }
+    },
+    {
+      "id": "Warpable",
+      "Name": {
+        "enUS": "Warpable",
+        "ruRU": "Warpable"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "SiegeTankSiegeModeM",
+    "SiegeTankMSieged",
+    "SiegeTank_DeathM",
+    "SiegeTankSiegeModeMorphModelM",
+    "SiegeModeSoundM",
+    "SiegeTankSiegedM",
+    "SiegeTankSiegedRangeM",
+    "SiegeTankTankModeMorphModelM"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "SiegeTankM"
+  ],
+  "$Phase": [],
+  "$Phased": "SiegeTankM",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackBuildingPFortM",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+        "ruRU": "Приказать атаковать цель, пока она не будет уничтожена или не выйдет из зоны досягаемости. "
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "SiegeTankUnsiegeM,Execute",
+      "id": "SiegeTankUnsiegeM",
+      "Icon": "btn-unit-collection-siegetank-covertopsm",
+      "Name": {
+        "zhCN": "坦克模式",
+        "enUS": "Tank Mode"
+      },
+      "Tooltip": {
+        "zhCN": "返回坦克模式。在该模式下，<span style=\"color: #ffff8a\">军团超重型攻城坦克</span>可以移动，但火力有所下降。",
+        "enUS": "Return to tank mode. In this mode, the <span style=\"color: #ffff8a\">Legion Super Heavy Siege Tank</span> can move, but has reduced firepower."
+      }
+    }
+  ]
+}

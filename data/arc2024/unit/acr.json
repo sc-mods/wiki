@@ -1,0 +1,2297 @@
+{
+  "Name": "ACR",
+  "Description": "Basic worker unit. Can gather resources, build Genetron structures, and repair.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Gen",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 45,
+  "LifeMax": 45,
+  "LifeArmorName": "Ground Mechanical Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "Worker"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ACR",
+  "HotkeyAlias": "ACR",
+  "SelectAlias": "ACR",
+  "SubgroupAlias": "ACR",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ACR",
+  "AIEvaluateAlias": "ACR",
+  "ReviveType": "ACR",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "ACR/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "ACR/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Mechanical",
+    "Light"
+  ],
+  "LifeArmor": 0,
+  "ScoreResult": "BuildOrder",
+  "GlossaryAlias": "ACR",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Sight": 8,
+  "AttackTargetPriority": 20,
+  "GlossaryCategory": "Unit/Category/GenetronUnits",
+  "HotkeyCategory": "Unit/Category/GenetronUnits",
+  "ScoreMakeCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "ScoreKillCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "id": "ACR",
+  "Speed": 2.8125,
+  "Acceleration": 2.5,
+  "CostCategory": "Economy",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/SCVHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVHarvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "id": "SCVHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVHarvest,Gather",
+        "id": "GatherTerr",
+        "Icon": "btn-ability-terran-gather",
+        "Tooltip": "Orders SCV to gather resources from a selected Mineral Field or Vespene Geyser.",
+        "Name": "Gather",
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/SCVHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVHarvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "id": "SCVHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVHarvest,Return",
+        "id": "ReturnCargo",
+        "Icon": "btn-command-returncargo",
+        "Tooltip": "Returns the carried resources to the nearest drop-off point.",
+        "Name": "Return Cargo",
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/ACRRepair",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ACRRepair",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 0.2,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Visible;Neutral,Enemy",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AutoCast": 1,
+            "AutoCastOffOwnerLeave": 1,
+            "ReExecutable": 1,
+            "Smart": 1,
+            "PassengerAcquirePassengers": 1
+          },
+          "Effect": [
+            "ACRRepair"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "ACRRepairHealer",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 0,
+            "Prep": 0,
+            "Cast": 0,
+            "Channel": 0
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "RequiresRepairTarget",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Repair"
+            }
+          },
+          "FollowRange": 5,
+          "Alignment": "Positive",
+          "AbilSetId": "Repair",
+          "TargetFilters": [
+            "Mechanical,Visible;Self,Enemy,Missile,Stasis,UnderConstruction,Dead"
+          ],
+          "AutoCastRange": 7,
+          "Marker": {
+            "MatchFlags": {
+              "Link": 0
+            },
+            "MismatchFlags": {
+              "Id": 0
+            }
+          },
+          "InheritAttackPriorityArray": {
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "id": "ACRRepair"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRRepair,Execute",
+        "id": "ACRRepair",
+        "Icon": "btn-ability-terran-repair",
+        "Tooltip": "Restores life to mechanical units at the cost of power.",
+        "Name": "Repair",
+        "Hotkey": "R"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "0002",
+        "id": "GenetronBuild",
+        "Icon": "btn-command-terran-buildstructure",
+        "Tooltip": "A list of advanced structures.",
+        "Name": "Build Structure",
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "0003",
+        "id": "GenetronBuildAdvanced",
+        "Icon": "btn-command-terran-buildadvancedstructure",
+        "Tooltip": "A list of advanced structures.",
+        "Name": "Build Advanced Structure",
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/ACRBuild",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:Genetron,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ACRBuild",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Halt"
+          },
+          "Alert": "BuildComplete",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 1,
+            "PeonMaintained": 0,
+            "RangeIncludesBuilding": 1,
+            "PeonDisableCollision": 1,
+            "RequireFacing": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "ProcessingCore"
+              },
+              "Unit": "ProcessingCore",
+              "Time": 100
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Node",
+                "Requirements": "HaveProcessingCore"
+              },
+              "Unit": "Node",
+              "Time": 25
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "FilteringPlant"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "FilteringPlant",
+              "Time": 30
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Manufacturer",
+                "Requirements": "HaveNode"
+              },
+              "Unit": "Manufacturer",
+              "Time": 70
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Uploader",
+                "Requirements": "HaveNode"
+              },
+              "Unit": "Uploader",
+              "Time": 30
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "OutfittingStation",
+                "Requirements": "HaveAnalysisTerminal"
+              },
+              "Unit": "OutfittingStation",
+              "Time": 65
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Repulsor",
+                "Requirements": "HaveAnalysisTerminal"
+              },
+              "Unit": "Repulsor",
+              "Time": 45
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Interdictor",
+                "Requirements": "HaveAnalysisTerminal"
+              },
+              "Unit": "Interdictor",
+              "Time": 30
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "RelayTower",
+                "Requirements": "HaveManufacturer"
+              },
+              "Unit": "RelayTower",
+              "Time": 40
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Fabricator",
+                "Requirements": "HaveManufacturer"
+              },
+              "Unit": "Fabricator",
+              "Time": 70
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "TechVault",
+                "Requirements": "HaveAnalysisTerminal"
+              },
+              "Unit": "TechVault",
+              "Time": 65
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "AssemblyArray",
+                "Requirements": "HaveRelayTower"
+              },
+              "Unit": "AssemblyArray",
+              "Time": 70
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "AnalysisTerminal",
+                "Requirements": "HaveNode"
+              },
+              "Unit": "AnalysisTerminal",
+              "Time": 50
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Generator",
+                "Requirements": "HaveRelayTower"
+              },
+              "Unit": "Generator",
+              "Time": 40
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Olympus",
+                "Requirements": "HaveGenerator"
+              },
+              "Unit": "Olympus",
+              "Time": 75
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "ChemicalFirm",
+                "Requirements": "HaveTechVault"
+              },
+              "Unit": "ChemicalFirm",
+              "Time": 65
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "OrdnanceCache",
+                "Requirements": "HaveTechVault"
+              },
+              "Unit": "OrdnanceCache",
+              "Time": 65
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            }
+          },
+          "ConstructionMover": "Construction",
+          "EffectArray": {
+            "Start": "GenetronConstructionStart",
+            "Finish": "ScionStaticBuilderSuppressMovementClear",
+            "Cancel": "ScionStaticBuilderSuppressMovementClear"
+          },
+          "id": "ACRBuild"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+        "Name": "Halt",
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/SprayTerran",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Terran",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SprayTerran",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "SprayTerran",
+            "SprayTerran"
+          ],
+          "EffectRange": [
+            "0,1000",
+            "0,1000"
+          ],
+          "AINotifyEffect": "SprayTerran",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Spray",
+              "Requirements": "HaveSprayTerran"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Charge": {
+                "CountMax": 5,
+                "CountStart": 1,
+                "CountUse": 1,
+                "Link": "Spray",
+                "Location": "Player",
+                "TimeStart": 300,
+                "TimeUse": 300
+              }
+            }
+          ],
+          "Range": [
+            1
+          ],
+          "id": "SprayTerran"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "SprayTerran,Execute",
+        "id": "Spray",
+        "Icon": "btn-command-spray",
+        "Tooltip": "Orders the unit to apply your currently selected spray to the terrain at the target location.",
+        "Name": "Spray",
+        "Hotkey": "Y"
+      }
+    ],
+    "0002": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ProcessingCore"
+          },
+          "Unit": "ProcessingCore",
+          "Time": 100
+        },
+        "Unit": "ProcessingCore",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 15
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build1",
+        "id": "ProcessingCore",
+        "Icon": "btn-building-genetron-processingcore",
+        "Tooltip": "Primary structure. Used to receive gathered resources. Generates power. Increases power storage by <b>400</b>. Can use Mining Priority and System Recharge<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- ACRs",
+        "Name": "Build Processing Core",
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Node",
+            "Requirements": "HaveProcessingCore"
+          },
+          "Unit": "Node",
+          "Time": 25
+        },
+        "Unit": "Node",
+        "Time": 25,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build2",
+        "id": "Node",
+        "Icon": "btn-building-genetron-node",
+        "Tooltip": "Provides supply and generates power.",
+        "Name": "Build Node",
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "FilteringPlant"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "FilteringPlant",
+          "Time": 30
+        },
+        "Unit": "FilteringPlant",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build3",
+        "id": "FilteringPlant",
+        "Icon": "btn-building-genetron-filteringplant",
+        "Tooltip": "Built over a Vespene Geyser to allow harvesting of vespene gas.",
+        "Name": "Build Filtering Plant",
+        "Hotkey": "F"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Manufacturer",
+            "Requirements": "HaveNode"
+          },
+          "Unit": "Manufacturer",
+          "Time": 70
+        },
+        "Unit": "Manufacturer",
+        "Time": 70,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build4",
+        "id": "Manufacturer",
+        "Icon": "btn-building-genetron-manufacturer",
+        "Tooltip": "Produces light-weight machines.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Spitfires",
+        "Name": "Build Manufacturer",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "AnalysisTerminal",
+            "Requirements": "HaveNode"
+          },
+          "Unit": "AnalysisTerminal",
+          "Time": 50
+        },
+        "Unit": "AnalysisTerminal",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build13",
+        "id": "AnalysisTerminal",
+        "Icon": "btn-building-genetron-analysisterminal",
+        "Tooltip": "Contains weapon upgrades for Genetron light ground units, and armor upgrades for all Genetron ground units, and upgrades for the Spitfire.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Blitzers at the Manufacturer<br/>- Moles at the Fabricator<br/>- Repulsors from ACRs<br/>- Interdictors from ACRs",
+        "Name": "Build Analysis Terminal",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Repulsor",
+            "Requirements": "HaveAnalysisTerminal"
+          },
+          "Unit": "Repulsor",
+          "Time": 45
+        },
+        "Unit": "Repulsor",
+        "Time": 45,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build7",
+        "id": "Repulsor",
+        "Icon": "btn-building-genetron-repulsor",
+        "Tooltip": "Anti-ground defensive structure. Can burrow, disabling its weapon, and rendering itself invisible to enemies.<br/><br/><span style=\"color: #FFFF80\">Can attack ground units.</span>",
+        "Name": "Build Repulsor",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Interdictor",
+            "Requirements": "HaveAnalysisTerminal"
+          },
+          "Unit": "Interdictor",
+          "Time": 30
+        },
+        "Unit": "Interdictor",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build8",
+        "id": "Interdictor",
+        "Icon": "btn-building-genetron-interdictor",
+        "Tooltip": "Anti-air defensive structure. Can burrow, disabling its weapon, and rendering itself invisible to enemies.<br/><br/><span style=\"color: #FFFF80\">Can attack air units.</span><br/><span style=\"color: #FFE303\">Detector</span>",
+        "Name": "Build Interdictor",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "RelayTower",
+            "Requirements": "HaveManufacturer"
+          },
+          "Unit": "RelayTower",
+          "Time": 40
+        },
+        "Unit": "RelayTower",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build9",
+        "id": "RelayTower",
+        "Icon": "btn-building-genetron-relaytower",
+        "Tooltip": "Increases power storage by <b>100</b>. Can use System Recharge.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Processors at the Processing Core",
+        "Name": "Build Relay Tower",
+        "Hotkey": "T"
+      }
+    ],
+    "0003": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Fabricator",
+            "Requirements": "HaveManufacturer"
+          },
+          "Unit": "Fabricator",
+          "Time": 70
+        },
+        "Unit": "Fabricator",
+        "Time": 70,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build10",
+        "id": "Fabricator",
+        "Icon": "btn-building-genetron-fabricator",
+        "Tooltip": "Produces heavy machines.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Torrents<br/>- Moles",
+        "Name": "Build Fabricator",
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "TechVault",
+            "Requirements": "HaveAnalysisTerminal"
+          },
+          "Unit": "TechVault",
+          "Time": 65
+        },
+        "Unit": "TechVault",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build11",
+        "id": "TechVault",
+        "Icon": "btn-building-genetron-techvault",
+        "Tooltip": "Contains weapon upgrades for Genetron heavy ground units, and weapon and armor upgrades for Genetron air units.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Inciters at the Fabricator<br/>- Virtus at the Fabricator",
+        "Name": "Build Tech Vault",
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "AssemblyArray",
+            "Requirements": "HaveRelayTower"
+          },
+          "Unit": "AssemblyArray",
+          "Time": 70
+        },
+        "Unit": "AssemblyArray",
+        "Time": 70,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build12",
+        "id": "AssemblyArray",
+        "Icon": "btn-building-genetron-assemblyarray",
+        "Tooltip": "Aircraft production facility.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Avengers<br/>- Hornets",
+        "Name": "Build Assembly Array",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Generator",
+            "Requirements": "HaveRelayTower"
+          },
+          "Unit": "Generator",
+          "Time": 40
+        },
+        "Unit": "Generator",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build14",
+        "id": "Generator",
+        "Icon": "btn-building-genetron-generator",
+        "Tooltip": "Generates power. Increases power storage by <b>50</b>.",
+        "Name": "Build Generator",
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ChemicalFirm",
+            "Requirements": "HaveTechVault"
+          },
+          "Unit": "ChemicalFirm",
+          "Time": 65
+        },
+        "Unit": "ChemicalFirm",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build16",
+        "id": "ChemicalFirm",
+        "Icon": "btn-building-genetron-chemicalfirm",
+        "Tooltip": "<span style=\"color: #FFFF80\">Enables:</span><br/>- Aquilas at the Manufacturer<br/>- Teslas at the Fabricator",
+        "Name": "Build Chemical Firm",
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "OrdnanceCache",
+            "Requirements": "HaveTechVault"
+          },
+          "Unit": "OrdnanceCache",
+          "Time": 65
+        },
+        "Unit": "OrdnanceCache",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build17",
+        "id": "OrdnanceCache",
+        "Icon": "btn-building-genetron-ordnancecache",
+        "Tooltip": "<span style=\"color: #FFFF80\">Enables:</span><br/>- Jupiters at the Assembly Array<br/>- Badgers at the Assembly Array",
+        "Name": "Build Ordnance Cache",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "OutfittingStation",
+            "Requirements": "HaveAnalysisTerminal"
+          },
+          "Unit": "OutfittingStation",
+          "Time": 65
+        },
+        "Unit": "OutfittingStation",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build6",
+        "id": "OutfittingStation",
+        "Icon": "btn-building-genetron-outfittingstation",
+        "Tooltip": "<span style=\"color: #FFFF80\">Enables:<br/></span>- Fixers at the Manufacturer</n>- Equalizers at the Manufacturer",
+        "Name": "Build Outfitting Station",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Olympus",
+            "Requirements": "HaveGenerator"
+          },
+          "Unit": "Olympus",
+          "Time": 75
+        },
+        "Unit": "Olympus",
+        "Time": 75,
+        "Cost": {
+          "Minerals": 250,
+          "Vespene": 250,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ACRBuild,Build15",
+        "id": "Olympus",
+        "Icon": "btn-building-genetron-olympus",
+        "Tooltip": "Weapon of mass destruction. Uses power to energize a global strike weapon that deals damage in a large area.",
+        "Name": "Build Olympus",
+        "Hotkey": "Y"
+      }
+    ]
+  },
+  "CargoSize": 1,
+  "LateralAcceleration": 46,
+  "Food": -1,
+  "CostResource": {
+    "Minerals": 50
+  },
+  "RepairTime": 16.667,
+  "AIOverideTargetPriority": 10,
+  "InnerRadius": 0.375,
+  "SubgroupPriority": 6,
+  "Icon": "btn-unit-genetron-acr",
+  "LifeArmorIcon": "btn-upgrade-genetron-groundmechplating-level0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "id": "FusionCutter",
+      "Icon": "btn-upgrade-terran-infantryweaponslevel0",
+      "Name": "Fusion Cutter",
+      "Amount": 5,
+      "Kind": "Melee",
+      "TargetFilters": "Ground",
+      "Range": 0.2,
+      "Period": 1.5
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "GenetronPowerSupplyTracker"
+    },
+    {
+      "id": "TrackGenetronPowerSupplyUnit"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "SCVHarvest",
+      "Name": "Gather (SCV)"
+    },
+    {
+      "id": "ACRRepair",
+      "Name": "ACR - Repair"
+    },
+    {
+      "id": "ACRBuild"
+    },
+    {
+      "id": "SprayTerran"
+    }
+  ],
+  "$Upgrades": [
+    "ProcessingCoreTrain",
+    "ACR",
+    "GenetronGroundPlatingLevel1",
+    "ACR",
+    "GenetronGroundPlating",
+    "GenetronGroundPlatingLevel2",
+    "GenetronGroundPlatingLevel3",
+    "ProcessingCore",
+    "Gen",
+    "ProcessingCore",
+    "GenetronGroundPlatingRevert"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "ProcessingCore",
+    "Node",
+    "FilteringPlant",
+    "Manufacturer",
+    "AnalysisTerminal",
+    "Repulsor",
+    "Interdictor",
+    "RelayTower",
+    "Fabricator",
+    "TechVault",
+    "AssemblyArray",
+    "Generator",
+    "ChemicalFirm",
+    "OrdnanceCache",
+    "OutfittingStation",
+    "Olympus"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "ProcessingCore"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "SCVHarvest,Gather",
+      "id": "GatherTerr",
+      "Icon": "btn-ability-terran-gather",
+      "Tooltip": "Orders SCV to gather resources from a selected Mineral Field or Vespene Geyser.",
+      "Name": "Gather"
+    },
+    {
+      "AbilCmd": "SCVHarvest,Return",
+      "id": "ReturnCargo",
+      "Icon": "btn-command-returncargo",
+      "Tooltip": "Returns the carried resources to the nearest drop-off point.",
+      "Name": "Return Cargo"
+    },
+    {
+      "AbilCmd": "ACRRepair,Execute",
+      "id": "ACRRepair",
+      "Icon": "btn-ability-terran-repair",
+      "Tooltip": "Restores life to mechanical units at the cost of power.",
+      "Name": "Repair"
+    },
+    {
+      "AbilCmd": "ACRBuild,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+      "Name": "Halt"
+    },
+    {
+      "AbilCmd": "SprayTerran,Execute",
+      "id": "Spray",
+      "Icon": "btn-command-spray",
+      "Tooltip": "Orders the unit to apply your currently selected spray to the terrain at the target location.",
+      "Name": "Spray"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build1",
+      "id": "ProcessingCore",
+      "Icon": "btn-building-genetron-processingcore",
+      "Tooltip": "Primary structure. Used to receive gathered resources. Generates power. Increases power storage by <b>400</b>. Can use Mining Priority and System Recharge<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- ACRs",
+      "Name": "Build Processing Core"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build2",
+      "id": "Node",
+      "Icon": "btn-building-genetron-node",
+      "Tooltip": "Provides supply and generates power.",
+      "Name": "Build Node"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build3",
+      "id": "FilteringPlant",
+      "Icon": "btn-building-genetron-filteringplant",
+      "Tooltip": "Built over a Vespene Geyser to allow harvesting of vespene gas.",
+      "Name": "Build Filtering Plant"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build4",
+      "id": "Manufacturer",
+      "Icon": "btn-building-genetron-manufacturer",
+      "Tooltip": "Produces light-weight machines.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Spitfires",
+      "Name": "Build Manufacturer"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build13",
+      "id": "AnalysisTerminal",
+      "Icon": "btn-building-genetron-analysisterminal",
+      "Tooltip": "Contains weapon upgrades for Genetron light ground units, and armor upgrades for all Genetron ground units, and upgrades for the Spitfire.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Blitzers at the Manufacturer<br/>- Moles at the Fabricator<br/>- Repulsors from ACRs<br/>- Interdictors from ACRs",
+      "Name": "Build Analysis Terminal"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build7",
+      "id": "Repulsor",
+      "Icon": "btn-building-genetron-repulsor",
+      "Tooltip": "Anti-ground defensive structure. Can burrow, disabling its weapon, and rendering itself invisible to enemies.<br/><br/><span style=\"color: #FFFF80\">Can attack ground units.</span>",
+      "Name": "Build Repulsor"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build8",
+      "id": "Interdictor",
+      "Icon": "btn-building-genetron-interdictor",
+      "Tooltip": "Anti-air defensive structure. Can burrow, disabling its weapon, and rendering itself invisible to enemies.<br/><br/><span style=\"color: #FFFF80\">Can attack air units.</span><br/><span style=\"color: #FFE303\">Detector</span>",
+      "Name": "Build Interdictor"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build9",
+      "id": "RelayTower",
+      "Icon": "btn-building-genetron-relaytower",
+      "Tooltip": "Increases power storage by <b>100</b>. Can use System Recharge.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Processors at the Processing Core",
+      "Name": "Build Relay Tower"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build10",
+      "id": "Fabricator",
+      "Icon": "btn-building-genetron-fabricator",
+      "Tooltip": "Produces heavy machines.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Torrents<br/>- Moles",
+      "Name": "Build Fabricator"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build11",
+      "id": "TechVault",
+      "Icon": "btn-building-genetron-techvault",
+      "Tooltip": "Contains weapon upgrades for Genetron heavy ground units, and weapon and armor upgrades for Genetron air units.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Inciters at the Fabricator<br/>- Virtus at the Fabricator",
+      "Name": "Build Tech Vault"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build12",
+      "id": "AssemblyArray",
+      "Icon": "btn-building-genetron-assemblyarray",
+      "Tooltip": "Aircraft production facility.<br/><br/><span style=\"color: #FFFF80\">Enables:</span><br/>- Avengers<br/>- Hornets",
+      "Name": "Build Assembly Array"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build14",
+      "id": "Generator",
+      "Icon": "btn-building-genetron-generator",
+      "Tooltip": "Generates power. Increases power storage by <b>50</b>.",
+      "Name": "Build Generator"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build16",
+      "id": "ChemicalFirm",
+      "Icon": "btn-building-genetron-chemicalfirm",
+      "Tooltip": "<span style=\"color: #FFFF80\">Enables:</span><br/>- Aquilas at the Manufacturer<br/>- Teslas at the Fabricator",
+      "Name": "Build Chemical Firm"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build17",
+      "id": "OrdnanceCache",
+      "Icon": "btn-building-genetron-ordnancecache",
+      "Tooltip": "<span style=\"color: #FFFF80\">Enables:</span><br/>- Jupiters at the Assembly Array<br/>- Badgers at the Assembly Array",
+      "Name": "Build Ordnance Cache"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build6",
+      "id": "OutfittingStation",
+      "Icon": "btn-building-genetron-outfittingstation",
+      "Tooltip": "<span style=\"color: #FFFF80\">Enables:<br/></span>- Fixers at the Manufacturer</n>- Equalizers at the Manufacturer",
+      "Name": "Build Outfitting Station"
+    },
+    {
+      "AbilCmd": "ACRBuild,Build15",
+      "id": "Olympus",
+      "Icon": "btn-building-genetron-olympus",
+      "Tooltip": "Weapon of mass destruction. Uses power to energize a global strike weapon that deals damage in a large area.",
+      "Name": "Build Olympus"
+    }
+  ]
+}

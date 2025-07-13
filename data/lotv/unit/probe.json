@@ -1,0 +1,2119 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Probe",
+    "ruRU": "Зонд "
+  },
+  "Description": {
+    "enUS": "Basic worker unit. Can gather resources and warp in Protoss structures.<br/><br/><span style=\"color: ffff8a\">Can attack ground units.</span>",
+    "ruRU": "Базовая рабочая единица протоссов. Добывает ресурсы и вызывает строения.<br/><br/><span style=\"color: ffff8a\">Атакует только наземные цели.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Prot",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 20,
+  "LifeMax": 20,
+  "LifeArmorName": {
+    "enUS": "Protoss Armor",
+    "ruRU": "Броня протоссов "
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "Worker",
+    "PreventDestroy",
+    "UseLineOfSight"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "Probe",
+  "HotkeyAlias": "Probe",
+  "SelectAlias": "Probe",
+  "SubgroupAlias": "Probe",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "Probe",
+  "AIEvaluateAlias": "Probe",
+  "ReviveType": "Probe",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "Probe/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "Probe/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "ShieldsStart": 20,
+  "ShieldsMax": 20,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": {
+    "enUS": "Protoss Plasma Shields",
+    "ruRU": "Плазменные щиты протоссов "
+  },
+  "Speed": 2.8125,
+  "Acceleration": 2.5,
+  "LateralAcceleration": 46,
+  "Food": -1,
+  "AttackTargetPriority": 20,
+  "AIOverideTargetPriority": 10,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 10,
+  "InnerRadius": 0.3125,
+  "CargoSize": 1,
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 33,
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Small"
+  ],
+  "Sight": 8,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "ProtossBuild",
+    "ProbeHarvest",
+    "SprayProtoss",
+    "WorkerStopIdleAbilityVespene"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackWorker",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/ProbeHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ProbeHarvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "CancelableArray": {
+            "ApproachResource": 1,
+            "WaitAtResource": 1
+          },
+          "id": "ProbeHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeHarvest,Gather",
+        "id": "GatherProt",
+        "Icon": "btn-ability-protoss-gather",
+        "Name": {
+          "enUS": "Gather",
+          "ruRU": "Добывать "
+        },
+        "Tooltip": {
+          "enUS": "Orders Probe to gather resources from a selected Mineral Field or Vespene Geyser.",
+          "ruRU": "Приказывает зонду добывать ресурсы на месторождении минералов или из веспенового гейзера."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/ProbeHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ProbeHarvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "CancelableArray": {
+            "ApproachResource": 1,
+            "WaitAtResource": 1
+          },
+          "id": "ProbeHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeHarvest,Return",
+        "id": "ReturnCargo",
+        "Icon": "btn-command-returncargo",
+        "Name": {
+          "enUS": "Return Cargo",
+          "ruRU": "Выгрузить ресурсы "
+        },
+        "Tooltip": {
+          "enUS": "Returns the carried resources to the nearest drop-off point.",
+          "ruRU": "Приказать выгрузить ресурсы в ближайший приемный пункт. "
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "AbilCmd": "255,255",
+        "SubmenuCardId": "PBl1",
+        "id": "ProtossBuild",
+        "Icon": "btn-command-protoss-buildstructure",
+        "Name": {
+          "enUS": "Warp In Structure",
+          "ruRU": "Вызвать строение "
+        },
+        "Tooltip": {
+          "enUS": "A list of basic structures.",
+          "ruRU": "Открывает список основных строений."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "AbilCmd": "255,255",
+        "SubmenuCardId": "PBl2",
+        "id": "ProtossBuildAdvanced",
+        "Icon": "btn-command-protoss-buildadvancedstructure",
+        "Name": {
+          "enUS": "Warp In Advanced Structure",
+          "ruRU": "Вызвать дополнительное строение "
+        },
+        "Tooltip": {
+          "enUS": "A list of advanced structures.",
+          "ruRU": "Открывает список дополнительных строений."
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/SprayProtoss",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Protoss",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SprayProtoss",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "SprayProtoss"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "SprayProtoss",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Spray",
+              "Requirements": "HaveSprayProtoss"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Charge": {
+                "CountMax": 5,
+                "CountStart": 1,
+                "CountUse": 1,
+                "Link": "Spray",
+                "Location": "Player",
+                "TimeStart": 300,
+                "TimeUse": 300
+              }
+            }
+          ],
+          "Range": [
+            1
+          ],
+          "id": "SprayProtoss"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "SprayProtoss,Execute",
+        "id": "Spray",
+        "Icon": "btn-command-spray",
+        "Name": {
+          "enUS": "Spray",
+          "ruRU": "Граффити"
+        },
+        "Tooltip": {
+          "enUS": "Orders the unit to apply your currently selected spray to the terrain at the target location.",
+          "ruRU": "Приказать боевой единице отобразить на указанном участке поверхности ваше текущее граффити."
+        },
+        "Hotkey": "Y"
+      }
+    ],
+    "PBl1": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Nexus"
+          },
+          "Unit": "Nexus",
+          "Time": 100
+        },
+        "Unit": "Nexus",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 15
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build1",
+        "id": "Nexus",
+        "Icon": "btn-building-protoss-nexus",
+        "Name": {
+          "enUS": "Warp In Nexus",
+          "ruRU": "Вызвать нексус "
+        },
+        "Tooltip": {
+          "enUS": "Primary structure. Can receive gathered resources. Can use the Chrono Boost ability.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Probes<br/>- Mothership Core",
+          "ruRU": "Основное строение, служащее для хранения добытых ресурсов. Может использовать способности «Темпоральное ускорение» и «Массовая телепортация».<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов зондов<br/>– вызов материнского корабля"
+        },
+        "Hotkey": "N"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Assimilator"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "Assimilator",
+          "Time": 30
+        },
+        "Unit": "Assimilator",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build3",
+        "id": "Assimilator",
+        "Icon": "btn-building-protoss-assimilator",
+        "Name": {
+          "enUS": "Warp In Assimilator",
+          "ruRU": "Вызвать ассимилятор "
+        },
+        "Tooltip": {
+          "enUS": "Warped in over a Vespene Geyser to allow harvesting of vespene gas.",
+          "ruRU": "Позволяет добывать веспен. Строится на веспеновом гейзере. "
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Pylon"
+          },
+          "Unit": "Pylon",
+          "Time": 25
+        },
+        "Unit": "Pylon",
+        "Time": 25,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build2",
+        "id": "Pylon",
+        "Icon": "btn-building-protoss-pylon",
+        "Name": {
+          "enUS": "Warp In Pylon",
+          "ruRU": "Вызвать пилон "
+        },
+        "Tooltip": {
+          "enUS": "Provides supply.<br/>Supply allows you to warp in more units.<br/>Creates power for nearby structures.",
+          "ruRU": "Снабжает энергией соседние строения. <br/>Количество пилонов определяет максимальный размер армии протоссов. "
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Gateway",
+            "Requirements": "HaveNexus"
+          },
+          "Unit": "Gateway",
+          "Time": 65
+        },
+        "Unit": "Gateway",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build4",
+        "id": "Gateway",
+        "Icon": "btn-building-protoss-gateway",
+        "Name": {
+          "enUS": "Warp In Gateway",
+          "ruRU": "Вызвать врата "
+        },
+        "Tooltip": {
+          "enUS": "Warps in Protoss ground units.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Zealots",
+          "ruRU": "Позволяют вызывать наземные войска протоссов.<br/><br/><span style=\"color: ffff8a\">Открывают возможности:</span><br/>– вызов зилотов "
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Forge",
+            "Requirements": "HaveNexus"
+          },
+          "Unit": "Forge",
+          "Time": 45
+        },
+        "Unit": "Forge",
+        "Time": 45,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build5",
+        "id": "Forge",
+        "Icon": "btn-building-protoss-forge",
+        "Name": {
+          "enUS": "Warp In Forge",
+          "ruRU": "Вызвать оружейную "
+        },
+        "Tooltip": {
+          "enUS": "Contains weapon and armor upgrades for Protoss ground units and shield upgrades for all Protoss units and structures.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Photon Cannons from Probes",
+          "ruRU": "Позволяет улучшать броню и оружие наземных войск, а также щиты всех боевых единиц и строений протоссов.<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов фотонных пушек зондами "
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "CyberneticsCore",
+            "Requirements": "HaveGateway"
+          },
+          "Unit": "CyberneticsCore",
+          "Time": 50
+        },
+        "Unit": "CyberneticsCore",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build15",
+        "id": "CyberneticsCore",
+        "Icon": "btn-building-protoss-cyberneticscore",
+        "Name": {
+          "enUS": "Warp In Cybernetics Core",
+          "ruRU": "Вызвать кибернетическое ядро "
+        },
+        "Tooltip": {
+          "ruRU": "Позволяет улучшать броню и оружие воздушных войск протоссов и разрабатывать врата искривления.<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов часовых во вратах<br/>– вызов сталкеров во вратах<br/>– вызов адептов во вратах<br/>– вызов батарей щитов зондами",
+          "enUS": "Contains weapon and armor upgrades for Protoss air units and the Warp Gate upgrade.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Sentries at the Gateway<br/>- Stalkers at the Gateway<br/>- Adepts at the Gateway<br/>- Mothership Core at the Nexus"
+        },
+        "Hotkey": "Y"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "PhotonCannon",
+            "Requirements": "HaveForge"
+          },
+          "Unit": "PhotonCannon",
+          "Time": 40
+        },
+        "Unit": "PhotonCannon",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build8",
+        "id": "PhotonCannon",
+        "Icon": "btn-building-protoss-photoncannon",
+        "Name": {
+          "enUS": "Warp In Photon Cannon",
+          "ruRU": "Вызвать фотонную пушку "
+        },
+        "Tooltip": {
+          "enUS": "Primary defensive structure.<br/><br/><span style=\"color: ffff8a\">Can attack ground and air units.</span><br/><span style=\"color: FFE303\">Detector</span>",
+          "ruRU": "Основное оборонительное строение.<br/><br/><span style=\"color: ffff8a\">Атакует наземные и воздушные цели.</span><br/><br/><span style=\"color: FFE303\">Детектор</span> "
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ShieldBattery",
+            "Requirements": "HaveCyberneticsCore"
+          },
+          "Unit": "ShieldBattery",
+          "Time": 40
+        },
+        "Unit": "ShieldBattery",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build16",
+        "id": "ShieldBattery",
+        "Icon": "btn-building-protoss-shieldbattery",
+        "Name": {
+          "enUS": "Warp In Shield Battery",
+          "ruRU": "Вызвать батарею щитов"
+        },
+        "Tooltip": {
+          "enUS": "Defensive structure. Recharges shields of nearby units.",
+          "ruRU": "Защитное строение. Восстанавливает щиты находящихся поблизости войск."
+        },
+        "Hotkey": "B"
+      }
+    ],
+    "PBl2": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Stargate",
+            "Requirements": "HaveCyberneticsCore"
+          },
+          "Unit": "Stargate",
+          "Time": 60
+        },
+        "Unit": "Stargate",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build10",
+        "id": "Stargate",
+        "Icon": "btn-building-protoss-stargate",
+        "Name": {
+          "enUS": "Warp In Stargate",
+          "ruRU": "Вызвать звездные врата "
+        },
+        "Tooltip": {
+          "enUS": "Warps in Protoss air units.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Phoenixes<br/>- Void Rays<br/>- Oracles",
+          "ruRU": "Позволяют вызывать воздушные боевые единицы протоссов.<br/><br/><span style=\"color: ffff8a\">Открывают возможности:</span><br/>– вызов «Фениксов»<br/>– вызов излучателей Пустоты<br/>– вызов оракулов "
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "TemplarArchive",
+            "Requirements": "HaveTwilightCouncil"
+          },
+          "Unit": "TemplarArchive",
+          "Time": 50
+        },
+        "Unit": "TemplarArchive",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build11",
+        "id": "TemplarArchive",
+        "Icon": "btn-building-protoss-templararchives",
+        "Name": {
+          "enUS": "Warp In Templar Archives",
+          "ruRU": "Вызвать архивы тамплиеров "
+        },
+        "Tooltip": {
+          "enUS": "Contains an upgrade for High Templar.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- High Templar at the Gateway<br/>- Archon Merge from High Templar",
+          "ruRU": "Позволяют улучшать высших тамплиеров.<br/><br/><span style=\"color: ffff8a\">Открывают возможности:</span><br/>– вызов высших тамплиеров во вратах<br/>– перерождение высших тамплиеров в архонтов"
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "RoboticsFacility",
+            "Requirements": "HaveCyberneticsCore"
+          },
+          "Unit": "RoboticsFacility",
+          "Time": 65
+        },
+        "Unit": "RoboticsFacility",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build14",
+        "id": "RoboticsFacility",
+        "Icon": "btn-building-protoss-roboticsfacility",
+        "Name": {
+          "enUS": "Warp In Robotics Facility",
+          "ruRU": "Вызвать завод робототехники "
+        },
+        "Tooltip": {
+          "enUS": "Warps in Protoss robotic units.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Observers<br/>- Warp Prisms<br/>- Immortals",
+          "ruRU": "Позволяет вызывать роботизированные войска протоссов.<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов наблюдателей<br/>– вызов призм искривления<br/>– вызов бессмертных"
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "FleetBeacon",
+            "Requirements": "HaveStargate"
+          },
+          "Unit": "FleetBeacon",
+          "Time": 60
+        },
+        "Unit": "FleetBeacon",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 300,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build6",
+        "id": "FleetBeacon",
+        "Icon": "btn-building-protoss-fleetbeacon",
+        "Name": {
+          "enUS": "Warp In Fleet Beacon",
+          "ruRU": "Вызвать маяк флотилии "
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for Phoenixes and Carriers.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Tempests at the Stargate<br/>- Carriers at the Stargate<br/>- Mothership from the Mothership Core",
+          "ruRU": "Позволяет улучшать «Фениксы» и излучатели Пустоты.<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов «Ураганов» в звездных вратах<br/>– вызов авианосцев в звездных вратах<br/>– создание материнского корабля в нексусе"
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "DarkShrine",
+            "Requirements": "HaveTwilightCouncil"
+          },
+          "Unit": "DarkShrine",
+          "Time": 100
+        },
+        "Unit": "DarkShrine",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build12",
+        "id": "DarkShrine",
+        "Icon": "btn-building-protoss-darkshrine",
+        "Name": {
+          "enUS": "Warp In Dark Shrine",
+          "ruRU": "Вызвать темное святилище "
+        },
+        "Tooltip": {
+          "enUS": "Dark Templar tech structure.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Dark Templar at the Gateway<br/>- Archon Merge from Dark Templar",
+          "ruRU": "Позволяет улучшать темных тамплиеров.<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов темных тамплиеров во вратах<br/>– перерождение темных тамплиеров в темных архонтов"
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "TwilightCouncil",
+            "Requirements": "HaveCyberneticsCore"
+          },
+          "Unit": "TwilightCouncil",
+          "Time": 50
+        },
+        "Unit": "TwilightCouncil",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build7",
+        "id": "TwilightCouncil",
+        "Icon": "btn-building-protoss-twilightcouncil",
+        "Name": {
+          "enUS": "Warp In Twilight Council",
+          "ruRU": "Вызвать Сумеречный совет"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for Zealots, Stalkers, and Adepts.",
+          "ruRU": "Позволяет улучшать зилотов, сталкеров и адептов. "
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "RoboticsBay",
+            "Requirements": "HaveRoboticsFa"
+          },
+          "Unit": "RoboticsBay",
+          "Time": 65
+        },
+        "Unit": "RoboticsBay",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProtossBuild,Build13",
+        "id": "RoboticsBay",
+        "Icon": "btn-building-protoss-roboticssupportbay",
+        "Name": {
+          "enUS": "Warp In Robotics Bay",
+          "ruRU": "Вызвать робототехнический узел "
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for the Observer, Warp Prism, and Colossus.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Colossi at the Robotics Facility<br/>- Disruptors at the Robotics Facility",
+          "ruRU": "Позволяет улучшать наблюдателей, призмы искривления и колоссов.<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов колоссов на заводе робототехники<br/>– вызов дестабилизаторов на заводе робототехники "
+        },
+        "Hotkey": "B"
+      }
+    ]
+  },
+  "Attributes": [
+    "Light",
+    "Mechanical"
+  ],
+  "GlossaryCategory": "Unit/Category/ProtossUnits",
+  "HotkeyCategory": "Unit/Category/ProtossUnits",
+  "GlossaryPriority": 10,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 50
+  },
+  "WeaponArray": [
+    {
+      "Link": "ParticleBeam"
+    }
+  ],
+  "ShieldRegenDelay": 10,
+  "id": "Probe",
+  "Icon": "btn-unit-protoss-probe",
+  "Model": "Probe",
+  "LifeArmorIcon": "btn-upgrade-protoss-groundarmorlevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Protoss",
+      "Icon": "btn-upgrade-protoss-groundweaponslevel0",
+      "TargetFilters": "Ground",
+      "Range": 0.2,
+      "Period": 1.5,
+      "Options": {
+        "Melee": 1
+      },
+      "LegacyOptions": {
+        "NoDeceleration": 1
+      },
+      "AllowedMovement": "Slowing",
+      "id": "ParticleBeam",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Particle Beam",
+        "ruRU": "Нейтронный луч "
+      },
+      "Amount": 5,
+      "Kind": "Melee"
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "ProtossBuild",
+      "Name": {
+        "enUS": "Build (Probe)",
+        "ruRU": "Build (Probe)"
+      }
+    },
+    {
+      "id": "ProbeHarvest",
+      "Name": {
+        "enUS": "Gather (Probe)",
+        "ruRU": "Gather (Probe)"
+      }
+    },
+    {
+      "id": "SprayProtoss",
+      "Name": "-"
+    },
+    {
+      "id": "WorkerStopIdleAbilityVespene",
+      "Name": "-"
+    }
+  ],
+  "$Upgrades": [
+    "NexusTrain",
+    "Probe",
+    "HallucinationCreateProbe",
+    "ProtossGroundArmorsLevel1",
+    "Probe",
+    "ProtossGroundArmors",
+    "ProtossGroundArmorsLevel2",
+    "ProtossGroundArmorsLevel3",
+    "ProtossShieldsLevel1",
+    "ProtossShields",
+    "ProtossShieldsLevel2",
+    "ProtossShieldsLevel3",
+    "Nexus",
+    "Prot",
+    "NotWorkerProbe",
+    "IsProbe"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "Nexus",
+    "Assimilator",
+    "Pylon",
+    "Gateway",
+    "Forge",
+    "CyberneticsCore",
+    "PhotonCannon",
+    "ShieldBattery",
+    "Stargate",
+    "TemplarArchive",
+    "RoboticsFacility",
+    "FleetBeacon",
+    "DarkShrine",
+    "TwilightCouncil",
+    "RoboticsBay"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "Nexus"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackWorker",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "ProbeHarvest,Gather",
+      "id": "GatherProt",
+      "Icon": "btn-ability-protoss-gather",
+      "Name": {
+        "enUS": "Gather",
+        "ruRU": "Добывать "
+      },
+      "Tooltip": {
+        "enUS": "Orders Probe to gather resources from a selected Mineral Field or Vespene Geyser.",
+        "ruRU": "Приказывает зонду добывать ресурсы на месторождении минералов или из веспенового гейзера."
+      }
+    },
+    {
+      "AbilCmd": "ProbeHarvest,Return",
+      "id": "ReturnCargo",
+      "Icon": "btn-command-returncargo",
+      "Name": {
+        "enUS": "Return Cargo",
+        "ruRU": "Выгрузить ресурсы "
+      },
+      "Tooltip": {
+        "enUS": "Returns the carried resources to the nearest drop-off point.",
+        "ruRU": "Приказать выгрузить ресурсы в ближайший приемный пункт. "
+      }
+    },
+    {
+      "AbilCmd": "255,255",
+      "id": "ProtossBuild",
+      "Icon": "btn-command-protoss-buildstructure",
+      "Name": {
+        "enUS": "Warp In Structure",
+        "ruRU": "Вызвать строение "
+      },
+      "Tooltip": {
+        "enUS": "A list of basic structures.",
+        "ruRU": "Открывает список основных строений."
+      }
+    },
+    {
+      "AbilCmd": "255,255",
+      "id": "ProtossBuildAdvanced",
+      "Icon": "btn-command-protoss-buildadvancedstructure",
+      "Name": {
+        "enUS": "Warp In Advanced Structure",
+        "ruRU": "Вызвать дополнительное строение "
+      },
+      "Tooltip": {
+        "enUS": "A list of advanced structures.",
+        "ruRU": "Открывает список дополнительных строений."
+      }
+    },
+    {
+      "AbilCmd": "SprayProtoss,Execute",
+      "id": "Spray",
+      "Icon": "btn-command-spray",
+      "Name": {
+        "enUS": "Spray",
+        "ruRU": "Граффити"
+      },
+      "Tooltip": {
+        "enUS": "Orders the unit to apply your currently selected spray to the terrain at the target location.",
+        "ruRU": "Приказать боевой единице отобразить на указанном участке поверхности ваше текущее граффити."
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build1",
+      "id": "Nexus",
+      "Icon": "btn-building-protoss-nexus",
+      "Name": {
+        "enUS": "Warp In Nexus",
+        "ruRU": "Вызвать нексус "
+      },
+      "Tooltip": {
+        "enUS": "Primary structure. Can receive gathered resources. Can use the Chrono Boost ability.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Probes<br/>- Mothership Core",
+        "ruRU": "Основное строение, служащее для хранения добытых ресурсов. Может использовать способности «Темпоральное ускорение» и «Массовая телепортация».<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов зондов<br/>– вызов материнского корабля"
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build3",
+      "id": "Assimilator",
+      "Icon": "btn-building-protoss-assimilator",
+      "Name": {
+        "enUS": "Warp In Assimilator",
+        "ruRU": "Вызвать ассимилятор "
+      },
+      "Tooltip": {
+        "enUS": "Warped in over a Vespene Geyser to allow harvesting of vespene gas.",
+        "ruRU": "Позволяет добывать веспен. Строится на веспеновом гейзере. "
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build2",
+      "id": "Pylon",
+      "Icon": "btn-building-protoss-pylon",
+      "Name": {
+        "enUS": "Warp In Pylon",
+        "ruRU": "Вызвать пилон "
+      },
+      "Tooltip": {
+        "enUS": "Provides supply.<br/>Supply allows you to warp in more units.<br/>Creates power for nearby structures.",
+        "ruRU": "Снабжает энергией соседние строения. <br/>Количество пилонов определяет максимальный размер армии протоссов. "
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build4",
+      "id": "Gateway",
+      "Icon": "btn-building-protoss-gateway",
+      "Name": {
+        "enUS": "Warp In Gateway",
+        "ruRU": "Вызвать врата "
+      },
+      "Tooltip": {
+        "enUS": "Warps in Protoss ground units.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Zealots",
+        "ruRU": "Позволяют вызывать наземные войска протоссов.<br/><br/><span style=\"color: ffff8a\">Открывают возможности:</span><br/>– вызов зилотов "
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build5",
+      "id": "Forge",
+      "Icon": "btn-building-protoss-forge",
+      "Name": {
+        "enUS": "Warp In Forge",
+        "ruRU": "Вызвать оружейную "
+      },
+      "Tooltip": {
+        "enUS": "Contains weapon and armor upgrades for Protoss ground units and shield upgrades for all Protoss units and structures.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Photon Cannons from Probes",
+        "ruRU": "Позволяет улучшать броню и оружие наземных войск, а также щиты всех боевых единиц и строений протоссов.<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов фотонных пушек зондами "
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build15",
+      "id": "CyberneticsCore",
+      "Icon": "btn-building-protoss-cyberneticscore",
+      "Name": {
+        "enUS": "Warp In Cybernetics Core",
+        "ruRU": "Вызвать кибернетическое ядро "
+      },
+      "Tooltip": {
+        "ruRU": "Позволяет улучшать броню и оружие воздушных войск протоссов и разрабатывать врата искривления.<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов часовых во вратах<br/>– вызов сталкеров во вратах<br/>– вызов адептов во вратах<br/>– вызов батарей щитов зондами",
+        "enUS": "Contains weapon and armor upgrades for Protoss air units and the Warp Gate upgrade.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Sentries at the Gateway<br/>- Stalkers at the Gateway<br/>- Adepts at the Gateway<br/>- Mothership Core at the Nexus"
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build8",
+      "id": "PhotonCannon",
+      "Icon": "btn-building-protoss-photoncannon",
+      "Name": {
+        "enUS": "Warp In Photon Cannon",
+        "ruRU": "Вызвать фотонную пушку "
+      },
+      "Tooltip": {
+        "enUS": "Primary defensive structure.<br/><br/><span style=\"color: ffff8a\">Can attack ground and air units.</span><br/><span style=\"color: FFE303\">Detector</span>",
+        "ruRU": "Основное оборонительное строение.<br/><br/><span style=\"color: ffff8a\">Атакует наземные и воздушные цели.</span><br/><br/><span style=\"color: FFE303\">Детектор</span> "
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build16",
+      "id": "ShieldBattery",
+      "Icon": "btn-building-protoss-shieldbattery",
+      "Name": {
+        "enUS": "Warp In Shield Battery",
+        "ruRU": "Вызвать батарею щитов"
+      },
+      "Tooltip": {
+        "enUS": "Defensive structure. Recharges shields of nearby units.",
+        "ruRU": "Защитное строение. Восстанавливает щиты находящихся поблизости войск."
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build10",
+      "id": "Stargate",
+      "Icon": "btn-building-protoss-stargate",
+      "Name": {
+        "enUS": "Warp In Stargate",
+        "ruRU": "Вызвать звездные врата "
+      },
+      "Tooltip": {
+        "enUS": "Warps in Protoss air units.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Phoenixes<br/>- Void Rays<br/>- Oracles",
+        "ruRU": "Позволяют вызывать воздушные боевые единицы протоссов.<br/><br/><span style=\"color: ffff8a\">Открывают возможности:</span><br/>– вызов «Фениксов»<br/>– вызов излучателей Пустоты<br/>– вызов оракулов "
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build11",
+      "id": "TemplarArchive",
+      "Icon": "btn-building-protoss-templararchives",
+      "Name": {
+        "enUS": "Warp In Templar Archives",
+        "ruRU": "Вызвать архивы тамплиеров "
+      },
+      "Tooltip": {
+        "enUS": "Contains an upgrade for High Templar.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- High Templar at the Gateway<br/>- Archon Merge from High Templar",
+        "ruRU": "Позволяют улучшать высших тамплиеров.<br/><br/><span style=\"color: ffff8a\">Открывают возможности:</span><br/>– вызов высших тамплиеров во вратах<br/>– перерождение высших тамплиеров в архонтов"
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build14",
+      "id": "RoboticsFacility",
+      "Icon": "btn-building-protoss-roboticsfacility",
+      "Name": {
+        "enUS": "Warp In Robotics Facility",
+        "ruRU": "Вызвать завод робототехники "
+      },
+      "Tooltip": {
+        "enUS": "Warps in Protoss robotic units.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Observers<br/>- Warp Prisms<br/>- Immortals",
+        "ruRU": "Позволяет вызывать роботизированные войска протоссов.<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов наблюдателей<br/>– вызов призм искривления<br/>– вызов бессмертных"
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build6",
+      "id": "FleetBeacon",
+      "Icon": "btn-building-protoss-fleetbeacon",
+      "Name": {
+        "enUS": "Warp In Fleet Beacon",
+        "ruRU": "Вызвать маяк флотилии "
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for Phoenixes and Carriers.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Tempests at the Stargate<br/>- Carriers at the Stargate<br/>- Mothership from the Mothership Core",
+        "ruRU": "Позволяет улучшать «Фениксы» и излучатели Пустоты.<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов «Ураганов» в звездных вратах<br/>– вызов авианосцев в звездных вратах<br/>– создание материнского корабля в нексусе"
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build12",
+      "id": "DarkShrine",
+      "Icon": "btn-building-protoss-darkshrine",
+      "Name": {
+        "enUS": "Warp In Dark Shrine",
+        "ruRU": "Вызвать темное святилище "
+      },
+      "Tooltip": {
+        "enUS": "Dark Templar tech structure.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Dark Templar at the Gateway<br/>- Archon Merge from Dark Templar",
+        "ruRU": "Позволяет улучшать темных тамплиеров.<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов темных тамплиеров во вратах<br/>– перерождение темных тамплиеров в темных архонтов"
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build7",
+      "id": "TwilightCouncil",
+      "Icon": "btn-building-protoss-twilightcouncil",
+      "Name": {
+        "enUS": "Warp In Twilight Council",
+        "ruRU": "Вызвать Сумеречный совет"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for Zealots, Stalkers, and Adepts.",
+        "ruRU": "Позволяет улучшать зилотов, сталкеров и адептов. "
+      }
+    },
+    {
+      "AbilCmd": "ProtossBuild,Build13",
+      "id": "RoboticsBay",
+      "Icon": "btn-building-protoss-roboticssupportbay",
+      "Name": {
+        "enUS": "Warp In Robotics Bay",
+        "ruRU": "Вызвать робототехнический узел "
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for the Observer, Warp Prism, and Colossus.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Colossi at the Robotics Facility<br/>- Disruptors at the Robotics Facility",
+        "ruRU": "Позволяет улучшать наблюдателей, призмы искривления и колоссов.<br/><br/><span style=\"color: ffff8a\">Открывает возможности:</span><br/>– вызов колоссов на заводе робототехники<br/>– вызов дестабилизаторов на заводе робототехники "
+      }
+    }
+  ]
+}

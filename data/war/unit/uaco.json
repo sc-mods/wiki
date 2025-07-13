@@ -1,0 +1,2146 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Acolyte"
+  },
+  "Description": {
+    "enUS": "Basic worker. Can summon structures, harvest gold, and Restore. Acolytes may be sacrificed at a Sacrificial Pit to create Shades. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 4,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Vision",
+  "Race": "Undead",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 220,
+  "LifeMax": 220,
+  "LifeArmorName": "-",
+  "Mover": "foot",
+  "StationaryTurningRate": 720,
+  "TurningRate": 599.9414,
+  "Radius": 0.3125,
+  "SeparationRadius": 0.3125,
+  "MinimapRadius": 0.3125,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "Worker"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "uaco",
+  "HotkeyAlias": "uaco",
+  "SelectAlias": "uaco",
+  "SubgroupAlias": "uaco",
+  "OccludeHeight": 0,
+  "TacticalAI": "uaco",
+  "AIEvaluateAlias": "uaco",
+  "ReviveType": "uaco",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "uaco/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "uaco/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Classic",
+  "LifeArmorFormula": {
+    "NegativeArmorMultiplier": 0,
+    "NegativeDamageBase": 0.94,
+    "PositiveArmorMultiplier": 0,
+    "PositiveDamageRatio": 0.06
+  },
+  "LifeArmorTip": "ARMORTIP_MEDIUM",
+  "SpeedDisplayFlags": {
+    "CollapseBuffed": 1
+  },
+  "Acceleration": 1000,
+  "BehaviorArray": [
+    "uaco",
+    "War3_Unit",
+    "War3_ArmyBlastRemove",
+    "CreepUnitTriggerNotice",
+    "UPKEEP_LOW",
+    "UPKEEP_HIGH",
+    "undead"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "uaco1"
+    },
+    {
+      "Link": "uaco2"
+    }
+  ],
+  "InnerRadius": 0.3125,
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "id": "uaco",
+  "Collide": [
+    "Ground",
+    "ForceField"
+  ],
+  "AbilArray": [
+    "Amov",
+    "stop",
+    "HigherCliffMiss",
+    "Aatk",
+    "AUbu",
+    "Aaha",
+    "Arst",
+    "Alam",
+    "Auns"
+  ],
+  "CostCategory": "Economy",
+  "ResourceDamageLeechFilters": "-;Player,Ally,Air,Ground,Hover,HarvestableResource,Destructible,Item,Buried,Dead,Invulnerable",
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Amov/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amov",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdMove"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdPatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdHoldPos"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 2,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "FollowFilters": "-;Hover,HarvestableResource,Item",
+          "MoveFilters": "-;Hover,HarvestableResource,Item",
+          "Flags": {
+            "UpdateTarget": 1
+          },
+          "PowerupSmartPriority": 7,
+          "id": "Amov"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Move",
+        "id": "CmdMove",
+        "Icon": "renee_war3_btnmove",
+        "Name": {
+          "enUS": "Move"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Ashm",
+              "Requirements": "Hide"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop",
+          "Flags": {
+            "HoldFire": 1
+          }
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "CmdStop",
+        "Icon": "renee_war3_btnstop",
+        "Name": {
+          "enUS": "Stop"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Amov/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amov",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdMove"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdPatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdHoldPos"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 2,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "FollowFilters": "-;Hover,HarvestableResource,Item",
+          "MoveFilters": "-;Hover,HarvestableResource,Item",
+          "Flags": {
+            "UpdateTarget": 1
+          },
+          "PowerupSmartPriority": 7,
+          "id": "Amov"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,HoldPos",
+        "id": "CmdHoldPos",
+        "Icon": "renee_war3_btnholdposition",
+        "Name": {
+          "enUS": "Hold Position"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Amov/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amov",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdMove"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdPatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdHoldPos"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 2,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "FollowFilters": "-;Hover,HarvestableResource,Item",
+          "MoveFilters": "-;Hover,HarvestableResource,Item",
+          "Flags": {
+            "UpdateTarget": 1
+          },
+          "PowerupSmartPriority": 7,
+          "id": "Amov"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Patrol",
+        "id": "CmdPatrol",
+        "Icon": "renee_war3_btnpatrol",
+        "Name": {
+          "enUS": "Patrol"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Aatk/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aatk",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "Visible;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally,Hover,HarvestableResource",
+          "SupportedFilters": "-;Self,HarvestableResource,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdAttack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 0
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 5,
+          "MinAttackSpeedMultiplier": 0.2,
+          "AcquirePriority": 2,
+          "id": "Aatk"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aatk,Execute",
+        "id": "CmdAttack",
+        "Icon": "renee_war3_btnattack",
+        "Name": {
+          "enUS": "Attack"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "Lear",
+        "id": "CmdBuildUndead",
+        "Icon": "renee_war3_btnscourgebuild",
+        "Name": {
+          "enUS": "Summon Building"
+        },
+        "Tooltip": {
+          "enUS": "Brings up a list of the available buildings that you may choose to summon."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Aaha/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Undead,AbilityorEffectType:Unit",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aaha",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "Smart": 1
+          },
+          "Effect": [
+            "AahaHarvesting"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Aaha",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Aaha",
+              "Requirements": "Aaha"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "-;Ally,Neutral,Enemy,UnderConstruction,Dead"
+          ],
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit"
+              }
+            }
+          ],
+          "LevelButtonTooltip": [
+            "Aaha/Ubertip2",
+            "Aaha/Ubertip3",
+            "Aaha/Ubertip4"
+          ],
+          "AutoCastValidatorArray": [
+            "NotHallucination"
+          ],
+          "PreEffectBehavior": {
+            "Behavior": "SuppressInvisibility",
+            "Count": 1
+          },
+          "id": "Aaha",
+          "Range": [
+            0
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aaha,0",
+        "id": "Aaha",
+        "Icon": "renee_war3_btngathergold",
+        "Name": {
+          "enUS": "Gather"
+        },
+        "Tooltip": {
+          "enUS": "Mines gold from Haunted Gold Mines."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Auns/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Undead,AbilityorEffectType:Unit",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Auns",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "EnableUnsummon"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Auns",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Auns",
+              "Requirements": "Auns"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "-;Ally,Neutral,Enemy,Air,Ground,Hover,HarvestableResource,Destructible,Item,Buried,UnderConstruction,Dead,Invulnerable"
+          ],
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit"
+              }
+            }
+          ],
+          "LevelButtonTooltip": [
+            "Auns/Ubertip2",
+            "Auns/Ubertip3",
+            "Auns/Ubertip4"
+          ],
+          "AutoCastValidatorArray": [
+            "NotHallucination"
+          ],
+          "PreEffectBehavior": {
+            "Behavior": "SuppressInvisibility",
+            "Count": 1
+          },
+          "id": "Auns",
+          "PrepTime": [
+            0.3
+          ],
+          "CastOutroTime": [
+            0.51
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Auns,0",
+        "id": "Auns",
+        "Icon": "renee_war3_btnunsummonbuilding",
+        "Name": {
+          "enUS": "Unsummon Building"
+        },
+        "Tooltip": {
+          "enUS": "Unsummons your building to regain 50% of the spent resources."
+        },
+        "Hotkey": "U"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Arst/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Undead,AbilityorEffectType:Unit",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Arst",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Visible;Neutral,Enemy",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AutoCast": 1,
+            "AutoCastOffOwnerLeave": 1,
+            "ReExecutable": 1,
+            "Smart": 1,
+            "PassengerAcquirePassengers": 1
+          },
+          "Effect": [
+            "Arep"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Repair",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 0,
+            "Prep": 0,
+            "Cast": 0,
+            "Channel": 0
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "RequiresRepairTarget",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Arst",
+              "Requirements": "Arst"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "Mechanical;Self,Enemy,Psionic,Hover,HarvestableResource,Missile,Destructible,Item,Buried,UnderConstruction,Dead"
+          ],
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit",
+                "Link": "restoration"
+              }
+            }
+          ],
+          "LevelButtonTooltip": [
+            "Arst/Ubertip2",
+            "Arst/Ubertip3",
+            "Arst/Ubertip4"
+          ],
+          "AutoCastValidatorArray": [
+            "NotHallucination"
+          ],
+          "PreEffectBehavior": {
+            "Behavior": "SuppressInvisibility",
+            "Count": 1
+          },
+          "id": "Arst",
+          "AbilSetId": "restoration",
+          "AutoCastRange": 7,
+          "Marker": {
+            "MatchFlags": {
+              "Link": 0
+            },
+            "MismatchFlags": {
+              "Id": 0
+            },
+            "Link": "Abil/renew"
+          },
+          "InheritAttackPriorityArray": {
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "Range": [
+            0.3906
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Arst,0",
+        "id": "Arst",
+        "Icon": "renee_war3_btnrepairon",
+        "Name": {
+          "enUS": "Restore"
+        },
+        "Tooltip": {
+          "enUS": "Repairs mechanical units and structures at the cost of resources."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Alam/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Undead,AbilityorEffectType:Unit",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Alam",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "Smart": 1
+          },
+          "Effect": [
+            "Alam"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Alam",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Alam",
+              "Requirements": "Alam"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "-;Ally,Neutral,Enemy,Air,Ground,Hover,HarvestableResource,Destructible,Item,Buried,Dead,Invulnerable"
+          ],
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit"
+              }
+            }
+          ],
+          "LevelButtonTooltip": [
+            "Alam/Ubertip2",
+            "Alam/Ubertip3",
+            "Alam/Ubertip4"
+          ],
+          "AutoCastValidatorArray": [
+            "NotHallucination"
+          ],
+          "PreEffectBehavior": {
+            "Behavior": "SuppressInvisibility",
+            "Count": 1
+          },
+          "id": "Alam",
+          "Range": [
+            0.586
+          ],
+          "PrepTime": [
+            0.3
+          ],
+          "CastOutroTime": [
+            0.51
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Alam,0",
+        "id": "Alam",
+        "Icon": "renee_war3_btnsacrifice",
+        "Name": {
+          "enUS": "Sacrifice"
+        },
+        "Tooltip": {
+          "enUS": "Target a Sacrificial Pit to sacrifice the Acolyte and turn it into a Shade. Shades are invisible spirits that can see invisible units. <br/>Shades cannot attack."
+        },
+        "Hotkey": "C"
+      }
+    ],
+    "Lear": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "unpl",
+            "Requirements": "unpl"
+          },
+          "Unit": "unpl",
+          "Time": 100
+        },
+        "Unit": "unpl",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 255,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 10
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "AUbu,Build1",
+        "id": "unpl",
+        "Icon": "renee_war3_btnnecropolis",
+        "Name": {
+          "enUS": "Summon Necropolis"
+        },
+        "Tooltip": {
+          "enUS": "Primary structure, used to train Acolytes and receive lumber gathered by Ghouls. Can be upgraded to Halls of the Dead and then Black Citadel to enable the production of additional types of structures and units."
+        },
+        "Hotkey": "N"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "utod",
+            "Requirements": "utod"
+          },
+          "Unit": "utod",
+          "Time": 60
+        },
+        "Unit": "utod",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 155,
+          "Vespene": 140,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "AUbu,Build6",
+        "id": "utod",
+        "Icon": "renee_war3_btntempleofthedamned",
+        "Name": {
+          "enUS": "Summon Temple of the Damned"
+        },
+        "Tooltip": {
+          "enUS": "Spellcaster production building. Trains Necromancers and Banshees. <br/>Also contains upgrades for Necromancers, Banshees, Skeletal Longevity, and Skeletal Mastery."
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "usep",
+            "Requirements": "usep"
+          },
+          "Unit": "usep",
+          "Time": 60
+        },
+        "Unit": "usep",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "AUbu,Build3",
+        "id": "usep",
+        "Icon": "renee_war3_btncrypt",
+        "Name": {
+          "enUS": "Summon Crypt"
+        },
+        "Tooltip": {
+          "enUS": "Primary troop production building. Trains Ghouls, Crypt Fiends, and Gargoyles. Also contains the upgrades Ghoul Frenzy, Cannibalize, Stone Form, Web and Burrow."
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "uzig",
+            "Requirements": "uzig"
+          },
+          "Unit": "uzig",
+          "Time": 50
+        },
+        "Unit": "uzig",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 10
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "AUbu,Build2",
+        "id": "uzig",
+        "Icon": "renee_war3_btnziggurat",
+        "Name": {
+          "enUS": "Summon Ziggurat"
+        },
+        "Tooltip": {
+          "enUS": "Provides food, which increases the maximum number of units that can be trained. Can be upgraded to a defensive structure that attacks land and air units."
+        },
+        "Hotkey": "Z"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "uslh",
+            "Requirements": "uslh"
+          },
+          "Unit": "uslh",
+          "Time": 60
+        },
+        "Unit": "uslh",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 140,
+          "Vespene": 135,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "AUbu,Build7",
+        "id": "uslh",
+        "Icon": "renee_war3_btnslaughterhouse",
+        "Name": {
+          "enUS": "Summon Slaughterhouse"
+        },
+        "Tooltip": {
+          "enUS": "Produces Abominations, Obsidian Statues, and Meat Wagons. Also contains the Disease Cloud, and Destroyer Form upgrades."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ubon",
+            "Requirements": "ubon"
+          },
+          "Unit": "ubon",
+          "Time": 70
+        },
+        "Unit": "ubon",
+        "Time": 70,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "AUbu,Build8",
+        "id": "ubon",
+        "Icon": "renee_war3_btnboneyard",
+        "Name": {
+          "enUS": "Summon Boneyard"
+        },
+        "Tooltip": {
+          "enUS": "Produces Frost Wyrms. Also contains the Freezing Breath upgrade."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ugol",
+            "Requirements": "ugol"
+          },
+          "Unit": "ugol",
+          "Time": 100
+        },
+        "Unit": "ugol",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 255,
+          "Vespene": 220,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "AUbu,Build10",
+        "id": "ugol",
+        "Icon": "renee_war3_btngoldmine",
+        "Name": {
+          "enUS": "Haunt Gold Mine"
+        },
+        "Tooltip": {
+          "enUS": "Haunts a gold mine so that Acolytes can mine. Use on gold mines to corrupt them."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "uaod",
+            "Requirements": "uaod"
+          },
+          "Unit": "uaod",
+          "Time": 60
+        },
+        "Unit": "uaod",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 180,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "AUbu,Build5",
+        "id": "uaod",
+        "Icon": "renee_war3_btnaltarofdarkness",
+        "Name": {
+          "enUS": "Summon Altar of Darkness"
+        },
+        "Tooltip": {
+          "enUS": "Summons Heroes. Revives slain Heroes."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ugrv",
+            "Requirements": "ugrv"
+          },
+          "Unit": "ugrv",
+          "Time": 80
+        },
+        "Unit": "ugrv",
+        "Time": 80,
+        "Cost": {
+          "Minerals": 215,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "AUbu,Build4",
+        "id": "ugrv",
+        "Icon": "renee_war3_btngraveyard",
+        "Name": {
+          "enUS": "Summon Graveyard"
+        },
+        "Tooltip": {
+          "enUS": "Provides attack and armor upgrades for Undead units. Also produces corpses and serves as a drop-off point for harvested lumber."
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "usap",
+            "Requirements": "usap"
+          },
+          "Unit": "usap",
+          "Time": 45
+        },
+        "Unit": "usap",
+        "Time": 45,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "AUbu,Build9",
+        "id": "usap",
+        "Icon": "renee_war3_btnsacrificialpit",
+        "Name": {
+          "enUS": "Summon Sacrificial Pit"
+        },
+        "Tooltip": {
+          "enUS": "Has the Sacrifice ability for turning Acolytes into Shades. Shades are invisible spirits that can see invisible units, but cannot attack."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "utom",
+            "Requirements": "utom"
+          },
+          "Unit": "utom",
+          "Time": 60
+        },
+        "Unit": "utom",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 130,
+          "Vespene": 30,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "AUbu,Build11",
+        "id": "utom",
+        "Icon": "renee_war3_btntombofrelics",
+        "Name": {
+          "enUS": "Summon Tomb of Relics"
+        },
+        "Tooltip": {
+          "enUS": "Creates a shop with purchasable items. The items available depend upon what level of upgrade your Necropolis has (Necropolis, Halls of the Dead, or Black Citadel) and which buildings you have."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      }
+    ]
+  },
+  "Attributes": [
+    "Armored"
+  ],
+  "KillXP": 25,
+  "Subtitle": "UndeadClass",
+  "CostResource": {
+    "Minerals": 75
+  },
+  "Food": -1,
+  "KillResource": {
+    "Minerals": 23
+  },
+  "Speed": 1.7187,
+  "RepairTime": 15,
+  "SightBonus": [
+    6.25,
+    4.6875
+  ],
+  "LifeRegenRateCreep": 2,
+  "SubgroupPriority": 1,
+  "DeathTime": 90,
+  "CargoSize": 1,
+  "PlaneArray": [
+    "Ground"
+  ],
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "HotkeyCategory": "UI/UNDEAD",
+  "defType": "MEDIUM",
+  "Icon": "renee_war3_btnacolyte",
+  "LifeArmorIcon": "infocard-armor-medium.tga",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Undead",
+      "MinScanRange": 3.9062,
+      "TargetFilters": "",
+      "Range": 0.7031,
+      "RangeSlop": 1.9531,
+      "Period": 2.5,
+      "DamagePoint": 0.4,
+      "id": "uaco1",
+      "parent": "normal",
+      "atkType": "NORMAL",
+      "class": "CWeaponLegacy",
+      "Icon": "infocard-attack-normal.tga",
+      "Name": {
+        "enUS": "Type: <span style=\"color: ffcc00\">Normal</span>"
+      },
+      "Amount": 9,
+      "Kind": "Melee"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "War3_Unit",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "War3_Unit"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "War3_ArmyBlastRemove",
+      "Icon": "renee_war3_btntemp",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "id": "CreepUnitTriggerNotice",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "CreepUnitTriggerNotice"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "UPKEEP_LOW",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "<span style=\"color: ffff00\">Low Upkeep</span>"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "UPKEEP_HIGH",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "<span style=\"color: ff0000\">High Upkeep</span>"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "undead",
+      "Icon": "btn-missing-kaeo",
+      "Name": "-",
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "Amov",
+      "Name": {
+        "enUS": "Move"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "HigherCliffMiss",
+      "Name": {
+        "enUS": "Higher Cliff Miss"
+      }
+    },
+    {
+      "id": "Aatk",
+      "Name": {
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "AUbu",
+      "Name": {
+        "enUS": "Build (Undead)"
+      }
+    },
+    {
+      "id": "Aaha",
+      "Name": {
+        "enUS": "Gather"
+      }
+    },
+    {
+      "id": "Arst",
+      "Name": {
+        "enUS": "Restore"
+      }
+    },
+    {
+      "id": "Alam",
+      "Name": {
+        "enUS": "Sacrifice"
+      }
+    },
+    {
+      "id": "Auns",
+      "Name": {
+        "enUS": "Unsummon Building"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "unplTrain",
+    "uaco",
+    "IsShade",
+    "unp1Train",
+    "unp2Train",
+    "Undead",
+    "Rguv",
+    "uaco",
+    "uacoCount"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "unpl",
+    "utod",
+    "usep",
+    "uzig",
+    "uslh",
+    "ubon",
+    "ugol",
+    "uaod",
+    "ugrv",
+    "usap",
+    "utom"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "unp1",
+    "unp2",
+    "unpl"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "Amov,Move",
+      "id": "CmdMove",
+      "Icon": "renee_war3_btnmove",
+      "Name": {
+        "enUS": "Move"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "CmdStop",
+      "Icon": "renee_war3_btnstop",
+      "Name": {
+        "enUS": "Stop"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies."
+      }
+    },
+    {
+      "AbilCmd": "Amov,HoldPos",
+      "id": "CmdHoldPos",
+      "Icon": "renee_war3_btnholdposition",
+      "Name": {
+        "enUS": "Hold Position"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers."
+      }
+    },
+    {
+      "AbilCmd": "Amov,Patrol",
+      "id": "CmdPatrol",
+      "Icon": "renee_war3_btnpatrol",
+      "Name": {
+        "enUS": "Patrol"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior."
+      }
+    },
+    {
+      "AbilCmd": "Aatk,Execute",
+      "id": "CmdAttack",
+      "Icon": "renee_war3_btnattack",
+      "Name": {
+        "enUS": "Attack"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed."
+      }
+    },
+    {
+      "AbilCmd": "Aaha,0",
+      "id": "Aaha",
+      "Icon": "renee_war3_btngathergold",
+      "Name": {
+        "enUS": "Gather"
+      },
+      "Tooltip": {
+        "enUS": "Mines gold from Haunted Gold Mines."
+      }
+    },
+    {
+      "AbilCmd": "Auns,0",
+      "id": "Auns",
+      "Icon": "renee_war3_btnunsummonbuilding",
+      "Name": {
+        "enUS": "Unsummon Building"
+      },
+      "Tooltip": {
+        "enUS": "Unsummons your building to regain 50% of the spent resources."
+      }
+    },
+    {
+      "AbilCmd": "Arst,0",
+      "id": "Arst",
+      "Icon": "renee_war3_btnrepairon",
+      "Name": {
+        "enUS": "Restore"
+      },
+      "Tooltip": {
+        "enUS": "Repairs mechanical units and structures at the cost of resources."
+      }
+    },
+    {
+      "AbilCmd": "Alam,0",
+      "id": "Alam",
+      "Icon": "renee_war3_btnsacrifice",
+      "Name": {
+        "enUS": "Sacrifice"
+      },
+      "Tooltip": {
+        "enUS": "Target a Sacrificial Pit to sacrifice the Acolyte and turn it into a Shade. Shades are invisible spirits that can see invisible units. <br/>Shades cannot attack."
+      }
+    },
+    {
+      "AbilCmd": "AUbu,Build1",
+      "id": "unpl",
+      "Icon": "renee_war3_btnnecropolis",
+      "Name": {
+        "enUS": "Summon Necropolis"
+      },
+      "Tooltip": {
+        "enUS": "Primary structure, used to train Acolytes and receive lumber gathered by Ghouls. Can be upgraded to Halls of the Dead and then Black Citadel to enable the production of additional types of structures and units."
+      }
+    },
+    {
+      "AbilCmd": "AUbu,Build6",
+      "id": "utod",
+      "Icon": "renee_war3_btntempleofthedamned",
+      "Name": {
+        "enUS": "Summon Temple of the Damned"
+      },
+      "Tooltip": {
+        "enUS": "Spellcaster production building. Trains Necromancers and Banshees. <br/>Also contains upgrades for Necromancers, Banshees, Skeletal Longevity, and Skeletal Mastery."
+      }
+    },
+    {
+      "AbilCmd": "AUbu,Build3",
+      "id": "usep",
+      "Icon": "renee_war3_btncrypt",
+      "Name": {
+        "enUS": "Summon Crypt"
+      },
+      "Tooltip": {
+        "enUS": "Primary troop production building. Trains Ghouls, Crypt Fiends, and Gargoyles. Also contains the upgrades Ghoul Frenzy, Cannibalize, Stone Form, Web and Burrow."
+      }
+    },
+    {
+      "AbilCmd": "AUbu,Build2",
+      "id": "uzig",
+      "Icon": "renee_war3_btnziggurat",
+      "Name": {
+        "enUS": "Summon Ziggurat"
+      },
+      "Tooltip": {
+        "enUS": "Provides food, which increases the maximum number of units that can be trained. Can be upgraded to a defensive structure that attacks land and air units."
+      }
+    },
+    {
+      "AbilCmd": "AUbu,Build7",
+      "id": "uslh",
+      "Icon": "renee_war3_btnslaughterhouse",
+      "Name": {
+        "enUS": "Summon Slaughterhouse"
+      },
+      "Tooltip": {
+        "enUS": "Produces Abominations, Obsidian Statues, and Meat Wagons. Also contains the Disease Cloud, and Destroyer Form upgrades."
+      }
+    },
+    {
+      "AbilCmd": "AUbu,Build8",
+      "id": "ubon",
+      "Icon": "renee_war3_btnboneyard",
+      "Name": {
+        "enUS": "Summon Boneyard"
+      },
+      "Tooltip": {
+        "enUS": "Produces Frost Wyrms. Also contains the Freezing Breath upgrade."
+      }
+    },
+    {
+      "AbilCmd": "AUbu,Build10",
+      "id": "ugol",
+      "Icon": "renee_war3_btngoldmine",
+      "Name": {
+        "enUS": "Haunt Gold Mine"
+      },
+      "Tooltip": {
+        "enUS": "Haunts a gold mine so that Acolytes can mine. Use on gold mines to corrupt them."
+      }
+    },
+    {
+      "AbilCmd": "AUbu,Build5",
+      "id": "uaod",
+      "Icon": "renee_war3_btnaltarofdarkness",
+      "Name": {
+        "enUS": "Summon Altar of Darkness"
+      },
+      "Tooltip": {
+        "enUS": "Summons Heroes. Revives slain Heroes."
+      }
+    },
+    {
+      "AbilCmd": "AUbu,Build4",
+      "id": "ugrv",
+      "Icon": "renee_war3_btngraveyard",
+      "Name": {
+        "enUS": "Summon Graveyard"
+      },
+      "Tooltip": {
+        "enUS": "Provides attack and armor upgrades for Undead units. Also produces corpses and serves as a drop-off point for harvested lumber."
+      }
+    },
+    {
+      "AbilCmd": "AUbu,Build9",
+      "id": "usap",
+      "Icon": "renee_war3_btnsacrificialpit",
+      "Name": {
+        "enUS": "Summon Sacrificial Pit"
+      },
+      "Tooltip": {
+        "enUS": "Has the Sacrifice ability for turning Acolytes into Shades. Shades are invisible spirits that can see invisible units, but cannot attack."
+      }
+    },
+    {
+      "AbilCmd": "AUbu,Build11",
+      "id": "utom",
+      "Icon": "renee_war3_btntombofrelics",
+      "Name": {
+        "enUS": "Summon Tomb of Relics"
+      },
+      "Tooltip": {
+        "enUS": "Creates a shop with purchasable items. The items available depend upon what level of upgrade your Necropolis has (Necropolis, Halls of the Dead, or Black Citadel) and which buildings you have."
+      }
+    }
+  ]
+}

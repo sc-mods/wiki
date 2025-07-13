@@ -1,0 +1,2958 @@
+{
+  "Name": "Infiltrator Squad",
+  "Description": "Squad composed of Infiltrator agents. Infiltrator Squad can use abilities to perform covert operations. Can use Scorched-Earth Command. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span><br/><span style=\"color: #FFE303\">Can replace workers to collect special item. </span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Gestalt",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 90,
+  "LifeMax": 90,
+  "LifeArmorName": "Terran Infantry Armor",
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Coop",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "GestaltZInfiltrationSquadLeader",
+  "HotkeyAlias": "GestaltZInfiltrationSquadLeader",
+  "SelectAlias": "GestaltZInfiltrationSquadMember",
+  "SubgroupAlias": "GestaltZInfiltrationSquadMember",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "GestaltZInfiltrationSquadLeader",
+  "AIEvaluateAlias": "GestaltZInfiltrationSquadLeader",
+  "ReviveType": "GestaltZInfiltrationSquadLeader",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33,
+      "Turn": 33
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "GestaltZInfiltrationSquadLeader/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "GestaltZInfiltrationSquadLeader/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Campaign",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Light",
+    "Biological",
+    "Heroic"
+  ],
+  "LifeArmor": 2,
+  "Speed": 3,
+  "Acceleration": 1000,
+  "LateralAcceleration": 46.0625,
+  "Sight": 10,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 300
+  },
+  "RepairTime": 20,
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadGadgetDeploySpiderMines",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadGadgetDeploySpiderMines",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "TransientPreferred": 1
+          },
+          "Effect": [
+            "GestaltZInfiltrationSquadDeploySpiderMinesCreatePersitent"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZInfiltrationSquadGadgetDeploySpiderMines",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadGadgetDeploySpiderMines",
+              "Requirements": "GestaltZSquadeVeterancy1Get222"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 30
+              }
+            }
+          ],
+          "Range": [
+            5.5
+          ],
+          "UninterruptibleArray": {
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ProducedUnitArray": [
+            "SpiderMine"
+          ],
+          "id": "GestaltZInfiltrationSquadGadgetDeploySpiderMines"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadGadgetDeploySpiderMines,Execute",
+        "id": "GestaltZInfiltrationSquadGadgetDeploySpiderMines",
+        "Icon": "btn-custom-terran-spidermines",
+        "Tooltip": "Deploy 9 Spider Mines to target location. Mines can sense and attack nearby enemies and deal massive amount of aoe dmg.",
+        "Name": "Deploy Spider Mine",
+        "Hotkey": "Z"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadSkillSmoke",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Gestalt",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadSkillSmoke",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "GestaltZInfiltrationSquadSmokeLaunchMissile"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZInfiltrationSquadSkillSmoke",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadSkillSmoke"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 20
+              }
+            }
+          ],
+          "Range": [
+            7
+          ],
+          "Arc": 9.9975,
+          "UninterruptibleArray": {
+            "Prep": 1,
+            "Cast": 1
+          },
+          "CursorEffect": [
+            "GestaltZInfiltrationSquadSmokeSearchArea"
+          ],
+          "id": "GestaltZInfiltrationSquadSkillSmoke"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadSkillSmoke,Execute",
+        "id": "GestaltZInfiltrationSquadSkillSmoke",
+        "Icon": "btn-upgrade-nova-pulsegrenade",
+        "Tooltip": "Squad Leader will throw a Smoke Grenade. Create a smoke at target area. Enemies within will have way less attack range and 50% less movement speed. Last 5 sec.",
+        "Name": "Smoke Grenade",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadSkillCloak",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Gestalt",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadSkillCloak",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "Transient": 1,
+            "TransientPreferred": 1
+          },
+          "Effect": [
+            "GestaltZInfiltrationSquadCloakSet"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZInfiltrationSquadSkillCloak",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadSkillCloak"
+            }
+          },
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 20
+              }
+            }
+          ],
+          "AbilSetId": "SquadCloak",
+          "id": "GestaltZInfiltrationSquadSkillCloak"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadSkillCloak,Execute",
+        "id": "GestaltZInfiltrationSquadSkillCloak",
+        "Icon": "btn-custom-terran-killcloakedunits",
+        "Tooltip": "Cloak the squad for 15 sec. <br/>When cloaked, their movement speed will increase by 20%.",
+        "Name": "Cloaking Gadget",
+        "Hotkey": "W"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "GestaltRanking",
+        "Icon": "btn-upgrade-shadowswordspectre-permanentcloak",
+        "Tooltip": "Gestalt Zero's tactic squad can gain experience in combat to achieve higher ranking, gaining additional abilities and have slightly improved stats. Squad will gain experience equal to twice of the supply cost for every enemy unit killed nearby. If a tactic squad dealt the killing blow, it will gain additional 100% experience.",
+        "Name": "Gestalt Ranking"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltZInfiltrationSquadGadgetStimpack",
+        "Icon": "btn-upgrade-terran-nova-repairbeamcloak",
+        "Tooltip": "Receive a dose of stim after attacked by enemies. It will increase their movement speed and heal them. Last for 5 sec.",
+        "Name": "Stim Gauntlet",
+        "Hotkey": ""
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadGadgetHack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadGadgetHack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 10,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Self,Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable,MapBoss",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "AllowMovement": 1,
+            "AutoCast": 1,
+            "AutoCastOn": 1,
+            "NoDeceleration": 1
+          },
+          "Effect": [
+            "GestaltZInfiltrationSquadHackApplyBehavior"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZInfiltrationSquadGadgetHack",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadGadgetHack",
+              "Requirements": "GestaltZSquadeVeterancy1Get24"
+            }
+          },
+          "FollowRange": 5,
+          "Alignment": "Negative",
+          "Cost": [
+            {
+              "Charge": {
+                "CountMax": 5,
+                "CountStart": 1,
+                "CountUse": 1,
+                "TimeUse": 30
+              }
+            }
+          ],
+          "TargetFilters": [
+            "Mechanical,Visible;Self,Player,Ally,Neutral,Heroic,Missile,Item,Stasis,Dead,Hidden,Invulnerable,MapBoss"
+          ],
+          "Range": [
+            20
+          ],
+          "TargetSorts": {
+            "SortArray": [
+              "TSLifeLargestFirst"
+            ]
+          },
+          "AutoCastRange": 20,
+          "id": "GestaltZInfiltrationSquadGadgetHack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadGadgetHack,Execute",
+        "id": "GestaltZInfiltrationSquadGadgetHack",
+        "Icon": "btn-ability-spectre-technopathy",
+        "Tooltip": "Paralyze target mechanic unit and stun it for 10 sec. Cannot target heroic unit.",
+        "Name": "Cochannel Hacking",
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "Submenu",
+        "SubmenuCardId": "0002",
+        "id": "GestaltZSquadChangeEquipment",
+        "Icon": "btn-ability-terran-raynorplasmagun-color",
+        "Tooltip": "Switch the weapon of this tactic squad.",
+        "Name": "Switch Armory",
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/GestaltZISorRSCalldownCancel",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZISorRSCalldownCancel",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "GestaltZISorRSCalldownCancelAB"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZISorRSCalldownCancel",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Cancel",
+              "Requirements": "GestaltZISorRSCalldown"
+            }
+          },
+          "id": "GestaltZISorRSCalldownCancel"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZISorRSCalldownCancel,Execute",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Charge": {
+            "HideCount": 1,
+            "Link": "KaraxMicroBotActivated",
+            "Location": "Unit"
+          },
+          "Cooldown": {
+            "Link": "Abil/noniononoX",
+            "TimeUse": 30
+          },
+          "Button": {
+            "Flags": {
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "GestaltZInfiltrationSquad",
+            "Requirements": "GestaltZSquadeVeterancy"
+          },
+          "Flags": {
+            "AutoBuild": 1,
+            "External": 1
+          },
+          "Time": 0.125,
+          "Manage": "Recall",
+          "Unit": "GestaltZInfiltrationSquadMember"
+        },
+        "Unit": "GestaltZInfiltrationSquadMember",
+        "Time": 0.125,
+        "Cost": {
+          "Minerals": 300,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquad,Ammo1",
+        "id": "GestaltZInfiltrationSquad",
+        "Icon": "btn-unit-terran-gestalt-squadamember",
+        "Tooltip": "Recruit a soldier for the squad. At most 4 soldiers can be recruited.",
+        "Name": "Recruit Soldier",
+        "Hotkey": "I"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/GestaltZSquadCalldownMJ",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZSquadCalldownMJ",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "GestaltZSquadCalldownMJ"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZSquadCalldownMJ",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Cancel",
+              "Requirements": "BomberUsable"
+            }
+          },
+          "Cost": [
+            {
+              "Charge": {
+                "Link": "Abil/GestaltZForerunnerSquadCalldown"
+              },
+              "Cooldown": {
+                "Link": "Abil/GestaltAirStrikeCalldown",
+                "Location": "Player",
+                "TimeUse": 90
+              }
+            }
+          ],
+          "id": "GestaltZSquadCalldownMJ"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZSquadCalldownMJ,Execute",
+        "id": "GestaltZInfiltrationSquadCalldown",
+        "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+        "Tooltip": "Order all tactic bombers to launch a round of incendiary munitions to target area. It can deal 260 dmg to enemy ground units within and leave a burning ground last for 20 sec which will deal 30 dmg per sec to the area. <br/><br/><span style=\"color: #FFFF00\">Airstrike Order CD applies to all Tactic Squad. <br/>More Gestalt Bomber Platforms you have, larger the area Airstrike Order can apply to.",
+        "Name": "Scorched-Earth Command",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadCalldown",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Gestalt",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadCalldown",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "GestaltZInfiltrationSquadCalldownCreatePersitent"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZInfiltrationSquadCalldown",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadCalldown"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Charge": {
+                "Link": "Abil/GestaltZForerunnerSquadCalldown"
+              },
+              "Cooldown": {
+                "Link": "Abil/GestaltAirStrikeCalldown",
+                "Location": "Player",
+                "TimeUse": 90
+              }
+            }
+          ],
+          "Range": [
+            18
+          ],
+          "CursorEffect": [
+            "GestaltZInfiltrationSquadCalldownSearchArea"
+          ],
+          "id": "GestaltZInfiltrationSquadCalldown"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadCalldown,Execute",
+        "id": "GestaltZInfiltrationSquadCalldown",
+        "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+        "Tooltip": "Order all tactic bombers to launch a round of incendiary munitions to target area. It can deal 260 dmg to enemy ground units within and leave a burning ground last for 20 sec which will deal 30 dmg per sec to the area. <br/><br/><span style=\"color: #FFFF00\">Airstrike Order CD applies to all Tactic Squad. <br/>More Gestalt Bomber Platforms you have, larger the area Airstrike Order can apply to.",
+        "Name": "Scorched-Earth Command",
+        "Hotkey": "D"
+      }
+    ],
+    "0002": [
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadBolter",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadBolter",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadBolter",
+              "Requirements": "GestaltZSquadeVeterancy"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZInfiltrationSquadBolter"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "ToggledOn": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZInfiltrationSquadBolter"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadBolter,On",
+        "id": "GestaltZInfiltrationSquadBolter",
+        "Icon": "btn-upgrade-terran-nova-combatmastery",
+        "Tooltip": "Equip Tactical Rifle. Basic common use weapon. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Equip Tactical Rifle",
+        "Hotkey": "Q"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "GestaltZInfiltrationSquadBolterEquiping",
+        "Icon": "btn-upgrade-terran-nova-combatmastery",
+        "Tooltip": "Tactical Rifle Equipped",
+        "Name": "Tactical Rifle Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadBuyShotgun",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadBuyShotgun",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadBuyShotgun",
+              "Requirements": "GestaltZSquadeVeterancy0GetEquiped1"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 750
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZInfiltrationSquadShotgun"
+          ],
+          "id": "GestaltZInfiltrationSquadBuyShotgun"
+        },
+        "Cost": {
+          "Minerals": 750,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadBuyShotgun,On",
+        "id": "GestaltZInfiltrationSquadBuyShotgun",
+        "Icon": "btn-upgrade-nova-shotgun",
+        "Tooltip": "Purchase and equip Shotgun. Can deal aoe dmg. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Purchase And Equip Shotgun",
+        "Hotkey": "W"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadShotgun",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadShotgun",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadShotgun",
+              "Requirements": "GestaltZSquadeVeterancy"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZInfiltrationSquadShotgun"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZInfiltrationSquadShotgun"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadShotgun,On",
+        "id": "GestaltZInfiltrationSquadShotgun",
+        "Icon": "btn-upgrade-nova-shotgun",
+        "Tooltip": "Equip Shotgun. Can deal aoe dmg. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Equip Shotgun",
+        "Hotkey": "W"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltZInfiltrationSquadShotgunEquiping",
+        "Icon": "btn-upgrade-nova-shotgun",
+        "Tooltip": "Shotgun Equipped",
+        "Name": "Shotgun Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadBuyRifle",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadBuyRifle",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadBuyRifle",
+              "Requirements": "GestaltZSquadeVeterancy1GetEquiped2"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 1500
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZInfiltrationSquadRifle"
+          ],
+          "id": "GestaltZInfiltrationSquadBuyRifle"
+        },
+        "Cost": {
+          "Minerals": 1500,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadBuyRifle,On",
+        "id": "GestaltZInfiltrationSquadBuyRifle",
+        "Icon": "btn-ability-terran-snipe-color",
+        "Tooltip": "Purchase and equip Alpha Sniper Rifle. Ranged weapon effective against Bio units. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Purchase And Equip Alpha Sniper Rifle",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadRifle",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadRifle",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadRifle",
+              "Requirements": "GestaltZSquadeVeterancy1"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZInfiltrationSquadRifle"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZInfiltrationSquadRifle"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadRifle,On",
+        "id": "GestaltZInfiltrationSquadRifle",
+        "Icon": "btn-ability-terran-snipe-color",
+        "Tooltip": "Equip Alpha Sniper Rifle. Ranged weapon effective against Bio units. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Equip Alpha Sniper Rifle",
+        "Hotkey": "A"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "GestaltZInfiltrationSquadRifleEquiping",
+        "Icon": "btn-ability-terran-snipe-color",
+        "Tooltip": "Alpha Sniper Rifle Equipped",
+        "Name": "Alpha Sniper Rifle Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadBuyCreackingRifle",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadBuyCreackingRifle",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadBuyCreackingRifle",
+              "Requirements": "GestaltZSquadeVeterancy1GetEquiped3"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 1500
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZInfiltrationSquadCreackingRifle"
+          ],
+          "id": "GestaltZInfiltrationSquadBuyCreackingRifle"
+        },
+        "Cost": {
+          "Minerals": 1500,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadBuyCreackingRifle,On",
+        "id": "GestaltZInfiltrationSquadBuyCreackingRifle",
+        "Icon": "btn-upgrade-mengsk-trooper-plasmarifle",
+        "Tooltip": "Purchase and equip Disintegrator Rifle. Can reduce enemies' armor. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Purchase And Equip Disintegrator Rifle",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadCreackingRifle",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadCreackingRifle",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadCreackingRifle",
+              "Requirements": "GestaltZSquadeVeterancy1"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZInfiltrationSquadCreackingRifle"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZInfiltrationSquadCreackingRifle"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadCreackingRifle,On",
+        "id": "GestaltZInfiltrationSquadCreackingRifle",
+        "Icon": "btn-upgrade-mengsk-trooper-plasmarifle",
+        "Tooltip": "Equip Disintegrator Rifle. Can reduce enemies' armor. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Equip Disintegrator Rifle",
+        "Hotkey": "S"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltZInfiltrationSquadCreackingRifleEquiping",
+        "Icon": "btn-upgrade-mengsk-trooper-plasmarifle",
+        "Tooltip": "Disintegrator Rifle Equipped",
+        "Name": "Disintegrator Rifle Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadBuyAERifle",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadBuyAERifle",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadBuyAERifle",
+              "Requirements": "GestaltZSquadeVeterancy2GetEquiped4"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 2250
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZInfiltrationSquadAERifle"
+          ],
+          "id": "GestaltZInfiltrationSquadBuyAERifle"
+        },
+        "Cost": {
+          "Minerals": 2250,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadBuyAERifle,On",
+        "id": "GestaltZInfiltrationSquadBuyAERifle",
+        "Icon": "btn-ability-mengsk-battlecruiser-decksights",
+        "Tooltip": "Purchase and equip Death Watch. Extremely effective against massive bio units. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Purchase And Equip Death Watch",
+        "Hotkey": "Z"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadAERifle",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadAERifle",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadAERifle",
+              "Requirements": "GestaltZSquadeVeterancy2"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZInfiltrationSquadAERifle"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZInfiltrationSquadAERifle"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadAERifle,On",
+        "id": "GestaltZInfiltrationSquadAERifle",
+        "Icon": "btn-ability-mengsk-battlecruiser-decksights",
+        "Tooltip": "Equip Death Watch. Extremely effective against massive bio units. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+        "Name": "Equip Death Watch",
+        "Hotkey": "Z"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "GestaltZInfiltrationSquadAERifleEquiping",
+        "Icon": "btn-ability-mengsk-battlecruiser-decksights",
+        "Tooltip": "Death Watch Equipped",
+        "Name": "Death Watch Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadBuyFusionCutter",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadBuyFusionCutter",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadBuyFusionCutter",
+              "Requirements": "GestaltZSquadeVeterancy2GetEquiped42"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 2250
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZInfiltrationSquadFusionCutter"
+          ],
+          "id": "GestaltZInfiltrationSquadBuyFusionCutter"
+        },
+        "Cost": {
+          "Minerals": 2250,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadBuyFusionCutter,On",
+        "id": "GestaltZInfiltrationSquadBuyFusionCutter",
+        "Icon": "btn-ability-zeratul-topbar-stasisbeam",
+        "Tooltip": "Purchase and equip Hellfire Laser. Extremely effective against mechanic units. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Purchase And Equip Hellfire Laser",
+        "Hotkey": "X"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZInfiltrationSquadFusionCutter",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZInfiltrationSquadFusionCutter",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZInfiltrationSquadFusionCutter",
+              "Requirements": "GestaltZSquadeVeterancy2"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZInfiltrationSquadFusionCutter"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZInfiltrationSquadFusionCutter"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZInfiltrationSquadFusionCutter,On",
+        "id": "GestaltZInfiltrationSquadFusionCutter",
+        "Icon": "btn-ability-zeratul-topbar-stasisbeam",
+        "Tooltip": "Equip Hellfire Laser. Extremely effective against mechanic units. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Equip Hellfire Laser",
+        "Hotkey": "X"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltZInfiltrationSquadFusionCutterEquiping",
+        "Icon": "btn-ability-zeratul-topbar-stasisbeam",
+        "Tooltip": "Hellfire Laser Equipped",
+        "Name": "Hellfire Laser Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "CargoSize": 1,
+  "SubgroupPriority": 25,
+  "GlossaryCategory": "Unit/Category/TerranUnits",
+  "GlossaryPriority": 31,
+  "GlossaryStrongArray": [
+    "Marauder",
+    "Immortal",
+    "Hydralisk"
+  ],
+  "GlossaryWeakArray": [
+    "SiegeTankSieged",
+    "Colossus",
+    "Baneling"
+  ],
+  "Food": -10,
+  "AlliedPushPriority": 1,
+  "id": "GestaltZInfiltrationSquadLeader",
+  "Icon": "btn-unit-terran-gestalt-squadaleader",
+  "LifeArmorIcon": "btn-upgrade-terran-infantryarmorlevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "GestaltZSquadeVeterancy",
+      "Name": "GestaltZ Squade Veterancy"
+    },
+    {
+      "id": "GestaltZeroTeamCaptainCreate"
+    },
+    {
+      "id": "GestaltZeroTeamCaptainProtect"
+    },
+    {
+      "id": "GestaltStationController"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadBolter",
+      "Icon": "btn-upgrade-mengsk-engineeringbay-dominionweaponslevel3"
+    },
+    {
+      "id": "GestaltSquadDummy"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadGadgetStimpack",
+      "Icon": "btn-upgrade-nova-equipment-ui-superstimpack"
+    },
+    {
+      "id": "PreventKnockback"
+    },
+    {
+      "id": "GestaltZSquadMasteryDamageReduce"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "GestaltHangarQueue53",
+      "Name": "GestaltHangarQueue53 (Unnamed)"
+    },
+    {
+      "id": "GestaltZInfiltrationSquad"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadSkillSmoke"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadSkillCloak"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadCalldown"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadGadgetDeploySpiderMines"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadGadgetHack"
+    },
+    {
+      "id": "GestaltZISorRSCalldownCancel"
+    },
+    {
+      "id": "GestaltZSquadCalldownMJ"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadBolter"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadShotgun"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadRifle"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadCreackingRifle"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadAERifle"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadFusionCutter"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadBuyRifle"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadBuyFusionCutter"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadBuyCreackingRifle"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadBuyShotgun"
+    },
+    {
+      "id": "GestaltZInfiltrationSquadBuyAERifle"
+    },
+    {
+      "id": "MapObjectInteract",
+      "Name": "MapObjectInteract"
+    }
+  ],
+  "$Upgrades": [
+    "GestaltZInfiltrationSquadLeader",
+    "GestaltZInfiltrationSquadLeader"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "GestaltZInfiltrationSquadMember",
+    "SpiderMineBurrowed"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadGadgetDeploySpiderMines,Execute",
+      "id": "GestaltZInfiltrationSquadGadgetDeploySpiderMines",
+      "Icon": "btn-custom-terran-spidermines",
+      "Tooltip": "Deploy 9 Spider Mines to target location. Mines can sense and attack nearby enemies and deal massive amount of aoe dmg.",
+      "Name": "Deploy Spider Mine"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadSkillSmoke,Execute",
+      "id": "GestaltZInfiltrationSquadSkillSmoke",
+      "Icon": "btn-upgrade-nova-pulsegrenade",
+      "Tooltip": "Squad Leader will throw a Smoke Grenade. Create a smoke at target area. Enemies within will have way less attack range and 50% less movement speed. Last 5 sec.",
+      "Name": "Smoke Grenade"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadSkillCloak,Execute",
+      "id": "GestaltZInfiltrationSquadSkillCloak",
+      "Icon": "btn-custom-terran-killcloakedunits",
+      "Tooltip": "Cloak the squad for 15 sec. <br/>When cloaked, their movement speed will increase by 20%.",
+      "Name": "Cloaking Gadget"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadGadgetHack,Execute",
+      "id": "GestaltZInfiltrationSquadGadgetHack",
+      "Icon": "btn-ability-spectre-technopathy",
+      "Tooltip": "Paralyze target mechanic unit and stun it for 10 sec. Cannot target heroic unit.",
+      "Name": "Cochannel Hacking"
+    },
+    {
+      "AbilCmd": "GestaltZISorRSCalldownCancel,Execute",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquad,Ammo1",
+      "id": "GestaltZInfiltrationSquad",
+      "Icon": "btn-unit-terran-gestalt-squadamember",
+      "Tooltip": "Recruit a soldier for the squad. At most 4 soldiers can be recruited.",
+      "Name": "Recruit Soldier"
+    },
+    {
+      "AbilCmd": "GestaltZSquadCalldownMJ,Execute",
+      "id": "GestaltZInfiltrationSquadCalldown",
+      "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+      "Tooltip": "Order all tactic bombers to launch a round of incendiary munitions to target area. It can deal 260 dmg to enemy ground units within and leave a burning ground last for 20 sec which will deal 30 dmg per sec to the area. <br/><br/><span style=\"color: #FFFF00\">Airstrike Order CD applies to all Tactic Squad. <br/>More Gestalt Bomber Platforms you have, larger the area Airstrike Order can apply to.",
+      "Name": "Scorched-Earth Command"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadCalldown,Execute",
+      "id": "GestaltZInfiltrationSquadCalldown",
+      "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+      "Tooltip": "Order all tactic bombers to launch a round of incendiary munitions to target area. It can deal 260 dmg to enemy ground units within and leave a burning ground last for 20 sec which will deal 30 dmg per sec to the area. <br/><br/><span style=\"color: #FFFF00\">Airstrike Order CD applies to all Tactic Squad. <br/>More Gestalt Bomber Platforms you have, larger the area Airstrike Order can apply to.",
+      "Name": "Scorched-Earth Command"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadBolter,On",
+      "id": "GestaltZInfiltrationSquadBolter",
+      "Icon": "btn-upgrade-terran-nova-combatmastery",
+      "Tooltip": "Equip Tactical Rifle. Basic common use weapon. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Equip Tactical Rifle"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadBuyShotgun,On",
+      "id": "GestaltZInfiltrationSquadBuyShotgun",
+      "Icon": "btn-upgrade-nova-shotgun",
+      "Tooltip": "Purchase and equip Shotgun. Can deal aoe dmg. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Purchase And Equip Shotgun"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadShotgun,On",
+      "id": "GestaltZInfiltrationSquadShotgun",
+      "Icon": "btn-upgrade-nova-shotgun",
+      "Tooltip": "Equip Shotgun. Can deal aoe dmg. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Equip Shotgun"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadBuyRifle,On",
+      "id": "GestaltZInfiltrationSquadBuyRifle",
+      "Icon": "btn-ability-terran-snipe-color",
+      "Tooltip": "Purchase and equip Alpha Sniper Rifle. Ranged weapon effective against Bio units. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Purchase And Equip Alpha Sniper Rifle"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadRifle,On",
+      "id": "GestaltZInfiltrationSquadRifle",
+      "Icon": "btn-ability-terran-snipe-color",
+      "Tooltip": "Equip Alpha Sniper Rifle. Ranged weapon effective against Bio units. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Equip Alpha Sniper Rifle"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadBuyCreackingRifle,On",
+      "id": "GestaltZInfiltrationSquadBuyCreackingRifle",
+      "Icon": "btn-upgrade-mengsk-trooper-plasmarifle",
+      "Tooltip": "Purchase and equip Disintegrator Rifle. Can reduce enemies' armor. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Purchase And Equip Disintegrator Rifle"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadCreackingRifle,On",
+      "id": "GestaltZInfiltrationSquadCreackingRifle",
+      "Icon": "btn-upgrade-mengsk-trooper-plasmarifle",
+      "Tooltip": "Equip Disintegrator Rifle. Can reduce enemies' armor. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Equip Disintegrator Rifle"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadBuyAERifle,On",
+      "id": "GestaltZInfiltrationSquadBuyAERifle",
+      "Icon": "btn-ability-mengsk-battlecruiser-decksights",
+      "Tooltip": "Purchase and equip Death Watch. Extremely effective against massive bio units. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Purchase And Equip Death Watch"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadAERifle,On",
+      "id": "GestaltZInfiltrationSquadAERifle",
+      "Icon": "btn-ability-mengsk-battlecruiser-decksights",
+      "Tooltip": "Equip Death Watch. Extremely effective against massive bio units. <br/><br/><c val=\"#ColorAttackInfo\">Can attack the ground and air.</span>",
+      "Name": "Equip Death Watch"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadBuyFusionCutter,On",
+      "id": "GestaltZInfiltrationSquadBuyFusionCutter",
+      "Icon": "btn-ability-zeratul-topbar-stasisbeam",
+      "Tooltip": "Purchase and equip Hellfire Laser. Extremely effective against mechanic units. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Purchase And Equip Hellfire Laser"
+    },
+    {
+      "AbilCmd": "GestaltZInfiltrationSquadFusionCutter,On",
+      "id": "GestaltZInfiltrationSquadFusionCutter",
+      "Icon": "btn-ability-zeratul-topbar-stasisbeam",
+      "Tooltip": "Equip Hellfire Laser. Extremely effective against mechanic units. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Equip Hellfire Laser"
+    }
+  ]
+}

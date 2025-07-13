@@ -1,0 +1,281 @@
+{
+  "Name": "Reactor",
+  "Description": "Allows 2 units to be created simultaneously.",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Terr",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 400,
+  "LifeMax": 400,
+  "LifeArmorName": "Terran Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1,
+  "SeparationRadius": 1,
+  "MinimapRadius": 1,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "StarportReactor",
+  "HotkeyAlias": "StarportReactor",
+  "SelectAlias": "Reactor",
+  "SubgroupAlias": "Reactor",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "Reactor",
+  "AIEvaluateAlias": "Reactor",
+  "ReviveType": "Reactor",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "StarportReactor/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "StarportReactor/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "GlossaryPriority": 27,
+  "Facing": 315,
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "Sight": 9,
+  "CostResource": {
+    "Minerals": 50,
+    "Vespene": 50
+  },
+  "RepairTime": 50,
+  "AttackTargetPriority": 11,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      }
+    ]
+  },
+  "Footprint": "Footprint2x2CreepNormalContour",
+  "PlacementFootprint": "Footprint3x3AddOn2x2CreepNormal",
+  "AddedOnArray": [
+    {
+      "UnitLink": "Barracks",
+      "BehaviorLink": "BarracksReactor"
+    },
+    {
+      "UnitLink": "Factory",
+      "BehaviorLink": "FactoryReactor"
+    },
+    {
+      "UnitLink": "Starport",
+      "BehaviorLink": "StarportReactor"
+    }
+  ],
+  "AddOnOffsetX": 2.5,
+  "AddOnOffsetY": -0.5,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 6,
+  "TechAliasArray": [
+    "Alias_Reactor"
+  ],
+  "CostCategory": "Technology",
+  "id": "StarportReactor",
+  "Icon": "btn-building-terran-reactor",
+  "LifeArmorIcon": "btn-upgrade-terran-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "TerranBuildingBurnDown"
+    },
+    {
+      "id": "FireSuppressionSystem",
+      "Icon": "btn-upgrade-swann-firesuppressionsystem",
+      "Tooltip": "This structure's fire is being extinguished and is repairing itself to 50% of its maximum life."
+    },
+    {
+      "id": "MorphToTechReactor"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "BarracksReactorMorph",
+      "Name": "Nuclear Reactor Morph (Barracks)"
+    },
+    {
+      "id": "FactoryReactorMorph",
+      "Name": "Nuclear Reactor Morph (Factory)"
+    },
+    {
+      "id": "ReactorMorph",
+      "Name": "Nuclear Reactor Morph"
+    },
+    {
+      "id": "MorphToTechReactor",
+      "Name": "Morph To Tech Reactor"
+    }
+  ],
+  "$Upgrades": [
+    "StarportReactorMorph",
+    "StarportReactor",
+    "TerranBuildingArmor",
+    "MasterySwannBuildingHealth",
+    "StarportAddOns",
+    "TerranBuildingArmorRaynor",
+    "StarportMengskAddOns",
+    "NovaCommander",
+    "StarportAddOns2",
+    "StarportReactor",
+    "StarportReactorSplat",
+    "MasteryRaynorBuildingHealth"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "Starport",
+    "StarportFlying",
+    "StarportMengskFlying"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    }
+  ]
+}

@@ -1,0 +1,2373 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Drone",
+    "zhCN": "Drone",
+    "koKR": "Drone"
+  },
+  "Description": {
+    "enUS": "Basic worker unit. Can harvest minerals and vespene gas. Can mutate into structures.**Can attack ground units**",
+    "zhCN": "Basic worker unit. Can harvest minerals and vespene gas. Can mutate into structures.**Can attack ground units**",
+    "koKR": "Basic worker unit. Can harvest minerals and vespene gas. Can mutate into structures.**Can attack ground units**"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "BWZe",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 40,
+  "LifeMax": 40,
+  "LifeArmorName": {
+    "enUS": "Zerg Ground Carapace",
+    "ruRU": "Панцирь наземных зергов"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "Worker",
+    "PreventDestroy"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "DroneSCBW",
+  "HotkeyAlias": "DroneSCBW",
+  "SelectAlias": "DroneSCBW",
+  "SubgroupAlias": "DroneSCBW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "DroneSCBW",
+  "AIEvaluateAlias": "DroneSCBW",
+  "ReviveType": "DroneSCBW",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "DroneSCBW/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "DroneSCBW/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "EnergyRegenRate": 0.5,
+  "id": "DroneSCBW",
+  "LifeRegenRate": 0.2734,
+  "GlossaryCategory": "Unit/Category/ZergUnitsSCBW",
+  "HotkeyCategory": "Unit/Category/ZergUnitsSCBW",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Light",
+    "Biological",
+    "Hover"
+  ],
+  "ShieldArmorName": "-",
+  "Speed": 2.8125,
+  "Acceleration": 2.9375,
+  "LateralAcceleration": 46.0625,
+  "Sight": 8,
+  "Food": -1,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 50
+  },
+  "AttackTargetPriority": 20,
+  "AIOverideTargetPriority": 10,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "DroneSCBW@Build",
+    "DroneSCBW@BuildAdv",
+    "DroneSCBW@Harvest",
+    "DroneSCBW@BurrowDown",
+    "SprayZerg",
+    "WorkerStopIdleAbilityVespene"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "DroneSCBWWeapon"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackWorker",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/DroneSCBW@Harvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "DroneSCBW@Harvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "DroneSCBW@Harvest"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "DroneSCBW@ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "TechAliasArray": "_Gather",
+          "CancelableArray": {
+            "ApproachResource": 1,
+            "WaitAtResource": 1
+          },
+          "id": "DroneSCBW@Harvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@Harvest,Return",
+        "id": "DroneSCBW@ReturnCargo",
+        "Name": {
+          "enUS": "Return Cargo",
+          "zhCN": "Return Cargo",
+          "koKR": "Return Cargo"
+        },
+        "Tooltip": {
+          "enUS": "Returns the carried resources to the nearest drop-off point.",
+          "zhCN": "Returns the carried resources to the nearest drop-off point.",
+          "koKR": "Returns the carried resources to the nearest drop-off point."
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "Bld1",
+        "id": "ZergBuild",
+        "Icon": "btn-ability-zerg-basicmutation",
+        "Name": {
+          "enUS": "Basic Mutation",
+          "ruRU": "Простые мутации "
+        },
+        "Tooltip": {
+          "enUS": "A list of basic structures.",
+          "ruRU": "Открывает список основных строений."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "Bld2",
+        "id": "ZergBuildAdvanced",
+        "Icon": "btn-ability-zerg-advancedmutation",
+        "Name": {
+          "enUS": "Advanced Mutation",
+          "ruRU": "Сложные мутации "
+        },
+        "Tooltip": {
+          "enUS": "A list of advanced structures.",
+          "ruRU": "Открывает список дополнительных строений."
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.8332
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.1665
+              }
+            }
+          },
+          "Unit": "DroneSCBW@Burrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "DroneSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": {
+          "enUS": "Burrow",
+          "ruRU": "Закопаться "
+        },
+        "Tooltip": {
+          "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+          "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 0.3
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Duration": 0.3
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.3
+              }
+            }
+          },
+          "Unit": "DefilerSCBW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "DefilerSCBW",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "DefilerSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": {
+          "enUS": "Unburrow",
+          "ruRU": "Выкопаться "
+        },
+        "Tooltip": {
+          "enUS": "Returns the unit to the surface.",
+          "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            }
+          },
+          "Unit": "DroneSCBW",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "DroneSCBW",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": {
+          "enUS": "Unburrow",
+          "ruRU": "Выкопаться "
+        },
+        "Tooltip": {
+          "enUS": "Returns the unit to the surface.",
+          "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            }
+          },
+          "Unit": "HydraliskSCBW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "HydraliskSCBW",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "HydraliskSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": {
+          "enUS": "Unburrow",
+          "ruRU": "Выкопаться "
+        },
+        "Tooltip": {
+          "enUS": "Returns the unit to the surface.",
+          "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Delay": 2
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 0.1
+              }
+            }
+          },
+          "Unit": "InfestedTerranSCBW",
+          "RandomDelayMax": 0.37
+        },
+        "Unit": "InfestedTerranSCBW",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "InfestedTerranSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": {
+          "enUS": "Unburrow",
+          "ruRU": "Выкопаться "
+        },
+        "Tooltip": {
+          "enUS": "Returns the unit to the surface.",
+          "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Delay": 1.0625
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            }
+          },
+          "Unit": "ZerglingSCBW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "ZerglingSCBW",
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -0.5
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZerglingSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": {
+          "enUS": "Unburrow",
+          "ruRU": "Выкопаться "
+        },
+        "Tooltip": {
+          "enUS": "Returns the unit to the surface.",
+          "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2
+              }
+            }
+          },
+          "Unit": "UltraliskSCBW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "UltraliskSCBW",
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -4
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UltraliskSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": {
+          "enUS": "Unburrow",
+          "ruRU": "Выкопаться "
+        },
+        "Tooltip": {
+          "enUS": "Returns the unit to the surface.",
+          "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/DroneSCBW@Harvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "DroneSCBW@Harvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "DroneSCBW@Harvest"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "DroneSCBW@ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "TechAliasArray": "_Gather",
+          "CancelableArray": {
+            "ApproachResource": 1,
+            "WaitAtResource": 1
+          },
+          "id": "DroneSCBW@Harvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@Harvest,Gather",
+        "id": "DroneSCBW@Harvest",
+        "Icon": "btn-ability-zerg-gather",
+        "Name": {
+          "enUS": "Gather",
+          "zhCN": "Gather",
+          "koKR": "Gather"
+        },
+        "Tooltip": {
+          "enUS": "Orders Drone to gather resources from a selected Mineral Field or Vespene Geyser.",
+          "zhCN": "Orders Drone to gather resources from a selected Mineral Field or Vespene Geyser.",
+          "koKR": "Orders Drone to gather resources from a selected Mineral Field or Vespene Geyser."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/SprayZerg",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Zerg",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SprayZerg",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "SprayZerg"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "SprayZerg",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Spray",
+              "Requirements": "HaveSprayZerg"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Charge": {
+                "CountMax": 5,
+                "CountStart": 1,
+                "CountUse": 1,
+                "Link": "Spray",
+                "Location": "Player",
+                "TimeStart": 300,
+                "TimeUse": 300
+              }
+            }
+          ],
+          "Range": [
+            1
+          ],
+          "id": "SprayZerg"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "SprayZerg,Execute",
+        "id": "Spray",
+        "Icon": "btn-command-spray",
+        "Name": {
+          "enUS": "Spray",
+          "ruRU": "Граффити"
+        },
+        "Tooltip": {
+          "enUS": "Orders the unit to apply your currently selected spray to the terrain at the target location.",
+          "ruRU": "Приказать боевой единице отобразить на указанном участке поверхности ваше текущее граффити."
+        },
+        "Hotkey": "Y"
+      }
+    ],
+    "Bld1": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "HatcherySCBW",
+            "Requirements": "HatcherySCBW"
+          },
+          "Unit": "HatcherySCBW"
+        },
+        "Unit": "HatcherySCBW",
+        "Cost": {
+          "Minerals": 350,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 6
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@Build,Build1",
+        "id": "HatcherySCBW",
+        "Icon": "btn-building-zerg-hatchery-remastered",
+        "Name": {
+          "enUS": "Mutate into Hatchery",
+          "zhCN": "Mutate into Hatchery",
+          "koKR": "Mutate into Hatchery"
+        },
+        "Tooltip": {
+          "enUS": "Primary structure. Used to spawn all Zerg units and receive gathered resources. Grows creep used to feed nearby Zerg structures. Can mutate into a <span class=\"style-TooltipHighlightSCBW\"><b>Lair</b></span>.",
+          "zhCN": "Primary structure. Used to spawn all Zerg units and receive gathered resources. Grows creep used to feed nearby Zerg structures. Can mutate into a <span class=\"style-TooltipHighlightSCBW\"><b>Lair</b></span>.",
+          "koKR": "Primary structure. Used to spawn all Zerg units and receive gathered resources. Grows creep used to feed nearby Zerg structures. Can mutate into a <span class=\"style-TooltipHighlightSCBW\"><b>Lair</b></span>."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "CreepColonySCBW",
+            "Requirements": "CreepColonySCBW"
+          },
+          "Unit": "CreepColonySCBW"
+        },
+        "Unit": "CreepColonySCBW",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@Build,Build2",
+        "id": "CreepColonySCBW",
+        "Icon": "btn-building-zerg-creepcolony@scbw",
+        "Name": {
+          "enUS": "Mutate into Creep Colony",
+          "zhCN": "Mutate into Creep Colony",
+          "koKR": "Mutate into Creep Colony"
+        },
+        "Tooltip": {
+          "enUS": "Creep generator structure. Can mutate into <span class=\"style-TooltipHighlightSCBW\"><b>Sunken Colony</b></span> or <span class=\"style-TooltipHighlightSCBW\"><b>Spore Colony</b></span>. Creep feeds nearby Zerg structures.",
+          "zhCN": "Creep generator structure. Can mutate into <span class=\"style-TooltipHighlightSCBW\"><b>Sunken Colony</b></span> or <span class=\"style-TooltipHighlightSCBW\"><b>Spore Colony</b></span>. Creep feeds nearby Zerg structures.",
+          "koKR": "Creep generator structure. Can mutate into <span class=\"style-TooltipHighlightSCBW\"><b>Sunken Colony</b></span> or <span class=\"style-TooltipHighlightSCBW\"><b>Spore Colony</b></span>. Creep feeds nearby Zerg structures."
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "ExtractorSCBW",
+            "Requirements": "ExtractorSCBW"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "ExtractorSCBW"
+        },
+        "Unit": "ExtractorSCBW",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@Build,Build3",
+        "id": "ExtractorSCBW",
+        "Icon": "btn-building-zerg-extractor",
+        "Name": {
+          "enUS": "Mutate into Extractor",
+          "zhCN": "Mutate into Extractor",
+          "koKR": "Mutate into Extractor"
+        },
+        "Tooltip": {
+          "enUS": "Mutated over a <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> to allow harvesting of vespene gas.",
+          "zhCN": "Mutated over a <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> to allow harvesting of vespene gas.",
+          "koKR": "Mutated over a <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> to allow harvesting of vespene gas."
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "SpawningPoolSCBW",
+            "Requirements": "SpawningPoolSCBW"
+          },
+          "Unit": "SpawningPoolSCBW"
+        },
+        "Unit": "SpawningPoolSCBW",
+        "Cost": {
+          "Minerals": 250,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@Build,Build4",
+        "id": "SpawningPoolSCBW",
+        "Icon": "btn-building-zerg-spawningpool@scbw",
+        "Name": {
+          "enUS": "Mutate into Spawning Pool",
+          "zhCN": "Mutate into Spawning Pool",
+          "koKR": "Mutate into Spawning Pool"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Zergling</b>s from <b>Larva</b>e<br/>- <b>Sunken Colony</b> from <b>Creep Colony</b>",
+          "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Zergling</b>s from <b>Larva</b>e<br/>- <b>Sunken Colony</b> from <b>Creep Colony</b>",
+          "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Zergling</b>s from <b>Larva</b>e<br/>- <b>Sunken Colony</b> from <b>Creep Colony</b>"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "EvolutionChamberSCBW",
+            "Requirements": "EvolutionChamberSCBW"
+          },
+          "Unit": "EvolutionChamberSCBW"
+        },
+        "Unit": "EvolutionChamberSCBW",
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@Build,Build5",
+        "id": "EvolutionChamberSCBW",
+        "Icon": "btn-building-zerg-evolutionchamber",
+        "Name": {
+          "enUS": "Mutate into Evolution Chamber",
+          "zhCN": "Mutate into Evolution Chamber",
+          "koKR": "Mutate into Evolution Chamber"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for Zerg ground units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Spore Colony</b> from <b>Creep Colony</b>",
+          "zhCN": "Contains upgrades for Zerg ground units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Spore Colony</b> from <b>Creep Colony</b>",
+          "koKR": "Contains upgrades for Zerg ground units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Spore Colony</b> from <b>Creep Colony</b>"
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "HydraliskDenSCBW",
+            "Requirements": "HydraliskDenSCBW"
+          },
+          "Unit": "HydraliskDenSCBW"
+        },
+        "Unit": "HydraliskDenSCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@Build,Build6",
+        "id": "HydraliskDenSCBW",
+        "Icon": "btn-building-zerg-hydraliskden@scbw",
+        "Name": {
+          "enUS": "Mutate into Hydralisk Den",
+          "zhCN": "Mutate into Hydralisk Den",
+          "koKR": "Mutate into Hydralisk Den"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Hydralisk</b>s</span><br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Hydralisk</b> from <b>Larva</b>e",
+          "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Hydralisk</b>s</span><br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Hydralisk</b> from <b>Larva</b>e",
+          "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Hydralisk</b>s</span><br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Hydralisk</b> from <b>Larva</b>e"
+        },
+        "Hotkey": "D"
+      }
+    ],
+    "Bld2": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "SpireSCBW",
+            "Requirements": "SpireSCBW"
+          },
+          "Unit": "SpireSCBW"
+        },
+        "Unit": "SpireSCBW",
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@BuildAdv,Build16",
+        "id": "SpireSCBW",
+        "Icon": "btn-building-zerg-spire",
+        "Name": {
+          "enUS": "Mutate into Spire",
+          "zhCN": "Mutate into Spire",
+          "koKR": "Mutate into Spire"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for Zerg air units. Can mutate into a <span class=\"style-TooltipHighlightSCBW\"><b>Greater Spire</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Mutalisk</b>s from <b>Larva</b>e<br/>- <b>Scourge</b>s from <b>Larva</b>e",
+          "zhCN": "Contains upgrades for Zerg air units. Can mutate into a <span class=\"style-TooltipHighlightSCBW\"><b>Greater Spire</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Mutalisk</b>s from <b>Larva</b>e<br/>- <b>Scourge</b>s from <b>Larva</b>e",
+          "koKR": "Contains upgrades for Zerg air units. Can mutate into a <span class=\"style-TooltipHighlightSCBW\"><b>Greater Spire</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Mutalisk</b>s from <b>Larva</b>e<br/>- <b>Scourge</b>s from <b>Larva</b>e"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "QueensNestSCBW",
+            "Requirements": "QueensNestSCBW"
+          },
+          "Unit": "QueensNestSCBW"
+        },
+        "Unit": "QueensNestSCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@BuildAdv,Build17",
+        "id": "QueensNestSCBW",
+        "Icon": "btn-building-zerg-queensnest@scbw",
+        "Name": {
+          "enUS": "Mutate into Queen's Nest",
+          "zhCN": "Mutate into Queen's Nest",
+          "koKR": "Mutate into Queen's Nest"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Queen</b>s</span><br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Queen</b>s from <b>Larva</b>e",
+          "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Queen</b>s</span><br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Queen</b>s from <b>Larva</b>e",
+          "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Queen</b>s</span><br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Queen</b>s from <b>Larva</b>e"
+        },
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "NydusCanalSCBW",
+            "Requirements": "NydusCanalSCBW"
+          },
+          "Resource": {
+            "Minerals": 150
+          },
+          "Unit": "NydusCanalSCBW"
+        },
+        "Unit": "NydusCanalSCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@BuildAdv,Build18",
+        "id": "NydusCanalSCBW",
+        "Icon": "btn-building-zerg-nydusnetwork",
+        "Name": {
+          "enUS": "Mutate into Nydus Canal",
+          "zhCN": "Mutate into Nydus Canal",
+          "koKR": "Mutate into Nydus Canal"
+        },
+        "Tooltip": {
+          "enUS": "Friendly ground units can use the <span class=\"style-TooltipHighlightSCBW\"><b>Nydus Canal</b></span> to instantly travel to the other end of the <span class=\"style-TooltipHighlightSCBW\"><b>Nydus Canal</b></span> owned by the player.",
+          "zhCN": "Friendly ground units can use the <span class=\"style-TooltipHighlightSCBW\"><b>Nydus Canal</b></span> to instantly travel to the other end of the <span class=\"style-TooltipHighlightSCBW\"><b>Nydus Canal</b></span> owned by the player.",
+          "koKR": "Friendly ground units can use the <span class=\"style-TooltipHighlightSCBW\"><b>Nydus Canal</b></span> to instantly travel to the other end of the <span class=\"style-TooltipHighlightSCBW\"><b>Nydus Canal</b></span> owned by the player."
+        },
+        "Hotkey": "N"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "DefilerMoundSCBW",
+            "Requirements": "DefilerMoundSCBW"
+          },
+          "Unit": "DefilerMoundSCBW"
+        },
+        "Unit": "DefilerMoundSCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@BuildAdv,Build19",
+        "id": "DefilerMoundSCBW",
+        "Icon": "btn-building-zerg-defilermound@scbw",
+        "Name": {
+          "enUS": "Mutate into Defiler Mound",
+          "zhCN": "Mutate into Defiler Mound",
+          "koKR": "Mutate into Defiler Mound"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Defiler</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Defiler</b>s from <b>Larva</b>e",
+          "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Defiler</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Defiler</b>s from <b>Larva</b>e",
+          "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Defiler</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Defiler</b>s from <b>Larva</b>e"
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "UltraliskCavernSCBW",
+            "Requirements": "DefilerMoundSCBW"
+          },
+          "Unit": "UltraliskCavernSCBW"
+        },
+        "Unit": "UltraliskCavernSCBW",
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@BuildAdv,Build20",
+        "id": "UltraliskCavernSCBW",
+        "Icon": "btn-building-zerg-ultraliskcavern",
+        "Name": {
+          "enUS": "Mutate into Ultralisk Cavern",
+          "zhCN": "Mutate into Ultralisk Cavern",
+          "koKR": "Mutate into Ultralisk Cavern"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Ultralisk</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Ultralisk</b>s from <b>Larva</b>e",
+          "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Ultralisk</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Ultralisk</b>s from <b>Larva</b>e",
+          "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Ultralisk</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Ultralisk</b>s from <b>Larva</b>e"
+        },
+        "Hotkey": "U"
+      }
+    ]
+  },
+  "InnerRadius": 0.3125,
+  "CargoSize": 1,
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 60,
+  "GlossaryPriority": 20,
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "BuildTime": 17,
+  "TacticalAIThink": "AIThinkDroneSCBW",
+  "Icon": "btn-unit-collection-drone-remastered",
+  "Model": "Drone_Remastered",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level0",
+  "ShieldArmorIcon": "btn-upgrade-zerg-swarmfrenzy",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Zerg",
+      "Options": {
+        "Melee": 1
+      },
+      "Icon": "btn-upgrade-zerg-meleeattacks-level0",
+      "DisplayEffect": "DroneSCBWWeapon@Damage",
+      "TargetFilters": "Ground",
+      "Range": 0.5,
+      "Period": 1.5,
+      "Effect": "DroneSCBWWeapon@Damage",
+      "LegacyOptions": {
+        "NoDeceleration": 1
+      },
+      "AllowedMovement": "Slowing",
+      "id": "DroneSCBWWeapon",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Spines",
+        "zhCN": "Spines",
+        "koKR": "Spines"
+      },
+      "Amount": 5,
+      "Kind": "Melee"
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "DroneSCBW@Build",
+      "Name": {
+        "enUS": "Build",
+        "zhCN": "Build",
+        "koKR": "Build"
+      }
+    },
+    {
+      "id": "DroneSCBW@BuildAdv",
+      "Name": {
+        "enUS": "Build",
+        "zhCN": "Build",
+        "koKR": "Build"
+      }
+    },
+    {
+      "id": "DroneSCBW@Harvest",
+      "Name": {
+        "enUS": "Gather",
+        "zhCN": "Gather",
+        "koKR": "Gather"
+      }
+    },
+    {
+      "id": "DroneSCBW@BurrowDown",
+      "Name": {
+        "enUS": "Burrow",
+        "zhCN": "Burrow",
+        "koKR": "Burrow"
+      }
+    },
+    {
+      "id": "SprayZerg",
+      "Name": "-"
+    },
+    {
+      "id": "WorkerStopIdleAbilityVespene",
+      "Name": "-"
+    }
+  ],
+  "$Upgrades": [
+    "ZergSCBWBurrowResearch",
+    "DroneSCBW",
+    "DroneSCBW@BurrowUp",
+    "DroneSCBW@Burrowed",
+    "BWZe",
+    "LarvaSCBW@Train",
+    "LarvaSCBW",
+    "IsDroneSCBW",
+    "DroneSCBW@BurrowedSplat",
+    "DroneSCBW",
+    "NotDroneSCBW",
+    "CasterIsDroneSCBW",
+    "DroneSCBW@ThreatensDrone",
+    "DroneSCBW@AllowUnit",
+    "DroneSCBW@CountAtUnit",
+    "DroneSCBW@Count",
+    "DroneSCBW@QoB",
+    "DroneSCBW@QoBAtUnit",
+    "DroneSCBW"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "HatcherySCBW",
+    "CreepColonySCBW",
+    "ExtractorSCBW",
+    "SpawningPoolSCBW",
+    "EvolutionChamberSCBW",
+    "HydraliskDenSCBW",
+    "SpireSCBW",
+    "QueensNestSCBW",
+    "NydusCanalSCBW",
+    "DefilerMoundSCBW",
+    "UltraliskCavernSCBW"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [
+    "DroneSCBW@Burrowed"
+  ],
+  "$Producers": [
+    "AbilTrainHolderSCBW",
+    "LarvaSCBW"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackWorker",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@Harvest,Return",
+      "id": "DroneSCBW@ReturnCargo",
+      "Name": {
+        "enUS": "Return Cargo",
+        "zhCN": "Return Cargo",
+        "koKR": "Return Cargo"
+      },
+      "Tooltip": {
+        "enUS": "Returns the carried resources to the nearest drop-off point.",
+        "zhCN": "Returns the carried resources to the nearest drop-off point.",
+        "koKR": "Returns the carried resources to the nearest drop-off point."
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": {
+        "enUS": "Burrow",
+        "ruRU": "Закопаться "
+      },
+      "Tooltip": {
+        "enUS": "Buries the unit underground. Burrowed units are unable to move or attack, but they cannot be seen without detection.",
+        "ruRU": "Приказать боевой единице закопаться в землю. Закопавшиеся войска теряют возможность атаковать и передвигаться, но не могут быть обнаружены без детектора. "
+      }
+    },
+    {
+      "AbilCmd": "DefilerSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": {
+        "enUS": "Unburrow",
+        "ruRU": "Выкопаться "
+      },
+      "Tooltip": {
+        "enUS": "Returns the unit to the surface.",
+        "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": {
+        "enUS": "Unburrow",
+        "ruRU": "Выкопаться "
+      },
+      "Tooltip": {
+        "enUS": "Returns the unit to the surface.",
+        "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+      }
+    },
+    {
+      "AbilCmd": "HydraliskSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": {
+        "enUS": "Unburrow",
+        "ruRU": "Выкопаться "
+      },
+      "Tooltip": {
+        "enUS": "Returns the unit to the surface.",
+        "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+      }
+    },
+    {
+      "AbilCmd": "InfestedTerranSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": {
+        "enUS": "Unburrow",
+        "ruRU": "Выкопаться "
+      },
+      "Tooltip": {
+        "enUS": "Returns the unit to the surface.",
+        "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+      }
+    },
+    {
+      "AbilCmd": "ZerglingSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": {
+        "enUS": "Unburrow",
+        "ruRU": "Выкопаться "
+      },
+      "Tooltip": {
+        "enUS": "Returns the unit to the surface.",
+        "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+      }
+    },
+    {
+      "AbilCmd": "UltraliskSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": {
+        "enUS": "Unburrow",
+        "ruRU": "Выкопаться "
+      },
+      "Tooltip": {
+        "enUS": "Returns the unit to the surface.",
+        "ruRU": "Приказать боевой единице выкопаться из-под земли. "
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@Harvest,Gather",
+      "id": "DroneSCBW@Harvest",
+      "Icon": "btn-ability-zerg-gather",
+      "Name": {
+        "enUS": "Gather",
+        "zhCN": "Gather",
+        "koKR": "Gather"
+      },
+      "Tooltip": {
+        "enUS": "Orders Drone to gather resources from a selected Mineral Field or Vespene Geyser.",
+        "zhCN": "Orders Drone to gather resources from a selected Mineral Field or Vespene Geyser.",
+        "koKR": "Orders Drone to gather resources from a selected Mineral Field or Vespene Geyser."
+      }
+    },
+    {
+      "AbilCmd": "SprayZerg,Execute",
+      "id": "Spray",
+      "Icon": "btn-command-spray",
+      "Name": {
+        "enUS": "Spray",
+        "ruRU": "Граффити"
+      },
+      "Tooltip": {
+        "enUS": "Orders the unit to apply your currently selected spray to the terrain at the target location.",
+        "ruRU": "Приказать боевой единице отобразить на указанном участке поверхности ваше текущее граффити."
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@Build,Build1",
+      "id": "HatcherySCBW",
+      "Icon": "btn-building-zerg-hatchery-remastered",
+      "Name": {
+        "enUS": "Mutate into Hatchery",
+        "zhCN": "Mutate into Hatchery",
+        "koKR": "Mutate into Hatchery"
+      },
+      "Tooltip": {
+        "enUS": "Primary structure. Used to spawn all Zerg units and receive gathered resources. Grows creep used to feed nearby Zerg structures. Can mutate into a <span class=\"style-TooltipHighlightSCBW\"><b>Lair</b></span>.",
+        "zhCN": "Primary structure. Used to spawn all Zerg units and receive gathered resources. Grows creep used to feed nearby Zerg structures. Can mutate into a <span class=\"style-TooltipHighlightSCBW\"><b>Lair</b></span>.",
+        "koKR": "Primary structure. Used to spawn all Zerg units and receive gathered resources. Grows creep used to feed nearby Zerg structures. Can mutate into a <span class=\"style-TooltipHighlightSCBW\"><b>Lair</b></span>."
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@Build,Build2",
+      "id": "CreepColonySCBW",
+      "Icon": "btn-building-zerg-creepcolony@scbw",
+      "Name": {
+        "enUS": "Mutate into Creep Colony",
+        "zhCN": "Mutate into Creep Colony",
+        "koKR": "Mutate into Creep Colony"
+      },
+      "Tooltip": {
+        "enUS": "Creep generator structure. Can mutate into <span class=\"style-TooltipHighlightSCBW\"><b>Sunken Colony</b></span> or <span class=\"style-TooltipHighlightSCBW\"><b>Spore Colony</b></span>. Creep feeds nearby Zerg structures.",
+        "zhCN": "Creep generator structure. Can mutate into <span class=\"style-TooltipHighlightSCBW\"><b>Sunken Colony</b></span> or <span class=\"style-TooltipHighlightSCBW\"><b>Spore Colony</b></span>. Creep feeds nearby Zerg structures.",
+        "koKR": "Creep generator structure. Can mutate into <span class=\"style-TooltipHighlightSCBW\"><b>Sunken Colony</b></span> or <span class=\"style-TooltipHighlightSCBW\"><b>Spore Colony</b></span>. Creep feeds nearby Zerg structures."
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@Build,Build3",
+      "id": "ExtractorSCBW",
+      "Icon": "btn-building-zerg-extractor",
+      "Name": {
+        "enUS": "Mutate into Extractor",
+        "zhCN": "Mutate into Extractor",
+        "koKR": "Mutate into Extractor"
+      },
+      "Tooltip": {
+        "enUS": "Mutated over a <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> to allow harvesting of vespene gas.",
+        "zhCN": "Mutated over a <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> to allow harvesting of vespene gas.",
+        "koKR": "Mutated over a <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> to allow harvesting of vespene gas."
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@Build,Build4",
+      "id": "SpawningPoolSCBW",
+      "Icon": "btn-building-zerg-spawningpool@scbw",
+      "Name": {
+        "enUS": "Mutate into Spawning Pool",
+        "zhCN": "Mutate into Spawning Pool",
+        "koKR": "Mutate into Spawning Pool"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Zergling</b>s from <b>Larva</b>e<br/>- <b>Sunken Colony</b> from <b>Creep Colony</b>",
+        "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Zergling</b>s from <b>Larva</b>e<br/>- <b>Sunken Colony</b> from <b>Creep Colony</b>",
+        "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Zergling</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Zergling</b>s from <b>Larva</b>e<br/>- <b>Sunken Colony</b> from <b>Creep Colony</b>"
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@Build,Build5",
+      "id": "EvolutionChamberSCBW",
+      "Icon": "btn-building-zerg-evolutionchamber",
+      "Name": {
+        "enUS": "Mutate into Evolution Chamber",
+        "zhCN": "Mutate into Evolution Chamber",
+        "koKR": "Mutate into Evolution Chamber"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for Zerg ground units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Spore Colony</b> from <b>Creep Colony</b>",
+        "zhCN": "Contains upgrades for Zerg ground units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Spore Colony</b> from <b>Creep Colony</b>",
+        "koKR": "Contains upgrades for Zerg ground units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Spore Colony</b> from <b>Creep Colony</b>"
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@Build,Build6",
+      "id": "HydraliskDenSCBW",
+      "Icon": "btn-building-zerg-hydraliskden@scbw",
+      "Name": {
+        "enUS": "Mutate into Hydralisk Den",
+        "zhCN": "Mutate into Hydralisk Den",
+        "koKR": "Mutate into Hydralisk Den"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Hydralisk</b>s</span><br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Hydralisk</b> from <b>Larva</b>e",
+        "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Hydralisk</b>s</span><br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Hydralisk</b> from <b>Larva</b>e",
+        "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Hydralisk</b>s</span><br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Hydralisk</b> from <b>Larva</b>e"
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@BuildAdv,Build16",
+      "id": "SpireSCBW",
+      "Icon": "btn-building-zerg-spire",
+      "Name": {
+        "enUS": "Mutate into Spire",
+        "zhCN": "Mutate into Spire",
+        "koKR": "Mutate into Spire"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for Zerg air units. Can mutate into a <span class=\"style-TooltipHighlightSCBW\"><b>Greater Spire</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Mutalisk</b>s from <b>Larva</b>e<br/>- <b>Scourge</b>s from <b>Larva</b>e",
+        "zhCN": "Contains upgrades for Zerg air units. Can mutate into a <span class=\"style-TooltipHighlightSCBW\"><b>Greater Spire</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Mutalisk</b>s from <b>Larva</b>e<br/>- <b>Scourge</b>s from <b>Larva</b>e",
+        "koKR": "Contains upgrades for Zerg air units. Can mutate into a <span class=\"style-TooltipHighlightSCBW\"><b>Greater Spire</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Mutalisk</b>s from <b>Larva</b>e<br/>- <b>Scourge</b>s from <b>Larva</b>e"
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@BuildAdv,Build17",
+      "id": "QueensNestSCBW",
+      "Icon": "btn-building-zerg-queensnest@scbw",
+      "Name": {
+        "enUS": "Mutate into Queen's Nest",
+        "zhCN": "Mutate into Queen's Nest",
+        "koKR": "Mutate into Queen's Nest"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Queen</b>s</span><br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Queen</b>s from <b>Larva</b>e",
+        "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Queen</b>s</span><br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Queen</b>s from <b>Larva</b>e",
+        "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Queen</b>s</span><br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Queen</b>s from <b>Larva</b>e"
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@BuildAdv,Build18",
+      "id": "NydusCanalSCBW",
+      "Icon": "btn-building-zerg-nydusnetwork",
+      "Name": {
+        "enUS": "Mutate into Nydus Canal",
+        "zhCN": "Mutate into Nydus Canal",
+        "koKR": "Mutate into Nydus Canal"
+      },
+      "Tooltip": {
+        "enUS": "Friendly ground units can use the <span class=\"style-TooltipHighlightSCBW\"><b>Nydus Canal</b></span> to instantly travel to the other end of the <span class=\"style-TooltipHighlightSCBW\"><b>Nydus Canal</b></span> owned by the player.",
+        "zhCN": "Friendly ground units can use the <span class=\"style-TooltipHighlightSCBW\"><b>Nydus Canal</b></span> to instantly travel to the other end of the <span class=\"style-TooltipHighlightSCBW\"><b>Nydus Canal</b></span> owned by the player.",
+        "koKR": "Friendly ground units can use the <span class=\"style-TooltipHighlightSCBW\"><b>Nydus Canal</b></span> to instantly travel to the other end of the <span class=\"style-TooltipHighlightSCBW\"><b>Nydus Canal</b></span> owned by the player."
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@BuildAdv,Build19",
+      "id": "DefilerMoundSCBW",
+      "Icon": "btn-building-zerg-defilermound@scbw",
+      "Name": {
+        "enUS": "Mutate into Defiler Mound",
+        "zhCN": "Mutate into Defiler Mound",
+        "koKR": "Mutate into Defiler Mound"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Defiler</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Defiler</b>s from <b>Larva</b>e",
+        "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Defiler</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Defiler</b>s from <b>Larva</b>e",
+        "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Defiler</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Defiler</b>s from <b>Larva</b>e"
+      }
+    },
+    {
+      "AbilCmd": "DroneSCBW@BuildAdv,Build20",
+      "id": "UltraliskCavernSCBW",
+      "Icon": "btn-building-zerg-ultraliskcavern",
+      "Name": {
+        "enUS": "Mutate into Ultralisk Cavern",
+        "zhCN": "Mutate into Ultralisk Cavern",
+        "koKR": "Mutate into Ultralisk Cavern"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Ultralisk</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Ultralisk</b>s from <b>Larva</b>e",
+        "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Ultralisk</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Ultralisk</b>s from <b>Larva</b>e",
+        "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Ultralisk</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Ultralisk</b>s from <b>Larva</b>e"
+      }
+    }
+  ]
+}

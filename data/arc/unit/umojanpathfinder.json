@@ -1,0 +1,529 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Pathfinder"
+  },
+  "Description": {
+    "enUS": "Fast scout, equiped with anti-armour missiles. Can place down Ground Sensors. Can be upgraded to fire on the move and to place Strike Mines.<br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span><br/><br/>Role:Scout<br/>Strong: Heavy/Map vision<br/>Weak: Detector/Anti-light"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 90,
+  "LifeMax": 90,
+  "LifeArmorName": {
+    "enUS": "Umojan Vehicle Plating"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 1499.9414,
+  "TurningRate": 720,
+  "Radius": 0.625,
+  "SeparationRadius": 0.75,
+  "MinimapRadius": 0.625,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;-",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UmojanPathfinder",
+  "HotkeyAlias": "UmojanPathfinder",
+  "SelectAlias": "UmojanPathfinder",
+  "SubgroupAlias": "UmojanPathfinder",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UmojanAIPathfinder",
+  "AIEvaluateAlias": "UmojanPathfinder",
+  "ReviveType": "UmojanPathfinder",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "UmojanPathfinder/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "UmojanPathfinder/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Light",
+    "Mechanical",
+    "Hover"
+  ],
+  "ShieldsStart": 60,
+  "ShieldsMax": 60,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "Speed": 5,
+  "Acceleration": 1000,
+  "LateralAcceleration": 46,
+  "Sight": 10,
+  "Food": -3,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 150
+  },
+  "RepairTime": 30,
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "UmojanDeployStrikeMines",
+    "UmojanDeployGroundSensor",
+    "UmojanTrackingTarget"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "UmojanGladiusMissile"
+    },
+    {
+      "Link": "UmojanGladiusMissileMove"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilAugment",
+          "Name": "Abil/Name/UmojanTrackingTarget",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:TerU,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "UmojanTrackingTarget",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "MothershipCoreAttack"
+            }
+          },
+          "Alignment": "Positive",
+          "Effect": [
+            "UmojanTrackingTarget",
+            "UmojanTrancientWeaponTrackerSet"
+          ],
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "Smart": 1
+          },
+          "AbilCmd": "attack,Execute",
+          "Cost": {
+            "Cooldown": {
+              "TimeUse": 0.1
+            }
+          },
+          "SmartValidatorArray": [
+            "EnemyTarget"
+          ],
+          "id": "UmojanTrackingTarget"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanTrackingTarget,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      }
+    ]
+  },
+  "InnerRadius": 0.5,
+  "CargoSize": 4,
+  "ScoreMake": 200,
+  "ScoreKill": 200,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 80,
+  "GlossaryStrongArray": [
+    "Ultralisk",
+    "Immortal",
+    "SiegeTank"
+  ],
+  "GlossaryWeakArray": [
+    "LurkerMP",
+    "Ghost",
+    "Oracle"
+  ],
+  "HotkeyCategory": "Unit/Category/UmojanUnits",
+  "BehaviorArray": [
+    "UmojanAIKitingPathfinder",
+    "UmojanTransientAttackTracker"
+  ],
+  "AIKiteRange": 6,
+  "ShieldArmorName": {
+    "enUS": "Umojan Plasma Shields"
+  },
+  "GlossaryCategory": "Unit/Category/UmojanUnits",
+  "GlossaryPriority": 55,
+  "id": "UmojanPathfinder",
+  "Icon": "btn-unit-terran-vulture-umojan",
+  "LifeArmorIcon": "btn-upgrade-terran-vehicleplatinglevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Terran",
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel0",
+      "DisplayEffect": "UmojanPathfinderGladiusMissileDamage",
+      "TargetFilters": "Ground",
+      "MinScanRange": 5.5,
+      "Arc": 29.9926,
+      "Period": 1.2,
+      "Effect": "UmojanPathfinderGladiusMissileLM",
+      "AcquireTargetSorts": {
+        "SortArray": [
+          {
+            "value": "UmojanTSTrackedBy"
+          },
+          {
+            "value": "UmojanTSThreatenGround"
+          },
+          {
+            "value": "UmojanTSPriorityDesc"
+          }
+        ]
+      },
+      "id": "UmojanGladiusMissile",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Gladius Missile"
+      },
+      "Amount": 10,
+      "AttributeBonus": {
+        "Armored": 5
+      },
+      "Kind": "Ranged",
+      "Range": 5
+    },
+    {
+      "EditorCategories": "Race:Terran",
+      "Options": {
+        "Disabled": 1,
+        "Hidden": 1,
+        "OnlyFireWhileInAttackOrder": 0,
+        "OnlyFireAtAttackOrderTarget": 0
+      },
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel0",
+      "DisplayEffect": "UmojanPathfinderGladiusMissileDamage",
+      "TargetFilters": "Ground",
+      "MinScanRange": 5.5,
+      "Arc": 360,
+      "Period": 1.2,
+      "Effect": "UmojanPathfinderGladiusMissileLM",
+      "LegacyOptions": {
+        "FaceTargetWhileInCooldown": 0
+      },
+      "AllowedMovement": "Moving",
+      "AcquireTargetSorts": {
+        "SortArray": [
+          {
+            "value": "UmojanTSTrackedBy"
+          },
+          {
+            "value": "UmojanTSThreatenGround"
+          },
+          {
+            "value": "UmojanTSPriorityDesc"
+          }
+        ]
+      },
+      "id": "UmojanGladiusMissileMove",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Gladius Missile"
+      },
+      "Amount": 10,
+      "AttributeBonus": {
+        "Armored": 5
+      },
+      "Kind": "Ranged",
+      "Range": 5
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "UmojanAIKitingPathfinder",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Umojan - AI Kiting Pathfinder"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "UmojanTransientAttackTracker",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Umojan - Transient - Attack Tracker"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "UmojanDeployStrikeMines",
+      "Name": {
+        "enUS": "Deploy Strike Mines"
+      }
+    },
+    {
+      "id": "UmojanDeployGroundSensor",
+      "Name": {
+        "enUS": "Deploy Ground Sensor"
+      }
+    },
+    {
+      "id": "UmojanTrackingTarget",
+      "Name": {
+        "enUS": "Umojan - Tracking Target"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "UmojanThreatensGround",
+    "UmojanPathfinder",
+    "UmojanStrikeMineReserve",
+    "UmojanMobileTargeting",
+    "UmojanFactoryTrain",
+    "UmojanPathfinder",
+    "UmojanVehiclePlatingLevel1",
+    "UmojanVehiclePlating",
+    "UmojanVehiclePlatingLevel2",
+    "UmojanVehiclePlatingLevel3",
+    "UmojanVehicleWeaponsLevel1",
+    "UmojanVehicleWeapons",
+    "UmojanVehicleWeaponsLevel2",
+    "UmojanVehicleWeaponsLevel3",
+    "UmojanVehicleandShipPlatingLevel1",
+    "UmojanVehicleandShipPlating",
+    "UmojanVehicleandShipPlatingLevel2",
+    "UmojanVehicleandShipPlatingLevel3",
+    "UmojanFactory",
+    "UmojanShieldsLevel1",
+    "UmojanShields",
+    "UmojanShieldsLevel2",
+    "UmojanShieldsLevel3"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "UmojanStasisMine",
+    "UmojanGroundSensor"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "UmojanFactory"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "UmojanDeployStrikeMines,Execute",
+      "id": "UmojanDeployStasisMine",
+      "Icon": "btn-upgrade-terran-spidermineex3",
+      "Name": {
+        "enUS": "Deploy Stasis Mine"
+      },
+      "Tooltip": {
+        "enUS": "Stasis Mines pursue enemy units that come in range, and detonate to stase all units for <b>5.0</b>s in an area. Buried Stasis Mines can only be seen by enemy Detectors.<br/>Units get a <b>5.0</b>s immunity to further stasis."
+      }
+    },
+    {
+      "AbilCmd": "UmojanDeployGroundSensor,Execute",
+      "id": "UmojanDeployGroundSensor",
+      "Icon": "btn-unit-terran-widowmine-umojan",
+      "Name": {
+        "enUS": "Deploy Ground Sensor"
+      },
+      "Tooltip": {
+        "enUS": "Ground Sensors detect nearby ground enemy movement, but do not reveal the area. Buried Ground Sensors can only be seen by enemy Detectors."
+      }
+    },
+    {
+      "AbilCmd": "UmojanTrackingTarget,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    }
+  ]
+}

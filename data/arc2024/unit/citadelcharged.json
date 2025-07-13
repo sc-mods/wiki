@@ -1,0 +1,1648 @@
+{
+  "Name": "Citadel",
+  "Description": "Primary structure. Used to create all Keiron units and receive gathered resources. Can use Energize.",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 2,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Keir",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1250,
+  "LifeMax": 1250,
+  "LifeArmorName": "Keiron Structure Armor",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 2,
+  "SeparationRadius": 2,
+  "MinimapRadius": 2.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing",
+    "PreventReveal",
+    "TownCamera",
+    "TownStructureTownHall"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "Citadel",
+  "HotkeyAlias": "Citadel",
+  "SelectAlias": "Citadel",
+  "SubgroupAlias": "Citadel",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "Citadel",
+  "AIEvaluateAlias": "Citadel",
+  "ReviveType": "Citadel",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "Citadel/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "Citadel/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Flying5"
+  ],
+  "Attributes": [
+    "Armored",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "Sight": 11,
+  "CostCategory": "Economy",
+  "ScoreResult": "BuildOrder",
+  "HotkeyCategory": "Unit/Category/KeironUnits",
+  "LifeRegenRate": 0.2734,
+  "Food": 18,
+  "Footprint": "FootprintCitadelContour",
+  "PlacementFootprint": "FootprintCitadelDropOff",
+  "ShieldArmorName": "Keiron Dispersion Shields",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "QueueSize": 5,
+          "id": "que5"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "SelectBuilder",
+        "id": "SelectBuilderKeiron",
+        "Icon": "btn-upgrade-terran-weaponrefit",
+        "Tooltip": "Selects the unit constructing this structure.",
+        "Name": "Select Builder",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "RallyCommand,Rally1",
+        "id": "Rally",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Tooltip": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+        "Name": "Set Rally Point",
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Converter"
+          },
+          "Unit": [
+            "Converter"
+          ],
+          "Time": 17
+        },
+        "Unit": [
+          "Converter"
+        ],
+        "Time": 17,
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelTrain,Train1",
+        "id": "Converter",
+        "Icon": "btn-unit-keiron-converter",
+        "Tooltip": "Basic worker unit. Can gather resources and shape Keiron structures.**Can attack ground units**",
+        "Name": "Materialize Converter",
+        "Hotkey": "E"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "0003",
+        "id": "MaterializeAirUnits",
+        "Icon": "btn-command-keiron-materializeair",
+        "Tooltip": "A list of air units.",
+        "Name": "Materialize Air Units",
+        "Hotkey": "X"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/CitadelEnergize",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Keiron,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "CitadelEnergize",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1
+          },
+          "Effect": [
+            "CitadelEnergize"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "CitadelEnergize",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "CitadelEnergize",
+              "Requirements": "CitadelIsCharged"
+            }
+          },
+          "Cost": [
+            {
+              "Vital": {
+                "Energy": 50
+              },
+              "Cooldown": {
+                "TimeUse": 21
+              }
+            }
+          ],
+          "id": "CitadelEnergize"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 50,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "CitadelEnergize,Execute",
+        "SubmenuCardId": "",
+        "id": "CitadelEnergize",
+        "Icon": "btn-progression-protoss-fenix-10-acceleratedtech",
+        "Tooltip": "Boosts the movement speed, shield armor, and regeneration of nearby units.<br/><br/><span style=\"color: #FFFF80\">Also increases worker harvesting speeds.</span>",
+        "Name": "Energize",
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Aegis",
+            "Requirements": "AegisRequirements"
+          },
+          "Unit": [
+            "Aegis"
+          ],
+          "Flags": {
+            "IgnorePlacement": 1
+          },
+          "Time": 100
+        },
+        "Unit": [
+          "Aegis"
+        ],
+        "Time": 100,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 400,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelAegisTrain,Train1",
+        "id": "Aegis",
+        "Icon": "btn-unit-keiron-aegis",
+        "Tooltip": "Powerful defense structure. Can use Relocate and Activate Shield.<br/><br/><span style=\"color: #FFFF80\">Can attack ground and air units.</span>",
+        "Name": "Materialize Aegis",
+        "Hotkey": "A"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "AbilCmd": "",
+        "SubmenuCardId": "0002",
+        "id": "MaterializeGroundUnits",
+        "Icon": "btn-command-keiron-materializeground",
+        "Tooltip": "A list of ground units.",
+        "Name": "Materialize Ground Units",
+        "Hotkey": "Z"
+      }
+    ],
+    "0002": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializePariah"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironMaterializeParVol",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironMaterializeParVol",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Pariah"
+        },
+        "Unit": "Pariah",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train1",
+        "id": "MaterializePariah",
+        "Icon": "btn-unit-keiron-pariah",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Edifice</span>.<br/><br/>",
+        "Name": "Materialize Pariah",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeVolt"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironMaterializeParVol",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironMaterializeParVol",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Volt"
+        },
+        "Unit": "Volt",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train2",
+        "id": "MaterializeVolt",
+        "Icon": "btn-unit-keiron-volt",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Edifice</span>.<br/><br/>",
+        "Name": "Materialize Volt",
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializePulsar"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironMaterializePulSub",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironMaterializePulSub",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Pulsar"
+        },
+        "Unit": "Pulsar",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train3",
+        "id": "MaterializePulsar",
+        "Icon": "btn-unit-keiron-pulsar",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Sanctum</span>.<br/><br/>",
+        "Name": "Materialize Pulsar",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeCataract"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironMaterializePulSub",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironMaterializePulSub",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Cataract"
+        },
+        "Unit": "Cataract",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train4",
+        "id": "MaterializeCataract",
+        "Icon": "btn-unit-keiron-cataract",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Sanctum</span>.<br/><br/>",
+        "Name": "Materialize Cataract",
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeMyriad"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironCitadelMaterializeIndMyr",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironCitadelMaterializeIndMyr",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Myriad"
+        },
+        "Unit": "Myriad",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 250,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -6
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train8",
+        "id": "MaterializeMyriad",
+        "Icon": "btn-unit-keiron-myriad",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Atrium</span>.<br/><br/>",
+        "Name": "Materialize Myriad",
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeCrux"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironMaterializeMeridian",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironMaterializeMeridian",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Crux"
+        },
+        "Unit": "Crux",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train5",
+        "id": "MaterializeCrux",
+        "Icon": "btn-unit-keiron-meridian",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Elysium</span>.<br/><br/>",
+        "Name": "Materialize Crux",
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeUmbra"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironCitadelMaterializeUmbra",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironCitadelMaterializeUmbra",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Umbra"
+        },
+        "Unit": "Umbra",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train6",
+        "id": "MaterializeUmbra",
+        "Icon": "btn-unit-keiron-umbra",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Foundry</span>.<br/><br/>",
+        "Name": "Materialize Umbra",
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeWard"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironCitadelMaterializeUmbra",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironCitadelMaterializeUmbra",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Ward"
+        },
+        "Unit": "Ward",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train18",
+        "id": "MaterializeWard",
+        "Icon": "btn-unit-keiron-ward",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Foundry</span>.<br/><br/>",
+        "Name": "Materialize Ward",
+        "Hotkey": "W"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeInducer"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironCitadelMaterializeIndMyr",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironCitadelMaterializeIndMyr",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Inducer"
+        },
+        "Unit": "Inducer",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 250,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -5
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train7",
+        "id": "MaterializeInducer",
+        "Icon": "btn-unit-keiron-inducer",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Atrium</span>.<br/><br/>",
+        "Name": "Materialize Inducer",
+        "Hotkey": "D"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "0003",
+        "id": "MaterializeAirUnits",
+        "Icon": "btn-command-keiron-materializeair",
+        "Tooltip": "A list of air units.",
+        "Name": "Materialize Air Units",
+        "Hotkey": "X"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeTitan"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironCitadelMaterializeTitan",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironCitadelMaterializeTitan",
+            "Location": "Player"
+          },
+          "Time": 10,
+          "Unit": "Titan"
+        },
+        "Unit": "Titan",
+        "Time": 10,
+        "Cost": {
+          "Minerals": 325,
+          "Vespene": 225,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -6
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train9",
+        "id": "MaterializeTitan",
+        "Icon": "btn-unit-keiron-titan",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Pantheon</span>.</n><br/>",
+        "Name": "Materialize Titan",
+        "Hotkey": "T"
+      }
+    ],
+    "0003": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeEcho"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironCitadelMaterializeEcho",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironCitadelMaterializeEcho",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Echo"
+        },
+        "Unit": "Echo",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train10",
+        "id": "MaterializeEcho",
+        "Icon": "btn-unit-keiron-echo",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Conduit</span>.<br/><br/>",
+        "Name": "Materialize Echo",
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeFuse"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironCitadelMaterializeEcho",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironCitadelMaterializeEcho",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Fuse"
+        },
+        "Unit": "Fuse",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1.5
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train17",
+        "id": "MaterializeFuse",
+        "Icon": "btn-unit-keiron-fuse",
+        "Name": "Materialize Fuse",
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeAurora"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironCitadelMaterializeAurApe",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironCitadelMaterializeAurApe",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Aurora"
+        },
+        "Unit": "Aurora",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 125,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train11",
+        "id": "MaterializeAurora",
+        "Icon": "btn-unit-keiron-aurora",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Outlet</span>.<br/><br/>",
+        "Name": "Materialize Aurora",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeAperture"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironCitadelMaterializeAurApe",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironCitadelMaterializeAurApe",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Aperture"
+        },
+        "Unit": "Aperture",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train12",
+        "id": "MaterializeAperture",
+        "Icon": "btn-unit-keiron-aperture",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Outlet</span>.<br/><br/>",
+        "Name": "Materialize Aperture",
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeHarbinger"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironCitadelMaterializeHarPar",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironCitadelMaterializeHarPar",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Harbinger"
+        },
+        "Unit": "Harbinger",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 275,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -4
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train13",
+        "id": "MaterializeHarbinger",
+        "Icon": "btn-unit-keiron-harbinger",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Empyrean</span>.<br/><br/>",
+        "Name": "Materialize Harbinger",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeGyre"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironCitadelMaterializeHarPar",
+            "Location": "Player"
+          },
+          "Time": 5,
+          "Unit": "Gyre"
+        },
+        "Unit": "Gyre",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train14",
+        "id": "MaterializeGyre",
+        "Icon": "btn-unit-keiron-paradox",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Empyrean</span>.<br/><br/>",
+        "Name": "Materialize Gyre",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 1
+            },
+            "DefaultButtonFace": "MaterializeParagon"
+          },
+          "Charge": {
+            "CountMax": 500000,
+            "CountUse": 1,
+            "Link": "Abil/KeironCitadelMaterializeParagon",
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Link": "Abil/KeironCitadelMaterializeParagon",
+            "Location": "Player"
+          },
+          "Time": 10,
+          "Unit": "Paragon"
+        },
+        "Unit": "Paragon",
+        "Time": 10,
+        "Cost": {
+          "Minerals": 450,
+          "Vespene": 350,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -7
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "KeironCitadelMaterialize,Train15",
+        "id": "MaterializeParagon",
+        "Icon": "btn-unit-keiron-paragon",
+        "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Zenith</span>.<br/><br/>",
+        "Name": "Materialize Paragon",
+        "Hotkey": "G"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "0002",
+        "id": "MaterializeGroundUnits",
+        "Icon": "btn-command-keiron-materializeground",
+        "Tooltip": "A list of ground units.",
+        "Name": "Materialize Ground Units",
+        "Hotkey": "Z"
+      }
+    ]
+  },
+  "id": "CitadelCharged",
+  "Facing": 315,
+  "ResourceDropOff": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "ShieldsStart": 500,
+  "ShieldsMax": 500,
+  "CostResource": {
+    "Minerals": 575
+  },
+  "ScoreMake": 150,
+  "ScoreKill": 550,
+  "TechAliasArray": [
+    "Alias_Citadel"
+  ],
+  "TechTreeProducedUnitArray": [
+    "Converter",
+    "Pariah",
+    "Volt",
+    "Pulsar",
+    "Cataract",
+    "Crux",
+    "Umbra",
+    "Ward",
+    "Inducer",
+    "Myriad",
+    "Titan",
+    "Echo",
+    "Fuse",
+    "Aurora",
+    "Aperture",
+    "Harbinger",
+    "Gyre",
+    "Paragon",
+    "Aegis"
+  ],
+  "EnergyMax": 100,
+  "EnergyRegenRate": 0.5625,
+  "EnergyStart": 50,
+  "Icon": "btn-building-keiron-citadel",
+  "LifeArmorIcon": "btn-upgrade-keiron-structurearmor",
+  "ShieldArmorIcon": "btn-upgrade-keiron-shields-level0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "KeironShellRestoration"
+    },
+    {
+      "id": "CitadelPowerSource",
+      "Icon": "btn-building-keiron-citadel"
+    },
+    {
+      "id": "KeironShellRestorationAura"
+    },
+    {
+      "id": "KeironStructureCharged"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "que5",
+      "Name": "Queue (5)"
+    },
+    {
+      "id": "RallyCommand",
+      "Name": "Command Center - Rally"
+    },
+    {
+      "id": "KeironCitadelTrain",
+      "Name": "Keiron - Citadel Train"
+    },
+    {
+      "id": "KeironCitadelAegisTrain",
+      "Name": "Keiron - Citadel Aegis Train"
+    },
+    {
+      "id": "KeironCitadelMaterialize",
+      "Name": "Keiron - Citadel Materialize"
+    },
+    {
+      "id": "CitadelEnergize",
+      "Name": "Citadel - Energize"
+    }
+  ],
+  "$Upgrades": [
+    "IsCitadelCharged",
+    "KeironShieldsLevel1",
+    "CitadelChargeMorph",
+    "Citadel",
+    "KeironCitadelPlayerDecalMacro",
+    "KeironShields",
+    "KeironShieldsLevel2",
+    "KeironShieldsLevel3",
+    "NotCitadelCharged",
+    "KeironShieldsRevert"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "Converter",
+    "Aegis",
+    "Echo",
+    "Fuse",
+    "Aurora",
+    "Aperture",
+    "Harbinger",
+    "Gyre",
+    "Paragon",
+    "Pariah",
+    "Volt",
+    "Pulsar",
+    "Cataract",
+    "Myriad",
+    "Crux",
+    "Umbra",
+    "Ward",
+    "Inducer",
+    "Titan"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "CitadelCharge,255",
+      "id": "CancelUpgradeMorph",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels the upgrade order, returning the structure to its original state.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "RallyCommand,Rally1",
+      "id": "Rally",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Tooltip": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+      "Name": "Set Rally Point"
+    },
+    {
+      "AbilCmd": "KeironCitadelTrain,Train1",
+      "id": "Converter",
+      "Icon": "btn-unit-keiron-converter",
+      "Tooltip": "Basic worker unit. Can gather resources and shape Keiron structures.**Can attack ground units**",
+      "Name": "Materialize Converter"
+    },
+    {
+      "AbilCmd": "CitadelEnergize,Execute",
+      "id": "CitadelEnergize",
+      "Icon": "btn-progression-protoss-fenix-10-acceleratedtech",
+      "Tooltip": "Boosts the movement speed, shield armor, and regeneration of nearby units.<br/><br/><span style=\"color: #FFFF80\">Also increases worker harvesting speeds.</span>",
+      "Name": "Energize"
+    },
+    {
+      "AbilCmd": "KeironCitadelAegisTrain,Train1",
+      "id": "Aegis",
+      "Icon": "btn-unit-keiron-aegis",
+      "Tooltip": "Powerful defense structure. Can use Relocate and Activate Shield.<br/><br/><span style=\"color: #FFFF80\">Can attack ground and air units.</span>",
+      "Name": "Materialize Aegis"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train1",
+      "id": "MaterializePariah",
+      "Icon": "btn-unit-keiron-pariah",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Edifice</span>.<br/><br/>",
+      "Name": "Materialize Pariah"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train2",
+      "id": "MaterializeVolt",
+      "Icon": "btn-unit-keiron-volt",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Edifice</span>.<br/><br/>",
+      "Name": "Materialize Volt"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train3",
+      "id": "MaterializePulsar",
+      "Icon": "btn-unit-keiron-pulsar",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Sanctum</span>.<br/><br/>",
+      "Name": "Materialize Pulsar"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train4",
+      "id": "MaterializeCataract",
+      "Icon": "btn-unit-keiron-cataract",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Sanctum</span>.<br/><br/>",
+      "Name": "Materialize Cataract"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train8",
+      "id": "MaterializeMyriad",
+      "Icon": "btn-unit-keiron-myriad",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Atrium</span>.<br/><br/>",
+      "Name": "Materialize Myriad"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train5",
+      "id": "MaterializeCrux",
+      "Icon": "btn-unit-keiron-meridian",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Elysium</span>.<br/><br/>",
+      "Name": "Materialize Crux"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train6",
+      "id": "MaterializeUmbra",
+      "Icon": "btn-unit-keiron-umbra",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Foundry</span>.<br/><br/>",
+      "Name": "Materialize Umbra"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train18",
+      "id": "MaterializeWard",
+      "Icon": "btn-unit-keiron-ward",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Foundry</span>.<br/><br/>",
+      "Name": "Materialize Ward"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train7",
+      "id": "MaterializeInducer",
+      "Icon": "btn-unit-keiron-inducer",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Atrium</span>.<br/><br/>",
+      "Name": "Materialize Inducer"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train9",
+      "id": "MaterializeTitan",
+      "Icon": "btn-unit-keiron-titan",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Pantheon</span>.</n><br/>",
+      "Name": "Materialize Titan"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train10",
+      "id": "MaterializeEcho",
+      "Icon": "btn-unit-keiron-echo",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Conduit</span>.<br/><br/>",
+      "Name": "Materialize Echo"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train17",
+      "id": "MaterializeFuse",
+      "Icon": "btn-unit-keiron-fuse",
+      "Name": "Materialize Fuse"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train11",
+      "id": "MaterializeAurora",
+      "Icon": "btn-unit-keiron-aurora",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Outlet</span>.<br/><br/>",
+      "Name": "Materialize Aurora"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train12",
+      "id": "MaterializeAperture",
+      "Icon": "btn-unit-keiron-aperture",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Outlet</span>.<br/><br/>",
+      "Name": "Materialize Aperture"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train13",
+      "id": "MaterializeHarbinger",
+      "Icon": "btn-unit-keiron-harbinger",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Empyrean</span>.<br/><br/>",
+      "Name": "Materialize Harbinger"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train14",
+      "id": "MaterializeGyre",
+      "Icon": "btn-unit-keiron-paradox",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Empyrean</span>.<br/><br/>",
+      "Name": "Materialize Gyre"
+    },
+    {
+      "AbilCmd": "KeironCitadelMaterialize,Train15",
+      "id": "MaterializeParagon",
+      "Icon": "btn-unit-keiron-paragon",
+      "Tooltip": "Produced by the <span style=\"color: #FFFF80\">Zenith</span>.<br/><br/>",
+      "Name": "Materialize Paragon"
+    }
+  ]
+}

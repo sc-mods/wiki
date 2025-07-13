@@ -1,0 +1,3579 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "frFR": "VCS",
+    "deDE": "WBF",
+    "esES": "VCE",
+    "esMX": "VCE ",
+    "ruRU": "КСМ",
+    "koKR": "건설로봇 ",
+    "zhCN": "SCV ",
+    "zhTW": "太空工程車 ",
+    "plPL": "ERK",
+    "itIT": "SCV",
+    "ptBR": "VCE "
+  },
+  "Description": {
+    "frFR": "Unité ouvrière de base. Peut récolter des ressources, construire des bâtiments terrans et les réparer.<br/><br/><span style=\"color: ##ffff8a\">Peut attaquer les unités terrestres.</span> ",
+    "deDE": "Einfache Arbeitereinheit. Baut Ressourcen ab, baut Gebäude und führt Reparaturen durch.<br/><br/><span style=\"color: ##ffff8a\">Kann Bodeneinheiten angreifen.</span> ",
+    "esES": "Unidad obrera básica. Puede recoger recursos, construir edificios terran y reparar.<br/><br/><span style=\"color: ##ffff8a\">Puede atacar a unidades terrestres.</span> ",
+    "esMX": "Unidad trabajadora básica. Puede recolectar recursos, construir estructuras terran y hacer reparaciones.<br/><br/><span style=\"color: ##ffff8a\">Ataca a unidades terrestres.</span> ",
+    "ruRU": "Базовая рабочая единица. Добывает ресурсы, строит здания и проводит ремонтные работы.<br/><br/><span style=\"color: ##ffff8a\">Атакует только наземные цели.</span>",
+    "koKR": "기본 일꾼 유닛입니다. 자원을 채취하고, 건물을 건설하며, 건물과 유닛을 수리할 수 있습니다.<br/><br/><span style=\"color: ##ffff8a\">지상 유닛 공격 가능</span> ",
+    "zhCN": "基础工作单位。用于采集资源、建造人类建筑和修理。<br/><br/><span style=\"color: ##ffff8a\">可以对地。</span> ",
+    "zhTW": "基礎工作單位。可採集資源、建造人類建築及進行修復。<br/><br/><span style=\"color: ##ffff8a\">可攻擊地面單位。</span> ",
+    "plPL": "Podstawowa jednostka robotnicza wykorzystywana do zbierania surowców, tworzenia budowli i napraw.<br/><br/><span style=\"color: ##ffff8a\">Może atakować jednostki naziemne.</span> ",
+    "itIT": "Lavoratore di base. Può raccogliere risorse, costruire strutture terran e riparare.<br/><br/><span style=\"color: ##ffff8a\">Può attaccare unità terrestri.</span>",
+    "ptBR": "Unidade trabalhadora básica. Extrai recursos, constrói estruturas terranas e realiza reparos.<br/><br/><span style=\"color: ##ffff8a\">Ataca unidades terrestres.</span> "
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Terr",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 45,
+  "LifeMax": 45,
+  "LifeArmorName": {
+    "frFR": "Armure infanterie terrane",
+    "deDE": "Infanteriepanzerung (Terraner)",
+    "esES": "Armadura de infantería terran",
+    "esMX": "Armadura de infantería terran ",
+    "ruRU": "Броня пехоты терранов",
+    "koKR": "테란 보병 장갑 ",
+    "zhCN": "人类步兵护甲 ",
+    "zhTW": "人類步兵的裝甲 ",
+    "plPL": "Pancerz piechoty terran",
+    "itIT": "Corazza fanteria terran",
+    "ptBR": "Armadura de infantaria terrana "
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "Worker",
+    "PreventDestroy",
+    "UseLineOfSight"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SCV",
+  "HotkeyAlias": "SCV",
+  "SelectAlias": "SCV",
+  "SubgroupAlias": "SCV",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SCV",
+  "AIEvaluateAlias": "SCV",
+  "ReviveType": "SCV",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33,
+      "Turn": 33
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "SCV/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "SCV/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "Mob": "Multiplayer",
+  "Speed": 2.8125,
+  "Acceleration": 2.5,
+  "LateralAcceleration": 46,
+  "Food": -1,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 50
+  },
+  "RepairTime": 16.667,
+  "AttackTargetPriority": 20,
+  "AIOverideTargetPriority": 10,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 10,
+  "InnerRadius": 0.375,
+  "CargoSize": 1,
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 6,
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Small",
+    "Locust"
+  ],
+  "Sight": 8,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "Repair",
+    "SCVHarvest",
+    "TerranBuild",
+    "TerranBuildDrop"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться ",
+          "frFR": "Déplacer ",
+          "deDE": "Bewegen ",
+          "esES": "Mover ",
+          "esMX": "Mover ",
+          "koKR": "이동 ",
+          "zhCN": "移动 ",
+          "zhTW": "移動 ",
+          "plPL": "Ruch ",
+          "itIT": "Muovi",
+          "ptBR": "Deslocar "
+        },
+        "Tooltip": {
+          "frFR": "Ordonne aux unités sélectionnées de se déplacer vers la zone ciblée ou de suivre l’unité ciblée. Les unités en cours de déplacement n’engageront pas le combat contre les ennemis. ",
+          "deDE": "Befiehlt den ausgewählten Einheiten, sich in ein Zielgebiet zu bewegen oder der Zieleinheit zu folgen. Einheiten in Bewegung werden keine feindlichen Einheiten angreifen. ",
+          "esES": "Ordena a las unidades seleccionadas que se desplacen hasta la zona señalada o que sigan a la unidad objetivo. No entablarán combate con los enemigos. ",
+          "esMX": "Ordena el desplazamiento de las unidades seleccionadas hacia el área objetivo o la persecución de la unidad objetivo. Las unidades en movimiento no atacarán a las unidades enemigas. ",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником.",
+          "koKR": "선택한 지점으로 이동하거나 대상 유닛을 따라갑니다. 이동 중인 유닛은 적과 교전하지 않습니다. ",
+          "zhCN": "命令选中的单位移至目标区域或跟随目标单位。正在移动的单位不会与敌人交战。 ",
+          "zhTW": "命令選取的單位移動至目標區域或跟隨目標單位。移動中的單位不會與敵方交戰。 ",
+          "plPL": "Rozkazuje wybranym jednostkom przejście do celu lub podążanie za jednostką. Poruszające się jednostki nie będą atakować wrogów. ",
+          "itIT": "Ordina alle unità selezionate di raggiungere la zona bersaglio o seguire l'unità bersaglio. Le unità in movimento non attaccano i nemici.",
+          "ptBR": "Ordena que unidades selecionadas se desloquem até a área de alvo ou sigam a unidade alvo. Unidades em movimento não travam combate com os inimigos. "
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить ",
+          "frFR": "Interrompre ",
+          "deDE": "Stoppen ",
+          "esES": "Detener ",
+          "esMX": "Detener ",
+          "koKR": "정지 ",
+          "zhCN": "停止 ",
+          "zhTW": "停止 ",
+          "plPL": "Zatrzymaj ",
+          "itIT": "Ferma",
+          "ptBR": "Parar "
+        },
+        "Tooltip": {
+          "frFR": "Ordonne aux unités sélectionnées d’abandonner tous les ordres en cours et de rester immobiles. ",
+          "deDE": "Befiehlt den ausgewählten Einheiten, die Ausführung aller Befehle abzubrechen und Bewegungen einzustellen. ",
+          "esES": "Ordena a las unidades seleccionadas que anulen todas las órdenes y que se detengan. ",
+          "esMX": "Ordena a las unidades seleccionadas que cancelen todas las órdenes y se detengan. ",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться.",
+          "koKR": "모든 지시 사항을 취소하고 이동을 멈춥니다. ",
+          "zhCN": "命令选中的单位不再执行任何命令并停止移动。 ",
+          "zhTW": "命令選取的單位取消所有指令並且停止移動。 ",
+          "plPL": "Anuluje wszystkie rozkazy wybranych jednostek i zatrzymuje je. ",
+          "itIT": "Annulla tutti gli ordini delle unità selezionate e le fa fermare.",
+          "ptBR": "Ordena que as unidades selecionadas cancelem todas as ordens anteriores e parem de se deslocar. "
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Move Hold Position",
+          "ruRU": "Удерживать позицию ",
+          "frFR": "Tenir la position ",
+          "deDE": "Position halten ",
+          "esES": "Mantener posición ",
+          "esMX": "Mantener posición ",
+          "koKR": "위치 사수 ",
+          "zhCN": "原地防御 ",
+          "zhTW": "原地防守 ",
+          "plPL": "Utrzymaj pozycję ",
+          "itIT": "Tieni la posizione",
+          "ptBR": "Manter a posição "
+        },
+        "Tooltip": {
+          "frFR": "Ordonne aux unités sélectionnées de tenir la position et d’attaquer les ennemis à portée. Elles ne pourchasseront pas les ennemis et ne se déplaceront pas pour engager le combat. ",
+          "deDE": "Befiehlt den ausgewählten Einheiten, ihre momentane Position zu halten und alle Feinde in Reichweite anzugreifen. Die Einheiten werden keine Feinde verfolgen oder sich zwecks Angriffs zu ihnen hinbewegen. ",
+          "esES": "Ordena a las unidades seleccionadas que se queden en su posición y que ataquen a los enemigos que estén al alcance. Ni perseguirán a los enemigos ni se moverán para entablar combate. ",
+          "esMX": "Les ordena a las unidades seleccionadas que permanezcan donde están y ataquen a los enemigos al alcance. Las unidades no perseguirán a los enemigos ni se movilizarán para entrar en combate. ",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой.",
+          "koKR": "현재 위치를 유지하며, 사거리에 들어오는 적을 공격합니다. 유닛은 적을 뒤쫓거나 이동하여 교전하지 않습니다. ",
+          "zhCN": "命令选中的单位待在原地，并攻击射程内的敌方目标。接受命令的单位不会对敌人进行追击或移向敌人与其交战。 ",
+          "zhTW": "命令選取的單位原地待命並且攻擊射程內的敵人。原地防守的單位不會為了交戰而移動。 ",
+          "plPL": "Rozkazuje wybranym jednostkom pozostać na miejscu i atakować wrogów w swoim zasięgu. Jednostki nie będą ścigać wrogów, ani ruszać do ataku. ",
+          "itIT": "Ordina alle unità selezionate di rimanere dove si trovano e attaccare i nemici a portata di tiro. Le unità non inseguiranno i nemici né si sposteranno per attaccare.",
+          "ptBR": "Ordena que unidades selecionadas permaneçam onde estão e ataquem os inimigos que estiverem ao alcance. As unidades não perseguem inimigos e nem se deslocam para travar combate. "
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackWorker",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "frFR": "Attaquer ",
+          "deDE": "Angreifen ",
+          "esES": "Atacar ",
+          "esMX": "Atacar ",
+          "ruRU": "Атаковать ",
+          "koKR": "공격 ",
+          "zhCN": "攻击 ",
+          "zhTW": "攻擊 ",
+          "plPL": "Atak ",
+          "itIT": "Attacca",
+          "ptBR": "Atacar "
+        },
+        "Tooltip": {
+          "frFR": "Ordonne aux unités sélectionnées de se déplacer vers le point ciblé et de combattre les ennemis proches en chemin. Cibler une unité avec la commande Attaquer lui ordonne d’être attaquée jusqu’à ce qu’elle soit détruite.",
+          "deDE": "Befiehlt den ausgewählten Einheiten, sich zum Zielort zu begeben und auf dem Weg nahe Feinde anzugreifen. Visiert man eine Einheit mit diesem Befehl an, wird sie so lange angegriffen, bis sie zerstört ist.",
+          "esES": "Ordena a las unidades seleccionadas que se desplacen hasta el punto objetivo y luchen con los enemigos cercanos por el camino. Las unidades que reciban esta orden atacarán a su objetivo hasta que muera. ",
+          "esMX": "Ordena a las unidades seleccionadas moverse hacia la ubicación objetivo y pelear contra los enemigos que se encuentren en el camino. El uso del comando atacar contra una unidad hará que la ataquen hasta que quede destruida. ",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения.",
+          "koKR": "선택한 지점으로 이동하며 도중에 만나는 적을 공격합니다. 공격 명령으로 유닛을 지정하면 지정한 유닛이 파괴될 때까지 공격합니다. ",
+          "zhCN": "命令选中的单位移动到目标地点，并对沿途遭遇的敌人发起攻击。收到攻击一个目标的命令后，单位会持续攻击该目标，直到对方被消灭。 ",
+          "zhTW": "命令選取的單位行進至目的地，攻擊任何行進中所遭遇的敵人。當使用攻擊指令點選敵方單位，我方單位將持續攻擊直到目標毀滅。  ",
+          "plPL": "Rozkazuje wybranym jednostkom udać się do punktu docelowego i walczyć po drodze z wrogami. Wystarczy wskazać jednostkę przeciwnika, aby stała się ona celem ciągłego ataku, aż zostanie zniszczona.",
+          "itIT": "Ordina alle unità selezionate di raggiungere il punto indicato ingaggiando i nemici sul percorso. Quando si usa il comando di attacco contro un'unità, il bersaglio verrà attaccato fino alla sua distruzione.",
+          "ptBR": "Ordena que unidades selecionadas sigam para o ponto designado, combatendo inimigos encontrados no caminho. Mirar numa unidade com o comando de ataque ordena que ela seja atacada até ser destruída. "
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Move Patrol",
+          "ruRU": "Патрулировать ",
+          "frFR": "Patrouiller ",
+          "deDE": "Patrouillieren ",
+          "esES": "Patrullar ",
+          "esMX": "Patrullar ",
+          "koKR": "순찰 ",
+          "zhCN": "巡逻 ",
+          "zhTW": "巡邏 ",
+          "plPL": "Patrolowanie ",
+          "itIT": "Pattuglia",
+          "ptBR": "Patrulhar "
+        },
+        "Tooltip": {
+          "frFR": "Ordonne aux unités sélectionnées de patrouiller entre leur position actuelle et la zone ciblée. Elles attaqueront les ennemis rencontrés en chemin. ",
+          "deDE": "Befiehlt ausgewählten Einheiten, zwischen ihrer momentanen Position und dem Zielgebiet zu patrouillieren. Die Einheiten werden Feinde angreifen und sich zwecks Angriffs zu ihnen hinbewegen. ",
+          "esES": "Ordena a las unidades seleccionadas que patrullen entre su posición actual y la zona seleccionada. Atacarán a los enemigos y se moverán para entablar combate con los enemigos cercanos. ",
+          "esMX": "Les ordena a las unidades seleccionadas que patrullen entre su posición actual y el área objetivo. Las unidades atacarán a los enemigos y se movilizarán para entrar en combate con los enemigos cercanos. ",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой.",
+          "koKR": "현재 지점과 대상 지점 사이를 순찰합니다. 유닛은 도중에 만나는 적을 공격하거나, 순찰 경로 근처의 적에게 이동하여 교전에 들어갑니다. ",
+          "zhCN": "命令选中的单位在当前位置与目标区域间进行巡逻。巡逻的单位会对敌人发起攻击或移向附近的敌人与其交战。 ",
+          "zhTW": "命令選取的單位於目前所在位置與目標區域之間巡邏。該單位將自動追擊並與其附近的敵方交戰。 ",
+          "plPL": "Rozkazuje wybranym jednostkom patrolować teren między ich aktualną pozycją, a obszarem docelowym. Jednostki będą ruszać do ataku na wrogów znajdujących się w pobliżu. ",
+          "itIT": "Ordina alle unità selezionate di effettuare dei pattugliamenti fra la posizione in cui si trovano e la zona bersaglio. Le unità attaccheranno i nemici e si sposteranno per attaccare quelli nelle vicinanze.",
+          "ptBR": "Ordena que unidades selecionadas patrulhem entre sua posição atual e a área designada. As unidades atacam os inimigos e se deslocam para travar combate com os inimigos próximos. "
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/Repair",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Repair",
+          "RangeSlop": 0.2,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Visible;Neutral,Enemy",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 0,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AutoCast": 1,
+            "AutoCastOffOwnerLeave": 1,
+            "ReExecutable": 1,
+            "Smart": 1,
+            "PassengerAcquirePassengers": 1,
+            "AutoCastOn": 1
+          },
+          "Effect": [
+            "Repair"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Repair",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 0,
+            "Prep": 0,
+            "Cast": 0,
+            "Channel": 0
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "RequiresRepairTarget",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Repair"
+            }
+          },
+          "FollowRange": 5,
+          "AbilSetId": "Repair",
+          "TargetFilters": [
+            "Mechanical,Visible;Self,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden"
+          ],
+          "AutoCastRange": 7,
+          "Marker": {
+            "MatchFlags": {
+              "Link": 0
+            },
+            "MismatchFlags": {
+              "Id": 0
+            }
+          },
+          "InheritAttackPriorityArray": {
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "id": "Repair",
+          "Alignment": "Positive"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Repair,Execute",
+        "id": "Repair",
+        "Icon": "btn-ability-terran-repair",
+        "Name": {
+          "frFR": "Réparer ",
+          "deDE": "Reparieren ",
+          "esES": "Reparar ",
+          "esMX": "Reparar ",
+          "ruRU": "Ремонтировать ",
+          "koKR": "수리 ",
+          "zhCN": "修理 ",
+          "zhTW": "修復 ",
+          "plPL": "Naprawa ",
+          "itIT": "Ripara",
+          "ptBR": "Consertar "
+        },
+        "Tooltip": {
+          "frFR": "Rend des points de vie aux unités et bâtiments mécaniques, mais dépense des ressources. ",
+          "deDE": "Stellt die Trefferpunkte mechanischer Einheiten und Gebäude auf Kosten von Ressourcen wieder her. ",
+          "esES": "Restaura vida de estructuras y unidades mecánicas gastando recursos. ",
+          "esMX": "Restituye el nivel de vida a las unidades y estructuras mecánicas a costa de recursos. ",
+          "ruRU": "Приказать отремонтировать механическую боевую единицу или строение, затратив некоторое количество ресурсов. ",
+          "koKR": "자원을 소모하여 기계 유닛과 건물의 체력을 복구합니다. ",
+          "zhCN": "消耗资源为机械单位和建筑恢复生命值。",
+          "zhTW": "消耗資源以修復機械單位和建築。 ",
+          "plPL": "Przywraca punkty życia jednostkom mechanicznym i budowlom kosztem surowców. ",
+          "itIT": "Consuma risorse per ripristinare la vita di unità meccaniche e strutture.",
+          "ptBR": "Restaura a vitalidade de unidades mecânicas e estruturas, consumindo recursos. "
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/SCVHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVHarvest",
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "id": "SCVHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVHarvest,Gather",
+        "id": "GatherTerr",
+        "Icon": "btn-ability-terran-gather",
+        "Name": {
+          "frFR": "Récolter ",
+          "deDE": "Abbauen ",
+          "esES": "Recoger ",
+          "esMX": "Recolectar ",
+          "ruRU": "Добывать ",
+          "koKR": "채취 ",
+          "zhCN": "采集 ",
+          "zhTW": "採集 ",
+          "plPL": "Gromadź ",
+          "itIT": "Raccogli",
+          "ptBR": "Extrair "
+        },
+        "Tooltip": {
+          "frFR": "Ordonne aux VCS de récolter des ressources sur un gisement de minerai ou un geyser de gaz vespène ciblé. ",
+          "deDE": "Befiehlt dem WBF, Ressourcen am ausgewählten Mineralienfeld oder Vespingeysir abzubauen. ",
+          "esES": "Ordena al VCE recoger recursos de un campo de minerales o géiser de vespeno seleccionado. ",
+          "esMX": "Le ordena al VCE recolectar recursos de un campo de minerales o géiser de gas vespeno seleccionado. ",
+          "ruRU": "Приказывает КСМ добывать ресурсы на месторождении минералов или из веспенового гейзера.",
+          "koKR": "선택한 광물 지대나 베스핀 간헐천에서 건설로봇이 자원을 채취합니다. ",
+          "zhCN": "命令SCV从选中的矿脉或瓦斯气泉采集资源。 ",
+          "zhTW": "命令太空工程車前往所選取的晶礦或高能瓦斯湧源採集資源。 ",
+          "plPL": "Wydaje ERK rozkaz gromadzenia surowców ze wskazanego pola minerałów lub gejzeru z wespanem. ",
+          "itIT": "Ordina all'SCV di raccogliere risorse da un giacimento minerario o da un geyser di vespene selezionato.",
+          "ptBR": "Ordena que o VCE extraia recursos de uma determinada jazida de minérios ou fonte de gás vespeno. "
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/SCVHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVHarvest",
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "id": "SCVHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVHarvest,Return",
+        "id": "ReturnCargo",
+        "Icon": "btn-command-returncargo",
+        "Name": {
+          "frFR": "Rapporter le chargement ",
+          "deDE": "Fracht abliefern ",
+          "esES": "Devolver carga ",
+          "esMX": "Regresar cargamento ",
+          "ruRU": "Выгрузить ресурсы ",
+          "koKR": "자원 반환 ",
+          "zhCN": "返还资源 ",
+          "zhTW": "返還資源 ",
+          "plPL": "Zwróć ładunek ",
+          "itIT": "Consegna carico",
+          "ptBR": "Entregar carregamento "
+        },
+        "Tooltip": {
+          "frFR": "Rapporte les ressources transportées au point de déchargement le plus proche. ",
+          "deDE": "Bringt die getragenen Rohstoffe zum nächsten Abgabeort. ",
+          "esES": "Devuelve los recursos transportados al punto de entrega más cercano. ",
+          "esMX": "Regresa los recursos transportados al punto de entrega más cercano. ",
+          "ruRU": "Приказать выгрузить ресурсы в ближайший приемный пункт. ",
+          "koKR": "운반한 자원을 가장 가까운 자원 수집 구조물로 옮깁니다. ",
+          "zhCN": "将携带的资源送往最近的卸载点。 ",
+          "zhTW": "將所攜帶的資源送回到最近的卸貨點。 ",
+          "plPL": "Zwraca niesione surowce do najbliższego punktu zrzutu. ",
+          "itIT": "Porta le risorse trasportate al più vicino punto di consegna.",
+          "ptBR": "Entrega os recursos transportados no ponto de entrega mais próximo. "
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "TBl1",
+        "id": "TerranBuild",
+        "Icon": "btn-command-terran-buildstructure",
+        "Name": {
+          "frFR": "Construire un bâtiment ",
+          "deDE": "Gebäude bauen ",
+          "esES": "Construir estructura ",
+          "esMX": "Construir estructura ",
+          "ruRU": "Построить здание ",
+          "koKR": "건물 건설 ",
+          "zhCN": "建造建筑 ",
+          "zhTW": "建造建築 ",
+          "plPL": "Postaw budowlę ",
+          "itIT": "Costruisci struttura",
+          "ptBR": "Construir estrutura "
+        },
+        "Tooltip": {
+          "frFR": "Une liste des bâtiments de base. ",
+          "deDE": "Eine Liste der einfachen Gebäude. ",
+          "esES": "Una lista de estructuras básicas. ",
+          "esMX": "Una lista de las estructuras básicas. ",
+          "ruRU": "Открывает список основных строений.",
+          "koKR": "기본 건물의 목록입니다. ",
+          "zhCN": "基础建筑列表。 ",
+          "zhTW": "基礎建築清單。 ",
+          "plPL": "Wyświetla listę budowli podstawowych. ",
+          "itIT": "Un elenco delle strutture base.",
+          "ptBR": "Uma lista de estruturas básicas. "
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "TBl2",
+        "id": "TerranBuildAdvanced",
+        "Icon": "btn-command-terran-buildadvancedstructure",
+        "Name": {
+          "frFR": "Construire un bâtiment avancé ",
+          "deDE": "Fortgeschrittenes Gebäude bauen ",
+          "esES": "Construir estructura avanzada ",
+          "esMX": "Construir estructura avanzada ",
+          "ruRU": "Построить дополнительное здание ",
+          "koKR": "고급 건물 건설 ",
+          "zhCN": "建造高级建筑 ",
+          "zhTW": "建造進階建築 ",
+          "plPL": "Postaw budowlę zaawansowaną ",
+          "itIT": "Costruisci struttura avanzata",
+          "ptBR": "Construir estrutura avançada "
+        },
+        "Tooltip": {
+          "frFR": "Une liste des bâtiments avancés. ",
+          "deDE": "Eine Liste fortgeschrittener Gebäude. ",
+          "esES": "Una lista de estructuras avanzadas. ",
+          "esMX": "Una lista de las estructuras avanzadas. ",
+          "ruRU": "Открывает список дополнительных строений.",
+          "koKR": "고급 건물의 목록입니다. ",
+          "zhCN": "高级建筑列表。 ",
+          "zhTW": "進階建築清單。 ",
+          "plPL": "Wyświetla listę budowli zaawansowanych. ",
+          "itIT": "Un elenco delle strutture avanzate.",
+          "ptBR": "Uma lista de estruturas avançadas. "
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/TerranBuild",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "TerranBuild",
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Cancel"
+          },
+          "Alert": "BuildComplete",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 1,
+            "PeonMaintained": 1,
+            "RangeIncludesBuilding": 1,
+            "Interruptible": 1,
+            "PeonDisableCollision": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "CommandCenter",
+                "State": "Suppressed",
+                "Requirements": "HideCommandCenter"
+              },
+              "Unit": "CommandCenter",
+              "Time": 100
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "SupplyDepot",
+                "State": "Suppressed",
+                "Requirements": "HideSupplyDepot"
+              },
+              "Unit": "SupplyDepot",
+              "Time": 30
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Refinery",
+                "State": "Suppressed",
+                "Requirements": "HideRefinery"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "Refinery",
+              "Time": 30
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Barracks",
+                "State": "Suppressed",
+                "Requirements": "HaveSupplyDepot"
+              },
+              "Unit": "Barracks",
+              "Time": 65
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "EngineeringBay",
+                "State": "Suppressed",
+                "Requirements": "HaveCommandCenter"
+              },
+              "Unit": "EngineeringBay",
+              "Time": 35
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "MissileTurret",
+                "State": "Restricted",
+                "Requirements": "HaveEngineeringBay"
+              },
+              "Unit": "MissileTurret",
+              "Time": 25
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Bunker",
+                "State": "Restricted",
+                "Requirements": "HideFortifiedBunker"
+              },
+              "Unit": "Bunker",
+              "Time": 40
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Refinery"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "RefineryRich",
+              "Time": 30
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "SensorTower",
+                "State": "Restricted",
+                "Requirements": "HaveEngineeringBay"
+              },
+              "Unit": "SensorTower",
+              "Time": 25
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "GhostAcademy",
+                "State": "Suppressed",
+                "Requirements": "HaveBarracks"
+              },
+              "Unit": "GhostAcademy",
+              "Time": 40
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Factory",
+                "State": "Suppressed",
+                "Requirements": "HaveBarracks"
+              },
+              "Unit": "Factory",
+              "Time": 60
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Starport",
+                "State": "Suppressed",
+                "Requirements": "HaveFactory"
+              },
+              "Unit": "Starport",
+              "Time": 50
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "MercCompound",
+                "State": "Suppressed",
+                "Requirements": "HaveBarracks"
+              },
+              "Unit": "MercCompound",
+              "Time": 50
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "Armory",
+                "State": "Suppressed",
+                "Requirements": "HaveFactory"
+              },
+              "Unit": "Armory",
+              "Time": 65
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "State": "Restricted"
+              }
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "FusionCore",
+                "State": "Suppressed",
+                "Requirements": "HaveStarport"
+              },
+              "Unit": "FusionCore",
+              "Time": 65
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "AutomatedRefinery",
+                "Requirements": "UseAutomatedRefinery"
+              },
+              "Unit": "AutomatedRefinery",
+              "Time": 45
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "BunkerFortified",
+                "Requirements": "UseFortifiedBunker"
+              },
+              "Unit": "Bunker",
+              "Time": 30
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "BuildBomberLaunchPad",
+                "Requirements": "HaveFactory"
+              },
+              "Unit": "BomberLaunchPad",
+              "Time": 30
+            }
+          },
+          "ConstructionMover": "Construction",
+          "FidgetDelayMin": 5,
+          "FidgetDelayMax": 10,
+          "id": "TerranBuild"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить ",
+          "frFR": "Interrompre ",
+          "deDE": "Anhalten ",
+          "esES": "Parar ",
+          "esMX": "Interrumpir ",
+          "koKR": "중지 ",
+          "zhCN": "暂停 ",
+          "zhTW": "暫停 ",
+          "plPL": "Wstrzymaj ",
+          "itIT": "Interrompi",
+          "ptBR": "Parar "
+        },
+        "Tooltip": {
+          "frFR": "Interrompt la construction de ce bâtiment. La construction inachevée sera conservée. ",
+          "deDE": "Hält den Bau dieses Gebäudes an. Das unfertige Gebäude bleibt bestehen. ",
+          "esES": "Para la construcción de esta estructura. La construcción parcial se quedará donde está. ",
+          "esMX": "Detiene la construcción de esta estructura. La construcción parcial seguirá existiendo. ",
+          "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. ",
+          "koKR": "건물 건설을 중지합니다. 건물은 건설 중인 상태로 유지됩니다. ",
+          "zhCN": "暂停建造，保留尚未建造完成的建筑。 ",
+          "zhTW": "暫停建造此建築。已建造的部分將保留。 ",
+          "plPL": "Wstrzymuje wznoszenie budowli. Niedokończona budowla pozostanie na mapie. ",
+          "itIT": "Interrompe la costruzione di questa struttura. La costruzione parziale resterà.",
+          "ptBR": "Interrompe a construção dessa estrutura. A construção parcial permanecerá. "
+        }
+      }
+    ],
+    "TBl1": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "CommandCenter",
+            "State": "Suppressed",
+            "Requirements": "HideCommandCenter"
+          },
+          "Unit": "CommandCenter",
+          "Time": 100
+        },
+        "Unit": "CommandCenter",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 11
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build1",
+        "id": "CommandCenter",
+        "Icon": "btn-building-terran-commandcenter",
+        "Name": {
+          "frFR": "Construire un Centre de commandement ",
+          "deDE": "Kommandozentrale bauen ",
+          "esES": "Construir centro de mando ",
+          "esMX": "Construir Centro de mando ",
+          "ruRU": "Построить командный центр ",
+          "koKR": "사령부 건설 ",
+          "zhCN": "建造指挥中心 ",
+          "zhTW": "建造指揮中心 ",
+          "plPL": "Postaw centrum dowodzenia ",
+          "itIT": "Costruisci Centro di comando",
+          "ptBR": "Construir Central de comando "
+        },
+        "Tooltip": {
+          "frFR": "Bâtiment principal. Reçoit les ressources collectées. Peut utiliser la capacité Décoller, et peut être amélioré en Station orbitale ou Forteresse planétaire.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- VCS ",
+          "deDE": "Hauptgebäude. Dient als Abgabestelle für abgebaute Ressourcen. Kann die Fähigkeit \"Abheben\" einsetzen und zur Satellitenzentrale oder Planetaren Festung ausgebaut werden.<br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- WBFs ",
+          "esES": "Estructura primaria. Se usa para recibir los recursos recogidos. Puede utilizar la habilidad despegar y mejorar a comando orbital o fortaleza planetaria.<br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- VCE ",
+          "esMX": "Estructura primaria. Se usa para recibir recursos recolectados. Puede usar la habilidad Despegar y se puede mejorar a Control orbital o Fortaleza planetaria.<br/><br/><span style=\"color: #ffff8a\">Activa:</span><br/>- VCE ",
+          "ruRU": "Основное строение, служащее для строительства КСМ и хранения добытых ресурсов. Может взлетать.<br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– строительство КСМ ",
+          "koKR": "주 건물입니다. 채취한 자원을 수집합니다. 이륙을 사용할 수 있고, 궤도 사령부나 행성 요새로 업그레이드할 수 있습니다.<br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 건설로봇 ",
+          "zhCN": "基础建筑，用于接收采集到的资源。自体可以升空，可以升级成为轨道控制基地或行星要塞。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- SCV ",
+          "zhTW": "主要建築，用來接收採集到的資源。可升空，並可升級為星軌指揮總部或行星要塞。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 可訓練太空工程車 ",
+          "plPL": "Budowla główna. Wykorzystywana do gromadzenia zbieranych surowców. Posiada zdolność wzlotu i może być ulepszona do dowództwa orbitalnego lub fortecy planetarnej.<br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/> - ERK. ",
+          "itIT": "Struttura primaria. Usata per ricevere le risorse raccolte. Può decollare ed essere potenziato in Comando orbitale o Fortezza planetaria.<br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- SCV",
+          "ptBR": "Estrutura principal. Usada para receber recursos extraídos. Usa a habilidade Decolar e pode ser aprimorada para Comando orbital ou Fortaleza planetária.<br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- VCEs "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Refinery",
+            "State": "Suppressed",
+            "Requirements": "HideRefinery"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "Refinery",
+          "Time": 30
+        },
+        "Unit": "Refinery",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build3",
+        "id": "Refinery",
+        "Icon": "btn-building-terran-refinery",
+        "Name": {
+          "frFR": "Construire une raffinerie ",
+          "deDE": "Raffinerie bauen ",
+          "esES": "Construir refinería ",
+          "esMX": "Construir Refinería ",
+          "ruRU": "Построить перерабатывающий завод ",
+          "koKR": "정제소 건설 ",
+          "zhCN": "建造精炼厂 ",
+          "zhTW": "建造瓦斯精煉廠 ",
+          "plPL": "Postaw rafinerię ",
+          "itIT": "Costruisci Raffineria",
+          "ptBR": "Construir Refinaria "
+        },
+        "Tooltip": {
+          "frFR": "À construire sur un geyser de vespène pour permettre la collecte du gaz. ",
+          "deDE": "Wird über einem Vespingeysir gebaut, um die Förderung von Vespingas zu ermöglichen. ",
+          "esES": "Se construye sobre un géiser de vespeno para permitir la recogida de gas vespeno. ",
+          "esMX": "Se construye sobre un géiser de gas vespeno para permitir la recolección de este. ",
+          "ruRU": "Позволяет добывать веспен. Строится на веспеновом гейзере. ",
+          "koKR": "베스핀 가스 채취를 위해 베스핀 간헐천 위에 건설하는 구조물입니다. ",
+          "zhCN": "建造在瓦斯气泉上，用于采集高能瓦斯。 ",
+          "zhTW": "建造在高能瓦斯湧源上方，以採集高能瓦斯。 ",
+          "plPL": "Stawiana na gejzerze z wespanem. Pozwala na wydobycie gazu. ",
+          "itIT": "Costruita su un geyser di vespene per consentire l'estrazione del gas.",
+          "ptBR": "Construída sobre uma fonte de gás vespeno para possibilitar a extração do gás. "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SupplyDepot",
+            "State": "Suppressed",
+            "Requirements": "HideSupplyDepot"
+          },
+          "Unit": "SupplyDepot",
+          "Time": 30
+        },
+        "Unit": "SupplyDepot",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build2",
+        "id": "SupplyDepot",
+        "Icon": "btn-building-terran-supplydepot",
+        "Name": {
+          "frFR": "Construire un dépôt de ravitaillement ",
+          "deDE": "Versorgungsdepot bauen ",
+          "esES": "Construir depósito de suministros ",
+          "esMX": "Construir Depósito de suministros ",
+          "ruRU": "Построить хранилище ",
+          "koKR": "보급고 건설 ",
+          "zhCN": "建造补给站 ",
+          "zhTW": "建造補給站 ",
+          "plPL": "Postaw magazyn ",
+          "itIT": "Costruisci Deposito",
+          "ptBR": "Construir Depósito de suprimentos "
+        },
+        "Tooltip": {
+          "frFR": "Ravitaille les troupes.<br/>Le ravitaillement vous permet de former davantage d’unités.<br/>Les dépôts de ravitaillement peuvent être abaissés pour permettre aux unités de passer par-dessus. ",
+          "deDE": "Bietet Versorgung.<br/>Versorgung ermöglicht das Erstellen zusätzlicher Einheiten.<br/>Versorgungsdepots können gesenkt werden, um es Einheiten zu ermöglichen, sich darüber hinwegzubewegen. ",
+          "esES": "Proporciona suministros.<br/>Los suministros te permiten crear más unidades.<br/>Los depósitos de suministros se pueden bajar para que las unidades puedan pasar por encima. ",
+          "esMX": "Proporciona suministros.<br/>Los suministros te permiten entrenar más unidades.<br/>Los Depósitos de suministros pueden bajarse para que las unidades puedan pasar sobre ellos. ",
+          "ruRU": "Служит для хранения припасов.<br/>Увеличивает максимальный размер армии.<br/>Хранилища можно скрывать под землей и поднимать на поверхность.",
+          "koKR": "보급품을 공급합니다. <br/>보급품을 늘리면 더 많은 유닛을 훈련할 수 있습니다.<br/>유닛들이 지나갈 수 있도록 보급고를 지하로 내릴 수 있습니다. ",
+          "zhCN": "为人类部队提供补给，<br/>提高本方单位数量上限。<br/>补给站可以降下，允许地面单位出入。 ",
+          "zhTW": "提供補給。<br/>補給越多可以訓練越多單位。<br/>可降下補給站，以讓單位通過。 ",
+          "plPL": "Zapewnia zaopatrzenie.<br/>Zaopatrzenie umożliwia szkolenie większej liczby jednostek.<br/>Magazyny można obniżyć do poziomu terenu, aby jednostki mogły się po nich przemieszczać. ",
+          "itIT": "Garantisce rifornimenti.<br/>I rifornimenti permettono di addestrare più unità.<br/>I Depositi si possono abbassare per consentire il transito delle unità.",
+          "ptBR": "Fornece suprimentos.<br/>Suprimentos permitem criar mais unidades.<br/>Depósitos de suprimentos podem ser rebaixados para permitir que as unidades andem por cima deles. "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Barracks",
+            "State": "Suppressed",
+            "Requirements": "HaveSupplyDepot"
+          },
+          "Unit": "Barracks",
+          "Time": 65
+        },
+        "Unit": "Barracks",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build4",
+        "id": "Barracks",
+        "Icon": "btn-building-terran-barracks",
+        "Name": {
+          "frFR": "Construire une caserne ",
+          "deDE": "Kaserne bauen ",
+          "esES": "Construir barracón ",
+          "esMX": "Construir Cuartel ",
+          "ruRU": "Построить казармы ",
+          "koKR": "병영 건설 ",
+          "zhCN": "建造兵营 ",
+          "zhTW": "建造兵營 ",
+          "plPL": "Postaw koszary ",
+          "itIT": "Costruisci Caserma",
+          "ptBR": "Construir Quartel "
+        },
+        "Tooltip": {
+          "frFR": "Site de production de l’infanterie.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Marine<br/>- Faucheur <br/>- Bunker construit par un VCS<br/>- Station orbitale à partir du Centre de commandement",
+          "deDE": "Ausbildungseinrichtung für Infanterie-Einheiten.<br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Space-Marines<br/>- Rächer<br/>- Bau von Bunkern durch WBFs<br/>- Satellitenzentralen aus Kommandozentralen ",
+          "esES": "Instalación de producción de infantería.<br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Soldados<br/>- Segadores<br/>- Búnkeres construidos por el VCE<br/>- Comandos orbitales desde centros de mando",
+          "esMX": "Complejo de producción de infantería.<br/><br/><span style=\"color: #ffff8a\">Habilita:</span><br/>- Marines<br/>- Yum-Kimiles<br/>- Construcción de Búnkeres con los VCE<br/>- Transformación de Centro de mando en Centro de mando orbital ",
+          "ruRU": "Тренировочный комплекс пехоты.<br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– обучение морпехов<br/>– обучение головорезов<br/>– постройка бункеров с помощью КСМ<br/>– переоборудование командных центров в станции наблюдения ",
+          "koKR": "보병 생산 시설입니다.<br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 해병<br/>- 사신<br/>- 벙커 (건설로봇 건설)<br/>- 궤도 사령부 (사령부 업그레이드) ",
+          "zhCN": "步兵训练设施。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 陆战队员<br/>- 收割者<br/>- 使SCV可以建造地堡<br/>- 使指挥中心可以升级为轨道控制基地 ",
+          "zhTW": "步兵生產設施。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 可訓練陸戰隊<br/>- 可訓練死神<br/>- 讓太空工程車可建造碉堡<br/>- 讓指揮中心可升級為星軌指揮總部 ",
+          "plPL": "Placówka szkoleniowa piechoty.<br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/> – marines,<br/> – żniwiarzy,<br/> – bunkry (poprzez ERK),<br/> – dowództwa orbitalne z centrów dowodzenia.",
+          "itIT": "Struttura per la produzione di fanteria.<br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Marine<br/>- Mietitori<br/>- Bunker dagli SCV<br/>- Comandi orbitali dai Centri di comando",
+          "ptBR": "Instalação de produção de infantaria. <br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- Soldados<br/>- Exterminadores<br/>- Casamatas a partir de VCEs<br/>- Comandos Orbitais a partir de Centrais de Comando "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "EngineeringBay",
+            "State": "Suppressed",
+            "Requirements": "HaveCommandCenter"
+          },
+          "Unit": "EngineeringBay",
+          "Time": 35
+        },
+        "Unit": "EngineeringBay",
+        "Time": 35,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build5",
+        "id": "EngineeringBay",
+        "Icon": "btn-building-terran-engineeringbay",
+        "Name": {
+          "frFR": "Construire un centre technique ",
+          "deDE": "Maschinendock bauen ",
+          "esES": "Construir bahía de ingeniería ",
+          "esMX": "Construir Centro de ingeniería ",
+          "ruRU": "Построить инженерный комплекс ",
+          "koKR": "공학 연구소 건설 ",
+          "zhCN": "建造工程站 ",
+          "zhTW": "建造電機工程所 ",
+          "plPL": "Postaw stację inżynieryjną ",
+          "itIT": "Costruisci Officina bellica",
+          "ptBR": "Construir Polo de engenharia "
+        },
+        "Tooltip": {
+          "frFR": "Permet des améliorations pour l’infanterie et les bâtiments terrans.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Tourelle lance-missiles construite par un VCS<br/>- Tour de détection construite par un VCS<br/>- Forteresse planétaire à partir du Centre de commandement ",
+          "deDE": "Bietet Upgrademöglichkeiten für terranische Infanterie-Einheiten und Gebäude. <br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Bau von Raketentürmen durch WBFs<br/>- Bau von Sensortürmen durch WBFs<br/>- Planetare Festungen aus Kommandozentralen ",
+          "esES": "Tiene mejoras para la infantería y las estructuras terran. <br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Torretas de misiles construidas por VCE<br/>- Torres de sensores construidas por VCE<br/>- Fortalezas planetarias desde centros de mando ",
+          "esMX": "Contiene mejoras para la infantería y las estructuras terran. <br/><br/><span style=\"color: #ffff8a\">Activa:</span><br/>- Torretas de misiles construidas por los VCE<br/>- Torres de sensores construidas por los VCE<br/>- Fortalezas planetarias desde los Centros de mando ",
+          "ruRU": "Позволяет улучшать пехоту и строения. <br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– постройка ракетных турелей с помощью КСМ<br/>– постройка радарных вышек с помощью КСМ<br/>– переоборудование командного центра в планетарную крепость",
+          "koKR": "테란 보병과 구조물을 업그레이드합니다. <br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 미사일 포탑 (건설로봇 건설)<br/>- 감지탑 (건설로봇 건설)<br/>- 행성 요새 (사령부 업그레이드) ",
+          "zhCN": "为人类步兵单位和建筑提供升级方案。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 使SCV可以建造导弹塔<br/>- 使SCV可以建造感应塔<br/>- 使指挥中心可升级为行星要塞 ",
+          "zhTW": "提供人類步兵和建築的升級。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 讓太空工程車可建造飛彈砲台<br/>- 讓太空工程車可建造感應塔<br/>- 讓指揮中心可升級為行星要塞 ",
+          "plPL": "Umożliwia ulepszanie piechoty i budowli terran. <br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/>- wieżyczki przeciwlotnicze (poprzez ERK),<br/>- wieże radarowe (poprzez ERK),<br/>- fortece planetarne z centrów dowodzenia. ",
+          "itIT": "Contiene potenziamenti per fanti e strutture terran. <br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Torretta lanciamissili dagli SCV<br/>- Torri di rilevamento dagli SCV<br/>- Fortezze planetarie dai Centri di comando",
+          "ptBR": "Contém aprimoramentos para infantaria e estruturas terranas.<br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- Torre de mísseis a partir de VCEs<br/>- Torres sensoriais a partir de VCEs<br/>- Fortalezas planetárias a partir de Centrais de comando "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Bunker",
+            "State": "Restricted",
+            "Requirements": "HideFortifiedBunker"
+          },
+          "Unit": "Bunker",
+          "Time": 40
+        },
+        "Unit": "Bunker",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build7",
+        "id": "Bunker",
+        "Icon": "btn-building-terran-bunker",
+        "Name": {
+          "frFR": "Construire un bunker ",
+          "deDE": "Bunker bauen ",
+          "esES": "Construir búnker ",
+          "esMX": "Construir Búnker ",
+          "ruRU": "Построить бункер ",
+          "koKR": "벙커 건설 ",
+          "zhCN": "建造地堡 ",
+          "zhTW": "建造碉堡 ",
+          "plPL": "Postaw bunkier ",
+          "itIT": "Costruisci Bunker",
+          "ptBR": "Construir Casamata "
+        },
+        "Tooltip": {
+          "frFR": "Bâtiment défensif. <br/>Les unités d’infanterie combattent depuis l’intérieur. <br/><br/><span style=\"color: ##ffff8a\">Bonus : +1 de portée aux unités abritées.</span> ",
+          "deDE": "Verteidigungsgebäude.<br/>Infanterie-Einheiten können aus dem Inneren angreifen.<br/><br/><span style=\"color: ##ffff8a\">Bonus: +1 Reichweite für im Inneren befindliche Einheiten.</span> ",
+          "esES": "Estructura defensiva.<br/>La infantería puede disparar desde su interior.<br/><br/><span style=\"color: ##ffff8a\">Bonificación: las unidades del interior tienen +1 de alcance.</span> ",
+          "esMX": "Estructura defensiva.<br/>La infantería combate desde el interior. <br/><br/><span style=\"color: ##ffff8a\">Bonificación: +1 de rango a las unidades que están dentro.</span> ",
+          "ruRU": "Оборонительное строение.<br/>Помещенная в бункер пехота может вести огонь.<br/><br/><span style=\"color: ##ffff8a\">Бонус: +1 к дальности атаки находящихся внутри войск.</span>",
+          "koKR": "방어 구조물입니다. <br/>보병들이 내부에서 적을 공격할 수 있습니다. <br/><br/><span style=\"color: ##ffff8a\">추가 효과: 유닛 사거리 1만큼 증가</span> ",
+          "zhCN": "防御工事。<br/>步兵单位在地堡内作战。<br/><br/><span style=\"color: ##ffff8a\">效果加成：舱载单位射程增加1。</span> ",
+          "zhTW": "防禦性建築。<br/>讓步兵可躲在碉堡內攻擊。<br/><br/><span style=\"color: ##ffff8a\">加成：碉堡內單位的攻擊距離提高1格。</span> ",
+          "plPL": "Budowla obronna. <br/>Jednostki piechoty prowadzą walkę z jej wnętrza. <br/><br/><span style=\"color: ##ffff8a\">Premia: +1 do zasięgu dla jednostek wewnątrz bunkra.</span> ",
+          "itIT": "Struttura difensiva. <br/>Protegge i fanti mentre combattono. <br/><br/><span style=\"color: ##ffff8a\">Bonus: +1 alla gittata per le unità all'interno.</span>",
+          "ptBR": "Estrutura defensiva. <br/>Unidades de infantaria atiram de dentro. <br/><br/><span style=\"color: ##ffff8a\">Bônus: +1 de alcance para as unidades internas.</span> "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "MissileTurret",
+            "State": "Restricted",
+            "Requirements": "HaveEngineeringBay"
+          },
+          "Unit": "MissileTurret",
+          "Time": 25
+        },
+        "Unit": "MissileTurret",
+        "Time": 25,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build6",
+        "id": "MissileTurret",
+        "Icon": "btn-building-terran-missileturret",
+        "Name": {
+          "frFR": "Construire une tourelle lance-missiles ",
+          "deDE": "Raketenturm bauen ",
+          "esES": "Construir torreta de misiles ",
+          "esMX": "Construir Torreta de misiles ",
+          "ruRU": "Построить ракетную турель ",
+          "koKR": "미사일 포탑 건설 ",
+          "zhCN": "建造导弹塔 ",
+          "zhTW": "建造飛彈砲台 ",
+          "plPL": "Postaw wieżyczkę przeciwlotniczą",
+          "itIT": "Costruisci Torretta lanciamissili",
+          "ptBR": "Construir Torre de mísseis "
+        },
+        "Tooltip": {
+          "frFR": "Bâtiment de défense antiaérienne.<br/><br/><span style=\"color: ##ffff8a\">Peut attaquer les unités aériennes.</span><br/><span style=\"color: #FFE303\">Détecteur</span> ",
+          "deDE": "Luftabwehrgebäude.<br/><br/><span style=\"color: ##ffff8a\">Kann Lufteinheiten angreifen.</span><br/><span style=\"color: #FFE303\">Detektor</span> ",
+          "esES": "Estructura defensiva antiaérea.<br/><br/><span style=\"color: ##ffff8a\">Puede atacar a unidades aéreas.</span><br/><span style=\"color: #FFE303\">Detector</span> ",
+          "esMX": "Estructura defensiva antiaérea.<br/><br/><span style=\"color: ##ffff8a\">Ataca unidades aéreas.</span><br/><span style=\"color: #FFE303\">Detector</span> ",
+          "ruRU": "Средство противовоздушной обороны.<br/><br/><span style=\"color: ##ffff8a\">Атакует только воздушные цели.</span><br/><span style=\"color: #FFE303\">Детектор</span>",
+          "koKR": "대공 방어 구조물입니다.<br/><br/><span style=\"color: ##ffff8a\">공중 유닛 공격 가능</span><br/><span style=\"color: #FFE303\">탐지기</span> ",
+          "zhCN": "防空建筑。<br/><br/><span style=\"color: ##ffff8a\">可以对空</span><br/><span style=\"color: #FFE303\">侦测单位</span> ",
+          "zhTW": "對空防禦性建築。<br/><br/><span style=\"color: ##ffff8a\">可攻擊空中單位。</span><br/><span style=\"color: #FFE303\">偵測單位</span> ",
+          "plPL": "Podstawowa budowla obrony przeciwlotniczej.<br/><br/><span style=\"color: ##ffff8a\">Może atakować jednostki powietrzne.</span><br/><span style=\"color: #FFE303\">Wykrywacz</span> ",
+          "itIT": "Struttura difensiva antiaerea.<br/><br/><span style=\"color: ##ffff8a\">Può attaccare unità aeree.</span><br/><span style=\"color: #FFE303\">Individuatore</span>",
+          "ptBR": "Estrutura de defesa antiaérea.<br/><br/><span style=\"color: ##ffff8a\">Ataca unidades aéreas.</span><br/><span style=\"color: #FFE303\">Detector</span> "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SensorTower",
+            "State": "Restricted",
+            "Requirements": "HaveEngineeringBay"
+          },
+          "Unit": "SensorTower",
+          "Time": 25
+        },
+        "Unit": "SensorTower",
+        "Time": 25,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build9",
+        "id": "SensorTower",
+        "Icon": "btn-building-terran-sensordome",
+        "Name": {
+          "frFR": "Construire une tour de détection ",
+          "deDE": "Sensorturm bauen ",
+          "esES": "Construir torre de sensores ",
+          "esMX": "Construir Torre de sensores ",
+          "ruRU": "Построить радарную вышку ",
+          "koKR": "감지탑 건설 ",
+          "zhCN": "建造感应塔 ",
+          "zhTW": "建造感應塔 ",
+          "plPL": "Postaw wieżę radarową ",
+          "itIT": "Costruisci Torre di rilevamento",
+          "ptBR": "Construir Torre sensorial "
+        },
+        "Tooltip": {
+          "frFR": "Révèle la position des unités ennemies sur une longue portée. La zone de détection de la tour est visible par les ennemis. ",
+          "deDE": "Zeigt den Standort gegnerischer Einheiten aus großer Entfernung an. Die Radarposition des Sensorturms ist für den Feind sichtbar.",
+          "esES": "Descubre la ubicación de unidades enemigas a largo alcance. El área de detección de la torre de sensores es visible para el enemigo. ",
+          "esMX": "Revela las ubicaciones de las unidades enemigas a larga distancia. El área de detección de la Torre de sensores es visible para el enemigo. ",
+          "ruRU": "Обнаруживает вражеские войска в большом радиусе. Область обнаружения видна противникам. ",
+          "koKR": "멀리 떨어져 있는 적 유닛들의 위치를 감지합니다. 적을 포함한 모든 플레이어가 감지탑의 감지 범위를 볼 수 있습니다. ",
+          "zhCN": "在大范围内显示敌方单位的位置。敌方单位可以看到感应塔的侦测范围。 ",
+          "zhTW": "顯示廣大範圍內的敵軍單位。敵方可看到感應塔偵測到的範圍。 ",
+          "plPL": "Ujawnia położenie odległych wrogich jednostek. Zasięg wieży radarowej jest widoczny dla przeciwników. ",
+          "itIT": "Rivela la posizione delle unità nemiche da grande distanza. La posizione della Torre di rilevamento è visibile al nemico.",
+          "ptBR": "Revela a localização de unidades inimigas a longa distância. A área de detecção da Torre sensorial fica visível ao inimigo. "
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить ",
+          "frFR": "Annuler ",
+          "deDE": "Abbrechen ",
+          "esES": "Cancelar ",
+          "esMX": "Cancelar ",
+          "koKR": "취소 ",
+          "zhCN": "取消 ",
+          "zhTW": "取消 ",
+          "plPL": "Anuluj ",
+          "itIT": "Annulla",
+          "ptBR": "Cancelar "
+        },
+        "Tooltip": {
+          "frFR": "Abandonne l’ordre en cours et vous permet d’en donner un nouveau. ",
+          "deDE": "Bricht den aktuellen Befehl ab und ermöglicht das Erteilen neuer Befehle. ",
+          "esES": "Abandona la orden actual sin llevarla a cabo y te permite seleccionar una orden diferente. ",
+          "esMX": "Cancela la orden actual sin ejecutarla y te permite seleccionar otra orden. ",
+          "ruRU": "Отменить текущий приказ и отдать следующий. ",
+          "koKR": "유닛에게 내린 지시를 취소하여 다른 지시를 받을 수 있게 합니다. ",
+          "zhCN": "直接取消当前命令，让您可以选择其它命令。 ",
+          "zhTW": "直接取消目前的指令，這樣可讓你選擇不同的指令。 ",
+          "plPL": "Porzuca aktualny rozkaz bez wykonywania go i pozwala wybrać inny. ",
+          "itIT": "Annulla l'ordine attuale e consente di selezionarne un altro.",
+          "ptBR": "Cancela a ordem atual sem executá-la e permite selecionar outra ordem. "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "AutomatedRefinery",
+            "Requirements": "UseAutomatedRefinery"
+          },
+          "Unit": "AutomatedRefinery",
+          "Time": 45
+        },
+        "Unit": "AutomatedRefinery",
+        "Time": 45,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build19",
+        "id": "AutomatedRefinery",
+        "Icon": "btn-building-terran-refineryautomated",
+        "Name": {
+          "frFR": "Construire une raffinerie automatisée ",
+          "deDE": "Automatisierte Raffinerie bauen ",
+          "esES": "Construir refinería automatizada ",
+          "esMX": "Construir Refinería automatizada ",
+          "ruRU": "Построить автоматический экстрактор",
+          "koKR": "자동 정제소 건설 ",
+          "zhCN": "建造自动化精炼厂 ",
+          "zhTW": "建造自動化瓦斯精煉廠 ",
+          "plPL": "Postaw zautomatyzowaną rafinerię. ",
+          "itIT": "Costruisci Raffineria automatizzata",
+          "ptBR": "Construir Refinaria automatizada "
+        },
+        "Tooltip": {
+          "frFR": "Raffinerie améliorée qui envoie le gaz vespène raffiné directement au Centre de commadement via des champs de transfert à courte distance. Élimine le besoin en VCS pour la production de vespène. ",
+          "deDE": "Verbesserte Raffinerie, die raffiniertes Vespingas mittels Kurzstrecken-Warpfeldern direkt zur Kommandozentrale schickt. Macht WBFs für die Vespingasförderung überflüssig. ",
+          "esES": "Una refinería mejorada que envía el gas vespeno refinado directamente al centro de mando mediante campos de distorsión de corto alcance. Permite prescindir de los VCE en la producción de gas vespeno. ",
+          "esMX": "Refinería mejorada que envía el gas vespeno refinado directo al Centro de mando a través de campos de transposición de corto rango. Hace innecesario el uso de VCE en la producción de gas vespeno. ",
+          "ruRU": "Усовершенствованный перерабатывающий завод, который с помощью локального искажающего поля отсылает добытый веспен напрямую в командный центр, без участия КСМ. ",
+          "koKR": "개량된 정제소로, 정제한 베스핀 가스를 근거리 차원장을 이용해 바로 사령부로 보냅니다. 베스핀 가스 생산에 건설로봇을 투입할 필요가 없습니다. ",
+          "zhCN": "改良型精炼厂，可通过短距折跃力场将精炼过的高能瓦斯直接运送到指挥中心。将SCV从高能瓦斯的生产过程中解放出来。 ",
+          "zhTW": "改良過的瓦斯精煉廠，可以透過短距躍傳力場將精製後的高能瓦斯傳送至指揮中心。不再需要太空工程車來運送高能瓦斯。 ",
+          "plPL": "Ulepszona rafineria, która wysyła przetworzony wespan prosto do centrum dowodzenia za pomocą krótkodystansowych pól nadprzestrzennych. Eliminuje potrzebę uczestnictwa ERK w procesie przeróbki wespanu. ",
+          "itIT": "Raffineria evoluta che invia gas vespene lavorato direttamente al Centro di comando tramite campi di teletrasporto a corto raggio. Elimina la necessità di SCV nella produzione di vespene.",
+          "ptBR": "Refinaria aprimorada que envia gás vespeno refinado direto para a Central de comando via campos de transdobra de curto alcance. Elimina a necessidade de VCEs na produção de gás vespeno. "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SupplyDepotDrop",
+            "Requirements": "UseSupplyDepotDrop"
+          },
+          "Unit": "SupplyDepotDrop",
+          "Time": 3
+        },
+        "Unit": "SupplyDepotDrop",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildDrop,Build1",
+        "id": "SupplyDepotDrop",
+        "Icon": "btn-building-terran-supplydepot",
+        "Name": {
+          "frFR": "Envoi : dépôt de ravitaillement ",
+          "deDE": "Versorgungsdepot anfordern ",
+          "esES": "Solicitar depósito de suministros ",
+          "esMX": "Llamado: Depósito de suministros ",
+          "ruRU": "Вызов хранилища ",
+          "koKR": "투하: 보급고 ",
+          "zhCN": "轨道空投：补给站 ",
+          "zhTW": "空投：補給站 ",
+          "plPL": "Przyzwij magazyn ",
+          "itIT": "Richiedi Deposito",
+          "ptBR": "Chamada: Depósito de suprimentos "
+        },
+        "Tooltip": {
+          "frFR": "Dépôt de ravitaillement amélioré qui peut être déployé instantanément depuis l’orbite. Supprime le temps nécessaire à un VCS pour construire un dépôt standard. ",
+          "deDE": "Verbessertes Versorgungsdepot. Kann sofort aus dem Orbit eingesetzt werden. So wird die Zeit eingespart, die ein WBF sonst für den Bau eines Standard-Depots benötigen würde. ",
+          "esES": "Un depósito de suministros mejorado que se puede desplegar instantáneamente desde órbita. Ahorra el tiempo que tarda un VCE en construir un depósito normal. ",
+          "esMX": "Depósito de suministros mejorado. Puede ser instalado directamente desde la órbita. Esto elimina el tiempo requerido para que un VCE ensamble un Depósito de suministros estándar. ",
+          "ruRU": "Усовершенствованные хранилища могут быть десантированы с орбиты, без затрат времени на постройку с помощью КСМ. ",
+          "koKR": "개량된 보급고입니다. 궤도상에서 바로 투하할 수 있기 때문에 일반 보급고 건설에 필요한 시간을 절약할 수 있습니다. ",
+          "zhCN": "改良型补给站。可以在空投后快速完成部署。节省了传统补给站由SCV进行装配所消耗的时间。 ",
+          "zhTW": "改良過的補給站，能瞬間從星軌空投並部署。不再需要太空工程車花費時間建造標準的補給站。 ",
+          "plPL": "Ulepszony magazyn, który można błyskawicznie zrzucić z orbity. Eliminuje problem opóźnienia związanego z procesem budowy magazynu przez ERK.",
+          "itIT": "Deposito avanzato. Può essere sganciato istantaneamente dall'orbita. Elimina il tempo di costruzione dei Depositi standard.",
+          "ptBR": "Depósito de suprimentos aprimorado. Pode ser instalado instantaneamente a partir da órbita. Elimina o tempo necessário para um VCE montar um Depósito de suprimentos padrão. "
+        }
+      }
+    ],
+    "TBl2": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GhostAcademy",
+            "State": "Suppressed",
+            "Requirements": "HaveBarracks"
+          },
+          "Unit": "GhostAcademy",
+          "Time": 40
+        },
+        "Unit": "GhostAcademy",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build10",
+        "id": "GhostAcademy",
+        "Icon": "btn-building-terran-ghostacademy",
+        "Name": {
+          "frFR": "Construire une Académie fantôme ",
+          "deDE": "Ghost-Akademie bauen ",
+          "esES": "Construir academia fantasma ",
+          "esMX": "Construir Academia de Fantasmas ",
+          "ruRU": "Построить академию призраков ",
+          "koKR": "유령 사관학교 건설 ",
+          "zhCN": "建造幽灵军校 ",
+          "zhTW": "建造幽靈特務學院 ",
+          "plPL": "Postaw akademię duchów ",
+          "itIT": "Costruisci Accademia dei Fantasmi",
+          "ptBR": "Construir Academia fantasma "
+        },
+        "Tooltip": {
+          "frFR": "Permet des améliorations pour les fantômes. Permet de construire des bombes nucléaires utilisables par les fantômes.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Fantôme à la caserne ",
+          "deDE": "Bietet Upgrademöglichkeiten für Ghosts. Kann Nuklearraketen bauen, die von Ghosts eingesetzt werden. <br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Ghosts in der Kaserne",
+          "esES": "Tiene mejoras para los fantasmas. Puede construir bombas nucleares para que las utilicen los fantasmas.<br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Fantasmas en el barracón ",
+          "esMX": "Contiene mejoras para los Fantasmas. Puede construir Misiles nucleares para estos.<br/><br/><span style=\"color: #ffff8a\">Activa:</span><br/>- Fantasmas en el Cuartel ",
+          "ruRU": "Позволяет улучшать призраков. Служит для строительства ядерных ракет, используемых призраками.<br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– обучение призраков в казармах ",
+          "koKR": "유령을 업그레이드합니다. 유령이 사용할 수 있는 핵을 생산합니다.<br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 유령 (병영) ",
+          "zhCN": "能够制造供幽灵使用的聚变弹头，并为幽灵提供升级方案。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 可以在兵营中训练幽灵 ",
+          "zhTW": "可建造幽靈特務使用的核彈。提供幽靈特務的升級。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 讓兵營可訓練幽靈特務 ",
+          "plPL": "Pozwala konstruować bomby jądrowe wykorzystywane przez duchy. Umożliwia ulepszanie duchów.<br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/> - duchy w koszarach. ",
+          "itIT": "Contiene potenziamenti per i Fantasmi.<br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Fantasmi alla Caserma",
+          "ptBR": "Contém um aprimoramento para Fantasmas. Constrói Armas nucleares para Fantasmas.<br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- Fantasmas no Quartel "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Factory",
+            "State": "Suppressed",
+            "Requirements": "HaveBarracks"
+          },
+          "Unit": "Factory",
+          "Time": 60
+        },
+        "Unit": "Factory",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build11",
+        "id": "Factory",
+        "Icon": "btn-building-terran-factory",
+        "Name": {
+          "frFR": "Construire une usine ",
+          "deDE": "Fabrik bauen ",
+          "esES": "Construir fábrica ",
+          "esMX": "Construir Fábrica ",
+          "ruRU": "Построить завод ",
+          "koKR": "군수공장 건설 ",
+          "zhCN": "建造重工厂 ",
+          "zhTW": "建造軍工廠 ",
+          "plPL": "Postaw fabrykę ",
+          "itIT": "Costruisci Fabbrica",
+          "ptBR": "Construir Fábrica "
+        },
+        "Tooltip": {
+          "frFR": "Site de production de véhicules.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Vautour<br/>- Tourmenteur",
+          "deDE": "Produktionseinrichtung für Fahrzeuge.<br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Adler<br/>- Hellions",
+          "esES": "Instalación de producción de vehículos. <br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Buitres<br/>- Erebiones",
+          "esMX": "Complejo de producción vehicular. <br/><br/><span style=\"color: #ffff8a\">Habilita:</span><br/>- Buitres<br/>- Demonios ",
+          "ruRU": "Завод по производству бронетехники.<br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– производство «Стервятников»<br/>– производство «Геллионов»",
+          "koKR": "차량 생산 시설입니다. <br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 시체매<br/>- 화염차 ",
+          "zhCN": "战车生产设施。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 恶火<br/>- 秃鹫 ",
+          "zhTW": "載具生產設施。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 可建造禿鷹<br/>- 可建造惡狼 ",
+          "plPL": "Budowla produkująca pojazdy. <br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/>– sępy,<br/>– heliony.",
+          "itIT": "Struttura per la produzione di veicoli. <br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Vulture<br/>- Hellion",
+          "ptBR": "Instalação de produção de veículos. <br/><br/><span style=\"color: #ffff8a\">Habilita:</span><br/>- Abutres<br/>- Endiabrados "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Armory",
+            "State": "Suppressed",
+            "Requirements": "HaveFactory"
+          },
+          "Unit": "Armory",
+          "Time": 65
+        },
+        "Unit": "Armory",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build14",
+        "id": "Armory",
+        "Icon": "btn-building-terran-armory",
+        "Name": {
+          "frFR": "Construire une armurerie ",
+          "deDE": "Waffenlager bauen ",
+          "esES": "Construir arsenal ",
+          "esMX": "Construir Armería ",
+          "ruRU": "Построить арсенал ",
+          "koKR": "무기고 건설 ",
+          "zhCN": "建造军械库 ",
+          "zhTW": "建造兵工廠 ",
+          "plPL": "Postaw zbrojownię ",
+          "itIT": "Costruisci Armeria",
+          "ptBR": "Construir Arsenal "
+        },
+        "Tooltip": {
+          "frFR": "Permet des améliorations d’armement et de blindage pour les unités issues de l’usine et du spatioport. <br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Nettoyeur à l’usine<br/>- Thor à l’usine",
+          "deDE": "Bietet Upgrademöglichkeiten für Waffen und Panzerung von Einheiten, die in der Fabrik oder im Raumhafen gebaut werden. <br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Kampfhellions in der Fabrik<br/>- Thore in der Fabrik ",
+          "esES": "Tiene mejoras de armas y blindaje para las unidades de la fábrica y el puerto estelar. <br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Murciélago infernal en la fábrica<br/>- Thor en la fábrica ",
+          "esMX": "Contiene mejoras de armas y armaduras para las unidades de Fábrica y Puerto estelar. <br/><br/><span style=\"color: #ffff8a\">Habilita:</span><br/>- Murciélago infernal en la Fábrica<br/>- Thor en la Fábrica ",
+          "ruRU": "Позволяет улучшать броню и оружие боевых единиц, производимых на заводе и в космопорте. <br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– производство «Геллитронов» на заводе<br/>– производство «Торов» на заводе",
+          "koKR": "군수공장과 우주공항에서 생산하는 유닛의 무기와 장갑을 업그레이드합니다.<br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 화염기갑병 (군수공장)<br/>- 토르 (군수공장) ",
+          "zhCN": "为重工厂和星港制造的单位提供武器和护甲升级方案。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 可以在重工厂中制造恶蝠<br/>- 可以在重工厂中制造雷神 ",
+          "zhTW": "提供軍工廠和星際港單位的武器和裝甲升級。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 讓軍工廠可建造戰狼<br/>- 讓軍工廠可建造雷神 ",
+          "plPL": "Umożliwia ulepszanie uzbrojenia i opancerzenia jednostek tworzonych w fabrykach i portach gwiezdnych. <br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/> – helbaty w fabryce,<br/> – thory w fabryce.",
+          "itIT": "Contiene potenziamenti per armi e corazze per le unità prodotte da Fabbrica e Spazioporto.<br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Hellbat nella Fabbrica<br/>- Thor nella Fabbrica",
+          "ptBR": "Contém aprimoramentos de armas e blindagem para unidades da Fábrica e do Estaleiro Sideral. <br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- Morcego Infernal na Fábrica<br/>- Thor na Fábrica "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Starport",
+            "State": "Suppressed",
+            "Requirements": "HaveFactory"
+          },
+          "Unit": "Starport",
+          "Time": 50
+        },
+        "Unit": "Starport",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build12",
+        "id": "Starport",
+        "Icon": "btn-building-terran-starport",
+        "Name": {
+          "frFR": "Construire un spatioport ",
+          "deDE": "Raumhafen bauen ",
+          "esES": "Construir puerto estelar ",
+          "esMX": "Construir Puerto estelar ",
+          "ruRU": "Построить космопорт ",
+          "koKR": "우주공항 건설 ",
+          "zhCN": "建造星港 ",
+          "zhTW": "建造星際港 ",
+          "plPL": "Postaw port gwiezdny ",
+          "itIT": "Costruisci Spazioporto",
+          "ptBR": "Construir Estaleiro sideral "
+        },
+        "Tooltip": {
+          "frFR": "Site de production d’unités aériennes.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Viking<br/>- Médivac",
+          "deDE": "Produktionsgebäude für Lufteinheiten.<br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Vikings<br/>- Medivacs ",
+          "esES": "Instalación de producción de unidades aéreas.<br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Vikingos<br/>- Medevacs ",
+          "esMX": "Complejo de producción de unidades aéreas. <br/><br/><span style=\"color: #ffff8a\">Activa:</span><br/>- Vikingos<br/>- Evameds ",
+          "ruRU": "Авиационный завод.<br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– производство «Викингов»<br/>– производство медэваков ",
+          "koKR": "공중 유닛 생산 시설입니다. <br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 바이킹<br/>- 의료선 ",
+          "zhCN": "空中单位生产设施。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 维京战机<br/>- 医疗运输机 ",
+          "zhTW": "空中單位生產設施。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 可建造維京戰機<br/>- 可建造醫療艇 ",
+          "plPL": "Zakład produkujący jednostki powietrzne.<br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/> - wikingi,<br/> - promy medyczne. ",
+          "itIT": "Struttura di produzione unità aeree. <br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Viking<br/>- Navette mediche",
+          "ptBR": "Instalação de produção de unidades aéreas. <br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- Vikings<br/>- Ambunaves "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "FusionCore",
+            "State": "Suppressed",
+            "Requirements": "HaveStarport"
+          },
+          "Unit": "FusionCore",
+          "Time": 65
+        },
+        "Unit": "FusionCore",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build16",
+        "id": "FusionCore",
+        "Icon": "btn-building-terran-fusioncore",
+        "Name": {
+          "frFR": "Construire un noyau de fusion ",
+          "deDE": "Fusionskern bauen ",
+          "esES": "Construir núcleo de fusión ",
+          "esMX": "Construir Núcleo de fusión ",
+          "ruRU": "Построить центр синтеза ",
+          "koKR": "융합로 건설 ",
+          "zhCN": "建造聚变芯体 ",
+          "zhTW": "建造核融合核心 ",
+          "plPL": "Postaw rdzeń fuzyjny ",
+          "itIT": "Costruisci Nucleo di fusione",
+          "ptBR": "Construir Núcleo de fusão "
+        },
+        "Tooltip": {
+          "frFR": "Permet des améliorations pour le cuirassé.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Cuirassé au spatioport",
+          "deDE": "Bietet Upgrademöglichkeiten für Schwere Kreuzer.<br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Schwere Kreuzer im Raumhafen",
+          "esES": "Tiene mejoras para los cruceros de batalla.<br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Cruceros de batalla en el puerto estelar",
+          "esMX": "Contiene mejoras para el Crucero de batalla. <br/><br/><span style=\"color: #ffff8a\">Habilita:</span><br/>- Cruceros de batalla en el Puerto estelar ",
+          "ruRU": "Позволяет улучшать крейсеры. <br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– производство крейсеров в космопорте",
+          "koKR": "전투순양함의 기술을 연구합니다.<br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 전투순양함 (우주공항) ",
+          "zhCN": "为战列巡航舰提供升级方案。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 可以在星港中制造战列巡航舰 ",
+          "zhTW": "提供戰巡艦的升級。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 讓星際港可建造戰巡艦 ",
+          "plPL": "Umożliwia ulepszanie krążowników. <br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/>– krążowniki w porcie gwiezdnym.",
+          "itIT": "Contiene potenziamenti per l'Incrociatore.<br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Incrociatori allo Spazioporto",
+          "ptBR": "Contém aprimoramentos para Cruzador de Batalha. <br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- Cruzadores de Batalha no Estaleiro Sideral "
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить ",
+          "frFR": "Annuler ",
+          "deDE": "Abbrechen ",
+          "esES": "Cancelar ",
+          "esMX": "Cancelar ",
+          "koKR": "취소 ",
+          "zhCN": "取消 ",
+          "zhTW": "取消 ",
+          "plPL": "Anuluj ",
+          "itIT": "Annulla",
+          "ptBR": "Cancelar "
+        },
+        "Tooltip": {
+          "frFR": "Abandonne l’ordre en cours et vous permet d’en donner un nouveau. ",
+          "deDE": "Bricht den aktuellen Befehl ab und ermöglicht das Erteilen neuer Befehle. ",
+          "esES": "Abandona la orden actual sin llevarla a cabo y te permite seleccionar una orden diferente. ",
+          "esMX": "Cancela la orden actual sin ejecutarla y te permite seleccionar otra orden. ",
+          "ruRU": "Отменить текущий приказ и отдать следующий. ",
+          "koKR": "유닛에게 내린 지시를 취소하여 다른 지시를 받을 수 있게 합니다. ",
+          "zhCN": "直接取消当前命令，让您可以选择其它命令。 ",
+          "zhTW": "直接取消目前的指令，這樣可讓你選擇不同的指令。 ",
+          "plPL": "Porzuca aktualny rozkaz bez wykonywania go i pozwala wybrać inny. ",
+          "itIT": "Annulla l'ordine attuale e consente di selezionarne un altro.",
+          "ptBR": "Cancela a ordem atual sem executá-la e permite selecionar outra ordem. "
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "MercCompound",
+            "State": "Suppressed",
+            "Requirements": "HaveBarracks"
+          },
+          "Unit": "MercCompound",
+          "Time": 50
+        },
+        "Unit": "MercCompound",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuild,Build13",
+        "id": "MercCompound",
+        "Icon": "btn-building-terran-merccompound",
+        "Name": {
+          "frFR": "Construire une planque des mercenaires ",
+          "deDE": "Söldnerquartier bauen ",
+          "esES": "Construir recinto de mercenarios ",
+          "esMX": "Construir Complejo de mercenarios ",
+          "ruRU": "Построить притон наемников ",
+          "koKR": "용병 집결소 건설 ",
+          "zhCN": "建造佣兵营地 ",
+          "zhTW": "建造傭兵基地 ",
+          "plPL": "Postaw bazę najemników ",
+          "itIT": "Costruisci Base dei mercenari",
+          "ptBR": "Construir Complexo mercenário "
+        },
+        "Tooltip": {
+          "frFR": "Forme des unités mercenaires. ",
+          "deDE": "Bildet Söldnereinheiten aus. ",
+          "esES": "Entrena unidades mercenarias. ",
+          "esMX": "Entrena unidades mercenarias. ",
+          "ruRU": "Позволяет обращаться к услугам наемников. ",
+          "koKR": "용병 유닛을 훈련합니다. ",
+          "zhCN": "训练雇佣兵单位。 ",
+          "zhTW": "訓練傭兵單位。 ",
+          "plPL": "Umożliwia wezwanie najemników na pole walki. ",
+          "itIT": "Addestra unità mercenarie.",
+          "ptBR": "Treina unidades mercenárias. "
+        }
+      }
+    ]
+  },
+  "Attributes": [
+    "Light",
+    "Biological",
+    "Mechanical"
+  ],
+  "GlossaryCategory": "Unit/Category/TerranUnits",
+  "HotkeyCategory": "Unit/Category/TerranUnits",
+  "GlossaryPriority": 10,
+  "WeaponArray": [
+    {
+      "Link": "FusionCutter"
+    }
+  ],
+  "id": "SCV",
+  "TacticalAIThink": "AIThinkSCV",
+  "Icon": "btn-unit-terran-scv",
+  "Model": "SCV",
+  "LifeArmorIcon": "btn-upgrade-terran-infantryarmorlevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Terran",
+      "Icon": "btn-upgrade-terran-infantryweaponslevel0",
+      "TargetFilters": "Ground",
+      "Range": 0.1,
+      "Period": 1.5,
+      "Options": {
+        "Melee": 1
+      },
+      "id": "FusionCutter",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "frFR": "Découpeur à fusion ",
+        "deDE": "Fusionsschneidbrenner ",
+        "esES": "Cortador de fusión ",
+        "esMX": "Cortadora de fusión ",
+        "ruRU": "Терморезак ",
+        "koKR": "융합 절단기 ",
+        "zhCN": "熔枪 ",
+        "zhTW": "融合切割刀 ",
+        "plPL": "Przecinak spawalniczy ",
+        "itIT": "Flessibile a fusione",
+        "ptBR": "Maçarico de fusão "
+      },
+      "Amount": 5,
+      "Kind": "Melee"
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "stop",
+        "ruRU": "Stop",
+        "frFR": "Stop",
+        "deDE": "Stop",
+        "esES": "Stop",
+        "esMX": "Detener ",
+        "koKR": "정지 ",
+        "zhCN": "停止 ",
+        "zhTW": "停止 ",
+        "plPL": "Stop",
+        "itIT": "Stop",
+        "ptBR": "Parar "
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "frFR": "Attack",
+        "deDE": "Attack",
+        "esES": "Attack",
+        "esMX": "Atacar ",
+        "ruRU": "Attack",
+        "koKR": "공격 ",
+        "zhCN": "攻击 ",
+        "zhTW": "攻擊 ",
+        "plPL": "Attack",
+        "itIT": "Attack",
+        "ptBR": "Atacar "
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "move",
+        "ruRU": "Move",
+        "frFR": "Move",
+        "deDE": "Move",
+        "esES": "Move",
+        "esMX": "Mover ",
+        "koKR": "이동 ",
+        "zhCN": "移动 ",
+        "zhTW": "移動 ",
+        "plPL": "Move",
+        "itIT": "Move",
+        "ptBR": "Deslocar "
+      }
+    },
+    {
+      "id": "Repair",
+      "Name": {
+        "frFR": "Repair",
+        "deDE": "Repair",
+        "esES": "Repair",
+        "esMX": "Reparar ",
+        "ruRU": "Repair",
+        "koKR": "수리 ",
+        "zhCN": "修理 ",
+        "zhTW": "修復 ",
+        "plPL": "Repair",
+        "itIT": "Repair",
+        "ptBR": "Consertar "
+      }
+    },
+    {
+      "id": "SCVHarvest",
+      "Name": {
+        "frFR": "Gather (SCV)",
+        "deDE": "Gather (SCV)",
+        "esES": "Gather (SCV)",
+        "esMX": "Recolectar (VCE) ",
+        "ruRU": "Gather (SCV)",
+        "koKR": "채취 (건설로봇) ",
+        "zhCN": "采集(SCV) ",
+        "zhTW": "採集（太空工程車） ",
+        "plPL": "Gather (SCV)",
+        "itIT": "Gather (SCV)",
+        "ptBR": "Extrair (VCE) "
+      }
+    },
+    {
+      "id": "TerranBuild",
+      "Name": {
+        "frFR": "Build (SCV)",
+        "deDE": "Build (SCV)",
+        "esES": "Build (SCV)",
+        "esMX": "Construir (VCE) ",
+        "ruRU": "Build (SCV)",
+        "koKR": "건설 (건설로봇)",
+        "zhCN": "建造(SCV)",
+        "zhTW": "建造（太空工程車） ",
+        "plPL": "Build (SCV)",
+        "itIT": "Build (SCV)",
+        "ptBR": "Construir (VCE) "
+      }
+    },
+    {
+      "id": "TerranBuildDrop",
+      "Name": {
+        "frFR": "Calldown",
+        "deDE": "Calldown",
+        "esES": "Calldown",
+        "esMX": "Llamado ",
+        "ruRU": "Calldown",
+        "koKR": "투하 ",
+        "zhCN": "空投 ",
+        "zhTW": "空投 ",
+        "plPL": "Calldown",
+        "itIT": "Calldown",
+        "ptBR": "Chamada "
+      }
+    }
+  ],
+  "$Upgrades": [
+    "CommandCenterTrain",
+    "SCV",
+    "CommandCenterTransportSCV",
+    "TerranInfantryArmorsLevel1",
+    "SCV",
+    "DualFusionWelders",
+    "TerranInfantryArmors",
+    "TerranInfantryArmorsLevel2",
+    "TerranInfantryArmorsLevel3",
+    "NotWorkerSCV",
+    "SprayTerran",
+    "CommandCenter",
+    "Terr",
+    "TestSell",
+    "IsSCV",
+    "TerranInfantryArmorsVanadiumPlating",
+    "TerranInfantryArmorsVanadiumPlatingLevel1",
+    "TerranInfantryArmorsVanadiumPlatingLevel2",
+    "TerranInfantryArmorsVanadiumPlatingLevel3",
+    "SCVBase",
+    "SCV",
+    "SCVBlizzcon17",
+    "SCVCovertOps",
+    "SCVJunker",
+    "SCVUmojan",
+    "SCVRemastered",
+    "SCVSilver",
+    "DefaultSkinPack",
+    "SCVCovertOpsSkinPack",
+    "SCVJunkerMMSkinPack",
+    "BlizzCon2017SCVSkinPack",
+    "SCVUmojan",
+    "SCVRemastered",
+    "SCVSilver"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "CommandCenter",
+    "Refinery",
+    "SupplyDepot",
+    "Barracks",
+    "EngineeringBay",
+    "Bunker",
+    "MissileTurret",
+    "SensorTower",
+    "AutomatedRefinery",
+    "SupplyDepotDrop",
+    "GhostAcademy",
+    "Factory",
+    "Armory",
+    "Starport",
+    "FusionCore",
+    "MercCompound"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "CommandCenter",
+    "OrbitalCommand",
+    "PlanetaryFortress",
+    "MercenaryFortress",
+    "TestShop",
+    "WarfieldFortress"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться ",
+        "frFR": "Déplacer ",
+        "deDE": "Bewegen ",
+        "esES": "Mover ",
+        "esMX": "Mover ",
+        "koKR": "이동 ",
+        "zhCN": "移动 ",
+        "zhTW": "移動 ",
+        "plPL": "Ruch ",
+        "itIT": "Muovi",
+        "ptBR": "Deslocar "
+      },
+      "Tooltip": {
+        "frFR": "Ordonne aux unités sélectionnées de se déplacer vers la zone ciblée ou de suivre l’unité ciblée. Les unités en cours de déplacement n’engageront pas le combat contre les ennemis. ",
+        "deDE": "Befiehlt den ausgewählten Einheiten, sich in ein Zielgebiet zu bewegen oder der Zieleinheit zu folgen. Einheiten in Bewegung werden keine feindlichen Einheiten angreifen. ",
+        "esES": "Ordena a las unidades seleccionadas que se desplacen hasta la zona señalada o que sigan a la unidad objetivo. No entablarán combate con los enemigos. ",
+        "esMX": "Ordena el desplazamiento de las unidades seleccionadas hacia el área objetivo o la persecución de la unidad objetivo. Las unidades en movimiento no atacarán a las unidades enemigas. ",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником.",
+        "koKR": "선택한 지점으로 이동하거나 대상 유닛을 따라갑니다. 이동 중인 유닛은 적과 교전하지 않습니다. ",
+        "zhCN": "命令选中的单位移至目标区域或跟随目标单位。正在移动的单位不会与敌人交战。 ",
+        "zhTW": "命令選取的單位移動至目標區域或跟隨目標單位。移動中的單位不會與敵方交戰。 ",
+        "plPL": "Rozkazuje wybranym jednostkom przejście do celu lub podążanie za jednostką. Poruszające się jednostki nie będą atakować wrogów. ",
+        "itIT": "Ordina alle unità selezionate di raggiungere la zona bersaglio o seguire l'unità bersaglio. Le unità in movimento non attaccano i nemici.",
+        "ptBR": "Ordena que unidades selecionadas se desloquem até a área de alvo ou sigam a unidade alvo. Unidades em movimento não travam combate com os inimigos. "
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить ",
+        "frFR": "Interrompre ",
+        "deDE": "Stoppen ",
+        "esES": "Detener ",
+        "esMX": "Detener ",
+        "koKR": "정지 ",
+        "zhCN": "停止 ",
+        "zhTW": "停止 ",
+        "plPL": "Zatrzymaj ",
+        "itIT": "Ferma",
+        "ptBR": "Parar "
+      },
+      "Tooltip": {
+        "frFR": "Ordonne aux unités sélectionnées d’abandonner tous les ordres en cours et de rester immobiles. ",
+        "deDE": "Befiehlt den ausgewählten Einheiten, die Ausführung aller Befehle abzubrechen und Bewegungen einzustellen. ",
+        "esES": "Ordena a las unidades seleccionadas que anulen todas las órdenes y que se detengan. ",
+        "esMX": "Ordena a las unidades seleccionadas que cancelen todas las órdenes y se detengan. ",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться.",
+        "koKR": "모든 지시 사항을 취소하고 이동을 멈춥니다. ",
+        "zhCN": "命令选中的单位不再执行任何命令并停止移动。 ",
+        "zhTW": "命令選取的單位取消所有指令並且停止移動。 ",
+        "plPL": "Anuluje wszystkie rozkazy wybranych jednostek i zatrzymuje je. ",
+        "itIT": "Annulla tutti gli ordini delle unità selezionate e le fa fermare.",
+        "ptBR": "Ordena que as unidades selecionadas cancelem todas as ordens anteriores e parem de se deslocar. "
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Move Hold Position",
+        "ruRU": "Удерживать позицию ",
+        "frFR": "Tenir la position ",
+        "deDE": "Position halten ",
+        "esES": "Mantener posición ",
+        "esMX": "Mantener posición ",
+        "koKR": "위치 사수 ",
+        "zhCN": "原地防御 ",
+        "zhTW": "原地防守 ",
+        "plPL": "Utrzymaj pozycję ",
+        "itIT": "Tieni la posizione",
+        "ptBR": "Manter a posição "
+      },
+      "Tooltip": {
+        "frFR": "Ordonne aux unités sélectionnées de tenir la position et d’attaquer les ennemis à portée. Elles ne pourchasseront pas les ennemis et ne se déplaceront pas pour engager le combat. ",
+        "deDE": "Befiehlt den ausgewählten Einheiten, ihre momentane Position zu halten und alle Feinde in Reichweite anzugreifen. Die Einheiten werden keine Feinde verfolgen oder sich zwecks Angriffs zu ihnen hinbewegen. ",
+        "esES": "Ordena a las unidades seleccionadas que se queden en su posición y que ataquen a los enemigos que estén al alcance. Ni perseguirán a los enemigos ni se moverán para entablar combate. ",
+        "esMX": "Les ordena a las unidades seleccionadas que permanezcan donde están y ataquen a los enemigos al alcance. Las unidades no perseguirán a los enemigos ni se movilizarán para entrar en combate. ",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой.",
+        "koKR": "현재 위치를 유지하며, 사거리에 들어오는 적을 공격합니다. 유닛은 적을 뒤쫓거나 이동하여 교전하지 않습니다. ",
+        "zhCN": "命令选中的单位待在原地，并攻击射程内的敌方目标。接受命令的单位不会对敌人进行追击或移向敌人与其交战。 ",
+        "zhTW": "命令選取的單位原地待命並且攻擊射程內的敵人。原地防守的單位不會為了交戰而移動。 ",
+        "plPL": "Rozkazuje wybranym jednostkom pozostać na miejscu i atakować wrogów w swoim zasięgu. Jednostki nie będą ścigać wrogów, ani ruszać do ataku. ",
+        "itIT": "Ordina alle unità selezionate di rimanere dove si trovano e attaccare i nemici a portata di tiro. Le unità non inseguiranno i nemici né si sposteranno per attaccare.",
+        "ptBR": "Ordena que unidades selecionadas permaneçam onde estão e ataquem os inimigos que estiverem ao alcance. As unidades não perseguem inimigos e nem se deslocam para travar combate. "
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackWorker",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "frFR": "Attaquer ",
+        "deDE": "Angreifen ",
+        "esES": "Atacar ",
+        "esMX": "Atacar ",
+        "ruRU": "Атаковать ",
+        "koKR": "공격 ",
+        "zhCN": "攻击 ",
+        "zhTW": "攻擊 ",
+        "plPL": "Atak ",
+        "itIT": "Attacca",
+        "ptBR": "Atacar "
+      },
+      "Tooltip": {
+        "frFR": "Ordonne aux unités sélectionnées de se déplacer vers le point ciblé et de combattre les ennemis proches en chemin. Cibler une unité avec la commande Attaquer lui ordonne d’être attaquée jusqu’à ce qu’elle soit détruite.",
+        "deDE": "Befiehlt den ausgewählten Einheiten, sich zum Zielort zu begeben und auf dem Weg nahe Feinde anzugreifen. Visiert man eine Einheit mit diesem Befehl an, wird sie so lange angegriffen, bis sie zerstört ist.",
+        "esES": "Ordena a las unidades seleccionadas que se desplacen hasta el punto objetivo y luchen con los enemigos cercanos por el camino. Las unidades que reciban esta orden atacarán a su objetivo hasta que muera. ",
+        "esMX": "Ordena a las unidades seleccionadas moverse hacia la ubicación objetivo y pelear contra los enemigos que se encuentren en el camino. El uso del comando atacar contra una unidad hará que la ataquen hasta que quede destruida. ",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения.",
+        "koKR": "선택한 지점으로 이동하며 도중에 만나는 적을 공격합니다. 공격 명령으로 유닛을 지정하면 지정한 유닛이 파괴될 때까지 공격합니다. ",
+        "zhCN": "命令选中的单位移动到目标地点，并对沿途遭遇的敌人发起攻击。收到攻击一个目标的命令后，单位会持续攻击该目标，直到对方被消灭。 ",
+        "zhTW": "命令選取的單位行進至目的地，攻擊任何行進中所遭遇的敵人。當使用攻擊指令點選敵方單位，我方單位將持續攻擊直到目標毀滅。  ",
+        "plPL": "Rozkazuje wybranym jednostkom udać się do punktu docelowego i walczyć po drodze z wrogami. Wystarczy wskazać jednostkę przeciwnika, aby stała się ona celem ciągłego ataku, aż zostanie zniszczona.",
+        "itIT": "Ordina alle unità selezionate di raggiungere il punto indicato ingaggiando i nemici sul percorso. Quando si usa il comando di attacco contro un'unità, il bersaglio verrà attaccato fino alla sua distruzione.",
+        "ptBR": "Ordena que unidades selecionadas sigam para o ponto designado, combatendo inimigos encontrados no caminho. Mirar numa unidade com o comando de ataque ordena que ela seja atacada até ser destruída. "
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Move Patrol",
+        "ruRU": "Патрулировать ",
+        "frFR": "Patrouiller ",
+        "deDE": "Patrouillieren ",
+        "esES": "Patrullar ",
+        "esMX": "Patrullar ",
+        "koKR": "순찰 ",
+        "zhCN": "巡逻 ",
+        "zhTW": "巡邏 ",
+        "plPL": "Patrolowanie ",
+        "itIT": "Pattuglia",
+        "ptBR": "Patrulhar "
+      },
+      "Tooltip": {
+        "frFR": "Ordonne aux unités sélectionnées de patrouiller entre leur position actuelle et la zone ciblée. Elles attaqueront les ennemis rencontrés en chemin. ",
+        "deDE": "Befiehlt ausgewählten Einheiten, zwischen ihrer momentanen Position und dem Zielgebiet zu patrouillieren. Die Einheiten werden Feinde angreifen und sich zwecks Angriffs zu ihnen hinbewegen. ",
+        "esES": "Ordena a las unidades seleccionadas que patrullen entre su posición actual y la zona seleccionada. Atacarán a los enemigos y se moverán para entablar combate con los enemigos cercanos. ",
+        "esMX": "Les ordena a las unidades seleccionadas que patrullen entre su posición actual y el área objetivo. Las unidades atacarán a los enemigos y se movilizarán para entrar en combate con los enemigos cercanos. ",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой.",
+        "koKR": "현재 지점과 대상 지점 사이를 순찰합니다. 유닛은 도중에 만나는 적을 공격하거나, 순찰 경로 근처의 적에게 이동하여 교전에 들어갑니다. ",
+        "zhCN": "命令选中的单位在当前位置与目标区域间进行巡逻。巡逻的单位会对敌人发起攻击或移向附近的敌人与其交战。 ",
+        "zhTW": "命令選取的單位於目前所在位置與目標區域之間巡邏。該單位將自動追擊並與其附近的敵方交戰。 ",
+        "plPL": "Rozkazuje wybranym jednostkom patrolować teren między ich aktualną pozycją, a obszarem docelowym. Jednostki będą ruszać do ataku na wrogów znajdujących się w pobliżu. ",
+        "itIT": "Ordina alle unità selezionate di effettuare dei pattugliamenti fra la posizione in cui si trovano e la zona bersaglio. Le unità attaccheranno i nemici e si sposteranno per attaccare quelli nelle vicinanze.",
+        "ptBR": "Ordena que unidades selecionadas patrulhem entre sua posição atual e a área designada. As unidades atacam os inimigos e se deslocam para travar combate com os inimigos próximos. "
+      }
+    },
+    {
+      "AbilCmd": "Repair,Execute",
+      "id": "Repair",
+      "Icon": "btn-ability-terran-repair",
+      "Name": {
+        "frFR": "Réparer ",
+        "deDE": "Reparieren ",
+        "esES": "Reparar ",
+        "esMX": "Reparar ",
+        "ruRU": "Ремонтировать ",
+        "koKR": "수리 ",
+        "zhCN": "修理 ",
+        "zhTW": "修復 ",
+        "plPL": "Naprawa ",
+        "itIT": "Ripara",
+        "ptBR": "Consertar "
+      },
+      "Tooltip": {
+        "frFR": "Rend des points de vie aux unités et bâtiments mécaniques, mais dépense des ressources. ",
+        "deDE": "Stellt die Trefferpunkte mechanischer Einheiten und Gebäude auf Kosten von Ressourcen wieder her. ",
+        "esES": "Restaura vida de estructuras y unidades mecánicas gastando recursos. ",
+        "esMX": "Restituye el nivel de vida a las unidades y estructuras mecánicas a costa de recursos. ",
+        "ruRU": "Приказать отремонтировать механическую боевую единицу или строение, затратив некоторое количество ресурсов. ",
+        "koKR": "자원을 소모하여 기계 유닛과 건물의 체력을 복구합니다. ",
+        "zhCN": "消耗资源为机械单位和建筑恢复生命值。",
+        "zhTW": "消耗資源以修復機械單位和建築。 ",
+        "plPL": "Przywraca punkty życia jednostkom mechanicznym i budowlom kosztem surowców. ",
+        "itIT": "Consuma risorse per ripristinare la vita di unità meccaniche e strutture.",
+        "ptBR": "Restaura a vitalidade de unidades mecânicas e estruturas, consumindo recursos. "
+      }
+    },
+    {
+      "AbilCmd": "SCVHarvest,Gather",
+      "id": "GatherTerr",
+      "Icon": "btn-ability-terran-gather",
+      "Name": {
+        "frFR": "Récolter ",
+        "deDE": "Abbauen ",
+        "esES": "Recoger ",
+        "esMX": "Recolectar ",
+        "ruRU": "Добывать ",
+        "koKR": "채취 ",
+        "zhCN": "采集 ",
+        "zhTW": "採集 ",
+        "plPL": "Gromadź ",
+        "itIT": "Raccogli",
+        "ptBR": "Extrair "
+      },
+      "Tooltip": {
+        "frFR": "Ordonne aux VCS de récolter des ressources sur un gisement de minerai ou un geyser de gaz vespène ciblé. ",
+        "deDE": "Befiehlt dem WBF, Ressourcen am ausgewählten Mineralienfeld oder Vespingeysir abzubauen. ",
+        "esES": "Ordena al VCE recoger recursos de un campo de minerales o géiser de vespeno seleccionado. ",
+        "esMX": "Le ordena al VCE recolectar recursos de un campo de minerales o géiser de gas vespeno seleccionado. ",
+        "ruRU": "Приказывает КСМ добывать ресурсы на месторождении минералов или из веспенового гейзера.",
+        "koKR": "선택한 광물 지대나 베스핀 간헐천에서 건설로봇이 자원을 채취합니다. ",
+        "zhCN": "命令SCV从选中的矿脉或瓦斯气泉采集资源。 ",
+        "zhTW": "命令太空工程車前往所選取的晶礦或高能瓦斯湧源採集資源。 ",
+        "plPL": "Wydaje ERK rozkaz gromadzenia surowców ze wskazanego pola minerałów lub gejzeru z wespanem. ",
+        "itIT": "Ordina all'SCV di raccogliere risorse da un giacimento minerario o da un geyser di vespene selezionato.",
+        "ptBR": "Ordena que o VCE extraia recursos de uma determinada jazida de minérios ou fonte de gás vespeno. "
+      }
+    },
+    {
+      "AbilCmd": "SCVHarvest,Return",
+      "id": "ReturnCargo",
+      "Icon": "btn-command-returncargo",
+      "Name": {
+        "frFR": "Rapporter le chargement ",
+        "deDE": "Fracht abliefern ",
+        "esES": "Devolver carga ",
+        "esMX": "Regresar cargamento ",
+        "ruRU": "Выгрузить ресурсы ",
+        "koKR": "자원 반환 ",
+        "zhCN": "返还资源 ",
+        "zhTW": "返還資源 ",
+        "plPL": "Zwróć ładunek ",
+        "itIT": "Consegna carico",
+        "ptBR": "Entregar carregamento "
+      },
+      "Tooltip": {
+        "frFR": "Rapporte les ressources transportées au point de déchargement le plus proche. ",
+        "deDE": "Bringt die getragenen Rohstoffe zum nächsten Abgabeort. ",
+        "esES": "Devuelve los recursos transportados al punto de entrega más cercano. ",
+        "esMX": "Regresa los recursos transportados al punto de entrega más cercano. ",
+        "ruRU": "Приказать выгрузить ресурсы в ближайший приемный пункт. ",
+        "koKR": "운반한 자원을 가장 가까운 자원 수집 구조물로 옮깁니다. ",
+        "zhCN": "将携带的资源送往最近的卸载点。 ",
+        "zhTW": "將所攜帶的資源送回到最近的卸貨點。 ",
+        "plPL": "Zwraca niesione surowce do najbliższego punktu zrzutu. ",
+        "itIT": "Porta le risorse trasportate al più vicino punto di consegna.",
+        "ptBR": "Entrega os recursos transportados no ponto de entrega mais próximo. "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить ",
+        "frFR": "Interrompre ",
+        "deDE": "Anhalten ",
+        "esES": "Parar ",
+        "esMX": "Interrumpir ",
+        "koKR": "중지 ",
+        "zhCN": "暂停 ",
+        "zhTW": "暫停 ",
+        "plPL": "Wstrzymaj ",
+        "itIT": "Interrompi",
+        "ptBR": "Parar "
+      },
+      "Tooltip": {
+        "frFR": "Interrompt la construction de ce bâtiment. La construction inachevée sera conservée. ",
+        "deDE": "Hält den Bau dieses Gebäudes an. Das unfertige Gebäude bleibt bestehen. ",
+        "esES": "Para la construcción de esta estructura. La construcción parcial se quedará donde está. ",
+        "esMX": "Detiene la construcción de esta estructura. La construcción parcial seguirá existiendo. ",
+        "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. ",
+        "koKR": "건물 건설을 중지합니다. 건물은 건설 중인 상태로 유지됩니다. ",
+        "zhCN": "暂停建造，保留尚未建造完成的建筑。 ",
+        "zhTW": "暫停建造此建築。已建造的部分將保留。 ",
+        "plPL": "Wstrzymuje wznoszenie budowli. Niedokończona budowla pozostanie na mapie. ",
+        "itIT": "Interrompe la costruzione di questa struttura. La costruzione parziale resterà.",
+        "ptBR": "Interrompe a construção dessa estrutura. A construção parcial permanecerá. "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build1",
+      "id": "CommandCenter",
+      "Icon": "btn-building-terran-commandcenter",
+      "Name": {
+        "frFR": "Construire un Centre de commandement ",
+        "deDE": "Kommandozentrale bauen ",
+        "esES": "Construir centro de mando ",
+        "esMX": "Construir Centro de mando ",
+        "ruRU": "Построить командный центр ",
+        "koKR": "사령부 건설 ",
+        "zhCN": "建造指挥中心 ",
+        "zhTW": "建造指揮中心 ",
+        "plPL": "Postaw centrum dowodzenia ",
+        "itIT": "Costruisci Centro di comando",
+        "ptBR": "Construir Central de comando "
+      },
+      "Tooltip": {
+        "frFR": "Bâtiment principal. Reçoit les ressources collectées. Peut utiliser la capacité Décoller, et peut être amélioré en Station orbitale ou Forteresse planétaire.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- VCS ",
+        "deDE": "Hauptgebäude. Dient als Abgabestelle für abgebaute Ressourcen. Kann die Fähigkeit \"Abheben\" einsetzen und zur Satellitenzentrale oder Planetaren Festung ausgebaut werden.<br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- WBFs ",
+        "esES": "Estructura primaria. Se usa para recibir los recursos recogidos. Puede utilizar la habilidad despegar y mejorar a comando orbital o fortaleza planetaria.<br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- VCE ",
+        "esMX": "Estructura primaria. Se usa para recibir recursos recolectados. Puede usar la habilidad Despegar y se puede mejorar a Control orbital o Fortaleza planetaria.<br/><br/><span style=\"color: #ffff8a\">Activa:</span><br/>- VCE ",
+        "ruRU": "Основное строение, служащее для строительства КСМ и хранения добытых ресурсов. Может взлетать.<br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– строительство КСМ ",
+        "koKR": "주 건물입니다. 채취한 자원을 수집합니다. 이륙을 사용할 수 있고, 궤도 사령부나 행성 요새로 업그레이드할 수 있습니다.<br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 건설로봇 ",
+        "zhCN": "基础建筑，用于接收采集到的资源。自体可以升空，可以升级成为轨道控制基地或行星要塞。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- SCV ",
+        "zhTW": "主要建築，用來接收採集到的資源。可升空，並可升級為星軌指揮總部或行星要塞。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 可訓練太空工程車 ",
+        "plPL": "Budowla główna. Wykorzystywana do gromadzenia zbieranych surowców. Posiada zdolność wzlotu i może być ulepszona do dowództwa orbitalnego lub fortecy planetarnej.<br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/> - ERK. ",
+        "itIT": "Struttura primaria. Usata per ricevere le risorse raccolte. Può decollare ed essere potenziato in Comando orbitale o Fortezza planetaria.<br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- SCV",
+        "ptBR": "Estrutura principal. Usada para receber recursos extraídos. Usa a habilidade Decolar e pode ser aprimorada para Comando orbital ou Fortaleza planetária.<br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- VCEs "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build3",
+      "id": "Refinery",
+      "Icon": "btn-building-terran-refinery",
+      "Name": {
+        "frFR": "Construire une raffinerie ",
+        "deDE": "Raffinerie bauen ",
+        "esES": "Construir refinería ",
+        "esMX": "Construir Refinería ",
+        "ruRU": "Построить перерабатывающий завод ",
+        "koKR": "정제소 건설 ",
+        "zhCN": "建造精炼厂 ",
+        "zhTW": "建造瓦斯精煉廠 ",
+        "plPL": "Postaw rafinerię ",
+        "itIT": "Costruisci Raffineria",
+        "ptBR": "Construir Refinaria "
+      },
+      "Tooltip": {
+        "frFR": "À construire sur un geyser de vespène pour permettre la collecte du gaz. ",
+        "deDE": "Wird über einem Vespingeysir gebaut, um die Förderung von Vespingas zu ermöglichen. ",
+        "esES": "Se construye sobre un géiser de vespeno para permitir la recogida de gas vespeno. ",
+        "esMX": "Se construye sobre un géiser de gas vespeno para permitir la recolección de este. ",
+        "ruRU": "Позволяет добывать веспен. Строится на веспеновом гейзере. ",
+        "koKR": "베스핀 가스 채취를 위해 베스핀 간헐천 위에 건설하는 구조물입니다. ",
+        "zhCN": "建造在瓦斯气泉上，用于采集高能瓦斯。 ",
+        "zhTW": "建造在高能瓦斯湧源上方，以採集高能瓦斯。 ",
+        "plPL": "Stawiana na gejzerze z wespanem. Pozwala na wydobycie gazu. ",
+        "itIT": "Costruita su un geyser di vespene per consentire l'estrazione del gas.",
+        "ptBR": "Construída sobre uma fonte de gás vespeno para possibilitar a extração do gás. "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build2",
+      "id": "SupplyDepot",
+      "Icon": "btn-building-terran-supplydepot",
+      "Name": {
+        "frFR": "Construire un dépôt de ravitaillement ",
+        "deDE": "Versorgungsdepot bauen ",
+        "esES": "Construir depósito de suministros ",
+        "esMX": "Construir Depósito de suministros ",
+        "ruRU": "Построить хранилище ",
+        "koKR": "보급고 건설 ",
+        "zhCN": "建造补给站 ",
+        "zhTW": "建造補給站 ",
+        "plPL": "Postaw magazyn ",
+        "itIT": "Costruisci Deposito",
+        "ptBR": "Construir Depósito de suprimentos "
+      },
+      "Tooltip": {
+        "frFR": "Ravitaille les troupes.<br/>Le ravitaillement vous permet de former davantage d’unités.<br/>Les dépôts de ravitaillement peuvent être abaissés pour permettre aux unités de passer par-dessus. ",
+        "deDE": "Bietet Versorgung.<br/>Versorgung ermöglicht das Erstellen zusätzlicher Einheiten.<br/>Versorgungsdepots können gesenkt werden, um es Einheiten zu ermöglichen, sich darüber hinwegzubewegen. ",
+        "esES": "Proporciona suministros.<br/>Los suministros te permiten crear más unidades.<br/>Los depósitos de suministros se pueden bajar para que las unidades puedan pasar por encima. ",
+        "esMX": "Proporciona suministros.<br/>Los suministros te permiten entrenar más unidades.<br/>Los Depósitos de suministros pueden bajarse para que las unidades puedan pasar sobre ellos. ",
+        "ruRU": "Служит для хранения припасов.<br/>Увеличивает максимальный размер армии.<br/>Хранилища можно скрывать под землей и поднимать на поверхность.",
+        "koKR": "보급품을 공급합니다. <br/>보급품을 늘리면 더 많은 유닛을 훈련할 수 있습니다.<br/>유닛들이 지나갈 수 있도록 보급고를 지하로 내릴 수 있습니다. ",
+        "zhCN": "为人类部队提供补给，<br/>提高本方单位数量上限。<br/>补给站可以降下，允许地面单位出入。 ",
+        "zhTW": "提供補給。<br/>補給越多可以訓練越多單位。<br/>可降下補給站，以讓單位通過。 ",
+        "plPL": "Zapewnia zaopatrzenie.<br/>Zaopatrzenie umożliwia szkolenie większej liczby jednostek.<br/>Magazyny można obniżyć do poziomu terenu, aby jednostki mogły się po nich przemieszczać. ",
+        "itIT": "Garantisce rifornimenti.<br/>I rifornimenti permettono di addestrare più unità.<br/>I Depositi si possono abbassare per consentire il transito delle unità.",
+        "ptBR": "Fornece suprimentos.<br/>Suprimentos permitem criar mais unidades.<br/>Depósitos de suprimentos podem ser rebaixados para permitir que as unidades andem por cima deles. "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build4",
+      "id": "Barracks",
+      "Icon": "btn-building-terran-barracks",
+      "Name": {
+        "frFR": "Construire une caserne ",
+        "deDE": "Kaserne bauen ",
+        "esES": "Construir barracón ",
+        "esMX": "Construir Cuartel ",
+        "ruRU": "Построить казармы ",
+        "koKR": "병영 건설 ",
+        "zhCN": "建造兵营 ",
+        "zhTW": "建造兵營 ",
+        "plPL": "Postaw koszary ",
+        "itIT": "Costruisci Caserma",
+        "ptBR": "Construir Quartel "
+      },
+      "Tooltip": {
+        "frFR": "Site de production de l’infanterie.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Marine<br/>- Faucheur <br/>- Bunker construit par un VCS<br/>- Station orbitale à partir du Centre de commandement",
+        "deDE": "Ausbildungseinrichtung für Infanterie-Einheiten.<br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Space-Marines<br/>- Rächer<br/>- Bau von Bunkern durch WBFs<br/>- Satellitenzentralen aus Kommandozentralen ",
+        "esES": "Instalación de producción de infantería.<br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Soldados<br/>- Segadores<br/>- Búnkeres construidos por el VCE<br/>- Comandos orbitales desde centros de mando",
+        "esMX": "Complejo de producción de infantería.<br/><br/><span style=\"color: #ffff8a\">Habilita:</span><br/>- Marines<br/>- Yum-Kimiles<br/>- Construcción de Búnkeres con los VCE<br/>- Transformación de Centro de mando en Centro de mando orbital ",
+        "ruRU": "Тренировочный комплекс пехоты.<br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– обучение морпехов<br/>– обучение головорезов<br/>– постройка бункеров с помощью КСМ<br/>– переоборудование командных центров в станции наблюдения ",
+        "koKR": "보병 생산 시설입니다.<br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 해병<br/>- 사신<br/>- 벙커 (건설로봇 건설)<br/>- 궤도 사령부 (사령부 업그레이드) ",
+        "zhCN": "步兵训练设施。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 陆战队员<br/>- 收割者<br/>- 使SCV可以建造地堡<br/>- 使指挥中心可以升级为轨道控制基地 ",
+        "zhTW": "步兵生產設施。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 可訓練陸戰隊<br/>- 可訓練死神<br/>- 讓太空工程車可建造碉堡<br/>- 讓指揮中心可升級為星軌指揮總部 ",
+        "plPL": "Placówka szkoleniowa piechoty.<br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/> – marines,<br/> – żniwiarzy,<br/> – bunkry (poprzez ERK),<br/> – dowództwa orbitalne z centrów dowodzenia.",
+        "itIT": "Struttura per la produzione di fanteria.<br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Marine<br/>- Mietitori<br/>- Bunker dagli SCV<br/>- Comandi orbitali dai Centri di comando",
+        "ptBR": "Instalação de produção de infantaria. <br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- Soldados<br/>- Exterminadores<br/>- Casamatas a partir de VCEs<br/>- Comandos Orbitais a partir de Centrais de Comando "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build5",
+      "id": "EngineeringBay",
+      "Icon": "btn-building-terran-engineeringbay",
+      "Name": {
+        "frFR": "Construire un centre technique ",
+        "deDE": "Maschinendock bauen ",
+        "esES": "Construir bahía de ingeniería ",
+        "esMX": "Construir Centro de ingeniería ",
+        "ruRU": "Построить инженерный комплекс ",
+        "koKR": "공학 연구소 건설 ",
+        "zhCN": "建造工程站 ",
+        "zhTW": "建造電機工程所 ",
+        "plPL": "Postaw stację inżynieryjną ",
+        "itIT": "Costruisci Officina bellica",
+        "ptBR": "Construir Polo de engenharia "
+      },
+      "Tooltip": {
+        "frFR": "Permet des améliorations pour l’infanterie et les bâtiments terrans.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Tourelle lance-missiles construite par un VCS<br/>- Tour de détection construite par un VCS<br/>- Forteresse planétaire à partir du Centre de commandement ",
+        "deDE": "Bietet Upgrademöglichkeiten für terranische Infanterie-Einheiten und Gebäude. <br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Bau von Raketentürmen durch WBFs<br/>- Bau von Sensortürmen durch WBFs<br/>- Planetare Festungen aus Kommandozentralen ",
+        "esES": "Tiene mejoras para la infantería y las estructuras terran. <br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Torretas de misiles construidas por VCE<br/>- Torres de sensores construidas por VCE<br/>- Fortalezas planetarias desde centros de mando ",
+        "esMX": "Contiene mejoras para la infantería y las estructuras terran. <br/><br/><span style=\"color: #ffff8a\">Activa:</span><br/>- Torretas de misiles construidas por los VCE<br/>- Torres de sensores construidas por los VCE<br/>- Fortalezas planetarias desde los Centros de mando ",
+        "ruRU": "Позволяет улучшать пехоту и строения. <br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– постройка ракетных турелей с помощью КСМ<br/>– постройка радарных вышек с помощью КСМ<br/>– переоборудование командного центра в планетарную крепость",
+        "koKR": "테란 보병과 구조물을 업그레이드합니다. <br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 미사일 포탑 (건설로봇 건설)<br/>- 감지탑 (건설로봇 건설)<br/>- 행성 요새 (사령부 업그레이드) ",
+        "zhCN": "为人类步兵单位和建筑提供升级方案。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 使SCV可以建造导弹塔<br/>- 使SCV可以建造感应塔<br/>- 使指挥中心可升级为行星要塞 ",
+        "zhTW": "提供人類步兵和建築的升級。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 讓太空工程車可建造飛彈砲台<br/>- 讓太空工程車可建造感應塔<br/>- 讓指揮中心可升級為行星要塞 ",
+        "plPL": "Umożliwia ulepszanie piechoty i budowli terran. <br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/>- wieżyczki przeciwlotnicze (poprzez ERK),<br/>- wieże radarowe (poprzez ERK),<br/>- fortece planetarne z centrów dowodzenia. ",
+        "itIT": "Contiene potenziamenti per fanti e strutture terran. <br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Torretta lanciamissili dagli SCV<br/>- Torri di rilevamento dagli SCV<br/>- Fortezze planetarie dai Centri di comando",
+        "ptBR": "Contém aprimoramentos para infantaria e estruturas terranas.<br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- Torre de mísseis a partir de VCEs<br/>- Torres sensoriais a partir de VCEs<br/>- Fortalezas planetárias a partir de Centrais de comando "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build7",
+      "id": "Bunker",
+      "Icon": "btn-building-terran-bunker",
+      "Name": {
+        "frFR": "Construire un bunker ",
+        "deDE": "Bunker bauen ",
+        "esES": "Construir búnker ",
+        "esMX": "Construir Búnker ",
+        "ruRU": "Построить бункер ",
+        "koKR": "벙커 건설 ",
+        "zhCN": "建造地堡 ",
+        "zhTW": "建造碉堡 ",
+        "plPL": "Postaw bunkier ",
+        "itIT": "Costruisci Bunker",
+        "ptBR": "Construir Casamata "
+      },
+      "Tooltip": {
+        "frFR": "Bâtiment défensif. <br/>Les unités d’infanterie combattent depuis l’intérieur. <br/><br/><span style=\"color: ##ffff8a\">Bonus : +1 de portée aux unités abritées.</span> ",
+        "deDE": "Verteidigungsgebäude.<br/>Infanterie-Einheiten können aus dem Inneren angreifen.<br/><br/><span style=\"color: ##ffff8a\">Bonus: +1 Reichweite für im Inneren befindliche Einheiten.</span> ",
+        "esES": "Estructura defensiva.<br/>La infantería puede disparar desde su interior.<br/><br/><span style=\"color: ##ffff8a\">Bonificación: las unidades del interior tienen +1 de alcance.</span> ",
+        "esMX": "Estructura defensiva.<br/>La infantería combate desde el interior. <br/><br/><span style=\"color: ##ffff8a\">Bonificación: +1 de rango a las unidades que están dentro.</span> ",
+        "ruRU": "Оборонительное строение.<br/>Помещенная в бункер пехота может вести огонь.<br/><br/><span style=\"color: ##ffff8a\">Бонус: +1 к дальности атаки находящихся внутри войск.</span>",
+        "koKR": "방어 구조물입니다. <br/>보병들이 내부에서 적을 공격할 수 있습니다. <br/><br/><span style=\"color: ##ffff8a\">추가 효과: 유닛 사거리 1만큼 증가</span> ",
+        "zhCN": "防御工事。<br/>步兵单位在地堡内作战。<br/><br/><span style=\"color: ##ffff8a\">效果加成：舱载单位射程增加1。</span> ",
+        "zhTW": "防禦性建築。<br/>讓步兵可躲在碉堡內攻擊。<br/><br/><span style=\"color: ##ffff8a\">加成：碉堡內單位的攻擊距離提高1格。</span> ",
+        "plPL": "Budowla obronna. <br/>Jednostki piechoty prowadzą walkę z jej wnętrza. <br/><br/><span style=\"color: ##ffff8a\">Premia: +1 do zasięgu dla jednostek wewnątrz bunkra.</span> ",
+        "itIT": "Struttura difensiva. <br/>Protegge i fanti mentre combattono. <br/><br/><span style=\"color: ##ffff8a\">Bonus: +1 alla gittata per le unità all'interno.</span>",
+        "ptBR": "Estrutura defensiva. <br/>Unidades de infantaria atiram de dentro. <br/><br/><span style=\"color: ##ffff8a\">Bônus: +1 de alcance para as unidades internas.</span> "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build6",
+      "id": "MissileTurret",
+      "Icon": "btn-building-terran-missileturret",
+      "Name": {
+        "frFR": "Construire une tourelle lance-missiles ",
+        "deDE": "Raketenturm bauen ",
+        "esES": "Construir torreta de misiles ",
+        "esMX": "Construir Torreta de misiles ",
+        "ruRU": "Построить ракетную турель ",
+        "koKR": "미사일 포탑 건설 ",
+        "zhCN": "建造导弹塔 ",
+        "zhTW": "建造飛彈砲台 ",
+        "plPL": "Postaw wieżyczkę przeciwlotniczą",
+        "itIT": "Costruisci Torretta lanciamissili",
+        "ptBR": "Construir Torre de mísseis "
+      },
+      "Tooltip": {
+        "frFR": "Bâtiment de défense antiaérienne.<br/><br/><span style=\"color: ##ffff8a\">Peut attaquer les unités aériennes.</span><br/><span style=\"color: #FFE303\">Détecteur</span> ",
+        "deDE": "Luftabwehrgebäude.<br/><br/><span style=\"color: ##ffff8a\">Kann Lufteinheiten angreifen.</span><br/><span style=\"color: #FFE303\">Detektor</span> ",
+        "esES": "Estructura defensiva antiaérea.<br/><br/><span style=\"color: ##ffff8a\">Puede atacar a unidades aéreas.</span><br/><span style=\"color: #FFE303\">Detector</span> ",
+        "esMX": "Estructura defensiva antiaérea.<br/><br/><span style=\"color: ##ffff8a\">Ataca unidades aéreas.</span><br/><span style=\"color: #FFE303\">Detector</span> ",
+        "ruRU": "Средство противовоздушной обороны.<br/><br/><span style=\"color: ##ffff8a\">Атакует только воздушные цели.</span><br/><span style=\"color: #FFE303\">Детектор</span>",
+        "koKR": "대공 방어 구조물입니다.<br/><br/><span style=\"color: ##ffff8a\">공중 유닛 공격 가능</span><br/><span style=\"color: #FFE303\">탐지기</span> ",
+        "zhCN": "防空建筑。<br/><br/><span style=\"color: ##ffff8a\">可以对空</span><br/><span style=\"color: #FFE303\">侦测单位</span> ",
+        "zhTW": "對空防禦性建築。<br/><br/><span style=\"color: ##ffff8a\">可攻擊空中單位。</span><br/><span style=\"color: #FFE303\">偵測單位</span> ",
+        "plPL": "Podstawowa budowla obrony przeciwlotniczej.<br/><br/><span style=\"color: ##ffff8a\">Może atakować jednostki powietrzne.</span><br/><span style=\"color: #FFE303\">Wykrywacz</span> ",
+        "itIT": "Struttura difensiva antiaerea.<br/><br/><span style=\"color: ##ffff8a\">Può attaccare unità aeree.</span><br/><span style=\"color: #FFE303\">Individuatore</span>",
+        "ptBR": "Estrutura de defesa antiaérea.<br/><br/><span style=\"color: ##ffff8a\">Ataca unidades aéreas.</span><br/><span style=\"color: #FFE303\">Detector</span> "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build9",
+      "id": "SensorTower",
+      "Icon": "btn-building-terran-sensordome",
+      "Name": {
+        "frFR": "Construire une tour de détection ",
+        "deDE": "Sensorturm bauen ",
+        "esES": "Construir torre de sensores ",
+        "esMX": "Construir Torre de sensores ",
+        "ruRU": "Построить радарную вышку ",
+        "koKR": "감지탑 건설 ",
+        "zhCN": "建造感应塔 ",
+        "zhTW": "建造感應塔 ",
+        "plPL": "Postaw wieżę radarową ",
+        "itIT": "Costruisci Torre di rilevamento",
+        "ptBR": "Construir Torre sensorial "
+      },
+      "Tooltip": {
+        "frFR": "Révèle la position des unités ennemies sur une longue portée. La zone de détection de la tour est visible par les ennemis. ",
+        "deDE": "Zeigt den Standort gegnerischer Einheiten aus großer Entfernung an. Die Radarposition des Sensorturms ist für den Feind sichtbar.",
+        "esES": "Descubre la ubicación de unidades enemigas a largo alcance. El área de detección de la torre de sensores es visible para el enemigo. ",
+        "esMX": "Revela las ubicaciones de las unidades enemigas a larga distancia. El área de detección de la Torre de sensores es visible para el enemigo. ",
+        "ruRU": "Обнаруживает вражеские войска в большом радиусе. Область обнаружения видна противникам. ",
+        "koKR": "멀리 떨어져 있는 적 유닛들의 위치를 감지합니다. 적을 포함한 모든 플레이어가 감지탑의 감지 범위를 볼 수 있습니다. ",
+        "zhCN": "在大范围内显示敌方单位的位置。敌方单位可以看到感应塔的侦测范围。 ",
+        "zhTW": "顯示廣大範圍內的敵軍單位。敵方可看到感應塔偵測到的範圍。 ",
+        "plPL": "Ujawnia położenie odległych wrogich jednostek. Zasięg wieży radarowej jest widoczny dla przeciwników. ",
+        "itIT": "Rivela la posizione delle unità nemiche da grande distanza. La posizione della Torre di rilevamento è visibile al nemico.",
+        "ptBR": "Revela a localização de unidades inimigas a longa distância. A área de detecção da Torre sensorial fica visível ao inimigo. "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build19",
+      "id": "AutomatedRefinery",
+      "Icon": "btn-building-terran-refineryautomated",
+      "Name": {
+        "frFR": "Construire une raffinerie automatisée ",
+        "deDE": "Automatisierte Raffinerie bauen ",
+        "esES": "Construir refinería automatizada ",
+        "esMX": "Construir Refinería automatizada ",
+        "ruRU": "Построить автоматический экстрактор",
+        "koKR": "자동 정제소 건설 ",
+        "zhCN": "建造自动化精炼厂 ",
+        "zhTW": "建造自動化瓦斯精煉廠 ",
+        "plPL": "Postaw zautomatyzowaną rafinerię. ",
+        "itIT": "Costruisci Raffineria automatizzata",
+        "ptBR": "Construir Refinaria automatizada "
+      },
+      "Tooltip": {
+        "frFR": "Raffinerie améliorée qui envoie le gaz vespène raffiné directement au Centre de commadement via des champs de transfert à courte distance. Élimine le besoin en VCS pour la production de vespène. ",
+        "deDE": "Verbesserte Raffinerie, die raffiniertes Vespingas mittels Kurzstrecken-Warpfeldern direkt zur Kommandozentrale schickt. Macht WBFs für die Vespingasförderung überflüssig. ",
+        "esES": "Una refinería mejorada que envía el gas vespeno refinado directamente al centro de mando mediante campos de distorsión de corto alcance. Permite prescindir de los VCE en la producción de gas vespeno. ",
+        "esMX": "Refinería mejorada que envía el gas vespeno refinado directo al Centro de mando a través de campos de transposición de corto rango. Hace innecesario el uso de VCE en la producción de gas vespeno. ",
+        "ruRU": "Усовершенствованный перерабатывающий завод, который с помощью локального искажающего поля отсылает добытый веспен напрямую в командный центр, без участия КСМ. ",
+        "koKR": "개량된 정제소로, 정제한 베스핀 가스를 근거리 차원장을 이용해 바로 사령부로 보냅니다. 베스핀 가스 생산에 건설로봇을 투입할 필요가 없습니다. ",
+        "zhCN": "改良型精炼厂，可通过短距折跃力场将精炼过的高能瓦斯直接运送到指挥中心。将SCV从高能瓦斯的生产过程中解放出来。 ",
+        "zhTW": "改良過的瓦斯精煉廠，可以透過短距躍傳力場將精製後的高能瓦斯傳送至指揮中心。不再需要太空工程車來運送高能瓦斯。 ",
+        "plPL": "Ulepszona rafineria, która wysyła przetworzony wespan prosto do centrum dowodzenia za pomocą krótkodystansowych pól nadprzestrzennych. Eliminuje potrzebę uczestnictwa ERK w procesie przeróbki wespanu. ",
+        "itIT": "Raffineria evoluta che invia gas vespene lavorato direttamente al Centro di comando tramite campi di teletrasporto a corto raggio. Elimina la necessità di SCV nella produzione di vespene.",
+        "ptBR": "Refinaria aprimorada que envia gás vespeno refinado direto para a Central de comando via campos de transdobra de curto alcance. Elimina a necessidade de VCEs na produção de gás vespeno. "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildDrop,Build1",
+      "id": "SupplyDepotDrop",
+      "Icon": "btn-building-terran-supplydepot",
+      "Name": {
+        "frFR": "Envoi : dépôt de ravitaillement ",
+        "deDE": "Versorgungsdepot anfordern ",
+        "esES": "Solicitar depósito de suministros ",
+        "esMX": "Llamado: Depósito de suministros ",
+        "ruRU": "Вызов хранилища ",
+        "koKR": "투하: 보급고 ",
+        "zhCN": "轨道空投：补给站 ",
+        "zhTW": "空投：補給站 ",
+        "plPL": "Przyzwij magazyn ",
+        "itIT": "Richiedi Deposito",
+        "ptBR": "Chamada: Depósito de suprimentos "
+      },
+      "Tooltip": {
+        "frFR": "Dépôt de ravitaillement amélioré qui peut être déployé instantanément depuis l’orbite. Supprime le temps nécessaire à un VCS pour construire un dépôt standard. ",
+        "deDE": "Verbessertes Versorgungsdepot. Kann sofort aus dem Orbit eingesetzt werden. So wird die Zeit eingespart, die ein WBF sonst für den Bau eines Standard-Depots benötigen würde. ",
+        "esES": "Un depósito de suministros mejorado que se puede desplegar instantáneamente desde órbita. Ahorra el tiempo que tarda un VCE en construir un depósito normal. ",
+        "esMX": "Depósito de suministros mejorado. Puede ser instalado directamente desde la órbita. Esto elimina el tiempo requerido para que un VCE ensamble un Depósito de suministros estándar. ",
+        "ruRU": "Усовершенствованные хранилища могут быть десантированы с орбиты, без затрат времени на постройку с помощью КСМ. ",
+        "koKR": "개량된 보급고입니다. 궤도상에서 바로 투하할 수 있기 때문에 일반 보급고 건설에 필요한 시간을 절약할 수 있습니다. ",
+        "zhCN": "改良型补给站。可以在空投后快速完成部署。节省了传统补给站由SCV进行装配所消耗的时间。 ",
+        "zhTW": "改良過的補給站，能瞬間從星軌空投並部署。不再需要太空工程車花費時間建造標準的補給站。 ",
+        "plPL": "Ulepszony magazyn, który można błyskawicznie zrzucić z orbity. Eliminuje problem opóźnienia związanego z procesem budowy magazynu przez ERK.",
+        "itIT": "Deposito avanzato. Può essere sganciato istantaneamente dall'orbita. Elimina il tempo di costruzione dei Depositi standard.",
+        "ptBR": "Depósito de suprimentos aprimorado. Pode ser instalado instantaneamente a partir da órbita. Elimina o tempo necessário para um VCE montar um Depósito de suprimentos padrão. "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build10",
+      "id": "GhostAcademy",
+      "Icon": "btn-building-terran-ghostacademy",
+      "Name": {
+        "frFR": "Construire une Académie fantôme ",
+        "deDE": "Ghost-Akademie bauen ",
+        "esES": "Construir academia fantasma ",
+        "esMX": "Construir Academia de Fantasmas ",
+        "ruRU": "Построить академию призраков ",
+        "koKR": "유령 사관학교 건설 ",
+        "zhCN": "建造幽灵军校 ",
+        "zhTW": "建造幽靈特務學院 ",
+        "plPL": "Postaw akademię duchów ",
+        "itIT": "Costruisci Accademia dei Fantasmi",
+        "ptBR": "Construir Academia fantasma "
+      },
+      "Tooltip": {
+        "frFR": "Permet des améliorations pour les fantômes. Permet de construire des bombes nucléaires utilisables par les fantômes.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Fantôme à la caserne ",
+        "deDE": "Bietet Upgrademöglichkeiten für Ghosts. Kann Nuklearraketen bauen, die von Ghosts eingesetzt werden. <br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Ghosts in der Kaserne",
+        "esES": "Tiene mejoras para los fantasmas. Puede construir bombas nucleares para que las utilicen los fantasmas.<br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Fantasmas en el barracón ",
+        "esMX": "Contiene mejoras para los Fantasmas. Puede construir Misiles nucleares para estos.<br/><br/><span style=\"color: #ffff8a\">Activa:</span><br/>- Fantasmas en el Cuartel ",
+        "ruRU": "Позволяет улучшать призраков. Служит для строительства ядерных ракет, используемых призраками.<br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– обучение призраков в казармах ",
+        "koKR": "유령을 업그레이드합니다. 유령이 사용할 수 있는 핵을 생산합니다.<br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 유령 (병영) ",
+        "zhCN": "能够制造供幽灵使用的聚变弹头，并为幽灵提供升级方案。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 可以在兵营中训练幽灵 ",
+        "zhTW": "可建造幽靈特務使用的核彈。提供幽靈特務的升級。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 讓兵營可訓練幽靈特務 ",
+        "plPL": "Pozwala konstruować bomby jądrowe wykorzystywane przez duchy. Umożliwia ulepszanie duchów.<br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/> - duchy w koszarach. ",
+        "itIT": "Contiene potenziamenti per i Fantasmi.<br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Fantasmi alla Caserma",
+        "ptBR": "Contém um aprimoramento para Fantasmas. Constrói Armas nucleares para Fantasmas.<br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- Fantasmas no Quartel "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build11",
+      "id": "Factory",
+      "Icon": "btn-building-terran-factory",
+      "Name": {
+        "frFR": "Construire une usine ",
+        "deDE": "Fabrik bauen ",
+        "esES": "Construir fábrica ",
+        "esMX": "Construir Fábrica ",
+        "ruRU": "Построить завод ",
+        "koKR": "군수공장 건설 ",
+        "zhCN": "建造重工厂 ",
+        "zhTW": "建造軍工廠 ",
+        "plPL": "Postaw fabrykę ",
+        "itIT": "Costruisci Fabbrica",
+        "ptBR": "Construir Fábrica "
+      },
+      "Tooltip": {
+        "frFR": "Site de production de véhicules.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Vautour<br/>- Tourmenteur",
+        "deDE": "Produktionseinrichtung für Fahrzeuge.<br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Adler<br/>- Hellions",
+        "esES": "Instalación de producción de vehículos. <br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Buitres<br/>- Erebiones",
+        "esMX": "Complejo de producción vehicular. <br/><br/><span style=\"color: #ffff8a\">Habilita:</span><br/>- Buitres<br/>- Demonios ",
+        "ruRU": "Завод по производству бронетехники.<br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– производство «Стервятников»<br/>– производство «Геллионов»",
+        "koKR": "차량 생산 시설입니다. <br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 시체매<br/>- 화염차 ",
+        "zhCN": "战车生产设施。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 恶火<br/>- 秃鹫 ",
+        "zhTW": "載具生產設施。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 可建造禿鷹<br/>- 可建造惡狼 ",
+        "plPL": "Budowla produkująca pojazdy. <br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/>– sępy,<br/>– heliony.",
+        "itIT": "Struttura per la produzione di veicoli. <br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Vulture<br/>- Hellion",
+        "ptBR": "Instalação de produção de veículos. <br/><br/><span style=\"color: #ffff8a\">Habilita:</span><br/>- Abutres<br/>- Endiabrados "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build14",
+      "id": "Armory",
+      "Icon": "btn-building-terran-armory",
+      "Name": {
+        "frFR": "Construire une armurerie ",
+        "deDE": "Waffenlager bauen ",
+        "esES": "Construir arsenal ",
+        "esMX": "Construir Armería ",
+        "ruRU": "Построить арсенал ",
+        "koKR": "무기고 건설 ",
+        "zhCN": "建造军械库 ",
+        "zhTW": "建造兵工廠 ",
+        "plPL": "Postaw zbrojownię ",
+        "itIT": "Costruisci Armeria",
+        "ptBR": "Construir Arsenal "
+      },
+      "Tooltip": {
+        "frFR": "Permet des améliorations d’armement et de blindage pour les unités issues de l’usine et du spatioport. <br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Nettoyeur à l’usine<br/>- Thor à l’usine",
+        "deDE": "Bietet Upgrademöglichkeiten für Waffen und Panzerung von Einheiten, die in der Fabrik oder im Raumhafen gebaut werden. <br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Kampfhellions in der Fabrik<br/>- Thore in der Fabrik ",
+        "esES": "Tiene mejoras de armas y blindaje para las unidades de la fábrica y el puerto estelar. <br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Murciélago infernal en la fábrica<br/>- Thor en la fábrica ",
+        "esMX": "Contiene mejoras de armas y armaduras para las unidades de Fábrica y Puerto estelar. <br/><br/><span style=\"color: #ffff8a\">Habilita:</span><br/>- Murciélago infernal en la Fábrica<br/>- Thor en la Fábrica ",
+        "ruRU": "Позволяет улучшать броню и оружие боевых единиц, производимых на заводе и в космопорте. <br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– производство «Геллитронов» на заводе<br/>– производство «Торов» на заводе",
+        "koKR": "군수공장과 우주공항에서 생산하는 유닛의 무기와 장갑을 업그레이드합니다.<br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 화염기갑병 (군수공장)<br/>- 토르 (군수공장) ",
+        "zhCN": "为重工厂和星港制造的单位提供武器和护甲升级方案。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 可以在重工厂中制造恶蝠<br/>- 可以在重工厂中制造雷神 ",
+        "zhTW": "提供軍工廠和星際港單位的武器和裝甲升級。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 讓軍工廠可建造戰狼<br/>- 讓軍工廠可建造雷神 ",
+        "plPL": "Umożliwia ulepszanie uzbrojenia i opancerzenia jednostek tworzonych w fabrykach i portach gwiezdnych. <br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/> – helbaty w fabryce,<br/> – thory w fabryce.",
+        "itIT": "Contiene potenziamenti per armi e corazze per le unità prodotte da Fabbrica e Spazioporto.<br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Hellbat nella Fabbrica<br/>- Thor nella Fabbrica",
+        "ptBR": "Contém aprimoramentos de armas e blindagem para unidades da Fábrica e do Estaleiro Sideral. <br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- Morcego Infernal na Fábrica<br/>- Thor na Fábrica "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build12",
+      "id": "Starport",
+      "Icon": "btn-building-terran-starport",
+      "Name": {
+        "frFR": "Construire un spatioport ",
+        "deDE": "Raumhafen bauen ",
+        "esES": "Construir puerto estelar ",
+        "esMX": "Construir Puerto estelar ",
+        "ruRU": "Построить космопорт ",
+        "koKR": "우주공항 건설 ",
+        "zhCN": "建造星港 ",
+        "zhTW": "建造星際港 ",
+        "plPL": "Postaw port gwiezdny ",
+        "itIT": "Costruisci Spazioporto",
+        "ptBR": "Construir Estaleiro sideral "
+      },
+      "Tooltip": {
+        "frFR": "Site de production d’unités aériennes.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Viking<br/>- Médivac",
+        "deDE": "Produktionsgebäude für Lufteinheiten.<br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Vikings<br/>- Medivacs ",
+        "esES": "Instalación de producción de unidades aéreas.<br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Vikingos<br/>- Medevacs ",
+        "esMX": "Complejo de producción de unidades aéreas. <br/><br/><span style=\"color: #ffff8a\">Activa:</span><br/>- Vikingos<br/>- Evameds ",
+        "ruRU": "Авиационный завод.<br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– производство «Викингов»<br/>– производство медэваков ",
+        "koKR": "공중 유닛 생산 시설입니다. <br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 바이킹<br/>- 의료선 ",
+        "zhCN": "空中单位生产设施。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 维京战机<br/>- 医疗运输机 ",
+        "zhTW": "空中單位生產設施。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 可建造維京戰機<br/>- 可建造醫療艇 ",
+        "plPL": "Zakład produkujący jednostki powietrzne.<br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/> - wikingi,<br/> - promy medyczne. ",
+        "itIT": "Struttura di produzione unità aeree. <br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Viking<br/>- Navette mediche",
+        "ptBR": "Instalação de produção de unidades aéreas. <br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- Vikings<br/>- Ambunaves "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build16",
+      "id": "FusionCore",
+      "Icon": "btn-building-terran-fusioncore",
+      "Name": {
+        "frFR": "Construire un noyau de fusion ",
+        "deDE": "Fusionskern bauen ",
+        "esES": "Construir núcleo de fusión ",
+        "esMX": "Construir Núcleo de fusión ",
+        "ruRU": "Построить центр синтеза ",
+        "koKR": "융합로 건설 ",
+        "zhCN": "建造聚变芯体 ",
+        "zhTW": "建造核融合核心 ",
+        "plPL": "Postaw rdzeń fuzyjny ",
+        "itIT": "Costruisci Nucleo di fusione",
+        "ptBR": "Construir Núcleo de fusão "
+      },
+      "Tooltip": {
+        "frFR": "Permet des améliorations pour le cuirassé.<br/><br/><span style=\"color: #ffff8a\">Débloque :</span><br/>- Cuirassé au spatioport",
+        "deDE": "Bietet Upgrademöglichkeiten für Schwere Kreuzer.<br/><br/><span style=\"color: #ffff8a\">Ermöglicht:</span><br/>- Schwere Kreuzer im Raumhafen",
+        "esES": "Tiene mejoras para los cruceros de batalla.<br/><br/><span style=\"color: #ffff8a\">Permite:</span><br/>- Cruceros de batalla en el puerto estelar",
+        "esMX": "Contiene mejoras para el Crucero de batalla. <br/><br/><span style=\"color: #ffff8a\">Habilita:</span><br/>- Cruceros de batalla en el Puerto estelar ",
+        "ruRU": "Позволяет улучшать крейсеры. <br/><br/><span style=\"color: #ffff8a\">Открывает возможности:</span><br/>– производство крейсеров в космопорте",
+        "koKR": "전투순양함의 기술을 연구합니다.<br/><br/><span style=\"color: #ffff8a\">사용 가능:</span><br/>- 전투순양함 (우주공항) ",
+        "zhCN": "为战列巡航舰提供升级方案。<br/><br/><span style=\"color: #ffff8a\">开启：</span><br/>- 可以在星港中制造战列巡航舰 ",
+        "zhTW": "提供戰巡艦的升級。<br/><br/><span style=\"color: #ffff8a\">功能：</span><br/>- 讓星際港可建造戰巡艦 ",
+        "plPL": "Umożliwia ulepszanie krążowników. <br/><br/><span style=\"color: #ffff8a\">Udostępnia:</span><br/>– krążowniki w porcie gwiezdnym.",
+        "itIT": "Contiene potenziamenti per l'Incrociatore.<br/><br/><span style=\"color: #ffff8a\">Consente:</span><br/>- Incrociatori allo Spazioporto",
+        "ptBR": "Contém aprimoramentos para Cruzador de Batalha. <br/><br/><span style=\"color: #ffff8a\">Ativa:</span><br/>- Cruzadores de Batalha no Estaleiro Sideral "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuild,Build13",
+      "id": "MercCompound",
+      "Icon": "btn-building-terran-merccompound",
+      "Name": {
+        "frFR": "Construire une planque des mercenaires ",
+        "deDE": "Söldnerquartier bauen ",
+        "esES": "Construir recinto de mercenarios ",
+        "esMX": "Construir Complejo de mercenarios ",
+        "ruRU": "Построить притон наемников ",
+        "koKR": "용병 집결소 건설 ",
+        "zhCN": "建造佣兵营地 ",
+        "zhTW": "建造傭兵基地 ",
+        "plPL": "Postaw bazę najemników ",
+        "itIT": "Costruisci Base dei mercenari",
+        "ptBR": "Construir Complexo mercenário "
+      },
+      "Tooltip": {
+        "frFR": "Forme des unités mercenaires. ",
+        "deDE": "Bildet Söldnereinheiten aus. ",
+        "esES": "Entrena unidades mercenarias. ",
+        "esMX": "Entrena unidades mercenarias. ",
+        "ruRU": "Позволяет обращаться к услугам наемников. ",
+        "koKR": "용병 유닛을 훈련합니다. ",
+        "zhCN": "训练雇佣兵单位。 ",
+        "zhTW": "訓練傭兵單位。 ",
+        "plPL": "Umożliwia wezwanie najemników na pole walki. ",
+        "itIT": "Addestra unità mercenarie.",
+        "ptBR": "Treina unidades mercenárias. "
+      }
+    }
+  ]
+}

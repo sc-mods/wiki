@@ -1,0 +1,340 @@
+{
+  "Name": "Howler",
+  "Description": "Tactical-strike aircraft. Can be upgraded to be cloaked and use Missile Barrage and Missile Burst.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 160,
+  "LifeMax": 160,
+  "LifeArmorName": "Umojan Ship Plating",
+  "Mover": "Fly",
+  "StationaryTurningRate": 1499.9414,
+  "TurningRate": 1499.9414,
+  "Radius": 0.75,
+  "SeparationRadius": 0.75,
+  "MinimapRadius": 0.75,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UmojanHowler",
+  "HotkeyAlias": "UmojanHowler",
+  "SelectAlias": "UmojanHowler",
+  "SubgroupAlias": "UmojanHowler",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UmojanAIHowler",
+  "AIEvaluateAlias": "UmojanHowler",
+  "ReviveType": "UmojanHowler",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UmojanHowler/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UmojanHowler/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Air"
+  ],
+  "Collide": [
+    "Flying"
+  ],
+  "Attributes": [
+    "Light",
+    "Mechanical"
+  ],
+  "EnergyStart": 50,
+  "EnergyMax": 200,
+  "EnergyRegenRate": 0.5625,
+  "ShieldsStart": 120,
+  "ShieldsMax": 120,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": "Umojan Plasma Shields",
+  "Speed": 2.75,
+  "Acceleration": 3.25,
+  "Sight": 10,
+  "Height": 3.75,
+  "VisionHeight": 4,
+  "Food": -4,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 300,
+    "Vespene": 300
+  },
+  "RepairTime": 60,
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanHowlerAirstrike,Execute",
+        "id": "UmojanGroundMissileBarrage",
+        "Icon": "btn-upgrade-terran-nova-bansheemissilestrik",
+        "Tooltip": "Deals <b>45</b> (+<b>60</b> against light) damage to enemy ground units in the target area over <b>4</b> seconds.",
+        "Name": "Ground Missile Barrage",
+        "Hotkey": "R"
+      },
+      {
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanHowlerAirburst,Execute",
+        "id": "UmojanAirMissileBarrage",
+        "Icon": "btn-ability-stetmann-corruptormissilebarrage",
+        "Tooltip": "Deals <b>45</b> (+<b>60</b> against light) damage to enemy air units in the target area over <b>4</b> seconds.",
+        "Name": "Air Missile Barrage",
+        "Hotkey": "E"
+      }
+    ]
+  },
+  "ScoreMake": 600,
+  "ScoreKill": 600,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 11,
+  "GlossaryCategory": "Unit/Category/UmojanUnits",
+  "GlossaryPriority": 120,
+  "GlossaryStrongArray": [
+    "SiegeTankSieged",
+    "Ultralisk",
+    "Colossus"
+  ],
+  "GlossaryWeakArray": [
+    "VikingFighter",
+    "Hydralisk",
+    "Phoenix"
+  ],
+  "HotkeyCategory": "Unit/Category/UmojanUnits",
+  "id": "UmojanHowler",
+  "Icon": "btn-unit-terran-banshee-umojan",
+  "LifeArmorIcon": "btn-upgrade-terran-shipplatinglevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "id": "UmojanNightScreamRockets",
+      "Icon": "btn-upgrade-terran-shipweaponslevel0",
+      "Name": "Night Scream Rockets",
+      "Amount": 10,
+      "AttributeBonus": {
+        "Light": 10
+      },
+      "Kind": "Ranged",
+      "DisplayAttackCount": 2,
+      "TargetFilters": "",
+      "Range": 6,
+      "Period": 2
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "UmojanPermaCloak",
+      "Icon": "btn-ability-hornerhan-wraith-permanentcloak"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "UmojanHowlerAirstrike",
+      "Name": "Umojan - Howler Airstrike"
+    },
+    {
+      "id": "UmojanHowlerAirburst",
+      "Name": "Umojan - Howler Airburst"
+    }
+  ],
+  "$Upgrades": [
+    "UmojanCloakingField",
+    "UmojanHowler",
+    "UmojanOverloadWeapons",
+    "UmojanHighOutputThruster",
+    "UmojanStarportTrain",
+    "UmojanStarport",
+    "UmojanHowler",
+    "UmojanShieldsLevel2",
+    "UmojanShields",
+    "UmojanShieldsLevel3",
+    "UmojanShipPlatingLevel1",
+    "UmojanShipPlating",
+    "UmojanShipPlatingLevel2",
+    "UmojanShipPlatingLevel3",
+    "UmojanShipWeaponsLevel1",
+    "UmojanShipWeapons",
+    "UmojanShipWeaponsLevel2",
+    "UmojanShipWeaponsLevel3",
+    "UmojanShieldsLevel1"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Producers": [
+    "UmojanStarport"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "UmojanHowlerAirstrike,Execute",
+      "id": "UmojanGroundMissileBarrage",
+      "Icon": "btn-upgrade-terran-nova-bansheemissilestrik",
+      "Tooltip": "Deals <b>45</b> (+<b>60</b> against light) damage to enemy ground units in the target area over <b>4</b> seconds.",
+      "Name": "Ground Missile Barrage"
+    },
+    {
+      "AbilCmd": "UmojanHowlerAirburst,Execute",
+      "id": "UmojanAirMissileBarrage",
+      "Icon": "btn-ability-stetmann-corruptormissilebarrage",
+      "Tooltip": "Deals <b>45</b> (+<b>60</b> against light) damage to enemy air units in the target area over <b>4</b> seconds.",
+      "Name": "Air Missile Barrage"
+    }
+  ]
+}

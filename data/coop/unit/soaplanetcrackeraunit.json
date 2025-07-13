@@ -1,0 +1,671 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "frFR": "Lance d’Adun - Casse-planète A - Unité",
+    "deDE": "SdA - Planetenbrecher, A-Einheit",
+    "esES": "Unidad de incinerador planetario A (Lanza de Adun)",
+    "esMX": "LDA - Fisurador de planetas - A - Unidad ",
+    "ruRU": "КА - раскалыватель планет - единица",
+    "koKR": "SOA 행성 분열기 A 유닛",
+    "zhCN": "SOA Planet Cracker AUnit",
+    "zhTW": "亞頓之矛 - 行星粉碎器 - 單位",
+    "plPL": "WA Łamacz planet, AJednostka",
+    "itIT": "LdA - Distruttore di Mondi - Unità A",
+    "ptBR": "SOA - Arrasa-planetas - UnidadeA "
+  },
+  "Description": "-",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 2,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Prot",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1,
+  "LifeMax": 1,
+  "LifeArmorName": {
+    "enUS": "None",
+    "ruRU": "Нет "
+  },
+  "Mover": "Fly",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1,
+  "SeparationRadius": 1,
+  "MinimapRadius": 0,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Campaign",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "Untargetable",
+    "Invulnerable",
+    "NoPortraitTalk",
+    "Unstoppable"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SOAPlanetCrackerAUnit",
+  "HotkeyAlias": "SOAPlanetCrackerAUnit",
+  "SelectAlias": "SOAPlanetCrackerAUnit",
+  "SubgroupAlias": "SOAPlanetCrackerAUnit",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SOAPlanetCrackerAUnit",
+  "AIEvaluateAlias": "SOAPlanetCrackerAUnit",
+  "ReviveType": "SOAPlanetCrackerAUnit",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "SOAPlanetCrackerAUnit/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "SOAPlanetCrackerAUnit/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "Facing": 45,
+  "PlaneArray": [
+    "Air"
+  ],
+  "Speed": 6.1992,
+  "Acceleration": 1000,
+  "LateralAcceleration": 46.0625,
+  "Sight": 11,
+  "AbilArray": [
+    "stop",
+    "move",
+    "SOAPlanetCrackerTargetingDummy"
+  ],
+  "BehaviorArray": [
+    "SuppressCloak",
+    "PlanetCrackerBuildUp",
+    "SOAPlanetCrackerRadar"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться ",
+          "frFR": "Déplacer ",
+          "deDE": "Bewegen ",
+          "esES": "Mover ",
+          "esMX": "Mover ",
+          "koKR": "이동 ",
+          "zhCN": "移动 ",
+          "zhTW": "移動 ",
+          "plPL": "Ruch ",
+          "itIT": "Muovi",
+          "ptBR": "Deslocar "
+        },
+        "Tooltip": {
+          "frFR": "Ordonne aux unités sélectionnées de se déplacer vers la zone ciblée ou de suivre l’unité ciblée. Les unités en cours de déplacement n’engageront pas le combat contre les ennemis. ",
+          "deDE": "Befiehlt den ausgewählten Einheiten, sich in ein Zielgebiet zu bewegen oder der Zieleinheit zu folgen. Einheiten in Bewegung werden keine feindlichen Einheiten angreifen. ",
+          "esES": "Ordena a las unidades seleccionadas que se desplacen hasta la zona señalada o que sigan a la unidad objetivo. No entablarán combate con los enemigos. ",
+          "esMX": "Ordena el desplazamiento de las unidades seleccionadas hacia el área objetivo o la persecución de la unidad objetivo. Las unidades en movimiento no atacarán a las unidades enemigas. ",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником.",
+          "koKR": "선택한 지점으로 이동하거나 대상 유닛을 따라갑니다. 이동 중인 유닛은 적과 교전하지 않습니다. ",
+          "zhCN": "命令选中的单位移至目标区域或跟随目标单位。正在移动的单位不会与敌人交战。 ",
+          "zhTW": "命令選取的單位移動至目標區域或跟隨目標單位。移動中的單位不會與敵方交戰。 ",
+          "plPL": "Rozkazuje wybranym jednostkom przejście do celu lub podążanie za jednostką. Poruszające się jednostki nie będą atakować wrogów. ",
+          "itIT": "Ordina alle unità selezionate di raggiungere la zona bersaglio o seguire l'unità bersaglio. Le unità in movimento non attaccano i nemici.",
+          "ptBR": "Ordena que unidades selecionadas se desloquem até a área de alvo ou sigam a unidade alvo. Unidades em movimento não travam combate com os inimigos. "
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить ",
+          "frFR": "Interrompre ",
+          "deDE": "Stoppen ",
+          "esES": "Detener ",
+          "esMX": "Detener ",
+          "koKR": "정지 ",
+          "zhCN": "停止 ",
+          "zhTW": "停止 ",
+          "plPL": "Zatrzymaj ",
+          "itIT": "Ferma",
+          "ptBR": "Parar "
+        },
+        "Tooltip": {
+          "frFR": "Ordonne aux unités sélectionnées d’abandonner tous les ordres en cours et de rester immobiles. ",
+          "deDE": "Befiehlt den ausgewählten Einheiten, die Ausführung aller Befehle abzubrechen und Bewegungen einzustellen. ",
+          "esES": "Ordena a las unidades seleccionadas que anulen todas las órdenes y que se detengan. ",
+          "esMX": "Ordena a las unidades seleccionadas que cancelen todas las órdenes y se detengan. ",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться.",
+          "koKR": "모든 지시 사항을 취소하고 이동을 멈춥니다. ",
+          "zhCN": "命令选中的单位不再执行任何命令并停止移动。 ",
+          "zhTW": "命令選取的單位取消所有指令並且停止移動。 ",
+          "plPL": "Anuluje wszystkie rozkazy wybranych jednostek i zatrzymuje je. ",
+          "itIT": "Annulla tutti gli ordini delle unità selezionate e le fa fermare.",
+          "ptBR": "Ordena que as unidades selecionadas cancelem todas as ordens anteriores e parem de se deslocar. "
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/SOAPlanetCrackerTargetingDummy",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SOAPlanetCrackerTargetingDummy",
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 0,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "SOAPlanetCrackerDummy"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "SOAPlanetCrackerTargetingDummy",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "SOAPlanetCrackerA"
+            }
+          },
+          "FollowRange": 5,
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "id": "SOAPlanetCrackerTargetingDummy"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SOAPlanetCrackerTargetingDummy,Execute",
+        "id": "SOAPlanetCrackerA",
+        "Icon": "btn-ability-protoss-planetcracker",
+        "Name": {
+          "frFR": "Casse-planète A",
+          "deDE": "Planetenbrecher A",
+          "esES": "Incinerador planetario A",
+          "esMX": "Fisurador planetario A ",
+          "ruRU": "Раскалыватель планет A",
+          "koKR": "행성 분열기 A",
+          "zhCN": "Planet Cracker A",
+          "zhTW": "行星粉碎器A",
+          "plPL": "Łamacz planet A",
+          "itIT": "Distruttore di Mondi A",
+          "ptBR": "Arrasa-planetas A "
+        },
+        "Tooltip": {
+          "frFR": "Lance une immense attaque de zone à l’emplacement ciblé. Le rayon peut être déplacé après ciblage.",
+          "deDE": "Entfesselt einen gewaltigen Flächenangriff am Zielort. Der Strahl kann nach Aktivierung bewegt werden.",
+          "esES": "Desata un gran ataque de área de efecto en la ubicación objetivo. El haz se puede mover tras lanzarlo.",
+          "esMX": "Libera un gran ataque de área de efecto en la ubicación objetivo. El rayo puede moverse después de lanzarlo. ",
+          "ruRU": "Мощная атака, наносящая урон по указанной области. После выстрела лучом можно управлять.",
+          "koKR": "대상 위치에 대규모 범위 공격을 가합니다. 이 광선은 사용 후에 이동할 수 있습니다. ",
+          "zhCN": "对目标位置释放一道大型范围攻击光束。该光束可以在移动时施放。",
+          "zhTW": "對目標地點放出一道範圍極大的特殊攻擊。施放此技能後可移動光束。 ",
+          "plPL": "Rozpoczyna we wskazanym miejscu potężny atak obszarowy. Wiązkę można przemieścić po jej aktywowaniu.",
+          "itIT": "Scatena un potente attacco ad area nel punto selezionato. Il raggio può essere spostato dopo l'attivazione.",
+          "ptBR": "Desfere um ataque de área devastador no local selecionado. O raio pode ser movido após o lançamento. "
+        }
+      }
+    ]
+  },
+  "id": "SOAPlanetCrackerAUnit",
+  "Icon": "btn-missing-kaeo",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "SuppressCloak",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "frFR": "Suppression du Camouflage ",
+        "deDE": "Tarnung unterdrücken ",
+        "esES": "Suprimir invisibilidad ",
+        "esMX": "Suprimir camuflaje ",
+        "ruRU": "Запрет маскировки ",
+        "koKR": "은폐 억제 ",
+        "zhCN": "抑制隐身 ",
+        "zhTW": "抑制匿蹤 ",
+        "plPL": "Wstrzymaj maskowanie ",
+        "itIT": "Soppressione occultamento",
+        "ptBR": "Conter Camuflagem "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "PlanetCrackerBuildUp",
+      "Icon": "btn-missing-kaeo",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "id": "SOAPlanetCrackerRadar",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "frFR": "LdA - Casse-planète - Radar",
+        "deDE": "SdA - Planetenbrecher, Radar",
+        "esES": "Radar de incinerador planetario (Lanza de Adun)",
+        "esMX": "LDA - Fisurador de planetas - Radar ",
+        "ruRU": "КА - раскалыватель планет - радар",
+        "koKR": "SOA 행성 분열기 레이더",
+        "zhCN": "SOA行星碎裂炮雷达 ",
+        "zhTW": "亞頓之矛 - 行星粉碎器 - 雷達",
+        "plPL": "WAŁamacz planet Radar",
+        "itIT": "LdA - Distruttore di Mondi - Radar",
+        "ptBR": "SOA - Arrasa-planetas - Radar "
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "stop",
+        "ruRU": "Stop",
+        "frFR": "Stop",
+        "deDE": "Stop",
+        "esES": "Stop",
+        "esMX": "Detener ",
+        "koKR": "정지 ",
+        "zhCN": "停止 ",
+        "zhTW": "停止 ",
+        "plPL": "Stop",
+        "itIT": "Stop",
+        "ptBR": "Parar "
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "move",
+        "ruRU": "Move",
+        "frFR": "Move",
+        "deDE": "Move",
+        "esES": "Move",
+        "esMX": "Mover ",
+        "koKR": "이동 ",
+        "zhCN": "移动 ",
+        "zhTW": "移動 ",
+        "plPL": "Move",
+        "itIT": "Move",
+        "ptBR": "Deslocar "
+      }
+    },
+    {
+      "id": "SOAPlanetCrackerTargetingDummy",
+      "Name": {
+        "frFR": "SOA Planet Cracker Targeting Dummy",
+        "deDE": "SOA Planet Cracker Targeting Dummy",
+        "esES": "SOA Planet Cracker Targeting Dummy",
+        "esMX": "LDA - Fisurador planetario - Focalización - Simulación",
+        "ruRU": "SOA Planet Cracker Targeting Dummy",
+        "koKR": "SOA 행성 분열기 대상 지정 임시",
+        "zhCN": "SOA Planet Cracker Targeting Dummy",
+        "zhTW": "",
+        "plPL": "SOA Planet Cracker Targeting Dummy",
+        "itIT": "SOA Planet Cracker Targeting Dummy",
+        "ptBR": "SOA - Arrasa-planetas - Mirando em Dummy "
+      }
+    }
+  ],
+  "$Upgrades": [
+    "SOAPlanetCrackerACU",
+    "SOAPlanetCrackerAUnit",
+    "SOAPlanetCrackerAUnit"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться ",
+        "frFR": "Déplacer ",
+        "deDE": "Bewegen ",
+        "esES": "Mover ",
+        "esMX": "Mover ",
+        "koKR": "이동 ",
+        "zhCN": "移动 ",
+        "zhTW": "移動 ",
+        "plPL": "Ruch ",
+        "itIT": "Muovi",
+        "ptBR": "Deslocar "
+      },
+      "Tooltip": {
+        "frFR": "Ordonne aux unités sélectionnées de se déplacer vers la zone ciblée ou de suivre l’unité ciblée. Les unités en cours de déplacement n’engageront pas le combat contre les ennemis. ",
+        "deDE": "Befiehlt den ausgewählten Einheiten, sich in ein Zielgebiet zu bewegen oder der Zieleinheit zu folgen. Einheiten in Bewegung werden keine feindlichen Einheiten angreifen. ",
+        "esES": "Ordena a las unidades seleccionadas que se desplacen hasta la zona señalada o que sigan a la unidad objetivo. No entablarán combate con los enemigos. ",
+        "esMX": "Ordena el desplazamiento de las unidades seleccionadas hacia el área objetivo o la persecución de la unidad objetivo. Las unidades en movimiento no atacarán a las unidades enemigas. ",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником.",
+        "koKR": "선택한 지점으로 이동하거나 대상 유닛을 따라갑니다. 이동 중인 유닛은 적과 교전하지 않습니다. ",
+        "zhCN": "命令选中的单位移至目标区域或跟随目标单位。正在移动的单位不会与敌人交战。 ",
+        "zhTW": "命令選取的單位移動至目標區域或跟隨目標單位。移動中的單位不會與敵方交戰。 ",
+        "plPL": "Rozkazuje wybranym jednostkom przejście do celu lub podążanie za jednostką. Poruszające się jednostki nie będą atakować wrogów. ",
+        "itIT": "Ordina alle unità selezionate di raggiungere la zona bersaglio o seguire l'unità bersaglio. Le unità in movimento non attaccano i nemici.",
+        "ptBR": "Ordena que unidades selecionadas se desloquem até a área de alvo ou sigam a unidade alvo. Unidades em movimento não travam combate com os inimigos. "
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить ",
+        "frFR": "Interrompre ",
+        "deDE": "Stoppen ",
+        "esES": "Detener ",
+        "esMX": "Detener ",
+        "koKR": "정지 ",
+        "zhCN": "停止 ",
+        "zhTW": "停止 ",
+        "plPL": "Zatrzymaj ",
+        "itIT": "Ferma",
+        "ptBR": "Parar "
+      },
+      "Tooltip": {
+        "frFR": "Ordonne aux unités sélectionnées d’abandonner tous les ordres en cours et de rester immobiles. ",
+        "deDE": "Befiehlt den ausgewählten Einheiten, die Ausführung aller Befehle abzubrechen und Bewegungen einzustellen. ",
+        "esES": "Ordena a las unidades seleccionadas que anulen todas las órdenes y que se detengan. ",
+        "esMX": "Ordena a las unidades seleccionadas que cancelen todas las órdenes y se detengan. ",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться.",
+        "koKR": "모든 지시 사항을 취소하고 이동을 멈춥니다. ",
+        "zhCN": "命令选中的单位不再执行任何命令并停止移动。 ",
+        "zhTW": "命令選取的單位取消所有指令並且停止移動。 ",
+        "plPL": "Anuluje wszystkie rozkazy wybranych jednostek i zatrzymuje je. ",
+        "itIT": "Annulla tutti gli ordini delle unità selezionate e le fa fermare.",
+        "ptBR": "Ordena que as unidades selecionadas cancelem todas as ordens anteriores e parem de se deslocar. "
+      }
+    },
+    {
+      "AbilCmd": "SOAPlanetCrackerTargetingDummy,Execute",
+      "id": "SOAPlanetCrackerA",
+      "Icon": "btn-ability-protoss-planetcracker",
+      "Name": {
+        "frFR": "Casse-planète A",
+        "deDE": "Planetenbrecher A",
+        "esES": "Incinerador planetario A",
+        "esMX": "Fisurador planetario A ",
+        "ruRU": "Раскалыватель планет A",
+        "koKR": "행성 분열기 A",
+        "zhCN": "Planet Cracker A",
+        "zhTW": "行星粉碎器A",
+        "plPL": "Łamacz planet A",
+        "itIT": "Distruttore di Mondi A",
+        "ptBR": "Arrasa-planetas A "
+      },
+      "Tooltip": {
+        "frFR": "Lance une immense attaque de zone à l’emplacement ciblé. Le rayon peut être déplacé après ciblage.",
+        "deDE": "Entfesselt einen gewaltigen Flächenangriff am Zielort. Der Strahl kann nach Aktivierung bewegt werden.",
+        "esES": "Desata un gran ataque de área de efecto en la ubicación objetivo. El haz se puede mover tras lanzarlo.",
+        "esMX": "Libera un gran ataque de área de efecto en la ubicación objetivo. El rayo puede moverse después de lanzarlo. ",
+        "ruRU": "Мощная атака, наносящая урон по указанной области. После выстрела лучом можно управлять.",
+        "koKR": "대상 위치에 대규모 범위 공격을 가합니다. 이 광선은 사용 후에 이동할 수 있습니다. ",
+        "zhCN": "对目标位置释放一道大型范围攻击光束。该光束可以在移动时施放。",
+        "zhTW": "對目標地點放出一道範圍極大的特殊攻擊。施放此技能後可移動光束。 ",
+        "plPL": "Rozpoczyna we wskazanym miejscu potężny atak obszarowy. Wiązkę można przemieścić po jej aktywowaniu.",
+        "itIT": "Scatena un potente attacco ad area nel punto selezionato. Il raggio può essere spostato dopo l'attivazione.",
+        "ptBR": "Desfere um ataque de área devastador no local selecionado. O raio pode ser movido após o lançamento. "
+      }
+    }
+  ]
+}

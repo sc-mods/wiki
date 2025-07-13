@@ -1,0 +1,486 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Ionic Crystal"
+  },
+  "Description": {
+    "enUS": "Provides supply. Supply allows you to summon more units.<br/><br/>Creates <span style=\"color: #Void\">Void</span> powerfield, allowing units around to restore <span style=\"color: ffffff\">Protection</span> shields and <span style=\"color: #Void\">Void</span> energy.</span>**Moveable structure**"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZHBR",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "AcquireNoFlee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 80,
+  "LifeMax": 80,
+  "LifeArmorName": {
+    "enUS": "Building Plating"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1,
+  "SeparationRadius": 1,
+  "MinimapRadius": 1,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ZHBRIonicCrystal",
+  "HotkeyAlias": "ZHBRIonicCrystal",
+  "SelectAlias": "ZHBRIonicCrystal",
+  "SubgroupAlias": "ZHBRIonicCrystal",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ZHBRIonicCrystal",
+  "AIEvaluateAlias": "ZHBRIonicCrystal",
+  "ReviveType": "ZHBRIonicCrystal",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ZHBRIonicCrystal/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ZHBRIonicCrystal/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Phased",
+    "Small"
+  ],
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Attributes": [
+    "Armored",
+    "Structure"
+  ],
+  "ShieldArmorName": {
+    "enUS": "Protection"
+  },
+  "HotkeyCategory": "Unit/Category/ZHBRUnits",
+  "SubgroupPriority": 3,
+  "DataCollection": "ZHBRIonicCrystal",
+  "BehaviorArray": [
+    "ZHBRCommon@BuildersTracker",
+    "ZHBRVoid@PowerUser",
+    "ZHBRRestorationShield",
+    "ZHBRVoid@PowerSourceIonicCrystalSmall",
+    "ZHBRVoid@PowerSourceIonicCrystalLarge",
+    "ZHBRIonicField@Controller"
+  ],
+  "AbilArray": [
+    "BuildInProgress",
+    "ZHBRIonicCrystalMorph@TransfromToMoveableIonicCrystal",
+    "ZHBRStructureTeleport@IonicCrystal"
+  ],
+  "LifeArmor": 1,
+  "Facing": 315,
+  "ScoreResult": "BuildOrder",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonIonicCrystal"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountStart": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeUse": 140
+          },
+          "ValidatorArray": [
+            "HasVision",
+            "ZHBRVoid@TargetPointWithinPowerRange"
+          ],
+          "Time": 14,
+          "Unit": "ZHBRIonicCrystal"
+        },
+        "Unit": "ZHBRIonicCrystal",
+        "Time": 14,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 9
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRStructureTeleport@IonicCrystal,Build1",
+        "id": "ZHBRStructureTeleport",
+        "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+        "Name": {
+          "enUS": "Teleport Structure"
+        },
+        "Tooltip": {
+          "enUS": "Teleport structure to target location over <span style=\"color: ffff8a\"><b>14</b> seconds</span>."
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "ZHBRIonicField@Passive",
+        "Icon": "btn-ability-protoss-doubleshieldrecharge",
+        "Name": {
+          "enUS": "Ionic Field"
+        },
+        "Tooltip": {
+          "enUS": "Increases <span style=\"color: #Void\">Void</span> Power fields area of <span style=\"color: FFFF80\">Ionic Crystals</span> by <span style=\"color: FFFF80\"><b>50</b>%</span> and their Life and <span style=\"color: FFFFFF\">Protection</span> by <span style=\"color: FFFF80\"><b>350</b>%</span>."
+        }
+      },
+      {
+        "Info": {
+          "Unit": "ZHBRIonicCrystal@Moveable"
+        },
+        "Unit": "ZHBRIonicCrystal@Moveable",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 9
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRIonicCrystalMorph@TransfromToMoveableIonicCrystal,Execute",
+        "id": "ZHBRIonicCrystalMorph@TransformToMoveableIonicCrystal",
+        "Icon": "btn-ability-terran-liftoff",
+        "Name": {
+          "enUS": "Transform To Moveable Ionic Crystal"
+        },
+        "Tooltip": {
+          "enUS": "Allows Ionic Crystal to move."
+        },
+        "Hotkey": "E"
+      }
+    ]
+  },
+  "AttackTargetPriority": 11,
+  "Mob": "Multiplayer",
+  "Sight": 9,
+  "ShieldArmorTip": "Unit/ShieldArmorTooltip/ZHBRShields",
+  "EffectArray": {
+    "Birth": "ZHBRRaceControl@AddTrackedUnit"
+  },
+  "id": "ZHBRIonicCrystal",
+  "ShieldsMax": 40,
+  "Food": 9,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 100
+  },
+  "TurretArray": [
+    "PylonRingRotate"
+  ],
+  "Footprint": "Footprint2x2Contour",
+  "PlacementFootprint": "Footprint2x2",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "TechAliasArray": [
+    "Alias_ZHBRIonicCrystal"
+  ],
+  "GlossaryPriority": 3,
+  "ShieldRegenRate": 4,
+  "Icon": "btn-building-zhybrid-ioniccrystal",
+  "LifeArmorIcon": "amonshards _armor",
+  "ShieldArmorIcon": "btn-ability-zhybrid-protection",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "ZHBRCommon@BuildersTracker",
+      "Name": {
+        "enUS": "Builders Tracker"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRVoid@PowerUser",
+      "Name": {
+        "enUS": "Power User"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRRestorationShield",
+      "Icon": "btn-ability-zeratul-warpprism-shieldboosters",
+      "Name": {
+        "enUS": "Restoration Shield"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRVoid@PowerSourceIonicCrystalSmall",
+      "Name": {
+        "enUS": "Power Source (Ionic Crystall Small)"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRVoid@PowerSourceIonicCrystalLarge",
+      "Name": {
+        "enUS": "Power Source (Ionic Crystal Large)"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRIonicField@Controller",
+      "Name": {
+        "enUS": "Controller"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "ZHBRIonicCrystalMorph@TransfromToMoveableIonicCrystal",
+      "Name": {
+        "enUS": "Transfrom To Moveable Ionic Crystal"
+      }
+    },
+    {
+      "id": "ZHBRStructureTeleport@IonicCrystal",
+      "Name": {
+        "enUS": "Structure Teleport (Ionic Crystal)"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "ZHBRIonicField",
+    "ZHBRIonicCrystal",
+    "ZHBRIonicCrystal@Moveable",
+    "ZHBRIonicCrystalMorph@TransformToStaticIonicCrystal",
+    "ZHBRStructureTeleport@IonicCrystal",
+    "ZHBRMinionBuild",
+    "ZHBRMinionBuild@Main",
+    "ZHBRStructureTeleport",
+    "ZHBRStructureTeleport@Controller",
+    "ZHBRCommon@IsIonicCrystal",
+    "ZHBRIonicCrystal",
+    "ZHBRIonicCrystal",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "ZHBRIonicCrystal"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [
+    "ZHBRIonicCrystal@Moveable"
+  ],
+  "$Producers": [
+    "ZHBRRaceControl",
+    "ZHBRIonicCrystal@Moveable",
+    "ZHBRIonicCrystal",
+    "ZHBRMinion"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "ZHBRIonicCrystalTeleport@Build,255",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+        "ruRU": "Отменить текущий приказ и отдать следующий. "
+      }
+    },
+    {
+      "AbilCmd": "ZHBRStructureTeleport@IonicCrystal,Build1",
+      "id": "ZHBRStructureTeleport",
+      "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+      "Name": {
+        "enUS": "Teleport Structure"
+      },
+      "Tooltip": {
+        "enUS": "Teleport structure to target location over <span style=\"color: ffff8a\"><b>14</b> seconds</span>."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRIonicCrystalMorph@TransfromToMoveableIonicCrystal,Execute",
+      "id": "ZHBRIonicCrystalMorph@TransformToMoveableIonicCrystal",
+      "Icon": "btn-ability-terran-liftoff",
+      "Name": {
+        "enUS": "Transform To Moveable Ionic Crystal"
+      },
+      "Tooltip": {
+        "enUS": "Allows Ionic Crystal to move."
+      }
+    }
+  ]
+}

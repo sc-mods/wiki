@@ -1,0 +1,838 @@
+{
+  "Name": "Assembly",
+  "Description": "Mech-production facility.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Iron Fletcher<br/>- Munitions Depot from Myco-Synaptic Choir",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Synd",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1250,
+  "LifeMax": 1250,
+  "LifeArmorName": "Umojan Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.625,
+  "SeparationRadius": 1.625,
+  "MinimapRadius": 1.625,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "Assembly",
+  "HotkeyAlias": "Assembly",
+  "SelectAlias": "Assembly",
+  "SubgroupAlias": "Assembly",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "Factory",
+  "AIEvaluateAlias": "Assembly",
+  "ReviveType": "Assembly",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "Assembly/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "Assembly/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 45,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Phased",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "Sight": 9,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 150,
+    "Vespene": 100
+  },
+  "RepairTime": 60,
+  "AttackTargetPriority": 11,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rally,Rally1",
+        "id": "Rally",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Tooltip": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+        "Name": "Set Rally Point",
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+        "Name": "Halt",
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "QueueSize": 5,
+          "id": "que5"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/SalvageBunkerRefund",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SalvageBunkerRefund",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1
+          },
+          "Effect": [
+            "SalvageDeath"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "SalvageBunkerRefund",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Salvage"
+            }
+          },
+          "UninterruptibleArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "id": "SalvageBunkerRefund",
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": -75
+              }
+            }
+          ]
+        },
+        "Cost": {
+          "Minerals": -75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "SalvageBunkerRefund,Execute",
+        "id": "Salvage",
+        "Icon": "btn-ability-terran-salvage",
+        "Tooltip": "Salvages the structure, removing it and returning 75% of its mineral and gas value. Salvage takes <b>5</b> to finish. Warning: once Salvage is triggered, it cannot be canceled.",
+        "Name": "Salvage",
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "IronFletcher"
+          },
+          "Unit": [
+            "IronFletcher"
+          ],
+          "Time": 40
+        },
+        "Unit": [
+          "IronFletcher"
+        ],
+        "Time": 40,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "AssemblyTrain,Train3",
+        "id": "IronFletcher",
+        "Icon": "wireframe-terran-colonistvehicle02",
+        "Tooltip": "Quick assault unit that applies damage stacks with each attack. Each stack adds +2 bonus damage per attack from other iron fletchers, with a maximum of 4 stacks per targeted unit.<br/><br/><span style=\"color: #FFFF80\">Can attack ground units.</span>",
+        "Name": "Assemble Iron Fletcher",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "Rancor",
+            "Requirements": "RancorReq"
+          },
+          "Unit": [
+            "RancorSynoid"
+          ],
+          "Time": 58
+        },
+        "Unit": [
+          "RancorSynoid"
+        ],
+        "Time": 58,
+        "Cost": {
+          "Minerals": 250,
+          "Vespene": 125,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "AssemblyTrain,Train2",
+        "id": "Rancor",
+        "Icon": "wireframe-unit-synoid-rancor",
+        "Tooltip": "Slow firing long range anti-armor support unit. <br/>Can deploy Heal Emitters and throw Saws that deal damage over time.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+        "Name": "Assemble Rancor",
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "EnthralledSynoid",
+            "Requirements": "RancorReq"
+          },
+          "Unit": [
+            "EnthralledSynoid"
+          ],
+          "Time": 35
+        },
+        "Unit": [
+          "EnthralledSynoid"
+        ],
+        "Time": 35,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "AssemblyTrain,Train4",
+        "id": "EnthralledSynoid",
+        "Icon": "wireframe-zerg-terrorzor",
+        "Tooltip": "Anti-shield specialist that can be upgraded to deal area damage against shields with each attack.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+        "Name": "Assimilate Enthralled",
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "MidasIgniter",
+            "Requirements": "HaveSateliteUplink"
+          },
+          "Unit": [
+            "MidasIgniter"
+          ],
+          "Time": 45
+        },
+        "Unit": [
+          "MidasIgniter"
+        ],
+        "Time": 45,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "AssemblyTrain,Train5",
+        "id": "MidasIgniter",
+        "Icon": "wireframe-terran-widowmine",
+        "Tooltip": "Suicide unit. Explodes on contact and douses both your and the enemy's units in an electromagnetic paste that decreases attack speed by 10%, movement speed by 20%, disables energy regeneration, and decreases max health by 30%.<br/><br/><span style=\"color: #FFFF80\">Effect lasts 15 seconds.</span>",
+        "Name": "Assemble Midas Igniter",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Delay": 100
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 100
+              }
+            },
+            "Facing": {
+              "DurationArray": {
+                "Delay": 5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 100
+              }
+            }
+          },
+          "Score": 1,
+          "Unit": "SuperAssembly"
+        },
+        "Unit": "SuperAssembly",
+        "Cost": {
+          "Minerals": 225,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UpgradeToSuperAssembly,Execute",
+        "id": "SuperAssembly",
+        "Icon": "wireframe-terran-colonisthomesmall00",
+        "Tooltip": "Upgraded mech-production facility.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Enthralled<br/>- Rancor",
+        "Name": "Upgrade into Super Assembly",
+        "Hotkey": "G"
+      }
+    ]
+  },
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "ScoreMake": 250,
+  "ScoreKill": 250,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 22,
+  "TechAliasArray": [
+    "Alias_SynStr",
+    "Alias_SyndAssembly"
+  ],
+  "GlossaryPriority": 322,
+  "HotkeyCategory": "Unit/Category/SynoidUnits",
+  "GlossaryCategory": "Unit/Category/SynoidUnits",
+  "id": "Assembly",
+  "Icon": "wireframe-terran-colonisthomesmall01",
+  "LifeArmorIcon": "btn-upgrade-swann-hellarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "RegenBioSteel",
+      "Icon": "btn-ability-terran-repair",
+      "Name": "RegenBioSteel"
+    },
+    {
+      "id": "SynoidUnPowered",
+      "Icon": "btn-command-stop",
+      "Tooltip": "This structure is unpowered.",
+      "Name": "UnPowered"
+    },
+    {
+      "id": "RequiresGreaterProcessor"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "que5",
+      "Name": "Queue (5)"
+    },
+    {
+      "id": "Rally",
+      "Name": "Rally"
+    },
+    {
+      "id": "AssemblyTrain",
+      "Name": "Assemble"
+    },
+    {
+      "id": "SalvageBunkerRefund",
+      "Name": "Bunker"
+    },
+    {
+      "id": "UpgradeToSuperAssembly",
+      "Name": "Upgrade Building (Assembly -> Super Assembly)"
+    }
+  ],
+  "$Upgrades": [
+    "MycoChoirCalldown",
+    "Assembly",
+    "SuperAssembly",
+    "Assembly",
+    "CountUnitAssemblyCompleteOnly2661977898"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "IronFletcher",
+    "RancorSynoid",
+    "EnthralledSynoid",
+    "MidasIgniter"
+  ],
+  "$Research": [],
+  "$Morph": [
+    "SuperAssembly"
+  ],
+  "$Phase": [],
+  "$Producers": [
+    "MycoChoir"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "Rally,Rally1",
+      "id": "Rally",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Tooltip": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+      "Name": "Set Rally Point"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+      "Name": "Halt"
+    },
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "SalvageBunkerRefund,Execute",
+      "id": "Salvage",
+      "Icon": "btn-ability-terran-salvage",
+      "Tooltip": "Salvages the structure, removing it and returning 75% of its mineral and gas value. Salvage takes <b>5</b> to finish. Warning: once Salvage is triggered, it cannot be canceled.",
+      "Name": "Salvage"
+    },
+    {
+      "AbilCmd": "AssemblyTrain,Train3",
+      "id": "IronFletcher",
+      "Icon": "wireframe-terran-colonistvehicle02",
+      "Tooltip": "Quick assault unit that applies damage stacks with each attack. Each stack adds +2 bonus damage per attack from other iron fletchers, with a maximum of 4 stacks per targeted unit.<br/><br/><span style=\"color: #FFFF80\">Can attack ground units.</span>",
+      "Name": "Assemble Iron Fletcher"
+    },
+    {
+      "AbilCmd": "AssemblyTrain,Train2",
+      "id": "Rancor",
+      "Icon": "wireframe-unit-synoid-rancor",
+      "Tooltip": "Slow firing long range anti-armor support unit. <br/>Can deploy Heal Emitters and throw Saws that deal damage over time.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+      "Name": "Assemble Rancor"
+    },
+    {
+      "AbilCmd": "AssemblyTrain,Train4",
+      "id": "EnthralledSynoid",
+      "Icon": "wireframe-zerg-terrorzor",
+      "Tooltip": "Anti-shield specialist that can be upgraded to deal area damage against shields with each attack.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+      "Name": "Assimilate Enthralled"
+    },
+    {
+      "AbilCmd": "AssemblyTrain,Train5",
+      "id": "MidasIgniter",
+      "Icon": "wireframe-terran-widowmine",
+      "Tooltip": "Suicide unit. Explodes on contact and douses both your and the enemy's units in an electromagnetic paste that decreases attack speed by 10%, movement speed by 20%, disables energy regeneration, and decreases max health by 30%.<br/><br/><span style=\"color: #FFFF80\">Effect lasts 15 seconds.</span>",
+      "Name": "Assemble Midas Igniter"
+    },
+    {
+      "AbilCmd": "UpgradeToSuperAssembly,Execute",
+      "id": "SuperAssembly",
+      "Icon": "wireframe-terran-colonisthomesmall00",
+      "Tooltip": "Upgraded mech-production facility.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Enthralled<br/>- Rancor",
+      "Name": "Upgrade into Super Assembly"
+    }
+  ]
+}

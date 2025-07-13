@@ -1,0 +1,1243 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Infested Terran",
+    "zhCN": "Infested Terran",
+    "koKR": "Infested Terran"
+  },
+  "Description": {
+    "enUS": "Suicide Exploder. <span class=\"style-TooltipHighlightSCBW\"><b>Infested Terran</b>s</span> attack by self detonating near enemy units.",
+    "zhCN": "Suicide Exploder. <span class=\"style-TooltipHighlightSCBW\"><b>Infested Terran</b>s</span> attack by self detonating near enemy units.",
+    "koKR": "Suicide Exploder. <span class=\"style-TooltipHighlightSCBW\"><b>Infested Terran</b>s</span> attack by self detonating near enemy units."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "BWZe",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 60,
+  "LifeMax": 60,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 3,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "PreventDestroy",
+    "AISplash",
+    "AIHighPrioTarget",
+    "AIFleeDamageDisabled",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "InfestedTerranSCBW",
+  "HotkeyAlias": "InfestedTerranSCBW",
+  "SelectAlias": "InfestedTerranSCBW",
+  "SubgroupAlias": "InfestedTerranSCBW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "InfestedTerranSCBW",
+  "AIEvaluateAlias": "InfestedTerranSCBW",
+  "ReviveType": "InfestedTerranSCBW",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "InfestedTerranSCBW/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "InfestedTerranSCBW/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "EnergyRegenRate": 0.5,
+  "id": "InfestedTerranSCBW",
+  "LifeRegenRate": 0.2734,
+  "GlossaryCategory": "Unit/Category/ZergUnitsSCBW",
+  "HotkeyCategory": "Unit/Category/ZergUnitsSCBW",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Light",
+    "Biological"
+  ],
+  "Speed": 3.375,
+  "Acceleration": 1000,
+  "LateralAcceleration": 46.0625,
+  "Sight": 9,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 100,
+    "Vespene": 50
+  },
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "InfestedTerranSCBW@BurrowDown",
+    "InfestedTerranSCBW@SapStructure",
+    "InfestedTerranSCBW@Explode"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "InfestedTerranSCBWWeapon"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": "-",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": "-",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Move Hold Position",
+          "ruRU": "Двигаться, удерживая позицию "
+        },
+        "Tooltip": "-",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Move Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": "-",
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Delay": 1.333
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.333
+              }
+            }
+          },
+          "Unit": "InfestedTerranSCBW@Burrowed",
+          "RandomDelayMax": 0.37
+        },
+        "Unit": "InfestedTerranSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "InfestedTerranSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 0.3
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Duration": 0.3
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.3
+              }
+            }
+          },
+          "Unit": "DefilerSCBW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "DefilerSCBW",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "DefilerSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            }
+          },
+          "Unit": "DroneSCBW",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "DroneSCBW",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            }
+          },
+          "Unit": "HydraliskSCBW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "HydraliskSCBW",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "HydraliskSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Delay": 2
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 0.1
+              }
+            }
+          },
+          "Unit": "InfestedTerranSCBW",
+          "RandomDelayMax": 0.37
+        },
+        "Unit": "InfestedTerranSCBW",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "InfestedTerranSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Delay": 1.0625
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            }
+          },
+          "Unit": "ZerglingSCBW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "ZerglingSCBW",
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -0.5
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZerglingSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2
+              }
+            }
+          },
+          "Unit": "UltraliskSCBW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "UltraliskSCBW",
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -4
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UltraliskSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/InfestedTerranSCBW@Explode",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "InfestedTerranSCBW@Explode",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1
+          },
+          "Effect": [
+            "InfestedTerranSCBWWeapon@Impact"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "InfestedTerranSCBW@Explode",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "InfestedTerranSCBW@Explode"
+            }
+          },
+          "id": "InfestedTerranSCBW@Explode"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "InfestedTerranSCBW@Explode,Execute",
+        "id": "InfestedTerranSCBW@Explode",
+        "Icon": "btn-ability-zerg-explode-color",
+        "Name": {
+          "enUS": "Explode",
+          "zhCN": "Explode",
+          "koKR": "Explode"
+        },
+        "Tooltip": {
+          "enUS": "The <span class=\"style-TooltipHighlightSCBW\"><b>Infested Terran</b></span> detonates where it is standing, damaging nearby enemy units and structures.",
+          "zhCN": "The <span class=\"style-TooltipHighlightSCBW\"><b>Infested Terran</b></span> detonates where it is standing, damaging nearby enemy units and structures.",
+          "koKR": "The <span class=\"style-TooltipHighlightSCBW\"><b>Infested Terran</b></span> detonates where it is standing, damaging nearby enemy units and structures."
+        },
+        "Hotkey": "X"
+      }
+    ]
+  },
+  "CargoSize": 1,
+  "SubgroupPriority": 82,
+  "GlossaryPriority": 219,
+  "GlossaryStrongArray": [
+    "MarineSCBW",
+    "FirebatSCBW",
+    "BunkerSCBW"
+  ],
+  "GlossaryWeakArray": [
+    "VultureSCBW",
+    "SiegeTankSCBW",
+    "WraithSCBW"
+  ],
+  "Food": -1,
+  "BuildTime": 33,
+  "TacticalAIThink": "AIThinkInfestedTerranSCBW",
+  "InnerRadius": 0.375,
+  "ScoreMake": 150,
+  "ScoreKill": 150,
+  "ScoreResult": "BuildOrder",
+  "KillDisplay": "Never",
+  "BehaviorArray": [
+    "InfestedTerranSCBW@Notify"
+  ],
+  "SpeedMultiplierCreep": 1.2,
+  "Icon": "btn-unit-zerg-infestedmarine",
+  "Model": "InfestedMarine_Ex3",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Zerg",
+      "Options": {
+        "Melee": 1,
+        "OnlyFireWhileInAttackOrder": 0
+      },
+      "Icon": "btn-ability-zerg-banelingspooge",
+      "DisplayEffect": "InfestedTerranSCBWWeapon@DamageExpl",
+      "TargetFilters": "Ground",
+      "AcquireFilters": "Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable",
+      "Range": 0.0937,
+      "Period": 0.0625,
+      "DamagePoint": 0,
+      "Effect": "InfestedTerranSCBWWeapon@Impact",
+      "LegacyOptions": {
+        "NoDeceleration": 1
+      },
+      "AllowedMovement": "Moving",
+      "Tip": "Weapon/Tip/ExplosiveWeapon",
+      "id": "InfestedTerranSCBWWeapon",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Explode",
+        "zhCN": "Explode",
+        "koKR": "Explode"
+      },
+      "Amount": 375,
+      "Kind": "Splash"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "InfestedTerranSCBW@Notify",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Notify",
+        "zhCN": "Notify",
+        "koKR": "Notify"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "InfestedTerranSCBW@BurrowDown",
+      "Name": {
+        "enUS": "Burrow",
+        "zhCN": "Burrow",
+        "koKR": "Burrow"
+      }
+    },
+    {
+      "id": "InfestedTerranSCBW@SapStructure",
+      "Name": {
+        "enUS": "Sap Structure",
+        "zhCN": "Sap Structure",
+        "koKR": "Sap Structure"
+      }
+    },
+    {
+      "id": "InfestedTerranSCBW@Explode",
+      "Name": {
+        "enUS": "Explode",
+        "zhCN": "Explode",
+        "koKR": "Explode"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "InfestedTerranSCBW@BurrowUp",
+    "Button/Tooltip/InfestedTerranSCBW",
+    "InfestedTerranSCBW",
+    "InfestedTerranSCBW@Burrowed",
+    "Button/Tooltip/InfestedTerranSCBW@Explode",
+    "ZergSCBWBurrowResearch",
+    "Button/Tooltip/InfestedCommandCenterSC2",
+    "InfestedCommandCenterSCBW@Train",
+    "Button/Tooltip/InfestedCommandCenterSC2@Flying",
+    "InfestedCommandCenterSC2",
+    "Button/Tooltip/InfestedCommandCenterSCBW",
+    "Button/Tooltip/InfestedCommandCenterSCBW@Flying",
+    "InfestedOrbitalCommandSCBW",
+    "InfestedCommandCenterSCBW",
+    "InfestedPlanetaryFortressSCBW",
+    "Button/Tooltip/QueenSCBWInfestCommandCenter",
+    "InfestedTerranSCBW@BurrowedSplat",
+    "InfestedTerranSCBW",
+    "IsInfestedTerranSCBW",
+    "NotInfestedTerranSCBW",
+    "CasterIsInfestedTerranSCBW",
+    "InfestedTerranSCBW@AllowUnit",
+    "InfestedTerranSCBW",
+    null,
+    null,
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [
+    "InfestedTerranSCBW@Burrowed"
+  ],
+  "$Producers": [
+    "AbilTrainHolderSCBW",
+    "InfestedCommandCenterSCBW",
+    "InfestedPlanetaryFortressSCBW",
+    "InfestedOrbitalCommandSCBW",
+    "InfestedCommandCenterSC2"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Move Hold Position",
+        "ruRU": "Двигаться, удерживая позицию "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Move Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "InfestedTerranSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "DefilerSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "DroneSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "HydraliskSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "InfestedTerranSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "ZerglingSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "UltraliskSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "InfestedTerranSCBW@Explode,Execute",
+      "id": "InfestedTerranSCBW@Explode",
+      "Icon": "btn-ability-zerg-explode-color",
+      "Name": {
+        "enUS": "Explode",
+        "zhCN": "Explode",
+        "koKR": "Explode"
+      },
+      "Tooltip": {
+        "enUS": "The <span class=\"style-TooltipHighlightSCBW\"><b>Infested Terran</b></span> detonates where it is standing, damaging nearby enemy units and structures.",
+        "zhCN": "The <span class=\"style-TooltipHighlightSCBW\"><b>Infested Terran</b></span> detonates where it is standing, damaging nearby enemy units and structures.",
+        "koKR": "The <span class=\"style-TooltipHighlightSCBW\"><b>Infested Terran</b></span> detonates where it is standing, damaging nearby enemy units and structures."
+      }
+    }
+  ]
+}

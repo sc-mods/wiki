@@ -1,0 +1,720 @@
+{
+  "Name": "MCS",
+  "Description": "Basic worker unit. Can gather resources, build Umojan structures, and repair.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 45,
+  "LifeMax": 45,
+  "LifeArmorName": "Umojan Infantry Armor",
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "Worker",
+    "PreventDestroy",
+    "UseLineOfSight"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UmojanMCS",
+  "HotkeyAlias": "UmojanMCS",
+  "SelectAlias": "UmojanMCS",
+  "SubgroupAlias": "UmojanMCS",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UmojanMCS",
+  "AIEvaluateAlias": "UmojanMCS",
+  "ReviveType": "UmojanMCS",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33,
+      "Turn": 33
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UmojanMCS/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UmojanMCS/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Light",
+    "Biological",
+    "Mechanical"
+  ],
+  "Speed": 2.8125,
+  "Acceleration": 2.5,
+  "LateralAcceleration": 46,
+  "Sight": 8,
+  "Food": -1,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 50
+  },
+  "RepairTime": 16.667,
+  "AttackTargetPriority": 20,
+  "AIOverideTargetPriority": 10,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackWorker",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanMCSHarvest,Gather",
+        "id": "GatherTerr",
+        "Icon": "btn-ability-terran-gather",
+        "Tooltip": "Orders SCV to gather resources from a selected Mineral Field or Vespene Geyser.",
+        "Name": "Gather",
+        "Hotkey": "G"
+      },
+      {
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanMCSHarvest,Return",
+        "id": "ReturnCargo",
+        "Icon": "btn-command-returncargo",
+        "Tooltip": "Returns the carried resources to the nearest drop-off point.",
+        "Name": "Return Cargo",
+        "Hotkey": "C"
+      },
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "TBl1",
+        "id": "TerranBuild",
+        "Icon": "btn-command-terran-buildstructure",
+        "Tooltip": "A list of basic structures.",
+        "Name": "Build Structure",
+        "Hotkey": "B"
+      },
+      {
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "TBl2",
+        "id": "TerranBuildAdvanced",
+        "Icon": "btn-command-terran-buildadvancedstructure",
+        "Tooltip": "A list of advanced structures.",
+        "Name": "Build Advanced Structure",
+        "Hotkey": "V"
+      },
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+        "Name": "Halt",
+        "Hotkey": "T"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel4MCS",
+        "Icon": "btn-upgrade-stetmann-hivestetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/>Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.<br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.</span>",
+        "Name": "Power Overcharge 3"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel3MCS",
+        "Icon": "btn-upgrade-stetmann-lairstetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/>Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.</span><br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Power Overcharge 2"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel2MCS",
+        "Icon": "btn-upgrade-stetmann-hatcherystetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.</span><br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Power Overcharge 1"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel1MCS",
+        "Icon": "btn-ability-mengsk-thor-bigboycover",
+        "Tooltip": "<span style=\"color: #55FFFF\">Normal Power Level: Normal operation speed, no shield.</span><br/>Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.<br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Normal Power Level"
+      },
+      {
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanRepairMCS,Execute",
+        "id": "UmojanRepairMCS",
+        "Icon": "btn-ability-terran-repair",
+        "Tooltip": "Restores life to mechanical units and structures at the cost of resources.",
+        "Name": "Repair",
+        "Hotkey": "R"
+      }
+    ],
+    "TBl1": [
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build1",
+        "id": "UmojanCommandCenter",
+        "Icon": "btn-building-terran-commandcenter",
+        "Tooltip": "Primary structure. Used to receive gathered resources. Can use the Warp to Location ability.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- MCSs",
+        "Name": "Build Command Hub",
+        "Hotkey": "C"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build3",
+        "id": "UmojanRefinery",
+        "Icon": "btn-building-terran-refinery",
+        "Tooltip": "Built over a Vespene Geyser to allow harvesting of vespene gas.",
+        "Name": "Build Distillery",
+        "Hotkey": "R"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build2",
+        "id": "UmojanSupplyDepot",
+        "Icon": "btn-building-terran-supplydepot",
+        "Tooltip": "Provides supply.<br/>Supply allows you to create more units.<br/>Supply Cache can be lowered to allow units to walk over them.<br/>Can be upgraded into Energy Generator to provide <span style=\"color: #00FFFF\">Power Levels</span>.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Academy at the MCSs",
+        "Name": "Build Supply Cache",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build4",
+        "id": "UmojanBarracks",
+        "Icon": "btn-building-terran-barracks",
+        "Tooltip": "Infantry-production facility.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Pretorian<br/>- Commando<br/>- Bunkers from MCSs<br/>- Science Facilities from MCSs<br/>- Shadow Ops at the MCSs<br/>- Workshop at the MCSs",
+        "Name": "Build Academy",
+        "Hotkey": "B"
+      },
+      {
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build5",
+        "id": "UmojanEngineeringBay",
+        "Icon": "btn-building-terran-engineeringbay",
+        "Tooltip": "Contains upgrades for Umojan infantry and structures. <br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Anti-Air Turrets from MCSs<br/>- Engineering Tower from MCSs",
+        "Name": "Build Mechanics Bay",
+        "Hotkey": "E"
+      },
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build7",
+        "id": "UmojanBunker",
+        "Icon": "btn-building-terran-bunker",
+        "Tooltip": "Defensive structure. <br/>Infantry fights from inside. <br/><br/><c val=\"#ColorAttackInfo\">Bonus: +1 range to units inside.</span>",
+        "Name": "Build Bunker",
+        "Hotkey": "U"
+      },
+      {
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build6",
+        "id": "UmojanMissileTurret",
+        "Icon": "btn-building-terran-missileturret",
+        "Tooltip": "Anti-air defensive structure.<br/><br/><c val=\"#ColorAttackInfo\">Can attack air units.</span><br/><span style=\"color: #FFE303\">Detector</span>",
+        "Name": "Build Anti-Air Turret",
+        "Hotkey": "T"
+      },
+      {
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build9",
+        "id": "UmojanScienceFacilityBase",
+        "Icon": "btn-building-terran-sciencefacility",
+        "Tooltip": "Contains upgrades for all Umojan Units. <br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Energy Generator from Supply Cache<br/>- Advanced units at all nearby production facilities",
+        "Name": "Build Science Facility",
+        "Hotkey": "F"
+      },
+      {
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build17",
+        "id": "UmojanEngineeringTower",
+        "Icon": "btn-building-terran-hivemindemulator",
+        "Tooltip": "Support defensive structure, can repair nearby mechanical ally and build defensive structures.",
+        "Name": "Build Engineering Tower",
+        "Hotkey": "O"
+      },
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      }
+    ],
+    "TBl2": [
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build10",
+        "id": "UmojanGhostAcademy",
+        "Icon": "btn-building-terran-ghostacademy",
+        "Tooltip": "Contains upgrades for Shadowguards. Can build Nukes for Shadowguards.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Shadowguards at the Academy",
+        "Name": "Build Shadow Ops",
+        "Hotkey": "G"
+      },
+      {
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build11",
+        "id": "UmojanFactory",
+        "Icon": "btn-building-terran-factory",
+        "Tooltip": "Vehicle-production facility.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Battlecat<br/>- Norns<br/>- Foundry at the MCSs",
+        "Name": "Build Workshop",
+        "Hotkey": "F"
+      },
+      {
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build14",
+        "id": "UmojanArmory",
+        "Icon": "btn-building-terran-armory",
+        "Tooltip": "Contains weapon and armor upgrades for Workshop and Shipyard units. <br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Battle Tank at the Workshop<br/>- Whirlwind at the Workshop",
+        "Name": "Build Foundry",
+        "Hotkey": "A"
+      },
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build12",
+        "id": "UmojanStarport",
+        "Icon": "btn-building-terran-starport",
+        "Tooltip": "Air-unit production facility. <br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Mist<br/>- Howler",
+        "Name": "Build Shipyard",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanBuild,Build16",
+        "id": "UmojanFusionCore",
+        "Icon": "btn-building-terran-fusioncore",
+        "Tooltip": "Contains Battleship, Crow, Aloe and Whirlwind upgrades. <br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Battleship at the Shipyard<br/>- Crow at the Shipyard<br/>- Frenrir at the Command Hub",
+        "Name": "Build Fleet Core",
+        "Hotkey": "C"
+      },
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "CargoSize": 1,
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 6,
+  "GlossaryCategory": "Unit/Category/UmojanUnits",
+  "GlossaryPriority": 5,
+  "HotkeyCategory": "Unit/Category/UmojanUnits",
+  "ShieldsStart": 45,
+  "ShieldsMax": 45,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": "Umojan Plasma Shields",
+  "id": "UmojanMCS",
+  "Icon": "btn-unit-terran-scv-umojan",
+  "LifeArmorIcon": "btn-upgrade-terran-infantryarmorlevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "id": "FusionCutter",
+      "Icon": "btn-upgrade-terran-infantryweaponslevel0",
+      "Name": "Fusion Cutter",
+      "Amount": 5,
+      "Kind": "Melee",
+      "TargetFilters": "Ground",
+      "Range": 0.1,
+      "Period": 1.5
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "UmojanPowerUpgradeUtilityUnits"
+    },
+    {
+      "id": "UmojanPowerLevel0"
+    },
+    {
+      "id": "UmojanPowerLevel1"
+    },
+    {
+      "id": "UmojanPowerLevel2"
+    },
+    {
+      "id": "UmojanPowerLevel3"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "UmojanRepairMCS",
+      "Name": "Repair"
+    },
+    {
+      "id": "UmojanMCSHarvest",
+      "Name": "Gather (MCS)"
+    },
+    {
+      "id": "UmojanBuild",
+      "Name": "Build (MCS)"
+    }
+  ],
+  "$Upgrades": [
+    "UmojanCommandCenterTrain",
+    "UmojanMCS",
+    "UmojanMCS",
+    "UmojanInfantryArmorLevel1",
+    "UmojanInfantryArmor",
+    "UmojanInfantryArmorLevel2",
+    "UmojanInfantryArmorLevel3",
+    "UmojanShieldsLevel2",
+    "UmojanShields",
+    "UmojanShieldsLevel3",
+    "UmojanShieldsLevel1",
+    "UmojanCommandCenter",
+    "TerU"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "UmojanCommandCenter",
+    "UmojanRefinery",
+    "UmojanSupplyCache",
+    "UmojanBarracks",
+    "UmojanEngineeringBay",
+    "UmojanBunker",
+    "UmojanAATurret",
+    "UmojanScienceFacilityRed",
+    "UmojanEngineeringTower",
+    "UmojanGhostAcademy",
+    "UmojanFactory",
+    "UmojanArmory",
+    "UmojanStarport",
+    "UmojanFusionCore"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Producers": [
+    "UmojanCommandCenter"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackWorker",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "UmojanMCSHarvest,Gather",
+      "id": "GatherTerr",
+      "Icon": "btn-ability-terran-gather",
+      "Tooltip": "Orders SCV to gather resources from a selected Mineral Field or Vespene Geyser.",
+      "Name": "Gather"
+    },
+    {
+      "AbilCmd": "UmojanMCSHarvest,Return",
+      "id": "ReturnCargo",
+      "Icon": "btn-command-returncargo",
+      "Tooltip": "Returns the carried resources to the nearest drop-off point.",
+      "Name": "Return Cargo"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+      "Name": "Halt"
+    },
+    {
+      "AbilCmd": "UmojanRepairMCS,Execute",
+      "id": "UmojanRepairMCS",
+      "Icon": "btn-ability-terran-repair",
+      "Tooltip": "Restores life to mechanical units and structures at the cost of resources.",
+      "Name": "Repair"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build1",
+      "id": "UmojanCommandCenter",
+      "Icon": "btn-building-terran-commandcenter",
+      "Tooltip": "Primary structure. Used to receive gathered resources. Can use the Warp to Location ability.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- MCSs",
+      "Name": "Build Command Hub"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build3",
+      "id": "UmojanRefinery",
+      "Icon": "btn-building-terran-refinery",
+      "Tooltip": "Built over a Vespene Geyser to allow harvesting of vespene gas.",
+      "Name": "Build Distillery"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build2",
+      "id": "UmojanSupplyDepot",
+      "Icon": "btn-building-terran-supplydepot",
+      "Tooltip": "Provides supply.<br/>Supply allows you to create more units.<br/>Supply Cache can be lowered to allow units to walk over them.<br/>Can be upgraded into Energy Generator to provide <span style=\"color: #00FFFF\">Power Levels</span>.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Academy at the MCSs",
+      "Name": "Build Supply Cache"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build4",
+      "id": "UmojanBarracks",
+      "Icon": "btn-building-terran-barracks",
+      "Tooltip": "Infantry-production facility.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Pretorian<br/>- Commando<br/>- Bunkers from MCSs<br/>- Science Facilities from MCSs<br/>- Shadow Ops at the MCSs<br/>- Workshop at the MCSs",
+      "Name": "Build Academy"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build5",
+      "id": "UmojanEngineeringBay",
+      "Icon": "btn-building-terran-engineeringbay",
+      "Tooltip": "Contains upgrades for Umojan infantry and structures. <br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Anti-Air Turrets from MCSs<br/>- Engineering Tower from MCSs",
+      "Name": "Build Mechanics Bay"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build7",
+      "id": "UmojanBunker",
+      "Icon": "btn-building-terran-bunker",
+      "Tooltip": "Defensive structure. <br/>Infantry fights from inside. <br/><br/><c val=\"#ColorAttackInfo\">Bonus: +1 range to units inside.</span>",
+      "Name": "Build Bunker"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build6",
+      "id": "UmojanMissileTurret",
+      "Icon": "btn-building-terran-missileturret",
+      "Tooltip": "Anti-air defensive structure.<br/><br/><c val=\"#ColorAttackInfo\">Can attack air units.</span><br/><span style=\"color: #FFE303\">Detector</span>",
+      "Name": "Build Anti-Air Turret"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build9",
+      "id": "UmojanScienceFacilityBase",
+      "Icon": "btn-building-terran-sciencefacility",
+      "Tooltip": "Contains upgrades for all Umojan Units. <br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Energy Generator from Supply Cache<br/>- Advanced units at all nearby production facilities",
+      "Name": "Build Science Facility"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build17",
+      "id": "UmojanEngineeringTower",
+      "Icon": "btn-building-terran-hivemindemulator",
+      "Tooltip": "Support defensive structure, can repair nearby mechanical ally and build defensive structures.",
+      "Name": "Build Engineering Tower"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build10",
+      "id": "UmojanGhostAcademy",
+      "Icon": "btn-building-terran-ghostacademy",
+      "Tooltip": "Contains upgrades for Shadowguards. Can build Nukes for Shadowguards.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Shadowguards at the Academy",
+      "Name": "Build Shadow Ops"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build11",
+      "id": "UmojanFactory",
+      "Icon": "btn-building-terran-factory",
+      "Tooltip": "Vehicle-production facility.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Battlecat<br/>- Norns<br/>- Foundry at the MCSs",
+      "Name": "Build Workshop"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build14",
+      "id": "UmojanArmory",
+      "Icon": "btn-building-terran-armory",
+      "Tooltip": "Contains weapon and armor upgrades for Workshop and Shipyard units. <br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Battle Tank at the Workshop<br/>- Whirlwind at the Workshop",
+      "Name": "Build Foundry"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build12",
+      "id": "UmojanStarport",
+      "Icon": "btn-building-terran-starport",
+      "Tooltip": "Air-unit production facility. <br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Mist<br/>- Howler",
+      "Name": "Build Shipyard"
+    },
+    {
+      "AbilCmd": "UmojanBuild,Build16",
+      "id": "UmojanFusionCore",
+      "Icon": "btn-building-terran-fusioncore",
+      "Tooltip": "Contains Battleship, Crow, Aloe and Whirlwind upgrades. <br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Battleship at the Shipyard<br/>- Crow at the Shipyard<br/>- Frenrir at the Command Hub",
+      "Name": "Build Fleet Core"
+    }
+  ]
+}

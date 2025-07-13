@@ -1,0 +1,322 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Cloak Charge",
+    "ruRU": "Маскирующий заряд"
+  },
+  "Description": {
+    "enUS": "Cloaks units in an area. Energy is used over time.<br/><br/>The charge is destroyed when its energy is exhausted.",
+    "ruRU": "Потребляет энергию после размещения. Самоуничтожается, когда расходуется его запас энергии."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 2,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Gen",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1,
+  "LifeMax": 1,
+  "LifeArmorName": {
+    "enUS": "None",
+    "ruRU": "Нет "
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.5,
+  "SeparationRadius": 0.5,
+  "MinimapRadius": 0.5,
+  "EditorCategories": "ObjectType:Other,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "CloakCharge",
+  "HotkeyAlias": "CloakCharge",
+  "SelectAlias": "CloakCharge",
+  "SubgroupAlias": "CloakCharge",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "CloakCharge",
+  "AIEvaluateAlias": "CloakCharge",
+  "ReviveType": "CloakCharge",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "CloakCharge/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "CloakCharge/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Collide": [
+    "Burrow3"
+  ],
+  "EnergyStart": 150,
+  "EnergyMax": 150,
+  "Sight": 4,
+  "CostCategory": "Army",
+  "BehaviorArray": [
+    "GenetronPowerSupplyTracker",
+    "TrackGenetronPowerSupplyUnit",
+    "CloakChargeGenerator",
+    "DamageTakenNoneBenign"
+  ],
+  "PlaneArray": [
+    "Ground"
+  ],
+  "GlossaryCategory": "Unit/Category/GenetronUnits",
+  "GlossaryPriority": 23,
+  "Attributes": [
+    "Mechanical",
+    "Psionic"
+  ],
+  "AbilArray": [
+    "GenetronSelfDestruct"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/GenetronSelfDestruct",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Genetron,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GenetronSelfDestruct",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1
+          },
+          "Effect": [
+            "Kill"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GenetronSelfDestruct",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "SelfDestruct"
+            }
+          },
+          "id": "GenetronSelfDestruct"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "GenetronSelfDestruct,Execute",
+        "id": "SelfDestruct",
+        "Icon": "btn-ability-genetron-selfdestruct",
+        "Name": {
+          "enUS": "Self Destruct"
+        },
+        "Tooltip": {
+          "enUS": "Immediately destroys the unit."
+        },
+        "Hotkey": "X"
+      }
+    ]
+  },
+  "HotkeyCategory": "Unit/Category/GenetronUnits",
+  "id": "CloakCharge",
+  "Icon": "btn-unit-genetron-teslastealthcharge",
+  "LifeArmorIcon": "btn-upgrade-genetron-mechstructurearmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "GenetronPowerSupplyTracker",
+      "Name": {
+        "enUS": "Genetron Power Supply Tracker"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "TrackGenetronPowerSupplyUnit",
+      "Name": {
+        "enUS": "Track Genetron Power Supply Unit"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "CloakChargeGenerator",
+      "Icon": "btn-ability-genetron-teslacloakcharge",
+      "Name": {
+        "enUS": "Cloak Charge Generator",
+        "ruRU": "Cloak Charge Generator"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "DamageTakenNoneBenign",
+      "Name": {
+        "enUS": "Damage Taken None Benign"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "GenetronSelfDestruct",
+      "Name": {
+        "enUS": "Genetron Self Destruct"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "IsNotTeslaCloakCharge",
+    "CloakCharge",
+    "IsTeslaCloakCharge",
+    "LaunchCloakChargeImpact",
+    "TeslaCloakChargeUnit"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "GenetronPowerSupplyDummy"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "GenetronSelfDestruct,Execute",
+      "id": "SelfDestruct",
+      "Icon": "btn-ability-genetron-selfdestruct",
+      "Name": {
+        "enUS": "Self Destruct"
+      },
+      "Tooltip": {
+        "enUS": "Immediately destroys the unit."
+      }
+    }
+  ]
+}

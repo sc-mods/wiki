@@ -1,0 +1,893 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Wraith",
+    "zhCN": "Wraith",
+    "koKR": "Wraith"
+  },
+  "Description": {
+    "enUS": "Highly mobile flying fighter. Excellent at surgical strikes. Can be upgraded to use <span class=\"style-TooltipHighlightSCBW\"><b>Cloaking Field</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground and air units.</span>",
+    "zhCN": "Highly mobile flying fighter. Excellent at surgical strikes. Can be upgraded to use <span class=\"style-TooltipHighlightSCBW\"><b>Cloaking Field</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground and air units.</span>",
+    "koKR": "Highly mobile flying fighter. Excellent at surgical strikes. Can be upgraded to use <span class=\"style-TooltipHighlightSCBW\"><b>Cloaking Field</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground and air units.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "BWTe",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 120,
+  "LifeMax": 120,
+  "LifeArmorName": "-",
+  "Mover": "Fly",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.5,
+  "SeparationRadius": 0.625,
+  "MinimapRadius": 0.625,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "PreventDestroy",
+    "AIThreatGround",
+    "AIThreatAir",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "WraithSCBW",
+  "HotkeyAlias": "WraithSCBW",
+  "SelectAlias": "WraithSCBW",
+  "SubgroupAlias": "WraithSCBW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "WraithSCBW",
+  "AIEvaluateAlias": "WraithSCBW",
+  "ReviveType": "WraithSCBW",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "WraithSCBW/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "WraithSCBW/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "EnergyRegenRate": 0.5625,
+  "id": "WraithSCBW",
+  "GlossaryCategory": "Unit/Category/TerranUnitsSCBW",
+  "HotkeyCategory": "Unit/Category/TerranUnitsSCBW",
+  "CostCategory": "Army",
+  "Attributes": [
+    "Mechanical",
+    "Armored"
+  ],
+  "PlaneArray": [
+    "Air"
+  ],
+  "Collide": [
+    "Flying"
+  ],
+  "EnergyStart": 50,
+  "EnergyMax": 200,
+  "Speed": 3.75,
+  "Acceleration": 4.1875,
+  "Sight": 10,
+  "Height": 3.75,
+  "VisionHeight": 15,
+  "Food": -2,
+  "CostResource": {
+    "Minerals": 150,
+    "Vespene": 100
+  },
+  "BuildTime": 38,
+  "RepairTime": 38,
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "WraithSCBWCloak"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "WraithSCBWWeaponAir"
+    },
+    {
+      "Link": "WraithSCBWWeaponGround"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": "-",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": "-",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Move Hold Position",
+          "ruRU": "Двигаться, удерживая позицию "
+        },
+        "Tooltip": "-",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Move Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": "-",
+        "Hotkey": "P"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "WraithSCBWEnergyUpgrade@Passive",
+        "Icon": "btn-ability-terran-redlinereactor",
+        "Name": {
+          "enUS": "Apollo Reactor",
+          "zhCN": "Apollo Reactor",
+          "koKR": "Apollo Reactor"
+        },
+        "Tooltip": {
+          "enUS": "Increases the <span class=\"style-TooltipHighlightSCBW\"><b>Wraith</b>'s</span> energy by <span class=\"style-TooltipBuffSCBW\"><d stringref=\"Upgrade,WraithSCBWEnergyUpgrade,EffectArrayTemplate[1].Value\"/></span> and starting energy by <span class=\"style-TooltipBuffSCBW\"><d stringref=\"Upgrade,WraithSCBWEnergyUpgrade,EffectArrayTemplate[0].Value\"/></span>.",
+          "zhCN": "Increases the <span class=\"style-TooltipHighlightSCBW\"><b>Wraith</b>'s</span> energy by <span class=\"style-TooltipBuffSCBW\"><d stringref=\"Upgrade,WraithSCBWEnergyUpgrade,EffectArrayTemplate[1].Value\"/></span> and starting energy by <span class=\"style-TooltipBuffSCBW\"><d stringref=\"Upgrade,WraithSCBWEnergyUpgrade,EffectArrayTemplate[0].Value\"/></span>.",
+          "koKR": "Increases the <span class=\"style-TooltipHighlightSCBW\"><b>Wraith</b>'s</span> energy by <span class=\"style-TooltipBuffSCBW\"><d stringref=\"Upgrade,WraithSCBWEnergyUpgrade,EffectArrayTemplate[1].Value\"/></span> and starting energy by <span class=\"style-TooltipBuffSCBW\"><d stringref=\"Upgrade,WraithSCBWEnergyUpgrade,EffectArrayTemplate[0].Value\"/></span>."
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/WraithSCBWCloak",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "WraithSCBWCloak",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "WraithSCBWCloak",
+              "Requirements": "WraithSCBWCloak"
+            },
+            "Off": {
+              "Flags": {
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "WraithSCBWCloak@Decloak"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "AbilSetId": "Clok",
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Vital": {
+                "Energy": 25
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GhostSCBWCloak"
+          ],
+          "id": "WraithSCBWCloak"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 25,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "WraithSCBWCloak,On",
+        "id": "WraithSCBWCloak",
+        "Icon": "btn-ability-terran-cloak-color",
+        "Name": {
+          "enUS": "Cloak",
+          "zhCN": "Cloak",
+          "koKR": "Cloak"
+        },
+        "Tooltip": {
+          "enUS": "<span class=\"style-TooltipHighlightSCBW\">Cloaks</span> the unit, preventing enemy units from seeing or attacking it. A <span class=\"style-TooltipHighlightSCBW\">cloaked</span> unit will only be revealed by detectors or effects.<br/><br/><span class=\"style-TooltipResourceEnergySCBW\">Drains <b>0.8</b> energy per second.</span>",
+          "zhCN": "<span class=\"style-TooltipHighlightSCBW\">Cloaks</span> the unit, preventing enemy units from seeing or attacking it. A <span class=\"style-TooltipHighlightSCBW\">cloaked</span> unit will only be revealed by detectors or effects.<br/><br/><span class=\"style-TooltipResourceEnergySCBW\">Drains <b>0.8</b> energy per second.</span>",
+          "koKR": "<span class=\"style-TooltipHighlightSCBW\">Cloaks</span> the unit, preventing enemy units from seeing or attacking it. A <span class=\"style-TooltipHighlightSCBW\">cloaked</span> unit will only be revealed by detectors or effects.<br/><br/><span class=\"style-TooltipResourceEnergySCBW\">Drains <b>0.8</b> energy per second.</span>"
+        },
+        "Hotkey": "C"
+      }
+    ]
+  },
+  "ScoreMake": 250,
+  "ScoreKill": 250,
+  "SubgroupPriority": 68,
+  "TacticalAIThink": "AIThinkWraithSCBW",
+  "GlossaryPriority": 160,
+  "GlossaryStrongArray": [
+    "BattlecruiserSCBW",
+    "GuardianSCBW",
+    "CarrierSCBW"
+  ],
+  "GlossaryWeakArray": [
+    "ValkyrieSCBW",
+    "DevourerSCBW",
+    "CorsairSCBW"
+  ],
+  "ScoreResult": "BuildOrder",
+  "Icon": "btn-unit-terran-wraith@scbw",
+  "LifeArmorIcon": "btn-upgrade-terran-shipplatinglevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Terran",
+      "Icon": "btn-upgrade-terran-shipweaponslevel0",
+      "DisplayEffect": "WraithSCBWWeaponAir@DamageExpl",
+      "TargetFilters": "Air",
+      "Period": 1.375,
+      "Effect": "WraithSCBWWeaponAir@CP",
+      "AllowedMovement": "Slowing",
+      "DamagePoint": 0.05,
+      "Tip": "Weapon/Tip/ExplosiveWeapon",
+      "LegacyOptions": {
+        "NoDeceleration": 1
+      },
+      "MinScanRange": 6.5,
+      "Range": 6,
+      "id": "WraithSCBWWeaponAir",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Gemini Missiles",
+        "zhCN": "Gemini Missiles",
+        "koKR": "Gemini Missiles"
+      },
+      "Amount": 15,
+      "Kind": "Ranged"
+    },
+    {
+      "EditorCategories": "Race:Terran",
+      "Icon": "btn-upgrade-terran-shipweaponslevel0",
+      "DisplayEffect": "WraithSCBWWeaponGround@Damage",
+      "TargetFilters": "Ground",
+      "Period": 1.675,
+      "Effect": "WraithSCBWWeaponGround@LM",
+      "AllowedMovement": "Slowing",
+      "Options": {
+        "NeverMiss": 0
+      },
+      "DamagePoint": 0.05,
+      "LegacyOptions": {
+        "NoDeceleration": 1
+      },
+      "MinScanRange": 5.5,
+      "id": "WraithSCBWWeaponGround",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Burst Lasers",
+        "zhCN": "Burst Lasers",
+        "koKR": "Burst Lasers"
+      },
+      "Amount": 10,
+      "Kind": "Ranged",
+      "Range": 5
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "WraithSCBWCloak",
+      "Name": {
+        "enUS": "Cloaking Field",
+        "zhCN": "Cloaking Field",
+        "koKR": "Cloaking Field"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "Button/Tooltip/StarportSCBW",
+    "Button/Tooltip/WraithSCBWCloak",
+    "WraithSCBWCloakResearch",
+    "WraithSCBW",
+    "Button/Tooltip/WraithSCBWEnergyUpgrade",
+    "WraithSCBWEnergyUpgrade",
+    "WraithSCBW@AllowUnit",
+    "StarportSCBW@Train",
+    "Button/Tooltip/WraithSCBWCloakResearch",
+    "StarportSCBW",
+    "WraithSCBW",
+    "WraithSCBWCloak@Upgrade",
+    "IsWraithSCBW",
+    "NotWraithSCBW",
+    "CasterIsWraithSCBW",
+    "WraithSCBW",
+    null,
+    null,
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "AbilTrainHolderSCBW",
+    "StarportSCBW"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Move Hold Position",
+        "ruRU": "Двигаться, удерживая позицию "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Move Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "WraithSCBWCloak,On",
+      "id": "WraithSCBWCloak",
+      "Icon": "btn-ability-terran-cloak-color",
+      "Name": {
+        "enUS": "Cloak",
+        "zhCN": "Cloak",
+        "koKR": "Cloak"
+      },
+      "Tooltip": {
+        "enUS": "<span class=\"style-TooltipHighlightSCBW\">Cloaks</span> the unit, preventing enemy units from seeing or attacking it. A <span class=\"style-TooltipHighlightSCBW\">cloaked</span> unit will only be revealed by detectors or effects.<br/><br/><span class=\"style-TooltipResourceEnergySCBW\">Drains <b>0.8</b> energy per second.</span>",
+        "zhCN": "<span class=\"style-TooltipHighlightSCBW\">Cloaks</span> the unit, preventing enemy units from seeing or attacking it. A <span class=\"style-TooltipHighlightSCBW\">cloaked</span> unit will only be revealed by detectors or effects.<br/><br/><span class=\"style-TooltipResourceEnergySCBW\">Drains <b>0.8</b> energy per second.</span>",
+        "koKR": "<span class=\"style-TooltipHighlightSCBW\">Cloaks</span> the unit, preventing enemy units from seeing or attacking it. A <span class=\"style-TooltipHighlightSCBW\">cloaked</span> unit will only be revealed by detectors or effects.<br/><br/><span class=\"style-TooltipResourceEnergySCBW\">Drains <b>0.8</b> energy per second.</span>"
+      }
+    }
+  ]
+}

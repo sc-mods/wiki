@@ -1,0 +1,588 @@
+{
+  "Name": "Gestalt Bomber Platform",
+  "Description": "Maintenance platform for Gestalt tactic bombers, a Bomber Platform can only have one tactic bomber at the same time. Tactic bombers can be mobilized by tactic squads via airstrike commands, launching deadly assault toward target location.<br/><br/><c val=\"#ColorAttackInfo\">There can be at most 5 Bomber Platform in the same Gestalt energy field, any tactic bomber exceeding this limit will not respond to airstrike commands.<br/><br/>The more Bomber Platforms you have, the larger airstrike commands' radius will be.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Gestalt",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 600,
+  "LifeMax": 600,
+  "LifeArmorName": "Terran Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.625,
+  "SeparationRadius": 1.625,
+  "MinimapRadius": 1.625,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Coop",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "GestaltBomberPlatform",
+  "HotkeyAlias": "GestaltBomberPlatform",
+  "SelectAlias": "GestaltBomberPlatform",
+  "SubgroupAlias": "GestaltBomberPlatform",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "GestaltBomberPlatform",
+  "AIEvaluateAlias": "GestaltBomberPlatform",
+  "ReviveType": "GestaltBomberPlatform",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "GestaltBomberPlatform/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "GestaltBomberPlatform/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 315,
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "Sight": 9,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 350
+  },
+  "RepairTime": 50,
+  "AttackTargetPriority": 11,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+        "Name": "Halt",
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "GestaltInformationReceiver",
+        "Icon": "btn-upgrade-mengsk-ghostacademy-guidedtacticalstrike",
+        "Tooltip": "Tactic bombers can be mobilized by tactic squads via airstrike commands. However, only Gestalt Bomber Platforms linked to the Air Force Command or Base Station can be mobilized. Every energy field can link at most 5 Platforms.",
+        "Name": "Information Receiver",
+        "Hotkey": ""
+      },
+      {
+        "Info": {
+          "Charge": {
+            "HideCount": 1,
+            "Link": "KaraxMicroBotActivated",
+            "Location": "Unit"
+          },
+          "Cooldown": {
+            "Link": "Abil/noniononoX"
+          },
+          "Button": {
+            "Flags": {
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "GestaltBuildTacticalBomber",
+            "Requirements": "GestaltAirplaneBuild"
+          },
+          "Flags": {
+            "AutoBuild": 1,
+            "AutoBuildOn": 1,
+            "External": 1
+          },
+          "Time": 60,
+          "Distance": 1000,
+          "Manage": "Ignore",
+          "Unit": "GestaltZeroBomberLand"
+        },
+        "Unit": "GestaltZeroBomberLand",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZBuildBomber,Ammo1",
+        "id": "GestaltBuildTacticalBomber",
+        "Icon": "btn-building-gestalt-bomber",
+        "Tooltip": "Deploy a tactic bomber to Gestalt Bomber Platform. Tactic bombers can be mobilized by tactic squads via airstrike commands.",
+        "Name": "Build Tactical Bomber",
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltReloadBomb",
+        "Icon": "btn-ability-mengsk-siegetank-flyingtankarmament",
+        "Tooltip": "After airstrike, Tactical Bomber will reload bombs for 10 sec. Tactical Bomber can be mobilized only when they have reloaded and they can only reload when they are on the platforms.",
+        "Name": "Reload Bomb",
+        "Hotkey": ""
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltAirportDefense",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltAirportDefense",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Ground,Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "AutoCast": 1,
+            "AutoCastOn": 1,
+            "TransientPreferred": 1
+          },
+          "Effect": [
+            "GestaltAirportDefenseDummy"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltAirportDefense",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "SOAPurifierBeam",
+              "Requirements": "GestaltAirplaneBuild"
+            }
+          },
+          "FollowRange": 5,
+          "Range": [
+            10
+          ],
+          "Arc": 360,
+          "Cost": [
+            {
+              "Charge": {
+                "CountMax": 1,
+                "CountStart": 1,
+                "CountUse": 1,
+                "HideCount": 1,
+                "Location": "Player",
+                "TimeUse": 0.125,
+                "Flags": {
+                  "EnableChargeTimeQueuing": 1
+                }
+              },
+              "Cooldown": {
+                "TimeUse": 20
+              }
+            }
+          ],
+          "AutoCastRange": 10,
+          "AutoCastValidatorArray": [
+            "NotFrenzied220"
+          ],
+          "TargetFilters": [
+            "Ground;Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"
+          ],
+          "id": "GestaltAirportDefense"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltAirportDefense,Execute",
+        "id": "GestaltDefensiveAirStrike",
+        "Icon": "btn-upgade-hanson-apc-focusfire",
+        "Tooltip": "If enemy unit occurs near Gestalt Bomber Platform, the platform will automatically send out a tactic bomber and it will drop a bomb to this enemy, dealing 200 dmg.",
+        "Name": "Defensive Air Strike",
+        "Hotkey": "T"
+      }
+    ]
+  },
+  "Footprint": "Footprint3x3CreepNormalContour",
+  "PlacementFootprint": "Footprint3x3CreepNormal",
+  "SubgroupPriority": 3,
+  "GlossaryPriority": 60,
+  "HotkeyCategory": "Unit/Category/TerranMarauder",
+  "KillDisplay": "Never",
+  "LifeRegenDelay": 10,
+  "id": "GestaltBomberPlatform",
+  "Icon": "btn-building-gestalt-airplatform",
+  "LifeArmorIcon": "btn-upgrade-terran-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "GestaltPowerUser",
+      "Icon": "btn-building-protoss-pylon"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "GestaltZBuildBomber"
+    },
+    {
+      "id": "GestaltAirportDefense"
+    },
+    {
+      "id": "que1",
+      "Name": "Queue (1)"
+    }
+  ],
+  "$Upgrades": [
+    "TargetisGestaltAirport",
+    "GestaltBomberPlatform",
+    "GestaltUniverseAlloy",
+    "TerranBuildGestalt",
+    "GestaltBomberPlatform"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "GestaltZeroBomberLand"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+      "Name": "Halt"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "GestaltZBuildBomber,Ammo1",
+      "id": "GestaltBuildTacticalBomber",
+      "Icon": "btn-building-gestalt-bomber",
+      "Tooltip": "Deploy a tactic bomber to Gestalt Bomber Platform. Tactic bombers can be mobilized by tactic squads via airstrike commands.",
+      "Name": "Build Tactical Bomber"
+    },
+    {
+      "AbilCmd": "GestaltAirportDefense,Execute",
+      "id": "GestaltDefensiveAirStrike",
+      "Icon": "btn-upgade-hanson-apc-focusfire",
+      "Tooltip": "If enemy unit occurs near Gestalt Bomber Platform, the platform will automatically send out a tactic bomber and it will drop a bomb to this enemy, dealing 200 dmg.",
+      "Name": "Defensive Air Strike"
+    }
+  ]
+}

@@ -1,0 +1,2477 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "深空作业机",
+    "enUS": "Deep Space Operation Machine"
+  },
+  "Description": {
+    "zhCN": "基础工作单位。用于采集资源、建造人类建筑和修理。<br/><br/><span style=\"color: #ffff8a\">可以对地。</span>",
+    "enUS": "Basic work unit. Used to gather resources, construct human structures, and repair. <br/><br/><span style=\"color: #ffff8a\">Can target the ground. </span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerC",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 125,
+  "LifeMax": 125,
+  "LifeArmorName": {
+    "zhCN": "特战队机械护甲",
+    "enUS": "Special Forces Mechanical Armor"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "Worker",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "HideFromHarvestingCount"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "NomadC",
+  "HotkeyAlias": "NomadC",
+  "SelectAlias": "NomadC",
+  "SubgroupAlias": "NomadC",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "NomadC",
+  "AIEvaluateAlias": "MULE",
+  "ReviveType": "NomadC",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33,
+      "Turn": 33
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "NomadC/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "NomadC/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Mechanical"
+  ],
+  "Speed": 2.8125,
+  "Acceleration": 2.5,
+  "LateralAcceleration": 46,
+  "Sight": 9,
+  "Height": 1,
+  "Food": -1,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 125
+  },
+  "RepairTime": 16.667,
+  "AttackTargetPriority": 20,
+  "AIOverideTargetPriority": 10,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 10,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "RepairC",
+    "SCVHarvestC",
+    "TerranBuildC"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackWorker",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/RepairC",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "RepairC",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 0.2,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Visible;Neutral,Enemy",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AutoCast": 1,
+            "AutoCastOffOwnerLeave": 1,
+            "AutoCastOn": 1,
+            "ReExecutable": 1,
+            "Smart": 1,
+            "PassengerAcquirePassengers": 1
+          },
+          "Effect": [
+            "RepairC"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "RepairC",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 0,
+            "Prep": 0,
+            "Cast": 0,
+            "Channel": 0
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "RequiresRepairTarget",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "RepairC"
+            }
+          },
+          "FollowRange": 5,
+          "Alignment": "Positive",
+          "AbilSetId": "Repair",
+          "TargetFilters": [
+            "Mechanical,Visible;Self,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden"
+          ],
+          "AutoCastRange": 7,
+          "Marker": {
+            "MatchFlags": {
+              "Link": 0
+            },
+            "MismatchFlags": {
+              "Id": 0
+            }
+          },
+          "InheritAttackPriorityArray": {
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "id": "RepairC"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "RepairC,Execute",
+        "id": "RepairC",
+        "Icon": "btn-ability-terran-repair",
+        "Name": {
+          "zhCN": "高级修理",
+          "enUS": "Advanced Repair"
+        },
+        "Tooltip": {
+          "zhCN": "能够不消耗资源快速为机械单位和建筑恢复生命值。",
+          "enUS": "Able to quickly restore health to mechanical units and buildings without consuming resources."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/SCVHarvestC",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVHarvestC",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1.5,
+            "Vespene": 1.5,
+            "Terrazine": 1.5,
+            "Custom": 1.5
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "ResourceAmountRequest": {
+            "Minerals": 30,
+            "Vespene": 15
+          },
+          "FlagArray": {
+            "BypassResourceQueue": 1
+          },
+          "Range": [
+            0.5
+          ],
+          "id": "SCVHarvestC"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVHarvestC,Gather",
+        "id": "GatherTerr",
+        "Icon": "btn-ability-terran-gather",
+        "Name": {
+          "enUS": "Gather",
+          "ruRU": "Добывать "
+        },
+        "Tooltip": {
+          "enUS": "Orders SCV to gather resources from a selected Mineral Field or Vespene Geyser.",
+          "ruRU": "Приказывает КСМ добывать ресурсы на месторождении минералов или из веспенового гейзера."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/SCVHarvestC",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVHarvestC",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1.5,
+            "Vespene": 1.5,
+            "Terrazine": 1.5,
+            "Custom": 1.5
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "ResourceAmountRequest": {
+            "Minerals": 30,
+            "Vespene": 15
+          },
+          "FlagArray": {
+            "BypassResourceQueue": 1
+          },
+          "Range": [
+            0.5
+          ],
+          "id": "SCVHarvestC"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVHarvestC,Return",
+        "id": "ReturnCargo",
+        "Icon": "btn-command-returncargo",
+        "Name": {
+          "enUS": "Return Cargo",
+          "ruRU": "Выгрузить ресурсы "
+        },
+        "Tooltip": {
+          "enUS": "Returns the carried resources to the nearest drop-off point.",
+          "ruRU": "Приказать выгрузить ресурсы в ближайший приемный пункт. "
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "TBl1",
+        "id": "TerranBuild",
+        "Icon": "btn-command-terran-buildstructure",
+        "Name": {
+          "enUS": "Build Structure",
+          "ruRU": "Построить здание "
+        },
+        "Tooltip": {
+          "enUS": "A list of basic structures.",
+          "ruRU": "Открывает список основных строений."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "TBl2",
+        "id": "TerranBuildAdvanced",
+        "Icon": "btn-command-terran-buildadvancedstructure",
+        "Name": {
+          "enUS": "Build Advanced Structure",
+          "ruRU": "Построить дополнительное здание "
+        },
+        "Tooltip": {
+          "enUS": "A list of advanced structures.",
+          "ruRU": "Открывает список дополнительных строений."
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/TerranBuildC",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "TerranBuildC",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Cancel"
+          },
+          "Alert": "BuildComplete",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 1,
+            "PeonMaintained": 1,
+            "RangeIncludesBuilding": 1,
+            "Interruptible": 1,
+            "PeonDisableCollision": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "CommandCenterC"
+              },
+              "Unit": "CommandCenterC",
+              "Time": 100
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "SupplyDepotC"
+              },
+              "Unit": "SupplyDepotC",
+              "Time": 30
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "RefineryC"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "RefineryC",
+              "Time": 30
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "BarracksC",
+                "Requirements": "HaveSupplyDepotC"
+              },
+              "Unit": "BarracksC",
+              "Time": 50
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "EngineeringBayC"
+              },
+              "Unit": "EngineeringBayC",
+              "Time": 35
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "MissileTurretC",
+                "Requirements": "HaveEngineeringBayC"
+              },
+              "Unit": "MissileTurretC",
+              "Time": 25
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "BunkerC",
+                "Requirements": "HaveBarracksC"
+              },
+              "Unit": "BunkerC",
+              "Time": 40
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "AutomatedRefineryC",
+                "Requirements": "UseAutomatedRefinery"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "AutomatedRefineryC",
+              "Time": 30
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "SensorTowerC",
+                "Requirements": "HaveEngineeringBayC"
+              },
+              "Unit": "SensorTowerC",
+              "Time": 25
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "GhostAcademyC",
+                "Requirements": "HaveBarracksC"
+              },
+              "Unit": "GhostAcademyC",
+              "Time": 40
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "FactoryC",
+                "Requirements": "HaveBarracksC"
+              },
+              "Unit": "FactoryC",
+              "Time": 60
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "StarportC",
+                "Requirements": "HaveFactoryC"
+              },
+              "Unit": "StarportC",
+              "Time": 50
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "SpaceStationC",
+                "Requirements": "SpaceStationRequirementsC"
+              },
+              "Unit": "SpaceStationC"
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "ArmoryC",
+                "Requirements": "HaveFactoryC"
+              },
+              "Unit": "ArmoryC",
+              "Time": 65
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "FusionCoreC",
+                "Requirements": "HaveStarportC"
+              },
+              "Unit": "FusionCoreC",
+              "Time": 65
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            }
+          },
+          "FidgetDelayMin": 5,
+          "FidgetDelayMax": 10,
+          "ConstructionMover": "Construction",
+          "id": "TerranBuildC"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": {
+          "enUS": "Halts construction of this structure. The partial construction will remain.",
+          "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "Passive",
+        "id": "RegenerativeBioSteelC",
+        "Icon": "btn-upgrade-swann-regenerativebiosteel",
+        "Name": {
+          "zhCN": "再生型生物钢",
+          "enUS": "Regenerated biosteel"
+        },
+        "Tooltip": {
+          "zhCN": "在脱离战斗后能够极快的恢复生命。",
+          "enUS": "Able to recover health very quickly after being out of combat."
+        }
+      }
+    ],
+    "TBl1": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "CommandCenterC"
+          },
+          "Unit": "CommandCenterC",
+          "Time": 100
+        },
+        "Unit": "CommandCenterC",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 16
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build1",
+        "id": "CommandCenterC",
+        "Icon": "btn-building-terran-commandcenter-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">特别行动指挥中心</span>",
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Special Operations Command Center</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">主要建筑</span><br/>用于接收采集到的资源。能够升空，可升级成为<span style=\"color: #ffff8a\">轨道控制中心</span>或<span style=\"color: #ffff8a\">特战要塞</span>。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">特战SCV</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Main building</span><br/> is used to receive collected resources. It can take off and can be upgraded to a <span style=\"color: #ffff8a\">Orbital Control Center</span> or <span style=\"color: #ffff8a\">Special War Fortress</span>. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">Special Warfare SCV</span>"
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SpaceStationC",
+            "Requirements": "SpaceStationRequirementsC"
+          },
+          "Unit": "SpaceStationC"
+        },
+        "Unit": "SpaceStationC",
+        "Cost": {
+          "Minerals": 600,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 20
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build13",
+        "id": "SpaceStationC",
+        "Icon": "wireframe-terran-spacestationvalerian",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">特战空间站</span>",
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Special Warfare Space Station</span>"
+        },
+        "Tooltip": {
+          "zhCN": "基础建筑，用于接收采集到的资源。自体可以升空，可以升级成为轨道控制基地或行星要塞。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- SCV",
+          "enUS": "Basic building, used to receive collected resources. The self can be launched into the air and can be upgraded to an orbital control base or planetary fortress. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- SCV"
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "AutomatedRefineryC",
+            "Requirements": "UseAutomatedRefinery"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "AutomatedRefineryC",
+          "Time": 30
+        },
+        "Unit": "AutomatedRefineryC",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build8",
+        "id": "AutomatedRefineryC",
+        "Icon": "btn-building-nova-autorefinery",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">前线自动化精炼厂</span>",
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Frontline Automated Refinery</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>改良型精炼厂，可无需工作单位自动采集高能瓦斯。",
+          "enUS": "<span style=\"color: #ffff8a\">Basic Building</span><br/> An improved refinery that can automatically collect high-energy gas without the need for work units."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "RefineryC"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "RefineryC",
+          "Time": 30
+        },
+        "Unit": "RefineryC",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build3",
+        "id": "RefineryC",
+        "Icon": "btn-building-terran-refinery-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">前线精炼厂</span>",
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Frontline Refinery</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>建造在瓦斯气泉上，用于采集高能瓦斯。",
+          "enUS": "<span style=\"color: #ffff8a\">Basic building</span><br/> is built on a gas spring and is used to collect high-energy gas."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SupplyDepotC"
+          },
+          "Unit": "SupplyDepotC",
+          "Time": 30
+        },
+        "Unit": "SupplyDepotC",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build2",
+        "id": "SupplyDepotC",
+        "Icon": "btn-building-terran-supplydepot-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">特别行动补给站</span>",
+          "enUS": "Build <span style=\"color: #ffff8a\">Special Operations Supply Depot</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>提供补给。<br/>拥有补给是生产更多单位的前提。<br/>补给站可以降下，允许地面单位出入。",
+          "enUS": "<span style=\"color: #ffff8a\">Basic buildings</span><br/> provide supplies. <br/>Having supplies is a prerequisite for producing more units. <br/>The supply depot can be lowered, allowing ground units to enter and exit."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "BarracksC",
+            "Requirements": "HaveSupplyDepotC"
+          },
+          "Unit": "BarracksC",
+          "Time": 50
+        },
+        "Unit": "BarracksC",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build4",
+        "id": "BarracksC",
+        "Icon": "btn-building-terran-barracks-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">特战兵营</span>",
+          "enUS": "Build <span style=\"color: #ffff8a\">Special Operations Barracks</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">生产建筑</span><br/>特战队基础步兵训练设施。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">精英陆战队员</span><br/>- <span style=\"color: #ffff8a\">特战收割者</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">强化地堡</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">特别行动处</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">特战重工厂</span><br/>- 使<span style=\"color: #ffff8a\">特别行动指挥中心</span>可以升级为<span style=\"color: #ffff8a\">轨道控制中心</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Production Building</span><br/>Special Forces Basic Infantry Training Facility. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">Elite Marine</span><br/>- < c val=\"#ColorAttackInfo\">Special Combat Reaper</span><br/> - Enables <span style=\"color: #ffff8a\">Special Combat SCV</span> to be constructed<span style=\"color: #ffff8a\">Fortified Bunker</span><br/> - Allows <span style=\"color: #ffff8a\">Special Warfare SCV</span> to build <span style=\"color: #ffff8a\">Special Operations Office< /c><br/>- Enables <span style=\"color: #ffff8a\">Special Warfare SCV</span> to be constructed<span style=\"color: #ffff8a\">Special Operations Heavy Factory</span><br/>- Allows <span style=\"color: #ffff8a\">Special Operations Command Center</span> to be upgraded to <span style=\"color: #ffff8a\"> Orbital Control Center</span>"
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "EngineeringBayC"
+          },
+          "Unit": "EngineeringBayC",
+          "Time": 35
+        },
+        "Unit": "EngineeringBayC",
+        "Time": 35,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build5",
+        "id": "EngineeringBayC",
+        "Icon": "btn-building-terran-engineeringbay-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">战地工程站</span>",
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Field Engineering Station</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>解锁特战队防御建筑。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">隐秘导弹塔</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">隐秘感应塔</span><br/>- 使<span style=\"color: #ffff8a\">特别行动指挥中心</span>可升级为<span style=\"color: #ffff8a\">特战要塞</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Unlocks the Special Forces defense building. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/> - Enables <span style=\"color: #ffff8a\">Special Warfare SCV</span> to be constructed <c val= \"#ColorAttackInfo\">Stealth Missile Turret</span><br/>- Allows <span style=\"color: #ffff8a\">Special Warfare SCV</span> to be constructed<span style=\"color: #ffff8a\">Secret Sensor Tower</span><br/> - Allows the <span style=\"color: #ffff8a\">Special Operations Command Center</span> to be upgraded to a <span style=\"color: #ffff8a\">Special Operations Command Center</span> Battle Fortress</span>"
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "BunkerC",
+            "Requirements": "HaveBarracksC"
+          },
+          "Unit": "BunkerC",
+          "Time": 40
+        },
+        "Unit": "BunkerC",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build7",
+        "id": "BunkerC",
+        "Icon": "btn-building-terran-bunker-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">强化地堡</span>",
+          "enUS": "Build a <span style=\"color: #ffff8a\">Fortified Bunker</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>能够装载步兵的基础防御建筑。<br/><br/><span style=\"color: #ffff8a\">效果加成：舱载单位射程增加3。</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/> A basic defense building capable of loading infantry. <br/><br/><span style=\"color: #ffff8a\">Effect bonus: The range of the mounted unit is increased by 3. </span>"
+        },
+        "Hotkey": "U"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "MissileTurretC",
+            "Requirements": "HaveEngineeringBayC"
+          },
+          "Unit": "MissileTurretC",
+          "Time": 25
+        },
+        "Unit": "MissileTurretC",
+        "Time": 25,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build6",
+        "id": "MissileTurretC",
+        "Icon": "btn-building-terran-missileturret-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">隐秘导弹塔</span>",
+          "enUS": "Build <span style=\"color: #ffff8a\">Stealth Missile Tower</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>特战队主要防空建筑。<br/><br/><span style=\"color: #ffff8a\">可以对空。</span><br/><span style=\"color: FFE303\">侦测单位</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/>The main air defense building of the special forces. <br/><br/><span style=\"color: #ffff8a\">Can be empty. </span><br/><span style=\"color: FFE303\">Detection unit</span>"
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SensorTowerC",
+            "Requirements": "HaveEngineeringBayC"
+          },
+          "Unit": "SensorTowerC",
+          "Time": 25
+        },
+        "Unit": "SensorTowerC",
+        "Time": 25,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build9",
+        "id": "SensorTowerC",
+        "Icon": "btn-building-terran-sensortower-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">隐秘感应塔</span>",
+          "enUS": "Build <span style=\"color: #ffff8a\">Secret Sensor Tower</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>能够在大范围内显示周围敌方单位的位置。<br/><span style=\"color: FFE303\">侦测单位</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Defensive buildings</span><br/> can display the positions of surrounding enemy units in a wide range. <br/><span style=\"color: FFE303\">Detection unit</span>"
+        },
+        "Hotkey": "N"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      }
+    ],
+    "TBl2": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GhostAcademyC",
+            "Requirements": "HaveBarracksC"
+          },
+          "Unit": "GhostAcademyC",
+          "Time": 40
+        },
+        "Unit": "GhostAcademyC",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build10",
+        "id": "GhostAcademyC",
+        "Icon": "btn-building-terran-ghostacademy-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">特别行动处</span>",
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Special Operations Branch</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>解锁高级步兵单位。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 可以在<span style=\"color: #ffff8a\">特战兵营</span>中训练<span style=\"color: #ffff8a\">特战幽灵</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Tech Building</span><br/>Unlock advanced infantry units. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- Can be trained in <span style=\"color: #ffff8a\">Special Forces Barracks</span><c val =\"#ColorAttackInfo\">Special War Ghost</span>"
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "FactoryC",
+            "Requirements": "HaveBarracksC"
+          },
+          "Unit": "FactoryC",
+          "Time": 60
+        },
+        "Unit": "FactoryC",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build11",
+        "id": "FactoryC",
+        "Icon": "btn-building-terran-factory-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">特战重工厂</span>",
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Special Warfare Heavy Factory</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">生产建筑</span><br/>特战队机械地面单位生产设施。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">恶火游骑兵</span><br/>- <span style=\"color: #ffff8a\">恶蝠游骑兵</span><br/>- <span style=\"color: #ffff8a\">强击歌利亚</span><br/>- <span style=\"color: #ffff8a\">幻光战车</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">特战星港</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">特战军械库</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Production Building</span><br/>Special Forces Mechanical Ground Unit Production Facility. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">Fire Ranger</span><br/>- < c val=\"#ColorAttackInfo\">Badbat Rangers</span><br/>- <span style=\"color: #ffff8a\">Goliath</span><br/>- <span style=\"color: #ffff8a\">Light Chariot</span><br/>- Allows <span style=\"color: #ffff8a\">Special Combat SCV</span> to build <span style=\"color: #ffff8a\">Special Combat Starport</span><br/>- Enables <span style=\"color: #ffff8a\">Special Warfare SCV</span> to be constructed<span style=\"color: #ffff8a\">Special Warfare Armory</span>"
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ArmoryC",
+            "Requirements": "HaveFactoryC"
+          },
+          "Unit": "ArmoryC",
+          "Time": 65
+        },
+        "Unit": "ArmoryC",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build14",
+        "id": "ArmoryC",
+        "Icon": "btn-building-terran-armory-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">特战军械库</span>",
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Special Warfare Armory</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>解锁特战队终极地面机械单位。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 可以在<span style=\"color: #ffff8a\">特战重工厂</span>中制造<span style=\"color: #ffff8a\">突袭雷神</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Unlocks the ultimate ground mechanized unit of Special Forces. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- Can be crafted in <span style=\"color: #ffff8a\">Special Warfare Heavy Factory</span><span style=\"color: #ffff8a\">Assault on Thor</span>"
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "StarportC",
+            "Requirements": "HaveFactoryC"
+          },
+          "Unit": "StarportC",
+          "Time": 50
+        },
+        "Unit": "StarportC",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build12",
+        "id": "StarportC",
+        "Icon": "btn-building-terran-starport-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">特战星港</span>",
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Special Warfare Starport</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">生产建筑</span><br/>特战队空中单位生产设施。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">德摩斯维京战机</span><br/>- <span style=\"color: #ffff8a\">隐秘女妖</span><br/>- <span style=\"color: #ffff8a\">特别行动运输机</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">特战聚变芯体</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Production Building</span><br/>Special Forces air unit production facility. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">Deimos Viking</span><br/> - <span style=\"color: #ffff8a\">Stealth Banshee</span><br/>- <span style=\"color: #ffff8a\">Special Ops Transport</span><br/>- Use<span style=\"color: #ffff8a\">Special Warfare SCV</span> can build <span style=\"color: #ffff8a\">Special Warfare Fusion Core</span>"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "FusionCoreC",
+            "Requirements": "HaveStarportC"
+          },
+          "Unit": "FusionCoreC",
+          "Time": 65
+        },
+        "Unit": "FusionCoreC",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildC,Build16",
+        "id": "FusionCoreC",
+        "Icon": "btn-building-terran-fusioncore-covertops",
+        "Name": {
+          "zhCN": "建造<span style=\"color: #ffff8a\">特战聚变芯体</span>",
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Special Warfare Fusion Core</span>"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>解锁特战队终极空中单位。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 可以在<span style=\"color: #ffff8a\">特战星港</span>中制造<span style=\"color: #ffff8a\">莫莱级战列巡航舰</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Unlocks the ultimate air unit of Special Forces. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- Can be crafted in <span style=\"color: #ffff8a\">Special Warfare Starport</span><span style=\"color: #ffff8a\">Molay-class battlecruiser</span>"
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "CargoSize": 1,
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 6,
+  "TacticalAIThink": "AIThinkSCV",
+  "GlossaryCategory": "Unit/Category/CoverOpsUnits",
+  "GlossaryPriority": 10,
+  "HotkeyCategory": "Unit/Category/CoverOpsUnits",
+  "LifeArmor": 2,
+  "BehaviorArray": [
+    "RegenerativeBioSteelC"
+  ],
+  "id": "NomadC",
+  "Icon": "wireframe-terran-nomad",
+  "LifeArmorIcon": "btn-upgrade-terran-vehicleplatinglevel3c",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "RegenerativeBioSteelC",
+      "Icon": "btn-research-zerg-regenerativebio-steel",
+      "Name": {
+        "zhCN": "再生型生物钢",
+        "enUS": "Regenerated biosteel"
+      },
+      "Tooltip": {
+        "zhCN": "正在极快的恢复生命。",
+        "enUS": "Recovering life very quickly."
+      }
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "RepairC",
+      "Name": {
+        "zhCN": "修理",
+        "enUS": "Repair"
+      }
+    },
+    {
+      "id": "SCVHarvestC",
+      "Name": {
+        "zhCN": "采集(SCV)",
+        "enUS": "Collection (SCV)"
+      }
+    },
+    {
+      "id": "TerranBuildC",
+      "Name": {
+        "zhCN": "建造(SCV)",
+        "enUS": "Construction(SCV)"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "CommandCenterTrainCI",
+    "NomadC",
+    "CommandCenterTrainC",
+    "CalldownMULECreateUnitC",
+    "NomadC",
+    "MULEPlacementCheckC"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "CommandCenterC",
+    "SpaceStationC",
+    "AutomatedRefineryC",
+    "RefineryC",
+    "SupplyDepotC",
+    "BarracksC",
+    "EngineeringBayC",
+    "BunkerC",
+    "MissileTurretC",
+    "SensorTowerC",
+    "GhostAcademyC",
+    "FactoryC",
+    "ArmoryC",
+    "StarportC",
+    "FusionCoreC"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "SpaceStationC"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackWorker",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "RepairC,Execute",
+      "id": "RepairC",
+      "Icon": "btn-ability-terran-repair",
+      "Name": {
+        "zhCN": "高级修理",
+        "enUS": "Advanced Repair"
+      },
+      "Tooltip": {
+        "zhCN": "能够不消耗资源快速为机械单位和建筑恢复生命值。",
+        "enUS": "Able to quickly restore health to mechanical units and buildings without consuming resources."
+      }
+    },
+    {
+      "AbilCmd": "SCVHarvestC,Gather",
+      "id": "GatherTerr",
+      "Icon": "btn-ability-terran-gather",
+      "Name": {
+        "enUS": "Gather",
+        "ruRU": "Добывать "
+      },
+      "Tooltip": {
+        "enUS": "Orders SCV to gather resources from a selected Mineral Field or Vespene Geyser.",
+        "ruRU": "Приказывает КСМ добывать ресурсы на месторождении минералов или из веспенового гейзера."
+      }
+    },
+    {
+      "AbilCmd": "SCVHarvestC,Return",
+      "id": "ReturnCargo",
+      "Icon": "btn-command-returncargo",
+      "Name": {
+        "enUS": "Return Cargo",
+        "ruRU": "Выгрузить ресурсы "
+      },
+      "Tooltip": {
+        "enUS": "Returns the carried resources to the nearest drop-off point.",
+        "ruRU": "Приказать выгрузить ресурсы в ближайший приемный пункт. "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": {
+        "enUS": "Halts construction of this structure. The partial construction will remain.",
+        "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build1",
+      "id": "CommandCenterC",
+      "Icon": "btn-building-terran-commandcenter-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">特别行动指挥中心</span>",
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Special Operations Command Center</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">主要建筑</span><br/>用于接收采集到的资源。能够升空，可升级成为<span style=\"color: #ffff8a\">轨道控制中心</span>或<span style=\"color: #ffff8a\">特战要塞</span>。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">特战SCV</span>",
+        "enUS": "<span style=\"color: #ffff8a\">Main building</span><br/> is used to receive collected resources. It can take off and can be upgraded to a <span style=\"color: #ffff8a\">Orbital Control Center</span> or <span style=\"color: #ffff8a\">Special War Fortress</span>. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">Special Warfare SCV</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build13",
+      "id": "SpaceStationC",
+      "Icon": "wireframe-terran-spacestationvalerian",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">特战空间站</span>",
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Special Warfare Space Station</span>"
+      },
+      "Tooltip": {
+        "zhCN": "基础建筑，用于接收采集到的资源。自体可以升空，可以升级成为轨道控制基地或行星要塞。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- SCV",
+        "enUS": "Basic building, used to receive collected resources. The self can be launched into the air and can be upgraded to an orbital control base or planetary fortress. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- SCV"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build8",
+      "id": "AutomatedRefineryC",
+      "Icon": "btn-building-nova-autorefinery",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">前线自动化精炼厂</span>",
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Frontline Automated Refinery</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>改良型精炼厂，可无需工作单位自动采集高能瓦斯。",
+        "enUS": "<span style=\"color: #ffff8a\">Basic Building</span><br/> An improved refinery that can automatically collect high-energy gas without the need for work units."
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build3",
+      "id": "RefineryC",
+      "Icon": "btn-building-terran-refinery-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">前线精炼厂</span>",
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Frontline Refinery</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>建造在瓦斯气泉上，用于采集高能瓦斯。",
+        "enUS": "<span style=\"color: #ffff8a\">Basic building</span><br/> is built on a gas spring and is used to collect high-energy gas."
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build2",
+      "id": "SupplyDepotC",
+      "Icon": "btn-building-terran-supplydepot-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">特别行动补给站</span>",
+        "enUS": "Build <span style=\"color: #ffff8a\">Special Operations Supply Depot</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>提供补给。<br/>拥有补给是生产更多单位的前提。<br/>补给站可以降下，允许地面单位出入。",
+        "enUS": "<span style=\"color: #ffff8a\">Basic buildings</span><br/> provide supplies. <br/>Having supplies is a prerequisite for producing more units. <br/>The supply depot can be lowered, allowing ground units to enter and exit."
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build4",
+      "id": "BarracksC",
+      "Icon": "btn-building-terran-barracks-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">特战兵营</span>",
+        "enUS": "Build <span style=\"color: #ffff8a\">Special Operations Barracks</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">生产建筑</span><br/>特战队基础步兵训练设施。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">精英陆战队员</span><br/>- <span style=\"color: #ffff8a\">特战收割者</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">强化地堡</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">特别行动处</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">特战重工厂</span><br/>- 使<span style=\"color: #ffff8a\">特别行动指挥中心</span>可以升级为<span style=\"color: #ffff8a\">轨道控制中心</span>",
+        "enUS": "<span style=\"color: #ffff8a\">Production Building</span><br/>Special Forces Basic Infantry Training Facility. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">Elite Marine</span><br/>- < c val=\"#ColorAttackInfo\">Special Combat Reaper</span><br/> - Enables <span style=\"color: #ffff8a\">Special Combat SCV</span> to be constructed<span style=\"color: #ffff8a\">Fortified Bunker</span><br/> - Allows <span style=\"color: #ffff8a\">Special Warfare SCV</span> to build <span style=\"color: #ffff8a\">Special Operations Office< /c><br/>- Enables <span style=\"color: #ffff8a\">Special Warfare SCV</span> to be constructed<span style=\"color: #ffff8a\">Special Operations Heavy Factory</span><br/>- Allows <span style=\"color: #ffff8a\">Special Operations Command Center</span> to be upgraded to <span style=\"color: #ffff8a\"> Orbital Control Center</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build5",
+      "id": "EngineeringBayC",
+      "Icon": "btn-building-terran-engineeringbay-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">战地工程站</span>",
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Field Engineering Station</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>解锁特战队防御建筑。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">隐秘导弹塔</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">隐秘感应塔</span><br/>- 使<span style=\"color: #ffff8a\">特别行动指挥中心</span>可升级为<span style=\"color: #ffff8a\">特战要塞</span>",
+        "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Unlocks the Special Forces defense building. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/> - Enables <span style=\"color: #ffff8a\">Special Warfare SCV</span> to be constructed <c val= \"#ColorAttackInfo\">Stealth Missile Turret</span><br/>- Allows <span style=\"color: #ffff8a\">Special Warfare SCV</span> to be constructed<span style=\"color: #ffff8a\">Secret Sensor Tower</span><br/> - Allows the <span style=\"color: #ffff8a\">Special Operations Command Center</span> to be upgraded to a <span style=\"color: #ffff8a\">Special Operations Command Center</span> Battle Fortress</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build7",
+      "id": "BunkerC",
+      "Icon": "btn-building-terran-bunker-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">强化地堡</span>",
+        "enUS": "Build a <span style=\"color: #ffff8a\">Fortified Bunker</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>能够装载步兵的基础防御建筑。<br/><br/><span style=\"color: #ffff8a\">效果加成：舱载单位射程增加3。</span>",
+        "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/> A basic defense building capable of loading infantry. <br/><br/><span style=\"color: #ffff8a\">Effect bonus: The range of the mounted unit is increased by 3. </span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build6",
+      "id": "MissileTurretC",
+      "Icon": "btn-building-terran-missileturret-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">隐秘导弹塔</span>",
+        "enUS": "Build <span style=\"color: #ffff8a\">Stealth Missile Tower</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>特战队主要防空建筑。<br/><br/><span style=\"color: #ffff8a\">可以对空。</span><br/><span style=\"color: FFE303\">侦测单位</span>",
+        "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/>The main air defense building of the special forces. <br/><br/><span style=\"color: #ffff8a\">Can be empty. </span><br/><span style=\"color: FFE303\">Detection unit</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build9",
+      "id": "SensorTowerC",
+      "Icon": "btn-building-terran-sensortower-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">隐秘感应塔</span>",
+        "enUS": "Build <span style=\"color: #ffff8a\">Secret Sensor Tower</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>能够在大范围内显示周围敌方单位的位置。<br/><span style=\"color: FFE303\">侦测单位</span>",
+        "enUS": "<span style=\"color: #ffff8a\">Defensive buildings</span><br/> can display the positions of surrounding enemy units in a wide range. <br/><span style=\"color: FFE303\">Detection unit</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build10",
+      "id": "GhostAcademyC",
+      "Icon": "btn-building-terran-ghostacademy-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">特别行动处</span>",
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Special Operations Branch</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>解锁高级步兵单位。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 可以在<span style=\"color: #ffff8a\">特战兵营</span>中训练<span style=\"color: #ffff8a\">特战幽灵</span>",
+        "enUS": "<span style=\"color: #ffff8a\">Tech Building</span><br/>Unlock advanced infantry units. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- Can be trained in <span style=\"color: #ffff8a\">Special Forces Barracks</span><c val =\"#ColorAttackInfo\">Special War Ghost</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build11",
+      "id": "FactoryC",
+      "Icon": "btn-building-terran-factory-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">特战重工厂</span>",
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Special Warfare Heavy Factory</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">生产建筑</span><br/>特战队机械地面单位生产设施。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">恶火游骑兵</span><br/>- <span style=\"color: #ffff8a\">恶蝠游骑兵</span><br/>- <span style=\"color: #ffff8a\">强击歌利亚</span><br/>- <span style=\"color: #ffff8a\">幻光战车</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">特战星港</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">特战军械库</span>",
+        "enUS": "<span style=\"color: #ffff8a\">Production Building</span><br/>Special Forces Mechanical Ground Unit Production Facility. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">Fire Ranger</span><br/>- < c val=\"#ColorAttackInfo\">Badbat Rangers</span><br/>- <span style=\"color: #ffff8a\">Goliath</span><br/>- <span style=\"color: #ffff8a\">Light Chariot</span><br/>- Allows <span style=\"color: #ffff8a\">Special Combat SCV</span> to build <span style=\"color: #ffff8a\">Special Combat Starport</span><br/>- Enables <span style=\"color: #ffff8a\">Special Warfare SCV</span> to be constructed<span style=\"color: #ffff8a\">Special Warfare Armory</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build14",
+      "id": "ArmoryC",
+      "Icon": "btn-building-terran-armory-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">特战军械库</span>",
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Special Warfare Armory</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>解锁特战队终极地面机械单位。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 可以在<span style=\"color: #ffff8a\">特战重工厂</span>中制造<span style=\"color: #ffff8a\">突袭雷神</span>",
+        "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Unlocks the ultimate ground mechanized unit of Special Forces. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- Can be crafted in <span style=\"color: #ffff8a\">Special Warfare Heavy Factory</span><span style=\"color: #ffff8a\">Assault on Thor</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build12",
+      "id": "StarportC",
+      "Icon": "btn-building-terran-starport-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">特战星港</span>",
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Special Warfare Starport</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">生产建筑</span><br/>特战队空中单位生产设施。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">德摩斯维京战机</span><br/>- <span style=\"color: #ffff8a\">隐秘女妖</span><br/>- <span style=\"color: #ffff8a\">特别行动运输机</span><br/>- 使<span style=\"color: #ffff8a\">特战SCV</span>可以建造<span style=\"color: #ffff8a\">特战聚变芯体</span>",
+        "enUS": "<span style=\"color: #ffff8a\">Production Building</span><br/>Special Forces air unit production facility. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">Deimos Viking</span><br/> - <span style=\"color: #ffff8a\">Stealth Banshee</span><br/>- <span style=\"color: #ffff8a\">Special Ops Transport</span><br/>- Use<span style=\"color: #ffff8a\">Special Warfare SCV</span> can build <span style=\"color: #ffff8a\">Special Warfare Fusion Core</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildC,Build16",
+      "id": "FusionCoreC",
+      "Icon": "btn-building-terran-fusioncore-covertops",
+      "Name": {
+        "zhCN": "建造<span style=\"color: #ffff8a\">特战聚变芯体</span>",
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Special Warfare Fusion Core</span>"
+      },
+      "Tooltip": {
+        "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>解锁特战队终极空中单位。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 可以在<span style=\"color: #ffff8a\">特战星港</span>中制造<span style=\"color: #ffff8a\">莫莱级战列巡航舰</span>",
+        "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Unlocks the ultimate air unit of Special Forces. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- Can be crafted in <span style=\"color: #ffff8a\">Special Warfare Starport</span><span style=\"color: #ffff8a\">Molay-class battlecruiser</span>"
+      }
+    }
+  ]
+}

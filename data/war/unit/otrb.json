@@ -1,0 +1,932 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Orc Burrow"
+  },
+  "Description": {
+    "enUS": "Provides food, which increases the maximum number of units that can be trained. Peons can garrison inside to attack enemy units. Can learn the Reinforced Defenses upgrade. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 4,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Vision",
+  "Race": "Orc",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 600,
+  "LifeMax": 600,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.75,
+  "SeparationRadius": 0.75,
+  "MinimapRadius": 0.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "PreventDefeat",
+    "PenaltyRevealed",
+    "TownAlert",
+    "NoPortraitTalk",
+    "AIDefense"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "otrb",
+  "HotkeyAlias": "otrb",
+  "SelectAlias": "otrb",
+  "SubgroupAlias": "otrb",
+  "OccludeHeight": 0,
+  "TacticalAI": "otrb",
+  "AIEvaluateAlias": "otrb",
+  "ReviveType": "otrb",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "otrb/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "otrb/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Classic",
+  "LifeArmorFormula": {
+    "NegativeArmorMultiplier": 0,
+    "NegativeDamageBase": 0.94,
+    "PositiveArmorMultiplier": 0,
+    "PositiveDamageRatio": 0.06
+  },
+  "LifeArmorTip": "ARMORTIP_LARGE",
+  "SpeedDisplayFlags": {
+    "CollapseBuffed": 1
+  },
+  "Acceleration": 1000,
+  "BehaviorArray": [
+    "otrb",
+    "War3_Unit",
+    "SuppressXPGrantOnKill",
+    "Buns",
+    "Arbr",
+    "Abds",
+    "Aspi"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "otrb1",
+      "Turret": "Attu"
+    },
+    {
+      "Link": "otrb2",
+      "Turret": "Attu"
+    }
+  ],
+  "InnerRadius": 0.6875,
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "id": "otrb",
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField"
+  ],
+  "AbilArray": [
+    "War3_Buildable",
+    "otrbTrain",
+    "Aatk",
+    "stop",
+    "Abun",
+    "Abtl",
+    "Astd"
+  ],
+  "CostCategory": "Technology",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/War3_Buildable",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "War3_Buildable",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/CONSTRUCTING",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "MaxBuilders": 2147483648,
+          "PowerBuildBonusRate": 0.6,
+          "PowerBuildCostFactor": 0.15,
+          "id": "War3_Buildable"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "War3_Buildable,Cancel",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/Aque",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aque",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "CmdCancelTrain"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CmdCancelTrain"
+            }
+          },
+          "QueueSize": 7,
+          "id": "Aque"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aque,CancelLast",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "ARal,Rally1",
+        "id": "CmdRally",
+        "Icon": "renee_war3_btnrallypoint",
+        "Name": {
+          "enUS": "Set Rally Point"
+        },
+        "Tooltip": {
+          "enUS": "Orders units that pop out of the building to immediately attack move to the targeted area. You can rally point gold mines or trees to auto-harvest. You can rally point a unit to have new units follow it when they finish building."
+        },
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Ashm",
+              "Requirements": "Hide"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop",
+          "Flags": {
+            "HoldFire": 1
+          }
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "CmdStop",
+        "Icon": "renee_war3_btnstop",
+        "Name": {
+          "enUS": "Stop"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Aatk/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aatk",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "Visible;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally,Hover,HarvestableResource",
+          "SupportedFilters": "-;Self,HarvestableResource,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdAttack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 0
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 5,
+          "MinAttackSpeedMultiplier": 0.2,
+          "AcquirePriority": 2,
+          "id": "Aatk"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aatk,Execute",
+        "id": "CmdAttack",
+        "Icon": "renee_war3_btnattack",
+        "Name": {
+          "enUS": "Attack"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilTransport",
+          "Name": "Abtl/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Orc,AbilityorEffectType:Unit",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Abtl",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Load": {
+              "Flags": {
+                "ShowInGlossary": 1
+              }
+            },
+            "LoadAll": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Abtl"
+            },
+            "UnloadAll": {
+              "DefaultButtonFace": "Astd"
+            }
+          },
+          "Alignment": "Positive",
+          "Range": [
+            1,
+            1.9531
+          ],
+          "MaxUnloadRange": 4,
+          "TargetFilters": [
+            "Visible;Ally,Neutral,Enemy,Buried,Dead,Hidden",
+            "-;Ally,Neutral,Enemy,Air,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden"
+          ],
+          "Flags": {
+            "AllowPassengerSmartCmd": 1,
+            "AllowSmartCmd": 1,
+            "ShowCargoSize": 1,
+            "ShowStatus": 1
+          },
+          "TargetSorts": {
+            "SortArray": [
+              "TSInterruptible",
+              "TSDistance"
+            ]
+          },
+          "ErrorAlert": "Error",
+          "id": "Abtl",
+          "MaxCargoCount": 4,
+          "MaxCargoSize": 1,
+          "TotalCargoSpace": 4,
+          "LoadValidatorArray": [
+            "IsPeon"
+          ],
+          "LoadTransportBehavior": "Abtl",
+          "SearchRadius": 15.625,
+          "LoadCargoBehavior": "BattleStationsPeon"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Abtl,4",
+        "id": "Abtl",
+        "Icon": "renee_war3_btnbattlestations",
+        "Name": {
+          "enUS": "Battle Stations"
+        },
+        "Tooltip": {
+          "enUS": "Causes nearby Peons to run into the Burrow so that they can defend their base."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "class": "CAbilTransport",
+          "Name": "Abtl/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Orc,AbilityorEffectType:Unit",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Abtl",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Load": {
+              "Flags": {
+                "ShowInGlossary": 1
+              }
+            },
+            "LoadAll": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Abtl"
+            },
+            "UnloadAll": {
+              "DefaultButtonFace": "Astd"
+            }
+          },
+          "Alignment": "Positive",
+          "Range": [
+            1,
+            1.9531
+          ],
+          "MaxUnloadRange": 4,
+          "TargetFilters": [
+            "Visible;Ally,Neutral,Enemy,Buried,Dead,Hidden",
+            "-;Ally,Neutral,Enemy,Air,Hover,HarvestableResource,Destructible,Item,PreventDefeat,Buried,Dead,Hidden"
+          ],
+          "Flags": {
+            "AllowPassengerSmartCmd": 1,
+            "AllowSmartCmd": 1,
+            "ShowCargoSize": 1,
+            "ShowStatus": 1
+          },
+          "TargetSorts": {
+            "SortArray": [
+              "TSInterruptible",
+              "TSDistance"
+            ]
+          },
+          "ErrorAlert": "Error",
+          "id": "Abtl",
+          "MaxCargoCount": 4,
+          "MaxCargoSize": 1,
+          "TotalCargoSpace": 4,
+          "LoadValidatorArray": [
+            "IsPeon"
+          ],
+          "LoadTransportBehavior": "Abtl",
+          "SearchRadius": 15.625,
+          "LoadCargoBehavior": "BattleStationsPeon"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Abtl,1",
+        "id": "Astd",
+        "Icon": "renee_war3_btnbacktowork",
+        "Name": {
+          "enUS": "Stand Down"
+        },
+        "Tooltip": {
+          "enUS": "Causes Peons within the Burrow to return to work."
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "SelectBuilder",
+        "id": "SelectBuilderOrc",
+        "Icon": "renee_war3_btnpeon",
+        "Name": {
+          "enUS": "Select Builder"
+        },
+        "Tooltip": {
+          "enUS": "Selects the unit constructing this structure."
+        },
+        "Hotkey": "Q"
+      }
+    ]
+  },
+  "Attributes": [
+    "Structure",
+    "Mechanical",
+    "Massive"
+  ],
+  "FogVisibility": "Snapshot",
+  "PlacementFootprint": "6x6SimpleSolid",
+  "AttackTargetPriority": 11,
+  "ResourceDamageLeechFilters": "Self;-",
+  "ResourceDamageLeech": {
+    "Spell": {
+      "Amount": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "KillXP": 25,
+  "CostResource": {
+    "Minerals": 160,
+    "Vespene": 40
+  },
+  "Food": 10,
+  "LifeArmor": 5,
+  "RepairTime": 50,
+  "SightBonus": [
+    6.25,
+    6.25
+  ],
+  "SubgroupPriority": 3,
+  "Footprint": "6x6SimpleSolid",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "HotkeyCategory": "UI/ORC",
+  "defType": "LARGE",
+  "Icon": "renee_war3_btntrollburrow",
+  "LifeArmorIcon": "infocard-armor-large.tga",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "Turret": "Attu",
+      "Effect": "otrb1LM",
+      "EditorCategories": "Race:Orc",
+      "MinScanRange": 5.4687,
+      "TargetFilters": "",
+      "Range": 5.4687,
+      "RangeSlop": 1.9531,
+      "Period": 4,
+      "DamagePoint": 0.3,
+      "Backswing": 0.3,
+      "Options": {
+        "Disabled": 1
+      },
+      "id": "otrb1",
+      "parent": "missile",
+      "atkType": "PIERCE",
+      "class": "CWeaponLegacy",
+      "Icon": "infocard-attack-pierce.tga",
+      "Name": {
+        "enUS": "Type: <span style=\"color: ffcc00\">Piercing</span>"
+      },
+      "Amount": 23,
+      "Kind": "Ranged"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "War3_Unit",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "War3_Unit"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "SuppressXPGrantOnKill",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "SuppressXPGrantOnKill"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Buns",
+      "Icon": "renee_war3_btnunsummonbuilding",
+      "Name": {
+        "enUS": "Unsummon"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Arbr",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Reinforced Burrows Upgrade"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Abds",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Blight Dispel Small"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Aspi",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Spiked Barricades"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "War3_Buildable",
+      "Name": {
+        "enUS": "War3_Buildable"
+      }
+    },
+    {
+      "id": "Aatk",
+      "Name": {
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "Abtl",
+      "Name": {
+        "enUS": "Battle Stations"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "AObu",
+    "otrb",
+    "Rosp",
+    "Rorb",
+    "otrb",
+    "Rgfo",
+    "MorphToFortBurrowPH",
+    "otrbCount"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "opeo",
+    "ncpn"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "War3_Buildable,Cancel",
+      "id": "CmdCancel",
+      "Icon": "renee_war3_btncancel",
+      "Name": {
+        "enUS": "Cancel"
+      },
+      "Tooltip": {
+        "enUS": "Drops the current un-issued order and allows you to select a different order."
+      }
+    },
+    {
+      "AbilCmd": "Aque,CancelLast",
+      "id": "CmdCancel",
+      "Icon": "renee_war3_btncancel",
+      "Name": {
+        "enUS": "Cancel"
+      },
+      "Tooltip": {
+        "enUS": "Drops the current un-issued order and allows you to select a different order."
+      }
+    },
+    {
+      "AbilCmd": "ARal,Rally1",
+      "id": "CmdRally",
+      "Icon": "renee_war3_btnrallypoint",
+      "Name": {
+        "enUS": "Set Rally Point"
+      },
+      "Tooltip": {
+        "enUS": "Orders units that pop out of the building to immediately attack move to the targeted area. You can rally point gold mines or trees to auto-harvest. You can rally point a unit to have new units follow it when they finish building."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "CmdStop",
+      "Icon": "renee_war3_btnstop",
+      "Name": {
+        "enUS": "Stop"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies."
+      }
+    },
+    {
+      "AbilCmd": "Aatk,Execute",
+      "id": "CmdAttack",
+      "Icon": "renee_war3_btnattack",
+      "Name": {
+        "enUS": "Attack"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed."
+      }
+    },
+    {
+      "AbilCmd": "Abtl,4",
+      "id": "Abtl",
+      "Icon": "renee_war3_btnbattlestations",
+      "Name": {
+        "enUS": "Battle Stations"
+      },
+      "Tooltip": {
+        "enUS": "Causes nearby Peons to run into the Burrow so that they can defend their base."
+      }
+    },
+    {
+      "AbilCmd": "Abtl,1",
+      "id": "Astd",
+      "Icon": "renee_war3_btnbacktowork",
+      "Name": {
+        "enUS": "Stand Down"
+      },
+      "Tooltip": {
+        "enUS": "Causes Peons within the Burrow to return to work."
+      }
+    }
+  ]
+}

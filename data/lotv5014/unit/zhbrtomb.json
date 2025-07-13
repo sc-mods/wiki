@@ -1,0 +1,626 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Tomb"
+  },
+  "Description": {
+    "enUS": "Contains upgrades for **Energators**, **Conductors**, **Navigators**.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Energators<br/>- Conductors<br/>- Navigators<br/>- Minion morph to Spirit"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZHBR",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 500,
+  "LifeMax": 500,
+  "LifeArmorName": {
+    "enUS": "Building Plating"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.75,
+  "SeparationRadius": 1.75,
+  "MinimapRadius": 1,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ZHBRTomb",
+  "HotkeyAlias": "ZHBRTomb",
+  "SelectAlias": "ZHBRTomb",
+  "SubgroupAlias": "ZHBRTomb",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ZHBRTomb",
+  "AIEvaluateAlias": "ZHBRTomb",
+  "ReviveType": "ZHBRTomb",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ZHBRTomb/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ZHBRTomb/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Phased",
+    "Small"
+  ],
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Attributes": [
+    "Armored",
+    "Structure"
+  ],
+  "ShieldArmorName": {
+    "enUS": "Protection"
+  },
+  "HotkeyCategory": "Unit/Category/ZHBRUnits",
+  "SubgroupPriority": 2,
+  "DataCollection": "ZHBRTomb",
+  "BehaviorArray": [
+    "ZHBRCommon@BuildersTracker",
+    "ZHBRVoid@PowerUser",
+    "ZHBRRestorationShield"
+  ],
+  "AbilArray": [
+    "BuildInProgress",
+    "que5",
+    "ZHBRStructureTeleport@Tomb",
+    "ZHBRTomb@Research"
+  ],
+  "LifeArmor": 1,
+  "Facing": 315,
+  "ScoreResult": "BuildOrder",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "QueueSize": 5,
+          "id": "que5"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Upgrade": "ZHBRCloakedSpirit",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRCloakedSpirit@Research",
+            "Requirements": "ZHBRCloakedSpirit@Research"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 50
+          },
+          "Time": 90,
+          "Upgrade": "ZHBRCloakedSpirit"
+        },
+        "Time": 90,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRTomb@Research,Research4",
+        "id": "ZHBRCloakedSpirit@Research",
+        "Icon": "btn-upgrade-protoss-alarak-permanentcloak",
+        "Name": {
+          "enUS": "Cloaked Spirit"
+        },
+        "Tooltip": {
+          "enUS": "Spirit gains <span style=\"color: FFFF80\">permanent cloak</span>."
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Upgrade": "ZHBRDisappearance",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRDisappearance@Research",
+            "Requirements": "ZHBRDisappearance@Research"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 50
+          },
+          "Time": 100,
+          "Upgrade": "ZHBRDisappearance"
+        },
+        "Time": 100,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRTomb@Research,Research2",
+        "id": "ZHBRDisappearance@Research",
+        "Icon": "btn-ability-protoss-astralwind",
+        "Name": {
+          "enUS": "Disappearance"
+        },
+        "Tooltip": {
+          "enUS": "Creates a cloak aura around the <span style=\"color: FFFF80\">Energator</span>. All units in range are cloaked for <span style=\"color: FFFF80\"><b>4.2</b> <lang rule=\"plural\">second,seconds</lang></span>."
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Upgrade": "ZHBRPhaseShift",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRPhaseShift@Research",
+            "Requirements": "ZHBRPhaseShift@Research"
+          },
+          "Resource": {
+            "Minerals": 150,
+            "Vespene": 50
+          },
+          "Time": 100,
+          "Upgrade": "ZHBRPhaseShift"
+        },
+        "Time": 100,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRTomb@Research,Research3",
+        "id": "ZHBRPhaseShift@Research",
+        "Icon": "btn-ability-protoss-phaseshift2",
+        "Name": {
+          "enUS": "Phase Shift"
+        },
+        "Tooltip": {
+          "enUS": "Target structure or unit is phased out of existence for <span style=\"color: #ffff8a\"><b>14</b> seconds</span>. It cannot be attacked, use abilities and provide power.**Massive and heroic targets are immune**"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonTomb"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountStart": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeUse": 140
+          },
+          "ValidatorArray": [
+            "HasVision",
+            "ZHBRVoid@TargetPointWithinPowerRange"
+          ],
+          "Time": 14,
+          "Unit": "ZHBRTomb"
+        },
+        "Unit": "ZHBRTomb",
+        "Time": 14,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRStructureTeleport@Tomb,Build1",
+        "id": "ZHBRStructureTeleport",
+        "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+        "Name": {
+          "enUS": "Teleport Structure"
+        },
+        "Tooltip": {
+          "enUS": "Teleport structure to target location over <span style=\"color: ffff8a\"><b>14</b> seconds</span>."
+        },
+        "Hotkey": "T"
+      }
+    ]
+  },
+  "AttackTargetPriority": 11,
+  "Mob": "Multiplayer",
+  "Sight": 9,
+  "ShieldArmorTip": "Unit/ShieldArmorTooltip/ZHBRShields",
+  "EffectArray": {
+    "Birth": "ZHBRRaceControl@AddTrackedUnit"
+  },
+  "id": "ZHBRTomb",
+  "ShieldsMax": 250,
+  "ShieldRegenRate": 25,
+  "CostResource": {
+    "Minerals": 200,
+    "Vespene": 175
+  },
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "CostCategory": "Technology",
+  "GlossaryPriority": 32,
+  "Icon": "btn-building-zhybrid-tomb",
+  "LifeArmorIcon": "amonshards _armor",
+  "ShieldArmorIcon": "btn-ability-zhybrid-protection",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "ZHBRCommon@BuildersTracker",
+      "Name": {
+        "enUS": "Builders Tracker"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRVoid@PowerUser",
+      "Name": {
+        "enUS": "Power User"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRRestorationShield",
+      "Icon": "btn-ability-zeratul-warpprism-shieldboosters",
+      "Name": {
+        "enUS": "Restoration Shield"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "que5",
+      "Name": {
+        "ruRU": "Queue (5)",
+        "enUS": "Queue (5)"
+      }
+    },
+    {
+      "id": "ZHBRStructureTeleport@Tomb",
+      "Name": {
+        "enUS": "Structure Teleport (Tomb)"
+      }
+    },
+    {
+      "id": "ZHBRTomb@Research",
+      "Name": {
+        "enUS": "Research"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "CountUnitZHBRTombCompleteOnly",
+    "ZHBRTomb",
+    "ZHBRStructureTeleport@Tomb",
+    "ZHBRMinionBuild",
+    "ZHBRMinionBuild@Main",
+    "ZHBRStructureTeleport",
+    "ZHBRCommon@IsTomb",
+    "ZHBRTomb",
+    "ZHBRTomb",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "ZHBRTomb"
+  ],
+  "$Research": [
+    "ZHBRCloakedSpirit",
+    "ZHBRDisappearance",
+    "ZHBRPhaseShift"
+  ],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "ZHBRRaceControl",
+    "ZHBRTomb",
+    "ZHBRMinion"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+        "ruRU": "Отменить текущий приказ и отдать следующий. "
+      }
+    },
+    {
+      "AbilCmd": "ZHBRTomb@Research,Research4",
+      "id": "ZHBRCloakedSpirit@Research",
+      "Icon": "btn-upgrade-protoss-alarak-permanentcloak",
+      "Name": {
+        "enUS": "Cloaked Spirit"
+      },
+      "Tooltip": {
+        "enUS": "Spirit gains <span style=\"color: FFFF80\">permanent cloak</span>."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRTomb@Research,Research2",
+      "id": "ZHBRDisappearance@Research",
+      "Icon": "btn-ability-protoss-astralwind",
+      "Name": {
+        "enUS": "Disappearance"
+      },
+      "Tooltip": {
+        "enUS": "Creates a cloak aura around the <span style=\"color: FFFF80\">Energator</span>. All units in range are cloaked for <span style=\"color: FFFF80\"><b>4.2</b> <lang rule=\"plural\">second,seconds</lang></span>."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRTomb@Research,Research3",
+      "id": "ZHBRPhaseShift@Research",
+      "Icon": "btn-ability-protoss-phaseshift2",
+      "Name": {
+        "enUS": "Phase Shift"
+      },
+      "Tooltip": {
+        "enUS": "Target structure or unit is phased out of existence for <span style=\"color: #ffff8a\"><b>14</b> seconds</span>. It cannot be attacked, use abilities and provide power.**Massive and heroic targets are immune**"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRStructureTeleport@Tomb,Build1",
+      "id": "ZHBRStructureTeleport",
+      "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+      "Name": {
+        "enUS": "Teleport Structure"
+      },
+      "Tooltip": {
+        "enUS": "Teleport structure to target location over <span style=\"color: ffff8a\"><b>14</b> seconds</span>."
+      }
+    }
+  ]
+}

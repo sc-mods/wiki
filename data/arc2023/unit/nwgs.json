@@ -1,0 +1,298 @@
+{
+  "Name": "Couatl",
+  "Description": "Light flying unit that can learn Abolish Magic. <br/><br/><span style=\"color: #ffcc00\">Attacks land and air units.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 4,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Vision",
+  "Race": "Naga",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 525,
+  "LifeMax": 525,
+  "Mover": "fly",
+  "StationaryTurningRate": 720,
+  "TurningRate": 399.9023,
+  "Radius": 0.5,
+  "SeparationRadius": 0.5,
+  "MinimapRadius": 0.5,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Campaign",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "CameraFollow",
+    "PreventDestroy",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "nwgs",
+  "HotkeyAlias": "nwgs",
+  "SelectAlias": "nwgs",
+  "SubgroupAlias": "nwgs",
+  "OccludeHeight": 0,
+  "TacticalAI": "nwgs",
+  "AIEvaluateAlias": "nwgs",
+  "ReviveType": "nwgs",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "nwgs/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "nwgs/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "LifeArmorTip": "ARMORTIP_SMALL",
+  "Acceleration": 1000,
+  "Mob": "Classic",
+  "LifeArmorFormula": {
+    "NegativeArmorMultiplier": 0,
+    "NegativeDamageBase": 0.94,
+    "PositiveArmorMultiplier": 0,
+    "PositiveDamageRatio": 0.06
+  },
+  "SpeedDisplayFlags": {
+    "CollapseBuffed": 1
+  },
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "InnerRadius": 0.5,
+  "id": "nwgs",
+  "Collide": [
+    "Flying"
+  ],
+  "CostCategory": "Army",
+  "ResourceDamageLeechFilters": "-;Player,Ally,Air,Ground,Hover,HarvestableResource,Destructible,Item,Buried,Dead,Invulnerable",
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Move",
+        "id": "CmdMove",
+        "Tooltip": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "CmdStop",
+        "Tooltip": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,HoldPos",
+        "id": "CmdHoldPos",
+        "Tooltip": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Patrol",
+        "id": "CmdPatrol",
+        "Tooltip": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aatk,Execute",
+        "id": "CmdAttack",
+        "Tooltip": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Andm,0",
+        "id": "Andm",
+        "Tooltip": "Dispels positive buffs from enemy units, and negative buffs from friendly units. <br/><span style=\"color: #ffcc00\">Deals 300 damage to summoned units.</span>",
+        "Name": "Abolish Magic",
+        "Hotkey": "B"
+      }
+    ]
+  },
+  "Attributes": [
+    "Light"
+  ],
+  "KillXP": 40,
+  "CostResource": {
+    "Minerals": 235,
+    "Vespene": 30
+  },
+  "Food": -2,
+  "KillResource": {
+    "Minerals": 7
+  },
+  "EnergyMax": 200,
+  "EnergyStart": 50,
+  "LifeArmor": 3,
+  "Speed": 2.7343,
+  "RepairTime": 35,
+  "SightBonus": [
+    12.5,
+    6.25
+  ],
+  "EnergyRegenRate": 0.5,
+  "LifeRegenRate": 1,
+  "SubgroupPriority": 3,
+  "Height": 1.875,
+  "PlaneArray": [
+    "Air"
+  ],
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "defType": "SMALL",
+  "Icon": "renee_war3_btnwindserpent",
+  "LifeArmorIcon": "infocard-armor-small.tga",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "id": "nwgs1",
+      "Name": "Type: <span style=\"color: #ffcc00\">Piercing</span>",
+      "Amount": 42,
+      "Kind": "Ranged",
+      "TargetFilters": "",
+      "Range": 3.5156,
+      "Period": 1.8
+    },
+    {}
+  ],
+  "Behaviors": [
+    {},
+    {
+      "id": "War3_Unit"
+    },
+    {
+      "id": "War3_ArmyBlastRemove"
+    },
+    {
+      "id": "CreepUnitTriggerNotice"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "Amov",
+      "Name": "Move"
+    },
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "HigherCliffMiss",
+      "Name": "Higher Cliff Miss"
+    },
+    {
+      "id": "Aatk",
+      "Name": "Attack"
+    },
+    {}
+  ],
+  "$Upgrades": [
+    "Rnat",
+    "nwgs",
+    "Rnam",
+    "nnsaTrain",
+    "Rnsi",
+    "Rguv",
+    "nwgs",
+    "nwgsCount"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Producers": [
+    "nnsa"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "Amov,Move",
+      "id": "CmdMove",
+      "Tooltip": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "CmdStop",
+      "Tooltip": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "Amov,HoldPos",
+      "id": "CmdHoldPos",
+      "Tooltip": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "Amov,Patrol",
+      "id": "CmdPatrol",
+      "Tooltip": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "Aatk,Execute",
+      "id": "CmdAttack",
+      "Tooltip": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "Andm,0",
+      "id": "Andm",
+      "Tooltip": "Dispels positive buffs from enemy units, and negative buffs from friendly units. <br/><span style=\"color: #ffcc00\">Deals 300 damage to summoned units.</span>",
+      "Name": "Abolish Magic"
+    }
+  ]
+}

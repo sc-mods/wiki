@@ -1,0 +1,899 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Arcane Tower"
+  },
+  "Description": {
+    "enUS": "Magical defensive tower. Particularly effective against enemy Heroes and spellcasters. Has the Feedback ability, which causes its attacks to destroy mana, dealing extra damage equal to the mana destroyed. Deals bonus damage against summoned units. Can learn the Magic Sentry ability. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 4,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Vision",
+  "Race": "Human",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 500,
+  "LifeMax": 500,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.75,
+  "SeparationRadius": 0.75,
+  "MinimapRadius": 0.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "PreventDefeat",
+    "PenaltyRevealed",
+    "TownAlert",
+    "NoPortraitTalk",
+    "AIDefense"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "hatw",
+  "HotkeyAlias": "hatw",
+  "SelectAlias": "hatw",
+  "SubgroupAlias": "hatw",
+  "OccludeHeight": 0,
+  "TacticalAI": "hatw",
+  "AIEvaluateAlias": "hatw",
+  "ReviveType": "hatw",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "hatw/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "hatw/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Classic",
+  "LifeArmorFormula": {
+    "NegativeArmorMultiplier": 0,
+    "NegativeDamageBase": 0.94,
+    "PositiveArmorMultiplier": 0,
+    "PositiveDamageRatio": 0.06
+  },
+  "LifeArmorTip": "ARMORTIP_LARGE",
+  "SpeedDisplayFlags": {
+    "CollapseBuffed": 1
+  },
+  "Acceleration": 1000,
+  "BehaviorArray": [
+    "hatw",
+    "War3_Unit",
+    "SuppressXPGrantOnKill",
+    "Buns",
+    "Abds",
+    "Afbt",
+    "Adts"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "hatw1",
+      "Turret": "Attu"
+    },
+    {
+      "Link": "hatw2",
+      "Turret": "Attu"
+    }
+  ],
+  "InnerRadius": 0.6875,
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "id": "hatw",
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField"
+  ],
+  "AbilArray": [
+    "War3_Buildable",
+    "hatwTrain",
+    "Aatk",
+    "stop",
+    "AHta"
+  ],
+  "CostCategory": "Technology",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/War3_Buildable",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "War3_Buildable",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/CONSTRUCTING",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "MaxBuilders": 2147483648,
+          "PowerBuildBonusRate": 0.6,
+          "PowerBuildCostFactor": 0.15,
+          "id": "War3_Buildable"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "War3_Buildable,Cancel",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/Aque",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aque",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "CmdCancelTrain"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CmdCancelTrain"
+            }
+          },
+          "QueueSize": 7,
+          "id": "Aque"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aque,CancelLast",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "ARal,Rally1",
+        "id": "CmdRally",
+        "Icon": "renee_war3_btnrallypoint",
+        "Name": {
+          "enUS": "Set Rally Point"
+        },
+        "Tooltip": {
+          "enUS": "Orders units that pop out of the building to immediately attack move to the targeted area. You can rally point gold mines or trees to auto-harvest. You can rally point a unit to have new units follow it when they finish building."
+        },
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Ashm",
+              "Requirements": "Hide"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop",
+          "Flags": {
+            "HoldFire": 1
+          }
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "CmdStop",
+        "Icon": "renee_war3_btnstop",
+        "Name": {
+          "enUS": "Stop"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Aatk/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aatk",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "Visible;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally,Hover,HarvestableResource",
+          "SupportedFilters": "-;Self,HarvestableResource,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdAttack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 0
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 5,
+          "MinAttackSpeedMultiplier": 0.2,
+          "AcquirePriority": 2,
+          "id": "Aatk"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aatk,Execute",
+        "id": "CmdAttack",
+        "Icon": "renee_war3_btnattack",
+        "Name": {
+          "enUS": "Attack"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "Afbt",
+        "Icon": "renee_war3_btnfeedback",
+        "Name": {
+          "enUS": "Feedback"
+        },
+        "Tooltip": {
+          "enUS": "This tower's attacks destroy 24 mana per hit against any unit, causing bonus damage equal to the mana destroyed.<br/><br/>Additionally, attacks made by this tower cause 20 bonus damage against summoned units."
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "AHta/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Human,AbilityorEffectType:Unit",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "AIta",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "AHta"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "AIta",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "AHta",
+              "Requirements": "AHta"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "-;-"
+          ],
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit",
+                "TimeUse": 180
+              }
+            }
+          ],
+          "LevelButtonTooltip": [
+            "AIta/Ubertip2",
+            "AIta/Ubertip3",
+            "AIta/Ubertip4"
+          ],
+          "AutoCastValidatorArray": [
+            "NotHallucination"
+          ],
+          "PreEffectBehavior": {
+            "Behavior": "SuppressInvisibility",
+            "Count": 1
+          },
+          "id": "AHta",
+          "Range": [
+            500
+          ],
+          "IgnoreFilters": "-;PreventReveal",
+          "CastOutroTime": [
+            0.51
+          ],
+          "Arc": 360
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "AHta,0",
+        "id": "AHta",
+        "Icon": "renee_war3_btnreveal",
+        "Name": {
+          "enUS": "Reveal"
+        },
+        "Tooltip": {
+          "enUS": "Reveals an area of the map. <br/>Detects invisible units. <br/>Lasts 15 seconds."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "Adts",
+        "Icon": "renee_war3_btnmagicalsentry",
+        "Name": {
+          "enUS": "Magic Sentry"
+        },
+        "Tooltip": {
+          "enUS": "Reveals nearby invisible units."
+        }
+      }
+    ]
+  },
+  "Attributes": [
+    "Structure",
+    "Mechanical",
+    "Massive"
+  ],
+  "FogVisibility": "Snapshot",
+  "PlacementFootprint": "Footprint2x2",
+  "AttackTargetPriority": 11,
+  "ResourceDamageLeechFilters": "Self;-",
+  "ResourceDamageLeech": {
+    "Spell": {
+      "Amount": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "KillXP": 25,
+  "CostResource": {
+    "Minerals": 125,
+    "Vespene": 50
+  },
+  "RepairTime": 50,
+  "SightBonus": [
+    12.5,
+    6.25
+  ],
+  "SubgroupPriority": 2,
+  "Footprint": "Footprint2x2Contour",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "TechAliasArray": [
+    "hwtw"
+  ],
+  "HotkeyCategory": "UI/HUMAN",
+  "defType": "LARGE",
+  "Icon": "renee_war3_btnhumanarcanetower",
+  "LifeArmorIcon": "infocard-armor-large.tga",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "Turret": "Attu",
+      "Effect": "hatw1LM",
+      "EditorCategories": "Race:Human",
+      "MinScanRange": 6.25,
+      "TargetFilters": "",
+      "Range": 6.25,
+      "RangeSlop": 1.9531,
+      "Period": 1,
+      "DamagePoint": 0.3,
+      "Backswing": 0.3,
+      "id": "hatw1",
+      "parent": "missile",
+      "atkType": "PIERCE",
+      "class": "CWeaponLegacy",
+      "Icon": "infocard-attack-pierce.tga",
+      "Name": {
+        "enUS": "Type: <span style=\"color: ffcc00\">Piercing</span>"
+      },
+      "Amount": 8,
+      "Kind": "Ranged"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "War3_Unit",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "War3_Unit"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "SuppressXPGrantOnKill",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "SuppressXPGrantOnKill"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Buns",
+      "Icon": "renee_war3_btnunsummonbuilding",
+      "Name": {
+        "enUS": "Unsummon"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Abds",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Blight Dispel Small"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Afbt",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Feedback"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Adts",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Magic Sentry"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "War3_Buildable",
+      "Name": {
+        "enUS": "War3_Buildable"
+      }
+    },
+    {
+      "id": "Aatk",
+      "Name": {
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "AHta",
+      "Name": {
+        "enUS": "Reveal"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "Rhac",
+    "hatw",
+    "UpgradeTohatw",
+    "hatw",
+    "Rgfo",
+    "hatwCount"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "War3_Buildable,Cancel",
+      "id": "CmdCancel",
+      "Icon": "renee_war3_btncancel",
+      "Name": {
+        "enUS": "Cancel"
+      },
+      "Tooltip": {
+        "enUS": "Drops the current un-issued order and allows you to select a different order."
+      }
+    },
+    {
+      "AbilCmd": "Aque,CancelLast",
+      "id": "CmdCancel",
+      "Icon": "renee_war3_btncancel",
+      "Name": {
+        "enUS": "Cancel"
+      },
+      "Tooltip": {
+        "enUS": "Drops the current un-issued order and allows you to select a different order."
+      }
+    },
+    {
+      "AbilCmd": "ARal,Rally1",
+      "id": "CmdRally",
+      "Icon": "renee_war3_btnrallypoint",
+      "Name": {
+        "enUS": "Set Rally Point"
+      },
+      "Tooltip": {
+        "enUS": "Orders units that pop out of the building to immediately attack move to the targeted area. You can rally point gold mines or trees to auto-harvest. You can rally point a unit to have new units follow it when they finish building."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "CmdStop",
+      "Icon": "renee_war3_btnstop",
+      "Name": {
+        "enUS": "Stop"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies."
+      }
+    },
+    {
+      "AbilCmd": "Aatk,Execute",
+      "id": "CmdAttack",
+      "Icon": "renee_war3_btnattack",
+      "Name": {
+        "enUS": "Attack"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed."
+      }
+    },
+    {
+      "AbilCmd": "AHta,0",
+      "id": "AHta",
+      "Icon": "renee_war3_btnreveal",
+      "Name": {
+        "enUS": "Reveal"
+      },
+      "Tooltip": {
+        "enUS": "Reveals an area of the map. <br/>Detects invisible units. <br/>Lasts 15 seconds."
+      }
+    }
+  ]
+}

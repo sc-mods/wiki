@@ -1,0 +1,665 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "菌毯肿瘤",
+    "enUS": "Creep Tumor"
+  },
+  "Description": {
+    "zhCN": "一种潜地的菌毯分泌腺体。菌毯能够为附近的异虫建筑提供给养。<br/><br/><span style=\"color: #ffff8a\">效果加成：异虫单位在菌毯上的移动速度更快</span><br/>",
+    "enUS": "A burrowing creep-secreting gland. Creep provides food for nearby Zerg structures. <br/><br/><span style=\"color: #ffff8a\">Bonus effect: Zerg units move faster on creep</span><br/>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZerW",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 50,
+  "LifeMax": 50,
+  "LifeArmorName": {
+    "zhCN": "利维坦建筑甲壳",
+    "enUS": "Leviathan Architecture Carapace"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1,
+  "SeparationRadius": 1,
+  "MinimapRadius": 0.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 0,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "TownAlert",
+    "Cloaked",
+    "Buried",
+    "NoPortraitTalk",
+    "AILifetime",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "CreepTumorW",
+  "HotkeyAlias": "CreepTumorWBurrowed",
+  "SelectAlias": "CreepTumorW",
+  "SubgroupAlias": "CreepTumorWBurrowed",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "CreepTumorWBurrowed",
+  "AIEvaluateAlias": "CreepTumorBurrowed",
+  "ReviveType": "CreepTumorWBurrowed",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "CreepTumorWBurrowed/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "CreepTumorWBurrowed/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "CreepTumor",
+    "Small"
+  ],
+  "Attributes": [
+    "Light",
+    "Biological",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "LifeRegenRate": 0.5,
+  "ShieldArmor": 5,
+  "ShieldRegenRate": 1,
+  "ShieldRegenRateCreep": 2,
+  "ShieldArmorName": {
+    "zhCN": "装甲外壳",
+    "enUS": "Armored Shell"
+  },
+  "Sight": 11,
+  "AttackTargetPriority": 19,
+  "AbilArray": [
+    "BuildInProgress",
+    "CreepTumorBuildW"
+  ],
+  "BehaviorArray": [
+    "CreepTumorWBHV",
+    "makeCreep4x4W"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/CreepTumorBuildW",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/CreepTumorBuildW",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1,
+            "RegisterChargeEvent": 1,
+            "RegisterCooldownEvent": 1
+          },
+          "DataCollection": "CreepTumorBuildW",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Cancel"
+          },
+          "Alert": "BuildComplete_Zerg",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 1,
+            "PeonMaintained": 1,
+            "RangeIncludesBuilding": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "CreepTumorW"
+              },
+              "Charge": {
+                "Location": "Unit"
+              },
+              "Cooldown": {
+                "Location": "Unit",
+                "TimeStart": 15,
+                "TimeUse": 30
+              },
+              "Unit": "CreepTumorW",
+              "Time": 5
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Time": 3
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            }
+          },
+          "Range": [
+            12
+          ],
+          "EffectArray": {
+            "Start": "CreepTumorLaunchMissileSetW"
+          },
+          "id": "CreepTumorBuildW"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "CreepTumorBuildW,Halt",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "CreepTumorW"
+          },
+          "Charge": {
+            "Location": "Unit"
+          },
+          "Cooldown": {
+            "Location": "Unit",
+            "TimeStart": 15,
+            "TimeUse": 30
+          },
+          "Unit": "CreepTumorW",
+          "Time": 5
+        },
+        "Unit": "CreepTumorW",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "CreepTumorBuildW,Build1",
+        "id": "CreepTumorW",
+        "Icon": "btn-building-zerg-creeptumor",
+        "Name": {
+          "zhCN": "产下<span style=\"color: #ffff8a\">菌毯肿瘤</span>",
+          "enUS": "Give birth to <span style=\"color: #ffff8a\">Crag Tumor</span>"
+        },
+        "Tooltip": {
+          "zhCN": "一种潜地的菌毯分泌腺体。菌毯能够为附近的异虫建筑提供给养。一个菌毯肿瘤能够再分裂出额外的菌毯肿瘤。<br/><br/><span style=\"color: #ffff8a\">效果加成：异虫单位在菌毯上的移动速度更快</span>",
+          "enUS": "A burrowing creep-secreting gland. Creep provides food for nearby Zerg structures. A creep tumor can divide into additional creep tumors. <br/><br/><span style=\"color: #ffff8a\">Bonus effect: Zerg units move faster on creep</span>"
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "ZergShieldW",
+        "Icon": "btn-upgrade-lwthd",
+        "Name": {
+          "zhCN": "装甲外壳",
+          "enUS": "Armored Shell"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">拥有护盾</span><br/>护盾在脱战长时间后缓慢恢复，拥有较高的护甲。<br/>在菌毯上时能够更快恢复护盾。",
+          "enUS": "<span style=\"color: #ffff8a\">Has a shield</span><br/>The shield recovers slowly after being out of combat for a long time, and has higher armor. <br/>Restores shields faster while on creep."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "CreepTumorPassiveW",
+        "Icon": "btn-ability-zerg-creepspread",
+        "Name": {
+          "zhCN": "菌毯分泌腺体",
+          "enUS": "Creep secretion glands"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">菌毯肿瘤</span>能够自动产生菌毯来喂养附近的异虫建筑。<br/><br/><span style=\"color: #ffff8a\">效果加成：异虫单位在菌毯上的移动速度更快</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Crop Tumors</span> automatically generate creep to feed nearby Zerg structures. <br/><br/><span style=\"color: #ffff8a\">Bonus effect: Zerg units move faster on creep</span>"
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "K5CreepBonusesW",
+        "Icon": "btn-ability-kerrigan-malignantcreep",
+        "Name": {
+          "zhCN": "恶变菌毯",
+          "enUS": "Malignant carpet"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">菌毯肿瘤</span>能够重复使用。",
+          "enUS": "<span style=\"color: #ffff8a\">Crag Tumors</span> can be reused."
+        }
+      }
+    ]
+  },
+  "InnerRadius": 0.5,
+  "Footprint": "CreepTumorBurrowed",
+  "PlacementFootprint": "CreepTumorBurrowed",
+  "SubgroupPriority": 2,
+  "TacticalAIThink": "AIThinkCreepTumor",
+  "TechAliasArray": [
+    "Alias_CreepTumor"
+  ],
+  "GlossaryPriority": 257,
+  "HotkeyCategory": "Unit/Category/WebbyZergUnits",
+  "ShieldRegenDelay": 20,
+  "id": "CreepTumorWBurrowed",
+  "Icon": "btn-building-zerg-creeptumor",
+  "LifeArmorIcon": "btn-upgrade-zerg-ancillaryarmorw",
+  "ShieldArmorIcon": "btn-upgrade-lwthd",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "CreepTumorWBHV",
+      "Icon": "btn-building-zerg-creeptumor",
+      "Name": {
+        "zhCN": "菌毯肿瘤行为",
+        "enUS": "Creep tumor behavior"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "makeCreep4x4W",
+      "Icon": "btn-ability-zerg-creepspread",
+      "Name": {
+        "zhCN": "菌毯肿瘤生成菌毯",
+        "enUS": "Creep Tumors Generate Creep"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "CreepTumorBuildW",
+      "Name": {
+        "zhCN": "产下菌毯肿瘤",
+        "enUS": "Give birth to carpet tumors"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "CreepTumorW",
+    "CreepTumorWBurrowed",
+    "BurrowCreepTumorDownW",
+    "CreepTumorWQueen",
+    "CreepTumorW"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "CreepTumorW"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "CreepTumorBuildW,Halt",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+        "ruRU": "Отменить текущий приказ и отдать следующий. "
+      }
+    },
+    {
+      "AbilCmd": "CreepTumorBuildW,Build1",
+      "id": "CreepTumorW",
+      "Icon": "btn-building-zerg-creeptumor",
+      "Name": {
+        "zhCN": "产下<span style=\"color: #ffff8a\">菌毯肿瘤</span>",
+        "enUS": "Give birth to <span style=\"color: #ffff8a\">Crag Tumor</span>"
+      },
+      "Tooltip": {
+        "zhCN": "一种潜地的菌毯分泌腺体。菌毯能够为附近的异虫建筑提供给养。一个菌毯肿瘤能够再分裂出额外的菌毯肿瘤。<br/><br/><span style=\"color: #ffff8a\">效果加成：异虫单位在菌毯上的移动速度更快</span>",
+        "enUS": "A burrowing creep-secreting gland. Creep provides food for nearby Zerg structures. A creep tumor can divide into additional creep tumors. <br/><br/><span style=\"color: #ffff8a\">Bonus effect: Zerg units move faster on creep</span>"
+      }
+    }
+  ]
+}

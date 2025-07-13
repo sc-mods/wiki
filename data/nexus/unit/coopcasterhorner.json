@@ -1,0 +1,980 @@
+{
+  "Name": "Coop Caster Horner",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerrM",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 500000,
+  "LifeMax": 500000,
+  "LifeArmorName": "None",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.75,
+  "SeparationRadius": 1.75,
+  "MinimapRadius": 1.75,
+  "EditorCategories": "ObjectType:Other,ObjectFamily:Coop",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "Invulnerable",
+    "NoPortraitTalk"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "",
+  "HotkeyAlias": "CoopCasterHorner",
+  "SelectAlias": "CoopCasterHorner",
+  "SubgroupAlias": "CoopCasterHorner",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "CoopCasterHorner",
+  "AIEvaluateAlias": "CoopCasterHorner",
+  "ReviveType": "CoopCasterHorner",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "CoopCasterHorner/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "CoopCasterHorner/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Campaign",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "LifeRegenRate": 100000,
+  "ShieldsStart": 500000,
+  "ShieldsMax": 500000,
+  "ShieldRegenRate": 500000,
+  "ShieldArmorName": "Protoss Plasma Shields",
+  "Sight": 0.5,
+  "CostResource": {
+    "Minerals": 150
+  },
+  "AttackTargetPriority": 11,
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "SubgroupPriority": 2,
+  "id": "CoopCasterHorner",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "HHMagneticMines"
+          },
+          "Charge": {
+            "CountMax": 5,
+            "CountUse": 1,
+            "Location": "Player",
+            "TimeStart": 50,
+            "TimeUse": 50
+          },
+          "Unit": "HHMagneticMine_SpawnerUnit"
+        },
+        "Unit": "HHMagneticMine_SpawnerUnit",
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "HHTrainTopBar,Build1",
+        "id": "HHMagneticMines",
+        "Icon": "btn-top-hornerhan-magmines",
+        "Tooltip": "Deploy <b>5</b> Mag Mines to the target location. Mag Mines are triggered by enemy motion and deal <b>50</b> area damage.",
+        "Name": "Deploy Mag Mines"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/HHBomberPlatformAreaBombTopBarDummyTimer",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "HHBomberPlatformAreaBombTopBarDummyTimer",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "HHBomberPlatformAreaBombTopBarOrderDummyCP"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "HHBomberPlatformAreaBombTopBarDummyTimer",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HHBomberAreaBomb",
+              "Requirements": "HHBomberPlatformAreaBombTopBarDummyTimer"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "Ground;Player,Ally,Missile,Stasis,Dead,Invulnerable"
+          ],
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "CursorEffect": [
+            "HHBomberAreaBombSearchArea"
+          ],
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 60
+              }
+            }
+          ],
+          "IgnoreFilters": "Ground;Player,Ally,Missile,Stasis,Dead,Invulnerable",
+          "id": "HHBomberPlatformAreaBombTopBarDummyTimer"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "HHBomberPlatformAreaBombTopBarDummyTimer,Execute",
+        "id": "HHBomberAreaBombTopBarDummy",
+        "Icon": "btn-top-hornerhan-bombers",
+        "Tooltip": "Sends a Strike Fighter to the target location, where it deals <b>175</b> (+<b>225</b> to non-Heroic structures) damage to enemy ground units in the target area.",
+        "Name": "Precision Strike"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/HHBomberPlatformAreaBombTopBarOrder",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "HHBomberPlatformAreaBombTopBarOrder",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "HHBomberPlatformAreaBombTopBarOrderDummyCP"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "HHBomberPlatformAreaBombTopBarOrder",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HHBomberAreaBomb",
+              "State": "Restricted",
+              "Requirements": "HHHaveBomberPlatform"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "Ground;Player,Ally,Missile,Stasis,Dead,Invulnerable"
+          ],
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "CursorEffect": [
+            "HHBomberAreaBombSearchArea"
+          ],
+          "Cost": [
+            {
+              "Charge": {
+                "CountMax": 1000,
+                "CountUse": 1,
+                "Location": "Player"
+              }
+            }
+          ],
+          "IgnoreFilters": "Ground;Player,Ally,Missile,Stasis,Dead,Invulnerable",
+          "id": "HHBomberPlatformAreaBombTopBarOrder"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "HHBomberPlatformAreaBombTopBarOrder,Execute",
+        "id": "HHBomberAreaBombTopBar",
+        "Icon": "btn-top-hornerhan-bombers",
+        "Tooltip": "Cooldown: <b>30</b><br/><br/>Sends a Strike Fighter to the target location, where it deals <b>175</b> (+<b>225</b> to non-Heroic structures) damage to enemy ground units in the target area.",
+        "Name": "Precision Strike"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "UnlockHHBomberPlatformLocked",
+        "Tooltip": "This structure unlocks at Commander Level 2.",
+        "Name": "Strike Fighter Platform"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/HornerAirFleetActivate",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "HornerAirFleetActivate",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "HornerAirFleet",
+              "State": "Restricted"
+            },
+            "Off": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Toggle": 1
+          },
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeStart": 420,
+                "TimeUse": 360
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "HornerAirFleetActivate"
+          ],
+          "id": "HornerAirFleetActivate"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "HornerAirFleetActivate,On",
+        "id": "HornerAirFleet",
+        "Icon": "btn-progression-hornerhan-5-fleetcalldown",
+        "Tooltip": "Calls in close planetary support from Horner's Armada. The Armada does massive damage to random enemy units in the target area.",
+        "Name": "Call in the Fleet"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/HornerAirFleetTargetingDummy",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "HornerAirFleetTargetingDummy",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "HornerAirFleetTargetingDummy"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "HornerAirFleetTargetingDummy",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "HornerAirFleet",
+              "State": "Restricted"
+            }
+          },
+          "FollowRange": 5,
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "CursorEffect": [
+            "HornerAirFleetSearch"
+          ],
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 0.25
+              }
+            }
+          ],
+          "id": "HornerAirFleetTargetingDummy"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "HornerAirFleetTargetingDummy,Execute",
+        "id": "HornerAirFleet",
+        "Icon": "btn-progression-hornerhan-5-fleetcalldown",
+        "Tooltip": "Calls in close planetary support from Horner's Armada. The Armada does massive damage to random enemy units in the target area.",
+        "Name": "Call in the Fleet"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "UnlockHHAirFleet",
+        "Tooltip": "This ability unlocks at Commander Level 5.",
+        "Name": "Call in the Fleet"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/HHSummonMercenarySpaceStation",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "HHSummonMercenarySpaceStation",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "SummonHHMercenarySpaceStationCreateUnit"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "HHSummonMercenarySpaceStation",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "HHSummonSpaceStation",
+              "State": "Restricted"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Player",
+                "TimeStart": 300,
+                "TimeUse": 360
+              }
+            }
+          ],
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "CursorEffect": [
+            "HHMercenarySpaceStationSpawnImpactSearch"
+          ],
+          "id": "HHSummonMercenarySpaceStation"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "HHSummonMercenarySpaceStation,Execute",
+        "id": "HHSummonSpaceStation",
+        "Icon": "btn-progression-hornerhan-10-telefrag",
+        "Tooltip": "Space Station deals <b>500</b> damage to Heroic targets it contacts, everything else is instantly destroyed. Assault Drones will attack nearby targets. Lasts <b>10</b>.",
+        "Name": "Space Station Reallocation"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UnlockHHMercSpaceStation",
+        "Tooltip": "This ability unlocks at Commander Level 10.",
+        "Name": "Space Station Reallocation"
+      }
+    ]
+  },
+  "Icon": "btn-building-protoss-obelisk",
+  "LifeArmorIcon": "btn-armor-protoss-buildingplating",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "HHMagMineCharged"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "HHTrainTopBar"
+    },
+    {
+      "id": "HHBomberPlatformAreaBombTopBarOrder"
+    },
+    {
+      "id": "HHBomberPlatformAreaBombTopBarDummyTimer"
+    },
+    {
+      "id": "HHSummonMercenarySpaceStation",
+      "Name": "Space Station Reallocation"
+    },
+    {
+      "id": "HornerAirFleetActivate",
+      "Name": "Horner Air Fleet Activate"
+    },
+    {
+      "id": "HornerAirFleetTargetingDummy",
+      "Name": "Horner Air Fleet Targeting Dummy"
+    }
+  ],
+  "$Upgrades": [
+    "CoopCasterHorner",
+    "CoopCasterHorner"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "HHMagneticMine_SpawnerUnit"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "HHTrainTopBar,Build1",
+      "id": "HHMagneticMines",
+      "Icon": "btn-top-hornerhan-magmines",
+      "Tooltip": "Deploy <b>5</b> Mag Mines to the target location. Mag Mines are triggered by enemy motion and deal <b>50</b> area damage.",
+      "Name": "Deploy Mag Mines"
+    },
+    {
+      "AbilCmd": "HHBomberPlatformAreaBombTopBarDummyTimer,Execute",
+      "id": "HHBomberAreaBombTopBarDummy",
+      "Icon": "btn-top-hornerhan-bombers",
+      "Tooltip": "Sends a Strike Fighter to the target location, where it deals <b>175</b> (+<b>225</b> to non-Heroic structures) damage to enemy ground units in the target area.",
+      "Name": "Precision Strike"
+    },
+    {
+      "AbilCmd": "HHBomberPlatformAreaBombTopBarOrder,Execute",
+      "id": "HHBomberAreaBombTopBar",
+      "Icon": "btn-top-hornerhan-bombers",
+      "Tooltip": "Cooldown: <b>30</b><br/><br/>Sends a Strike Fighter to the target location, where it deals <b>175</b> (+<b>225</b> to non-Heroic structures) damage to enemy ground units in the target area.",
+      "Name": "Precision Strike"
+    },
+    {
+      "AbilCmd": "HornerAirFleetActivate,On",
+      "id": "HornerAirFleet",
+      "Icon": "btn-progression-hornerhan-5-fleetcalldown",
+      "Tooltip": "Calls in close planetary support from Horner's Armada. The Armada does massive damage to random enemy units in the target area.",
+      "Name": "Call in the Fleet"
+    },
+    {
+      "AbilCmd": "HornerAirFleetTargetingDummy,Execute",
+      "id": "HornerAirFleet",
+      "Icon": "btn-progression-hornerhan-5-fleetcalldown",
+      "Tooltip": "Calls in close planetary support from Horner's Armada. The Armada does massive damage to random enemy units in the target area.",
+      "Name": "Call in the Fleet"
+    },
+    {
+      "AbilCmd": "HHSummonMercenarySpaceStation,Execute",
+      "id": "HHSummonSpaceStation",
+      "Icon": "btn-progression-hornerhan-10-telefrag",
+      "Tooltip": "Space Station deals <b>500</b> damage to Heroic targets it contacts, everything else is instantly destroyed. Assault Drones will attack nearby targets. Lasts <b>10</b>.",
+      "Name": "Space Station Reallocation"
+    }
+  ]
+}

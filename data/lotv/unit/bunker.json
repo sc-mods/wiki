@@ -1,0 +1,1287 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Bunker",
+    "ruRU": "Бункер "
+  },
+  "Description": {
+    "enUS": "Defensive structure. <br/>Infantry fights from inside. <br/><br/><span style=\"color: #ffff8a\">Bonus: +1 range to units inside.</span>",
+    "ruRU": "Оборонительное строение.<br/>Помещенная в бункер пехота может вести огонь.<br/><br/><span style=\"color: #ffff8a\">Бонус: +1 к дальности атаки находящихся внутри войск.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Terr",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 400,
+  "LifeMax": 400,
+  "LifeArmorName": {
+    "enUS": "Terran Building Plating",
+    "ruRU": "Обшивка построек терранов "
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.25,
+  "SeparationRadius": 1.25,
+  "MinimapRadius": 1.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1.1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "AIDefense",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "Bunker",
+  "HotkeyAlias": "Bunker",
+  "SelectAlias": "Bunker",
+  "SubgroupAlias": "Bunker",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "Bunker",
+  "AIEvaluateAlias": "Bunker",
+  "ReviveType": "Bunker",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "Bunker/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "Bunker/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 315,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "LifeArmor": 1,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 100
+  },
+  "RepairTime": 40,
+  "AttackTargetPriority": 19,
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 12,
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Phased",
+    "Small"
+  ],
+  "Sight": 10,
+  "AbilArray": [
+    "BuildInProgress",
+    "BunkerTransport",
+    "SalvageEffect",
+    "Rally",
+    "StimpackRedirect",
+    "StimpackMarauderRedirect",
+    "StopRedirect",
+    "AttackRedirect"
+  ],
+  "BehaviorArray": [
+    "TerranBuildingBurnDown"
+  ],
+  "TacticalAIThink": "AIThinkBunker",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilRedirectTarget",
+          "Name": "Abil/Name/AttackRedirect",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "AttackRedirect",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Abil": "attack",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackRedirect"
+            }
+          },
+          "Alignment": "Negative",
+          "id": "AttackRedirect"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "AttackRedirect,Execute",
+        "id": "AttackRedirect",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+          "ruRU": "Приказать атаковать цель, пока она не будет уничтожена или не выйдет из зоны досягаемости. "
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilRedirectInstant",
+          "Name": "Abil/Name/StopRedirect",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "StopRedirect",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Abil": "stop",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "StopRedirect"
+            }
+          },
+          "id": "StopRedirect"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "StopRedirect,Execute",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilRedirectInstant",
+          "Name": "Abil/Name/StimpackRedirect",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "StimpackRedirect",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stimpack",
+          "Abil": "Stimpack",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "StimRedirect",
+              "Requirements": "UseStimpack"
+            }
+          },
+          "id": "StimpackRedirect"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "StimpackRedirect,Execute",
+        "id": "StimRedirect",
+        "Icon": "btn-ability-terran-stimpack-color",
+        "Name": {
+          "enUS": "Use Stimpack",
+          "ruRU": "Стимуляторы"
+        },
+        "Tooltip": {
+          "enUS": "Orders Marines and Marauders inside of the Bunker to use Stimpacks. They will take damage and have increased attack speed as normal.",
+          "ruRU": "Приказать находящимся в бункере морпехам и мародерам использовать стимуляторы. Солдаты получат некоторый урон, но скорость их атаки увеличится. "
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "class": "CAbilRedirectInstant",
+          "Name": "Abil/Name/StimpackMarauderRedirect",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "StimpackMarauderRedirect",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stimpack",
+          "Abil": "StimpackMarauder",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "StimRedirect",
+              "Requirements": "UseStimpack"
+            }
+          },
+          "id": "StimpackMarauderRedirect"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "StimpackMarauderRedirect,Execute",
+        "id": "StimRedirect",
+        "Icon": "btn-ability-terran-stimpack-color",
+        "Name": {
+          "enUS": "Use Stimpack",
+          "ruRU": "Стимуляторы"
+        },
+        "Tooltip": {
+          "enUS": "Orders Marines and Marauders inside of the Bunker to use Stimpacks. They will take damage and have increased attack speed as normal.",
+          "ruRU": "Приказать находящимся в бункере морпехам и мародерам использовать стимуляторы. Солдаты получат некоторый урон, но скорость их атаки увеличится. "
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rally,Rally1",
+        "id": "SetBunkerRallyPoint",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Name": {
+          "enUS": "Set Bunker Rally Point",
+          "ruRU": "Задать точку сбора для бункера "
+        },
+        "Tooltip": {
+          "enUS": "Sends unloaded infantry units to designated point.",
+          "ruRU": "Отправляет выгруженные войска в указанную точку."
+        },
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "class": "CAbilTransport",
+          "Name": "Abil/Name/BunkerTransport",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BunkerTransport",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Load": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "BunkerLoad"
+            },
+            "LoadAll": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "Hidden": 1
+              }
+            },
+            "UnloadAll": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "BunkerUnloadAll"
+            },
+            "UnloadAt": {
+              "Flags": {
+                "Hidden": 1
+              }
+            },
+            "UnloadUnit": {
+              "Flags": {
+                "Hidden": 1
+              }
+            }
+          },
+          "Alignment": "Positive",
+          "Range": [
+            1,
+            0
+          ],
+          "MaxUnloadRange": 3,
+          "TargetFilters": [
+            "Visible;Ally,Neutral,Enemy,Buried,Dead,Hidden",
+            "Biological,Visible;Ally,Neutral,Enemy,Dead,Hidden"
+          ],
+          "Flags": {
+            "AllowPassengerSmartCmd": 1,
+            "AllowSmartCmd": 1,
+            "ShowCargoSize": 1,
+            "ShowStatus": 1
+          },
+          "TargetSorts": {
+            "SortArray": [
+              "TSInterruptible",
+              "TSDistance"
+            ]
+          },
+          "ErrorAlert": "Error",
+          "MaxCargoCount": 4,
+          "MaxCargoSize": 2,
+          "TotalCargoSpace": 4,
+          "LoadCargoBehavior": "BunkerWeaponRangeBonus",
+          "LoadValidatorArray": [
+            "RequiresTerran",
+            "NotWidowMineTarget",
+            "IsNotHellionTank"
+          ],
+          "AbilSetId": "ULdS",
+          "id": "BunkerTransport"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "BunkerTransport,Load",
+        "id": "BunkerLoad",
+        "Icon": "btn-ability-terran-load",
+        "Name": {
+          "enUS": "Load",
+          "ruRU": "Загрузить "
+        },
+        "Tooltip": {
+          "enUS": "Loads infantry into Bunker.",
+          "ruRU": "Загрузить пехоту в бункер. "
+        },
+        "Hotkey": "L"
+      },
+      {
+        "Info": {
+          "class": "CAbilTransport",
+          "Name": "Abil/Name/BunkerTransport",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BunkerTransport",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Load": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "BunkerLoad"
+            },
+            "LoadAll": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "Hidden": 1
+              }
+            },
+            "UnloadAll": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "BunkerUnloadAll"
+            },
+            "UnloadAt": {
+              "Flags": {
+                "Hidden": 1
+              }
+            },
+            "UnloadUnit": {
+              "Flags": {
+                "Hidden": 1
+              }
+            }
+          },
+          "Alignment": "Positive",
+          "Range": [
+            1,
+            0
+          ],
+          "MaxUnloadRange": 3,
+          "TargetFilters": [
+            "Visible;Ally,Neutral,Enemy,Buried,Dead,Hidden",
+            "Biological,Visible;Ally,Neutral,Enemy,Dead,Hidden"
+          ],
+          "Flags": {
+            "AllowPassengerSmartCmd": 1,
+            "AllowSmartCmd": 1,
+            "ShowCargoSize": 1,
+            "ShowStatus": 1
+          },
+          "TargetSorts": {
+            "SortArray": [
+              "TSInterruptible",
+              "TSDistance"
+            ]
+          },
+          "ErrorAlert": "Error",
+          "MaxCargoCount": 4,
+          "MaxCargoSize": 2,
+          "TotalCargoSpace": 4,
+          "LoadCargoBehavior": "BunkerWeaponRangeBonus",
+          "LoadValidatorArray": [
+            "RequiresTerran",
+            "NotWidowMineTarget",
+            "IsNotHellionTank"
+          ],
+          "AbilSetId": "ULdS",
+          "id": "BunkerTransport"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "BunkerTransport,UnloadAll",
+        "id": "BunkerUnloadAll",
+        "Icon": "btn-ability-terran-unloadall",
+        "Name": {
+          "enUS": "Unload All",
+          "ruRU": "Выгрузить всех "
+        },
+        "Tooltip": {
+          "enUS": "Unloads all units.",
+          "ruRU": "Выгружает все войска."
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/SalvageEffect",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SalvageEffect",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 0,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 0,
+            "ReApproachable": 0,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 0,
+            "BestUnit": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "SalvageCombatAB"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "SalvageEffect",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Salvage"
+            }
+          },
+          "UninterruptibleArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "id": "SalvageEffect",
+          "Cost": [
+            {}
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "SalvageEffect,Execute",
+        "id": "Salvage",
+        "Icon": "btn-ability-terran-salvage",
+        "Name": {
+          "enUS": "Salvage",
+          "ruRU": "Демонтировать "
+        },
+        "Tooltip": {
+          "enUS": "Salvages the structure, removing it and returning 75% of its mineral and gas value. Salvage takes <b>5</b> to finish. Warning: once Salvage is triggered, it cannot be canceled.",
+          "ruRU": "Демонтирует строение, возвращая 75% затраченных на его постройку ресурсов. Демонтаж занимает <b>5</b> Внимание: начатый процесс демонтажа невозможно остановить."
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": {
+          "enUS": "Halts construction of this structure. The partial construction will remain.",
+          "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/Salvage",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SalvageShared",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Salvage"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "BestUnit": 1,
+            "Transient": 1
+          },
+          "BehaviorArray": [
+            "SalvageShared"
+          ],
+          "ValidatorArray": [
+            "HasNoCargo"
+          ],
+          "id": "SalvageShared"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "SalvageShared,Off",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "SelectBuilder",
+        "id": "SelectBuilder",
+        "Icon": "btn-upgrade-terran-weaponrefit",
+        "Name": {
+          "enUS": "Select Builder",
+          "ruRU": "Выбрать строителя "
+        },
+        "Tooltip": {
+          "enUS": "Selects the unit constructing this structure.",
+          "ruRU": "Выбрать рабочего, который сооружает это строение. "
+        },
+        "Hotkey": "Q"
+      }
+    ]
+  },
+  "GlossaryPriority": 300,
+  "GlossaryCategory": "Unit/Category/TerranUnits",
+  "HotkeyCategory": "Unit/Category/TerranUnits",
+  "GlossaryStrongArray": [
+    "Marine",
+    "Zergling",
+    "Zealot"
+  ],
+  "GlossaryWeakArray": [
+    "SiegeTank",
+    "Baneling",
+    "Immortal"
+  ],
+  "id": "Bunker",
+  "Icon": "btn-building-terran-bunker",
+  "Model": "BunkerEx1",
+  "LifeArmorIcon": "btn-upgrade-terran-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "TerranBuildingBurnDown",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Building Burnout",
+        "ruRU": "Building Burnout"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "BunkerTransport",
+      "Name": {
+        "enUS": "Load-Unload (Bunker)",
+        "ruRU": "Load-Unload (Bunker)"
+      }
+    },
+    {
+      "id": "SalvageEffect",
+      "Name": {
+        "enUS": "Salvage Effect"
+      }
+    },
+    {
+      "id": "Rally",
+      "Name": {
+        "enUS": "Rally",
+        "ruRU": "Rally"
+      }
+    },
+    {
+      "id": "StimpackRedirect",
+      "Name": {
+        "enUS": "Stimpack Redirect",
+        "ruRU": "Stimpack Redirect"
+      }
+    },
+    {
+      "id": "StimpackMarauderRedirect",
+      "Name": {
+        "enUS": "Stimpack Marauder Redirect",
+        "ruRU": "Stimpack Marauder Redirect"
+      }
+    },
+    {
+      "id": "StopRedirect",
+      "Name": {
+        "enUS": "Stop Redirect",
+        "ruRU": "Stop Redirect"
+      }
+    },
+    {
+      "id": "AttackRedirect",
+      "Name": {
+        "enUS": "Attack Redirect",
+        "ruRU": "Attack Redirect"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "IsBunker",
+    "Bunker",
+    "TerranBuildingArmor",
+    "NeosteelFrame",
+    "Bunker",
+    "TerranBuild",
+    "BunkerSplat"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "SCV"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "AttackRedirect,Execute",
+      "id": "AttackRedirect",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+        "ruRU": "Приказать атаковать цель, пока она не будет уничтожена или не выйдет из зоны досягаемости. "
+      }
+    },
+    {
+      "AbilCmd": "StopRedirect,Execute",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "StimpackRedirect,Execute",
+      "id": "StimRedirect",
+      "Icon": "btn-ability-terran-stimpack-color",
+      "Name": {
+        "enUS": "Use Stimpack",
+        "ruRU": "Стимуляторы"
+      },
+      "Tooltip": {
+        "enUS": "Orders Marines and Marauders inside of the Bunker to use Stimpacks. They will take damage and have increased attack speed as normal.",
+        "ruRU": "Приказать находящимся в бункере морпехам и мародерам использовать стимуляторы. Солдаты получат некоторый урон, но скорость их атаки увеличится. "
+      }
+    },
+    {
+      "AbilCmd": "StimpackMarauderRedirect,Execute",
+      "id": "StimRedirect",
+      "Icon": "btn-ability-terran-stimpack-color",
+      "Name": {
+        "enUS": "Use Stimpack",
+        "ruRU": "Стимуляторы"
+      },
+      "Tooltip": {
+        "enUS": "Orders Marines and Marauders inside of the Bunker to use Stimpacks. They will take damage and have increased attack speed as normal.",
+        "ruRU": "Приказать находящимся в бункере морпехам и мародерам использовать стимуляторы. Солдаты получат некоторый урон, но скорость их атаки увеличится. "
+      }
+    },
+    {
+      "AbilCmd": "Rally,Rally1",
+      "id": "SetBunkerRallyPoint",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Name": {
+        "enUS": "Set Bunker Rally Point",
+        "ruRU": "Задать точку сбора для бункера "
+      },
+      "Tooltip": {
+        "enUS": "Sends unloaded infantry units to designated point.",
+        "ruRU": "Отправляет выгруженные войска в указанную точку."
+      }
+    },
+    {
+      "AbilCmd": "BunkerTransport,Load",
+      "id": "BunkerLoad",
+      "Icon": "btn-ability-terran-load",
+      "Name": {
+        "enUS": "Load",
+        "ruRU": "Загрузить "
+      },
+      "Tooltip": {
+        "enUS": "Loads infantry into Bunker.",
+        "ruRU": "Загрузить пехоту в бункер. "
+      }
+    },
+    {
+      "AbilCmd": "BunkerTransport,UnloadAll",
+      "id": "BunkerUnloadAll",
+      "Icon": "btn-ability-terran-unloadall",
+      "Name": {
+        "enUS": "Unload All",
+        "ruRU": "Выгрузить всех "
+      },
+      "Tooltip": {
+        "enUS": "Unloads all units.",
+        "ruRU": "Выгружает все войска."
+      }
+    },
+    {
+      "AbilCmd": "SalvageEffect,Execute",
+      "id": "Salvage",
+      "Icon": "btn-ability-terran-salvage",
+      "Name": {
+        "enUS": "Salvage",
+        "ruRU": "Демонтировать "
+      },
+      "Tooltip": {
+        "enUS": "Salvages the structure, removing it and returning 75% of its mineral and gas value. Salvage takes <b>5</b> to finish. Warning: once Salvage is triggered, it cannot be canceled.",
+        "ruRU": "Демонтирует строение, возвращая 75% затраченных на его постройку ресурсов. Демонтаж занимает <b>5</b> Внимание: начатый процесс демонтажа невозможно остановить."
+      }
+    },
+    {
+      "AbilCmd": "BuildInProgress,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": {
+        "enUS": "Halts construction of this structure. The partial construction will remain.",
+        "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+      }
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "SalvageShared,Off",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+        "ruRU": "Отменить текущий приказ и отдать следующий. "
+      }
+    }
+  ]
+}

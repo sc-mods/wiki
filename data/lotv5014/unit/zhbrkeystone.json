@@ -1,0 +1,578 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Keystone"
+  },
+  "Description": {
+    "enUS": "Improve Void Rifts, contains upgrades for **Chimeras**, **Striders** and **Dreadnoks**.<br/><br/><span style=\"color: ffff8a\">While within <span style=\"color: #Void\">Void</span> powerfield enables:</span><br/>- Chimeras<br/>- Striders<br/>- Dreadnoks"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZHBR",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 400,
+  "LifeMax": 400,
+  "LifeArmorName": {
+    "enUS": "Building Plating"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.5,
+  "SeparationRadius": 0.5,
+  "MinimapRadius": 0.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ZHBRKeystone",
+  "HotkeyAlias": "ZHBRKeystone",
+  "SelectAlias": "ZHBRKeystone",
+  "SubgroupAlias": "ZHBRKeystone",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ZHBRKeystone",
+  "AIEvaluateAlias": "ZHBRKeystone",
+  "ReviveType": "ZHBRKeystone",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ZHBRKeystone/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ZHBRKeystone/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Phased",
+    "Small"
+  ],
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Attributes": [
+    "Armored",
+    "Structure"
+  ],
+  "ShieldArmorName": {
+    "enUS": "Protection"
+  },
+  "HotkeyCategory": "Unit/Category/ZHBRUnits",
+  "SubgroupPriority": 2,
+  "DataCollection": "ZHBRKeystone",
+  "BehaviorArray": [
+    "ZHBRCommon@BuildersTracker",
+    "ZHBRVoid@PowerUser",
+    "ZHBRRestorationShield",
+    "ZHBRKeystone@Connection"
+  ],
+  "AbilArray": [
+    "BuildInProgress",
+    "que5",
+    "ZHBRStructureTeleport@Keystone",
+    "ZHBRKeystone@Research"
+  ],
+  "LifeArmor": 1,
+  "Facing": 315,
+  "ScoreResult": "BuildOrder",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "QueueSize": 5,
+          "id": "que5"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Upgrade": "ZHBRIndestructible",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRIndestructible",
+            "Requirements": "ZHBRIndestructible@Research"
+          },
+          "Resource": {
+            "Minerals": 150,
+            "Vespene": 150
+          },
+          "Time": 150,
+          "Upgrade": "ZHBRIndestructible"
+        },
+        "Time": 150,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRKeystone@Research,Research2",
+        "id": "ZHBRIndestructible",
+        "Icon": "btn-ability-alarak-massteleport",
+        "Name": {
+          "enUS": "Indestructible"
+        },
+        "Tooltip": {
+          "enUS": "Upong taking fatal damage <span style=\"color: FFFF80\">Strider</span> becomes a <span style=\"color: FFFF80\">Crawler</span> for <span style=\"color: FFFF80\"><b>28</b> seconds</span>. <span style=\"color: FFFF80\">Crawler</span> has <span style=\"color: FFFF80\"><b>50</b>%</span> less Life and <span style=\"color: FFFFFF\">Protection</span> shields."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Upgrade": "ZHBRDeepTunnel",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRDeepTunnel@Research",
+            "Requirements": "ZHBRDeepTunnel@Research"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 100
+          },
+          "Time": 100,
+          "Upgrade": "ZHBRDeepTunnel"
+        },
+        "Time": 100,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRKeystone@Research,Research3",
+        "id": "ZHBRDeepTunnel@Research",
+        "Icon": "btn-ability-zeratul-topbar-directlegions",
+        "Name": {
+          "enUS": "Deep Tunnel"
+        },
+        "Tooltip": {
+          "enUS": "**Chimera** burrows to target location within <span style=\"color: #Void\">Void</span> power field."
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonKeystone"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountStart": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeUse": 140
+          },
+          "ValidatorArray": [
+            "HasVision",
+            "ZHBRVoid@TargetPointWithinPowerRange"
+          ],
+          "Time": 14,
+          "Unit": "ZHBRKeystone"
+        },
+        "Unit": "ZHBRKeystone",
+        "Time": 14,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRStructureTeleport@Keystone,Build1",
+        "id": "ZHBRStructureTeleport",
+        "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+        "Name": {
+          "enUS": "Teleport Structure"
+        },
+        "Tooltip": {
+          "enUS": "Teleport structure to target location over <span style=\"color: ffff8a\"><b>14</b> seconds</span>."
+        },
+        "Hotkey": "T"
+      }
+    ]
+  },
+  "AttackTargetPriority": 11,
+  "Mob": "Multiplayer",
+  "Sight": 9,
+  "ShieldArmorTip": "Unit/ShieldArmorTooltip/ZHBRShields",
+  "EffectArray": {
+    "Birth": "ZHBRRaceControl@AddTrackedUnit"
+  },
+  "id": "ZHBRKeystone",
+  "Footprint": "Footprint2x2Contour",
+  "PlacementFootprint": "Footprint2x2",
+  "ShieldsMax": 200,
+  "ShieldRegenRate": 20,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 150
+  },
+  "GlossaryPriority": 41,
+  "Icon": "btn-building-zhybrid-keystone",
+  "LifeArmorIcon": "amonshards _armor",
+  "ShieldArmorIcon": "btn-ability-zhybrid-protection",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "ZHBRCommon@BuildersTracker",
+      "Name": {
+        "enUS": "Builders Tracker"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRVoid@PowerUser",
+      "Name": {
+        "enUS": "Power User"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRRestorationShield",
+      "Icon": "btn-ability-zeratul-warpprism-shieldboosters",
+      "Name": {
+        "enUS": "Restoration Shield"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRKeystone@Connection",
+      "Name": {
+        "enUS": "Connection"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "que5",
+      "Name": {
+        "ruRU": "Queue (5)",
+        "enUS": "Queue (5)"
+      }
+    },
+    {
+      "id": "ZHBRStructureTeleport@Keystone",
+      "Name": {
+        "enUS": "Structure Teleport (Keystone)"
+      }
+    },
+    {
+      "id": "ZHBRKeystone@Research",
+      "Name": {
+        "enUS": "Research"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "CountUnitZHBRKeystoneCompleteOnly",
+    "ZHBRKeystone",
+    "ZHBRStructureTeleport@Keystone",
+    "ZHBRMinionBuild",
+    "ZHBRMinionBuild@Main",
+    "ZHBRStructureTeleport",
+    "ZHBRCommon@IsKeystone",
+    "ZHBRKeystone",
+    "ZHBRKeystone",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "ZHBRKeystone"
+  ],
+  "$Research": [
+    "ZHBRIndestructible",
+    "ZHBRDeepTunnel"
+  ],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "ZHBRKeystone",
+    "ZHBRRaceControl",
+    "ZHBRMinion"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+        "ruRU": "Отменить текущий приказ и отдать следующий. "
+      }
+    },
+    {
+      "AbilCmd": "ZHBRKeystone@Research,Research2",
+      "id": "ZHBRIndestructible",
+      "Icon": "btn-ability-alarak-massteleport",
+      "Name": {
+        "enUS": "Indestructible"
+      },
+      "Tooltip": {
+        "enUS": "Upong taking fatal damage <span style=\"color: FFFF80\">Strider</span> becomes a <span style=\"color: FFFF80\">Crawler</span> for <span style=\"color: FFFF80\"><b>28</b> seconds</span>. <span style=\"color: FFFF80\">Crawler</span> has <span style=\"color: FFFF80\"><b>50</b>%</span> less Life and <span style=\"color: FFFFFF\">Protection</span> shields."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRKeystone@Research,Research3",
+      "id": "ZHBRDeepTunnel@Research",
+      "Icon": "btn-ability-zeratul-topbar-directlegions",
+      "Name": {
+        "enUS": "Deep Tunnel"
+      },
+      "Tooltip": {
+        "enUS": "**Chimera** burrows to target location within <span style=\"color: #Void\">Void</span> power field."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRStructureTeleport@Keystone,Build1",
+      "id": "ZHBRStructureTeleport",
+      "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+      "Name": {
+        "enUS": "Teleport Structure"
+      },
+      "Tooltip": {
+        "enUS": "Teleport structure to target location over <span style=\"color: ffff8a\"><b>14</b> seconds</span>."
+      }
+    }
+  ]
+}

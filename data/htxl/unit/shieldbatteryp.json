@@ -1,0 +1,800 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "护盾充能器",
+    "enUS": "Shield Charger"
+  },
+  "Description": {
+    "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>能够为附近的友方单位和建筑恢复护盾。",
+    "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/> Restores shields for nearby friendly units and buildings."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ProP",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 250,
+  "LifeMax": 250,
+  "LifeArmorName": {
+    "zhCN": "净化者建筑护板",
+    "enUS": "Purifier Building Cladding"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1,
+  "SeparationRadius": 1,
+  "MinimapRadius": 1,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "AIDefense",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ShieldBatteryP",
+  "HotkeyAlias": "ShieldBatteryP",
+  "SelectAlias": "ShieldBatteryP",
+  "SubgroupAlias": "ShieldBatteryP",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ShieldBatteryP",
+  "AIEvaluateAlias": "ShieldBattery",
+  "ReviveType": "ShieldBatteryP",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ShieldBatteryP/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ShieldBatteryP/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 6,
+  "EnergyStart": 75,
+  "EnergyMax": 200,
+  "EnergyRegenRate": 1,
+  "ShieldsStart": 200,
+  "ShieldsMax": 200,
+  "ShieldArmor": 4,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 5,
+  "ShieldArmorName": {
+    "zhCN": "净化者集成护盾",
+    "enUS": "Purifier Integrated Shield"
+  },
+  "Sight": 10,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 150
+  },
+  "AttackTargetPriority": 11,
+  "AbilArray": [
+    "BuildInProgress",
+    "ShieldBatteryRechargeChanneledP",
+    "stop",
+    "PurifierSalvage",
+    "attack"
+  ],
+  "BehaviorArray": [
+    "PurifierStructureEnergyUser",
+    "RepairBeamStructurePower",
+    "PurifierUnpowerBhv"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/ShieldBatteryRechargeChanneledP",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ShieldBatteryRechargeChanneledP",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Visible;Self,Neutral,Enemy,Missile,UnderConstruction,Dead,Hidden",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AutoCast": 1,
+            "AutoCastOn": 1,
+            "ReExecutable": 1,
+            "Smart": 1
+          },
+          "Effect": [
+            "ShieldBatteryRechargeChanneledP"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "ShieldBatteryRechargeChanneledP",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 0,
+            "Prep": 0,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "RequiresHealTarget",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "ShieldBatteryRechargeP"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "Visible;Self,Enemy,Missile,UnderConstruction,Dead,Hidden"
+          ],
+          "Range": [
+            4
+          ],
+          "Arc": 360,
+          "AutoCastRange": 4,
+          "AutoCastValidatorArray": [
+            "ShieldBatteryHasEnergy",
+            "TargetHasWeapon"
+          ],
+          "id": "ShieldBatteryRechargeChanneledP"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ShieldBatteryRechargeChanneledP,Execute",
+        "id": "ShieldBatteryRechargeP",
+        "Icon": "btn-ability-protoss-shieldbattery-colorp",
+        "Name": {
+          "zhCN": "护盾恢复",
+          "enUS": "Shield recovery"
+        },
+        "Tooltip": {
+          "zhCN": "为目标单位或建筑的护盾充能。<br/><br/><span style=\"color: f078ff\">每1点能量可以恢复3点护盾。</span><br/><br/><span style=\"color: #ffff8a\">自动施法会对拥有武器的单位使用。</span>",
+          "enUS": "Charges the target unit or structure's shield. <br/><br/><span style=\"color: f078ff\">Every 1 point of energy can restore 3 points of shield. </span><br/><br/><span style=\"color: #ffff8a\">Autocast will be applied to units with weapons. </span>"
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "RepairBeamPurifierPower",
+        "Icon": "btn-ability-spearofadun-reconstructionbeam",
+        "Name": {
+          "zhCN": "<span style=\"color: #ffff8a\">量子修复</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Quantum Repair</span>"
+        },
+        "Tooltip": {
+          "zhCN": "该建筑受损时能够每秒修复<span style=\"color: #ffff8a\">1.5+0.5%</span>点生命。<br/><span style=\"color: #ffff8a\">需要能量场</span>",
+          "enUS": "This building can repair <span style=\"color: #ffff8a\">1.5+0.5%</span> points of life per second when damaged. <br/><span style=\"color: #ffff8a\">Requires energy field</span>"
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/PurifierSalvage",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "PurifierSalvage",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "PurifierSalvage"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "BestUnit": 1,
+            "Transient": 1
+          },
+          "BehaviorArray": [
+            "PurifierSalvageShared"
+          ],
+          "ValidatorArray": [],
+          "id": "PurifierSalvage"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "PurifierSalvage,On",
+        "id": "PurifierSalvage",
+        "Icon": "btn-ability-terran-salvage",
+        "Name": {
+          "zhCN": "回收",
+          "enUS": "Recycling"
+        },
+        "Tooltip": {
+          "zhCN": "回收该建筑，将其移除并返还75%建造所花费的晶体矿及高能瓦斯数量。回收过程需要<b>5</b>。回收过程一旦开始便无法取消。",
+          "enUS": "Recycle the building, remove it and refund 75% of the crystal ore and high-energy gas cost for its construction. The recycling process takes <b>5</b>. Once the recycling process has begun, it cannot be canceled."
+        },
+        "Hotkey": "J"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackBuilding",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+          "ruRU": "Приказать атаковать цель, пока она не будет уничтожена или не выйдет из зоны досягаемости. "
+        },
+        "Hotkey": "A"
+      }
+    ]
+  },
+  "InnerRadius": 1,
+  "Footprint": "Footprint2x2Contour",
+  "PlacementFootprint": "Footprint2x2Contour",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 2,
+  "GlossaryCategory": "Unit/Category/ProtossUnits",
+  "GlossaryPriority": 10,
+  "HotkeyCategory": "Unit/Category/ProtossUnits",
+  "id": "ShieldBatteryP",
+  "Icon": "btn-building-protoss-shieldbatterypb",
+  "LifeArmorIcon": "btn-armor-protoss-buildingplating-purifier",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel3-purifier",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "PurifierStructureEnergyUser",
+      "Icon": "btn-unit-protoss-fenix-purifier-pylon",
+      "Name": {
+        "zhCN": "净化者建筑能量使用",
+        "enUS": "Purifier building energy usage"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "RepairBeamStructurePower",
+      "Icon": "btn-ability-spearofadun-reconstructionbeam",
+      "Name": {
+        "zhCN": "量子修复",
+        "enUS": "Quantum Repair"
+      },
+      "Tooltip": {
+        "zhCN": "该单位正在恢复生命。",
+        "enUS": "The unit is regenerating health."
+      }
+    },
+    {
+      "id": "PurifierUnpowerBhv",
+      "Icon": "btn-upgrade-artanis-pylonpower",
+      "Name": {
+        "zhCN": "低能量",
+        "enUS": "low energy"
+      },
+      "Tooltip": {
+        "zhCN": "该建筑未被供能，效率降低50%。",
+        "enUS": "The building is not powered and its efficiency is reduced by 50%."
+      }
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "ShieldBatteryRechargeChanneledP",
+      "Name": {
+        "zhCN": "护盾充能",
+        "enUS": "Shield recharge"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "PurifierSalvage",
+      "Name": {
+        "zhCN": "回收",
+        "enUS": "Recycling"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "IsShieldBatteryP",
+    "ShieldBatteryP",
+    "ProtossBuildPMC",
+    "ProtossBuildPM",
+    "ProtossBuildP",
+    "ProtossBuildPA",
+    "ProtossBuildPS",
+    "ProtossBuildingBirthSmallP",
+    "ShieldBatteryP"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "MothershipCoreP",
+    "MothershipP",
+    "ProbeP",
+    "SuperWarpGateP"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "ShieldBatteryRechargeChanneledP,Execute",
+      "id": "ShieldBatteryRechargeP",
+      "Icon": "btn-ability-protoss-shieldbattery-colorp",
+      "Name": {
+        "zhCN": "护盾恢复",
+        "enUS": "Shield recovery"
+      },
+      "Tooltip": {
+        "zhCN": "为目标单位或建筑的护盾充能。<br/><br/><span style=\"color: f078ff\">每1点能量可以恢复3点护盾。</span><br/><br/><span style=\"color: #ffff8a\">自动施法会对拥有武器的单位使用。</span>",
+        "enUS": "Charges the target unit or structure's shield. <br/><br/><span style=\"color: f078ff\">Every 1 point of energy can restore 3 points of shield. </span><br/><br/><span style=\"color: #ffff8a\">Autocast will be applied to units with weapons. </span>"
+      }
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+        "ruRU": "Отменить текущий приказ и отдать следующий. "
+      }
+    },
+    {
+      "AbilCmd": "PurifierSalvage,On",
+      "id": "PurifierSalvage",
+      "Icon": "btn-ability-terran-salvage",
+      "Name": {
+        "zhCN": "回收",
+        "enUS": "Recycling"
+      },
+      "Tooltip": {
+        "zhCN": "回收该建筑，将其移除并返还75%建造所花费的晶体矿及高能瓦斯数量。回收过程需要<b>5</b>。回收过程一旦开始便无法取消。",
+        "enUS": "Recycle the building, remove it and refund 75% of the crystal ore and high-energy gas cost for its construction. The recycling process takes <b>5</b>. Once the recycling process has begun, it cannot be canceled."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackBuilding",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+        "ruRU": "Приказать атаковать цель, пока она не будет уничтожена или не выйдет из зоны досягаемости. "
+      }
+    }
+  ]
+}

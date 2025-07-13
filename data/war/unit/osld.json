@@ -1,0 +1,999 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Spirit Lodge"
+  },
+  "Description": {
+    "enUS": "Spellcaster production building. Trains Shaman, Witch Doctors, and Spirit Walkers. <br/>Also contains spell upgrades for Shaman, Witch Doctors, and Spirit Walkers."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 4,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Vision",
+  "Race": "Orc",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 800,
+  "LifeMax": 800,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.5,
+  "SeparationRadius": 1.5,
+  "MinimapRadius": 1.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "PreventDefeat",
+    "PenaltyRevealed",
+    "TownAlert",
+    "NoPortraitTalk"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "osld",
+  "HotkeyAlias": "osld",
+  "SelectAlias": "osld",
+  "SubgroupAlias": "osld",
+  "OccludeHeight": 0,
+  "TacticalAI": "ARal",
+  "AIEvaluateAlias": "osld",
+  "ReviveType": "osld",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "osld/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "osld/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Classic",
+  "LifeArmorFormula": {
+    "NegativeArmorMultiplier": 0,
+    "NegativeDamageBase": 0.94,
+    "PositiveArmorMultiplier": 0,
+    "PositiveDamageRatio": 0.06
+  },
+  "LifeArmorTip": "ARMORTIP_FORT",
+  "SpeedDisplayFlags": {
+    "CollapseBuffed": 1
+  },
+  "Acceleration": 1000,
+  "BehaviorArray": [
+    "osld",
+    "War3_Unit",
+    "SuppressXPGrantOnKill",
+    "Buns",
+    "Abds",
+    "Aspi"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "osld1",
+      "Turret": "Attu"
+    },
+    {
+      "Link": "osld2",
+      "Turret": "Attu"
+    }
+  ],
+  "InnerRadius": 0.6875,
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "id": "osld",
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField"
+  ],
+  "AbilArray": [
+    "War3_Buildable",
+    "osldTrain",
+    "ARal",
+    "Aque",
+    "Rowd",
+    "Rost",
+    "Rowt"
+  ],
+  "CostCategory": "Technology",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/War3_Buildable",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "War3_Buildable",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/CONSTRUCTING",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "MaxBuilders": 2147483648,
+          "PowerBuildBonusRate": 0.6,
+          "PowerBuildCostFactor": 0.15,
+          "id": "War3_Buildable"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "War3_Buildable,Cancel",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/Aque",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aque",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "CmdCancelTrain"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CmdCancelTrain"
+            }
+          },
+          "QueueSize": 7,
+          "id": "Aque"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aque,CancelLast",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "ARal,Rally1",
+        "id": "CmdRally",
+        "Icon": "renee_war3_btnrallypoint",
+        "Name": {
+          "enUS": "Set Rally Point"
+        },
+        "Tooltip": {
+          "enUS": "Orders units that pop out of the building to immediately attack move to the targeted area. You can rally point gold mines or trees to auto-harvest. You can rally point a unit to have new units follow it when they finish building."
+        },
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "oshm",
+            "Requirements": "oshm"
+          },
+          "Unit": [
+            "oshm"
+          ],
+          "Time": 30
+        },
+        "Unit": [
+          "oshm"
+        ],
+        "Time": 30,
+        "Cost": {
+          "Minerals": 130,
+          "Vespene": 20,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "osldTrain,Train1",
+        "id": "oshm",
+        "Icon": "renee_war3_btnshaman",
+        "Name": {
+          "enUS": "Train Shaman"
+        },
+        "Tooltip": {
+          "enUS": "Primary spellcaster. Can initially cast Purge, which dispels magical buffs and can immobilize enemies. Can also learn Lightning Shield and Bloodlust. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "odoc",
+            "Requirements": "odoc"
+          },
+          "Unit": [
+            "odoc"
+          ],
+          "Time": 30
+        },
+        "Unit": [
+          "odoc"
+        ],
+        "Time": 30,
+        "Cost": {
+          "Minerals": 145,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "osldTrain,Train2",
+        "id": "odoc",
+        "Icon": "renee_war3_btnwitchdoctor",
+        "Name": {
+          "enUS": "Train Troll Witch Doctor"
+        },
+        "Tooltip": {
+          "enUS": "Supporting spellcaster. Can initially cast Sentry Ward, which summons an invisible detector. Can also learn Stasis Trap and Healing Ward. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+        },
+        "Hotkey": "W"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ospm",
+            "Requirements": "ospm"
+          },
+          "Unit": [
+            "ospm"
+          ],
+          "Time": 38
+        },
+        "Unit": [
+          "ospm"
+        ],
+        "Time": 38,
+        "Cost": {
+          "Minerals": 195,
+          "Vespene": 35,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "osldTrain,Train3",
+        "id": "ospm",
+        "Icon": "renee_war3_btnspiritwalker",
+        "Name": {
+          "enUS": "Train Spirit Walker"
+        },
+        "Tooltip": {
+          "enUS": "Mystical Tauren caster. Has Ethereal Form, which allows him to avoid physical damage. Also has Spirit Link, which allows units to distribute incoming damage. Can learn Disenchant, and Ancestral Spirit. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Upgrade": "Rowd",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Rowd",
+            "Requirements": "Rowd"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 50
+          },
+          "Time": 60,
+          "Upgrade": "Rowd"
+        },
+        "Time": 60,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rowd,Research1",
+        "id": "Rowd",
+        "Icon": "renee_war3_btnwitchdoctoradept",
+        "Name": {
+          "enUS": "Witch Doctor Adept Training"
+        },
+        "Tooltip": {
+          "enUS": "Increases Witch Doctors' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Stasis Trap."
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Upgrade": "Rowd",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Rowd2",
+            "Requirements": "Rowd2"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 150
+          },
+          "Time": 75,
+          "Upgrade": "Rowd"
+        },
+        "Time": 75,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rowd,Research2",
+        "id": "Rowd2",
+        "Icon": "renee_war3_btnwitchdoctormaster",
+        "Name": {
+          "enUS": "Witch Doctor Master Training"
+        },
+        "Tooltip": {
+          "enUS": "Increases Witch Doctors' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Healing Ward."
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Upgrade": "Rost",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Rost",
+            "Requirements": "Rost"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 50
+          },
+          "Time": 60,
+          "Upgrade": "Rost"
+        },
+        "Time": 60,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rost,Research1",
+        "id": "Rost",
+        "Icon": "renee_war3_btnshamanadept",
+        "Name": {
+          "enUS": "Shaman Adept Training"
+        },
+        "Tooltip": {
+          "enUS": "Increases Shaman mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Lightning Shield."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Upgrade": "Rost",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Rost2",
+            "Requirements": "Rost2"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 150
+          },
+          "Time": 75,
+          "Upgrade": "Rost"
+        },
+        "Time": 75,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rost,Research2",
+        "id": "Rost2",
+        "Icon": "renee_war3_btnshamanmaster",
+        "Name": {
+          "enUS": "Shaman Master Training"
+        },
+        "Tooltip": {
+          "enUS": "Increases Shaman mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Bloodlust."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Upgrade": "Rowt",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Rowt",
+            "Requirements": "Rowt"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 50
+          },
+          "Time": 60,
+          "Upgrade": "Rowt"
+        },
+        "Time": 60,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rowt,Research1",
+        "id": "Rowt",
+        "Icon": "renee_war3_btnspiritwalkeradepttraining",
+        "Name": {
+          "enUS": "Spirit Walker Adept Training"
+        },
+        "Tooltip": {
+          "enUS": "Increases Spirit Walkers' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Disenchant."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Upgrade": "Rowt",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Rowt2",
+            "Requirements": "Rowt2"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 150
+          },
+          "Time": 75,
+          "Upgrade": "Rowt"
+        },
+        "Time": 75,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rowt,Research2",
+        "id": "Rowt2",
+        "Icon": "renee_war3_btnspiritwalkermastertraining",
+        "Name": {
+          "enUS": "Spirit Walker Master Training"
+        },
+        "Tooltip": {
+          "enUS": "Increases Spirit Walkers' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Ancestral Spirit."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "SelectBuilder",
+        "id": "SelectBuilderOrc",
+        "Icon": "renee_war3_btnpeon",
+        "Name": {
+          "enUS": "Select Builder"
+        },
+        "Tooltip": {
+          "enUS": "Selects the unit constructing this structure."
+        },
+        "Hotkey": "Q"
+      }
+    ]
+  },
+  "Attributes": [
+    "Structure",
+    "Mechanical",
+    "User1"
+  ],
+  "FogVisibility": "Snapshot",
+  "PlacementFootprint": "12x12Simple",
+  "AttackTargetPriority": 11,
+  "ResourceDamageLeechFilters": "Self;-",
+  "ResourceDamageLeech": {
+    "Spell": {
+      "Amount": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "CostResource": {
+    "Minerals": 150,
+    "Vespene": 150
+  },
+  "LifeArmor": 5,
+  "RepairTime": 70,
+  "SightBonus": [
+    7.0312,
+    4.6875
+  ],
+  "SubgroupPriority": 5,
+  "Footprint": "12x12Simple",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "HotkeyCategory": "UI/ORC",
+  "defType": "FORT",
+  "Icon": "renee_war3_btnspiritlodge",
+  "LifeArmorIcon": "infocard-armor-fort.tga",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "War3_Unit",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "War3_Unit"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "SuppressXPGrantOnKill",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "SuppressXPGrantOnKill"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Buns",
+      "Icon": "renee_war3_btnunsummonbuilding",
+      "Name": {
+        "enUS": "Unsummon"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Abds",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Blight Dispel Small"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Aspi",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Spiked Barricades"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "War3_Buildable",
+      "Name": {
+        "enUS": "War3_Buildable"
+      }
+    },
+    {
+      "id": "osldTrain",
+      "Name": {
+        "enUS": "Train"
+      }
+    },
+    {
+      "id": "ARal",
+      "Name": {
+        "enUS": "Rally"
+      }
+    },
+    {
+      "id": "Aque",
+      "Name": {
+        "enUS": "Queue"
+      }
+    },
+    {
+      "id": "Rowd",
+      "Name": {
+        "enUS": "Witch Doctor Adept Training"
+      }
+    },
+    {
+      "id": "Rost",
+      "Name": {
+        "enUS": "Shaman Adept Training"
+      }
+    },
+    {
+      "id": "Rowt",
+      "Name": {
+        "enUS": "Spirit Walker Adept Training"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "Rosp",
+    "osld",
+    "AObu",
+    "Rgfo",
+    "osld",
+    "osldCount"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [
+    "Rowd",
+    "Rost",
+    "Rowt"
+  ],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "opeo",
+    "ncpn"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "War3_Buildable,Cancel",
+      "id": "CmdCancel",
+      "Icon": "renee_war3_btncancel",
+      "Name": {
+        "enUS": "Cancel"
+      },
+      "Tooltip": {
+        "enUS": "Drops the current un-issued order and allows you to select a different order."
+      }
+    },
+    {
+      "AbilCmd": "Aque,CancelLast",
+      "id": "CmdCancel",
+      "Icon": "renee_war3_btncancel",
+      "Name": {
+        "enUS": "Cancel"
+      },
+      "Tooltip": {
+        "enUS": "Drops the current un-issued order and allows you to select a different order."
+      }
+    },
+    {
+      "AbilCmd": "ARal,Rally1",
+      "id": "CmdRally",
+      "Icon": "renee_war3_btnrallypoint",
+      "Name": {
+        "enUS": "Set Rally Point"
+      },
+      "Tooltip": {
+        "enUS": "Orders units that pop out of the building to immediately attack move to the targeted area. You can rally point gold mines or trees to auto-harvest. You can rally point a unit to have new units follow it when they finish building."
+      }
+    },
+    {
+      "AbilCmd": "osldTrain,Train1",
+      "id": "oshm",
+      "Icon": "renee_war3_btnshaman",
+      "Name": {
+        "enUS": "Train Shaman"
+      },
+      "Tooltip": {
+        "enUS": "Primary spellcaster. Can initially cast Purge, which dispels magical buffs and can immobilize enemies. Can also learn Lightning Shield and Bloodlust. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "osldTrain,Train2",
+      "id": "odoc",
+      "Icon": "renee_war3_btnwitchdoctor",
+      "Name": {
+        "enUS": "Train Troll Witch Doctor"
+      },
+      "Tooltip": {
+        "enUS": "Supporting spellcaster. Can initially cast Sentry Ward, which summons an invisible detector. Can also learn Stasis Trap and Healing Ward. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "osldTrain,Train3",
+      "id": "ospm",
+      "Icon": "renee_war3_btnspiritwalker",
+      "Name": {
+        "enUS": "Train Spirit Walker"
+      },
+      "Tooltip": {
+        "enUS": "Mystical Tauren caster. Has Ethereal Form, which allows him to avoid physical damage. Also has Spirit Link, which allows units to distribute incoming damage. Can learn Disenchant, and Ancestral Spirit. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "Rowd,Research1",
+      "id": "Rowd",
+      "Icon": "renee_war3_btnwitchdoctoradept",
+      "Name": {
+        "enUS": "Witch Doctor Adept Training"
+      },
+      "Tooltip": {
+        "enUS": "Increases Witch Doctors' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Stasis Trap."
+      }
+    },
+    {
+      "AbilCmd": "Rowd,Research2",
+      "id": "Rowd2",
+      "Icon": "renee_war3_btnwitchdoctormaster",
+      "Name": {
+        "enUS": "Witch Doctor Master Training"
+      },
+      "Tooltip": {
+        "enUS": "Increases Witch Doctors' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Healing Ward."
+      }
+    },
+    {
+      "AbilCmd": "Rost,Research1",
+      "id": "Rost",
+      "Icon": "renee_war3_btnshamanadept",
+      "Name": {
+        "enUS": "Shaman Adept Training"
+      },
+      "Tooltip": {
+        "enUS": "Increases Shaman mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Lightning Shield."
+      }
+    },
+    {
+      "AbilCmd": "Rost,Research2",
+      "id": "Rost2",
+      "Icon": "renee_war3_btnshamanmaster",
+      "Name": {
+        "enUS": "Shaman Master Training"
+      },
+      "Tooltip": {
+        "enUS": "Increases Shaman mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Bloodlust."
+      }
+    },
+    {
+      "AbilCmd": "Rowt,Research1",
+      "id": "Rowt",
+      "Icon": "renee_war3_btnspiritwalkeradepttraining",
+      "Name": {
+        "enUS": "Spirit Walker Adept Training"
+      },
+      "Tooltip": {
+        "enUS": "Increases Spirit Walkers' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Disenchant."
+      }
+    },
+    {
+      "AbilCmd": "Rowt,Research2",
+      "id": "Rowt2",
+      "Icon": "renee_war3_btnspiritwalkermastertraining",
+      "Name": {
+        "enUS": "Spirit Walker Master Training"
+      },
+      "Tooltip": {
+        "enUS": "Increases Spirit Walkers' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Ancestral Spirit."
+      }
+    }
+  ]
+}

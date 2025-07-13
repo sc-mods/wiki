@@ -1,0 +1,2417 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "SCV",
+    "zhCN": "SCV"
+  },
+  "Description": {
+    "enUS": "Basic work unit. Used to gather resources, construct human structures, and repair. <br/><br/><span style=\"color: #ffff8a\">Can target the ground. </span>",
+    "zhCN": "基础工作单位。用于采集资源、建造人类建筑和修理。<br/><br/><span style=\"color: #ffff8a\">可以对地。</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 60,
+  "LifeMax": 60,
+  "LifeArmorName": {
+    "enUS": "Engineering coatings",
+    "zhCN": "工程镀层"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "Worker",
+    "PreventDestroy",
+    "UseLineOfSight"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SCVU",
+  "HotkeyAlias": "SCVU",
+  "SelectAlias": "SCVU",
+  "SubgroupAlias": "SCVU",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SCVU",
+  "AIEvaluateAlias": "SCV",
+  "ReviveType": "SCVU",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33,
+      "Turn": 33
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "SCVU/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "SCVU/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Light",
+    "Biological",
+    "Mechanical"
+  ],
+  "LifeArmor": 2,
+  "Speed": 2.8125,
+  "Acceleration": 2.5,
+  "LateralAcceleration": 46,
+  "Sight": 8,
+  "Food": -0.5,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 50
+  },
+  "RepairTime": 16.667,
+  "AttackTargetPriority": 20,
+  "AIOverideTargetPriority": 10,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 10,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "RepairU",
+    "SCVHarvest",
+    "TerranBuildU",
+    "TerranBuildDropU"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "FusionCutterU"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackWorker",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/RepairU",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "RepairU",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 0.2,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Visible;Neutral,Enemy",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AutoCast": 1,
+            "AutoCastOffOwnerLeave": 1,
+            "AutoCastOn": 1,
+            "ReExecutable": 1,
+            "Smart": 1,
+            "PassengerAcquirePassengers": 1
+          },
+          "Effect": [
+            "RepairU"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "RepairU",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 0,
+            "Prep": 0,
+            "Cast": 0,
+            "Channel": 0
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "RequiresRepairTarget",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Repair"
+            }
+          },
+          "FollowRange": 5,
+          "Alignment": "Positive",
+          "AbilSetId": "Repair",
+          "TargetFilters": [
+            "Mechanical,Visible;Self,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden"
+          ],
+          "AutoCastRange": 7,
+          "Marker": {
+            "MatchFlags": {
+              "Link": 0
+            },
+            "MismatchFlags": {
+              "Id": 0
+            }
+          },
+          "InheritAttackPriorityArray": {
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "id": "RepairU"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "RepairU,Execute",
+        "id": "Repair",
+        "Icon": "btn-ability-terran-repair",
+        "Name": {
+          "enUS": "Repair",
+          "ruRU": "Ремонтировать "
+        },
+        "Tooltip": {
+          "enUS": "Restores life to mechanical units and structures at the cost of resources.",
+          "ruRU": "Приказать отремонтировать механическую боевую единицу или строение, затратив некоторое количество ресурсов. "
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/SCVHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVHarvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "CancelableArray": {
+            "ApproachResource": 1,
+            "WaitAtResource": 1
+          },
+          "id": "SCVHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVHarvest,Gather",
+        "id": "GatherTerr",
+        "Icon": "btn-ability-terran-gather",
+        "Name": {
+          "enUS": "Gather",
+          "ruRU": "Добывать "
+        },
+        "Tooltip": {
+          "enUS": "Orders SCV to gather resources from a selected Mineral Field or Vespene Geyser.",
+          "ruRU": "Приказывает КСМ добывать ресурсы на месторождении минералов или из веспенового гейзера."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/SCVHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVHarvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "CancelableArray": {
+            "ApproachResource": 1,
+            "WaitAtResource": 1
+          },
+          "id": "SCVHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVHarvest,Return",
+        "id": "ReturnCargo",
+        "Icon": "btn-command-returncargo",
+        "Name": {
+          "enUS": "Return Cargo",
+          "ruRU": "Выгрузить ресурсы "
+        },
+        "Tooltip": {
+          "enUS": "Returns the carried resources to the nearest drop-off point.",
+          "ruRU": "Приказать выгрузить ресурсы в ближайший приемный пункт. "
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "TBl1",
+        "id": "TerranBuild",
+        "Icon": "btn-command-terran-buildstructure",
+        "Name": {
+          "enUS": "Build Structure",
+          "ruRU": "Построить здание "
+        },
+        "Tooltip": {
+          "enUS": "A list of basic structures.",
+          "ruRU": "Открывает список основных строений."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "TBl2",
+        "id": "TerranBuildAdvanced",
+        "Icon": "btn-command-terran-buildadvancedstructure",
+        "Name": {
+          "enUS": "Build Advanced Structure",
+          "ruRU": "Построить дополнительное здание "
+        },
+        "Tooltip": {
+          "enUS": "A list of advanced structures.",
+          "ruRU": "Открывает список дополнительных строений."
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/TerranBuildU",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "TerranBuildU",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Cancel"
+          },
+          "Alert": "BuildComplete",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 1,
+            "PeonMaintained": 1,
+            "RangeIncludesBuilding": 1,
+            "Interruptible": 1,
+            "PeonDisableCollision": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "CommandCenterU"
+              },
+              "Unit": "CommandCenterU",
+              "Time": 100
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "SupplyDepotU"
+              },
+              "Unit": "SupplyDepotU",
+              "Time": 30
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "RefineryU"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "RefineryU",
+              "Time": 30
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "BarracksU",
+                "Requirements": "HaveSupplyDepot"
+              },
+              "Unit": "BarracksU",
+              "Time": 30
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "EngineeringBayU",
+                "Requirements": "HaveCommandCenter"
+              },
+              "Unit": "EngineeringBayU",
+              "Time": 35
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "MissileTurretU",
+                "Requirements": "HaveEngineeringBayU"
+              },
+              "Unit": "MissileTurretU",
+              "Time": 24
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "BunkerU",
+                "Requirements": "HaveBarracks"
+              },
+              "Unit": "BunkerU",
+              "Time": 20
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "AutomatedRefineryU"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "AutomatedRefineryU",
+              "Time": 30
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "SensorTowerU",
+                "Requirements": "HaveEngineeringBayU"
+              },
+              "Unit": "SensorTowerU",
+              "Time": 25
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "GhostAcademyU",
+                "Requirements": "HaveBarracks"
+              },
+              "Unit": "GhostAcademyU",
+              "Time": 40
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "FactoryU",
+                "Requirements": "HaveBarracks"
+              },
+              "Unit": "FactoryU",
+              "Time": 40
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "StarportU",
+                "Requirements": "HaveFactory"
+              },
+              "Unit": "StarportU",
+              "Time": 40
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "BunkerUU"
+              },
+              "Unit": "BunkerUU",
+              "Time": 30
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "ArmoryU",
+                "Requirements": "HaveFactory"
+              },
+              "Unit": "ArmoryU",
+              "Time": 70
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "PsiDisruptorU",
+                "Requirements": "HaveEngineeringBayU"
+              },
+              "Unit": "PsiDisruptorU",
+              "Time": 32
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "FusionCoreU",
+                "Requirements": "HaveStarport"
+              },
+              "Unit": "FusionCoreU",
+              "Time": 120
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "PerditionTurretU",
+                "Requirements": "HaveEngineeringBayU"
+              },
+              "Unit": "PerditionTurretU",
+              "Time": 24
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "MercCompoundU"
+              },
+              "Unit": "MercCompoundU",
+              "Time": 34
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Time": 30
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            }
+          },
+          "FidgetDelayMin": 5,
+          "FidgetDelayMax": 10,
+          "ConstructionMover": "Construction",
+          "id": "TerranBuildU"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": {
+          "enUS": "Halts construction of this structure. The partial construction will remain.",
+          "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+        },
+        "Hotkey": "T"
+      }
+    ],
+    "TBl1": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "CommandCenterU"
+          },
+          "Unit": "CommandCenterU",
+          "Time": 100
+        },
+        "Unit": "CommandCenterU",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 350,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 16
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build1",
+        "id": "CommandCenterU",
+        "Icon": "btn-building-terran-commandcenter",
+        "Name": {
+          "enUS": "Build <span style=\"color: #ffff8a\">Command Center</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">指挥中心</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Main building</span><br/> is used to receive collected resources. Can take off. <br/>Can be upgraded to <span style=\"color: #ffff8a\">Orbital Dispatch Center</span> or <span style=\"color: #ffff8a\">Planetary Fortress</span>. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">SCV</span>",
+          "zhCN": "<span style=\"color: #ffff8a\">主要建筑</span><br/>用于接收采集到的资源。可以升空。<br/>可以升级成为<span style=\"color: #ffff8a\">轨道调度中心</span>或<span style=\"color: #ffff8a\">行星要塞</span>。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">SCV</span>"
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "RefineryU"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "RefineryU",
+          "Time": 30
+        },
+        "Unit": "RefineryU",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build3",
+        "id": "RefineryU",
+        "Icon": "btn-building-terran-refinery",
+        "Name": {
+          "enUS": "Build <span style=\"color: #ffff8a\">Refinery</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">精炼厂</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Basic building</span><br/> is built on a gas spring and is used to collect high-energy gas.",
+          "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>建造在瓦斯气泉上，用于采集高能瓦斯。"
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SupplyDepotU"
+          },
+          "Unit": "SupplyDepotU",
+          "Time": 30
+        },
+        "Unit": "SupplyDepotU",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 10
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build2",
+        "id": "SupplyDepotU",
+        "Icon": "btn-building-terran-supplydepot",
+        "Name": {
+          "enUS": "Build <span style=\"color: #ffff8a\">Supply Depot</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">补给站</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Basic buildings</span><br/> provide supplies. <br/>Having supplies is a prerequisite for producing more units. <br/>The supply depot can be lowered, allowing ground units to enter and exit and become invisible.",
+          "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>提供补给。<br/>拥有补给是生产更多单位的前提。<br/>补给站可以降下，允许地面单位出入并隐形。"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "BarracksU",
+            "Requirements": "HaveSupplyDepot"
+          },
+          "Unit": "BarracksU",
+          "Time": 30
+        },
+        "Unit": "BarracksU",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build4",
+        "id": "BarracksU",
+        "Icon": "btn-building-terran-barracks",
+        "Name": {
+          "enUS": "Build <span style=\"color: #ffff8a\">Barracks</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">兵营</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Production Building</span><br/> Trains Umoyan infantry units. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">National Defense Army</span><br/>- <span style=\"color: #ffff8a\">Harvest Troops</span><br/> - Allows the <span style=\"color: #ffff8a\">Command Center</span> to be upgraded to <span style=\"color: #ffff8a\">Track Dispatch Center</span>",
+          "zhCN": "<span style=\"color: #ffff8a\">生产建筑</span><br/>训练尤摩扬步兵单位。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">护国军</span><br/>- <span style=\"color: #ffff8a\">收割部队</span><br/>- 使<span style=\"color: #ffff8a\">指挥中心</span>可以升级为<span style=\"color: #ffff8a\">轨道调度中心</span>"
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "EngineeringBayU",
+            "Requirements": "HaveCommandCenter"
+          },
+          "Unit": "EngineeringBayU",
+          "Time": 35
+        },
+        "Unit": "EngineeringBayU",
+        "Time": 35,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build5",
+        "id": "EngineeringBayU",
+        "Icon": "btn-building-terran-engineeringbay",
+        "Name": {
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Engineering Bay</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">工程湾</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Open Umoyan defense building. Upgradeable to <span style=\"color: #ffff8a\">Mechanical Control Station</span><br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- enable <c val =\"#ColorAttackInfo\">SCV</span> can build <span style=\"color: #ffff8a\">heavy anti-aircraft tower</span><br/> - using <span style=\"color: #ffff8a\">SCV</span> can build <span style=\"color: #ffff8a\">Detection Tower</span><br/> - to enable <span style=\"color: #ffff8a\">Command Center</span> Can be upgraded to <span style=\"color: #ffff8a\">Planetary Fortress</span>",
+          "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>开启尤摩扬防御建筑。可升级为<span style=\"color: #ffff8a\">机械控制站</span><br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 使<span style=\"color: #ffff8a\">SCV</span>可以建造<span style=\"color: #ffff8a\">重型防空塔</span><br/>- 使<span style=\"color: #ffff8a\">SCV</span>可以建造<span style=\"color: #ffff8a\">侦测塔</span><br/>- 使<span style=\"color: #ffff8a\">指挥中心</span>可升级为<span style=\"color: #ffff8a\">行星要塞</span>"
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "BunkerU",
+            "Requirements": "HaveBarracks"
+          },
+          "Unit": "BunkerU",
+          "Time": 20
+        },
+        "Unit": "BunkerU",
+        "Time": 20,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build7",
+        "id": "BunkerU",
+        "Icon": "btn-building-terran-bunker",
+        "Name": {
+          "enUS": "Build <span style=\"color: #ffff8a\">Bunker</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">碉堡</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Defensive Buildings</span><br/>Umoyan basic fortifications. <br/>Infantry units can enter the <span style=\"color: #ffff8a\">Bunker</span> to attack. <br/><br/><span style=\"color: #ffff8a\">The loaded unit's range is increased by 2 and its damage is increased by 30%. </span>",
+          "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>尤摩扬基础防御工事。<br/>步兵单位可进入<span style=\"color: #ffff8a\">碉堡</span>内攻击。<br/><br/><span style=\"color: #ffff8a\">装载单位射程增加2、伤害增加30%。</span>"
+        },
+        "Hotkey": "U"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "MissileTurretU",
+            "Requirements": "HaveEngineeringBayU"
+          },
+          "Unit": "MissileTurretU",
+          "Time": 24
+        },
+        "Unit": "MissileTurretU",
+        "Time": 24,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build6",
+        "id": "MissileTurretU",
+        "Icon": "btn-building-terran-missileturrettitaniumhousing",
+        "Name": {
+          "enUS": "Build <span style=\"color: #ffff8a\">Heavy Anti-Aircraft Tower</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">重型防空塔</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/>Umoyan's main air defense building. <br/><br/><span style=\"color: #ffff8a\">Can be empty. </span>",
+          "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>尤摩扬主要防空建筑。<br/><br/><span style=\"color: #ffff8a\">可以对空。</span>"
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "PerditionTurretU",
+            "Requirements": "HaveEngineeringBayU"
+          },
+          "Unit": "PerditionTurretU",
+          "Time": 24
+        },
+        "Unit": "PerditionTurretU",
+        "Time": 24,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build17",
+        "id": "PerditionTurretU",
+        "Icon": "btn-unit-terran-perditionturret",
+        "Name": {
+          "enUS": "Build <span style=\"color: #ffff8a\">Fire Turret</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">炽焰炮塔</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/>Automated defense turret, burrowing when there are no enemies nearby. <br/><br/><span style=\"color: #ffff8a\">Can target the ground. </span>",
+          "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>自动化防御炮塔，当附近无敌人时潜地。<br/><br/><span style=\"color: #ffff8a\">可以对地。</span>"
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SensorTowerU",
+            "Requirements": "HaveEngineeringBayU"
+          },
+          "Unit": "SensorTowerU",
+          "Time": 25
+        },
+        "Unit": "SensorTowerU",
+        "Time": 25,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build9",
+        "id": "SensorTowerU",
+        "Icon": "btn-building-terran-sensordome",
+        "Name": {
+          "enUS": "Build <span style=\"color: #ffff8a\">Detection Tower</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">侦测塔</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/> Provides a wide range of aerial vision. Orbital resolution scanning skills can be used. Sensor arrays can be installed. <br/><span style=\"color: FFE303\">Detection unit</span>",
+          "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>提供大范围内的空中视野。可以使用轨道析像扫描技能。可以安装传感器阵列。<br/><span style=\"color: FFE303\">侦测单位</span>"
+        },
+        "Hotkey": "N"
+      }
+    ],
+    "TBl2": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GhostAcademyU",
+            "Requirements": "HaveBarracks"
+          },
+          "Unit": "GhostAcademyU",
+          "Time": 40
+        },
+        "Unit": "GhostAcademyU",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build10",
+        "id": "GhostAcademyU",
+        "Icon": "btn-building-terran-ghostacademy",
+        "Name": {
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Strategic Homeland Defense Attack and Logistics Support Agency</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">国土战略防御攻击与后勤保障局</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Opens Umoyan Advanced Infantry. Able to create fusion missiles for use by the <span style=\"color: #ffff8a\">Shadow Guardian</span>. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- Can train in <span style=\"color: #ffff8a\">Barracks</span><c val=\" #ColorAttackInfo\">Shadow Guardian</span>",
+          "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>开启尤摩扬高级步兵。能够制造供<span style=\"color: #ffff8a\">影子卫士</span>使用的聚变导弹。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 可以在<span style=\"color: #ffff8a\">兵营</span>中训练<span style=\"color: #ffff8a\">影子卫士</span>"
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "FactoryU",
+            "Requirements": "HaveBarracks"
+          },
+          "Unit": "FactoryU",
+          "Time": 40
+        },
+        "Unit": "FactoryU",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build11",
+        "id": "FactoryU",
+        "Icon": "btn-building-terran-factory",
+        "Name": {
+          "enUS": "Build <span style=\"color: #ffff8a\">Heavy Factory</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">重工厂</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Production Building</span><br/>Umoyan tank production facility. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">Menoetius Armed Robot</span><n/ >- <span style=\"color: #ffff8a\">Hesperus Chariot</span><br/>- Makes <span style=\"color: #ffff8a\">SCV</span> buildable<span style=\"color: #ffff8a\">Starport</span>",
+          "zhCN": "<span style=\"color: #ffff8a\">生产建筑</span><br/>尤摩扬战车生产设施。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">墨诺提俄斯武装机器人</span><br/>- <span style=\"color: #ffff8a\">赫斯珀洛斯战车</span><br/>- 使<span style=\"color: #ffff8a\">SCV</span>可以建造<span style=\"color: #ffff8a\">星港</span>"
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ArmoryU",
+            "Requirements": "HaveFactory"
+          },
+          "Unit": "ArmoryU",
+          "Time": 70
+        },
+        "Unit": "ArmoryU",
+        "Time": 70,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build14",
+        "id": "ArmoryU",
+        "Icon": "btn-building-terran-armory",
+        "Name": {
+          "enUS": "Build <span style=\"color: #ffff8a\">Armory</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">军械库</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Opens the Umoyan advanced mechanical unit. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/> - Can be crafted in the <span style=\"color: #ffff8a\">Heavy Factory</span><c val= \"#ColorAttackInfo\">Atlas</span>",
+          "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>开启尤摩扬高级机械单位。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 可以在<span style=\"color: #ffff8a\">重工厂</span>中制造<span style=\"color: #ffff8a\">阿特拉斯</span>"
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "StarportU",
+            "Requirements": "HaveFactory"
+          },
+          "Unit": "StarportU",
+          "Time": 40
+        },
+        "Unit": "StarportU",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build12",
+        "id": "StarportU",
+        "Icon": "btn-building-terran-starport",
+        "Name": {
+          "enUS": "Construction of <span style=\"color: #ffff8a\">Starport</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">星港</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Production Building</span><br/> Umoyan air unit production facility. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">Ares Fighter</span><br/>- < c val=\"#ColorAttackInfo\">Apollo Fighter</span><br/>- <span style=\"color: #ffff8a\">Demeter Carrier</span>",
+          "zhCN": "<span style=\"color: #ffff8a\">生产建筑</span><br/>尤摩扬空中单位生产设施。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">阿瑞斯战机</span><br/>- <span style=\"color: #ffff8a\">阿波罗战机</span><br/>- <span style=\"color: #ffff8a\">德墨忒尔运载艇</span>"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "FusionCoreU",
+            "Requirements": "HaveStarport"
+          },
+          "Unit": "FusionCoreU",
+          "Time": 120
+        },
+        "Unit": "FusionCoreU",
+        "Time": 120,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "TerranBuildU,Build16",
+        "id": "FusionCoreU",
+        "Icon": "btn-building-terran-fusioncore",
+        "Name": {
+          "enUS": "Build <span style=\"color: #ffff8a\">Fusion Core</span>",
+          "zhCN": "建造<span style=\"color: #ffff8a\">聚变芯体</span>"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Open Umoyan's main battleship. <br/><br/><span style=\"color: ffff8a\">Open:</span><br/>- Can be crafted in <span style=\"color: #ffff8a\">Starport</span><c val= \"#ColorAttackInfo\">Poseidon-class battlecruiser</span>",
+          "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>开启尤摩扬主力战舰。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 可以在<span style=\"color: #ffff8a\">星港</span>中制造<span style=\"color: #ffff8a\">波塞冬级战列巡航舰</span>"
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "CargoSize": 1,
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 6,
+  "TacticalAIThink": "AIThinkSCV",
+  "GlossaryCategory": "Unit/Category/TerranUnits",
+  "GlossaryPriority": 10,
+  "HotkeyCategory": "Unit/Category/TerranUnits",
+  "id": "SCVU",
+  "Icon": "btn-unit-terran-scv-umojan",
+  "Model": "SCV_Umojan",
+  "LifeArmorIcon": "btn-upgrade-terran-infantryarmorlevel3",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Terran",
+      "Options": {
+        "Melee": 1
+      },
+      "Icon": "btn-upgrade-terran-infantryweaponslevel3",
+      "TargetFilters": "Ground",
+      "Range": 0.2,
+      "Period": 1.5,
+      "AllowedMovement": "Slowing",
+      "id": "FusionCutterU",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Plasma Melting Gun",
+        "zhCN": "等离子熔枪"
+      },
+      "Amount": 15,
+      "Kind": "Melee"
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "RepairU",
+      "Name": {
+        "enUS": "Repair",
+        "zhCN": "修理"
+      }
+    },
+    {
+      "id": "SCVHarvest",
+      "Name": {
+        "enUS": "Gather (SCV)",
+        "ruRU": "Gather (SCV)"
+      }
+    },
+    {
+      "id": "TerranBuildU",
+      "Name": {
+        "enUS": "Construction(SCV)",
+        "zhCN": "建造(SCV)"
+      }
+    },
+    {
+      "id": "TerranBuildDropU",
+      "Name": {
+        "enUS": "Airdrop",
+        "zhCN": "空投"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "CommandCenterTrainU",
+    "SCVU",
+    "CommandCenterTransportSCVU",
+    "TerU",
+    "SCVU"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "CommandCenterU",
+    "RefineryU",
+    "SupplyDepotU",
+    "BarracksU",
+    "EngineeringBayU",
+    "BunkerU",
+    "MissileTurretU",
+    "PerditionTurretU",
+    "SensorTowerU",
+    "GhostAcademyU",
+    "FactoryU",
+    "ArmoryU",
+    "StarportU",
+    "FusionCoreU"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "CommandCenterU",
+    "OrbitalCommandU",
+    "PlanetaryFortressU"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackWorker",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "RepairU,Execute",
+      "id": "Repair",
+      "Icon": "btn-ability-terran-repair",
+      "Name": {
+        "enUS": "Repair",
+        "ruRU": "Ремонтировать "
+      },
+      "Tooltip": {
+        "enUS": "Restores life to mechanical units and structures at the cost of resources.",
+        "ruRU": "Приказать отремонтировать механическую боевую единицу или строение, затратив некоторое количество ресурсов. "
+      }
+    },
+    {
+      "AbilCmd": "SCVHarvest,Gather",
+      "id": "GatherTerr",
+      "Icon": "btn-ability-terran-gather",
+      "Name": {
+        "enUS": "Gather",
+        "ruRU": "Добывать "
+      },
+      "Tooltip": {
+        "enUS": "Orders SCV to gather resources from a selected Mineral Field or Vespene Geyser.",
+        "ruRU": "Приказывает КСМ добывать ресурсы на месторождении минералов или из веспенового гейзера."
+      }
+    },
+    {
+      "AbilCmd": "SCVHarvest,Return",
+      "id": "ReturnCargo",
+      "Icon": "btn-command-returncargo",
+      "Name": {
+        "enUS": "Return Cargo",
+        "ruRU": "Выгрузить ресурсы "
+      },
+      "Tooltip": {
+        "enUS": "Returns the carried resources to the nearest drop-off point.",
+        "ruRU": "Приказать выгрузить ресурсы в ближайший приемный пункт. "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": {
+        "enUS": "Halts construction of this structure. The partial construction will remain.",
+        "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build1",
+      "id": "CommandCenterU",
+      "Icon": "btn-building-terran-commandcenter",
+      "Name": {
+        "enUS": "Build <span style=\"color: #ffff8a\">Command Center</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">指挥中心</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Main building</span><br/> is used to receive collected resources. Can take off. <br/>Can be upgraded to <span style=\"color: #ffff8a\">Orbital Dispatch Center</span> or <span style=\"color: #ffff8a\">Planetary Fortress</span>. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">SCV</span>",
+        "zhCN": "<span style=\"color: #ffff8a\">主要建筑</span><br/>用于接收采集到的资源。可以升空。<br/>可以升级成为<span style=\"color: #ffff8a\">轨道调度中心</span>或<span style=\"color: #ffff8a\">行星要塞</span>。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">SCV</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build3",
+      "id": "RefineryU",
+      "Icon": "btn-building-terran-refinery",
+      "Name": {
+        "enUS": "Build <span style=\"color: #ffff8a\">Refinery</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">精炼厂</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Basic building</span><br/> is built on a gas spring and is used to collect high-energy gas.",
+        "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>建造在瓦斯气泉上，用于采集高能瓦斯。"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build2",
+      "id": "SupplyDepotU",
+      "Icon": "btn-building-terran-supplydepot",
+      "Name": {
+        "enUS": "Build <span style=\"color: #ffff8a\">Supply Depot</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">补给站</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Basic buildings</span><br/> provide supplies. <br/>Having supplies is a prerequisite for producing more units. <br/>The supply depot can be lowered, allowing ground units to enter and exit and become invisible.",
+        "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>提供补给。<br/>拥有补给是生产更多单位的前提。<br/>补给站可以降下，允许地面单位出入并隐形。"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build4",
+      "id": "BarracksU",
+      "Icon": "btn-building-terran-barracks",
+      "Name": {
+        "enUS": "Build <span style=\"color: #ffff8a\">Barracks</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">兵营</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Production Building</span><br/> Trains Umoyan infantry units. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">National Defense Army</span><br/>- <span style=\"color: #ffff8a\">Harvest Troops</span><br/> - Allows the <span style=\"color: #ffff8a\">Command Center</span> to be upgraded to <span style=\"color: #ffff8a\">Track Dispatch Center</span>",
+        "zhCN": "<span style=\"color: #ffff8a\">生产建筑</span><br/>训练尤摩扬步兵单位。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">护国军</span><br/>- <span style=\"color: #ffff8a\">收割部队</span><br/>- 使<span style=\"color: #ffff8a\">指挥中心</span>可以升级为<span style=\"color: #ffff8a\">轨道调度中心</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build5",
+      "id": "EngineeringBayU",
+      "Icon": "btn-building-terran-engineeringbay",
+      "Name": {
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Engineering Bay</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">工程湾</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Open Umoyan defense building. Upgradeable to <span style=\"color: #ffff8a\">Mechanical Control Station</span><br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- enable <c val =\"#ColorAttackInfo\">SCV</span> can build <span style=\"color: #ffff8a\">heavy anti-aircraft tower</span><br/> - using <span style=\"color: #ffff8a\">SCV</span> can build <span style=\"color: #ffff8a\">Detection Tower</span><br/> - to enable <span style=\"color: #ffff8a\">Command Center</span> Can be upgraded to <span style=\"color: #ffff8a\">Planetary Fortress</span>",
+        "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>开启尤摩扬防御建筑。可升级为<span style=\"color: #ffff8a\">机械控制站</span><br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 使<span style=\"color: #ffff8a\">SCV</span>可以建造<span style=\"color: #ffff8a\">重型防空塔</span><br/>- 使<span style=\"color: #ffff8a\">SCV</span>可以建造<span style=\"color: #ffff8a\">侦测塔</span><br/>- 使<span style=\"color: #ffff8a\">指挥中心</span>可升级为<span style=\"color: #ffff8a\">行星要塞</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build7",
+      "id": "BunkerU",
+      "Icon": "btn-building-terran-bunker",
+      "Name": {
+        "enUS": "Build <span style=\"color: #ffff8a\">Bunker</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">碉堡</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Defensive Buildings</span><br/>Umoyan basic fortifications. <br/>Infantry units can enter the <span style=\"color: #ffff8a\">Bunker</span> to attack. <br/><br/><span style=\"color: #ffff8a\">The loaded unit's range is increased by 2 and its damage is increased by 30%. </span>",
+        "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>尤摩扬基础防御工事。<br/>步兵单位可进入<span style=\"color: #ffff8a\">碉堡</span>内攻击。<br/><br/><span style=\"color: #ffff8a\">装载单位射程增加2、伤害增加30%。</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build6",
+      "id": "MissileTurretU",
+      "Icon": "btn-building-terran-missileturrettitaniumhousing",
+      "Name": {
+        "enUS": "Build <span style=\"color: #ffff8a\">Heavy Anti-Aircraft Tower</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">重型防空塔</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/>Umoyan's main air defense building. <br/><br/><span style=\"color: #ffff8a\">Can be empty. </span>",
+        "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>尤摩扬主要防空建筑。<br/><br/><span style=\"color: #ffff8a\">可以对空。</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build17",
+      "id": "PerditionTurretU",
+      "Icon": "btn-unit-terran-perditionturret",
+      "Name": {
+        "enUS": "Build <span style=\"color: #ffff8a\">Fire Turret</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">炽焰炮塔</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/>Automated defense turret, burrowing when there are no enemies nearby. <br/><br/><span style=\"color: #ffff8a\">Can target the ground. </span>",
+        "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>自动化防御炮塔，当附近无敌人时潜地。<br/><br/><span style=\"color: #ffff8a\">可以对地。</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build9",
+      "id": "SensorTowerU",
+      "Icon": "btn-building-terran-sensordome",
+      "Name": {
+        "enUS": "Build <span style=\"color: #ffff8a\">Detection Tower</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">侦测塔</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/> Provides a wide range of aerial vision. Orbital resolution scanning skills can be used. Sensor arrays can be installed. <br/><span style=\"color: FFE303\">Detection unit</span>",
+        "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>提供大范围内的空中视野。可以使用轨道析像扫描技能。可以安装传感器阵列。<br/><span style=\"color: FFE303\">侦测单位</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build10",
+      "id": "GhostAcademyU",
+      "Icon": "btn-building-terran-ghostacademy",
+      "Name": {
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Strategic Homeland Defense Attack and Logistics Support Agency</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">国土战略防御攻击与后勤保障局</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Opens Umoyan Advanced Infantry. Able to create fusion missiles for use by the <span style=\"color: #ffff8a\">Shadow Guardian</span>. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- Can train in <span style=\"color: #ffff8a\">Barracks</span><c val=\" #ColorAttackInfo\">Shadow Guardian</span>",
+        "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>开启尤摩扬高级步兵。能够制造供<span style=\"color: #ffff8a\">影子卫士</span>使用的聚变导弹。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 可以在<span style=\"color: #ffff8a\">兵营</span>中训练<span style=\"color: #ffff8a\">影子卫士</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build11",
+      "id": "FactoryU",
+      "Icon": "btn-building-terran-factory",
+      "Name": {
+        "enUS": "Build <span style=\"color: #ffff8a\">Heavy Factory</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">重工厂</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Production Building</span><br/>Umoyan tank production facility. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">Menoetius Armed Robot</span><n/ >- <span style=\"color: #ffff8a\">Hesperus Chariot</span><br/>- Makes <span style=\"color: #ffff8a\">SCV</span> buildable<span style=\"color: #ffff8a\">Starport</span>",
+        "zhCN": "<span style=\"color: #ffff8a\">生产建筑</span><br/>尤摩扬战车生产设施。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">墨诺提俄斯武装机器人</span><br/>- <span style=\"color: #ffff8a\">赫斯珀洛斯战车</span><br/>- 使<span style=\"color: #ffff8a\">SCV</span>可以建造<span style=\"color: #ffff8a\">星港</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build14",
+      "id": "ArmoryU",
+      "Icon": "btn-building-terran-armory",
+      "Name": {
+        "enUS": "Build <span style=\"color: #ffff8a\">Armory</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">军械库</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Opens the Umoyan advanced mechanical unit. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/> - Can be crafted in the <span style=\"color: #ffff8a\">Heavy Factory</span><c val= \"#ColorAttackInfo\">Atlas</span>",
+        "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>开启尤摩扬高级机械单位。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 可以在<span style=\"color: #ffff8a\">重工厂</span>中制造<span style=\"color: #ffff8a\">阿特拉斯</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build12",
+      "id": "StarportU",
+      "Icon": "btn-building-terran-starport",
+      "Name": {
+        "enUS": "Construction of <span style=\"color: #ffff8a\">Starport</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">星港</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Production Building</span><br/> Umoyan air unit production facility. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- <span style=\"color: #ffff8a\">Ares Fighter</span><br/>- < c val=\"#ColorAttackInfo\">Apollo Fighter</span><br/>- <span style=\"color: #ffff8a\">Demeter Carrier</span>",
+        "zhCN": "<span style=\"color: #ffff8a\">生产建筑</span><br/>尤摩扬空中单位生产设施。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <span style=\"color: #ffff8a\">阿瑞斯战机</span><br/>- <span style=\"color: #ffff8a\">阿波罗战机</span><br/>- <span style=\"color: #ffff8a\">德墨忒尔运载艇</span>"
+      }
+    },
+    {
+      "AbilCmd": "TerranBuildU,Build16",
+      "id": "FusionCoreU",
+      "Icon": "btn-building-terran-fusioncore",
+      "Name": {
+        "enUS": "Build <span style=\"color: #ffff8a\">Fusion Core</span>",
+        "zhCN": "建造<span style=\"color: #ffff8a\">聚变芯体</span>"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: #ffff8a\">Technology Building</span><br/>Open Umoyan's main battleship. <br/><br/><span style=\"color: ffff8a\">Open:</span><br/>- Can be crafted in <span style=\"color: #ffff8a\">Starport</span><c val= \"#ColorAttackInfo\">Poseidon-class battlecruiser</span>",
+        "zhCN": "<span style=\"color: #ffff8a\">科技建筑</span><br/>开启尤摩扬主力战舰。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- 可以在<span style=\"color: #ffff8a\">星港</span>中制造<span style=\"color: #ffff8a\">波塞冬级战列巡航舰</span>"
+      }
+    }
+  ]
+}

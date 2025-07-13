@@ -1,0 +1,1041 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Vulture",
+    "zhCN": "Vulture",
+    "koKR": "Vulture"
+  },
+  "Description": {
+    "enUS": "Fast skirmish unit. Can be upgraded to deploy <span class=\"style-TooltipHighlightSCBW\">Spider Mines</span>. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground units.</span>",
+    "zhCN": "Fast skirmish unit. Can be upgraded to deploy <span class=\"style-TooltipHighlightSCBW\">Spider Mines</span>. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground units.</span>",
+    "koKR": "Fast skirmish unit. Can be upgraded to deploy <span class=\"style-TooltipHighlightSCBW\">Spider Mines</span>. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground units.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "BWTe",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 80,
+  "LifeMax": 80,
+  "LifeArmorName": {
+    "enUS": "Terran Vehicle Plating",
+    "ruRU": "Обшивка наземной техники терранов "
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 1999.6875,
+  "TurningRate": 1999.6875,
+  "Radius": 0.625,
+  "SeparationRadius": 0.625,
+  "MinimapRadius": 0.625,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "PreventDestroy",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "VultureSCBW",
+  "HotkeyAlias": "VultureSCBW",
+  "SelectAlias": "VultureSCBW",
+  "SubgroupAlias": "VultureSCBW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "VultureSCBW",
+  "AIEvaluateAlias": "VultureSCBW",
+  "ReviveType": "VultureSCBW",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "VultureSCBW/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "VultureSCBW/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "EnergyRegenRate": 0.5,
+  "id": "VultureSCBW",
+  "GlossaryCategory": "Unit/Category/TerranUnitsSCBW",
+  "HotkeyCategory": "Unit/Category/TerranUnitsSCBW",
+  "CostCategory": "Army",
+  "Attributes": [
+    "Mechanical",
+    "Hover"
+  ],
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Small"
+  ],
+  "Speed": 3.75,
+  "Acceleration": 9.25,
+  "LateralAcceleration": 69.125,
+  "Sight": 10,
+  "Food": -2,
+  "CostResource": {
+    "Minerals": 75
+  },
+  "BuildTime": 27,
+  "RepairTime": 25,
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "VulturePlaceSpiderMineSCBW",
+    "VulturePlaceSpiderMineSCBW@PH"
+  ],
+  "BehaviorArray": [
+    "VultureSCBWWeapon@StrafingDisableIfNoMove",
+    "VulturePlaceSpiderMineSCBW@NoMines"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "VultureSCBWWeapon@StrafingWeapon"
+    },
+    {
+      "Link": "VultureSCBWWeapon"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/VulturePlaceSpiderMineSCBW@PH",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "VulturePlaceSpiderMineSCBW",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 0,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0
+          },
+          "Effect": [
+            "VulturePlaceSpiderMineSCBW@PHRandomPoint"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "VulturePlaceSpiderMineSCBW@PH",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "VulturePlaceSpiderMineSCBW",
+              "Requirements": "VulturePlaceSpiderMineSCBW"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Charge": {
+                "CountMax": 3,
+                "CountStart": 3,
+                "Link": "Abil/VulturePlaceSpiderMineSCBW",
+                "Location": "Unit"
+              },
+              "Cooldown": {
+                "TimeUse": 0.0625
+              }
+            }
+          ],
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "Marker": {
+            "Link": "Abil/VulturePlaceSpiderMineSCBW"
+          },
+          "id": "VulturePlaceSpiderMineSCBW@PH"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "VulturePlaceSpiderMineSCBW@PH,Execute",
+        "id": "VulturePlaceSpiderMineSCBW",
+        "Icon": "btn-unit-terran-spiderminescbw",
+        "Name": {
+          "enUS": "Deploy Spider Mine",
+          "zhCN": "Deploy Spider Mine",
+          "koKR": "Deploy Spider Mine"
+        },
+        "Tooltip": {
+          "enUS": "<span class=\"style-TooltipHighlightSCBW\"><b>Spider Mine</b>s</span> pursue enemy units that come in range, and detonate for heavy area damage. Buried <span class=\"style-TooltipHighlightSCBW\"><b>Spider Mine</b>s</span> can only be seen by enemy <span class=\"style-TooltipHighlightSCBW\">Detectors</span>.",
+          "zhCN": "<span class=\"style-TooltipHighlightSCBW\"><b>Spider Mine</b>s</span> pursue enemy units that come in range, and detonate for heavy area damage. Buried <span class=\"style-TooltipHighlightSCBW\"><b>Spider Mine</b>s</span> can only be seen by enemy <span class=\"style-TooltipHighlightSCBW\">Detectors</span>.",
+          "koKR": "<span class=\"style-TooltipHighlightSCBW\"><b>Spider Mine</b>s</span> pursue enemy units that come in range, and detonate for heavy area damage. Buried <span class=\"style-TooltipHighlightSCBW\"><b>Spider Mine</b>s</span> can only be seen by enemy <span class=\"style-TooltipHighlightSCBW\">Detectors</span>."
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "VultureSCBWSpeedUpgrade@Passive",
+        "Icon": "btn-ability-terran-emergencythrusters",
+        "Name": {
+          "enUS": "Ion Thrusters",
+          "zhCN": "Ion Thrusters",
+          "koKR": "Ion Thrusters"
+        },
+        "Tooltip": {
+          "enUS": "Increases <span class=\"style-TooltipHighlightSCBW\"><b>Vulture</b></span> movement speed by <span class=\"style-TooltipBuffSCBW\"><b>50</b>%</span>.",
+          "zhCN": "Increases <span class=\"style-TooltipHighlightSCBW\"><b>Vulture</b></span> movement speed by <span class=\"style-TooltipBuffSCBW\"><b>50</b>%</span>.",
+          "koKR": "Increases <span class=\"style-TooltipHighlightSCBW\"><b>Vulture</b></span> movement speed by <span class=\"style-TooltipBuffSCBW\"><b>50</b>%</span>."
+        }
+      }
+    ]
+  },
+  "CargoSize": 2,
+  "ScoreMake": 75,
+  "ScoreKill": 75,
+  "SubgroupPriority": 66,
+  "TacticalAIThink": "AIThinkVultureSCBW",
+  "GlossaryPriority": 90,
+  "GlossaryStrongArray": [
+    "MarineSCBW",
+    "ZerglingSCBW",
+    "ZealotSCBW"
+  ],
+  "GlossaryWeakArray": [
+    "SiegeTankSCBWSieged",
+    "MutaliskSCBW",
+    "DragoonSCBW"
+  ],
+  "ScoreResult": "BuildOrder",
+  "Deceleration": 15,
+  "InnerRadius": 0.5,
+  "Icon": "btn-unit-terran-vulture@scbw",
+  "LifeArmorIcon": "btn-upgrade-terran-vehicleplatinglevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Terran",
+      "Tip": "Weapon/Tip/ConcussiveWeapon",
+      "Options": {
+        "Hidden": 1,
+        "NeverMiss": 0
+      },
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel0",
+      "DisplayEffect": "VultureSCBWWeapon@DamageConc",
+      "TargetFilters": "Ground",
+      "ArcSlop": 0,
+      "Cost": {
+        "Cooldown": {
+          "Link": "Weapon/VultureSCBWWeapon"
+        }
+      },
+      "Period": 1.9,
+      "DamagePoint": 0,
+      "Backswing": 0,
+      "Effect": "VultureSCBWWeapon@StrafingSet",
+      "MinScanRange": 5.5,
+      "RangeSlop": 0,
+      "LoiterInnerRadius": 5,
+      "LoiterRadius": 5,
+      "id": "VultureSCBWWeapon@StrafingWeapon",
+      "class": "CWeaponStrafe",
+      "Name": {
+        "enUS": "Strafing Weapon",
+        "zhCN": "Strafing Weapon",
+        "koKR": "Strafing Weapon"
+      },
+      "Amount": 10,
+      "Kind": "Ranged",
+      "Range": 5
+    },
+    {
+      "EditorCategories": "Race:Terran",
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel0",
+      "DisplayEffect": "VultureSCBWWeapon@DamageConc",
+      "TargetFilters": "Ground",
+      "Period": 1.9,
+      "Backswing": 0,
+      "Effect": "VultureSCBWWeapon@Set",
+      "DamagePoint": 0,
+      "Options": {
+        "NeverMiss": 0
+      },
+      "Tip": "Weapon/Tip/ConcussiveWeapon",
+      "LegacyOptions": {
+        "NoDeceleration": 1
+      },
+      "RandomDelayMax": 0.0625,
+      "MinScanRange": 5.5,
+      "AllowedMovement": "Slowing",
+      "id": "VultureSCBWWeapon",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Fragmentation Grenade",
+        "zhCN": "Fragmentation Grenade",
+        "koKR": "Fragmentation Grenade"
+      },
+      "Amount": 10,
+      "Kind": "Ranged",
+      "Range": 5
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "VultureSCBWWeapon@StrafingDisableIfNoMove",
+      "Name": {
+        "enUS": "Strafing Disable If NoMove",
+        "zhCN": "Strafing Disable If NoMove",
+        "koKR": "Strafing Disable If NoMove"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "VulturePlaceSpiderMineSCBW@NoMines",
+      "Name": {
+        "enUS": "No Mines",
+        "zhCN": "No Mines",
+        "koKR": "No Mines"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "VulturePlaceSpiderMineSCBW",
+      "Name": {
+        "enUS": "Place Spider Mine",
+        "zhCN": "Place Spider Mine",
+        "koKR": "Place Spider Mine"
+      }
+    },
+    {
+      "id": "VulturePlaceSpiderMineSCBW@PH",
+      "Name": {
+        "enUS": "Placeholder",
+        "zhCN": "Placeholder",
+        "koKR": "Placeholder"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "Button/Tooltip/FactorySCBW",
+    "VultureSCBW",
+    "VulturePlaceSpiderMineSCBWResearch",
+    "Button/Tooltip/VultureSCBWSpeedUpgrade",
+    "VultureSCBWSpeedUpgrade",
+    "VultureSCBW@AllowUnit",
+    "FactorySCBW@Train",
+    "Button/Tooltip/VulturePlaceSpiderMineSCBWResearch",
+    "FactorySCBW",
+    "VultureSCBW",
+    "IsVultureSCBW",
+    "NotVultureSCBW",
+    "CasterIsVultureSCBW",
+    "VultureSCBW",
+    null,
+    null,
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "SpiderMineSCBW"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "AbilTrainHolderSCBW",
+    "FactorySCBW"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "VulturePlaceSpiderMineSCBW@PH,Execute",
+      "id": "VulturePlaceSpiderMineSCBW",
+      "Icon": "btn-unit-terran-spiderminescbw",
+      "Name": {
+        "enUS": "Deploy Spider Mine",
+        "zhCN": "Deploy Spider Mine",
+        "koKR": "Deploy Spider Mine"
+      },
+      "Tooltip": {
+        "enUS": "<span class=\"style-TooltipHighlightSCBW\"><b>Spider Mine</b>s</span> pursue enemy units that come in range, and detonate for heavy area damage. Buried <span class=\"style-TooltipHighlightSCBW\"><b>Spider Mine</b>s</span> can only be seen by enemy <span class=\"style-TooltipHighlightSCBW\">Detectors</span>.",
+        "zhCN": "<span class=\"style-TooltipHighlightSCBW\"><b>Spider Mine</b>s</span> pursue enemy units that come in range, and detonate for heavy area damage. Buried <span class=\"style-TooltipHighlightSCBW\"><b>Spider Mine</b>s</span> can only be seen by enemy <span class=\"style-TooltipHighlightSCBW\">Detectors</span>.",
+        "koKR": "<span class=\"style-TooltipHighlightSCBW\"><b>Spider Mine</b>s</span> pursue enemy units that come in range, and detonate for heavy area damage. Buried <span class=\"style-TooltipHighlightSCBW\"><b>Spider Mine</b>s</span> can only be seen by enemy <span class=\"style-TooltipHighlightSCBW\">Detectors</span>."
+      }
+    }
+  ]
+}

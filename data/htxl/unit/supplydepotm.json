@@ -1,0 +1,505 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "军团补给站",
+    "enUS": "Legion Supply Depot"
+  },
+  "Description": {
+    "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>提供补给。<br/>拥有补给是生产更多单位的前提。<br/>军团补给站可以降下，允许地面单位出入。",
+    "enUS": "<span style=\"color: #ffff8a\">Basic buildings</span><br/> provide supplies. <br/>Having supplies is a prerequisite for producing more units. <br/>The Legion Supply Depot can be lowered, allowing ground units to enter and exit."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Moebius",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 400,
+  "LifeMax": 400,
+  "LifeArmorName": {
+    "zhCN": "莫比斯堡垒护板",
+    "enUS": "Moebius Fortress Shield"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.25,
+  "SeparationRadius": 1.25,
+  "MinimapRadius": 1.25,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SupplyDepotM",
+  "HotkeyAlias": "SupplyDepotM",
+  "SelectAlias": "SupplyDepotM",
+  "SubgroupAlias": "SupplyDepotM",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SupplyDepot",
+  "AIEvaluateAlias": "SupplyDepot",
+  "ReviveType": "SupplyDepotM",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "SupplyDepotM/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "SupplyDepotM/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 315,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 3,
+  "ShieldArmor": 3,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": {
+    "zhCN": "莫比斯等离子护盾",
+    "enUS": "Moebius Plasma Shield"
+  },
+  "Sight": 9,
+  "Food": 8,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 100
+  },
+  "RepairTime": 30,
+  "AttackTargetPriority": 11,
+  "AbilArray": [
+    "MoebiusBuildInProgressM",
+    "SupplyDepotLowerM"
+  ],
+  "BehaviorArray": [
+    "MoebiusPowerSourceM",
+    "FireSuppressionSystemM",
+    "TerranBuildingBurnDown",
+    "MoebiusBuildingWarpInMarkM"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/MoebiusBuildInProgressM",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "MoebiusBuildInProgressM",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt"
+            }
+          },
+          "MaxBuilders": 10,
+          "PowerBuildBonusRate": 0.6,
+          "id": "MoebiusBuildInProgressM"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "MoebiusBuildInProgressM,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": {
+          "enUS": "Halts construction of this structure. The partial construction will remain.",
+          "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/MoebiusBuildInProgressM",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "MoebiusBuildInProgressM",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt"
+            }
+          },
+          "MaxBuilders": 10,
+          "PowerBuildBonusRate": 0.6,
+          "id": "MoebiusBuildInProgressM"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "MoebiusBuildInProgressM,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "EffectArray": {
+                "Start": "SupplyDepotMorphingApplyBehaviorM"
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 0.55
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.55
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Duration": 0.55
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 0.55
+              }
+            }
+          },
+          "Unit": "SupplyDepotMLowered",
+          "CollideRange": 0
+        },
+        "Unit": "SupplyDepotMLowered",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SupplyDepotLowerM,Execute",
+        "id": "SupplyDepotLowerM",
+        "Icon": "btn-building-hornerhan-supplydepotburrowedm",
+        "Name": {
+          "zhCN": "降下",
+          "enUS": "Descent"
+        },
+        "Tooltip": {
+          "zhCN": "降下建筑，允许地面单位出入。",
+          "enUS": "Lowers the building to allow access for ground units."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "SelectBuilder",
+        "id": "SelectBuilder",
+        "Icon": "btn-upgrade-terran-weaponrefit",
+        "Name": {
+          "enUS": "Select Builder",
+          "ruRU": "Выбрать строителя "
+        },
+        "Tooltip": {
+          "enUS": "Selects the unit constructing this structure.",
+          "ruRU": "Выбрать рабочего, который сооружает это строение. "
+        },
+        "Hotkey": "Q"
+      }
+    ]
+  },
+  "Footprint": "Footprint2x2Contour",
+  "PlacementFootprint": "Footprint2x2",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 3,
+  "TechAliasArray": [
+    "Alias_SupplyDepot"
+  ],
+  "GlossaryPriority": 248,
+  "HotkeyCategory": "Unit/Category/MoebiusUnits",
+  "id": "SupplyDepotM",
+  "Icon": "btn-building-terran-supplydepot-covertopsm",
+  "LifeArmorIcon": "btn-upgrade-mbsjzhj",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0m",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "MoebiusPowerSourceM",
+      "Icon": "btn-building-protoss-pylon",
+      "Name": {
+        "zhCN": "莫比斯能量源",
+        "enUS": "Moebius Power Source"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "FireSuppressionSystemM",
+      "Icon": "btn-upgrade-swann-firesuppressionsystem",
+      "Name": {
+        "zhCN": "消防系统",
+        "enUS": "Fire protection system"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "TerranBuildingBurnDown",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Building Burnout",
+        "ruRU": "Building Burnout"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "MoebiusBuildingWarpInMarkM",
+      "Icon": "btn-building-terran-commandcenter-covertopsm",
+      "Name": {
+        "zhCN": "莫比斯建筑折跃标记",
+        "enUS": "Moebius architectural jump mark"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "MoebiusBuildInProgressM",
+      "Name": {
+        "zhCN": "正在进行的建造",
+        "enUS": "Construction in progress"
+      }
+    },
+    {
+      "id": "SupplyDepotLowerM",
+      "Name": {
+        "zhCN": "降下",
+        "enUS": "Descent"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "TerranBuildM",
+    "SupplyDepotM",
+    "SupplyDepotMLowered",
+    "SupplyDepotRaiseM",
+    "DropToSupplyDepotM",
+    "IsSupplyDepotEitherFlavorM",
+    "SupplyDropModelM",
+    "TerranBuildingLiftOffMS",
+    "SupplyDepotMLowered",
+    "SupplyDepotM",
+    "SupplyDepotSplatM"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [
+    "SupplyDepotMLowered"
+  ],
+  "$Producers": [
+    "SCVM"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "MoebiusBuildInProgressM,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": {
+        "enUS": "Halts construction of this structure. The partial construction will remain.",
+        "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+      }
+    },
+    {
+      "AbilCmd": "MoebiusBuildInProgressM,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "SupplyDepotLowerM,Execute",
+      "id": "SupplyDepotLowerM",
+      "Icon": "btn-building-hornerhan-supplydepotburrowedm",
+      "Name": {
+        "zhCN": "降下",
+        "enUS": "Descent"
+      },
+      "Tooltip": {
+        "zhCN": "降下建筑，允许地面单位出入。",
+        "enUS": "Lowers the building to allow access for ground units."
+      }
+    }
+  ]
+}

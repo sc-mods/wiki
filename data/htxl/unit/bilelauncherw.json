@@ -1,0 +1,607 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "胆汁喷射体",
+    "enUS": "Bile Squirt"
+  },
+  "Description": {
+    "zhCN": "<span style=\"color: #ffff8a\">防御建筑</span><br/>远距离攻击防御建筑。能够喷射胆汁轰炸目标区域，伤害区域内的地面和空中单位。",
+    "enUS": "<span style=\"color: #ffff8a\">Defense Building</span><br/>Attack defensive buildings from a distance. Able to spray bile to bombard the target area, damaging ground and air units in the area."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZerW",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 750,
+  "LifeMax": 750,
+  "LifeArmorName": {
+    "zhCN": "利维坦建筑甲壳",
+    "enUS": "Leviathan Architecture Carapace"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.5,
+  "SeparationRadius": 1.5,
+  "MinimapRadius": 1.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 0.65,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "AIThreatAir",
+    "AIDefense",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "BileLauncherW",
+  "HotkeyAlias": "BileLauncherW",
+  "SelectAlias": "BileLauncherW",
+  "SubgroupAlias": "BileLauncherW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "BileLauncherW",
+  "AIEvaluateAlias": "BileLauncherW",
+  "ReviveType": "BileLauncherW",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "BileLauncherW/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "BileLauncherW/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 135,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Biological",
+    "Structure"
+  ],
+  "LifeArmor": 6,
+  "LifeRegenRate": 1,
+  "ShieldArmor": 8,
+  "ShieldRegenDelay": 20,
+  "ShieldRegenRate": 1,
+  "ShieldRegenRateCreep": 2,
+  "ShieldArmorName": {
+    "zhCN": "装甲外壳",
+    "enUS": "Armored Shell"
+  },
+  "Sight": 12,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 200,
+    "Vespene": 175
+  },
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "BuildInProgress",
+    "stop",
+    "BileLauncherAttackW"
+  ],
+  "BehaviorArray": [
+    "BileLauncherWBHV",
+    "OnCreep",
+    "ZergBuildingNotOnCreep",
+    "UnderConstruction",
+    "ZergBuildingDies4W"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "BileLauncherBombardmentW",
+      "Turret": "BileLauncherW"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/BileLauncherAttackW",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BileLauncherAttackW",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1,
+                "IgnoreUser": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "BileLauncherAttackW"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "BileLauncherAttackW,Barrage",
+        "id": "BileLauncherBombardmentW",
+        "Icon": "btn-upgrade-zagara-bilebombardmentw",
+        "Name": {
+          "zhCN": "轰炸",
+          "enUS": "Bombing"
+        },
+        "Tooltip": {
+          "zhCN": "持续轰炸目标区域，不断地对敌方地面和空中单位造成<span style=\"color: #ffff8a\"><b>75</b>点</span>法术伤害。",
+          "enUS": "Continuously bombards the target area, continuously causing <span style=\"color: #ffff8a\"><b>75</b>points</span> spell damage to enemy ground and air units."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "ArtilleryDuctsPassiveW",
+        "Icon": "btn-upgrade-zagara-increasebilelauncherrangew",
+        "Name": {
+          "zhCN": "炮击导管",
+          "enUS": "Bombardment Conduit"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">胆汁喷射体</span>的轰炸射程提高<span style=\"color: #ffff8a\">30</span>。",
+          "enUS": "<span style=\"color: #ffff8a\">Bile Spitter</span>'s bombardment range increased by <span style=\"color: #ffff8a\">30</span>."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "RapidBombardmentPassiveW",
+        "Icon": "btn-upgrade-zerg-demolitionw",
+        "Name": {
+          "zhCN": "快速轰炸",
+          "enUS": "Rapid Bombing"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">胆汁喷射体</span>的攻击速度提升<span style=\"color: #ffff8a\">40%</span>。",
+          "enUS": "<span style=\"color: #ffff8a\">Bile Spitter</span>'s attack speed is increased by <span style=\"color: #ffff8a\">40%</span>."
+        }
+      }
+    ]
+  },
+  "Footprint": "Footprint3x3CreepContour",
+  "PlacementFootprint": "Footprint3x3Creep",
+  "ScoreMake": 200,
+  "ScoreKill": 250,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 62,
+  "GlossaryPriority": 30,
+  "HotkeyCategory": "Unit/Category/WebbyZergUnits",
+  "id": "BileLauncherW",
+  "Icon": "btn-building-zerg-sporecannonw",
+  "LifeArmorIcon": "btn-upgrade-zerg-ancillaryarmorw",
+  "ShieldArmorIcon": "btn-upgrade-lwthd",
+  "Weapons": [
+    {
+      "Turret": "BileLauncherW",
+      "EditorCategories": "Race:Zerg",
+      "Options": {
+        "DisplayCooldown": 1
+      },
+      "Icon": "btn-upgrade-zagara-bilebombardmentw",
+      "DisplayEffect": "BileLauncherBombardmentDamageW",
+      "TargetFilters": "-",
+      "AcquireFilters": "-;Ally,Neutral,Enemy",
+      "AcquireScanFilters": "-;Ally,Neutral,Enemy",
+      "MinScanRange": 0,
+      "Range": 25,
+      "Period": 8,
+      "PreswingBetweenAttacks": 1.5,
+      "Backswing": 0,
+      "Effect": "BileLauncherBombardmentLMW",
+      "id": "BileLauncherBombardmentW",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "zhCN": "胆汁炸弹",
+        "enUS": "Bile Bomb"
+      },
+      "Amount": 75,
+      "AttributeBonus": {
+        "Structure": 25
+      },
+      "Kind": "Spell"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "BileLauncherWBHV",
+      "Icon": "btn-building-zerg-sporecannonw",
+      "Name": {
+        "zhCN": "胆汁喷射体行为",
+        "enUS": "Bile Ejector Behavior"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "OnCreep",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "On Creep",
+        "ruRU": "On Creep"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZergBuildingNotOnCreep",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Building Not On Creep",
+        "ruRU": "Building Not On Creep"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "UnderConstruction",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Under Construction",
+        "ruRU": "Under Construction"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZergBuildingDies4W",
+      "Icon": "btn-ability-kerrigan-broodlingnest",
+      "Name": {
+        "zhCN": "死亡生成巢虫",
+        "enUS": "Death Spawn Brood"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "BileLauncherAttackW",
+      "Name": {
+        "zhCN": "攻击",
+        "enUS": "Attack"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "ZergBuildW",
+    "BileLauncherW",
+    "BileLauncherW"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "BroodlingW"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "DroneW"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "BileLauncherAttackW,Barrage",
+      "id": "BileLauncherBombardmentW",
+      "Icon": "btn-upgrade-zagara-bilebombardmentw",
+      "Name": {
+        "zhCN": "轰炸",
+        "enUS": "Bombing"
+      },
+      "Tooltip": {
+        "zhCN": "持续轰炸目标区域，不断地对敌方地面和空中单位造成<span style=\"color: #ffff8a\"><b>75</b>点</span>法术伤害。",
+        "enUS": "Continuously bombards the target area, continuously causing <span style=\"color: #ffff8a\"><b>75</b>points</span> spell damage to enemy ground and air units."
+      }
+    }
+  ]
+}

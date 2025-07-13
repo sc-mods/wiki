@@ -1,0 +1,2059 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Probe",
+    "zhCN": "Probe",
+    "koKR": "Probe"
+  },
+  "Description": {
+    "enUS": "Basic worker unit. Can gather resources and warp in Protoss structures.<br/><br/><span style=\"color: ffff8a\">Can attack ground units.</span>",
+    "zhCN": "Basic worker unit. Can gather resources and warp in Protoss structures.<br/><br/><span style=\"color: ffff8a\">Can attack ground units.</span>",
+    "koKR": "Basic worker unit. Can gather resources and warp in Protoss structures.<br/><br/><span style=\"color: ffff8a\">Can attack ground units.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "BWPr",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 20,
+  "LifeMax": 20,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "Worker",
+    "PreventDestroy"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ProbeSCBW",
+  "HotkeyAlias": "ProbeSCBW",
+  "SelectAlias": "ProbeSCBW",
+  "SubgroupAlias": "ProbeSCBW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ProbeSCBW",
+  "AIEvaluateAlias": "ProbeSCBW",
+  "ReviveType": "ProbeSCBW",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ProbeSCBW/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ProbeSCBW/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "EnergyRegenRate": 0.5,
+  "id": "ProbeSCBW",
+  "ShieldArmorName": "-",
+  "GlossaryCategory": "Unit/Category/ProtossUnitsSCBW",
+  "HotkeyCategory": "Unit/Category/ProtossUnitsSCBW",
+  "ShieldRegenRate": 0.711,
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Light",
+    "Mechanical",
+    "Robotic",
+    "Hover"
+  ],
+  "ShieldsStart": 20,
+  "ShieldsMax": 20,
+  "Speed": 2.8125,
+  "Acceleration": 2.9375,
+  "LateralAcceleration": 46,
+  "Sight": 8,
+  "Food": -1,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 50
+  },
+  "BuildTime": 17,
+  "AttackTargetPriority": 20,
+  "AIOverideTargetPriority": 10,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "ProbeSCBW@Build",
+    "ProbeSCBW@BuildAdv",
+    "ProbeSCBW@Harvest",
+    "SprayProtoss",
+    "WorkerStopIdleAbilityVespene"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "ProbeSCBWWeapon"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": "-",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": "-",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Move Hold Position",
+          "ruRU": "Двигаться, удерживая позицию "
+        },
+        "Tooltip": "-",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackWorker",
+        "Icon": "btn-command-attack",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Move Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": "-",
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/ProbeSCBW@Harvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ProbeSCBW@Harvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "ProbeSCBW@Harvest"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "ProbeSCBW@ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "TechAliasArray": "_Gather",
+          "CancelableArray": {
+            "ApproachResource": 1,
+            "WaitAtResource": 1
+          },
+          "id": "ProbeSCBW@Harvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@Harvest,Gather",
+        "id": "ProbeSCBW@Harvest",
+        "Icon": "btn-ability-protoss-gather",
+        "Name": {
+          "enUS": "Gather",
+          "zhCN": "Gather",
+          "koKR": "Gather"
+        },
+        "Tooltip": {
+          "enUS": "Orders Probe to gather resources from a selected Mineral Field or Vespene Geyser.",
+          "zhCN": "Orders Probe to gather resources from a selected Mineral Field or Vespene Geyser.",
+          "koKR": "Orders Probe to gather resources from a selected Mineral Field or Vespene Geyser."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/ProbeSCBW@Harvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ProbeSCBW@Harvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "ProbeSCBW@Harvest"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "ProbeSCBW@ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "TechAliasArray": "_Gather",
+          "CancelableArray": {
+            "ApproachResource": 1,
+            "WaitAtResource": 1
+          },
+          "id": "ProbeSCBW@Harvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@Harvest,Return",
+        "id": "ProbeSCBW@ReturnCargo",
+        "Icon": "btn-command-returncargo",
+        "Name": {
+          "enUS": "Return Cargo",
+          "zhCN": "Return Cargo",
+          "koKR": "Return Cargo"
+        },
+        "Tooltip": {
+          "enUS": "Returns the carried resources to the nearest drop-off point.",
+          "zhCN": "Returns the carried resources to the nearest drop-off point.",
+          "koKR": "Returns the carried resources to the nearest drop-off point."
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "Bld1",
+        "id": "ProbeSCBW@Build",
+        "Icon": "btn-command-protoss-buildstructure",
+        "Name": {
+          "enUS": "Warp In Structure",
+          "zhCN": "Warp In Structure",
+          "koKR": "Warp In Structure"
+        },
+        "Tooltip": {
+          "enUS": "A list of basic structures.",
+          "zhCN": "A list of basic structures.",
+          "koKR": "A list of basic structures."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "Bld2",
+        "id": "ProbeSCBW@BuildAdv",
+        "Icon": "btn-command-protoss-buildadvancedstructure",
+        "Name": {
+          "enUS": "Warp In Advanced Structure",
+          "zhCN": "Warp In Advanced Structure",
+          "koKR": "Warp In Advanced Structure"
+        },
+        "Tooltip": {
+          "enUS": "A list of advanced structures.",
+          "zhCN": "A list of advanced structures.",
+          "koKR": "A list of advanced structures."
+        },
+        "Hotkey": "V"
+      }
+    ],
+    "Bld1": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "NexusSCBW",
+            "Requirements": "NexusSCBW"
+          },
+          "Unit": "NexusSCBW"
+        },
+        "Unit": "NexusSCBW",
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 15
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@Build,Build1",
+        "id": "NexusSCBW",
+        "Icon": "btn-building-protoss-nexus@scbw",
+        "Name": {
+          "enUS": "Warp In Nexus",
+          "zhCN": "Warp In Nexus",
+          "koKR": "Warp In Nexus"
+        },
+        "Tooltip": {
+          "enUS": "Primary structure. Can receive gathered resources.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Probe</b>s",
+          "zhCN": "Primary structure. Can receive gathered resources.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Probe</b>s",
+          "koKR": "Primary structure. Can receive gathered resources.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Probe</b>s"
+        },
+        "Hotkey": "N"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "PylonSCBW",
+            "Requirements": "PylonSCBW"
+          },
+          "Unit": "PylonSCBW"
+        },
+        "Unit": "PylonSCBW",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@Build,Build2",
+        "id": "PylonSCBW",
+        "Icon": "btn-building-protoss-pylon@scbw",
+        "Name": {
+          "enUS": "Warp In Pylon",
+          "zhCN": "Warp In Pylon",
+          "koKR": "Warp In Pylon"
+        },
+        "Tooltip": {
+          "enUS": "Provides supply.<br/>Supply allows you to warp in more units.<br/>Creates power for nearby structures.",
+          "zhCN": "Provides supply.<br/>Supply allows you to warp in more units.<br/>Creates power for nearby structures.",
+          "koKR": "Provides supply.<br/>Supply allows you to warp in more units.<br/>Creates power for nearby structures."
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "AssimilatorSCBW",
+            "Requirements": "AssimilatorSCBW"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "AssimilatorSCBW"
+        },
+        "Unit": "AssimilatorSCBW",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@Build,Build3",
+        "id": "AssimilatorSCBW",
+        "Icon": "btn-building-protoss-assimilator@scbw",
+        "Name": {
+          "enUS": "Warp In Assimilator",
+          "zhCN": "Warp In Assimilator",
+          "koKR": "Warp In Assimilator"
+        },
+        "Tooltip": {
+          "enUS": "Warped in over a <span class=\"style-TooltipHighlightSCBW\"><b>undefined</b></span> to allow harvesting of vespene gas.",
+          "zhCN": "Warped in over a <span class=\"style-TooltipHighlightSCBW\"><b>undefined</b></span> to allow harvesting of vespene gas.",
+          "koKR": "Warped in over a <span class=\"style-TooltipHighlightSCBW\"><b>undefined</b></span> to allow harvesting of vespene gas."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "GatewaySCBW",
+            "Requirements": "GatewaySCBW"
+          },
+          "Unit": "GatewaySCBW"
+        },
+        "Unit": "GatewaySCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@Build,Build4",
+        "id": "GatewaySCBW",
+        "Icon": "btn-building-protoss-gateway",
+        "Name": {
+          "enUS": "Warp In Gateway",
+          "zhCN": "Warp In Gateway",
+          "koKR": "Warp In Gateway"
+        },
+        "Tooltip": {
+          "enUS": "Warps in Protoss ground units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Zealot</b>",
+          "zhCN": "Warps in Protoss ground units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Zealot</b>",
+          "koKR": "Warps in Protoss ground units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Zealot</b>"
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "ForgeSCBW",
+            "Requirements": "ForgeSCBW"
+          },
+          "Unit": "ForgeSCBW"
+        },
+        "Unit": "ForgeSCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@Build,Build5",
+        "id": "ForgeSCBW",
+        "Icon": "btn-building-protoss-forge",
+        "Name": {
+          "enUS": "Warp In Forge",
+          "zhCN": "Warp In Forge",
+          "koKR": "Warp In Forge"
+        },
+        "Tooltip": {
+          "enUS": "Contains weapon and armor upgrades for Protoss ground units and shield upgrades for all Protoss units and structures.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Photon Cannon</b>s from <b>Probe</b>s",
+          "zhCN": "Contains weapon and armor upgrades for Protoss ground units and shield upgrades for all Protoss units and structures.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Photon Cannon</b>s from <b>Probe</b>s",
+          "koKR": "Contains weapon and armor upgrades for Protoss ground units and shield upgrades for all Protoss units and structures.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Photon Cannon</b>s from <b>Probe</b>s"
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "ShieldBatterySCBW",
+            "Requirements": "ShieldBatterySCBW"
+          },
+          "Unit": "ShieldBatterySCBW"
+        },
+        "Unit": "ShieldBatterySCBW",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@Build,Build6",
+        "id": "ShieldBatterySCBW",
+        "Icon": "btn-building-protoss-shieldbattery@scbw",
+        "Name": {
+          "enUS": "Warp in Shield Battery",
+          "zhCN": "Warp in Shield Battery",
+          "koKR": "Warp in Shield Battery"
+        },
+        "Tooltip": {
+          "enUS": "May be able to restore the shields of nearby units. Restore multiple units at once by issuing a move order on the <span class=\"style-TooltipHighlightSCBW\"><b>Shield Battery</b></span>.",
+          "zhCN": "May be able to restore the shields of nearby units. Restore multiple units at once by issuing a move order on the <span class=\"style-TooltipHighlightSCBW\"><b>Shield Battery</b></span>.",
+          "koKR": "May be able to restore the shields of nearby units. Restore multiple units at once by issuing a move order on the <span class=\"style-TooltipHighlightSCBW\"><b>Shield Battery</b></span>."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "CyberneticsCoreSCBW",
+            "Requirements": "CyberneticsCoreSCBW"
+          },
+          "Unit": "CyberneticsCoreSCBW"
+        },
+        "Unit": "CyberneticsCoreSCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@Build,Build7",
+        "id": "CyberneticsCoreSCBW",
+        "Icon": "btn-building-protoss-cyberneticscore",
+        "Name": {
+          "enUS": "Warp In Cybernetics Core",
+          "zhCN": "Warp In Cybernetics Core",
+          "koKR": "Warp In Cybernetics Core"
+        },
+        "Tooltip": {
+          "enUS": "Contains weapon and armor upgrades for Protoss air units and the <span class=\"style-TooltipHighlightSCBW\"><b>Dragoon</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Dragoon</b>s at the <b>Gateway</b>",
+          "zhCN": "Contains weapon and armor upgrades for Protoss air units and the <span class=\"style-TooltipHighlightSCBW\"><b>Dragoon</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Dragoon</b>s at the <b>Gateway</b>",
+          "koKR": "Contains weapon and armor upgrades for Protoss air units and the <span class=\"style-TooltipHighlightSCBW\"><b>Dragoon</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Dragoon</b>s at the <b>Gateway</b>"
+        },
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "PhotonCannonSCBW",
+            "Requirements": "PhotonCannonSCBW"
+          },
+          "Unit": "PhotonCannonSCBW"
+        },
+        "Unit": "PhotonCannonSCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@Build,Build8",
+        "id": "PhotonCannonSCBW",
+        "Icon": "btn-building-protoss-photoncannon@scbw",
+        "Name": {
+          "enUS": "Warp In Photon Cannon",
+          "zhCN": "Warp In Photon Cannon",
+          "koKR": "Warp In Photon Cannon"
+        },
+        "Tooltip": {
+          "enUS": "Primary defensive structure.<br/><br/><span style=\"color: ffff8a\">Can attack ground and air units.</span><br/><span style=\"color: FFE303\">Detector</span>",
+          "zhCN": "Primary defensive structure.<br/><br/><span style=\"color: ffff8a\">Can attack ground and air units.</span><br/><span style=\"color: FFE303\">Detector</span>",
+          "koKR": "Primary defensive structure.<br/><br/><span style=\"color: ffff8a\">Can attack ground and air units.</span><br/><span style=\"color: FFE303\">Detector</span>"
+        },
+        "Hotkey": "C"
+      }
+    ],
+    "Bld2": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "RoboticsFacilitySCBW",
+            "Requirements": "RoboticsFacilitySCBW"
+          },
+          "Unit": "RoboticsFacilitySCBW"
+        },
+        "Unit": "RoboticsFacilitySCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@BuildAdv,Build9",
+        "id": "RoboticsFacilitySCBW",
+        "Icon": "btn-building-protoss-roboticsfacility",
+        "Name": {
+          "enUS": "Warp In Robotics Facility",
+          "zhCN": "Warp In Robotics Facility",
+          "koKR": "Warp In Robotics Facility"
+        },
+        "Tooltip": {
+          "enUS": "Warps in Protoss robotic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Shuttle</b>s",
+          "zhCN": "Warps in Protoss robotic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Shuttle</b>s",
+          "koKR": "Warps in Protoss robotic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Shuttle</b>s"
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "StargateSCBW",
+            "Requirements": "StargateSCBW"
+          },
+          "Unit": "StargateSCBW"
+        },
+        "Unit": "StargateSCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@BuildAdv,Build10",
+        "id": "StargateSCBW",
+        "Icon": "btn-building-protoss-stargate",
+        "Name": {
+          "enUS": "Warp In Stargate",
+          "zhCN": "Warp In Stargate",
+          "koKR": "Warp In Stargate"
+        },
+        "Tooltip": {
+          "enUS": "Warps in Protoss air units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Scout</b><br/>- <b>Corsair</b>",
+          "zhCN": "Warps in Protoss air units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Scout</b><br/>- <b>Corsair</b>",
+          "koKR": "Warps in Protoss air units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Scout</b><br/>- <b>Corsair</b>"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "TemplarArchiveSCBW",
+            "Requirements": "TemplarArchiveSCBW"
+          },
+          "Unit": "TemplarArchiveSCBW"
+        },
+        "Unit": "TemplarArchiveSCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@BuildAdv,Build11",
+        "id": "TemplarArchiveSCBW",
+        "Icon": "btn-building-protoss-templararchives",
+        "Name": {
+          "enUS": "Warp In Templar Archives",
+          "zhCN": "Warp In Templar Archives",
+          "koKR": "Warp In Templar Archives"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for Protoss psionic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>High Templar</b>s at the <b>Gateway</b><br/>- <b>Dark Templar</b>s at the <b>Gateway</b>",
+          "zhCN": "Contains upgrades for Protoss psionic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>High Templar</b>s at the <b>Gateway</b><br/>- <b>Dark Templar</b>s at the <b>Gateway</b>",
+          "koKR": "Contains upgrades for Protoss psionic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>High Templar</b>s at the <b>Gateway</b><br/>- <b>Dark Templar</b>s at the <b>Gateway</b>"
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "CitadelOfAdunSCBW",
+            "Requirements": "CitadelOfAdunSCBW"
+          },
+          "Unit": "CitadelOfAdunSCBW"
+        },
+        "Unit": "CitadelOfAdunSCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@BuildAdv,Build12",
+        "id": "CitadelOfAdunSCBW",
+        "Icon": "btn-building-protoss-citadelofadun@scbw",
+        "Name": {
+          "enUS": "Warp In Citadel of Adun",
+          "zhCN": "Warp In Citadel of Adun",
+          "koKR": "Warp In Citadel of Adun"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Zealot</b>s</span>.",
+          "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Zealot</b>s</span>.",
+          "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Zealot</b>s</span>."
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "RoboticsBaySCBW",
+            "Requirements": "RoboticsBaySCBW"
+          },
+          "Unit": "RoboticsBaySCBW"
+        },
+        "Unit": "RoboticsBaySCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@BuildAdv,Build13",
+        "id": "RoboticsBaySCBW",
+        "Icon": "btn-building-protoss-roboticssupportbay",
+        "Name": {
+          "enUS": "Warp In Robotics Bay",
+          "zhCN": "Warp In Robotics Bay",
+          "koKR": "Warp In Robotics Bay"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for Protoss robotic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Reaver</b>s at the <b>Robotics Facility</b>",
+          "zhCN": "Contains upgrades for Protoss robotic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Reaver</b>s at the <b>Robotics Facility</b>",
+          "koKR": "Contains upgrades for Protoss robotic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Reaver</b>s at the <b>Robotics Facility</b>"
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "ObservatorySCBW",
+            "Requirements": "ObservatorySCBW"
+          },
+          "Unit": "ObservatorySCBW"
+        },
+        "Unit": "ObservatorySCBW",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@BuildAdv,Build14",
+        "id": "ObservatorySCBW",
+        "Icon": "btn-building-protoss-observatory@scbw",
+        "Name": {
+          "enUS": "Warp In Observatory",
+          "zhCN": "Warp In Observatory",
+          "koKR": "Warp In Observatory"
+        },
+        "Tooltip": {
+          "enUS": "<span class=\"style-TooltipHighlightSCBW\"><b>Observer</b></span> tech structure.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Observer</b>s at the <b>Robotics Facility</b>",
+          "zhCN": "<span class=\"style-TooltipHighlightSCBW\"><b>Observer</b></span> tech structure.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Observer</b>s at the <b>Robotics Facility</b>",
+          "koKR": "<span class=\"style-TooltipHighlightSCBW\"><b>Observer</b></span> tech structure.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Observer</b>s at the <b>Robotics Facility</b>"
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "FleetBeaconSCBW",
+            "Requirements": "FleetBeaconSCBW"
+          },
+          "Unit": "FleetBeaconSCBW"
+        },
+        "Unit": "FleetBeaconSCBW",
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@BuildAdv,Build15",
+        "id": "FleetBeaconSCBW",
+        "Icon": "btn-building-protoss-fleetbeacon",
+        "Name": {
+          "enUS": "Warp In Fleet Beacon",
+          "zhCN": "Warp In Fleet Beacon",
+          "koKR": "Warp In Fleet Beacon"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for Protoss Air units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Carrier</b>s at the <b>Stargate</b>",
+          "zhCN": "Contains upgrades for Protoss Air units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Carrier</b>s at the <b>Stargate</b>",
+          "koKR": "Contains upgrades for Protoss Air units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Carrier</b>s at the <b>Stargate</b>"
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "ArbiterTribunalSCBW",
+            "Requirements": "ArbiterTribunalSCBW"
+          },
+          "Unit": "ArbiterTribunalSCBW"
+        },
+        "Unit": "ArbiterTribunalSCBW",
+        "Cost": {
+          "Minerals": 250,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ProbeSCBW@BuildAdv,Build16",
+        "id": "ArbiterTribunalSCBW",
+        "Icon": "btn-building-protoss-arbitertribunal@scbw",
+        "Name": {
+          "enUS": "Warp In Arbiter Tribunal",
+          "zhCN": "Warp In Arbiter Tribunal",
+          "koKR": "Warp In Arbiter Tribunal"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Arbiter</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Arbiter</b>s at the <b>Stargate</b>",
+          "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Arbiter</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Arbiter</b>s at the <b>Stargate</b>",
+          "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Arbiter</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Arbiter</b>s at the <b>Stargate</b>"
+        },
+        "Hotkey": "A"
+      }
+    ]
+  },
+  "InnerRadius": 0.3125,
+  "CargoSize": 1,
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 33,
+  "GlossaryPriority": 10,
+  "RepairTime": 12,
+  "Icon": "btn-unit-protoss-probe@scbw",
+  "LifeArmorIcon": "btn-upgrade-protoss-groundarmorlevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Protoss",
+      "Options": {
+        "Melee": 1
+      },
+      "Icon": "btn-upgrade-protoss-groundweaponslevel0",
+      "DisplayEffect": "ProbeSCBWWeapon@Damage",
+      "TargetFilters": "Ground",
+      "Range": 0.5,
+      "Period": 1.5,
+      "Effect": "ProbeSCBWWeapon@Damage",
+      "LegacyOptions": {
+        "NoDeceleration": 1
+      },
+      "AllowedMovement": "Slowing",
+      "id": "ProbeSCBWWeapon",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Particle Beam",
+        "zhCN": "Particle Beam",
+        "koKR": "Particle Beam"
+      },
+      "Amount": 5,
+      "Kind": "Melee"
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "ProbeSCBW@Build",
+      "Name": {
+        "enUS": "Build",
+        "zhCN": "Build",
+        "koKR": "Build"
+      }
+    },
+    {
+      "id": "ProbeSCBW@BuildAdv",
+      "Name": {
+        "enUS": "Build",
+        "zhCN": "Build",
+        "koKR": "Build"
+      }
+    },
+    {
+      "id": "ProbeSCBW@Harvest",
+      "Name": {
+        "enUS": "Gather",
+        "zhCN": "Gather",
+        "koKR": "Gather"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "Button/Tooltip/NexusSCBW",
+    "ProbeSCBW",
+    "Button/Tooltip/ShieldBatterySCBW@Passive",
+    "Button/Tooltip/ForgeSCBW",
+    "Button/Tooltip/PhotonCannonSCBW@Passive",
+    "ProbeSCBW@AllowUnit",
+    "NexusSCBW@Train",
+    "NexusSCBW",
+    "BWPr",
+    "ProbeSCBW",
+    "IsProbeSCBW",
+    "NotProbeSCBW",
+    "CasterIsProbeSCBW",
+    "ProbeSCBW@Count",
+    "ProbeSCBW@QoB",
+    "ProbeSCBW@QoBAtUnit",
+    "ProbeSCBW",
+    null,
+    null,
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "NexusSCBW",
+    "PylonSCBW",
+    "AssimilatorSCBW",
+    "GatewaySCBW",
+    "ForgeSCBW",
+    "ShieldBatterySCBW",
+    "CyberneticsCoreSCBW",
+    "PhotonCannonSCBW",
+    "RoboticsFacilitySCBW",
+    "StargateSCBW",
+    "TemplarArchiveSCBW",
+    "CitadelOfAdunSCBW",
+    "RoboticsBaySCBW",
+    "ObservatorySCBW",
+    "FleetBeaconSCBW",
+    "ArbiterTribunalSCBW"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "AbilTrainHolderSCBW",
+    "NexusSCBW"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Move Hold Position",
+        "ruRU": "Двигаться, удерживая позицию "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackWorker",
+      "Icon": "btn-command-attack",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Move Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "ProbeSCBW@Harvest,Gather",
+      "id": "ProbeSCBW@Harvest",
+      "Icon": "btn-ability-protoss-gather",
+      "Name": {
+        "enUS": "Gather",
+        "zhCN": "Gather",
+        "koKR": "Gather"
+      },
+      "Tooltip": {
+        "enUS": "Orders Probe to gather resources from a selected Mineral Field or Vespene Geyser.",
+        "zhCN": "Orders Probe to gather resources from a selected Mineral Field or Vespene Geyser.",
+        "koKR": "Orders Probe to gather resources from a selected Mineral Field or Vespene Geyser."
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@Harvest,Return",
+      "id": "ProbeSCBW@ReturnCargo",
+      "Icon": "btn-command-returncargo",
+      "Name": {
+        "enUS": "Return Cargo",
+        "zhCN": "Return Cargo",
+        "koKR": "Return Cargo"
+      },
+      "Tooltip": {
+        "enUS": "Returns the carried resources to the nearest drop-off point.",
+        "zhCN": "Returns the carried resources to the nearest drop-off point.",
+        "koKR": "Returns the carried resources to the nearest drop-off point."
+      }
+    },
+    {
+      "AbilCmd": "SprayProtoss,Execute",
+      "id": "Spray",
+      "Icon": "btn-command-spray",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "ProbeSCBW@Build,Build1",
+      "id": "NexusSCBW",
+      "Icon": "btn-building-protoss-nexus@scbw",
+      "Name": {
+        "enUS": "Warp In Nexus",
+        "zhCN": "Warp In Nexus",
+        "koKR": "Warp In Nexus"
+      },
+      "Tooltip": {
+        "enUS": "Primary structure. Can receive gathered resources.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Probe</b>s",
+        "zhCN": "Primary structure. Can receive gathered resources.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Probe</b>s",
+        "koKR": "Primary structure. Can receive gathered resources.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Probe</b>s"
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@Build,Build2",
+      "id": "PylonSCBW",
+      "Icon": "btn-building-protoss-pylon@scbw",
+      "Name": {
+        "enUS": "Warp In Pylon",
+        "zhCN": "Warp In Pylon",
+        "koKR": "Warp In Pylon"
+      },
+      "Tooltip": {
+        "enUS": "Provides supply.<br/>Supply allows you to warp in more units.<br/>Creates power for nearby structures.",
+        "zhCN": "Provides supply.<br/>Supply allows you to warp in more units.<br/>Creates power for nearby structures.",
+        "koKR": "Provides supply.<br/>Supply allows you to warp in more units.<br/>Creates power for nearby structures."
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@Build,Build3",
+      "id": "AssimilatorSCBW",
+      "Icon": "btn-building-protoss-assimilator@scbw",
+      "Name": {
+        "enUS": "Warp In Assimilator",
+        "zhCN": "Warp In Assimilator",
+        "koKR": "Warp In Assimilator"
+      },
+      "Tooltip": {
+        "enUS": "Warped in over a <span class=\"style-TooltipHighlightSCBW\"><b>undefined</b></span> to allow harvesting of vespene gas.",
+        "zhCN": "Warped in over a <span class=\"style-TooltipHighlightSCBW\"><b>undefined</b></span> to allow harvesting of vespene gas.",
+        "koKR": "Warped in over a <span class=\"style-TooltipHighlightSCBW\"><b>undefined</b></span> to allow harvesting of vespene gas."
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@Build,Build4",
+      "id": "GatewaySCBW",
+      "Icon": "btn-building-protoss-gateway",
+      "Name": {
+        "enUS": "Warp In Gateway",
+        "zhCN": "Warp In Gateway",
+        "koKR": "Warp In Gateway"
+      },
+      "Tooltip": {
+        "enUS": "Warps in Protoss ground units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Zealot</b>",
+        "zhCN": "Warps in Protoss ground units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Zealot</b>",
+        "koKR": "Warps in Protoss ground units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Zealot</b>"
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@Build,Build5",
+      "id": "ForgeSCBW",
+      "Icon": "btn-building-protoss-forge",
+      "Name": {
+        "enUS": "Warp In Forge",
+        "zhCN": "Warp In Forge",
+        "koKR": "Warp In Forge"
+      },
+      "Tooltip": {
+        "enUS": "Contains weapon and armor upgrades for Protoss ground units and shield upgrades for all Protoss units and structures.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Photon Cannon</b>s from <b>Probe</b>s",
+        "zhCN": "Contains weapon and armor upgrades for Protoss ground units and shield upgrades for all Protoss units and structures.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Photon Cannon</b>s from <b>Probe</b>s",
+        "koKR": "Contains weapon and armor upgrades for Protoss ground units and shield upgrades for all Protoss units and structures.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Photon Cannon</b>s from <b>Probe</b>s"
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@Build,Build6",
+      "id": "ShieldBatterySCBW",
+      "Icon": "btn-building-protoss-shieldbattery@scbw",
+      "Name": {
+        "enUS": "Warp in Shield Battery",
+        "zhCN": "Warp in Shield Battery",
+        "koKR": "Warp in Shield Battery"
+      },
+      "Tooltip": {
+        "enUS": "May be able to restore the shields of nearby units. Restore multiple units at once by issuing a move order on the <span class=\"style-TooltipHighlightSCBW\"><b>Shield Battery</b></span>.",
+        "zhCN": "May be able to restore the shields of nearby units. Restore multiple units at once by issuing a move order on the <span class=\"style-TooltipHighlightSCBW\"><b>Shield Battery</b></span>.",
+        "koKR": "May be able to restore the shields of nearby units. Restore multiple units at once by issuing a move order on the <span class=\"style-TooltipHighlightSCBW\"><b>Shield Battery</b></span>."
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@Build,Build7",
+      "id": "CyberneticsCoreSCBW",
+      "Icon": "btn-building-protoss-cyberneticscore",
+      "Name": {
+        "enUS": "Warp In Cybernetics Core",
+        "zhCN": "Warp In Cybernetics Core",
+        "koKR": "Warp In Cybernetics Core"
+      },
+      "Tooltip": {
+        "enUS": "Contains weapon and armor upgrades for Protoss air units and the <span class=\"style-TooltipHighlightSCBW\"><b>Dragoon</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Dragoon</b>s at the <b>Gateway</b>",
+        "zhCN": "Contains weapon and armor upgrades for Protoss air units and the <span class=\"style-TooltipHighlightSCBW\"><b>Dragoon</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Dragoon</b>s at the <b>Gateway</b>",
+        "koKR": "Contains weapon and armor upgrades for Protoss air units and the <span class=\"style-TooltipHighlightSCBW\"><b>Dragoon</b></span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Dragoon</b>s at the <b>Gateway</b>"
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@Build,Build8",
+      "id": "PhotonCannonSCBW",
+      "Icon": "btn-building-protoss-photoncannon@scbw",
+      "Name": {
+        "enUS": "Warp In Photon Cannon",
+        "zhCN": "Warp In Photon Cannon",
+        "koKR": "Warp In Photon Cannon"
+      },
+      "Tooltip": {
+        "enUS": "Primary defensive structure.<br/><br/><span style=\"color: ffff8a\">Can attack ground and air units.</span><br/><span style=\"color: FFE303\">Detector</span>",
+        "zhCN": "Primary defensive structure.<br/><br/><span style=\"color: ffff8a\">Can attack ground and air units.</span><br/><span style=\"color: FFE303\">Detector</span>",
+        "koKR": "Primary defensive structure.<br/><br/><span style=\"color: ffff8a\">Can attack ground and air units.</span><br/><span style=\"color: FFE303\">Detector</span>"
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@BuildAdv,Build9",
+      "id": "RoboticsFacilitySCBW",
+      "Icon": "btn-building-protoss-roboticsfacility",
+      "Name": {
+        "enUS": "Warp In Robotics Facility",
+        "zhCN": "Warp In Robotics Facility",
+        "koKR": "Warp In Robotics Facility"
+      },
+      "Tooltip": {
+        "enUS": "Warps in Protoss robotic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Shuttle</b>s",
+        "zhCN": "Warps in Protoss robotic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Shuttle</b>s",
+        "koKR": "Warps in Protoss robotic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Shuttle</b>s"
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@BuildAdv,Build10",
+      "id": "StargateSCBW",
+      "Icon": "btn-building-protoss-stargate",
+      "Name": {
+        "enUS": "Warp In Stargate",
+        "zhCN": "Warp In Stargate",
+        "koKR": "Warp In Stargate"
+      },
+      "Tooltip": {
+        "enUS": "Warps in Protoss air units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Scout</b><br/>- <b>Corsair</b>",
+        "zhCN": "Warps in Protoss air units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Scout</b><br/>- <b>Corsair</b>",
+        "koKR": "Warps in Protoss air units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Scout</b><br/>- <b>Corsair</b>"
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@BuildAdv,Build11",
+      "id": "TemplarArchiveSCBW",
+      "Icon": "btn-building-protoss-templararchives",
+      "Name": {
+        "enUS": "Warp In Templar Archives",
+        "zhCN": "Warp In Templar Archives",
+        "koKR": "Warp In Templar Archives"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for Protoss psionic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>High Templar</b>s at the <b>Gateway</b><br/>- <b>Dark Templar</b>s at the <b>Gateway</b>",
+        "zhCN": "Contains upgrades for Protoss psionic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>High Templar</b>s at the <b>Gateway</b><br/>- <b>Dark Templar</b>s at the <b>Gateway</b>",
+        "koKR": "Contains upgrades for Protoss psionic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>High Templar</b>s at the <b>Gateway</b><br/>- <b>Dark Templar</b>s at the <b>Gateway</b>"
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@BuildAdv,Build12",
+      "id": "CitadelOfAdunSCBW",
+      "Icon": "btn-building-protoss-citadelofadun@scbw",
+      "Name": {
+        "enUS": "Warp In Citadel of Adun",
+        "zhCN": "Warp In Citadel of Adun",
+        "koKR": "Warp In Citadel of Adun"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Zealot</b>s</span>.",
+        "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Zealot</b>s</span>.",
+        "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Zealot</b>s</span>."
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@BuildAdv,Build13",
+      "id": "RoboticsBaySCBW",
+      "Icon": "btn-building-protoss-roboticssupportbay",
+      "Name": {
+        "enUS": "Warp In Robotics Bay",
+        "zhCN": "Warp In Robotics Bay",
+        "koKR": "Warp In Robotics Bay"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for Protoss robotic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Reaver</b>s at the <b>Robotics Facility</b>",
+        "zhCN": "Contains upgrades for Protoss robotic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Reaver</b>s at the <b>Robotics Facility</b>",
+        "koKR": "Contains upgrades for Protoss robotic units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Reaver</b>s at the <b>Robotics Facility</b>"
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@BuildAdv,Build14",
+      "id": "ObservatorySCBW",
+      "Icon": "btn-building-protoss-observatory@scbw",
+      "Name": {
+        "enUS": "Warp In Observatory",
+        "zhCN": "Warp In Observatory",
+        "koKR": "Warp In Observatory"
+      },
+      "Tooltip": {
+        "enUS": "<span class=\"style-TooltipHighlightSCBW\"><b>Observer</b></span> tech structure.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Observer</b>s at the <b>Robotics Facility</b>",
+        "zhCN": "<span class=\"style-TooltipHighlightSCBW\"><b>Observer</b></span> tech structure.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Observer</b>s at the <b>Robotics Facility</b>",
+        "koKR": "<span class=\"style-TooltipHighlightSCBW\"><b>Observer</b></span> tech structure.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Observer</b>s at the <b>Robotics Facility</b>"
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@BuildAdv,Build15",
+      "id": "FleetBeaconSCBW",
+      "Icon": "btn-building-protoss-fleetbeacon",
+      "Name": {
+        "enUS": "Warp In Fleet Beacon",
+        "zhCN": "Warp In Fleet Beacon",
+        "koKR": "Warp In Fleet Beacon"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for Protoss Air units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Carrier</b>s at the <b>Stargate</b>",
+        "zhCN": "Contains upgrades for Protoss Air units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Carrier</b>s at the <b>Stargate</b>",
+        "koKR": "Contains upgrades for Protoss Air units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Carrier</b>s at the <b>Stargate</b>"
+      }
+    },
+    {
+      "AbilCmd": "ProbeSCBW@BuildAdv,Build16",
+      "id": "ArbiterTribunalSCBW",
+      "Icon": "btn-building-protoss-arbitertribunal@scbw",
+      "Name": {
+        "enUS": "Warp In Arbiter Tribunal",
+        "zhCN": "Warp In Arbiter Tribunal",
+        "koKR": "Warp In Arbiter Tribunal"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Arbiter</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Arbiter</b>s at the <b>Stargate</b>",
+        "zhCN": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Arbiter</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Arbiter</b>s at the <b>Stargate</b>",
+        "koKR": "Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Arbiter</b>s</span>.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Arbiter</b>s at the <b>Stargate</b>"
+      }
+    }
+  ]
+}

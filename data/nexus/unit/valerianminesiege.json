@@ -1,0 +1,488 @@
+{
+  "Name": "Sentinel",
+  "Description": "Large intelligent robot from Umojan Tech, a war defense expansion model of the Widow Mine, acts as a defense drone in various important military facilities. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 7,
+  "DeathRevealDuration": 3,
+  "DeathRevealType": "Snapshot",
+  "Race": "Valerian",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 200,
+  "LifeMax": 200,
+  "LifeArmorName": "Terran Vehicle Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 2292.8906,
+  "TurningRate": 720,
+  "Radius": 0.625,
+  "SeparationRadius": 0.6,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Coop",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "AlwaysThreatens",
+    "AIThreatGround",
+    "AIThreatAir",
+    "AISplash",
+    "ArmorDisabledWhileConstructing",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ValerianMineMotor",
+  "HotkeyAlias": "ValerianMineMotor",
+  "SelectAlias": "ValerianMineMotor",
+  "SubgroupAlias": "ValerianMineMotor",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ValerianMineSiege",
+  "AIEvaluateAlias": "ValerianMineSiege",
+  "ReviveType": "ValerianMineSiege",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "ValerianMineSiege/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "ValerianMineSiege/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 45,
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Light",
+    "Mechanical"
+  ],
+  "Acceleration": 1000,
+  "Sight": 9,
+  "Food": -3,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 200,
+    "Vespene": 50
+  },
+  "RepairTime": 40,
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            }
+          },
+          "Unit": "ValerianMineMotor",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "ValerianMineMotor",
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ValerianMineMotor,Execute",
+        "id": "ValerianMineMotor",
+        "Icon": "btn-building-terran-valerian-widowmine",
+        "Tooltip": "Transform Sentinel into mobile mode, where it gains the ability to move.",
+        "Name": "Mobile Mode",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "Passive",
+        "id": "ValerianSatelliteScanWidowMine",
+        "Icon": "btn-ability-stetmann-stetzonegenerator-speed",
+        "Tooltip": "This unit has been affected by Satellite Scan. Its next attack will exhaust Satellite Scan, fire an electromagnetic bomb that deals 125 damage to the target unit and 75 damage to its nearby units, stun these units for 3 seconds. After the Electromagnetic Bomb is fired, the Sentinel's attack speed is increased by 50% for 5 seconds.",
+        "Name": "Satellite Scan",
+        "Hotkey": ""
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "ValerianMineRange",
+        "Icon": "btn-ability-terran-widowminehidden",
+        "Tooltip": "Sentinel's weapon range +3. Sentinel's each attack will increase its attack speed by 5% for 5 seconds (stacking up to 10 times).",
+        "Name": "Magnetic Acceleration"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "ValerianMineNest",
+        "Icon": "btn-ability-terran-unstablepayload",
+        "Tooltip": "When the Sentinel attacks, it will fire an additional missile, dealing a splash damage equals to 200% of its weapon damage to target location. This effect has 3 seconds cooldown.",
+        "Name": "Hive Guard System"
+      }
+    ]
+  },
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 4,
+  "GlossaryPriority": 129,
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "ShieldArmorName": "Electromagnetic Shield",
+  "id": "ValerianMineSiege",
+  "Icon": "btn-building-terran-valerian-widowminesieged",
+  "LifeArmorIcon": "btn-upgrade-terran-vehicleplatinglevel0",
+  "ShieldArmorIcon": "btn-ability-mengsk-marauder-selfabsorbshield",
+  "Weapons": [
+    {
+      "Turret": "ValerianMineWeapon",
+      "id": "ValerianMineWeapon",
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel0",
+      "Name": "Sentinel Cannon",
+      "Amount": 25,
+      "Kind": "Ranged",
+      "TargetFilters": "",
+      "Range": 5,
+      "Period": 1
+    },
+    {
+      "Turret": "ValerianMineWeapon",
+      "id": "ValerianMineWeaponDust",
+      "Icon": "btn-upgrade-terran-vehicleweaponslevel0",
+      "Name": "Sentinel Cannon",
+      "Amount": 25,
+      "Kind": "Ranged",
+      "TargetFilters": "",
+      "Range": 500,
+      "Period": 1
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "WidowMineArmed"
+    },
+    {
+      "id": "ValerianUnitSieged"
+    },
+    {
+      "id": "ValerianChargeSieged"
+    },
+    {
+      "id": "ValerianMasteryUnitDamage"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "ValerianMineMotor"
+    }
+  ],
+  "$Upgrades": [
+    "ValerianUnitSiegedMine",
+    "ValerianMineSiege",
+    "ValerianMineNest",
+    "ValerianMineRange",
+    "ValerianMineSiege",
+    "ValerianMineSiege",
+    "ValerianZeusLv2",
+    "ValerianZeusLv3",
+    "ValerianZeusLv1",
+    "ValerianMineSiegeMorphSound",
+    "ValerianMineSiegeMorph",
+    "ValerianMineMotorMorph",
+    "ValerianMineWeapon",
+    "ValerianMineBurrowedSplat",
+    "ValerianMineSiege"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "ValerianMineMotor"
+  ],
+  "$Phase": [],
+  "$Phased": "ValerianMineMotor",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "ValerianMineMotor,Execute",
+      "id": "ValerianMineMotor",
+      "Icon": "btn-building-terran-valerian-widowmine",
+      "Tooltip": "Transform Sentinel into mobile mode, where it gains the ability to move.",
+      "Name": "Mobile Mode"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    }
+  ]
+}

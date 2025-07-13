@@ -1,0 +1,289 @@
+{
+  "Name": "Stasis Ward",
+  "Description": "Ground unit trap. Cloak renders the Stasis Ward invisible to enemies without detection.",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 2,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Prot",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 30,
+  "LifeMax": 30,
+  "LifeArmorName": "Protoss Armor",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.375,
+  "SeparationRadius": 0.5,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "NoScore",
+    "NoPortraitTalk",
+    "AIThreatGround",
+    "AILifetime",
+    "AISplash",
+    "AIHighPrioTarget"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "OracleStasisTrap",
+  "HotkeyAlias": "OracleStasisTrap",
+  "SelectAlias": "OracleStasisTrap",
+  "SubgroupAlias": "OracleStasisTrap",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "OracleStasisTrap",
+  "AIEvaluateAlias": "OracleStasisTrap",
+  "ReviveType": "OracleStasisTrap",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "OracleStasisTrap/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "OracleStasisTrap/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Attributes": [
+    "Light",
+    "Structure"
+  ],
+  "ShieldsStart": 30,
+  "ShieldsMax": 30,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": "Protoss Plasma Shields",
+  "Sight": 7,
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "AbilCmd": "OracleStasisTrapActivate,Execute",
+        "id": "ActivateStasisWard",
+        "Icon": "btn-ability-protoss-stasistrap",
+        "Tooltip": "Traps nearby enemies in stasis for <b>30</b> seconds. Trapped units cannot be attacked or affected by abilities.",
+        "Name": "Stasis"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "PermanentlyCloakedStasis",
+        "Icon": "btn-upgrade-vorazun-stasiswardpermanentlycloaked",
+        "Tooltip": "The Stasis Ward is permanently cloaked.",
+        "Name": "Permanently Cloaked"
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "Collide": [
+    "Ground",
+    "Structure",
+    "ForceField",
+    "Small"
+  ],
+  "ShieldRegenDelay": 10,
+  "PlacementFootprint": "OracleStasisTrap",
+  "GlossaryCategory": "Unit/Category/ProtossUnits",
+  "GlossaryPriority": 250,
+  "AINotifyEffect": "OracleStasisTrapActivate",
+  "Footprint": "OracleStasisTrap",
+  "GlossaryStrongArray": [
+    "Marine",
+    "Zergling",
+    "Zealot"
+  ],
+  "GlossaryWeakArray": [
+    "Raven",
+    "Overseer",
+    "Observer"
+  ],
+  "id": "OracleStasisTrap",
+  "Icon": "btn-ability-protoss-oracle-stasisward",
+  "LifeArmorIcon": "btn-armor-protoss-buildingplating",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "OracleStasisTrapCloak"
+    },
+    {
+      "id": "StasisWardTimedLife"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "OracleStasisTrapActivate",
+      "Name": "Activate"
+    },
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    }
+  ],
+  "$Upgrades": [
+    "OracleStasisTrapBuild",
+    "OracleStasisTrap",
+    "OracleStasisTrap",
+    "ProtossShieldsLevel1",
+    "ProtossShieldsLevel2",
+    "ProtossShieldsLevel3",
+    "OracleStasisTrapCU",
+    "OracleStasisTrap"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "Oracle"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "OracleStasisTrapActivate,Execute",
+      "id": "ActivateStasisWard",
+      "Icon": "btn-ability-protoss-stasistrap",
+      "Tooltip": "Traps nearby enemies in stasis for <b>30</b> seconds. Trapped units cannot be attacked or affected by abilities.",
+      "Name": "Stasis"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    }
+  ]
+}

@@ -1,0 +1,353 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "静滞结界",
+    "enUS": "Stasis Barrier"
+  },
+  "Description": {
+    "zhCN": "地面单位陷阱。隐形使敌人在不进行探测的情况下无法发现静滞结界。",
+    "enUS": "Ground unit trap. Invisibility makes the stasis barrier invisible to enemies without detection."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 2,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ProG",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 50,
+  "LifeMax": 50,
+  "LifeArmorName": {
+    "zhCN": "<span style=\"color: #ffff8a\">精金熔镀装甲</span>",
+    "enUS": "<span style=\"color: #ffff8a\">Adamantine plated armor</span>"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.375,
+  "SeparationRadius": 0.5,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "NoPortraitTalk",
+    "AIThreatGround",
+    "AILifetime",
+    "AISplash",
+    "AIHighPrioTarget"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "OracleStasisTrapG",
+  "HotkeyAlias": "OracleStasisTrapG",
+  "SelectAlias": "OracleStasisTrapG",
+  "SubgroupAlias": "OracleStasisTrapG",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "OracleStasisTrapG",
+  "AIEvaluateAlias": "OracleStasisTrapG",
+  "ReviveType": "OracleStasisTrapG",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "OracleStasisTrapG/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "OracleStasisTrapG/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "Structure",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Light",
+    "Structure"
+  ],
+  "ShieldsStart": 80,
+  "ShieldsMax": 80,
+  "ShieldRegenDelay": 5,
+  "ShieldRegenRate": 10,
+  "ShieldArmorName": {
+    "zhCN": "<span style=\"color: #ffff8a\">超载等离子护盾</span>",
+    "enUS": "<span style=\"color: #ffff8a\">Overload Plasma Shield</span>"
+  },
+  "Sight": 4,
+  "AttackTargetPriority": 10,
+  "AbilArray": [
+    "OracleStasisTrapActivate",
+    "BuildInProgress"
+  ],
+  "BehaviorArray": [
+    "OracleStasisTrapCloakG"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "AbilCmd": "OracleStasisTrapActivate,Execute",
+        "id": "ActivateStasisWard",
+        "Icon": "btn-ability-protoss-stasistrap",
+        "Name": {
+          "enUS": "Stasis",
+          "ruRU": "Стазисная ловушка"
+        },
+        "Tooltip": {
+          "enUS": "Traps nearby enemies in stasis for <b>30</b> seconds. Trapped units cannot be attacked or affected by abilities.",
+          "ruRU": "Помещает ближайших противников в стазис на <b>30</b> сек. Пойманные цели нельзя атаковать или использовать на них способности. "
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "PermanentlyCloakedStasis",
+        "Icon": "btn-upgrade-vorazun-stasiswardpermanentlycloaked",
+        "Name": {
+          "enUS": "Permanently Cloaked",
+          "ruRU": "Постоянная маскировка "
+        },
+        "Tooltip": {
+          "enUS": "The Stasis Ward is permanently cloaked.",
+          "ruRU": "Стазисная ловушка постоянно замаскирована. "
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "czhdG",
+        "Icon": "btn-ability-mengsk-marauder-selfabsorbshield",
+        "Name": {
+          "zhCN": "<span style=\"color: #ffff8a\">超载等离子护盾</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Overload Plasma Shield</span>"
+        },
+        "Tooltip": {
+          "zhCN": "大幅提升护盾恢复速度并获得额外护盾。护盾恢复延迟减少<span style=\"color: #ffff8a\">50%</span>。",
+          "enUS": "Greatly increase shield recovery speed and gain additional shields. Shield regeneration delay reduced by <span style=\"color: #ffff8a\">50%</span>."
+        }
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "Footprint": "OracleStasisTrap",
+  "PlacementFootprint": "OracleStasisTrap",
+  "AINotifyEffect": "OracleStasisTrapActivate",
+  "GlossaryCategory": "Unit/Category/GoldenProtoss",
+  "GlossaryPriority": 250,
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "id": "OracleStasisTrapG",
+  "Icon": "btn-ability-protoss-oracle-stasisward",
+  "Model": "StasisWard",
+  "LifeArmorIcon": "btn-armor-protoss-buildingplating",
+  "ShieldArmorIcon": "btn-ability-mengsk-marauder-selfabsorbshield",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "OracleStasisTrapCloakG",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "zhCN": "静滞陷阱隐形",
+        "enUS": "Stasis Trap Invisibility"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "OracleStasisTrapActivate",
+      "Name": {
+        "enUS": "Activate",
+        "ruRU": "Activate"
+      }
+    },
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "OracleStasisTrapG",
+    "OracleStasisTrapG"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "OracleStasisTrapActivate,Execute",
+      "id": "ActivateStasisWard",
+      "Icon": "btn-ability-protoss-stasistrap",
+      "Name": {
+        "enUS": "Stasis",
+        "ruRU": "Стазисная ловушка"
+      },
+      "Tooltip": {
+        "enUS": "Traps nearby enemies in stasis for <b>30</b> seconds. Trapped units cannot be attacked or affected by abilities.",
+        "ruRU": "Помещает ближайших противников в стазис на <b>30</b> сек. Пойманные цели нельзя атаковать или использовать на них способности. "
+      }
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    }
+  ]
+}

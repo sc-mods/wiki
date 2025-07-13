@@ -1,0 +1,2959 @@
+{
+  "Name": "Raider Squad",
+  "Description": "Squad composed of Raider agents. Raider Squad can engage enemies head to head. Can use Cover Command. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Gestalt",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 90,
+  "LifeMax": 90,
+  "LifeArmorName": "Terran Infantry Armor",
+  "Mover": "CliffJumper",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Coop",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "GestaltZRaiderSquadLeader",
+  "HotkeyAlias": "GestaltZRaiderSquadLeader",
+  "SelectAlias": "GestaltZRaiderSquadMember",
+  "SubgroupAlias": "GestaltZRaiderSquadMember",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "GestaltZRaiderSquadLeader",
+  "AIEvaluateAlias": "GestaltZRaiderSquadLeader",
+  "ReviveType": "GestaltZRaiderSquadLeader",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33,
+      "Turn": 33
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "GestaltZRaiderSquadLeader/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "GestaltZRaiderSquadLeader/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Campaign",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Light",
+    "Biological",
+    "Heroic"
+  ],
+  "LifeArmor": 5,
+  "Speed": 3.25,
+  "Acceleration": 1000,
+  "LateralAcceleration": 46.0625,
+  "Sight": 10,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 400
+  },
+  "RepairTime": 20,
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move",
+          "FollowFilters": "-;Hover"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "Submenu",
+        "SubmenuCardId": "0002",
+        "id": "GestaltZSquadChangeEquipment",
+        "Icon": "btn-ability-terran-raynorplasmagun-color",
+        "Tooltip": "Switch the weapon of this tactic squad.",
+        "Name": "Switch Armory",
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltZRaiderSquadSkillHMBomb",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Gestalt",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadSkillHMBomb",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "GestaltZRaiderSquadHMBombLaunchMissile"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZRaiderSquadSkillHMBomb",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadSkillHMBomb"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Charge": {
+                "CountMax": 3,
+                "CountStart": 1,
+                "CountUse": 1,
+                "TimeStart": 0.5,
+                "TimeUse": 30,
+                "Flags": {
+                  "EnableChargeTimeQueuing": 1
+                }
+              }
+            }
+          ],
+          "Range": [
+            3
+          ],
+          "Arc": 9.9975,
+          "UninterruptibleArray": {
+            "Prep": 1,
+            "Cast": 1
+          },
+          "TargetFilters": [
+            "-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"
+          ],
+          "id": "GestaltZRaiderSquadSkillHMBomb"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadSkillHMBomb,Execute",
+        "id": "GestaltZRaiderSquadSkillHMBomb",
+        "Icon": "btn-ability-terran-psioniclash-spectre-tosh",
+        "Tooltip": "Command the captain to concentrate psychic energy and throw it as an invisible bomb, causing 200 points of damage to the target unit.",
+        "Name": "Mind Bomb",
+        "Hotkey": "Q"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltZRaiderSquadSkillPowerArmor",
+        "Icon": "btn-upgrade-urun-conduitprism-improvedsatellitemode",
+        "Tooltip": "Raider Squad are equipped with mysterious shield equipment. Each member has additional 130 shield pt. If the shield is destroyed, it will not able to regenerate for a while. Raider Squad can travel up and down cliffs.",
+        "Name": "Alien Shield",
+        "Hotkey": ""
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "GestaltRanking",
+        "Icon": "btn-upgrade-shadowswordspectre-permanentcloak",
+        "Tooltip": "Gestalt Zero's tactic squad can gain experience in combat to achieve higher ranking, gaining additional abilities and have slightly improved stats. Squad will gain experience equal to twice of the supply cost for every enemy unit killed nearby. If a tactic squad dealt the killing blow, it will gain additional 100% experience.",
+        "Name": "Gestalt Ranking"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltZForerunnerSquadGedgetTPA",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZForerunnerSquadGedgetTPA",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0
+          },
+          "Effect": [
+            "GestaltZForerunnerSquadGedgetTPASet"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZForerunnerSquadGedgetTPA",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "GestaltZForerunnerRaiderSquadGedgetTPA",
+              "Requirements": "GestaltZSquadeVeterancy1Get23"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 18
+              }
+            }
+          ],
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "id": "GestaltZForerunnerSquadGedgetTPA"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZForerunnerSquadGedgetTPA,Execute",
+        "id": "GestaltZForerunnerRaiderSquadGedgetTPA2",
+        "Icon": "btn-upgrade-nova-blink",
+        "Tooltip": "Grant each Squad member additional 150 health, 4 armor, and 15% dmg reduction. <br/>Active skill will let the Squad blink to target direction.",
+        "Name": "Terminator EXO Teleport",
+        "Hotkey": "Z"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/GestaltZRaiderSquadGadgetStimpack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Gestalt",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadGadgetStimpack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden,Invulnerable",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "AutoCast": 1,
+            "AutoCastOn": 1,
+            "Transient": 1,
+            "TransientPreferred": 1
+          },
+          "Effect": [
+            "GestaltZRaiderSquadStimpackSet"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZRaiderSquadGadgetStimpack",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadGadgetStimpack",
+              "Requirements": "GestaltZSquadeVeterancy1Get223"
+            }
+          },
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 30
+              }
+            }
+          ],
+          "AutoCastRange": 1,
+          "AutoCastValidatorArray": [
+            "CasterIsFiringWeapon",
+            "CasterShieldsNotFull"
+          ],
+          "id": "GestaltZRaiderSquadGadgetStimpack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadGadgetStimpack,Execute",
+        "id": "GestaltZRaiderSquadGadgetStimpack",
+        "Icon": "btn-upgrade-terran-superstimppack",
+        "Tooltip": "Receive a dose of Regenerative Stim. It will continuously heal the squad and increase their speed by 20%. Last 20 sec.",
+        "Name": "Regenerative Stim",
+        "Hotkey": "X"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltZRaiderSquadGadgetJetpack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Gestalt",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadGadgetJetpack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "GestaltZRaiderSquadJetpackCreatePersitent"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZRaiderSquadGadgetJetpack",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadGadgetJetpack",
+              "Requirements": "GestaltZSquadeVeterancy1Get2422"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Cooldown": {
+                "TimeUse": 8
+              }
+            }
+          ],
+          "Range": [
+            13
+          ],
+          "Arc": 4.9987,
+          "CursorEffect": [
+            "GestaltZRaiderSquadJetpackSearchArea"
+          ],
+          "id": "GestaltZRaiderSquadGadgetJetpack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadGadgetJetpack,Execute",
+        "id": "GestaltZRaiderSquadGadgetJetpack",
+        "Icon": "btn-upgrade-nova-jetpack",
+        "Tooltip": "Jump to target location and knock off nearby enemy ground units after landing.",
+        "Name": "Jetpack",
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/GestaltZISorRSCalldownCancel",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZISorRSCalldownCancel",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "GestaltZISorRSCalldownCancelAB"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZISorRSCalldownCancel",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Cancel",
+              "Requirements": "GestaltZISorRSCalldown"
+            }
+          },
+          "id": "GestaltZISorRSCalldownCancel"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZISorRSCalldownCancel,Execute",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Charge": {
+            "HideCount": 1,
+            "Link": "KaraxMicroBotActivated",
+            "Location": "Unit"
+          },
+          "Cooldown": {
+            "Link": "Abil/noniononoX",
+            "TimeUse": 30
+          },
+          "Button": {
+            "Flags": {
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "GestaltZRaiderSquad",
+            "Requirements": "GestaltZSquadeVeterancy"
+          },
+          "Flags": {
+            "AutoBuild": 1,
+            "External": 1
+          },
+          "Time": 0.125,
+          "Manage": "Recall",
+          "Unit": "GestaltZRaiderSquadMember"
+        },
+        "Unit": "GestaltZRaiderSquadMember",
+        "Time": 0.125,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquad,Ammo1",
+        "id": "GestaltZRaiderSquad",
+        "Icon": "btn-unit-terran-gestalt-squadcmember",
+        "Tooltip": "Recruit a soldier for the squad. At most 4 soldiers can be recruited.",
+        "Name": "Recruit Soldier",
+        "Hotkey": "I"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/GestaltZSquadCalldownMJ",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZSquadCalldownMJ",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "GestaltZSquadCalldownMJ"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZSquadCalldownMJ",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Cancel",
+              "Requirements": "BomberUsable"
+            }
+          },
+          "Cost": [
+            {
+              "Charge": {
+                "Link": "Abil/GestaltZForerunnerSquadCalldown"
+              },
+              "Cooldown": {
+                "Link": "Abil/GestaltAirStrikeCalldown",
+                "Location": "Player",
+                "TimeUse": 90
+              }
+            }
+          ],
+          "id": "GestaltZSquadCalldownMJ"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZSquadCalldownMJ,Execute",
+        "id": "GestaltZRaiderSquadCalldown",
+        "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+        "Tooltip": "Order all tactic bombers to launch a round of specialized smoke grenades to target area. Ally units within the smoke will receive less dmg and have faster movement speed, while enemy units will have way less atk range and visions. Last 15 sec. <br/><br/><span style=\"color: #FFFF00\">Airstrike Order CD applies to all Tactic Squad. <br/>More Gestalt Bomber Platforms you have, larger the area Airstrike Order can apply to.",
+        "Name": "Cover Command",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/GestaltZRaiderSquadCalldown",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Gestalt",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadCalldown",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "GestaltZRaiderSquadCalldownCreatePersitent"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "GestaltZRaiderSquadCalldown",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadCalldown"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Charge": {
+                "Link": "Abil/GestaltZForerunnerSquadCalldown"
+              },
+              "Cooldown": {
+                "Link": "Abil/GestaltAirStrikeCalldown",
+                "Location": "Player",
+                "TimeUse": 90
+              }
+            }
+          ],
+          "Range": [
+            18
+          ],
+          "CursorEffect": [
+            "GestaltZRaiderSquadCalldownSearchArea"
+          ],
+          "id": "GestaltZRaiderSquadCalldown"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadCalldown,Execute",
+        "id": "GestaltZRaiderSquadCalldown",
+        "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+        "Tooltip": "Order all tactic bombers to launch a round of specialized smoke grenades to target area. Ally units within the smoke will receive less dmg and have faster movement speed, while enemy units will have way less atk range and visions. Last 15 sec. <br/><br/><span style=\"color: #FFFF00\">Airstrike Order CD applies to all Tactic Squad. <br/>More Gestalt Bomber Platforms you have, larger the area Airstrike Order can apply to.",
+        "Name": "Cover Command",
+        "Hotkey": "D"
+      }
+    ],
+    "0002": [
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZRaiderSquadChainSword",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadChainSword",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadChainSword",
+              "Requirements": "GestaltZSquadeVeterancy"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZRaiderSquadChainSword"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "ToggledOn": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZRaiderSquadChainSword"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadChainSword,On",
+        "id": "GestaltZRaiderSquadChainSword",
+        "Icon": "btn-upgrade-nova-equipment-gunblade_sword",
+        "Tooltip": "Equip Plasma Halberd. Basic melee weapon. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Equip Plasma Halberd",
+        "Hotkey": "Q"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "GestaltZRaiderSquadChainSwordEquiping",
+        "Icon": "btn-upgrade-nova-equipment-gunblade_sword",
+        "Tooltip": "Plasma Halberd Equipped",
+        "Name": "Plasma Halberd Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZRaiderSquadBuyFlameGloves",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadBuyFlameGloves",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadBuyFlameGloves",
+              "Requirements": "GestaltZSquadeVeterancy0GetEquiped1"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 500
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZRaiderSquadFlameGloves"
+          ],
+          "id": "GestaltZRaiderSquadBuyFlameGloves"
+        },
+        "Cost": {
+          "Minerals": 500,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadBuyFlameGloves,On",
+        "id": "GestaltZRaiderSquadBuyFlameGloves",
+        "Icon": "btn-weapon-taurenrifle",
+        "Tooltip": "Purchase and equip Flaming Crossbow. Effective against light units and can deal aoe dmg. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Purchase And Equip Flaming Crossbow",
+        "Hotkey": "W"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZRaiderSquadFlameGloves",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadFlameGloves",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadFlameGloves",
+              "Requirements": "GestaltZSquadeVeterancy"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "BehaviorArray": [
+            "GestaltZRaiderSquadFlameGloves"
+          ],
+          "id": "GestaltZRaiderSquadFlameGloves"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadFlameGloves,On",
+        "id": "GestaltZRaiderSquadFlameGloves",
+        "Icon": "btn-weapon-taurenrifle",
+        "Tooltip": "Equip Flaming Crossbow. Effective against light units and can deal aoe dmg. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Equip Flaming Crossbow",
+        "Hotkey": "W"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltZRaiderSquadFlameGlovesEquiping",
+        "Icon": "btn-weapon-taurenrifle",
+        "Tooltip": "Flaming Crossbow Equipped",
+        "Name": "Flaming Crossbow Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZRaiderSquadBuyLightningClaw",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadBuyLightningClaw",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadBuyLightningClaw",
+              "Requirements": "GestaltZSquadeVeterancy1GetEquiped2"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 1000
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZRaiderSquadLightningClaw"
+          ],
+          "id": "GestaltZRaiderSquadBuyLightningClaw"
+        },
+        "Cost": {
+          "Minerals": 1000,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadBuyLightningClaw,On",
+        "id": "GestaltZRaiderSquadBuyLightningClaw",
+        "Icon": "btn-upgrade-hanson-predator-attacksstun",
+        "Tooltip": "Purchase and equip Lightning Claw. Weapon with rapid attack speed and can deal aoe damage by EMP. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Purchase And Equip Lightning Claw",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZRaiderSquadLightningClaw",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadLightningClaw",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadLightningClaw",
+              "Requirements": "GestaltZSquadeVeterancy1"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZRaiderSquadLightningClaw"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZRaiderSquadLightningClaw"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadLightningClaw,On",
+        "id": "GestaltZRaiderSquadLightningClaw",
+        "Icon": "btn-upgrade-hanson-predator-attacksstun",
+        "Tooltip": "Equip Lightning Claw. Weapon with rapid attack speed and can deal aoe damage by EMP. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Lightning Claw",
+        "Hotkey": "A"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "GestaltZRaiderSquadLightningClawEquiping",
+        "Icon": "btn-upgrade-hanson-predator-attacksstun",
+        "Tooltip": "Lightning Claw Equipped",
+        "Name": "Lightning Claw Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZRaiderSquadBuyThunderHammer",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadBuyThunderHammer",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadBuyThunderHammer",
+              "Requirements": "GestaltZSquadeVeterancy1GetEquiped3"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 1000
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZRaiderSquadThunderHammer"
+          ],
+          "id": "GestaltZRaiderSquadBuyThunderHammer"
+        },
+        "Cost": {
+          "Minerals": 1000,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadBuyThunderHammer,On",
+        "id": "GestaltZRaiderSquadBuyThunderHammer",
+        "Icon": "btn-upgrade-nova-sword",
+        "Tooltip": "Purchase and equip Thunder Hammer. Effective against armored and massive unit. Deal twice the dmg to shield. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Purchase And Equip Thunder Hammer",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZRaiderSquadThunderHammer",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadThunderHammer",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadThunderHammer",
+              "Requirements": "GestaltZSquadeVeterancy1"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZRaiderSquadThunderHammer"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZRaiderSquadThunderHammer"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadThunderHammer,On",
+        "id": "GestaltZRaiderSquadThunderHammer",
+        "Icon": "btn-upgrade-nova-sword",
+        "Tooltip": "Equip Thunder Hammer. Effective against armored and massive unit. Deal twice the dmg to shield. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+        "Name": "Equip Thunder Hammer",
+        "Hotkey": "S"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltZRaiderSquadThunderHammerEquiping",
+        "Icon": "btn-upgrade-nova-sword",
+        "Tooltip": "Thunder Hammer Equipped",
+        "Name": "Thunder Hammer Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZRaiderSquadBuyStormShield",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadBuyStormShield",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadBuyStormShield",
+              "Requirements": "GestaltZSquadeVeterancy2GetEquiped4"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 1500
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZRaiderSquadStormShield"
+          ],
+          "id": "GestaltZRaiderSquadBuyStormShield"
+        },
+        "Cost": {
+          "Minerals": 1500,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadBuyStormShield,On",
+        "id": "GestaltZRaiderSquadBuyStormShield",
+        "Icon": "btn-ability-mengsk-marauder-selfabsorbshield",
+        "Tooltip": "Purchasing and equipping an additional Storm Shield will not replace your current weapon. Grants team members 10 points of additional armor and reduces damage taken by 30%.",
+        "Name": "Purchase And Equip Storm Shield",
+        "Hotkey": "Z"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZRaiderSquadStormShield",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadStormShield",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadStormShield",
+              "Requirements": "GestaltZSquadeVeterancy2"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "BehaviorArray": [
+            "GestaltZRaiderSquadStormShield"
+          ],
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "id": "GestaltZRaiderSquadStormShield"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadStormShield,On",
+        "id": "GestaltZRaiderSquadStormShield",
+        "Icon": "btn-ability-mengsk-marauder-selfabsorbshield",
+        "Tooltip": "Equipping additional Storm Shield will not replace the current weapon. Grants team members 10 points of additional armor and reduces damage taken by 30%.",
+        "Name": "Equip Storm Shield",
+        "Hotkey": "Z"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "GestaltZRaiderSquadStormShieldEquiping",
+        "Icon": "btn-ability-mengsk-marauder-selfabsorbshield",
+        "Tooltip": "Storm Shield Equipped",
+        "Name": "Storm Shield Equipped",
+        "Hotkey": "Q"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZRaiderSquadBuyHardenedShield",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadBuyHardenedShield",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadBuyHardenedShield",
+              "Requirements": "GestaltZSquadeVeterancy2GetEquiped42"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Transient": 1
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 1500
+              }
+            }
+          ],
+          "BehaviorArray": [
+            "GestaltZRaiderSquadWeaponHardenedShield"
+          ],
+          "id": "GestaltZRaiderSquadBuyHardenedShield"
+        },
+        "Cost": {
+          "Minerals": 1500,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadBuyHardenedShield,On",
+        "id": "GestaltZRaiderSquadBuyHardenedShield",
+        "Icon": "btn-upgrade-urun-carrierhero-particleaccelerators",
+        "Tooltip": "Purchase and equip Psionic Armor, this will not replace currently equipped weapon. squad is able to reduce dmg down to 30 and reduce enemies's movement speed by 35%.",
+        "Name": "Purchase And Equip Psionic Armor",
+        "Hotkey": "X"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/GestaltZRaiderSquadHardenedShield",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Gestalt,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "GestaltZRaiderSquadHardenedShield",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "GestaltZRaiderSquadHardenedShield",
+              "Requirements": "GestaltZSquadeVeterancy2"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "BehaviorArray": [
+            "GestaltZRaiderSquadWeaponHardenedShield"
+          ],
+          "id": "GestaltZRaiderSquadHardenedShield"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GestaltZRaiderSquadHardenedShield,On",
+        "id": "GestaltZRaiderSquadHardenedShield",
+        "Icon": "btn-upgrade-urun-carrierhero-particleaccelerators",
+        "Tooltip": "Equip Psionic Armor, this will not replace currently equipped weapon. squad is able to reduce dmg down to 30 and reduce enemies's movement speed by 35%.",
+        "Name": "Equip Psionic Armor",
+        "Hotkey": "X"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "GestaltZRaiderSquadHardenedShieldEquiping",
+        "Icon": "btn-upgrade-urun-carrierhero-particleaccelerators",
+        "Tooltip": "Psionic Armor Equipped",
+        "Name": "Psionic Armor Equipped",
+        "Hotkey": "X"
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "CargoSize": 1,
+  "SubgroupPriority": 24,
+  "GlossaryCategory": "Unit/Category/TerranUnits",
+  "GlossaryPriority": 31,
+  "GlossaryStrongArray": [
+    "Marauder",
+    "Immortal",
+    "Hydralisk"
+  ],
+  "GlossaryWeakArray": [
+    "SiegeTankSieged",
+    "Colossus",
+    "Baneling"
+  ],
+  "AlliedPushPriority": 1,
+  "ShieldsStart": 130,
+  "ShieldsMax": 130,
+  "ShieldArmor": 1,
+  "ShieldRegenRate": 20,
+  "ShieldArmorName": "Protoss Homogenous Plasma Shield",
+  "Food": -15,
+  "ShieldRegenDelay": 10,
+  "id": "GestaltZRaiderSquadLeader",
+  "Icon": "btn-unit-terran-gestalt-squadcleader",
+  "LifeArmorIcon": "btn-upgrade-terran-infantryarmorlevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "GestaltZSquadeVeterancy",
+      "Name": "GestaltZ Squade Veterancy"
+    },
+    {
+      "id": "GestaltZeroTeamCaptainCreate"
+    },
+    {
+      "id": "GestaltZeroTeamCaptainProtect"
+    },
+    {
+      "id": "GestaltStationController"
+    },
+    {
+      "id": "GestaltZRaiderSquadChainSword",
+      "Icon": "btn-ability-protoss-shadowblade"
+    },
+    {
+      "id": "GestaltSquadDummy"
+    },
+    {
+      "id": "GestaltZRaiderSquadGadgetJetpackJump",
+      "Icon": "btn-upgrade-nova-jetpack"
+    },
+    {
+      "id": "GestaltZForerunnerSquadGedgetTPA",
+      "Icon": "btn-upgrade-nova-blink"
+    },
+    {
+      "id": "PreventKnockback"
+    },
+    {
+      "id": "GestaltZMachineMasteryAttackSpeed"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "GestaltHangarQueue53",
+      "Name": "GestaltHangarQueue53 (Unnamed)"
+    },
+    {
+      "id": "GestaltZRaiderSquad"
+    },
+    {
+      "id": "GestaltZRaiderSquadSkillHMBomb"
+    },
+    {
+      "id": "GestaltZRaiderSquadCalldown"
+    },
+    {
+      "id": "GestaltZForerunnerSquadGedgetTPA"
+    },
+    {
+      "id": "GestaltZRaiderSquadGadgetStimpack"
+    },
+    {
+      "id": "GestaltZRaiderSquadGadgetJetpack"
+    },
+    {
+      "id": "GestaltZISorRSCalldownCancel"
+    },
+    {
+      "id": "GestaltZSquadCalldownMJ"
+    },
+    {
+      "id": "GestaltZRaiderSquadChainSword"
+    },
+    {
+      "id": "GestaltZRaiderSquadFlameGloves"
+    },
+    {
+      "id": "GestaltZRaiderSquadLightningClaw"
+    },
+    {
+      "id": "GestaltZRaiderSquadThunderHammer"
+    },
+    {
+      "id": "GestaltZRaiderSquadStormShield"
+    },
+    {
+      "id": "GestaltZRaiderSquadHardenedShield"
+    },
+    {
+      "id": "GestaltZRaiderSquadBuyStormShield"
+    },
+    {
+      "id": "GestaltZRaiderSquadBuyThunderHammer"
+    },
+    {
+      "id": "GestaltZRaiderSquadBuyFlameGloves"
+    },
+    {
+      "id": "GestaltZRaiderSquadBuyHardenedShield"
+    },
+    {
+      "id": "GestaltZRaiderSquadBuyLightningClaw"
+    }
+  ],
+  "$Upgrades": [
+    "GestaltTerminatorEXO",
+    "GestaltZRaiderSquadLeader",
+    "GestaltZRaiderSquadLeader"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "GestaltZRaiderSquadMember",
+    "HERCPlacement"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadSkillHMBomb,Execute",
+      "id": "GestaltZRaiderSquadSkillHMBomb",
+      "Icon": "btn-ability-terran-psioniclash-spectre-tosh",
+      "Tooltip": "Command the captain to concentrate psychic energy and throw it as an invisible bomb, causing 200 points of damage to the target unit.",
+      "Name": "Mind Bomb"
+    },
+    {
+      "AbilCmd": "GestaltZForerunnerSquadGedgetTPA,Execute",
+      "id": "GestaltZForerunnerRaiderSquadGedgetTPA2",
+      "Icon": "btn-upgrade-nova-blink",
+      "Tooltip": "Grant each Squad member additional 150 health, 4 armor, and 15% dmg reduction. <br/>Active skill will let the Squad blink to target direction.",
+      "Name": "Terminator EXO Teleport"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadGadgetStimpack,Execute",
+      "id": "GestaltZRaiderSquadGadgetStimpack",
+      "Icon": "btn-upgrade-terran-superstimppack",
+      "Tooltip": "Receive a dose of Regenerative Stim. It will continuously heal the squad and increase their speed by 20%. Last 20 sec.",
+      "Name": "Regenerative Stim"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadGadgetJetpack,Execute",
+      "id": "GestaltZRaiderSquadGadgetJetpack",
+      "Icon": "btn-upgrade-nova-jetpack",
+      "Tooltip": "Jump to target location and knock off nearby enemy ground units after landing.",
+      "Name": "Jetpack"
+    },
+    {
+      "AbilCmd": "GestaltZISorRSCalldownCancel,Execute",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquad,Ammo1",
+      "id": "GestaltZRaiderSquad",
+      "Icon": "btn-unit-terran-gestalt-squadcmember",
+      "Tooltip": "Recruit a soldier for the squad. At most 4 soldiers can be recruited.",
+      "Name": "Recruit Soldier"
+    },
+    {
+      "AbilCmd": "GestaltZSquadCalldownMJ,Execute",
+      "id": "GestaltZRaiderSquadCalldown",
+      "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+      "Tooltip": "Order all tactic bombers to launch a round of specialized smoke grenades to target area. Ally units within the smoke will receive less dmg and have faster movement speed, while enemy units will have way less atk range and visions. Last 15 sec. <br/><br/><span style=\"color: #FFFF00\">Airstrike Order CD applies to all Tactic Squad. <br/>More Gestalt Bomber Platforms you have, larger the area Airstrike Order can apply to.",
+      "Name": "Cover Command"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadCalldown,Execute",
+      "id": "GestaltZRaiderSquadCalldown",
+      "Icon": "btn-upgrade-hanson-viking-missileupgrade",
+      "Tooltip": "Order all tactic bombers to launch a round of specialized smoke grenades to target area. Ally units within the smoke will receive less dmg and have faster movement speed, while enemy units will have way less atk range and visions. Last 15 sec. <br/><br/><span style=\"color: #FFFF00\">Airstrike Order CD applies to all Tactic Squad. <br/>More Gestalt Bomber Platforms you have, larger the area Airstrike Order can apply to.",
+      "Name": "Cover Command"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadChainSword,On",
+      "id": "GestaltZRaiderSquadChainSword",
+      "Icon": "btn-upgrade-nova-equipment-gunblade_sword",
+      "Tooltip": "Equip Plasma Halberd. Basic melee weapon. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Equip Plasma Halberd"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadBuyFlameGloves,On",
+      "id": "GestaltZRaiderSquadBuyFlameGloves",
+      "Icon": "btn-weapon-taurenrifle",
+      "Tooltip": "Purchase and equip Flaming Crossbow. Effective against light units and can deal aoe dmg. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Purchase And Equip Flaming Crossbow"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadFlameGloves,On",
+      "id": "GestaltZRaiderSquadFlameGloves",
+      "Icon": "btn-weapon-taurenrifle",
+      "Tooltip": "Equip Flaming Crossbow. Effective against light units and can deal aoe dmg. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Equip Flaming Crossbow"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadBuyLightningClaw,On",
+      "id": "GestaltZRaiderSquadBuyLightningClaw",
+      "Icon": "btn-upgrade-hanson-predator-attacksstun",
+      "Tooltip": "Purchase and equip Lightning Claw. Weapon with rapid attack speed and can deal aoe damage by EMP. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Purchase And Equip Lightning Claw"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadLightningClaw,On",
+      "id": "GestaltZRaiderSquadLightningClaw",
+      "Icon": "btn-upgrade-hanson-predator-attacksstun",
+      "Tooltip": "Equip Lightning Claw. Weapon with rapid attack speed and can deal aoe damage by EMP. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Lightning Claw"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadBuyThunderHammer,On",
+      "id": "GestaltZRaiderSquadBuyThunderHammer",
+      "Icon": "btn-upgrade-nova-sword",
+      "Tooltip": "Purchase and equip Thunder Hammer. Effective against armored and massive unit. Deal twice the dmg to shield. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Purchase And Equip Thunder Hammer"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadThunderHammer,On",
+      "id": "GestaltZRaiderSquadThunderHammer",
+      "Icon": "btn-upgrade-nova-sword",
+      "Tooltip": "Equip Thunder Hammer. Effective against armored and massive unit. Deal twice the dmg to shield. <br/><br/><c val=\"#ColorAttackInfo\">Can attack ground.</span>",
+      "Name": "Equip Thunder Hammer"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadBuyStormShield,On",
+      "id": "GestaltZRaiderSquadBuyStormShield",
+      "Icon": "btn-ability-mengsk-marauder-selfabsorbshield",
+      "Tooltip": "Purchasing and equipping an additional Storm Shield will not replace your current weapon. Grants team members 10 points of additional armor and reduces damage taken by 30%.",
+      "Name": "Purchase And Equip Storm Shield"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadStormShield,On",
+      "id": "GestaltZRaiderSquadStormShield",
+      "Icon": "btn-ability-mengsk-marauder-selfabsorbshield",
+      "Tooltip": "Equipping additional Storm Shield will not replace the current weapon. Grants team members 10 points of additional armor and reduces damage taken by 30%.",
+      "Name": "Equip Storm Shield"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadBuyHardenedShield,On",
+      "id": "GestaltZRaiderSquadBuyHardenedShield",
+      "Icon": "btn-upgrade-urun-carrierhero-particleaccelerators",
+      "Tooltip": "Purchase and equip Psionic Armor, this will not replace currently equipped weapon. squad is able to reduce dmg down to 30 and reduce enemies's movement speed by 35%.",
+      "Name": "Purchase And Equip Psionic Armor"
+    },
+    {
+      "AbilCmd": "GestaltZRaiderSquadHardenedShield,On",
+      "id": "GestaltZRaiderSquadHardenedShield",
+      "Icon": "btn-upgrade-urun-carrierhero-particleaccelerators",
+      "Tooltip": "Equip Psionic Armor, this will not replace currently equipped weapon. squad is able to reduce dmg down to 30 and reduce enemies's movement speed by 35%.",
+      "Name": "Equip Psionic Armor"
+    }
+  ]
+}

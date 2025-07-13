@@ -1,0 +1,2369 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Mining Drone"
+  },
+  "Description": {
+    "enUS": "Nano-Enabled Construction Robot**Can attack ground units**"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "UPLL",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 45,
+  "LifeMax": 45,
+  "LifeArmorName": {
+    "enUS": "UPL Vehicle Plating"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "Worker",
+    "PreventDestroy",
+    "UseLineOfSight"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "MiningDrone",
+  "HotkeyAlias": "MiningDrone",
+  "SelectAlias": "MiningDrone",
+  "SubgroupAlias": "MiningDrone",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "MiningDrone",
+  "AIEvaluateAlias": "MiningDrone",
+  "ReviveType": "MiningDrone",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33,
+      "Turn": 33
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "MiningDrone/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "MiningDrone/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField"
+  ],
+  "Attributes": [
+    "Light",
+    "Mechanical",
+    "Robotic",
+    "Hover"
+  ],
+  "Speed": 2.8125,
+  "Acceleration": 2.5,
+  "LateralAcceleration": 46,
+  "Sight": 8,
+  "Food": -1,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 50
+  },
+  "RepairTime": 16.667,
+  "AttackTargetPriority": 20,
+  "AIOverideTargetPriority": 10,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 10,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "SCVHarvest",
+    "UPLBuild",
+    "MiningDroneSwitchMode",
+    "UPLMiningDroneRepair"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "MningDrill"
+    }
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackWorker",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/UPLMiningDroneRepair",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:UPL",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "UPLMiningDroneRepair",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "UPLMiningDroneRepair"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "UPLMiningDroneRepair",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "RequiresRepairTarget",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "UPLMiningDroneRepair"
+            }
+          },
+          "FollowRange": 5,
+          "Range": [
+            1
+          ],
+          "CastIntroTime": [
+            0.125
+          ],
+          "id": "UPLMiningDroneRepair"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLMiningDroneRepair,Execute",
+        "id": "UPLMiningDroneRepair",
+        "Icon": "btn-ability-upl-miningdronesacrifice",
+        "Name": {
+          "enUS": "Nanite Repair"
+        },
+        "Tooltip": {
+          "enUS": "<span style=\"color: FFFFFF\">Sacrifices</span> the Mining Drone to repair a targeted mechanical unit for <span style=\"color: FFFF80\">500 </span>life over 8 seconds"
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/SCVHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVHarvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "CancelableArray": {
+            "ApproachResource": 1,
+            "WaitAtResource": 1
+          },
+          "id": "SCVHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVHarvest,Gather",
+        "id": "GatherUPL",
+        "Icon": "btn-ability-terran-gather",
+        "Name": {
+          "enUS": "Gather"
+        },
+        "Tooltip": {
+          "enUS": "Orders Mining Drone to gather resources from a selected Mineral Field or Fluorite Deposit."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/SCVHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVHarvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "CancelableArray": {
+            "ApproachResource": 1,
+            "WaitAtResource": 1
+          },
+          "id": "SCVHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVHarvest,Return",
+        "id": "ReturnCargo",
+        "Icon": "btn-command-returncargo",
+        "Name": {
+          "enUS": "Return Cargo",
+          "ruRU": "Выгрузить ресурсы "
+        },
+        "Tooltip": {
+          "enUS": "Returns the carried resources to the nearest drop-off point.",
+          "ruRU": "Приказать выгрузить ресурсы в ближайший приемный пункт. "
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "TBl1",
+        "id": "TerranBuild",
+        "Icon": "btn-command-terran-buildstructure",
+        "Name": {
+          "enUS": "Build Structure",
+          "ruRU": "Построить здание "
+        },
+        "Tooltip": {
+          "enUS": "A list of basic structures.",
+          "ruRU": "Открывает список основных строений."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/MiningDroneSwitchMode",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:UPL",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "MiningDroneSwitchMode",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "MiningDroneSwitchMode",
+              "Requirements": "HaveMinigDronesGrenadeLauncher"
+            },
+            "Off": {
+              "DefaultButtonFace": "MiningDroneSwitchModeOff"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "BehaviorArray": [
+            "MiningDroneSwitchMode"
+          ],
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 25
+              },
+              "Cooldown": {
+                "TimeUse": 5
+              }
+            }
+          ],
+          "OffCost": {
+            "Cooldown": {
+              "TimeUse": 5
+            }
+          },
+          "id": "MiningDroneSwitchMode"
+        },
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "MiningDroneSwitchMode,On",
+        "id": "MiningDroneSwitchMode",
+        "Icon": "btn-ability-upl-miningdronecombatmode",
+        "Name": {
+          "enUS": "Activate Grenade Launcher"
+        },
+        "Tooltip": {
+          "enUS": "Mining Drone replaces a harvester arm with a grenade launcher which attacks at a short range and does more damage. In Grenade Launcher mode, Mining Drone cannot harvest resources, construct building or use any abilities."
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/UPLBuild",
+          "TechPlayer": "Owner",
+          "EditorCategories": "AbilityorEffectType:Units,Race:UPL",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "UPLBuild",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Cancel"
+          },
+          "Alert": "BuildComplete",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 0,
+            "PeonMaintained": 1,
+            "RangeIncludesBuilding": 1,
+            "PeonHide": 1,
+            "PeonDisableCollision": 1,
+            "PeonKillFinish": 1,
+            "AutoHarvest": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLHeadquarters"
+              },
+              "Unit": "UPLHeadquarters",
+              "Time": 100
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLGenerator"
+              },
+              "Unit": "UPLGenerator",
+              "Time": 30
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLExhumer"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "UPLExhumer",
+              "Time": 30
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLBillet",
+                "Requirements": "HaveUPLGenerator"
+              },
+              "Unit": "UPLBillet",
+              "Time": 74
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLRnDFacility",
+                "Requirements": "HaveUPLBilletAndUPLManufacturingFacility"
+              },
+              "Unit": "UPLRnDFacility",
+              "Time": 35
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLElectrostaticDefenseTower",
+                "Requirements": "HaveUPLManufacturingFacility"
+              },
+              "Unit": "UPLElectrostaticDefenseTower",
+              "Time": 25
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLNightjar",
+                "Requirements": "HaveUPLHeadquartersAndUPLManufacturingFacility"
+              },
+              "Unit": "UPLNightjar",
+              "Time": 30
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLExhumer"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "RefineryRich",
+              "Time": 30
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLCommStation",
+                "Requirements": "UnknownRequirement3"
+              },
+              "Unit": "UPLCommStation",
+              "Time": 25
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLForwardOperatingBase",
+                "Requirements": "HaveUPLBillet"
+              },
+              "Unit": "UPLForwardOperatingBase",
+              "Time": 40
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLManufacturingFacility",
+                "Requirements": "HaveUPLBillet"
+              },
+              "Unit": "UPLManufacturingFacility",
+              "Time": 60
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLAirstrip",
+                "Requirements": "HaveUPLBillet"
+              },
+              "Unit": "UPLAirstrip",
+              "Time": 65
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "CreateBattleStation",
+                "Requirements": "UnknownRequirement2"
+              },
+              "Unit": "UPLBattleStation",
+              "Time": 36
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "UPLSolitaire",
+                "Requirements": "HaveUPLHeadquartersAndUPLManufacturingFacility"
+              },
+              "Unit": "UPLSolitaire",
+              "Time": 30
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            }
+          },
+          "AbilityCategories": {
+            "CanBeDisabled": 1,
+            "CanBeIllusionDisabled": 1
+          },
+          "EffectArray": {
+            "Start": "UPL_WorkerBuildSet",
+            "Finish": "UPL_WorkerBuildEndSet",
+            "Cancel": "UPL_WorkerBuildEndSet"
+          },
+          "id": "UPLBuild"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Halt",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/MiningDroneSwitchMode",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:UPL",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "MiningDroneSwitchMode",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "MiningDroneSwitchMode",
+              "Requirements": "HaveMinigDronesGrenadeLauncher"
+            },
+            "Off": {
+              "DefaultButtonFace": "MiningDroneSwitchModeOff"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "BehaviorArray": [
+            "MiningDroneSwitchMode"
+          ],
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 25
+              },
+              "Cooldown": {
+                "TimeUse": 5
+              }
+            }
+          ],
+          "OffCost": {
+            "Cooldown": {
+              "TimeUse": 5
+            }
+          },
+          "id": "MiningDroneSwitchMode"
+        },
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "MiningDroneSwitchMode,Off",
+        "id": "MiningDroneSwitchModeOff",
+        "Icon": "btn-ability-upl-miningdroneharvestmode",
+        "Name": {
+          "enUS": "Deactivate Grenade Launcher"
+        },
+        "Tooltip": {
+          "enUS": "Mining Drone exits combat mode to resume harvesting duties"
+        },
+        "Hotkey": "Y"
+      }
+    ],
+    "TBl1": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLHeadquarters"
+          },
+          "Unit": "UPLHeadquarters",
+          "Time": 100
+        },
+        "Unit": "UPLHeadquarters",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 350,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 15
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Build1",
+        "id": "UPLHeadquarters",
+        "Icon": "btn-building-upl-uplheadquarters",
+        "Name": {
+          "enUS": "Build Headquarters"
+        },
+        "Tooltip": {
+          "enUS": "Primary structure. Used to receive gathered resources. <br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- <b>Mining Drone</b><br/>- <b>CARR</b>"
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLExhumer"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "UPLExhumer",
+          "Time": 30
+        },
+        "Unit": "UPLExhumer",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Build3",
+        "id": "UPLExhumer",
+        "Icon": "btn-building-upl-uplexhumer",
+        "Name": {
+          "enUS": "Build Exhumer"
+        },
+        "Tooltip": {
+          "enUS": "Resource Production Facility <br/><br/>Built over a Fluorine Deposit to Allow Production of Francine Gas"
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLGenerator"
+          },
+          "Unit": "UPLGenerator",
+          "Time": 30
+        },
+        "Unit": "UPLGenerator",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Build2",
+        "id": "UPLGenerator",
+        "Icon": "btn-building-upl-uplgenerator",
+        "Name": {
+          "enUS": "Build Fusion Generator"
+        },
+        "Tooltip": {
+          "enUS": "Provides supply.<br/>Supply allows you to create more units."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLManufacturingFacility",
+            "Requirements": "HaveUPLBillet"
+          },
+          "Unit": "UPLManufacturingFacility",
+          "Time": 60
+        },
+        "Unit": "UPLManufacturingFacility",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Build11",
+        "id": "UPLManufacturingFacility",
+        "Icon": "btn-building-upl-uplmanufacturingfacility",
+        "Name": {
+          "enUS": "Build Manufacturing Facility"
+        },
+        "Tooltip": {
+          "enUS": "Ground Vehicle Production facility.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>-  <b>Z-1</b><br/>-  <b>A-6</b><br/>-  <b>TR-17</b><br/>-  <b>Routhe Tank</b>"
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLRnDFacility",
+            "Requirements": "HaveUPLBilletAndUPLManufacturingFacility"
+          },
+          "Unit": "UPLRnDFacility",
+          "Time": 35
+        },
+        "Unit": "UPLRnDFacility",
+        "Time": 35,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Build5",
+        "id": "UPLRnDFacility",
+        "Icon": "btn-building-upl-uplr&d",
+        "Name": {
+          "enUS": "Build R & D Facility"
+        },
+        "Tooltip": {
+          "enUS": "Research and Development.  <br/><br/>Research upgrades for your forces."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLCommStation",
+            "Requirements": "UnknownRequirement3"
+          },
+          "Unit": "UPLCommStation",
+          "Time": 25
+        },
+        "Unit": "UPLCommStation",
+        "Time": 25,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Build9",
+        "id": "UPLCommStation",
+        "Icon": "btn-building-upl-uplcommstation",
+        "Name": {
+          "enUS": "Build Comm Station"
+        },
+        "Tooltip": {
+          "enUS": "SatNet Communications<br/><br/>Increases speed of nearby allied units and detects cloaked units.<br/><br/><span style=\"color: FFE303\">Detector</span>"
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLElectrostaticDefenseTower",
+            "Requirements": "HaveUPLManufacturingFacility"
+          },
+          "Unit": "UPLElectrostaticDefenseTower",
+          "Time": 25
+        },
+        "Unit": "UPLElectrostaticDefenseTower",
+        "Time": 25,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Build6",
+        "id": "UPLElectrostaticDefenseTower",
+        "Icon": "btn-building-upl-uplelectrostaticdefensetower",
+        "Name": {
+          "enUS": "Build Electrostatic Defense Tower"
+        },
+        "Tooltip": {
+          "enUS": "Automated Defensive Structure.**Can attack ground and air units** <br/><br/><span style=\"color: FFE303\">Detector</span>"
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLAirstrip",
+            "Requirements": "HaveUPLBillet"
+          },
+          "Unit": "UPLAirstrip",
+          "Time": 65
+        },
+        "Unit": "UPLAirstrip",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Build12",
+        "id": "UPLAirstrip",
+        "Icon": "btn-building-upl-uplairstrip",
+        "Name": {
+          "enUS": "Build Airstrip"
+        },
+        "Tooltip": {
+          "enUS": "Aircraft production facility.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>-  <b>Raptor Jet</b><br/>-  <b>Osprey</b><br/>-  <b>Condor</b>"
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLNightjar",
+            "Requirements": "HaveUPLHeadquartersAndUPLManufacturingFacility"
+          },
+          "Unit": "UPLNightjar",
+          "Time": 30
+        },
+        "Unit": "UPLNightjar",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 225,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Build7",
+        "id": "UPLNightjar",
+        "Icon": "btn-building-upl-uplnightjar",
+        "Name": {
+          "enUS": "Nightjar"
+        },
+        "Tooltip": {
+          "enUS": "Anti-Armor / Anti-Air Cannon**Can Attack Ground and Air units**"
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLBillet",
+            "Requirements": "HaveUPLGenerator"
+          },
+          "Unit": "UPLBillet",
+          "Time": 74
+        },
+        "Unit": "UPLBillet",
+        "Time": 74,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Build4",
+        "id": "UPLBillet",
+        "Icon": "btn-building-upl-uplbillet",
+        "Name": {
+          "enUS": "Build Billet"
+        },
+        "Tooltip": {
+          "enUS": "Infantry training facility. <br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- <b>Combat Infantry</b><br/>- <b>Heavy Gunner</b><br/>- <b>undefined</b><br/>- <b>Mortar Trooper</b><br/>- <b>undefined</b>"
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLForwardOperatingBase",
+            "Requirements": "HaveUPLBillet"
+          },
+          "Unit": "UPLForwardOperatingBase",
+          "Time": 40
+        },
+        "Unit": "UPLForwardOperatingBase",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Build10",
+        "id": "UPLForwardOperatingBase",
+        "Icon": "btn-building-upl-uplforwardoperatingbase",
+        "Name": {
+          "enUS": "Build Forward Operating Base"
+        },
+        "Tooltip": {
+          "enUS": "Support Unit Production<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- <b>Infantry Officer</b><br/>- <b>CSV</b>"
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLSolitaire",
+            "Requirements": "HaveUPLHeadquartersAndUPLManufacturingFacility"
+          },
+          "Unit": "UPLSolitaire",
+          "Time": 30
+        },
+        "Unit": "UPLSolitaire",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLBuild,Build14",
+        "id": "UPLSolitaire",
+        "Icon": "btn-building-upl-uplsolitaire",
+        "Name": {
+          "enUS": "Solitaire"
+        },
+        "Tooltip": {
+          "enUS": "Manned Defensive structure.  **Can attack ground units**"
+        },
+        "Hotkey": "Y"
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "CargoSize": 1,
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 11,
+  "GlossaryCategory": "Unit/Category/0UPLUnits",
+  "GlossaryPriority": 11,
+  "HotkeyCategory": "Unit/Category/UPLUnits",
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "AlliedPushPriority": 8,
+  "id": "MiningDrone",
+  "Icon": "btn-unit-upl-miningdrone",
+  "Model": "MiningDrone",
+  "LifeArmorIcon": "btn-upgrades-upl-vehicleplating-lvl0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Terran",
+      "Options": {
+        "Melee": 1
+      },
+      "Icon": "btn-upgrade-terran-infantryweaponslevel0",
+      "DisplayEffect": "MningDroneAttack",
+      "TargetFilters": "Ground",
+      "Range": 0.1,
+      "Period": 1.5,
+      "Effect": "MningDroneAttack",
+      "id": "MningDrill",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Mining Drill"
+      },
+      "Amount": 5,
+      "Kind": "Melee"
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "SCVHarvest",
+      "Name": {
+        "enUS": "Gather (SCV)",
+        "ruRU": "Gather (SCV)"
+      }
+    },
+    {
+      "id": "UPLBuild",
+      "Name": {
+        "enUS": "Build"
+      }
+    },
+    {
+      "id": "MiningDroneSwitchMode",
+      "Name": {
+        "enUS": "MiningDroneSwitchMode"
+      }
+    },
+    {
+      "id": "UPLMiningDroneRepair",
+      "Name": {
+        "enUS": "UPLMiningDroneRepair"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "Button/Tooltip/UPLHeadquarters",
+    "MiningDrone",
+    "UPLVehiclePlatingLevel1",
+    "MiningDrone",
+    "UPLVehicleArmor",
+    "UPLVehiclePlatingLevel2",
+    "UPLVehiclePlatingLevel3",
+    "UPLVehicleWeaponsLevel1",
+    "UPLVehicleWeapons",
+    "UPLVehicleWeaponsLevel2",
+    "UPLVehicleWeaponsLevel3",
+    "IsMiningDrone",
+    "UPLHeadquartersTrain",
+    "UPLHeadquarters",
+    "UPLL",
+    "MiningDrone",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "UPLHeadquarters",
+    "UPLExhumer",
+    "UPLGenerator",
+    "UPLManufacturingFacility",
+    "UPLRnDFacility",
+    "UPLCommStation",
+    "UPLElectrostaticDefenseTower",
+    "UPLAirstrip",
+    "UPLNightjar",
+    "UPLBillet",
+    "UPLForwardOperatingBase",
+    "UPLSolitaire"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "UPLHeadquarters"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackWorker",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "UPLMiningDroneRepair,Execute",
+      "id": "UPLMiningDroneRepair",
+      "Icon": "btn-ability-upl-miningdronesacrifice",
+      "Name": {
+        "enUS": "Nanite Repair"
+      },
+      "Tooltip": {
+        "enUS": "<span style=\"color: FFFFFF\">Sacrifices</span> the Mining Drone to repair a targeted mechanical unit for <span style=\"color: FFFF80\">500 </span>life over 8 seconds"
+      }
+    },
+    {
+      "AbilCmd": "SCVHarvest,Gather",
+      "id": "GatherUPL",
+      "Icon": "btn-ability-terran-gather",
+      "Name": {
+        "enUS": "Gather"
+      },
+      "Tooltip": {
+        "enUS": "Orders Mining Drone to gather resources from a selected Mineral Field or Fluorite Deposit."
+      }
+    },
+    {
+      "AbilCmd": "SCVHarvest,Return",
+      "id": "ReturnCargo",
+      "Icon": "btn-command-returncargo",
+      "Name": {
+        "enUS": "Return Cargo",
+        "ruRU": "Выгрузить ресурсы "
+      },
+      "Tooltip": {
+        "enUS": "Returns the carried resources to the nearest drop-off point.",
+        "ruRU": "Приказать выгрузить ресурсы в ближайший приемный пункт. "
+      }
+    },
+    {
+      "AbilCmd": "MiningDroneSwitchMode,On",
+      "id": "MiningDroneSwitchMode",
+      "Icon": "btn-ability-upl-miningdronecombatmode",
+      "Name": {
+        "enUS": "Activate Grenade Launcher"
+      },
+      "Tooltip": {
+        "enUS": "Mining Drone replaces a harvester arm with a grenade launcher which attacks at a short range and does more damage. In Grenade Launcher mode, Mining Drone cannot harvest resources, construct building or use any abilities."
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Halt",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+        "ruRU": "Отменить текущий приказ и отдать следующий. "
+      }
+    },
+    {
+      "AbilCmd": "MiningDroneSwitchMode,Off",
+      "id": "MiningDroneSwitchModeOff",
+      "Icon": "btn-ability-upl-miningdroneharvestmode",
+      "Name": {
+        "enUS": "Deactivate Grenade Launcher"
+      },
+      "Tooltip": {
+        "enUS": "Mining Drone exits combat mode to resume harvesting duties"
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Build1",
+      "id": "UPLHeadquarters",
+      "Icon": "btn-building-upl-uplheadquarters",
+      "Name": {
+        "enUS": "Build Headquarters"
+      },
+      "Tooltip": {
+        "enUS": "Primary structure. Used to receive gathered resources. <br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- <b>Mining Drone</b><br/>- <b>CARR</b>"
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Build3",
+      "id": "UPLExhumer",
+      "Icon": "btn-building-upl-uplexhumer",
+      "Name": {
+        "enUS": "Build Exhumer"
+      },
+      "Tooltip": {
+        "enUS": "Resource Production Facility <br/><br/>Built over a Fluorine Deposit to Allow Production of Francine Gas"
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Build2",
+      "id": "UPLGenerator",
+      "Icon": "btn-building-upl-uplgenerator",
+      "Name": {
+        "enUS": "Build Fusion Generator"
+      },
+      "Tooltip": {
+        "enUS": "Provides supply.<br/>Supply allows you to create more units."
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Build11",
+      "id": "UPLManufacturingFacility",
+      "Icon": "btn-building-upl-uplmanufacturingfacility",
+      "Name": {
+        "enUS": "Build Manufacturing Facility"
+      },
+      "Tooltip": {
+        "enUS": "Ground Vehicle Production facility.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>-  <b>Z-1</b><br/>-  <b>A-6</b><br/>-  <b>TR-17</b><br/>-  <b>Routhe Tank</b>"
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Build5",
+      "id": "UPLRnDFacility",
+      "Icon": "btn-building-upl-uplr&d",
+      "Name": {
+        "enUS": "Build R & D Facility"
+      },
+      "Tooltip": {
+        "enUS": "Research and Development.  <br/><br/>Research upgrades for your forces."
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Build9",
+      "id": "UPLCommStation",
+      "Icon": "btn-building-upl-uplcommstation",
+      "Name": {
+        "enUS": "Build Comm Station"
+      },
+      "Tooltip": {
+        "enUS": "SatNet Communications<br/><br/>Increases speed of nearby allied units and detects cloaked units.<br/><br/><span style=\"color: FFE303\">Detector</span>"
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Build6",
+      "id": "UPLElectrostaticDefenseTower",
+      "Icon": "btn-building-upl-uplelectrostaticdefensetower",
+      "Name": {
+        "enUS": "Build Electrostatic Defense Tower"
+      },
+      "Tooltip": {
+        "enUS": "Automated Defensive Structure.**Can attack ground and air units** <br/><br/><span style=\"color: FFE303\">Detector</span>"
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Build12",
+      "id": "UPLAirstrip",
+      "Icon": "btn-building-upl-uplairstrip",
+      "Name": {
+        "enUS": "Build Airstrip"
+      },
+      "Tooltip": {
+        "enUS": "Aircraft production facility.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>-  <b>Raptor Jet</b><br/>-  <b>Osprey</b><br/>-  <b>Condor</b>"
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Build7",
+      "id": "UPLNightjar",
+      "Icon": "btn-building-upl-uplnightjar",
+      "Name": {
+        "enUS": "Nightjar"
+      },
+      "Tooltip": {
+        "enUS": "Anti-Armor / Anti-Air Cannon**Can Attack Ground and Air units**"
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Build4",
+      "id": "UPLBillet",
+      "Icon": "btn-building-upl-uplbillet",
+      "Name": {
+        "enUS": "Build Billet"
+      },
+      "Tooltip": {
+        "enUS": "Infantry training facility. <br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- <b>Combat Infantry</b><br/>- <b>Heavy Gunner</b><br/>- <b>undefined</b><br/>- <b>Mortar Trooper</b><br/>- <b>undefined</b>"
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Build10",
+      "id": "UPLForwardOperatingBase",
+      "Icon": "btn-building-upl-uplforwardoperatingbase",
+      "Name": {
+        "enUS": "Build Forward Operating Base"
+      },
+      "Tooltip": {
+        "enUS": "Support Unit Production<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- <b>Infantry Officer</b><br/>- <b>CSV</b>"
+      }
+    },
+    {
+      "AbilCmd": "UPLBuild,Build14",
+      "id": "UPLSolitaire",
+      "Icon": "btn-building-upl-uplsolitaire",
+      "Name": {
+        "enUS": "Solitaire"
+      },
+      "Tooltip": {
+        "enUS": "Manned Defensive structure.  **Can attack ground units**"
+      }
+    }
+  ]
+}

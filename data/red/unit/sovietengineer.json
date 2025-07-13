@@ -1,0 +1,1804 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Soviet Engineer"
+  },
+  "Description": {
+    "enUS": "These veteran engineers carry a pistol and tools to the battlefield without hesitation, and can build radar for the Soviet Union.<br/><br/><span style=\"color: FFFF00\">Role: Build/occupy/repair buildings/fight</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Soviet",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "AcquireNoFlee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 40,
+  "LifeMax": 40,
+  "LifeArmorName": {
+    "enUS": "Infantry Armor"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 990,
+  "TurningRate": 990,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.3,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:CNC",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 5,
+  "LeaderAlias": "SovietEngineer",
+  "HotkeyAlias": "SovietEngineer",
+  "SelectAlias": "SovietEngineer",
+  "SubgroupAlias": "SovietEngineer",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SovietEngineer",
+  "AIEvaluateAlias": "SovietEngineer",
+  "ReviveType": "SovietEngineer",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33,
+      "Turn": 33
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "SovietEngineer/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "SovietEngineer/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "ScoreResult": "BuildOrder",
+  "GlossaryAlias": "SovietEngineer",
+  "Sight": 7,
+  "AttackTargetPriority": 5,
+  "ScoreMakeCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "ScoreKillCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "Speed": 1.3007,
+  "Acceleration": 1000,
+  "CostCategory": "Army",
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust"
+  ],
+  "PlaneArray": [
+    "Ground"
+  ],
+  "AbilArray": [
+    "move",
+    "stop",
+    "attack",
+    "Disband",
+    "BuildingCapture2",
+    "BuildingCapture",
+    "BuildCV222",
+    "BuildInProgress"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": "-",
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": "-",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Move Hold Position",
+          "ruRU": "Двигаться, удерживая позицию "
+        },
+        "Tooltip": "-",
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Move Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": "-",
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/Disband",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Disband",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1
+          },
+          "Effect": [
+            "SovietDesolatorDestroybehaviorimposedononeself1"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Disband",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Disband"
+            }
+          },
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 0
+              }
+            }
+          ],
+          "id": "Disband"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "Disband,Execute",
+        "id": "Disband",
+        "Icon": "btn-ability-terran-salvage",
+        "Name": {
+          "enUS": "recycling"
+        },
+        "Tooltip": {
+          "enUS": "Recycle and destroy the unit or building (return 50% of the cost)"
+        },
+        "Hotkey": ""
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/BuildCV222",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildCV222",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Cancel"
+          },
+          "Alert": "BuildComplete",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 0,
+            "PeonMaintained": 1,
+            "RangeIncludesBuilding": 0,
+            "InstantPlacement": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "",
+                "State": "Available"
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "",
+              "Time": 0
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "",
+              "Time": 0
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "ValidatorArray": [],
+              "Unit": "",
+              "Time": 0
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "",
+                "State": "Available",
+                "Requirements": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "",
+              "Time": 0
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "",
+                "State": "Available",
+                "Requirements": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "",
+              "Time": 0
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "EngineerCapture2",
+                "State": "Available",
+                "Requirements": "HaveMediumAirframes2255"
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "ChinaSkyLantern",
+              "Time": 5
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "",
+                "State": "Available",
+                "Requirements": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "",
+              "Time": 0
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "ValidatorArray": [],
+              "Unit": "",
+              "Time": 0
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "",
+                "State": "Available",
+                "Requirements": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "",
+              "Time": 0
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "",
+                "State": "Available",
+                "Requirements": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "",
+              "Time": 0
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "",
+                "State": "Available",
+                "Requirements": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "",
+              "Time": 0
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "",
+                "State": "Available",
+                "Requirements": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "",
+              "Time": 0
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "State": "Available",
+                "Requirements": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Time": 0
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "",
+                "State": "Available",
+                "Requirements": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "",
+              "Time": 0
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "",
+                "State": "Available",
+                "Requirements": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "",
+              "Time": 0
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "SpiderMine2",
+                "Requirements": "HaveMediumAirframes225"
+              },
+              "Resource": {
+                "Minerals": 50
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "SpiderMine",
+              "Time": 2
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "",
+                "Requirements": ""
+              },
+              "Charge": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Cooldown": {
+                "Link": "Abil/BuildCV222"
+              },
+              "Unit": "",
+              "Time": 0
+            }
+          },
+          "Range": [
+            0.7
+          ],
+          "id": "BuildCV222"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildCV222,Halt",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/BuildingCapture",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Terran",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildingCapture",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "Smart": 1
+          },
+          "Effect": [
+            "EngineerCaptureSet"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "BuildingCapture",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "EngineerCapture"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "Ground,Structure;Player,Ally,Enemy,Air,Biological,Heroic,User1,RawResource,HarvestableResource,Destructible,Stasis,Dead,Invulnerable,MapBoss,HeroUnit"
+          ],
+          "Range": [
+            0
+          ],
+          "id": "BuildingCapture"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildingCapture,Execute",
+        "id": "EngineerCapture",
+        "Icon": "war3_btnreplay-speeddown",
+        "Name": {
+          "enUS": "Capture Building"
+        },
+        "Tooltip": {
+          "enUS": "Engineers can occupy neutral buildings"
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/BuildingCapture2",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:Terran",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildingCapture2",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "Smart": 1
+          },
+          "Effect": [
+            "EngineerCaptureSet2"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "BuildingCapture2",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "EngineerCapture3"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "Mechanical,Structure,Visible;Self,Ally,Neutral,Enemy,UnderConstruction,Dead"
+          ],
+          "Range": [
+            0
+          ],
+          "id": "BuildingCapture2"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildingCapture2,Execute",
+        "id": "EngineerCapture3",
+        "Icon": "ui_tipicon_campaign_space01-repair",
+        "Name": {
+          "enUS": "Restoration of buildings"
+        },
+        "Tooltip": {
+          "enUS": "Engineers can consume themselves to immediately repair the target building"
+        },
+        "Hotkey": "X"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SpiderMine2",
+            "Requirements": "HaveMediumAirframes225"
+          },
+          "Resource": {
+            "Minerals": 50
+          },
+          "Charge": {
+            "Link": "Abil/BuildCV222"
+          },
+          "Cooldown": {
+            "Link": "Abil/BuildCV222"
+          },
+          "Unit": "SpiderMine",
+          "Time": 2
+        },
+        "Unit": "SpiderMine",
+        "Time": 2,
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildCV222,Build18",
+        "id": "SpiderMine2",
+        "Icon": "btn-ability-terran-spidermine",
+        "Name": {
+          "enUS": "Deploy landmines"
+        },
+        "Tooltip": {
+          "enUS": "Deploying landmines can cause extensive damage after detonation <b>500</b> Damage."
+        },
+        "Hotkey": "F"
+      }
+    ]
+  },
+  "CargoSize": 1,
+  "SubgroupPriority": 5,
+  "id": "SovietEngineer",
+  "GlossaryCategory": "Unit/Category/SovietUnits",
+  "HotkeyCategory": "Unit/Category/SovietUnits",
+  "Subtitle": "UnitSubtitle/gbing",
+  "Attributes": [
+    "Light",
+    "Biological"
+  ],
+  "EnergyStart": 100,
+  "EnergyMax": 100,
+  "EnergyRegenRate": 100,
+  "LateralAcceleration": 46.0625,
+  "Food": -1,
+  "CostResource": {
+    "Minerals": 75
+  },
+  "KillXP": 30,
+  "BehaviorArray": [
+    "SovietStrongwilloftheRedArmy",
+    "UpgradeLevel13"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "MG4222"
+    }
+  ],
+  "Icon": "soviet-engineer-unit-icon",
+  "LifeArmorIcon": "btn-upgrade-terran-infantryarmorlevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Terran",
+      "Options": {
+        "OnlyFireWhileInAttackOrder": 0,
+        "OnlyFireAtAttackOrderTarget": 0,
+        "LinkedCooldown": 0,
+        "RequireEnabledAttackAbil": 0
+      },
+      "Icon": "btn-upgrade-mengsk-engineeringbay-dominionweaponslevel0",
+      "TargetFilters": "Ground",
+      "Period": 3,
+      "id": "MG4222",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Old Pistol"
+      },
+      "Amount": 50,
+      "Kind": "Ranged",
+      "Range": 5
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "SovietStrongwilloftheRedArmy",
+      "Icon": "btn-ability-mengsk-commandcenter-draftlaborers",
+      "Name": {
+        "enUS": "Strong will of the Red Army"
+      },
+      "Tooltip": {
+        "enUS": "Infantry within 200 yards of Natasha gain the Red Army's Will effect: Attack speed increases by 100% and damage is increased by 10%. Increase movement speed by 50%, take 65% less damage, weapon range +2"
+      }
+    },
+    {
+      "id": "UpgradeLevel13",
+      "Icon": "ui_glues_icons_ladder_tier0_star",
+      "Name": {
+        "enUS": "T1 unit veteran behavior (mobilization)"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack"
+      }
+    },
+    {
+      "id": "Disband",
+      "Name": {
+        "enUS": "Dusband"
+      }
+    },
+    {
+      "id": "BuildingCapture2",
+      "Name": {
+        "enUS": "Restoration of buildings"
+      }
+    },
+    {
+      "id": "BuildingCapture",
+      "Name": {
+        "enUS": "Capture the building"
+      }
+    },
+    {
+      "id": "BuildCV222",
+      "Name": {
+        "enUS": "BuildCV 4"
+      }
+    },
+    {
+      "id": "BuildInProgress",
+      "Name": "-"
+    }
+  ],
+  "$Upgrades": [
+    "RAMustBeAnEngineerMultifunctional4",
+    "SovietEngineer",
+    "RAMustBeEngineer4",
+    "SovietBarracksTrain",
+    "SovietEngineer_Actor"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "SpiderMine"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "SovietBarracks"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Move Hold Position",
+        "ruRU": "Двигаться, удерживая позицию "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Move Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "Disband,Execute",
+      "id": "Disband",
+      "Icon": "btn-ability-terran-salvage",
+      "Name": {
+        "enUS": "recycling"
+      },
+      "Tooltip": {
+        "enUS": "Recycle and destroy the unit or building (return 50% of the cost)"
+      }
+    },
+    {
+      "AbilCmd": "BuildCV222,Halt",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "BuildingCapture,Execute",
+      "id": "EngineerCapture",
+      "Icon": "war3_btnreplay-speeddown",
+      "Name": {
+        "enUS": "Capture Building"
+      },
+      "Tooltip": {
+        "enUS": "Engineers can occupy neutral buildings"
+      }
+    },
+    {
+      "AbilCmd": "BuildingCapture2,Execute",
+      "id": "EngineerCapture3",
+      "Icon": "ui_tipicon_campaign_space01-repair",
+      "Name": {
+        "enUS": "Restoration of buildings"
+      },
+      "Tooltip": {
+        "enUS": "Engineers can consume themselves to immediately repair the target building"
+      }
+    },
+    {
+      "AbilCmd": "BuildCV222,Build18",
+      "id": "SpiderMine2",
+      "Icon": "btn-ability-terran-spidermine",
+      "Name": {
+        "enUS": "Deploy landmines"
+      },
+      "Tooltip": {
+        "enUS": "Deploying landmines can cause extensive damage after detonation <b>500</b> Damage."
+      }
+    }
+  ]
+}

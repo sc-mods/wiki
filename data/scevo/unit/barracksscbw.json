@@ -1,0 +1,745 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Barracks",
+    "zhCN": "Barracks",
+    "koKR": "Barracks"
+  },
+  "Description": {
+    "enUS": "Trains Terran Infantry units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Marine</b><br/>- <b>Bunker</b>s from <b>SCV</b>s",
+    "zhCN": "Trains Terran Infantry units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Marine</b><br/>- <b>Bunker</b>s from <b>SCV</b>s",
+    "koKR": "Trains Terran Infantry units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Marine</b><br/>- <b>Bunker</b>s from <b>SCV</b>s"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "BWTe",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1000,
+  "LifeMax": 1000,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.75,
+  "SeparationRadius": 1.75,
+  "MinimapRadius": 1.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "BarracksSCBW",
+  "HotkeyAlias": "BarracksSCBW",
+  "SelectAlias": "BarracksSCBW",
+  "SubgroupAlias": "BarracksSCBW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "BarracksSCBW",
+  "AIEvaluateAlias": "BarracksSCBW",
+  "ReviveType": "BarracksSCBW",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "BarracksSCBW/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "BarracksSCBW/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "Gender": "Neutral",
+  "FogVisibility": "Snapshot",
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "Sight": 9,
+  "CostCategory": "Technology",
+  "AttackTargetPriority": 11,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 24,
+  "AIKiteRange": 1,
+  "HotkeyCategory": "Unit/Category/TerranUnitsSCBW",
+  "BehaviorArray": [
+    "TerranBuildingSCBW@Burnout"
+  ],
+  "TechAliasArray": [
+    "Alias_BarracksSCBW"
+  ],
+  "id": "BarracksSCBW",
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "PlaneArray": [
+    "Ground"
+  ],
+  "AbilArray": [
+    "BuildInProgress",
+    "Rally",
+    "que5",
+    "BarracksSCBW@Train",
+    "BarracksSCBW@LiftOff"
+  ],
+  "Facing": 315,
+  "LifeArmor": 1,
+  "CostResource": {
+    "Minerals": 150
+  },
+  "RepairTime": 60,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rally,Rally1",
+        "id": "Rally",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "QueueSize": 5,
+          "id": "que5"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Restricted",
+            "DefaultButtonFace": "MarineSCBW",
+            "Requirements": "MarineSCBW"
+          },
+          "Unit": [
+            "MarineSCBW"
+          ]
+        },
+        "Unit": [
+          "MarineSCBW"
+        ],
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "BarracksSCBW@Train,Train1",
+        "id": "MarineSCBW",
+        "Icon": "btn-unit-terran-marine@scbw",
+        "Name": {
+          "enUS": "Train Marine",
+          "zhCN": "Train Marine",
+          "koKR": "Train Marine"
+        },
+        "Tooltip": {
+          "enUS": "General-purpose infantry.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground and air units.</span>",
+          "zhCN": "General-purpose infantry.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground and air units.</span>",
+          "koKR": "General-purpose infantry.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground and air units.</span>"
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Restricted",
+            "DefaultButtonFace": "FirebatSCBW",
+            "Requirements": "FirebatSCBW"
+          },
+          "Unit": [
+            "FirebatSCBW"
+          ]
+        },
+        "Unit": [
+          "FirebatSCBW"
+        ],
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "BarracksSCBW@Train,Train2",
+        "id": "FirebatSCBW",
+        "Icon": "btn-unit-terran-firebat@scbw",
+        "Name": {
+          "enUS": "Train Firebat",
+          "zhCN": "Train Firebat",
+          "koKR": "Train Firebat"
+        },
+        "Tooltip": {
+          "enUS": "Specialized anti-infantry attacker.<br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>",
+          "zhCN": "Specialized anti-infantry attacker.<br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>",
+          "koKR": "Specialized anti-infantry attacker.<br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>"
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Restricted",
+            "DefaultButtonFace": "GhostSCBW",
+            "Requirements": "GhostSCBW"
+          },
+          "Unit": [
+            "GhostSCBW"
+          ]
+        },
+        "Unit": [
+          "GhostSCBW"
+        ],
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BarracksSCBW@Train,Train3",
+        "id": "GhostSCBW",
+        "Icon": "btn-unit-terran-ghost@scbw",
+        "Name": {
+          "enUS": "Train Ghost",
+          "zhCN": "Train Ghost",
+          "koKR": "Train Ghost"
+        },
+        "Tooltip": {
+          "enUS": "Infiltrator. Can use <span class=\"style-TooltipHighlightSCBW\"><b>Personal Cloaking</b></span> and call down <span class=\"style-TooltipHighlightSCBW\">Tactical Nukes</span> built at the <span class=\"style-TooltipHighlightSCBW\"><b>Nuclear Silo</b></span>.  <br/><br/><span style=\"color: #ffff8a\">Can attack ground and air units.</span>",
+          "zhCN": "Infiltrator. Can use <span class=\"style-TooltipHighlightSCBW\"><b>Personal Cloaking</b></span> and call down <span class=\"style-TooltipHighlightSCBW\">Tactical Nukes</span> built at the <span class=\"style-TooltipHighlightSCBW\"><b>Nuclear Silo</b></span>.  <br/><br/><span style=\"color: #ffff8a\">Can attack ground and air units.</span>",
+          "koKR": "Infiltrator. Can use <span class=\"style-TooltipHighlightSCBW\"><b>Personal Cloaking</b></span> and call down <span class=\"style-TooltipHighlightSCBW\">Tactical Nukes</span> built at the <span class=\"style-TooltipHighlightSCBW\"><b>Nuclear Silo</b></span>.  <br/><br/><span style=\"color: #ffff8a\">Can attack ground and air units.</span>"
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Restricted",
+            "DefaultButtonFace": "MedicSCBW",
+            "Requirements": "MedicSCBW"
+          },
+          "Unit": [
+            "MedicSCBW"
+          ]
+        },
+        "Unit": [
+          "MedicSCBW"
+        ],
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "BarracksSCBW@Train,Train4",
+        "id": "MedicSCBW",
+        "Icon": "btn-unit-terran-medic",
+        "Name": {
+          "enUS": "Train Medic",
+          "zhCN": "Train Medic",
+          "koKR": "Train Medic"
+        },
+        "Tooltip": {
+          "enUS": "Support trooper. Can <span class=\"style-TooltipHighlightSCBW\"><b>Heal</b></span> nearby biological units, and be upgraded to use <span class=\"style-TooltipHighlightSCBW\"><b>Optic Flare</b></span> and <span class=\"style-TooltipHighlightSCBW\"><b>Restoration</b>.</span>",
+          "zhCN": "Support trooper. Can <span class=\"style-TooltipHighlightSCBW\"><b>Heal</b></span> nearby biological units, and be upgraded to use <span class=\"style-TooltipHighlightSCBW\"><b>Optic Flare</b></span> and <span class=\"style-TooltipHighlightSCBW\"><b>Restoration</b>.</span>",
+          "koKR": "Support trooper. Can <span class=\"style-TooltipHighlightSCBW\"><b>Heal</b></span> nearby biological units, and be upgraded to use <span class=\"style-TooltipHighlightSCBW\"><b>Optic Flare</b></span> and <span class=\"style-TooltipHighlightSCBW\"><b>Restoration</b>.</span>"
+        },
+        "Hotkey": "E"
+      }
+    ]
+  },
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "ScoreMake": 150,
+  "ScoreKill": 150,
+  "GlossaryPriority": 252,
+  "TechTreeProducedUnitArray": [
+    "MarineSCBW",
+    "FirebatSCBW",
+    "MedicSCBW",
+    "GhostSCBW"
+  ],
+  "BuildTime": 67,
+  "TacticalAIThink": "AIThinkBarracksSCBW",
+  "Icon": "btn-building-terran-barracks",
+  "Model": "Barracks",
+  "LifeArmorIcon": "btn-upgrade-terran-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "TerranBuildingSCBW@Burnout",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Burnout",
+        "zhCN": "Burnout",
+        "koKR": "Burnout"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "-"
+    },
+    {
+      "id": "Rally",
+      "Name": "-"
+    },
+    {
+      "id": "que5",
+      "Name": {
+        "ruRU": "Queue (5)"
+      }
+    },
+    {
+      "id": "BarracksSCBW@Train",
+      "Name": {
+        "enUS": "Train",
+        "zhCN": "Train",
+        "koKR": "Train"
+      }
+    },
+    {
+      "id": "BarracksSCBW@LiftOff",
+      "Name": {
+        "enUS": "Lift Off",
+        "zhCN": "Lift Off",
+        "koKR": "Lift Off"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "Button/Tooltip/AcademySCBW",
+    "BarracksSCBW@AllowUnit",
+    "SCVSCBW@Build",
+    "Button/Tooltip/GhostSCBW@Passive",
+    "BarracksSCBW",
+    "BarracksSCBW@Flying",
+    "BarracksSCBW@Land",
+    "Button/Tooltip/FirebatSCBW@Passive",
+    "Button/Tooltip/MedicSCBW@Passive",
+    "BarracksSCBW",
+    "BarracksSCBW@Land",
+    "BarracksSCBW@LiftOff",
+    "BarracksSCBW@Splat",
+    "IsBarracksSCBW",
+    "NotBarracksSCBW",
+    "CasterIsBarracksSCBW",
+    "BarracksSCBW",
+    null,
+    null,
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "MarineSCBW",
+    "FirebatSCBW",
+    "GhostSCBW",
+    "MedicSCBW"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [
+    "BarracksSCBW@Flying"
+  ],
+  "$Producers": [
+    "AbilBuildHolderSCBW",
+    "SCVSCBW"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "Rally,Rally1",
+      "id": "Rally",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Прервать постройку "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "BarracksSCBW@Train,Train1",
+      "id": "MarineSCBW",
+      "Icon": "btn-unit-terran-marine@scbw",
+      "Name": {
+        "enUS": "Train Marine",
+        "zhCN": "Train Marine",
+        "koKR": "Train Marine"
+      },
+      "Tooltip": {
+        "enUS": "General-purpose infantry.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground and air units.</span>",
+        "zhCN": "General-purpose infantry.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground and air units.</span>",
+        "koKR": "General-purpose infantry.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Can attack ground and air units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "BarracksSCBW@Train,Train2",
+      "id": "FirebatSCBW",
+      "Icon": "btn-unit-terran-firebat@scbw",
+      "Name": {
+        "enUS": "Train Firebat",
+        "zhCN": "Train Firebat",
+        "koKR": "Train Firebat"
+      },
+      "Tooltip": {
+        "enUS": "Specialized anti-infantry attacker.<br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>",
+        "zhCN": "Specialized anti-infantry attacker.<br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>",
+        "koKR": "Specialized anti-infantry attacker.<br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "BarracksSCBW@Train,Train3",
+      "id": "GhostSCBW",
+      "Icon": "btn-unit-terran-ghost@scbw",
+      "Name": {
+        "enUS": "Train Ghost",
+        "zhCN": "Train Ghost",
+        "koKR": "Train Ghost"
+      },
+      "Tooltip": {
+        "enUS": "Infiltrator. Can use <span class=\"style-TooltipHighlightSCBW\"><b>Personal Cloaking</b></span> and call down <span class=\"style-TooltipHighlightSCBW\">Tactical Nukes</span> built at the <span class=\"style-TooltipHighlightSCBW\"><b>Nuclear Silo</b></span>.  <br/><br/><span style=\"color: #ffff8a\">Can attack ground and air units.</span>",
+        "zhCN": "Infiltrator. Can use <span class=\"style-TooltipHighlightSCBW\"><b>Personal Cloaking</b></span> and call down <span class=\"style-TooltipHighlightSCBW\">Tactical Nukes</span> built at the <span class=\"style-TooltipHighlightSCBW\"><b>Nuclear Silo</b></span>.  <br/><br/><span style=\"color: #ffff8a\">Can attack ground and air units.</span>",
+        "koKR": "Infiltrator. Can use <span class=\"style-TooltipHighlightSCBW\"><b>Personal Cloaking</b></span> and call down <span class=\"style-TooltipHighlightSCBW\">Tactical Nukes</span> built at the <span class=\"style-TooltipHighlightSCBW\"><b>Nuclear Silo</b></span>.  <br/><br/><span style=\"color: #ffff8a\">Can attack ground and air units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "BarracksSCBW@Train,Train4",
+      "id": "MedicSCBW",
+      "Icon": "btn-unit-terran-medic",
+      "Name": {
+        "enUS": "Train Medic",
+        "zhCN": "Train Medic",
+        "koKR": "Train Medic"
+      },
+      "Tooltip": {
+        "enUS": "Support trooper. Can <span class=\"style-TooltipHighlightSCBW\"><b>Heal</b></span> nearby biological units, and be upgraded to use <span class=\"style-TooltipHighlightSCBW\"><b>Optic Flare</b></span> and <span class=\"style-TooltipHighlightSCBW\"><b>Restoration</b>.</span>",
+        "zhCN": "Support trooper. Can <span class=\"style-TooltipHighlightSCBW\"><b>Heal</b></span> nearby biological units, and be upgraded to use <span class=\"style-TooltipHighlightSCBW\"><b>Optic Flare</b></span> and <span class=\"style-TooltipHighlightSCBW\"><b>Restoration</b>.</span>",
+        "koKR": "Support trooper. Can <span class=\"style-TooltipHighlightSCBW\"><b>Heal</b></span> nearby biological units, and be upgraded to use <span class=\"style-TooltipHighlightSCBW\"><b>Optic Flare</b></span> and <span class=\"style-TooltipHighlightSCBW\"><b>Restoration</b>.</span>"
+      }
+    }
+  ]
+}

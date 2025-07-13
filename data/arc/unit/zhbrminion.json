@@ -1,0 +1,3124 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Minion"
+  },
+  "Description": {
+    "enUS": "Basic worker unit. Can gather resources and warp in Hybrid structures. Can sacrifice itself to become a Spirit.<br/><br/><span style=\"color: ffff8a\">Can attack ground units.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZHBR",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 30,
+  "LifeMax": 30,
+  "LifeArmorName": {
+    "enUS": "Hybrid Armor"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "Worker"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ZHBRMinion",
+  "HotkeyAlias": "ZHBRMinion",
+  "SelectAlias": "ZHBRMinion",
+  "SubgroupAlias": "ZHBRMinion",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ZHBRMinion",
+  "AIEvaluateAlias": "ZHBRMinion",
+  "ReviveType": "ZHBRMinion",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 70,
+      "Anim": 20,
+      "Turn": 10
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ZHBRMinion/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ZHBRMinion/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "DataCollection": "ZHBRMinion",
+  "ShieldArmorName": {
+    "enUS": "Protection"
+  },
+  "Acceleration": 2.5,
+  "LateralAcceleration": 46,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 10,
+  "AbilArray": [
+    "stop",
+    "attack",
+    "move",
+    "ZHBRMinionBuild",
+    "ZHBRMinionBuild@Main",
+    "ZHBRMinionHarvest",
+    "ZHBRSpray",
+    "ZHBRMinionMorph@MechanicalReincarnation"
+  ],
+  "LifeArmor": 0,
+  "CargoSize": 1,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/ZHBRMinionHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:ZHBR,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ZHBRMinionHarvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ZHBRMinionHarvest@Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ZHBRMinionHarvest@Return"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "id": "ZHBRMinionHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionHarvest,Gather",
+        "id": "GatherProt",
+        "Icon": "btn-ability-protoss-gather",
+        "Name": {
+          "enUS": "Gather",
+          "ruRU": "Добывать "
+        },
+        "Tooltip": {
+          "enUS": "Orders Probe to gather resources from a selected Mineral Field or Vespene Geyser.",
+          "ruRU": "Приказывает зонду добывать ресурсы на месторождении минералов или из веспенового гейзера."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/ZHBRMinionHarvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:ZHBR,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ZHBRMinionHarvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ZHBRMinionHarvest@Gather"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ZHBRMinionHarvest@Return"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "id": "ZHBRMinionHarvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionHarvest,Return",
+        "id": "ReturnCargo",
+        "Icon": "btn-command-returncargo",
+        "Name": {
+          "enUS": "Return Cargo",
+          "ruRU": "Выгрузить ресурсы "
+        },
+        "Tooltip": {
+          "enUS": "Returns the carried resources to the nearest drop-off point.",
+          "ruRU": "Приказать выгрузить ресурсы в ближайший приемный пункт. "
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "AbilCmd": "255,255",
+        "SubmenuCardId": "HBl1",
+        "id": "ZHBRMinionBuild@SummonStructure",
+        "Icon": "btn-ability-zeratul-warpprism-autounloadoff",
+        "Name": {
+          "enUS": "Summon Structure"
+        },
+        "Tooltip": {
+          "enUS": "A list of basic structures."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "AbilCmd": "255,255",
+        "SubmenuCardId": "HBl2",
+        "id": "ZHBRMinionBuild@SummonAdvancedStructured",
+        "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+        "Name": {
+          "enUS": "Summon Advanced Structure"
+        },
+        "Tooltip": {
+          "enUS": "A list of advanced structures."
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/ZHBRSpray",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:ZHBR",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ZHBRSpray",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "ZHBRSpray"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "SprayProtoss",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Spray",
+              "Requirements": "ZHBRSpray@HaveSprayZHBR"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Charge": {
+                "CountMax": 5,
+                "CountStart": 1,
+                "CountUse": 1,
+                "Link": "Spray",
+                "Location": "Player",
+                "TimeStart": 300,
+                "TimeUse": 300
+              }
+            }
+          ],
+          "Range": [
+            1
+          ],
+          "id": "ZHBRSpray"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRSpray,Execute",
+        "id": "Spray",
+        "Icon": "btn-command-spray",
+        "Name": {
+          "enUS": "Spray",
+          "ruRU": "Граффити"
+        },
+        "Tooltip": {
+          "enUS": "Orders the unit to apply your currently selected spray to the terrain at the target location.",
+          "ruRU": "Приказать боевой единице отобразить на указанном участке поверхности ваше текущее граффити."
+        },
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/ZHBRMinionBuild",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:ZHBR,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ZHBRMinionBuild",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Cancel"
+          },
+          "Alert": "BuildComplete",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 1,
+            "PeonMaintained": 1,
+            "RangeIncludesBuilding": 1,
+            "Interruptible": 1,
+            "PeonDisableCollision": 1,
+            "RequireFacing": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonTemple"
+              },
+              "Unit": "ZHBRTemple",
+              "Time": 100
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonIonicCrystal"
+              },
+              "Unit": "ZHBRIonicCrystal",
+              "Time": 25
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonHarvester"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "ZHBRHarvester",
+              "Time": 30
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonDeformer",
+                "Requirements": "ZHBRCommon@RequiresHoldingCellUse"
+              },
+              "Unit": "ZHBRDeformer",
+              "Time": 25
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonStasisCell",
+                "Requirements": "ZHBRCommon@RequiresVoidRiftUse"
+              },
+              "Unit": "ZHBRStasisCell",
+              "Time": 42
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonVespeneConcentrator",
+                "State": "Suppressed",
+                "Requirements": "ZHBRCommon@RequiresHarvesterUse"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "ZHBRVespeneConcentrator",
+              "Time": 14
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonVoidForge",
+                "State": "Suppressed",
+                "Requirements": "ZHBRCommon@RequiresTombUse"
+              },
+              "Unit": "ZHBRVoidForge",
+              "Time": 87
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonHoldingCell",
+                "Requirements": "ZHBRCommon@RequiresIonicCrystalUse"
+              },
+              "Unit": "ZHBRHoldingCell",
+              "Time": 35
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonVoidRift",
+                "Requirements": "ZHBRCommon@RequiresIonicCrystalUse"
+              },
+              "Unit": "ZHBRVoidRift",
+              "Time": 67
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonProjector",
+                "Requirements": "ZHBRCommon@RequiresCryptOrTombUse"
+              },
+              "Unit": "ZHBRProjector",
+              "Time": 42
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonCrypt",
+                "Requirements": "ZHBRCommon@RequiresVoidRiftUse"
+              },
+              "Unit": "ZHBRCrypt",
+              "Time": 65
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonTomb",
+                "Requirements": "ZHBRCommon@RequiresVoidRiftUse"
+              },
+              "Unit": "ZHBRTomb",
+              "Time": 65
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonConstructAntiGround",
+                "Requirements": "ZHBRCommon@RequiresHoldingCellUse"
+              },
+              "Unit": "ZHBRConstruct@AntiGround",
+              "Time": 48
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonConstructAntiAir",
+                "Requirements": "ZHBRCommon@RequiresHoldingCellUse"
+              },
+              "Unit": "ZHBRConstruct@AntiAir",
+              "Time": 48
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonCapsule",
+                "Requirements": "ZHBRCommon@RequiresCryptUse"
+              },
+              "Unit": "ZHBRCapsule",
+              "Time": 87
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonAmplifier",
+                "Requirements": "ZHBRCommon@RequiresHarvesterUse"
+              },
+              "ValidatorArray": [
+                "ZHBRAmplifier@TargetHasNotSuppressionBehavior"
+              ],
+              "Unit": "ZHBRAmplifier",
+              "Time": 14
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonKeystone",
+                "Requirements": "ZHBRCommon@RequiresCryptOrTombUse"
+              },
+              "Unit": "ZHBRKeystone",
+              "Time": 42
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            }
+          },
+          "EffectArray": {
+            "Start": "ZHBRMinionBuild@Start",
+            "Finish": "ZHBRMinionBuild@Finish",
+            "Cancel": "ZHBRMinionBuild@Cancel"
+          },
+          "SmartPriority": 10,
+          "id": "ZHBRMinionBuild"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": {
+          "enUS": "Halts construction of this structure. The partial construction will remain.",
+          "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/ZHBRMinionBuild@Main",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:ZHBR,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ZHBRMinionBuild",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Cancel"
+          },
+          "Alert": "BuildComplete",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 1,
+            "PeonMaintained": 1,
+            "RangeIncludesBuilding": 1,
+            "Interruptible": 1,
+            "PeonDisableCollision": 1,
+            "RequireFacing": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonTemple"
+              },
+              "Unit": "ZHBRTemple",
+              "Time": 100
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonIonicCrystal"
+              },
+              "Unit": "ZHBRIonicCrystal",
+              "Time": 25
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonHarvester"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "ZHBRHarvester",
+              "Time": 30
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonDeformer",
+                "Requirements": "ZHBRCommon@RequiresHoldingCellUse"
+              },
+              "Unit": "ZHBRDeformer",
+              "Time": 25
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonStasisCell",
+                "Requirements": "ZHBRCommon@RequiresVoidRiftUse"
+              },
+              "Unit": "ZHBRStasisCell",
+              "Time": 42
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonVespeneConcentrator",
+                "State": "Suppressed",
+                "Requirements": "ZHBRCommon@RequiresHarvesterUse"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "ZHBRVespeneConcentrator",
+              "Time": 14
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonVoidForge",
+                "State": "Suppressed",
+                "Requirements": "ZHBRCommon@RequiresTombUse"
+              },
+              "Unit": "ZHBRVoidForge",
+              "Time": 87
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonHoldingCell",
+                "Requirements": "ZHBRCommon@RequiresIonicCrystalUse"
+              },
+              "Unit": "ZHBRHoldingCell",
+              "Time": 35
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonVoidRift",
+                "Requirements": "ZHBRCommon@RequiresIonicCrystalUse"
+              },
+              "Unit": "ZHBRVoidRift",
+              "Time": 67
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonProjector",
+                "Requirements": "ZHBRCommon@RequiresCryptOrTombUse"
+              },
+              "Unit": "ZHBRProjector",
+              "Time": 42
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonCrypt",
+                "Requirements": "ZHBRCommon@RequiresVoidRiftUse"
+              },
+              "Unit": "ZHBRCrypt",
+              "Time": 65
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonTomb",
+                "Requirements": "ZHBRCommon@RequiresVoidRiftUse"
+              },
+              "Unit": "ZHBRTomb",
+              "Time": 65
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonConstructAntiGround",
+                "Requirements": "ZHBRCommon@RequiresHoldingCellUse"
+              },
+              "Unit": "ZHBRConstruct@AntiGround",
+              "Time": 48
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonConstructAntiAir",
+                "Requirements": "ZHBRCommon@RequiresHoldingCellUse"
+              },
+              "Unit": "ZHBRConstruct@AntiAir",
+              "Time": 48
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonCapsule",
+                "Requirements": "ZHBRCommon@RequiresCryptUse"
+              },
+              "Unit": "ZHBRCapsule",
+              "Time": 87
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonAmplifier",
+                "Requirements": "ZHBRCommon@RequiresHarvesterUse"
+              },
+              "ValidatorArray": [
+                "ZHBRAmplifier@TargetHasNotSuppressionBehavior"
+              ],
+              "Unit": "ZHBRAmplifier",
+              "Time": 14
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "ToSelection": 1
+                },
+                "DefaultButtonFace": "ZHBRMinionBuild@SummonKeystone",
+                "Requirements": "ZHBRCommon@RequiresCryptOrTombUse"
+              },
+              "Unit": "ZHBRKeystone",
+              "Time": 42
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            }
+          },
+          "EffectArray": {
+            "Start": "ZHBRMinionBuild@Start",
+            "Finish": "ZHBRMinionBuild@Finish",
+            "Cancel": "ZHBRMinionBuild@Cancel"
+          },
+          "SmartPriority": 17,
+          "id": "ZHBRMinionBuild@Main",
+          "Range": [
+            8
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild@Main,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": {
+          "enUS": "Halts construction of this structure. The partial construction will remain.",
+          "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Duration": 4.2
+              },
+              "EffectArray": {
+                "Start": "ZHBRMinionBuild@ApplyBehavior",
+                "Finish": "ZHBRMinionBuild@RemoveBehavior",
+                "Cancel": "ZHBRMinionBuild@RemoveBehavior"
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 4.2
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Duration": 4.2
+              }
+            },
+            "Facing": {
+              "DurationArray": {
+                "Duration": 4.2
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Duration": 4.2
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 4.2
+              }
+            }
+          },
+          "Unit": "ZHBRSpirit"
+        },
+        "Unit": "ZHBRSpirit",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionMorph@MechanicalReincarnation,Execute",
+        "id": "ZHBRMinionMorph",
+        "Icon": "btn-unit-zhybrid-spirit",
+        "Name": {
+          "enUS": "Mechanical Reincarnation"
+        },
+        "Tooltip": {
+          "enUS": "Minion transforms into a <span style=\"color: ffff8a\">Spirit</span>, a small fast flying scout unit with low health."
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "Passive",
+        "id": "ZHBRVoidBonus",
+        "Icon": "btn-ability-hornerhan-salvagebonus",
+        "Name": {
+          "enUS": "Void Bonus"
+        },
+        "Tooltip": {
+          "enUS": "Increases Minion's harvest resource amount by <span style=\"color: ffff8a\"><b>1</b></span> while they are powered by <span style=\"color: #Void\">Void</span>."
+        }
+      }
+    ],
+    "HBl1": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonTemple"
+          },
+          "Unit": "ZHBRTemple",
+          "Time": 100
+        },
+        "Unit": "ZHBRTemple",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 15
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build1",
+        "id": "ZHBRMinionBuild@SummonTemple",
+        "Icon": "btn-building-zhybrid-temple",
+        "Name": {
+          "enUS": "Summon Temple"
+        },
+        "Tooltip": {
+          "enUS": "Primary structure. Can receive gathered resources.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Minions"
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonHarvester"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "ZHBRHarvester",
+          "Time": 30
+        },
+        "Unit": "ZHBRHarvester",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build3",
+        "id": "ZHBRMinionBuild@SummonHarvester",
+        "Icon": "btn-building-zhybrid-harvester",
+        "Name": {
+          "enUS": "Summon Harvester"
+        },
+        "Tooltip": {
+          "enUS": "Summoned over a Vespene Geyser to allow harvesting of vespene gas."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonConstructAntiAir",
+            "Requirements": "ZHBRCommon@RequiresHoldingCellUse"
+          },
+          "Unit": "ZHBRConstruct@AntiAir",
+          "Time": 48
+        },
+        "Unit": "ZHBRConstruct@AntiAir",
+        "Time": 48,
+        "Cost": {
+          "Minerals": 225,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build18",
+        "id": "ZHBRMinionBuild@SummonConstructAntiAir",
+        "Icon": "btn-building-zhybrid-constructantiair",
+        "Name": {
+          "enUS": "Summon Construct (Anti-Air)"
+        },
+        "Tooltip": {
+          "enUS": "Powerful Anti-Air guardian that test the strength of those who seek the Halls of Revelation. Can be transformed to Anti-Ground construct.<br/><br/><span style=\"color: #ffff8a\">Can attack air units.</span>"
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonConstructAntiGround",
+            "Requirements": "ZHBRCommon@RequiresHoldingCellUse"
+          },
+          "Unit": "ZHBRConstruct@AntiGround",
+          "Time": 48
+        },
+        "Unit": "ZHBRConstruct@AntiGround",
+        "Time": 48,
+        "Cost": {
+          "Minerals": 225,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build17",
+        "id": "ZHBRMinionBuild@SummonConstructAntiGround",
+        "Icon": "btn-building-zhybrid-constructantiground",
+        "Name": {
+          "enUS": "Summon Construct (Anti-Ground)"
+        },
+        "Tooltip": {
+          "enUS": "Powerful Anti-Ground guardian that test the strength of those who seek the Halls of Revelation. Can be transformed to Anti-Air construct.<br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>"
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonVoidRift",
+            "Requirements": "ZHBRCommon@RequiresIonicCrystalUse"
+          },
+          "Unit": "ZHBRVoidRift",
+          "Time": 67
+        },
+        "Unit": "ZHBRVoidRift",
+        "Time": 67,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build9",
+        "id": "ZHBRMinionBuild@SummonVoidRift",
+        "Icon": "btn-building-zhybrid-voidrift",
+        "Name": {
+          "enUS": "Summon Void Rift"
+        },
+        "Tooltip": {
+          "enUS": "Summons Hybrid units.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Warriors"
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonIonicCrystal"
+          },
+          "Unit": "ZHBRIonicCrystal",
+          "Time": 25
+        },
+        "Unit": "ZHBRIonicCrystal",
+        "Time": 25,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 9
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build2",
+        "id": "ZHBRMinionBuild@SummonIonicCrystal",
+        "Icon": "btn-building-zhybrid-ioniccrystal",
+        "Name": {
+          "enUS": "Summon Ionic Crystal"
+        },
+        "Tooltip": {
+          "enUS": "Provides supply. Supply allows you to summon more units.<br/><br/>Creates <span style=\"color: #Void\">Void</span> powerfield, allowing units around to restore <span style=\"color: ffffff\">Protection</span> shields and <span style=\"color: #Void\">Void</span> energy.</span><br/><br/><span style=\"color: ffff8a\">Moveable structure.</span>"
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonAmplifier",
+            "Requirements": "ZHBRCommon@RequiresHarvesterUse"
+          },
+          "ValidatorArray": [
+            "ZHBRAmplifier@TargetHasNotSuppressionBehavior"
+          ],
+          "Unit": "ZHBRAmplifier",
+          "Time": 14
+        },
+        "Unit": "ZHBRAmplifier",
+        "Time": 14,
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build21",
+        "id": "ZHBRMinionBuild@SummonAmplifier",
+        "Icon": "btn-building-zhybrid-amplifier",
+        "Name": {
+          "enUS": "Summon Amplifier"
+        },
+        "Tooltip": {
+          "enUS": "Summoned over a Mineral Field to extract <span style=\"color: FFFF80\"><b>3</b></span> minerals every <span style=\"color: FFFF80\"><b>3.50</b></span> seconds."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonDeformer",
+            "Requirements": "ZHBRCommon@RequiresHoldingCellUse"
+          },
+          "Unit": "ZHBRDeformer",
+          "Time": 25
+        },
+        "Unit": "ZHBRDeformer",
+        "Time": 25,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build4",
+        "id": "ZHBRMinionBuild@SummonDeformer",
+        "Icon": "btn-building-zhybrid-deformer",
+        "Name": {
+          "enUS": "Summon Deformer"
+        },
+        "Tooltip": {
+          "enUS": "Support structure. Recharges <span style=\"color: #Void\">Void</span> energy of nearby units.<br/><br/><span style=\"color: FFE303\">Detector</span>"
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonVespeneConcentrator",
+            "State": "Suppressed",
+            "Requirements": "ZHBRCommon@RequiresHarvesterUse"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "ZHBRVespeneConcentrator",
+          "Time": 14
+        },
+        "Unit": "ZHBRVespeneConcentrator",
+        "Time": 14,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build6",
+        "id": "ZHBRMinionBuild@SummonVespeneConcentrator",
+        "Icon": "btn-building-zhybrid-vespeneconcentrator",
+        "Name": {
+          "enUS": "Summon Vespene Concentrator"
+        },
+        "Tooltip": {
+          "enUS": "Summoned over a Vespene Geyser to extract <span style=\"color: FFFF80\"><b>3</b></span> vespene every <span style=\"color: FFFF80\"><b>3.50</b></span> seconds."
+        },
+        "Hotkey": "N"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonHoldingCell",
+            "Requirements": "ZHBRCommon@RequiresIonicCrystalUse"
+          },
+          "Unit": "ZHBRHoldingCell",
+          "Time": 35
+        },
+        "Unit": "ZHBRHoldingCell",
+        "Time": 35,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build8",
+        "id": "ZHBRMinionBuild@SummonHoldingCell",
+        "Icon": "btn-building-zhybrid-holdingcell",
+        "Name": {
+          "enUS": "Summon Holding Cell"
+        },
+        "Tooltip": {
+          "enUS": "Contains common Hybrid upgrades."
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonStasisCell",
+            "Requirements": "ZHBRCommon@RequiresVoidRiftUse"
+          },
+          "Unit": "ZHBRStasisCell",
+          "Time": 42
+        },
+        "Unit": "ZHBRStasisCell",
+        "Time": 42,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build5",
+        "id": "ZHBRMinionBuild@SummonStasisCell",
+        "Icon": "btn-building-zhybrid-stasiscell",
+        "Name": {
+          "enUS": "Summon Stasis Cell"
+        },
+        "Tooltip": {
+          "enUS": "Improve Void Rifts, contains upgrades for <span style=\"color: ffff8a\">Flayers</span> and <span style=\"color: ffff8a\">Sentinels</span>.<br/><br/><span style=\"color: ffff8a\">While within <span style=\"color: #Void\">Void</span> powerfield enables:</span><br/>- Flayers<br/>- Sentinels"
+        },
+        "Hotkey": "S"
+      }
+    ],
+    "HBl2": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonCrypt",
+            "Requirements": "ZHBRCommon@RequiresVoidRiftUse"
+          },
+          "Unit": "ZHBRCrypt",
+          "Time": 65
+        },
+        "Unit": "ZHBRCrypt",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build15",
+        "id": "ZHBRMinionBuild@SummonCrypt",
+        "Icon": "btn-building-zhybrid-crypt",
+        "Name": {
+          "enUS": "Summon Crypt"
+        },
+        "Tooltip": {
+          "enUS": "Improve Void Rifts, contains upgrades for <span style=\"color: ffff8a\">Warbringers</span> and <span style=\"color: ffff8a\">Proteuses</span>.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Warbringers<br/>- Proteuses"
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonTomb",
+            "Requirements": "ZHBRCommon@RequiresVoidRiftUse"
+          },
+          "Unit": "ZHBRTomb",
+          "Time": 65
+        },
+        "Unit": "ZHBRTomb",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build16",
+        "id": "ZHBRMinionBuild@SummonTomb",
+        "Icon": "btn-building-zhybrid-tomb",
+        "Name": {
+          "enUS": "Summon Tomb"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for <span style=\"color: ffff8a\">Energators</span>, <span style=\"color: ffff8a\">Conductors</span>, <span style=\"color: ffff8a\">Navigators</span>.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Energators<br/>- Conductors<br/>- Navigators<br/>- Minion morph to Spirit"
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonKeystone",
+            "Requirements": "ZHBRCommon@RequiresCryptOrTombUse"
+          },
+          "Unit": "ZHBRKeystone",
+          "Time": 42
+        },
+        "Unit": "ZHBRKeystone",
+        "Time": 42,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build22",
+        "id": "ZHBRMinionBuild@SummonKeystone",
+        "Icon": "btn-building-zhybrid-keystone",
+        "Name": {
+          "enUS": "Summon Keystone"
+        },
+        "Tooltip": {
+          "enUS": "Improve Void Rifts, contains upgrades for <span style=\"color: ffff8a\">Chimeras</span>, <span style=\"color: ffff8a\">Striders</span> and <span style=\"color: ffff8a\">Dreadnoks</span>.<br/><br/><span style=\"color: ffff8a\">While within <span style=\"color: #Void\">Void</span> powerfield enables:</span><br/>- Chimeras<br/>- Striders<br/>- Dreadnoks"
+        },
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonProjector",
+            "Requirements": "ZHBRCommon@RequiresCryptOrTombUse"
+          },
+          "Unit": "ZHBRProjector",
+          "Time": 42
+        },
+        "Unit": "ZHBRProjector",
+        "Time": 42,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build10",
+        "id": "ZHBRMinionBuild@SummonProjector",
+        "Icon": "btn-building-zhybrid-projector",
+        "Name": {
+          "enUS": "Summon Projector"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for <span style=\"color: ffff8a\">Pollinators</span>, <span style=\"color: ffff8a\">Psyons</span>.<br/><br/><span style=\"color: ffff8a\">While within <span style=\"color: #Void\">Void</span> powerfield enables:</span><br/>- Pollinators<br/>- Psyons"
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonCapsule",
+            "Requirements": "ZHBRCommon@RequiresCryptUse"
+          },
+          "Unit": "ZHBRCapsule",
+          "Time": 87
+        },
+        "Unit": "ZHBRCapsule",
+        "Time": 87,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build19",
+        "id": "ZHBRMinionBuild@SummonCapsule",
+        "Icon": "btn-building-zhybrid-capsule",
+        "Name": {
+          "enUS": "Summon Capsule"
+        },
+        "Tooltip": {
+          "enUS": "Improve Void Rifts, contains upgrades for <span style=\"color: ffff8a\">Dominators</span> and <span style=\"color: ffff8a\">Behemoths</span>.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Dominators<br/>- Behemoths"
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "ZHBRMinionBuild@SummonVoidForge",
+            "State": "Suppressed",
+            "Requirements": "ZHBRCommon@RequiresTombUse"
+          },
+          "Unit": "ZHBRVoidForge",
+          "Time": 87
+        },
+        "Unit": "ZHBRVoidForge",
+        "Time": 87,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRMinionBuild,Build7",
+        "id": "ZHBRMinionBuild@SummonVoidForge",
+        "Icon": "btn-building-zhybrid-voidforge",
+        "Name": {
+          "enUS": "Summon Void Forge"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for <span style=\"color: ffff8a\">Shapeshifters</span>, <span style=\"color: ffff8a\">Nemesises</span>.</span><br/><br/><span style=\"color: FFFF80\">Enables:<br/></span>- Shapeshifters<br/>- Nemesises"
+        },
+        "Hotkey": "V"
+      }
+    ]
+  },
+  "GlossaryCategory": "Unit/Category/ZHBRUnits",
+  "TauntDuration": {
+    "Cheer": 5,
+    "Dance": 5
+  },
+  "Mob": "Multiplayer",
+  "AttackTargetPriority": 20,
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "Locust",
+    "Small",
+    "ForceField"
+  ],
+  "HotkeyCategory": "Unit/Category/ZHBRUnits",
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "ScoreResult": "BuildOrder",
+  "ShieldArmorTip": "Unit/ShieldArmorTooltip/ZHBRShields",
+  "BehaviorArray": [
+    "ZHBRVoid@PowerUser",
+    "ZHBRRestorationShield"
+  ],
+  "id": "ZHBRMinion",
+  "Attributes": [
+    "Light",
+    "Mechanical"
+  ],
+  "ShieldsMax": 15,
+  "Speed": 3.25,
+  "Sight": 8,
+  "Food": -1,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 50
+  },
+  "AIOverideTargetPriority": 10,
+  "WeaponArray": [
+    {
+      "Link": "ParticleBeam"
+    }
+  ],
+  "InnerRadius": 0.375,
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "SubgroupPriority": 46,
+  "GlossaryPriority": 1,
+  "ShieldRegenRate": 1.5,
+  "EffectArray": {
+    "Create": "ZHBRRaceControl@AddTrackedUnit",
+    "Birth": "ZHBRRaceControl@AddTrackedUnit"
+  },
+  "Icon": "btn-unit-zhybrid-minion",
+  "LifeArmorIcon": "btn-upgrade-protoss-groundarmorlevel0",
+  "ShieldArmorIcon": "btn-ability-zhybrid-protection",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:Protoss",
+      "Icon": "btn-upgrade-protoss-groundweaponslevel0",
+      "TargetFilters": "Ground",
+      "Range": 0.2,
+      "Period": 1.5,
+      "Options": {
+        "Melee": 1
+      },
+      "LegacyOptions": {
+        "NoDeceleration": 1
+      },
+      "AllowedMovement": "Slowing",
+      "id": "ParticleBeam",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Particle Beam",
+        "ruRU": "Нейтронный луч "
+      },
+      "Amount": 5,
+      "Kind": "Melee"
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "ZHBRVoid@PowerUser",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Power User"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRRestorationShield",
+      "Icon": "btn-ability-zeratul-warpprism-shieldboosters",
+      "Name": {
+        "enUS": "Restoration Shield"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "ZHBRMinionBuild",
+      "Name": {
+        "enUS": "Build"
+      }
+    },
+    {
+      "id": "ZHBRMinionBuild@Main",
+      "Name": {
+        "enUS": "Build (Main)"
+      }
+    },
+    {
+      "id": "ZHBRMinionHarvest",
+      "Name": {
+        "enUS": "Gather (Minion)"
+      }
+    },
+    {
+      "id": "ZHBRSpray",
+      "Name": {
+        "enUS": "Spray"
+      }
+    },
+    {
+      "id": "ZHBRMinionMorph@MechanicalReincarnation",
+      "Name": {
+        "enUS": "Mechanical Reincarnation"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "ZHBRSpray",
+    "ZHBRTempleTrain",
+    "ZHBR",
+    "ZHBRMinion",
+    "ZHBRGroundWeaponUpgradeLevel1",
+    "ZHBRGroundWeapons",
+    "ZHBRGroundWeaponUpgradeLevel2",
+    "ZHBRGroundWeaponUpgradeLevel3",
+    "ZHBRGroundArmorUpgradeLevel1",
+    "ZHBRGroundArmor",
+    "ZHBRGroundArmorUpgradeLevel2",
+    "ZHBRGroundArmorUpgradeLevel3",
+    "CarryMineralFieldMinerals",
+    "CarryHighYieldMineralFieldMinerals",
+    "CountUnitZHBRMinionCompleteOnly",
+    "ZHBRSpirit",
+    "ZHBRHarvesterRich@CarryHarvestableVespeneGeyserGasZHBR",
+    "ZHBRHarvester@CarryHarvestableVespeneGeyserGasZHBR",
+    "ZHBRMinionMorph@Model",
+    "ZHBRMinionMorph@Sound",
+    "ZHBRMinion",
+    "ZHBRCommon@IsMinion",
+    "ZHBRMinion"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "ZHBRTemple",
+    "ZHBRHarvester",
+    "ZHBRConstruct@AntiAir",
+    "ZHBRConstruct@AntiGround",
+    "ZHBRVoidRift",
+    "ZHBRIonicCrystal",
+    "ZHBRAmplifier",
+    "ZHBRDeformer",
+    "ZHBRVespeneConcentrator",
+    "ZHBRHoldingCell",
+    "ZHBRStasisCell",
+    "ZHBRCrypt",
+    "ZHBRTomb",
+    "ZHBRKeystone",
+    "ZHBRProjector",
+    "ZHBRCapsule",
+    "ZHBRVoidForge"
+  ],
+  "$Research": [],
+  "$Morph": [
+    "ZHBRSpirit"
+  ],
+  "$Phase": [],
+  "$Producers": [
+    "ZHBRRaceControl",
+    "ZHBRTemple"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionHarvest,Gather",
+      "id": "GatherProt",
+      "Icon": "btn-ability-protoss-gather",
+      "Name": {
+        "enUS": "Gather",
+        "ruRU": "Добывать "
+      },
+      "Tooltip": {
+        "enUS": "Orders Probe to gather resources from a selected Mineral Field or Vespene Geyser.",
+        "ruRU": "Приказывает зонду добывать ресурсы на месторождении минералов или из веспенового гейзера."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionHarvest,Return",
+      "id": "ReturnCargo",
+      "Icon": "btn-command-returncargo",
+      "Name": {
+        "enUS": "Return Cargo",
+        "ruRU": "Выгрузить ресурсы "
+      },
+      "Tooltip": {
+        "enUS": "Returns the carried resources to the nearest drop-off point.",
+        "ruRU": "Приказать выгрузить ресурсы в ближайший приемный пункт. "
+      }
+    },
+    {
+      "AbilCmd": "255,255",
+      "id": "ZHBRMinionBuild@SummonStructure",
+      "Icon": "btn-ability-zeratul-warpprism-autounloadoff",
+      "Name": {
+        "enUS": "Summon Structure"
+      },
+      "Tooltip": {
+        "enUS": "A list of basic structures."
+      }
+    },
+    {
+      "AbilCmd": "255,255",
+      "id": "ZHBRMinionBuild@SummonAdvancedStructured",
+      "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+      "Name": {
+        "enUS": "Summon Advanced Structure"
+      },
+      "Tooltip": {
+        "enUS": "A list of advanced structures."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRSpray,Execute",
+      "id": "Spray",
+      "Icon": "btn-command-spray",
+      "Name": {
+        "enUS": "Spray",
+        "ruRU": "Граффити"
+      },
+      "Tooltip": {
+        "enUS": "Orders the unit to apply your currently selected spray to the terrain at the target location.",
+        "ruRU": "Приказать боевой единице отобразить на указанном участке поверхности ваше текущее граффити."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": {
+        "enUS": "Halts construction of this structure. The partial construction will remain.",
+        "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild@Main,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": {
+        "enUS": "Halts construction of this structure. The partial construction will remain.",
+        "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionMorph@MechanicalReincarnation,Execute",
+      "id": "ZHBRMinionMorph",
+      "Icon": "btn-unit-zhybrid-spirit",
+      "Name": {
+        "enUS": "Mechanical Reincarnation"
+      },
+      "Tooltip": {
+        "enUS": "Minion transforms into a <span style=\"color: ffff8a\">Spirit</span>, a small fast flying scout unit with low health."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build1",
+      "id": "ZHBRMinionBuild@SummonTemple",
+      "Icon": "btn-building-zhybrid-temple",
+      "Name": {
+        "enUS": "Summon Temple"
+      },
+      "Tooltip": {
+        "enUS": "Primary structure. Can receive gathered resources.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Minions"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build3",
+      "id": "ZHBRMinionBuild@SummonHarvester",
+      "Icon": "btn-building-zhybrid-harvester",
+      "Name": {
+        "enUS": "Summon Harvester"
+      },
+      "Tooltip": {
+        "enUS": "Summoned over a Vespene Geyser to allow harvesting of vespene gas."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build18",
+      "id": "ZHBRMinionBuild@SummonConstructAntiAir",
+      "Icon": "btn-building-zhybrid-constructantiair",
+      "Name": {
+        "enUS": "Summon Construct (Anti-Air)"
+      },
+      "Tooltip": {
+        "enUS": "Powerful Anti-Air guardian that test the strength of those who seek the Halls of Revelation. Can be transformed to Anti-Ground construct.<br/><br/><span style=\"color: #ffff8a\">Can attack air units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build17",
+      "id": "ZHBRMinionBuild@SummonConstructAntiGround",
+      "Icon": "btn-building-zhybrid-constructantiground",
+      "Name": {
+        "enUS": "Summon Construct (Anti-Ground)"
+      },
+      "Tooltip": {
+        "enUS": "Powerful Anti-Ground guardian that test the strength of those who seek the Halls of Revelation. Can be transformed to Anti-Air construct.<br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build9",
+      "id": "ZHBRMinionBuild@SummonVoidRift",
+      "Icon": "btn-building-zhybrid-voidrift",
+      "Name": {
+        "enUS": "Summon Void Rift"
+      },
+      "Tooltip": {
+        "enUS": "Summons Hybrid units.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Warriors"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build2",
+      "id": "ZHBRMinionBuild@SummonIonicCrystal",
+      "Icon": "btn-building-zhybrid-ioniccrystal",
+      "Name": {
+        "enUS": "Summon Ionic Crystal"
+      },
+      "Tooltip": {
+        "enUS": "Provides supply. Supply allows you to summon more units.<br/><br/>Creates <span style=\"color: #Void\">Void</span> powerfield, allowing units around to restore <span style=\"color: ffffff\">Protection</span> shields and <span style=\"color: #Void\">Void</span> energy.</span><br/><br/><span style=\"color: ffff8a\">Moveable structure.</span>"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build21",
+      "id": "ZHBRMinionBuild@SummonAmplifier",
+      "Icon": "btn-building-zhybrid-amplifier",
+      "Name": {
+        "enUS": "Summon Amplifier"
+      },
+      "Tooltip": {
+        "enUS": "Summoned over a Mineral Field to extract <span style=\"color: FFFF80\"><b>3</b></span> minerals every <span style=\"color: FFFF80\"><b>3.50</b></span> seconds."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build4",
+      "id": "ZHBRMinionBuild@SummonDeformer",
+      "Icon": "btn-building-zhybrid-deformer",
+      "Name": {
+        "enUS": "Summon Deformer"
+      },
+      "Tooltip": {
+        "enUS": "Support structure. Recharges <span style=\"color: #Void\">Void</span> energy of nearby units.<br/><br/><span style=\"color: FFE303\">Detector</span>"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build6",
+      "id": "ZHBRMinionBuild@SummonVespeneConcentrator",
+      "Icon": "btn-building-zhybrid-vespeneconcentrator",
+      "Name": {
+        "enUS": "Summon Vespene Concentrator"
+      },
+      "Tooltip": {
+        "enUS": "Summoned over a Vespene Geyser to extract <span style=\"color: FFFF80\"><b>3</b></span> vespene every <span style=\"color: FFFF80\"><b>3.50</b></span> seconds."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build8",
+      "id": "ZHBRMinionBuild@SummonHoldingCell",
+      "Icon": "btn-building-zhybrid-holdingcell",
+      "Name": {
+        "enUS": "Summon Holding Cell"
+      },
+      "Tooltip": {
+        "enUS": "Contains common Hybrid upgrades."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build5",
+      "id": "ZHBRMinionBuild@SummonStasisCell",
+      "Icon": "btn-building-zhybrid-stasiscell",
+      "Name": {
+        "enUS": "Summon Stasis Cell"
+      },
+      "Tooltip": {
+        "enUS": "Improve Void Rifts, contains upgrades for <span style=\"color: ffff8a\">Flayers</span> and <span style=\"color: ffff8a\">Sentinels</span>.<br/><br/><span style=\"color: ffff8a\">While within <span style=\"color: #Void\">Void</span> powerfield enables:</span><br/>- Flayers<br/>- Sentinels"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build15",
+      "id": "ZHBRMinionBuild@SummonCrypt",
+      "Icon": "btn-building-zhybrid-crypt",
+      "Name": {
+        "enUS": "Summon Crypt"
+      },
+      "Tooltip": {
+        "enUS": "Improve Void Rifts, contains upgrades for <span style=\"color: ffff8a\">Warbringers</span> and <span style=\"color: ffff8a\">Proteuses</span>.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Warbringers<br/>- Proteuses"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build16",
+      "id": "ZHBRMinionBuild@SummonTomb",
+      "Icon": "btn-building-zhybrid-tomb",
+      "Name": {
+        "enUS": "Summon Tomb"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for <span style=\"color: ffff8a\">Energators</span>, <span style=\"color: ffff8a\">Conductors</span>, <span style=\"color: ffff8a\">Navigators</span>.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Energators<br/>- Conductors<br/>- Navigators<br/>- Minion morph to Spirit"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build22",
+      "id": "ZHBRMinionBuild@SummonKeystone",
+      "Icon": "btn-building-zhybrid-keystone",
+      "Name": {
+        "enUS": "Summon Keystone"
+      },
+      "Tooltip": {
+        "enUS": "Improve Void Rifts, contains upgrades for <span style=\"color: ffff8a\">Chimeras</span>, <span style=\"color: ffff8a\">Striders</span> and <span style=\"color: ffff8a\">Dreadnoks</span>.<br/><br/><span style=\"color: ffff8a\">While within <span style=\"color: #Void\">Void</span> powerfield enables:</span><br/>- Chimeras<br/>- Striders<br/>- Dreadnoks"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build10",
+      "id": "ZHBRMinionBuild@SummonProjector",
+      "Icon": "btn-building-zhybrid-projector",
+      "Name": {
+        "enUS": "Summon Projector"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for <span style=\"color: ffff8a\">Pollinators</span>, <span style=\"color: ffff8a\">Psyons</span>.<br/><br/><span style=\"color: ffff8a\">While within <span style=\"color: #Void\">Void</span> powerfield enables:</span><br/>- Pollinators<br/>- Psyons"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build19",
+      "id": "ZHBRMinionBuild@SummonCapsule",
+      "Icon": "btn-building-zhybrid-capsule",
+      "Name": {
+        "enUS": "Summon Capsule"
+      },
+      "Tooltip": {
+        "enUS": "Improve Void Rifts, contains upgrades for <span style=\"color: ffff8a\">Dominators</span> and <span style=\"color: ffff8a\">Behemoths</span>.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- Dominators<br/>- Behemoths"
+      }
+    },
+    {
+      "AbilCmd": "ZHBRMinionBuild,Build7",
+      "id": "ZHBRMinionBuild@SummonVoidForge",
+      "Icon": "btn-building-zhybrid-voidforge",
+      "Name": {
+        "enUS": "Summon Void Forge"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for <span style=\"color: ffff8a\">Shapeshifters</span>, <span style=\"color: ffff8a\">Nemesises</span>.</span><br/><br/><span style=\"color: FFFF80\">Enables:<br/></span>- Shapeshifters<br/>- Nemesises"
+      }
+    }
+  ]
+}

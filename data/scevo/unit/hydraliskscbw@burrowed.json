@@ -1,0 +1,727 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Hydralisk",
+    "zhCN": "Hydralisk",
+    "koKR": "Hydralisk"
+  },
+  "Description": {
+    "enUS": "Ranged attacker. Can be upgraded to morph into a <span class=\"style-TooltipHighlightSCBW\"><b>Lurker</b></span>.<br/><br/><span style=\"color: ffff8a\">Can attack ground and air units.</span>",
+    "zhCN": "Ranged attacker. Can be upgraded to morph into a <span class=\"style-TooltipHighlightSCBW\"><b>Lurker</b></span>.<br/><br/><span style=\"color: ffff8a\">Can attack ground and air units.</span>",
+    "koKR": "Ranged attacker. Can be upgraded to morph into a <span class=\"style-TooltipHighlightSCBW\"><b>Lurker</b></span>.<br/><br/><span style=\"color: ffff8a\">Can attack ground and air units.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "BWZe",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 80,
+  "LifeMax": 80,
+  "LifeArmorName": "-",
+  "Mover": "Burrowed",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.625,
+  "SeparationRadius": 0,
+  "MinimapRadius": 0.5,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "PreventDestroy",
+    "Cloaked",
+    "Buried",
+    "AIThreatGround",
+    "AIThreatAir",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "HydraliskSCBW",
+  "HotkeyAlias": "HydraliskSCBW",
+  "SelectAlias": "HydraliskSCBW",
+  "SubgroupAlias": "HydraliskSCBW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "HydraliskSCBW@Burrowed",
+  "AIEvaluateAlias": "HydraliskSCBW",
+  "ReviveType": "HydraliskSCBW@Burrowed",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "HydraliskSCBW@Burrowed/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "HydraliskSCBW@Burrowed/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "EnergyRegenRate": 0.5,
+  "id": "HydraliskSCBW@Burrowed",
+  "LifeRegenRate": 0.2734,
+  "GlossaryCategory": "",
+  "HotkeyCategory": "",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow"
+  ],
+  "Attributes": [
+    "Biological"
+  ],
+  "Sight": 5,
+  "Food": -1,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 75,
+    "Vespene": 25
+  },
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "HydraliskSCBW@BurrowUp",
+    "LurkerSCBW@MorphBurrowed"
+  ],
+  "BehaviorArray": [
+    "BurrowCracks"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            }
+          },
+          "Unit": "HydraliskSCBW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "HydraliskSCBW",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "HydraliskSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.166
+              }
+            }
+          },
+          "Unit": "DefilerSCBW@Burrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "DefilerSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "DefilerSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.8332
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.1665
+              }
+            }
+          },
+          "Unit": "DroneSCBW@Burrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "DroneSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Delay": 1.333
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.166
+              }
+            }
+          },
+          "Unit": "HydraliskSCBW@Burrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "HydraliskSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "HydraliskSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 1.5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.8332
+              }
+            }
+          },
+          "Unit": "UltraliskSCBW@Burrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "UltraliskSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -4
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UltraliskSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1
+              }
+            }
+          },
+          "Unit": "ZerglingSCBW@Burrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "ZerglingSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -0.5
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZerglingSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 1.5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.8332
+              }
+            }
+          },
+          "Unit": "UltraliskSCBW@Burrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "UltraliskSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -4
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UltraliskSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.0556
+              }
+            }
+          },
+          "Unit": "HydraliskSCBW",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "HydraliskSCBW",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "LurkerSCBW@MorphBurrowed,Execute",
+        "id": "LurkerSCBW",
+        "Icon": "btn-unit-zerg-lurker@scbw",
+        "Name": {
+          "enUS": "Morph to Lurker",
+          "zhCN": "Morph to Lurker",
+          "koKR": "Morph to Lurker"
+        },
+        "Tooltip": {
+          "enUS": "Area-damage ambusher. Must burrow to attack. <br/><br/><span style=\"color: ffff8a\">Can attack ground units.</span>",
+          "zhCN": "Area-damage ambusher. Must burrow to attack. <br/><br/><span style=\"color: ffff8a\">Can attack ground units.</span>",
+          "koKR": "Area-damage ambusher. Must burrow to attack. <br/><br/><span style=\"color: ffff8a\">Can attack ground units.</span>"
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "HydraliskSCBWSpeedUpgrade@Passive",
+        "Icon": "btn-upgrade-zerg-muscularaugments",
+        "Name": {
+          "enUS": "Muscular Augments",
+          "zhCN": "Muscular Augments",
+          "koKR": "Muscular Augments"
+        },
+        "Tooltip": {
+          "enUS": "Increases <span class=\"style-TooltipHighlightSCBW\"><b>Hydralisk</b></span> movement speed by <span class=\"style-TooltipBuffSCBW\"><b>50</b>%</span>.",
+          "zhCN": "Increases <span class=\"style-TooltipHighlightSCBW\"><b>Hydralisk</b></span> movement speed by <span class=\"style-TooltipBuffSCBW\"><b>50</b>%</span>.",
+          "koKR": "Increases <span class=\"style-TooltipHighlightSCBW\"><b>Hydralisk</b></span> movement speed by <span class=\"style-TooltipBuffSCBW\"><b>50</b>%</span>."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "HydraliskSCBWRangeUpgrade@Passive",
+        "Icon": "btn-upgrade-zerg-groovedspines",
+        "Name": {
+          "enUS": "Grooved Spines",
+          "zhCN": "Grooved Spines",
+          "koKR": "Grooved Spines"
+        },
+        "Tooltip": {
+          "enUS": "Improves the <span class=\"style-TooltipHighlightSCBW\"><b>Hydralisk</b>'s</span> <span class=\"style-TooltipHighlightSCBW\"><b>Needle Spines</b></span> increasing its range by <span class=\"style-TooltipBuffSCBW\"><d stringref=\"Upgrade,HydraliskSCBWRangeUpgrade,EffectArrayTemplate[0].Value\"/></span>.",
+          "zhCN": "Improves the <span class=\"style-TooltipHighlightSCBW\"><b>Hydralisk</b>'s</span> <span class=\"style-TooltipHighlightSCBW\"><b>Needle Spines</b></span> increasing its range by <span class=\"style-TooltipBuffSCBW\"><d stringref=\"Upgrade,HydraliskSCBWRangeUpgrade,EffectArrayTemplate[0].Value\"/></span>.",
+          "koKR": "Improves the <span class=\"style-TooltipHighlightSCBW\"><b>Hydralisk</b>'s</span> <span class=\"style-TooltipHighlightSCBW\"><b>Needle Spines</b></span> increasing its range by <span class=\"style-TooltipBuffSCBW\"><d stringref=\"Upgrade,HydraliskSCBWRangeUpgrade,EffectArrayTemplate[0].Value\"/></span>."
+        }
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "ScoreKill": 100,
+  "SubgroupPriority": 70,
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "TechAliasArray": [
+    "HydraliskSCBW"
+  ],
+  "TacticalAIThink": "AIThinkHydraliskSCBW",
+  "Icon": "btn-unit-zerg-hydralisk@scbw",
+  "Model": "Hydralisk_Remastered",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level0",
+  "ShieldArmorIcon": "btn-upgrade-zerg-swarmfrenzy",
+  "Weapons": [],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "HydraliskSCBW@BurrowUp",
+      "Name": {
+        "enUS": "Unburrow",
+        "zhCN": "Unburrow",
+        "koKR": "Unburrow"
+      }
+    },
+    {
+      "id": "LurkerSCBW@MorphBurrowed",
+      "Name": {
+        "enUS": "Morph Burrowed",
+        "zhCN": "Morph Burrowed",
+        "koKR": "Morph Burrowed"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "HydraliskSCBW@BurrowDown",
+    "HydraliskSCBW@Burrowed",
+    "HydraliskSCBWSpeedUpgrade",
+    "HydraliskSCBWRangeUpgrade",
+    "HydraliskSCBW@BurrowedSplat",
+    "HydraliskSCBW",
+    "HydraliskSCBW@Death",
+    "IsHydraliskSCBW@Burrowed",
+    "HydraliskSCBW@Burrowed"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "HydraliskSCBW",
+    "LurkerSCBWEgg",
+    "LurkerSCBW"
+  ],
+  "$Phase": [],
+  "$Phased": "HydraliskSCBW",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "HydraliskSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "DefilerSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "DroneSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "HydraliskSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "UltraliskSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "ZerglingSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "UltraliskSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "LurkerSCBW@MorphBurrowed,Execute",
+      "id": "LurkerSCBW",
+      "Icon": "btn-unit-zerg-lurker@scbw",
+      "Name": {
+        "enUS": "Morph to Lurker",
+        "zhCN": "Morph to Lurker",
+        "koKR": "Morph to Lurker"
+      },
+      "Tooltip": {
+        "enUS": "Area-damage ambusher. Must burrow to attack. <br/><br/><span style=\"color: ffff8a\">Can attack ground units.</span>",
+        "zhCN": "Area-damage ambusher. Must burrow to attack. <br/><br/><span style=\"color: ffff8a\">Can attack ground units.</span>",
+        "koKR": "Area-damage ambusher. Must burrow to attack. <br/><br/><span style=\"color: ffff8a\">Can attack ground units.</span>"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1885 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Wisp"
+  },
+  "Description": {
+    "enUS": "Basic worker unit. Can harvest gold and lumber, create Night Elf buildings and Renew. <br/>Can Detonate to dispel magic, hurt summoned creatures and drain mana in an area."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 4,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Vision",
+  "Race": "NightElf",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 120,
+  "LifeMax": 120,
+  "LifeArmorName": "-",
+  "Mover": "hover",
+  "StationaryTurningRate": 720,
+  "TurningRate": 599.9414,
+  "Radius": 0.3125,
+  "SeparationRadius": 0.3125,
+  "MinimapRadius": 0.3125,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "Worker"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ewsp",
+  "HotkeyAlias": "ewsp",
+  "SelectAlias": "ewsp",
+  "SubgroupAlias": "ewsp",
+  "OccludeHeight": 0,
+  "TacticalAI": "ewsp",
+  "AIEvaluateAlias": "ewsp",
+  "ReviveType": "ewsp",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ewsp/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ewsp/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Classic",
+  "LifeArmorFormula": {
+    "NegativeArmorMultiplier": 0,
+    "NegativeDamageBase": 0.94,
+    "PositiveArmorMultiplier": 0,
+    "PositiveDamageRatio": 0.06
+  },
+  "LifeArmorTip": "ARMORTIP_MEDIUM",
+  "SpeedDisplayFlags": {
+    "CollapseBuffed": 1
+  },
+  "Acceleration": 1000,
+  "BehaviorArray": [
+    "ewsp",
+    "War3_Unit",
+    "War3_ArmyBlastRemove",
+    "CreepUnitTriggerNotice",
+    "Ault",
+    "UPKEEP_LOW",
+    "UPKEEP_HIGH",
+    "hover"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "ewsp1"
+    },
+    {
+      "Link": "ewsp2"
+    }
+  ],
+  "InnerRadius": 0.3125,
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "id": "ewsp",
+  "Collide": [
+    "Ground",
+    "ForceField"
+  ],
+  "AbilArray": [
+    "Amov",
+    "stop",
+    "HigherCliffMiss",
+    "Aatk",
+    "AEbu",
+    "AEbuAncient",
+    "Adtn",
+    "Aren",
+    "Awha"
+  ],
+  "CostCategory": "Economy",
+  "ResourceDamageLeechFilters": "-;Player,Ally,Air,Ground,Hover,HarvestableResource,Destructible,Item,Buried,Dead,Invulnerable",
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Amov/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amov",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdMove"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdPatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdHoldPos"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 2,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "FollowFilters": "-;Hover,HarvestableResource,Item",
+          "MoveFilters": "-;Hover,HarvestableResource,Item",
+          "Flags": {
+            "UpdateTarget": 1
+          },
+          "PowerupSmartPriority": 7,
+          "id": "Amov"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Move",
+        "id": "CmdMove",
+        "Icon": "renee_war3_btnmove",
+        "Name": {
+          "enUS": "Move"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Ashm",
+              "Requirements": "Hide"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop",
+          "Flags": {
+            "HoldFire": 1
+          }
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "CmdStop",
+        "Icon": "renee_war3_btnstop",
+        "Name": {
+          "enUS": "Stop"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Amov/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amov",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdMove"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdPatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdHoldPos"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 2,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "FollowFilters": "-;Hover,HarvestableResource,Item",
+          "MoveFilters": "-;Hover,HarvestableResource,Item",
+          "Flags": {
+            "UpdateTarget": 1
+          },
+          "PowerupSmartPriority": 7,
+          "id": "Amov"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,HoldPos",
+        "id": "CmdHoldPos",
+        "Icon": "renee_war3_btnholdposition",
+        "Name": {
+          "enUS": "Hold Position"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Amov/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Amov",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdMove"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdPatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdHoldPos"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 2,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "FollowFilters": "-;Hover,HarvestableResource,Item",
+          "MoveFilters": "-;Hover,HarvestableResource,Item",
+          "Flags": {
+            "UpdateTarget": 1
+          },
+          "PowerupSmartPriority": 7,
+          "id": "Amov"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Patrol",
+        "id": "CmdPatrol",
+        "Icon": "renee_war3_btnpatrol",
+        "Name": {
+          "enUS": "Patrol"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Aatk/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aatk",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "Visible;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally,Hover,HarvestableResource",
+          "SupportedFilters": "-;Self,HarvestableResource,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "CmdAttack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 0
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 5,
+          "MinAttackSpeedMultiplier": 0.2,
+          "AcquirePriority": 2,
+          "id": "Aatk"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aatk,Execute",
+        "id": "CmdAttack",
+        "Icon": "renee_war3_btnattack",
+        "Name": {
+          "enUS": "Attack"
+        },
+        "Tooltip": {
+          "enUS": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "Lear",
+        "id": "CmdBuildNightElf",
+        "Icon": "renee_war3_btnnightelfbuild",
+        "Name": {
+          "enUS": "Create Building"
+        },
+        "Tooltip": {
+          "enUS": "Brings up a list of the available buildings that you may choose to create."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Adtn/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Nightelf,AbilityorEffectType:Unit",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Adtn",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "AdtnSearch"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Adtn",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Adtn",
+              "Requirements": "Adtn"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [],
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit"
+              }
+            }
+          ],
+          "LevelButtonTooltip": [
+            "Adtn/Ubertip2",
+            "Adtn/Ubertip3",
+            "Adtn/Ubertip4"
+          ],
+          "AutoCastValidatorArray": [
+            "NotHallucination"
+          ],
+          "PreEffectBehavior": {
+            "Behavior": "SuppressInvisibility",
+            "Count": 1
+          },
+          "id": "Adtn",
+          "Range": [
+            0.7812
+          ],
+          "CastOutroTime": [
+            0.51
+          ],
+          "CursorEffect": [
+            "AdtnSearch"
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Adtn,0",
+        "id": "Adtn",
+        "Icon": "renee_war3_btnwispsplode",
+        "Name": {
+          "enUS": "Detonate"
+        },
+        "Tooltip": {
+          "enUS": "Destroys the Wisp, dispelling all magical buffs and draining 50 mana from each unit in an area around the Wisp. <br/><span style=\"color: ffcc00\">Deals 225 damage to summoned units.</span>"
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Aren/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aren",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Visible;Neutral,Enemy",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AutoCast": 1,
+            "AutoCastOffOwnerLeave": 1,
+            "ReExecutable": 1,
+            "Smart": 1,
+            "PassengerAcquirePassengers": 1
+          },
+          "Effect": [
+            "Arep"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "Repair",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 0,
+            "Prep": 0,
+            "Cast": 0,
+            "Channel": 0
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "RequiresRepairTarget",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "Aren",
+              "Requirements": "Aren"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "-;Self,Neutral,Enemy,Hover,HarvestableResource,Missile,Destructible,Item,Buried,UnderConstruction,Dead"
+          ],
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit",
+                "Link": "renew"
+              }
+            }
+          ],
+          "LevelButtonTooltip": [
+            "Aren/Ubertip2",
+            "Aren/Ubertip3",
+            "Aren/Ubertip4"
+          ],
+          "AutoCastValidatorArray": [
+            "NotHallucination"
+          ],
+          "PreEffectBehavior": {
+            "Behavior": "SuppressInvisibility",
+            "Count": 1
+          },
+          "id": "Aren",
+          "AbilSetId": "renew",
+          "AutoCastRange": 7,
+          "Marker": {
+            "MatchFlags": {
+              "Link": 0
+            },
+            "MismatchFlags": {
+              "Id": 0
+            },
+            "Link": "Abil/renew"
+          },
+          "InheritAttackPriorityArray": {
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "Range": [
+            0.3906
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aren,0",
+        "id": "Aren",
+        "Icon": "renee_war3_btnwisphealon",
+        "Name": {
+          "enUS": "Renew"
+        },
+        "Tooltip": {
+          "enUS": "Renews friendly Night Elf buildings, allied buildings, and friendly mechanical units."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Awha/Name",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Nightelf,AbilityorEffectType:Unit",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Awha",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Awha"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AwhaUn"
+            },
+            "Cancel": {
+              "DefaultButtonFace": "CmdCancel"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "harvestLumber",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 0,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 0,
+            "Vespene": 0,
+            "Terrazine": 0,
+            "Custom": 0
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 100009
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "id": "Awha",
+          "FlagArray": {
+            "BypassResourceQueue": 0
+          },
+          "ResourceTimeBonus": [
+            22816
+          ]
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "Awha,0",
+        "id": "Awha",
+        "Icon": "renee_war3_btngathergold",
+        "Name": {
+          "enUS": "Gather"
+        },
+        "Tooltip": {
+          "enUS": "Mines gold from Entangled Gold Mines and harvests lumber from trees."
+        },
+        "Hotkey": "G"
+      }
+    ],
+    "Lear": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "etol",
+            "Requirements": "etol"
+          },
+          "Unit": "etol",
+          "Time": 120,
+          "Resource": {
+            "Minerals": 60
+          }
+        },
+        "Unit": "etol",
+        "Time": 120,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 185,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 10
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "AEbuAncient,Build1",
+        "id": "etol",
+        "Icon": "renee_war3_btntreeoflife",
+        "Name": {
+          "enUS": "Create Tree of Life"
+        },
+        "Tooltip": {
+          "enUS": "Primary structure, used to train Wisps and entangle gold mines. Can be upgraded to Tree of Ages and then Tree of Eternity to enable the production of additional types of structures and units. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "eaoe",
+            "Requirements": "eaoe"
+          },
+          "Unit": "eaoe",
+          "Time": 70,
+          "Resource": {
+            "Minerals": 60
+          }
+        },
+        "Unit": "eaoe",
+        "Time": 70,
+        "Cost": {
+          "Minerals": 215,
+          "Vespene": 145,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "AEbuAncient,Build7",
+        "id": "eaoe",
+        "Icon": "renee_war3_btnancientoflore",
+        "Name": {
+          "enUS": "Create Ancient of Lore"
+        },
+        "Tooltip": {
+          "enUS": "Keeper of ground based spellcasters. Trains Druids of the Claw, Dryads, and Mountain Giants. <br/>Also contains the upgrades for Druids of the Claw, Mark of the Claw, Abolish Magic, Hardened Skin, and Resistant Skin. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+        },
+        "Hotkey": "L"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "eaom",
+            "Requirements": "eaom"
+          },
+          "Unit": "eaom",
+          "Time": 60,
+          "Resource": {
+            "Minerals": 60
+          }
+        },
+        "Unit": "eaom",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 210,
+          "Vespene": 60,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "AEbuAncient,Build4",
+        "id": "eaom",
+        "Icon": "renee_war3_btnancientoftheearth",
+        "Name": {
+          "enUS": "Create Ancient of War"
+        },
+        "Tooltip": {
+          "enUS": "Keeper of primary assault troops. Trains Archers, Huntresses, and Glaive Throwers. <br/>Also contains Archer, Huntress and Glaive Thrower upgrades. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "eaow",
+            "Requirements": "eaow"
+          },
+          "Unit": "eaow",
+          "Time": 60,
+          "Resource": {
+            "Minerals": 60
+          }
+        },
+        "Unit": "eaow",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 210,
+          "Vespene": 140,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "AEbuAncient,Build6",
+        "id": "eaow",
+        "Icon": "renee_war3_btnancientofthemoon",
+        "Name": {
+          "enUS": "Create Ancient of Wind"
+        },
+        "Tooltip": {
+          "enUS": "Keeper of aerial assault units and spellcasters. Trains Hippogryphs, Druids of the Talon, and Faerie Dragons. <br/>Also contains the upgrades for Druids of the Talon, Mark of the Talon, and Hippogryph Taming. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+        },
+        "Hotkey": "W"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "edos",
+            "Requirements": "edos"
+          },
+          "Unit": "edos",
+          "Time": 80
+        },
+        "Unit": "edos",
+        "Time": 80,
+        "Cost": {
+          "Minerals": 140,
+          "Vespene": 190,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "AEbu,Build3",
+        "id": "edos",
+        "Icon": "renee_war3_btnchimaeraroost",
+        "Name": {
+          "enUS": "Create Chimaera Roost"
+        },
+        "Tooltip": {
+          "enUS": "Trains Chimaeras. <br/>Also contains the Corrosive Breath upgrade."
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "eate",
+            "Requirements": "eate"
+          },
+          "Unit": "eate",
+          "Time": 60
+        },
+        "Unit": "eate",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 180,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "AEbu,Build5",
+        "id": "eate",
+        "Icon": "renee_war3_btnaltarofelders",
+        "Name": {
+          "enUS": "Create Altar of Elders"
+        },
+        "Tooltip": {
+          "enUS": "Summons Heroes. Revives slain Heroes."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "emow",
+            "Requirements": "emow"
+          },
+          "Unit": "emow",
+          "Time": 50
+        },
+        "Unit": "emow",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 180,
+          "Vespene": 40,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 10
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "AEbu,Build2",
+        "id": "emow",
+        "Icon": "renee_war3_btnmoonwell",
+        "Name": {
+          "enUS": "Create Moon Well"
+        },
+        "Tooltip": {
+          "enUS": "Provides food, which increases the maximum number of units that can be trained. Has the Replenish Mana and Life ability. Can gain the Well Spring upgrade. Regenerates mana at night."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "edob",
+            "Requirements": "edob"
+          },
+          "Unit": "edob",
+          "Time": 60
+        },
+        "Unit": "edob",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 210,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "AEbu,Build8",
+        "id": "edob",
+        "Icon": "renee_war3_btnhuntershall",
+        "Name": {
+          "enUS": "Create Hunter's Hall"
+        },
+        "Tooltip": {
+          "enUS": "Contains the attack and armor upgrades for all units, the Ultravision and Well Spring upgrades."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "etrp",
+            "Requirements": "etrp"
+          },
+          "Unit": "etrp",
+          "Time": 60,
+          "Resource": {
+            "Minerals": 60
+          }
+        },
+        "Unit": "etrp",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 195,
+          "Vespene": 80,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "AEbuAncient,Build9",
+        "id": "etrp",
+        "Icon": "renee_war3_btntreant",
+        "Name": {
+          "enUS": "Create Ancient Protector"
+        },
+        "Tooltip": {
+          "enUS": "Defensive Ancient. When rooted in the ground, can hurl enormous rocks at nearby enemy units. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "eden",
+            "Requirements": "eden"
+          },
+          "Unit": "eden",
+          "Time": 60,
+          "Resource": {
+            "Minerals": 60
+          }
+        },
+        "Unit": "eden",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 30,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "AEbuAncient,Build10",
+        "id": "eden",
+        "Icon": "renee_war3_btnancientofwonders",
+        "Name": {
+          "enUS": "Build Ancient of Wonders"
+        },
+        "Tooltip": {
+          "enUS": "Creates a shop with purchasable items. The items available depend upon what level of upgrade your Tree of Life has (Tree of Life, Tree of Ages, or Tree of Eternity) and which buildings you have. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      }
+    ]
+  },
+  "Attributes": [
+    "Armored"
+  ],
+  "KillXP": 25,
+  "CostResource": {
+    "Minerals": 60
+  },
+  "Food": -1,
+  "KillResource": {
+    "Minerals": 23
+  },
+  "Speed": 2.1093,
+  "RepairTime": 14,
+  "SightBonus": [
+    7.8125,
+    5.8593
+  ],
+  "SubgroupPriority": 1,
+  "CargoSize": 1,
+  "PlaneArray": [
+    "Ground"
+  ],
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "HotkeyCategory": "UI/NIGHT_ELF",
+  "defType": "MEDIUM",
+  "Icon": "renee_war3_btnwisp",
+  "LifeArmorIcon": "infocard-armor-medium.tga",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "ewsp",
+      "Icon": "btn-missing-kaeo",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "id": "War3_Unit",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "War3_Unit"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "War3_ArmyBlastRemove",
+      "Icon": "renee_war3_btntemp",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "id": "CreepUnitTriggerNotice",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "CreepUnitTriggerNotice"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Ault",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Ultravision"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "UPKEEP_LOW",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "<span style=\"color: ffff00\">Low Upkeep</span>"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "UPKEEP_HIGH",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "<span style=\"color: ff0000\">High Upkeep</span>"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "hover",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "hover"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "Amov",
+      "Name": {
+        "enUS": "Move"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "HigherCliffMiss",
+      "Name": {
+        "enUS": "Higher Cliff Miss"
+      }
+    },
+    {
+      "id": "Aatk",
+      "Name": {
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "AEbu",
+      "Name": {
+        "enUS": "Build (Night Elf)"
+      }
+    },
+    {
+      "id": "AEbuAncient",
+      "Name": {
+        "enUS": "Build (Night Elf)"
+      }
+    },
+    {
+      "id": "Adtn",
+      "Name": {
+        "enUS": "Detonate"
+      }
+    },
+    {
+      "id": "Aren",
+      "Name": {
+        "enUS": "Renew"
+      }
+    },
+    {
+      "id": "Awha",
+      "Name": {
+        "enUS": "Gather"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "IsWisp",
+    "ewsp",
+    "Reuv",
+    "etolTrain",
+    "etoaTrain",
+    "etoeTrain",
+    "NightElf",
+    "ewsp",
+    "ewspCount"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "etol",
+    "eaoe",
+    "eaom",
+    "eaow",
+    "edos",
+    "eate",
+    "emow",
+    "edob",
+    "etrp",
+    "eden"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "etoa",
+    "etoe",
+    "etol"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "Amov,Move",
+      "id": "CmdMove",
+      "Icon": "renee_war3_btnmove",
+      "Name": {
+        "enUS": "Move"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "CmdStop",
+      "Icon": "renee_war3_btnstop",
+      "Name": {
+        "enUS": "Stop"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies."
+      }
+    },
+    {
+      "AbilCmd": "Amov,HoldPos",
+      "id": "CmdHoldPos",
+      "Icon": "renee_war3_btnholdposition",
+      "Name": {
+        "enUS": "Hold Position"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers."
+      }
+    },
+    {
+      "AbilCmd": "Amov,Patrol",
+      "id": "CmdPatrol",
+      "Icon": "renee_war3_btnpatrol",
+      "Name": {
+        "enUS": "Patrol"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior."
+      }
+    },
+    {
+      "AbilCmd": "Aatk,Execute",
+      "id": "CmdAttack",
+      "Icon": "renee_war3_btnattack",
+      "Name": {
+        "enUS": "Attack"
+      },
+      "Tooltip": {
+        "enUS": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed."
+      }
+    },
+    {
+      "AbilCmd": "Adtn,0",
+      "id": "Adtn",
+      "Icon": "renee_war3_btnwispsplode",
+      "Name": {
+        "enUS": "Detonate"
+      },
+      "Tooltip": {
+        "enUS": "Destroys the Wisp, dispelling all magical buffs and draining 50 mana from each unit in an area around the Wisp. <br/><span style=\"color: ffcc00\">Deals 225 damage to summoned units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "Aren,0",
+      "id": "Aren",
+      "Icon": "renee_war3_btnwisphealon",
+      "Name": {
+        "enUS": "Renew"
+      },
+      "Tooltip": {
+        "enUS": "Renews friendly Night Elf buildings, allied buildings, and friendly mechanical units."
+      }
+    },
+    {
+      "AbilCmd": "Awha,0",
+      "id": "Awha",
+      "Icon": "renee_war3_btngathergold",
+      "Name": {
+        "enUS": "Gather"
+      },
+      "Tooltip": {
+        "enUS": "Mines gold from Entangled Gold Mines and harvests lumber from trees."
+      }
+    },
+    {
+      "AbilCmd": "AEbuAncient,Build1",
+      "id": "etol",
+      "Icon": "renee_war3_btntreeoflife",
+      "Name": {
+        "enUS": "Create Tree of Life"
+      },
+      "Tooltip": {
+        "enUS": "Primary structure, used to train Wisps and entangle gold mines. Can be upgraded to Tree of Ages and then Tree of Eternity to enable the production of additional types of structures and units. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "AEbuAncient,Build7",
+      "id": "eaoe",
+      "Icon": "renee_war3_btnancientoflore",
+      "Name": {
+        "enUS": "Create Ancient of Lore"
+      },
+      "Tooltip": {
+        "enUS": "Keeper of ground based spellcasters. Trains Druids of the Claw, Dryads, and Mountain Giants. <br/>Also contains the upgrades for Druids of the Claw, Mark of the Claw, Abolish Magic, Hardened Skin, and Resistant Skin. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "AEbuAncient,Build4",
+      "id": "eaom",
+      "Icon": "renee_war3_btnancientoftheearth",
+      "Name": {
+        "enUS": "Create Ancient of War"
+      },
+      "Tooltip": {
+        "enUS": "Keeper of primary assault troops. Trains Archers, Huntresses, and Glaive Throwers. <br/>Also contains Archer, Huntress and Glaive Thrower upgrades. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "AEbuAncient,Build6",
+      "id": "eaow",
+      "Icon": "renee_war3_btnancientofthemoon",
+      "Name": {
+        "enUS": "Create Ancient of Wind"
+      },
+      "Tooltip": {
+        "enUS": "Keeper of aerial assault units and spellcasters. Trains Hippogryphs, Druids of the Talon, and Faerie Dragons. <br/>Also contains the upgrades for Druids of the Talon, Mark of the Talon, and Hippogryph Taming. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "AEbu,Build3",
+      "id": "edos",
+      "Icon": "renee_war3_btnchimaeraroost",
+      "Name": {
+        "enUS": "Create Chimaera Roost"
+      },
+      "Tooltip": {
+        "enUS": "Trains Chimaeras. <br/>Also contains the Corrosive Breath upgrade."
+      }
+    },
+    {
+      "AbilCmd": "AEbu,Build5",
+      "id": "eate",
+      "Icon": "renee_war3_btnaltarofelders",
+      "Name": {
+        "enUS": "Create Altar of Elders"
+      },
+      "Tooltip": {
+        "enUS": "Summons Heroes. Revives slain Heroes."
+      }
+    },
+    {
+      "AbilCmd": "AEbu,Build2",
+      "id": "emow",
+      "Icon": "renee_war3_btnmoonwell",
+      "Name": {
+        "enUS": "Create Moon Well"
+      },
+      "Tooltip": {
+        "enUS": "Provides food, which increases the maximum number of units that can be trained. Has the Replenish Mana and Life ability. Can gain the Well Spring upgrade. Regenerates mana at night."
+      }
+    },
+    {
+      "AbilCmd": "AEbu,Build8",
+      "id": "edob",
+      "Icon": "renee_war3_btnhuntershall",
+      "Name": {
+        "enUS": "Create Hunter's Hall"
+      },
+      "Tooltip": {
+        "enUS": "Contains the attack and armor upgrades for all units, the Ultravision and Well Spring upgrades."
+      }
+    },
+    {
+      "AbilCmd": "AEbuAncient,Build9",
+      "id": "etrp",
+      "Icon": "renee_war3_btntreant",
+      "Name": {
+        "enUS": "Create Ancient Protector"
+      },
+      "Tooltip": {
+        "enUS": "Defensive Ancient. When rooted in the ground, can hurl enormous rocks at nearby enemy units. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "AEbuAncient,Build10",
+      "id": "eden",
+      "Icon": "renee_war3_btnancientofwonders",
+      "Name": {
+        "enUS": "Build Ancient of Wonders"
+      },
+      "Tooltip": {
+        "enUS": "Creates a shop with purchasable items. The items available depend upon what level of upgrade your Tree of Life has (Tree of Life, Tree of Ages, or Tree of Eternity) and which buildings you have. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+      }
+    }
+  ]
+}

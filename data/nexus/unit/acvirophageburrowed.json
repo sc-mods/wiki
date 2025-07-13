@@ -1,0 +1,198 @@
+{
+  "Name": "Virophage",
+  "Description": "Specialized infestation organism. Spawns volatile infested units to defend itself.**Can attack ground and air units**",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Zerg",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 800,
+  "LifeMax": 800,
+  "LifeArmorName": "Zerg Building Armor",
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.75,
+  "SeparationRadius": 0.5,
+  "MinimapRadius": 0.875,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Campaign",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "Invulnerable",
+    "Cloaked",
+    "Buried",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ACVirophage",
+  "HotkeyAlias": "ACVirophage",
+  "SelectAlias": "ACVirophage",
+  "SubgroupAlias": "ACVirophage",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ACVirophageBurrowed",
+  "AIEvaluateAlias": "ACVirophage",
+  "ReviveType": "ACVirophage",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "ACVirophageBurrowed/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "ACVirophageBurrowed/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Campaign",
+  "FogVisibility": "Snapshot",
+  "Collide": [
+    "Burrow"
+  ],
+  "Attributes": [
+    "Armored",
+    "Biological",
+    "Structure",
+    "Heroic"
+  ],
+  "LifeRegenDelay": 5,
+  "LifeRegenRate": 5,
+  "Acceleration": 1000,
+  "LateralAcceleration": 46,
+  "Sight": 12,
+  "AttackTargetPriority": 11,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Delay": 1.0625
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            }
+          },
+          "Unit": "ACVirophage",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "ACVirophage",
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowACVirophageUp,Execute",
+        "id": "BurrowUp",
+        "Icon": "btn-ability-zerg-upburrow-color",
+        "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+        "Name": "Unburrow",
+        "Hotkey": "R"
+      }
+    ]
+  },
+  "InnerRadius": 0.75,
+  "CargoSize": 4,
+  "SubgroupPriority": 58,
+  "GlossaryCategory": "Unit/Category/ZergUnits",
+  "GlossaryPriority": 350,
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "id": "ACVirophageBurrowed",
+  "Icon": "btn-building-zerg-virophage",
+  "LifeArmorIcon": "btn-armor-zerg-building",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "makeCreep8x6"
+    },
+    {
+      "id": "makeCreep8x6Enhanced"
+    },
+    {
+      "id": "Detector12",
+      "Icon": "btn-status-detector",
+      "Tooltip": "This unit can detect cloaked or burrowed units within its sight range.",
+      "Name": "Detector"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BurrowACVirophageUp",
+      "Name": "BurrowACVirophageUp"
+    }
+  ],
+  "$Upgrades": [
+    "BurrowACVirophageDown",
+    "ACVirophage",
+    "ACVirophageBurrowedSplat"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [
+    "ACVirophage"
+  ],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "BurrowACVirophageUp,Execute",
+      "id": "BurrowUp",
+      "Icon": "btn-ability-zerg-upburrow-color",
+      "Tooltip": "Order <span style=\"color: #FFFF00\">Seismicer</span> to unburrow.",
+      "Name": "Unburrow"
+    }
+  ]
+}

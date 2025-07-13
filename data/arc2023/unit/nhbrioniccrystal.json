@@ -1,0 +1,1456 @@
+{
+  "Name": "Ionic Crystal",
+  "Description": "Provides supply. Supply allows you to warp in more units. Can teleport nearby Hybrid buildings to the target <c val=\"#Network\">Network</span> location.<br/><br/><c val=\"#Network\">Network Power Source.</span>**Moveable structure**",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "NHbr",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "AcquireNoFlee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 250,
+  "LifeMax": 250,
+  "LifeArmorName": "Hybrid Armor",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1,
+  "SeparationRadius": 1,
+  "MinimapRadius": 1,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "NHbrIonicCrystal",
+  "HotkeyAlias": "NHbrIonicCrystal",
+  "SelectAlias": "NHbrIonicCrystal",
+  "SubgroupAlias": "NHbrIonicCrystal",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "NHbrIonicCrystal",
+  "AIEvaluateAlias": "NHbrIonicCrystal",
+  "ReviveType": "NHbrIonicCrystal",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "NHbrIonicCrystal/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "NHbrIonicCrystal/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Phased",
+    "Small"
+  ],
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Attributes": [
+    "Structure",
+    "Armored"
+  ],
+  "ShieldArmorName": "Hybrid Protection",
+  "HotkeyCategory": "Unit/Category/NHbrUnits",
+  "SubgroupPriority": 3,
+  "DataCollection": "NHbrIonicCrystal",
+  "LifeArmor": 1,
+  "ShieldArmor": 1,
+  "Facing": 315,
+  "ScoreResult": "BuildOrder",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/NHbrIonicCrystalTeleport@Build",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:NHbr,AbilityorEffectType:MorphsandBurrows",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "NHbrIonicCrystalTeleport",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Cancel"
+          },
+          "Alert": "",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 1,
+            "PeonMaintained": 1,
+            "RangeIncludesBuilding": 1,
+            "IgnoreUnitCost": 1,
+            "PeonDisableAbils": 1,
+            "ShowProgress": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@Temple",
+                "Requirements": "NHbr@TeleportTemple"
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrTemple"
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@Harvester",
+                "Requirements": "NHbr@TeleportHarvester"
+              },
+              "Display": {
+                "Shields": 1
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrHarvester"
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@VoidRift",
+                "Requirements": "NHbr@TeleportVoidRift"
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrVoidRift"
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@StasisCell",
+                "Requirements": "NHbr@TeleportStasisCell"
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrStasisCell"
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@VespeneConcentrator",
+                "Requirements": "NHbr@TeleportConcentrator"
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrVespeneConcentrator"
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@ConstructAntiAir",
+                "Requirements": "NHbr@TeleportConstructAA"
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrConstruct@AntiAir"
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@ConstructAntiGround",
+                "Requirements": "NHbr@TeleportConstructAG"
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrConstruct@AntiGround"
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@Engine",
+                "Requirements": "NHbr@TeleportEngine"
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrEngine"
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@ProcessingCore",
+                "Requirements": "NHbr@TeleportProcessingCore"
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrProcessingCore"
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@Processor",
+                "Requirements": "NHbr@TeleportProcessor"
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrProcessor"
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@VoidPortal",
+                "Requirements": "NHbr@TeleportVoidPortal"
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrVoidPortal"
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@CrystallicShrine",
+                "Requirements": "NHbr@TeleportCrystallicShrine"
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrCrystallicShrine"
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "NHbrIonicCrystalTeleport@NemesisCatacomb",
+                "Requirements": "NHbr@TeleportNemesisCatacomb"
+              },
+              "ValidatorArray": [
+                "NHbrNetwork@PowerSourceNearby",
+                "HasVisionOfTarget"
+              ],
+              "Unit": "NHbrNemesisCatacomb"
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            }
+          },
+          "Range": [
+            500
+          ],
+          "EffectArray": {
+            "Start": "NHbrIonicCrystalTeleport@BuildStart",
+            "Finish": "NHbrIonicCrystalTeleport@BuildFinish",
+            "Cancel": "NHbrIonicCrystalTeleport@BuildCancel"
+          },
+          "id": "NHbrIonicCrystalTeleport@Build"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Halt",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "NHbrNetwork@SourceNetworkCharged",
+        "Icon": "btn-upgrade-artanis-pylonpower",
+        "Tooltip": "<c val=\"#Network\">Network</span> Power Source range and <c val=\"#Network\">Network</span> Restoration increased by <span style=\"color: #FFFF80\">33%</span>.",
+        "Name": "Source Network Charged"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "NHbrNetwork@SourceNetworkCharging",
+        "Icon": "btn-upgrade-artanis-pylonpower",
+        "Tooltip": "After <span style=\"color: #FFFF80\"><b>84</b></span> seconds increase <c val=\"#Network\">Network</span> Power Source range and <c val=\"#Network\">Network</span> Restoration by <span style=\"color: #FFFF80\">33%</span>.",
+        "Name": "Source Network Charging"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "NHbrNetwork@SourceNetworkCharging",
+        "Icon": "btn-upgrade-artanis-pylonpower",
+        "Tooltip": "After <span style=\"color: #FFFF80\"><b>84</b></span> seconds increase <c val=\"#Network\">Network</span> Power Source range and <c val=\"#Network\">Network</span> Restoration by <span style=\"color: #FFFF80\">33%</span>.",
+        "Name": "Source Network Charging"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/NHbrIonicCrystalTeleport",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:NHbr,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "NHbrIonicCrystalTeleport",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "NHbrIonicCrystalTeleport@CrystalInitialSet"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "NHbrIonicCrystalTeleport",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "NHbrIonicCrystalTeleport"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "Structure;Self,Ally,Neutral,Enemy,Missile,Uncommandable,UnderConstruction,Dead,Hidden"
+          ],
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "Cost": [
+            {
+              "Vital": {
+                "Energy": 100
+              },
+              "Cooldown": {
+                "TimeUse": 0.125
+              }
+            }
+          ],
+          "id": "NHbrIonicCrystalTeleport"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 100,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport,Execute",
+        "id": "NHbrIonicCrystalTeleport",
+        "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+        "Tooltip": "Teleport any Structure inside **current** Ionic Crystal's <c val=\"#Network\">Network</span> field (excluding other Ionic Crystals) to the target <c val=\"#Network\">Network</span> location in <span style=\"color: #ffff8a\"><b>0.00</b></span> seconds. ",
+        "Name": "Teleport",
+        "Hotkey": "N"
+      },
+      {
+        "Info": {
+          "Unit": "NHbrIonicCrystal@Moveable"
+        },
+        "Unit": "NHbrIonicCrystal@Moveable",
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalMorph@TransfromToMoveableIonicCrystal,Execute",
+        "id": "NHbrIonicCrystalMorph@TransformToMoveableIonicCrystal",
+        "Icon": "btn-ability-terran-liftoff",
+        "Tooltip": "Allows Ionic Crystal to move.",
+        "Name": "Transform To Moveable Ionic Crystal",
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "NHbrNetworkFastCharging@FastCharging",
+        "Icon": "btn-ability-protoss-doubleshieldrecharge",
+        "Tooltip": "Reduces <c val=\"#Network\">Network</span> Power Sources («Ionic Crystal» and «Navigator») charging time from <span style=\"color: #FFFF80\"><b>84</b></span> seconds to <span style=\"color: #FFFF80\"><b>20</b></span> seconds.",
+        "Name": "Fast Charging",
+        "Hotkey": "F"
+      }
+    ],
+    "0002": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@Temple",
+            "Requirements": "NHbr@TeleportTemple"
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrTemple"
+        },
+        "Unit": "NHbrTemple",
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build1",
+        "id": "NHbrIonicCrystalTeleport@Temple",
+        "Icon": "btn-hybrid-building-temple",
+        "Name": "Teleport Temple"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@Harvester",
+            "Requirements": "NHbr@TeleportHarvester"
+          },
+          "Display": {
+            "Shields": 1
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrHarvester"
+        },
+        "Unit": "NHbrHarvester",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build2",
+        "id": "NHbrIonicCrystalTeleport@Harvester",
+        "Icon": "btn-building-protoss-assimilator-ihanrii",
+        "Name": "Teleport Harvester"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@Engine",
+            "Requirements": "NHbr@TeleportEngine"
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrEngine"
+        },
+        "Unit": "NHbrEngine",
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build8",
+        "id": "NHbrIonicCrystalTeleport@Engine",
+        "Icon": "btn-hybrid-building-roboticssupportbay",
+        "Name": "Teleport Engine"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@VoidPortal",
+            "Requirements": "NHbr@TeleportVoidPortal"
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrVoidPortal"
+        },
+        "Unit": "NHbrVoidPortal",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build11",
+        "id": "NHbrIonicCrystalTeleport@VoidPortal",
+        "Icon": "btn-hybrid-structure-shield-generator",
+        "Name": "Teleport Void Portal"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@VoidRift",
+            "Requirements": "NHbr@TeleportVoidRift"
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrVoidRift"
+        },
+        "Unit": "NHbrVoidRift",
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build3",
+        "id": "NHbrIonicCrystalTeleport@VoidRift",
+        "Icon": "btn-hybrid-building-voidrift",
+        "Name": "Teleport Void Rift"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@StasisCell",
+            "Requirements": "NHbr@TeleportStasisCell"
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrStasisCell"
+        },
+        "Unit": "NHbrStasisCell",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build4",
+        "id": "NHbrIonicCrystalTeleport@StasisCell",
+        "Icon": "btn-hybrid-building-stasiscell",
+        "Name": "Teleport Stasis Cell"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@VespeneConcentrator",
+            "Requirements": "NHbr@TeleportConcentrator"
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrVespeneConcentrator"
+        },
+        "Unit": "NHbrVespeneConcentrator",
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build5",
+        "id": "NHbrIonicCrystalTeleport@VespeneConcentrator",
+        "Icon": "btn-hybrid-building-forge",
+        "Name": "Teleport Vespene Concentrator"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@ProcessingCore",
+            "Requirements": "NHbr@TeleportProcessingCore"
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrProcessingCore"
+        },
+        "Unit": "NHbrProcessingCore",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build9",
+        "id": "NHbrIonicCrystalTeleport@ProcessingCore",
+        "Icon": "btn-hybrid-building-artifactcontainmentfieldvoid",
+        "Name": "Teleport Processing Core"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@CrystallicShrine",
+            "Requirements": "NHbr@TeleportCrystallicShrine"
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrCrystallicShrine"
+        },
+        "Unit": "NHbrCrystallicShrine",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build12",
+        "id": "NHbrIonicCrystalTeleport@CrystallicShrine",
+        "Icon": "btn-hybrid-building-darkshrine",
+        "Name": "Teleport Crystallic Shrine"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@ConstructAntiAir",
+            "Requirements": "NHbr@TeleportConstructAA"
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrConstruct@AntiAir"
+        },
+        "Unit": "NHbrConstruct@AntiAir",
+        "Cost": {
+          "Minerals": 225,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build6",
+        "id": "NHbrIonicCrystalTeleport@ConstructAntiAir",
+        "Icon": "btn-hybrid-unit-construct-sentinel-antiair",
+        "Name": "Teleport Construct (Anti-Air)"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@ConstructAntiGround",
+            "Requirements": "NHbr@TeleportConstructAG"
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrConstruct@AntiGround"
+        },
+        "Unit": "NHbrConstruct@AntiGround",
+        "Cost": {
+          "Minerals": 225,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build7",
+        "id": "NHbrIonicCrystalTeleport@ConstructAntiGround",
+        "Icon": "btn-hybrid-unit-construct-sentinel-antiground",
+        "Name": "Teleport Construct (Anti-Ground)"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@Processor",
+            "Requirements": "NHbr@TeleportProcessor"
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrProcessor"
+        },
+        "Unit": "NHbrProcessor",
+        "Cost": {
+          "Minerals": 250,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build10",
+        "id": "NHbrIonicCrystalTeleport@Processor",
+        "Icon": "btn-hybrid-building-roboticsfacility",
+        "Name": "Teleport Processor"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NHbrIonicCrystalTeleport@NemesisCatacomb",
+            "Requirements": "NHbr@TeleportNemesisCatacomb"
+          },
+          "ValidatorArray": [
+            "NHbrNetwork@PowerSourceNearby",
+            "HasVisionOfTarget"
+          ],
+          "Unit": "NHbrNemesisCatacomb"
+        },
+        "Unit": "NHbrNemesisCatacomb",
+        "Cost": {
+          "Minerals": 350,
+          "Vespene": 250,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build13",
+        "id": "NHbrIonicCrystalTeleport@NemesisCatacomb",
+        "Icon": "btn-hybrid-building-fleshbender",
+        "Name": "Teleport Nemesis Catacomb"
+      }
+    ]
+  },
+  "AttackTargetPriority": 11,
+  "Mob": "Multiplayer",
+  "Sight": 9,
+  "ShieldArmorTip": "Unit/ShieldArmorTooltip/NHbrShields",
+  "LifeRegenDelay": 10,
+  "ShieldRegenDelay": 10,
+  "id": "NHbrIonicCrystal",
+  "EnergyStart": 20,
+  "EnergyMax": 100,
+  "ShieldsStart": 175,
+  "ShieldsMax": 175,
+  "Food": 8,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 125
+  },
+  "TurretArray": [
+    "PylonRingRotate"
+  ],
+  "EffectArray": {
+    "Birth": "NHbrNetworkNEW@PowerSourceCreatedDummySet",
+    "Death": "NHbrNetworkNEW@PowerSourceDestroyedDummySet"
+  },
+  "Footprint": "Footprint2x2Contour",
+  "PlacementFootprint": "Footprint2x2",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "TechAliasArray": [
+    "Alias_NHbrIonicCrystal"
+  ],
+  "GlossaryPriority": 3,
+  "Icon": "btn-hybrid-building-pylon",
+  "LifeArmorIcon": "btn-amonshardsarmor",
+  "ShieldArmorIcon": "btn-ability-zeratul-warpprism-shieldboosters",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "NHbrProtection@SpellArmor"
+    },
+    {
+      "id": "NHbrCommon@BuildersTracker"
+    },
+    {
+      "id": "NHbrNetwork@PowerUser",
+      "Icon": "btn-upgrade-artanis-pylonpower",
+      "Name": "Power User"
+    },
+    {
+      "id": "NHbrNetworkCharging"
+    },
+    {
+      "id": "NHbrNetworkNEW@PeriodicSearch"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "NHbrIonicCrystalMorph@TransfromToMoveableIonicCrystal",
+      "Name": "Transfrom To Moveable Ionic Crystal"
+    },
+    {
+      "id": "NHbrIonicCrystalTeleport",
+      "Name": "Teleport"
+    },
+    {
+      "id": "NHbrIonicCrystalTeleport@Build",
+      "Name": "Build"
+    }
+  ],
+  "$Upgrades": [
+    "NHbrMinionBuild",
+    "NHbrIonicCrystal",
+    "NHbrIonicCrystal@Moveable",
+    "NHbrIonicCrystalMorph@TransformToStaticIonicCrystal",
+    "NHbrEngineResearch@ProtectionArmor",
+    "NHbrMinionBuild@Main",
+    "NHbrCommon@IsIonicCrystal",
+    "NHbrIonicCrystal",
+    "NHbrIonicCrystal",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [
+    "NHbrIonicCrystal@Moveable"
+  ],
+  "$Producers": [
+    "NHbrMinion"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Halt",
+      "id": "Cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport,Execute",
+      "id": "NHbrIonicCrystalTeleport",
+      "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+      "Tooltip": "Teleport any Structure inside **current** Ionic Crystal's <c val=\"#Network\">Network</span> field (excluding other Ionic Crystals) to the target <c val=\"#Network\">Network</span> location in <span style=\"color: #ffff8a\"><b>0.00</b></span> seconds. ",
+      "Name": "Teleport"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalMorph@TransfromToMoveableIonicCrystal,Execute",
+      "id": "NHbrIonicCrystalMorph@TransformToMoveableIonicCrystal",
+      "Icon": "btn-ability-terran-liftoff",
+      "Tooltip": "Allows Ionic Crystal to move.",
+      "Name": "Transform To Moveable Ionic Crystal"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build1",
+      "id": "NHbrIonicCrystalTeleport@Temple",
+      "Icon": "btn-hybrid-building-temple",
+      "Name": "Teleport Temple"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build2",
+      "id": "NHbrIonicCrystalTeleport@Harvester",
+      "Icon": "btn-building-protoss-assimilator-ihanrii",
+      "Name": "Teleport Harvester"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build8",
+      "id": "NHbrIonicCrystalTeleport@Engine",
+      "Icon": "btn-hybrid-building-roboticssupportbay",
+      "Name": "Teleport Engine"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build11",
+      "id": "NHbrIonicCrystalTeleport@VoidPortal",
+      "Icon": "btn-hybrid-structure-shield-generator",
+      "Name": "Teleport Void Portal"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build3",
+      "id": "NHbrIonicCrystalTeleport@VoidRift",
+      "Icon": "btn-hybrid-building-voidrift",
+      "Name": "Teleport Void Rift"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build4",
+      "id": "NHbrIonicCrystalTeleport@StasisCell",
+      "Icon": "btn-hybrid-building-stasiscell",
+      "Name": "Teleport Stasis Cell"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build5",
+      "id": "NHbrIonicCrystalTeleport@VespeneConcentrator",
+      "Icon": "btn-hybrid-building-forge",
+      "Name": "Teleport Vespene Concentrator"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build9",
+      "id": "NHbrIonicCrystalTeleport@ProcessingCore",
+      "Icon": "btn-hybrid-building-artifactcontainmentfieldvoid",
+      "Name": "Teleport Processing Core"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build12",
+      "id": "NHbrIonicCrystalTeleport@CrystallicShrine",
+      "Icon": "btn-hybrid-building-darkshrine",
+      "Name": "Teleport Crystallic Shrine"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build6",
+      "id": "NHbrIonicCrystalTeleport@ConstructAntiAir",
+      "Icon": "btn-hybrid-unit-construct-sentinel-antiair",
+      "Name": "Teleport Construct (Anti-Air)"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build7",
+      "id": "NHbrIonicCrystalTeleport@ConstructAntiGround",
+      "Icon": "btn-hybrid-unit-construct-sentinel-antiground",
+      "Name": "Teleport Construct (Anti-Ground)"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build10",
+      "id": "NHbrIonicCrystalTeleport@Processor",
+      "Icon": "btn-hybrid-building-roboticsfacility",
+      "Name": "Teleport Processor"
+    },
+    {
+      "AbilCmd": "NHbrIonicCrystalTeleport@Build,Build13",
+      "id": "NHbrIonicCrystalTeleport@NemesisCatacomb",
+      "Icon": "btn-hybrid-building-fleshbender",
+      "Name": "Teleport Nemesis Catacomb"
+    }
+  ]
+}

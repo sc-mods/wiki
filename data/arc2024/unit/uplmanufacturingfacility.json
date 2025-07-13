@@ -1,0 +1,701 @@
+{
+  "Name": "Manufacturing Facility",
+  "Description": "Ground Vehicle Production facility.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>-  <b>Z-1</b><br/>-  <b>A-6</b><br/>-  <b>TR-17</b><br/>-  <b>Routhe Tank</b>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "UPL",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1250,
+  "LifeMax": 1250,
+  "LifeArmorName": "UPL Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.625,
+  "SeparationRadius": 1.625,
+  "MinimapRadius": 1.625,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UPLManufacturingFacility",
+  "HotkeyAlias": "UPLManufacturingFacility",
+  "SelectAlias": "UPLManufacturingFacility",
+  "SubgroupAlias": "UPLManufacturingFacility",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "Factory",
+  "AIEvaluateAlias": "UPLManufacturingFacility",
+  "ReviveType": "UPLManufacturingFacility",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UPLManufacturingFacility/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UPLManufacturingFacility/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "Sight": 9,
+  "AttackTargetPriority": 11,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "SelectBuilder",
+        "id": "UPLSelectBuilder",
+        "Tooltip": "Selects the unit constructing this structure.",
+        "Name": "Select Builder",
+        "Hotkey": "U"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "QueueSize": 5,
+          "id": "que5"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rally,Rally1",
+        "id": "Rally",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Tooltip": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+        "Name": "Set Rally Point",
+        "Hotkey": "Y"
+      },
+      {
+        "Upgrade": "RoutheTankArmorPlating",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1
+            },
+            "DefaultButtonFace": "ResearchRoutheTankArmorPlating",
+            "Requirements": "LearnRoutheTankArmorPlating"
+          },
+          "Resource": {
+            "Minerals": 175,
+            "Vespene": 75
+          },
+          "Time": 150,
+          "Upgrade": "RoutheTankArmorPlating"
+        },
+        "Time": 150,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLManufacturingFacilityResearch,Research3",
+        "id": "ResearchRoutheTankArmorPlating",
+        "Icon": "btn-ability-upl-unobtaniumarmorplating",
+        "Tooltip": "Adaptive plating which absorbs kinetic and energy attacks better than standard vehicle plating.<br/><br/>Increases armor of <span style=\"color: #FFFF80\"><b>Routhe Tank</b></span> by <span style=\"color: #80FFFF\">+2</span> and maximum life by <span style=\"color: #80FFFF\">+75</span>",
+        "Name": "Research Unobtanium Armor Plating",
+        "Hotkey": "Z"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLTrainStinger"
+          },
+          "Unit": [
+            "UPLStinger"
+          ],
+          "Time": 10
+        },
+        "Unit": [
+          "UPLStinger"
+        ],
+        "Time": 10,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLManufacturingFacilityTrain,Train7",
+        "id": "UPLTrainStinger",
+        "Icon": "btn-unit-terran-stinger@scbw",
+        "Tooltip": "Build Stinger.",
+        "Name": "Build Stinger",
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLTrainRoutheTank"
+          },
+          "Unit": [
+            "RoutheTank"
+          ],
+          "Time": 45
+        },
+        "Unit": [
+          "RoutheTank"
+        ],
+        "Time": 45,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLManufacturingFacilityTrain,Train2",
+        "id": "UPLTrainRoutheTank",
+        "Icon": "btn-unit-upl-routhetank",
+        "Tooltip": "Armored Assault**Can Attack Ground units**",
+        "Name": "Build Routhe Tank",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLTrainA6"
+          },
+          "Unit": [
+            "A6"
+          ],
+          "Time": 35
+        },
+        "Unit": [
+          "A6"
+        ],
+        "Time": 35,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLManufacturingFacilityTrain,Train3",
+        "id": "UPLTrainA6",
+        "Icon": "btn-unit-upl-a6",
+        "Tooltip": "Mobile Anti-Air Platform<br/><br/><c val=\"#ColorAttackInfo\">Can attack air units</span>",
+        "Name": "Build A-6",
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLTrainTR17"
+          },
+          "Unit": [
+            "TR17"
+          ],
+          "Time": 42
+        },
+        "Unit": [
+          "TR17"
+        ],
+        "Time": 42,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLManufacturingFacilityTrain,Train4",
+        "id": "UPLTrainTR17",
+        "Icon": "btn-unit-upl-tr17",
+        "Tooltip": "Mobile Artillery<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units</span>",
+        "Name": "Build TR-17",
+        "Hotkey": "R"
+      },
+      {
+        "Upgrade": "A6ExplosiveRounds",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1
+            },
+            "DefaultButtonFace": "ResearchA6ExplosiveRounds",
+            "Requirements": "LearnA6ExplosiveRounds"
+          },
+          "Resource": {
+            "Minerals": 175,
+            "Vespene": 175
+          },
+          "Time": 150,
+          "Upgrade": "A6ExplosiveRounds"
+        },
+        "Time": 150,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLManufacturingFacilityResearch,Research4",
+        "id": "ResearchA6ExplosiveRounds",
+        "Icon": "btn-ability-upl-flak",
+        "Tooltip": "Makes the A-6 deal <span style=\"color: #80FFFF\"><b>50</b>%</span> damage as splash to air units near the attack target.",
+        "Name": "Research Nano-Flak",
+        "Hotkey": "X"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLTrainCSV"
+          },
+          "Unit": [
+            "CSV"
+          ],
+          "Time": 55
+        },
+        "Unit": [
+          "CSV"
+        ],
+        "Time": 55,
+        "Cost": {
+          "Minerals": 225,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -6
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLManufacturingFacilityTrain,Train5",
+        "id": "UPLTrainCSV",
+        "Icon": "btn-unit-upl-csv",
+        "Tooltip": "Mobile Operations Center<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units</span>",
+        "Name": "Build CSV",
+        "Hotkey": "T"
+      }
+    ]
+  },
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 3,
+  "GlossaryCategory": "Unit/Category/0UPLBuildings",
+  "GlossaryPriority": 32,
+  "HotkeyCategory": "Unit/Category/UPLUnits",
+  "id": "UPLManufacturingFacility",
+  "Facing": 315,
+  "LifeArmor": 1,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 150,
+    "Vespene": 100
+  },
+  "RepairTime": 50,
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "ScoreMake": 250,
+  "ScoreKill": 250,
+  "TechAliasArray": [
+    "Alias_UPLManufacturingFacility"
+  ],
+  "TechTreeProducedUnitArray": [
+    "Z1",
+    "RoutheTank",
+    "A6",
+    "TR17"
+  ],
+  "DataCollection": "UPLManufacturingFacility",
+  "DeathTime": 0.5,
+  "DeadFootprint": "Footprint3x3Contour",
+  "Icon": "btn-building-upl-uplmanufacturingfacility",
+  "LifeArmorIcon": "btn-upgrade-upl-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "UnderConstruction"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "que5",
+      "Name": "Queue (5)"
+    },
+    {
+      "id": "UPLManufacturingFacilityTrain",
+      "Name": "Train"
+    },
+    {
+      "id": "UPLManufacturingFacilityResearch",
+      "Name": "Research"
+    },
+    {
+      "id": "Rally",
+      "Name": "Rally"
+    },
+    {
+      "id": "UPLForwardOperatingBaseResearch",
+      "Name": "Research"
+    }
+  ],
+  "$Upgrades": [
+    "IsUPLManufacturingFacility",
+    "UPLManufacturingFacility",
+    "UPLBuild",
+    "UPLManufacturingFacility",
+    "UPLManufacturingFacilitySplat",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "UPLStinger",
+    "RoutheTank",
+    "A6",
+    "TR17",
+    "CSV"
+  ],
+  "$Research": [
+    "RoutheTankArmorPlating",
+    "A6ExplosiveRounds"
+  ],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "MiningDrone"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "Rally,Rally1",
+      "id": "Rally",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Tooltip": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+      "Name": "Set Rally Point"
+    },
+    {
+      "AbilCmd": "UPLManufacturingFacilityResearch,Research3",
+      "id": "ResearchRoutheTankArmorPlating",
+      "Icon": "btn-ability-upl-unobtaniumarmorplating",
+      "Tooltip": "Adaptive plating which absorbs kinetic and energy attacks better than standard vehicle plating.<br/><br/>Increases armor of <span style=\"color: #FFFF80\"><b>Routhe Tank</b></span> by <span style=\"color: #80FFFF\">+2</span> and maximum life by <span style=\"color: #80FFFF\">+75</span>",
+      "Name": "Research Unobtanium Armor Plating"
+    },
+    {
+      "AbilCmd": "UPLManufacturingFacilityTrain,Train7",
+      "id": "UPLTrainStinger",
+      "Icon": "btn-unit-terran-stinger@scbw",
+      "Tooltip": "Build Stinger.",
+      "Name": "Build Stinger"
+    },
+    {
+      "AbilCmd": "UPLManufacturingFacilityTrain,Train2",
+      "id": "UPLTrainRoutheTank",
+      "Icon": "btn-unit-upl-routhetank",
+      "Tooltip": "Armored Assault**Can Attack Ground units**",
+      "Name": "Build Routhe Tank"
+    },
+    {
+      "AbilCmd": "UPLManufacturingFacilityTrain,Train3",
+      "id": "UPLTrainA6",
+      "Icon": "btn-unit-upl-a6",
+      "Tooltip": "Mobile Anti-Air Platform<br/><br/><c val=\"#ColorAttackInfo\">Can attack air units</span>",
+      "Name": "Build A-6"
+    },
+    {
+      "AbilCmd": "UPLManufacturingFacilityTrain,Train4",
+      "id": "UPLTrainTR17",
+      "Icon": "btn-unit-upl-tr17",
+      "Tooltip": "Mobile Artillery<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units</span>",
+      "Name": "Build TR-17"
+    },
+    {
+      "AbilCmd": "UPLManufacturingFacilityResearch,Research4",
+      "id": "ResearchA6ExplosiveRounds",
+      "Icon": "btn-ability-upl-flak",
+      "Tooltip": "Makes the A-6 deal <span style=\"color: #80FFFF\"><b>50</b>%</span> damage as splash to air units near the attack target.",
+      "Name": "Research Nano-Flak"
+    },
+    {
+      "AbilCmd": "UPLManufacturingFacilityTrain,Train5",
+      "id": "UPLTrainCSV",
+      "Icon": "btn-unit-upl-csv",
+      "Tooltip": "Mobile Operations Center<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units</span>",
+      "Name": "Build CSV"
+    }
+  ]
+}

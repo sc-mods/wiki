@@ -1,0 +1,1231 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Crane"
+  },
+  "Description": {
+    "enUS": "Larger GDI bases use Cranes to help sustain rapid construction schedules by adding one extra building production queue"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "GDI",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 800,
+  "LifeMax": 800,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.75,
+  "SeparationRadius": 1.75,
+  "MinimapRadius": 1.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:CNC",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "PreventDefeat",
+    "PenaltyRevealed",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "GDICrane",
+  "HotkeyAlias": "GDICrane",
+  "SelectAlias": "GDICrane",
+  "SubgroupAlias": "GDIConstructionYard",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "GDICrane",
+  "AIEvaluateAlias": "GDICrane",
+  "ReviveType": "GDICrane",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "GDICrane/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "GDICrane/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "ScoreResult": "BuildOrder",
+  "GlossaryAlias": "GDICrane",
+  "Sight": 9,
+  "AttackTargetPriority": 11,
+  "ScoreMakeCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "ScoreKillCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "Facing": 45,
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "CostCategory": "Technology",
+  "AbilArray": [
+    "BuildInProgress",
+    "que5PassiveCancelToSelection",
+    "GDIBuild",
+    "GDIBuildDefense",
+    "Rally"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5PassiveCancelToSelection",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5PassiveCancelToSelection",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1,
+            "Passive": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel",
+              "Flags": {
+                "ToSelection": 1
+              }
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "AbilSetId": "QueueCancelToSelection",
+          "QueueSize": 5,
+          "id": "que5PassiveCancelToSelection"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "TBl1",
+        "id": "NodBuild",
+        "Icon": "btn-command-terran-buildstructure",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "TBl2",
+        "id": "NodBuildAdvanced",
+        "Icon": "btn-command-terran-buildadvancedstructure",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5PassiveCancelToSelection",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5PassiveCancelToSelection",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1,
+            "Passive": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel",
+              "Flags": {
+                "ToSelection": 1
+              }
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "AbilSetId": "QueueCancelToSelection",
+          "QueueSize": 5,
+          "id": "que5PassiveCancelToSelection"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      }
+    ],
+    "TBl1": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDIRefinery"
+          },
+          "Unit": "GDIRefinery",
+          "Time": 100
+        },
+        "Unit": "GDIRefinery",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBuild,Build2",
+        "id": "GDIRefinery",
+        "Icon": "gdirefinery",
+        "Name": {
+          "enUS": "Tiberium Refinery"
+        },
+        "Tooltip": {
+          "enUS": "The Tiberium Refinery is highly effective at processing Tiberium into useful resources"
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDIPowerPlant"
+          },
+          "Unit": "GDIPowerPlant",
+          "Time": 30
+        },
+        "Unit": "GDIPowerPlant",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 12
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBuild,Build1",
+        "id": "GDIPowerPlant",
+        "Icon": "gdipowerplant",
+        "Name": {
+          "enUS": "Build a power plant"
+        },
+        "Tooltip": {
+          "enUS": "Provides clean, efficient energy for their forward combat bases"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDIBarracks",
+            "Requirements": "BuildGDIBarracks"
+          },
+          "Unit": "GDIBarracks",
+          "Time": 65
+        },
+        "Unit": "GDIBarracks",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBuild,Build4",
+        "id": "GDIBarracks",
+        "Icon": "gdibarracks",
+        "Name": {
+          "enUS": "Barracks"
+        },
+        "Tooltip": {
+          "enUS": "The Barracks is a self-contained recruitment and training centre. GDI infantry divisions can be outfitted for combat quickly and efficiently here"
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDICommandPost",
+            "Requirements": "BuildGDICommandPost"
+          },
+          "Unit": "GDICommandPost",
+          "Time": 35
+        },
+        "Unit": "GDICommandPost",
+        "Time": 35,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBuild,Build5",
+        "id": "GDICommandPost",
+        "Icon": "gdicommandpost",
+        "Name": {
+          "enUS": "Command Post"
+        },
+        "Tooltip": {
+          "enUS": "The Command Post is an essential component of an advanced GDI base. It can scan remote locations and is required to build to higher-tier units and structures"
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDIWarFactory",
+            "Requirements": "BuildGDIWarFactory"
+          },
+          "Unit": "GDIWarFactory",
+          "Time": 60
+        },
+        "Unit": "GDIWarFactory",
+        "Time": 60,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBuild,Build6",
+        "id": "GDIWarFactory",
+        "Icon": "gdiwarfactory",
+        "Name": {
+          "enUS": "War Factory"
+        },
+        "Tooltip": {
+          "enUS": "The War Factory builds standard GDI vehicles and is outfitted with automated repair drones that automatically repair damaged friendly vehicles in its immediate vicinity"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDIAirfield",
+            "Requirements": "BuildGDIAirfield"
+          },
+          "Unit": "GDIAirfield",
+          "Time": 50
+        },
+        "Unit": "GDIAirfield",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBuild,Build7",
+        "id": "GDIAirfield",
+        "Icon": "gdiairfield",
+        "Name": {
+          "enUS": "Airfield"
+        },
+        "Tooltip": {
+          "enUS": "Airfields are tasked with construction and rearming of GDI aircraft. Each Airfield contains four hangars, one for each supported aircraft"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDIArmoury",
+            "Requirements": "BuildGDIArmoury"
+          },
+          "Unit": "GDIArmoury",
+          "Time": 50
+        },
+        "Unit": "GDIArmoury",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBuild,Build8",
+        "id": "GDIArmoury",
+        "Icon": "gdiarmoury",
+        "Name": {
+          "enUS": "Armoury"
+        },
+        "Tooltip": {
+          "enUS": "The Armoury grants access to GDI’s most highly trained soldiers. It also researches infantry upgrades and acts as a medical bay that can heal wounded infantry"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDITechCenter",
+            "Requirements": "BuildGDITechCenter"
+          },
+          "Unit": "GDITechCenter",
+          "Time": 50
+        },
+        "Unit": "GDITechCenter",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBuild,Build9",
+        "id": "GDITechCenter",
+        "Icon": "gditechcenter",
+        "Name": {
+          "enUS": "Tech Center"
+        },
+        "Tooltip": {
+          "enUS": "The Tech Center provides cutting edge military technology to GDI forces. It grants access to some of GDI’s strongest units and upgrades"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDISpaceCommandUplink",
+            "Requirements": "BuildGDISpaceCommandUplink"
+          },
+          "Unit": "GDISpaceCommandUplink",
+          "Time": 50
+        },
+        "Unit": "GDISpaceCommandUplink",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBuild,Build10",
+        "id": "GDISpaceCommandUplink",
+        "Icon": "gdispacecommanduplink",
+        "Name": {
+          "enUS": "Space Command Uplink"
+        },
+        "Tooltip": {
+          "enUS": "This self-contained launch platform allows GDI to utilize their most powerful support powers for heavy offensives"
+        }
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDICrane"
+          },
+          "Unit": "GDICrane",
+          "Time": 50
+        },
+        "Unit": "GDICrane",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBuild,Build11",
+        "id": "GDICrane",
+        "Icon": "gdicrane",
+        "Name": {
+          "enUS": "Crane"
+        },
+        "Tooltip": {
+          "enUS": "Larger GDI bases use Cranes to help sustain rapid construction schedules by adding one extra building production queue"
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      }
+    ],
+    "TBl2": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "GDICombatSupportAirfield",
+            "Requirements": "BuildGDICombatSupportAirfield"
+          },
+          "Unit": "GDICombatSupportAirfield",
+          "Time": 50
+        },
+        "Unit": "GDICombatSupportAirfield",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "GDIBuildDefense,Build2",
+        "id": "GDICombatSupportAirfield",
+        "Icon": "gdicombatsupportairfield",
+        "Name": {
+          "enUS": "Combat Support Airfield"
+        },
+        "Tooltip": {
+          "enUS": "Combat Support Airfields have four landing pads for aircraft. They can repair and rearm, but cannot construct aircraft"
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      }
+    ]
+  },
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "SubgroupPriority": 3,
+  "id": "GDICrane",
+  "GlossaryCategory": "Unit/Category/GDIUnits",
+  "HotkeyCategory": "Unit/Category/GDIUnits",
+  "BehaviorArray": [
+    "NodLaserFence",
+    "CNCTabConstruction",
+    "CNCConstructionRadius"
+  ],
+  "CostResource": {
+    "Minerals": 150
+  },
+  "RepairTime": 65,
+  "ScoreMake": 150,
+  "ScoreKill": 150,
+  "GlossaryPriority": 252,
+  "Icon": "gdicrane",
+  "LifeArmorIcon": "fxnod_enhancedshieldsupgrade",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "NodLaserFence",
+      "Icon": "btn-missing-kaeo",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "id": "CNCTabConstruction",
+      "Icon": "btn-missing-kaeo",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "id": "CNCConstructionRadius",
+      "Icon": "btn-building-protoss-pylon",
+      "Name": {
+        "enUS": "CNC construction range"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "-"
+    },
+    {
+      "id": "que5PassiveCancelToSelection",
+      "Name": {
+        "ruRU": "Queue (5) Passive (Cancel to Selection)"
+      }
+    },
+    {
+      "id": "GDIBuild",
+      "Name": {
+        "enUS": "Build(Bulldozer)"
+      }
+    },
+    {
+      "id": "GDIBuildDefense",
+      "Name": "-"
+    },
+    {
+      "id": "Rally",
+      "Name": "-"
+    }
+  ],
+  "$Upgrades": [
+    "GDIBuild",
+    "GDICrane",
+    "GDICrane"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "GDIRefinery",
+    "GDIPowerPlant",
+    "GDIBarracks",
+    "GDICommandPost",
+    "GDIWarFactory",
+    "GDIAirfield",
+    "GDIArmoury",
+    "GDITechCenter",
+    "GDISpaceCommandUplink",
+    "GDICrane",
+    "GDISilo",
+    "GDICombatSupportAirfield"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "GDIConstructionYard",
+    "GDICrane"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Прервать постройку "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Прервать постройку "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "GDIBuild,Build2",
+      "id": "GDIRefinery",
+      "Icon": "gdirefinery",
+      "Name": {
+        "enUS": "Tiberium Refinery"
+      },
+      "Tooltip": {
+        "enUS": "The Tiberium Refinery is highly effective at processing Tiberium into useful resources"
+      }
+    },
+    {
+      "AbilCmd": "GDIBuild,Build1",
+      "id": "GDIPowerPlant",
+      "Icon": "gdipowerplant",
+      "Name": {
+        "enUS": "Build a power plant"
+      },
+      "Tooltip": {
+        "enUS": "Provides clean, efficient energy for their forward combat bases"
+      }
+    },
+    {
+      "AbilCmd": "GDIBuild,Build4",
+      "id": "GDIBarracks",
+      "Icon": "gdibarracks",
+      "Name": {
+        "enUS": "Barracks"
+      },
+      "Tooltip": {
+        "enUS": "The Barracks is a self-contained recruitment and training centre. GDI infantry divisions can be outfitted for combat quickly and efficiently here"
+      }
+    },
+    {
+      "AbilCmd": "GDIBuild,Build5",
+      "id": "GDICommandPost",
+      "Icon": "gdicommandpost",
+      "Name": {
+        "enUS": "Command Post"
+      },
+      "Tooltip": {
+        "enUS": "The Command Post is an essential component of an advanced GDI base. It can scan remote locations and is required to build to higher-tier units and structures"
+      }
+    },
+    {
+      "AbilCmd": "GDIBuild,Build6",
+      "id": "GDIWarFactory",
+      "Icon": "gdiwarfactory",
+      "Name": {
+        "enUS": "War Factory"
+      },
+      "Tooltip": {
+        "enUS": "The War Factory builds standard GDI vehicles and is outfitted with automated repair drones that automatically repair damaged friendly vehicles in its immediate vicinity"
+      }
+    },
+    {
+      "AbilCmd": "GDIBuild,Build7",
+      "id": "GDIAirfield",
+      "Icon": "gdiairfield",
+      "Name": {
+        "enUS": "Airfield"
+      },
+      "Tooltip": {
+        "enUS": "Airfields are tasked with construction and rearming of GDI aircraft. Each Airfield contains four hangars, one for each supported aircraft"
+      }
+    },
+    {
+      "AbilCmd": "GDIBuild,Build8",
+      "id": "GDIArmoury",
+      "Icon": "gdiarmoury",
+      "Name": {
+        "enUS": "Armoury"
+      },
+      "Tooltip": {
+        "enUS": "The Armoury grants access to GDI’s most highly trained soldiers. It also researches infantry upgrades and acts as a medical bay that can heal wounded infantry"
+      }
+    },
+    {
+      "AbilCmd": "GDIBuild,Build9",
+      "id": "GDITechCenter",
+      "Icon": "gditechcenter",
+      "Name": {
+        "enUS": "Tech Center"
+      },
+      "Tooltip": {
+        "enUS": "The Tech Center provides cutting edge military technology to GDI forces. It grants access to some of GDI’s strongest units and upgrades"
+      }
+    },
+    {
+      "AbilCmd": "GDIBuild,Build10",
+      "id": "GDISpaceCommandUplink",
+      "Icon": "gdispacecommanduplink",
+      "Name": {
+        "enUS": "Space Command Uplink"
+      },
+      "Tooltip": {
+        "enUS": "This self-contained launch platform allows GDI to utilize their most powerful support powers for heavy offensives"
+      }
+    },
+    {
+      "AbilCmd": "GDIBuild,Build11",
+      "id": "GDICrane",
+      "Icon": "gdicrane",
+      "Name": {
+        "enUS": "Crane"
+      },
+      "Tooltip": {
+        "enUS": "Larger GDI bases use Cranes to help sustain rapid construction schedules by adding one extra building production queue"
+      }
+    },
+    {
+      "AbilCmd": "GDIBuildDefense,Build2",
+      "id": "GDICombatSupportAirfield",
+      "Icon": "gdicombatsupportairfield",
+      "Name": {
+        "enUS": "Combat Support Airfield"
+      },
+      "Tooltip": {
+        "enUS": "Combat Support Airfields have four landing pads for aircraft. They can repair and rearm, but cannot construct aircraft"
+      }
+    }
+  ]
+}

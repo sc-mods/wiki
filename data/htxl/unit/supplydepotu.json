@@ -1,0 +1,479 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Supply Depot",
+    "zhCN": "补给站"
+  },
+  "Description": {
+    "enUS": "<span style=\"color: #ffff8a\">Basic buildings</span><br/> provide supplies. <br/>Having supplies is a prerequisite for producing more units. <br/>The supply depot can be lowered, allowing ground units to enter and exit and become invisible.",
+    "zhCN": "<span style=\"color: #ffff8a\">基础建筑</span><br/>提供补给。<br/>拥有补给是生产更多单位的前提。<br/>补给站可以降下，允许地面单位出入并隐形。"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 500,
+  "LifeMax": 500,
+  "LifeArmorName": {
+    "enUS": "Umoyan Architectural Armor",
+    "zhCN": "尤摩扬建筑护甲"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.25,
+  "SeparationRadius": 1.25,
+  "MinimapRadius": 1.25,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SupplyDepotU",
+  "HotkeyAlias": "SupplyDepotU",
+  "SelectAlias": "SupplyDepotU",
+  "SubgroupAlias": "SupplyDepotU",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SupplyDepot",
+  "AIEvaluateAlias": "SupplyDepot",
+  "ReviveType": "SupplyDepotU",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "SupplyDepotU/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "SupplyDepotU/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 315,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 4,
+  "Sight": 9,
+  "Food": 10,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 75
+  },
+  "RepairTime": 30,
+  "AttackTargetPriority": 11,
+  "AbilArray": [
+    "BuildInProgressU",
+    "SupplyDepotLowerU"
+  ],
+  "BehaviorArray": [
+    "TerranBuildingBurnDown",
+    "FireSuppressionSystemU"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgressU",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgressU",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/BuildingU",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt"
+            }
+          },
+          "MaxBuilders": 10,
+          "PowerBuildBonusRate": 0.6,
+          "id": "BuildInProgressU"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgressU,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": {
+          "enUS": "Halts construction of this structure. The partial construction will remain.",
+          "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgressU",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgressU",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/BuildingU",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt"
+            }
+          },
+          "MaxBuilders": 10,
+          "PowerBuildBonusRate": 0.6,
+          "id": "BuildInProgressU"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgressU,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "EffectArray": {
+                "Start": "SupplyDepotMorphingApplyBehavior"
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.3
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 1.3
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Duration": 1.3
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.3
+              }
+            }
+          },
+          "Unit": "SupplyDepotLoweredU",
+          "CollideRange": 0
+        },
+        "Unit": "SupplyDepotLoweredU",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 10
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SupplyDepotLowerU,Execute",
+        "id": "LowerU",
+        "Icon": "btn-building-terran-supplydepotlowered",
+        "Name": {
+          "enUS": "Descent",
+          "zhCN": "降下"
+        },
+        "Tooltip": {
+          "enUS": "Lowers the building, allowing ground units to enter and exit and become invisible.",
+          "zhCN": "降下建筑，允许地面单位出入并隐形。"
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "SelectBuilder",
+        "id": "SelectBuilder",
+        "Icon": "btn-upgrade-terran-weaponrefit",
+        "Name": {
+          "enUS": "Select Builder",
+          "ruRU": "Выбрать строителя "
+        },
+        "Tooltip": {
+          "enUS": "Selects the unit constructing this structure.",
+          "ruRU": "Выбрать рабочего, который сооружает это строение. "
+        },
+        "Hotkey": "Q"
+      }
+    ]
+  },
+  "Footprint": "Footprint2x2Contour",
+  "PlacementFootprint": "Footprint2x2",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 3,
+  "TechAliasArray": [
+    "Alias_SupplyDepot"
+  ],
+  "GlossaryPriority": 248,
+  "HotkeyCategory": "Unit/Category/TerranUnits",
+  "id": "SupplyDepotU",
+  "Icon": "btn-building-terran-supplydepot",
+  "Model": "SupplyDepot_Umojan",
+  "LifeArmorIcon": "btn-ability-mengsk-thor-bigboycover",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "TerranBuildingBurnDown",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Building Burnout",
+        "ruRU": "Building Burnout"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "FireSuppressionSystemU",
+      "Icon": "btn-upgrade-swann-firesuppressionsystem",
+      "Name": {
+        "enUS": "Damage Control System",
+        "zhCN": "损管系统"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgressU",
+      "Name": {
+        "enUS": "Construction in progress",
+        "zhCN": "正在进行的建造"
+      }
+    },
+    {
+      "id": "SupplyDepotLowerU",
+      "Name": {
+        "enUS": "Descent",
+        "zhCN": "降下"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "TerranBuildU",
+    "SupplyDepotU",
+    "SupplyDepotLoweredU",
+    "SupplyDepotRaiseU",
+    "DropToSupplyDepotU",
+    "IsSupplyDepotEitherFlavorU",
+    "SupplyDepotLoweredU",
+    "SupplyDepotU",
+    "SupplyDepotSplatU",
+    "SupplyDropModelU",
+    "TerranBuildingLiftOffU"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [
+    "SupplyDepotLoweredU"
+  ],
+  "$Producers": [
+    "SCVU"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgressU,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": {
+        "enUS": "Halts construction of this structure. The partial construction will remain.",
+        "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить. "
+      }
+    },
+    {
+      "AbilCmd": "BuildInProgressU,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "SupplyDepotLowerU,Execute",
+      "id": "LowerU",
+      "Icon": "btn-building-terran-supplydepotlowered",
+      "Name": {
+        "enUS": "Descent",
+        "zhCN": "降下"
+      },
+      "Tooltip": {
+        "enUS": "Lowers the building, allowing ground units to enter and exit and become invisible.",
+        "zhCN": "降下建筑，允许地面单位出入并隐形。"
+      }
+    }
+  ]
+}

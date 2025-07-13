@@ -1,0 +1,1908 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "The Project Tank"
+  },
+  "Description": "-",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 2,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "WZ",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 45,
+  "LifeMax": 45,
+  "LifeArmorName": {
+    "enUS": "Terran Vehicle Plating",
+    "ruRU": "Обшивка наземной техники терранов "
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 990,
+  "TurningRate": 990,
+  "Radius": 0.75,
+  "SeparationRadius": 0.75,
+  "MinimapRadius": 0.5,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:WarZone",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "WZTank",
+  "HotkeyAlias": "WZTank",
+  "SelectAlias": "WZTank",
+  "SubgroupAlias": "WZTank",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "WZTank",
+  "AIEvaluateAlias": "WZTank",
+  "ReviveType": "WZTank",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "WZTank/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "WZTank/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Speed": 2.25,
+  "Acceleration": 1000,
+  "CostCategory": "Army",
+  "AttackTargetPriority": 20,
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust"
+  ],
+  "PlaneArray": [
+    "Ground"
+  ],
+  "AbilArray": [
+    "move",
+    "stop",
+    "attack"
+  ],
+  "Sight": 9,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+        },
+        "Hotkey": "M"
+      }
+    ],
+    "TBl1": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBResourcesHub"
+          },
+          "Unit": "WZResourcesHub",
+          "Time": 100
+        },
+        "Unit": "WZResourcesHub",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 15
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build1",
+        "id": "WZBResourcesHub",
+        "Icon": "resourceshub",
+        "Name": {
+          "enUS": "Resources Hub"
+        },
+        "Tooltip": {
+          "enUS": "Build Resources Hub"
+        },
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBVespeneDerrick"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "WZVespeneDerrick",
+          "Time": 30
+        },
+        "Unit": "WZVespeneDerrick",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build2",
+        "id": "WZBVespeneDerrick",
+        "Icon": "vespenederrick",
+        "Name": {
+          "enUS": "Vespene Derrick"
+        },
+        "Tooltip": {
+          "enUS": "Build Vespene Derrick"
+        },
+        "Hotkey": "W"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBOilDerrick"
+          },
+          "Unit": "WZOilDerrick",
+          "Time": 10
+        },
+        "Unit": "WZOilDerrick",
+        "Time": 10,
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build14",
+        "id": "WZBOilDerrick",
+        "Icon": "wzoilderrick",
+        "Name": {
+          "enUS": "Oil Derrick"
+        },
+        "Tooltip": {
+          "enUS": "Build Oil Derrick"
+        },
+        "Hotkey": "W"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBPower"
+          },
+          "Unit": "WZPower",
+          "Time": 65
+        },
+        "Unit": "WZPower",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build7",
+        "id": "WZBPower",
+        "Icon": "wzpower",
+        "Name": {
+          "enUS": "Power Generator"
+        },
+        "Tooltip": {
+          "enUS": "Build Power Generator"
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBHeadquarters"
+          },
+          "Unit": "WZHeadquarters",
+          "Time": 65
+        },
+        "Unit": "WZHeadquarters",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build3",
+        "id": "WZBHeadquarters",
+        "Icon": "wzheadquarters",
+        "Name": {
+          "enUS": "Headquarters"
+        },
+        "Tooltip": {
+          "enUS": "Build Headquarters"
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBCommandRelay"
+          },
+          "Unit": "WZCommandRelay",
+          "Time": 65
+        },
+        "Unit": "WZCommandRelay",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build8",
+        "id": "WZBCommandRelay",
+        "Icon": "wzcommandrelay",
+        "Name": {
+          "enUS": "Command Relay"
+        },
+        "Tooltip": {
+          "enUS": "Build Command Relay"
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBCyborgFactory"
+          },
+          "Unit": "WZCyborgFactory",
+          "Time": 65
+        },
+        "Unit": "WZCyborgFactory",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build4",
+        "id": "WZBCyborgFactory",
+        "Icon": "wzcyborgfactory",
+        "Name": {
+          "enUS": "Cyborg Factory"
+        },
+        "Tooltip": {
+          "enUS": "Build Cyborg Factory"
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBWarFactoryLight"
+          },
+          "Unit": "WZWarFactoryLight",
+          "Time": 65
+        },
+        "Unit": "WZWarFactoryLight",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build5",
+        "id": "WZBWarFactoryLight",
+        "Icon": "wzwarfactory",
+        "Name": {
+          "enUS": "Factory"
+        },
+        "Tooltip": {
+          "enUS": "Build Factory"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBVtolFactoryLight"
+          },
+          "Unit": "WZVtolFactoryLight",
+          "Time": 65
+        },
+        "Unit": "WZVtolFactoryLight",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build6",
+        "id": "WZBVtolFactoryLight",
+        "Icon": "wzvtolfactory",
+        "Name": {
+          "enUS": "VTOL Factory"
+        },
+        "Tooltip": {
+          "enUS": "Build VTOL Factory"
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBCommandRelay"
+          },
+          "Unit": "WZResearchFacility",
+          "Time": 65
+        },
+        "Unit": "WZResearchFacility",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build9",
+        "id": "WZBResearchFacility",
+        "Icon": "wzresearchfacility",
+        "Name": {
+          "enUS": "Research Facility"
+        },
+        "Tooltip": {
+          "enUS": "Build Research Facility"
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBVtolPad"
+          },
+          "Unit": "WZVtolPad",
+          "Time": 20
+        },
+        "Unit": "WZVtolPad",
+        "Time": 20,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build12",
+        "id": "WZBVtolPad",
+        "Icon": "wzvtolpad",
+        "Name": {
+          "enUS": "VTOL Pad"
+        },
+        "Tooltip": {
+          "enUS": "Build VTOL Pad"
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBRepairFacility"
+          },
+          "Unit": "WZRepairFacility",
+          "Time": 20
+        },
+        "Unit": "WZRepairFacility",
+        "Time": 20,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build13",
+        "id": "WZBRepairFacility",
+        "Icon": "wzrepairfacility",
+        "Name": {
+          "enUS": "Repair Facility"
+        },
+        "Tooltip": {
+          "enUS": "Build Repair Facility"
+        },
+        "Hotkey": "Z"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBSatelliteUplinkCentre"
+          },
+          "Unit": "WZSatelliteUplinkCentre",
+          "Time": 65
+        },
+        "Unit": "WZSatelliteUplinkCentre",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 300,
+          "Vespene": 300,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build10",
+        "id": "WZBSatelliteUplinkCentre",
+        "Icon": "wzsatelliteuplinkcentre",
+        "Name": {
+          "enUS": "Satellite Uplink Centre"
+        },
+        "Tooltip": {
+          "enUS": "Build Satellite Uplink Centre"
+        },
+        "Hotkey": "X"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBLaserSatelliteControlPost"
+          },
+          "Unit": "WZLaserSatelliteControlPost",
+          "Time": 65
+        },
+        "Unit": "WZLaserSatelliteControlPost",
+        "Time": 65,
+        "Cost": {
+          "Minerals": 1000,
+          "Vespene": 1000,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build11",
+        "id": "WZBLaserSatelliteControlPost",
+        "Icon": "wzlasersatellitecontrolpost",
+        "Name": {
+          "enUS": "Laser Satellite Control Post"
+        },
+        "Tooltip": {
+          "enUS": "Build Laser Satellite Control Post"
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      }
+    ],
+    "TBl2": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBTankTrap"
+          },
+          "Unit": "WZTankTrap",
+          "Time": 5
+        },
+        "Unit": "WZTankTrap",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build21",
+        "id": "WZBTankTrap",
+        "Icon": "wztanktrap",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBHardcreteWall"
+          },
+          "Unit": "WZHardcreteWall",
+          "Time": 5
+        },
+        "Unit": "WZHardcreteWall",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 10,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build22",
+        "id": "WZBHardcreteWall",
+        "Icon": "wzhardcretewall",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBHardcreteGateH"
+          },
+          "Unit": "WZHardcreteGateH",
+          "Time": 5
+        },
+        "Unit": "WZHardcreteGateH",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build23",
+        "id": "WZBHardcreteGateH",
+        "Icon": "wzhardcretegate",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBHardcreteGateV"
+          },
+          "Unit": "WZHardcreteGateV",
+          "Time": 5
+        },
+        "Unit": "WZHardcreteGateV",
+        "Time": 5,
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuild,Build24",
+        "id": "WZBHardcreteGateV",
+        "Icon": "wzhardcretegate",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBFortressCannon"
+          },
+          "Unit": "WZFortressCannon",
+          "Time": 50
+        },
+        "Unit": "WZFortressCannon",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuildFortressGuard,Build1",
+        "id": "WZBFortressCannon",
+        "Icon": "fortresscannon",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBFortressMassDriver"
+          },
+          "Unit": "WZFortressMassDriver",
+          "Time": 50
+        },
+        "Unit": "WZFortressMassDriver",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuildFortressGuard,Build2",
+        "id": "WZBFortressMassDriver",
+        "Icon": "fortressmassdriver",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBFortressHeavyRockets"
+          },
+          "Unit": "WZFortressHeavyRockets",
+          "Time": 50
+        },
+        "Unit": "WZFortressHeavyRockets",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuildFortressGuard,Build4",
+        "id": "WZBFortressHeavyRockets",
+        "Icon": "fortressheavyrockets",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "WZBFortressMissile"
+          },
+          "Unit": "WZFortressMissile",
+          "Time": 50
+        },
+        "Unit": "WZFortressMissile",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "WZBuildFortressGuard,Build3",
+        "id": "WZBFortressMissile",
+        "Icon": "fortressmissile",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "DEF1",
+        "id": "WZDEF1",
+        "Icon": "heavymachinegunhardpoint",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "DEF3",
+        "id": "WZDEF3",
+        "Icon": "sensortower",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "Submenu",
+        "SubmenuCardId": "DEF4",
+        "id": "WZDEF4",
+        "Icon": "heavymachinegunbunker",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "Submenu",
+        "SubmenuCardId": "DEF5",
+        "id": "WZDEF5",
+        "Icon": "avengersamemplacement",
+        "Name": "-",
+        "Tooltip": "-"
+      }
+    ],
+    "DEF1": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      }
+    ],
+    "DEF3": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      }
+    ],
+    "DEF4": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      }
+    ],
+    "DEF5": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      }
+    ]
+  },
+  "GlossaryPriority": 21,
+  "Food": -1,
+  "RepairTime": 20,
+  "KillXP": 10,
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "SubgroupPriority": 78,
+  "CostResource": {
+    "Minerals": 50
+  },
+  "Attributes": [
+    "Light"
+  ],
+  "GlossaryCategory": "Unit/Category/WZGrounds",
+  "HotkeyCategory": "Unit/Category/WZGrounds",
+  "CargoSize": 4,
+  "InnerRadius": 0.75,
+  "id": "WZTank8",
+  "BehaviorArray": [
+    "WZTank"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "FakeWeaponDummy",
+      "Turret": "WZStaticTurret"
+    }
+  ],
+  "Icon": "wztank8",
+  "LifeArmorIcon": "btn-upgrade-terran-vehicleplatinglevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "WZTank",
+      "Icon": "btn-missing-kaeo",
+      "Name": "-",
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "WZTank8"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build1",
+      "id": "WZBResourcesHub",
+      "Icon": "resourceshub",
+      "Name": {
+        "enUS": "Resources Hub"
+      },
+      "Tooltip": {
+        "enUS": "Build Resources Hub"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build2",
+      "id": "WZBVespeneDerrick",
+      "Icon": "vespenederrick",
+      "Name": {
+        "enUS": "Vespene Derrick"
+      },
+      "Tooltip": {
+        "enUS": "Build Vespene Derrick"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build14",
+      "id": "WZBOilDerrick",
+      "Icon": "wzoilderrick",
+      "Name": {
+        "enUS": "Oil Derrick"
+      },
+      "Tooltip": {
+        "enUS": "Build Oil Derrick"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build7",
+      "id": "WZBPower",
+      "Icon": "wzpower",
+      "Name": {
+        "enUS": "Power Generator"
+      },
+      "Tooltip": {
+        "enUS": "Build Power Generator"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build3",
+      "id": "WZBHeadquarters",
+      "Icon": "wzheadquarters",
+      "Name": {
+        "enUS": "Headquarters"
+      },
+      "Tooltip": {
+        "enUS": "Build Headquarters"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build8",
+      "id": "WZBCommandRelay",
+      "Icon": "wzcommandrelay",
+      "Name": {
+        "enUS": "Command Relay"
+      },
+      "Tooltip": {
+        "enUS": "Build Command Relay"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build4",
+      "id": "WZBCyborgFactory",
+      "Icon": "wzcyborgfactory",
+      "Name": {
+        "enUS": "Cyborg Factory"
+      },
+      "Tooltip": {
+        "enUS": "Build Cyborg Factory"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build5",
+      "id": "WZBWarFactoryLight",
+      "Icon": "wzwarfactory",
+      "Name": {
+        "enUS": "Factory"
+      },
+      "Tooltip": {
+        "enUS": "Build Factory"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build6",
+      "id": "WZBVtolFactoryLight",
+      "Icon": "wzvtolfactory",
+      "Name": {
+        "enUS": "VTOL Factory"
+      },
+      "Tooltip": {
+        "enUS": "Build VTOL Factory"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build9",
+      "id": "WZBResearchFacility",
+      "Icon": "wzresearchfacility",
+      "Name": {
+        "enUS": "Research Facility"
+      },
+      "Tooltip": {
+        "enUS": "Build Research Facility"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build12",
+      "id": "WZBVtolPad",
+      "Icon": "wzvtolpad",
+      "Name": {
+        "enUS": "VTOL Pad"
+      },
+      "Tooltip": {
+        "enUS": "Build VTOL Pad"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build13",
+      "id": "WZBRepairFacility",
+      "Icon": "wzrepairfacility",
+      "Name": {
+        "enUS": "Repair Facility"
+      },
+      "Tooltip": {
+        "enUS": "Build Repair Facility"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build10",
+      "id": "WZBSatelliteUplinkCentre",
+      "Icon": "wzsatelliteuplinkcentre",
+      "Name": {
+        "enUS": "Satellite Uplink Centre"
+      },
+      "Tooltip": {
+        "enUS": "Build Satellite Uplink Centre"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build11",
+      "id": "WZBLaserSatelliteControlPost",
+      "Icon": "wzlasersatellitecontrolpost",
+      "Name": {
+        "enUS": "Laser Satellite Control Post"
+      },
+      "Tooltip": {
+        "enUS": "Build Laser Satellite Control Post"
+      }
+    },
+    {
+      "AbilCmd": "WZBuild,Build21",
+      "id": "WZBTankTrap",
+      "Icon": "wztanktrap",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "WZBuild,Build22",
+      "id": "WZBHardcreteWall",
+      "Icon": "wzhardcretewall",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "WZBuild,Build23",
+      "id": "WZBHardcreteGateH",
+      "Icon": "wzhardcretegate",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "WZBuild,Build24",
+      "id": "WZBHardcreteGateV",
+      "Icon": "wzhardcretegate",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "WZBuildFortressGuard,Build1",
+      "id": "WZBFortressCannon",
+      "Icon": "fortresscannon",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "WZBuildFortressGuard,Build2",
+      "id": "WZBFortressMassDriver",
+      "Icon": "fortressmassdriver",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "WZBuildFortressGuard,Build4",
+      "id": "WZBFortressHeavyRockets",
+      "Icon": "fortressheavyrockets",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "WZBuildFortressGuard,Build3",
+      "id": "WZBFortressMissile",
+      "Icon": "fortressmissile",
+      "Name": "-",
+      "Tooltip": "-"
+    }
+  ]
+}

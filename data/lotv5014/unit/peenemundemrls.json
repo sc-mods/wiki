@@ -1,0 +1,1237 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Peenemunde MRLS",
+    "ruRU": "МРУ «Пенемюнде»"
+  },
+  "Description": {
+    "enUS": "Long-range artillery. Launches missiles that deal devastating damage in the target area.**Can attack ground units**",
+    "ruRU": "Дальнобойная артиллерия. Выпускает наводящиеся на точку ракеты, наносящие огромный урон в области попадания.<br/><br/><span style=\"color: #ffff8a\">Может атаковать наземные цели.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "UED",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 200,
+  "LifeMax": 200,
+  "LifeArmorName": {
+    "enUS": "UED Adaptive Staballoy Plating",
+    "ruRU": "Броня из адаптивного стаб-сплава"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 360,
+  "Radius": 1,
+  "SeparationRadius": 0.625,
+  "MinimapRadius": 1,
+  "EditorCategories": "ObjectFamily:Melee,ObjectType:Unit",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "TurnBeforeMove",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "PeenemundeMRLS",
+  "HotkeyAlias": "PeenemundeMRLS",
+  "SelectAlias": "PeenemundeMRLS",
+  "SubgroupAlias": "PeenemundeMRLS",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "PeenemundeMRLS",
+  "AIEvaluateAlias": "PeenemundeMRLS",
+  "ReviveType": "PeenemundeMRLS",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "PeenemundeMRLS/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "PeenemundeMRLS/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Small",
+    "Flying6"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Massive"
+  ],
+  "LifeArmor": 1,
+  "Speed": 2.25,
+  "Acceleration": 2,
+  "LateralAcceleration": 46.0625,
+  "Sight": 11,
+  "Food": -6,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 225,
+    "Vespene": 175
+  },
+  "RepairTime": 56,
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "stop",
+    "moveUED",
+    "attackUED",
+    "PeenemundeMRLSLM",
+    "UEDPenemundeStopAttack"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/moveUED",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:UED,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,255,128,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttackSwarm\\WayPointAttackSwarm.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttackSwarm\\WayPointAttackSwarm.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "moveUED",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "AbilSetId": "MoveUED",
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "moveUED"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "moveUED,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/moveUED",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:UED,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,255,128,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttackSwarm\\WayPointAttackSwarm.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttackSwarm\\WayPointAttackSwarm.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "moveUED",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "AbilSetId": "MoveUED",
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "moveUED"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "moveUED,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/moveUED",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:UED,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,255,128,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttackSwarm\\WayPointAttackSwarm.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttackSwarm\\WayPointAttackSwarm.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "moveUED",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "AbilSetId": "MoveUED",
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "moveUED"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "moveUED,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "AbilCmd": "PeenemundeMRLSLM,Execute",
+        "id": "PrecisionStrikeDescription",
+        "Icon": "btn-ability-hornerhan-raven-analyzetarget",
+        "Name": {
+          "enUS": "Peenemunde weapons",
+          "ruRU": "Оружие пенемюнде"
+        },
+        "Tooltip": {
+          "enUS": "Fires a cruise missile at the point where the target was, setting fire to the area. When hit, it deals <b>5</b> damage. Causes <b>10</b> damage in sec and lasts 4 seconds.",
+          "ruRU": "Выпускает крылатую ракету в точку где находилась цель, поджигая местность. При попадании наносит <b>5</b> урона. В огне наносит <b>10</b> урона в сек. Длится 4 сек."
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/UEDPenemundeStopAttack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:UED,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "UEDPenemundeStopAttack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "UEDButtonStopAttackPenemunde"
+            },
+            "Off": {
+              "DefaultButtonFace": "UEDButtonPenemundeCanAttack"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "AbilSetId": "UEDStopAttack",
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "BehaviorArray": [
+            "AlgoritmPenemundeSpalshMos"
+          ],
+          "id": "UEDPenemundeStopAttack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDPenemundeStopAttack,On",
+        "id": "UEDButtonStopAttackPenemunde",
+        "Icon": "btn-ability-zeratul-stalker-predectiveblink",
+        "Name": {
+          "enUS": "Scattered attack",
+          "ruRU": "Рассеянный бой"
+        },
+        "Tooltip": {
+          "enUS": "Orders the selected troops to attack strictly different targets.",
+          "ruRU": "Приказывает выбранным войскам атаковать строго разные цели."
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attackUED",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:UED,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attackUED",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Zerg\\WayPointAttack_Zerg.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attackUED",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attackUED"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attackUED,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,AcquireMove",
+        "id": "AcquireMove",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Scan Move",
+          "ruRU": "Двигаться в режиме наблюдения "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Scan-moving units will not engage enemies.",
+          "ruRU": "Приказать выбранным боевым единицам отправиться в указанную точку или следовать за указанной единицей. Единицы, движущиеся в режиме наблюдения, не будут атаковать противников. "
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilBehavior",
+          "Name": "Abil/Name/UEDPenemundeStopAttack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:UED,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "UEDPenemundeStopAttack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "On": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "UEDButtonStopAttackPenemunde"
+            },
+            "Off": {
+              "DefaultButtonFace": "UEDButtonPenemundeCanAttack"
+            }
+          },
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "AbilSetId": "UEDStopAttack",
+          "Flags": {
+            "Toggle": 1,
+            "Transient": 1
+          },
+          "BehaviorArray": [
+            "AlgoritmPenemundeSpalshMos"
+          ],
+          "id": "UEDPenemundeStopAttack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDPenemundeStopAttack,Off",
+        "id": "UEDButtonPenemundeCanAttack",
+        "Icon": "btn-ability-zeratul-stalker-phasebattery",
+        "Name": {
+          "enUS": "Standard attack",
+          "ruRU": "Стандартный бой"
+        },
+        "Tooltip": {
+          "enUS": "Allow firing in normal mode.",
+          "ruRU": "Разрешить вести огонь в обычном режиме."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "UEDButtonBallisticRange",
+        "Icon": "btn-ability-mengsk-battlecruiser-decksights",
+        "Name": {
+          "enUS": "Ballistic range",
+          "ruRU": "Баллистическая дальность"
+        },
+        "Tooltip": {
+          "enUS": "With the help of the Crimson Eye, ballistic missiles can be guided at a distance of 13 to 25. At the same time, the aiming time takes 2 seconds.",
+          "ruRU": "С помощью рубинового ока баллистические ракеты могут наводится на расстоянии от 13 до 25. При этом время прицеливания занимает 2 сек."
+        }
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attackUED",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:UED,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attackUED",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Zerg\\WayPointAttack_Zerg.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attackUED",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attackUED"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "attackUED,Barrage",
+        "id": "AttackBarragePeenemunde",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack Ground Peenemunde"
+        },
+        "Tooltip": {
+          "enUS": "periodically attack target point"
+        },
+        "Hotkey": "D"
+      }
+    ]
+  },
+  "InnerRadius": 1,
+  "ScoreMake": 400,
+  "ScoreKill": 400,
+  "SubgroupPriority": 10,
+  "GlossaryPriority": 126,
+  "GlossaryStrongArray": [
+    "Stalker",
+    "SiegeTankSieged"
+  ],
+  "GlossaryWeakArray": [
+    "Roach",
+    "Zealot",
+    "Marauder"
+  ],
+  "HotkeyCategory": "Unit/Category/UEDUnits",
+  "TauntDuration": {
+    "Dance": 5
+  },
+  "GlossaryCategory": "Unit/Category/UEDUnits",
+  "CargoSize": 8,
+  "WeaponArray": [
+    {
+      "Link": "UEDPenemundeGunRange"
+    },
+    {
+      "Link": "UEDPenemundeGunRangeHidden"
+    }
+  ],
+  "id": "PeenemundeMRLS",
+  "Icon": "btn-ued-peenemudre",
+  "Model": "UED_A.R.E.S_V1",
+  "LifeArmorIcon": "btn-upgrade-ued-armor-level0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "EditorCategories": "Race:UED",
+      "Options": {
+        "OnlyFireAtAttackOrderTarget": 0,
+        "DisplayCooldown": 1
+      },
+      "Icon": "weapon-tank-icon-upgrade-0",
+      "DisplayEffect": "PeenemundeMRLS_Damage",
+      "TargetFilters": "Ground",
+      "MinScanRange": 15.5,
+      "Range": 15,
+      "Arc": 0.9997,
+      "Period": 5.6,
+      "Effect": "UEDEffektPenemundeAttackRangeSmall",
+      "LegacyOptions": {
+        "KeepChanneling": 1
+      },
+      "AllowedMovement": "Slowing",
+      "id": "UEDPenemundeGunRange",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "enUS": "Ballistic missile \"Retaliation\"",
+        "ruRU": "Баллистическая ракета \"Возмездие\""
+      },
+      "Amount": 5,
+      "Kind": "Splash"
+    },
+    {
+      "EditorCategories": "Race:UED",
+      "Options": {
+        "Hidden": 1,
+        "DisplayCooldown": 1
+      },
+      "Icon": "weapon-tank-icon-upgrade-0",
+      "DisplayEffect": "PeenemundeMRLS_Damage",
+      "TargetFilters": "Ground",
+      "MinScanRange": 25.5,
+      "Range": 25,
+      "MinimumRange": 15,
+      "Arc": 0.9997,
+      "Period": 5.6,
+      "Effect": "UEDEffektPenemundeAttackRangeBig",
+      "LegacyOptions": {
+        "KeepChanneling": 1
+      },
+      "AllowedMovement": "Slowing",
+      "id": "UEDPenemundeGunRangeHidden",
+      "class": "CWeaponLegacy",
+      "Name": {
+        "ruRU": "Баллистическая ракета \"Возмездие\" Скрытое"
+      },
+      "Amount": 5,
+      "Kind": "Splash"
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "moveUED",
+      "Name": {
+        "enUS": "Move UED",
+        "ruRU": "Move UED"
+      }
+    },
+    {
+      "id": "attackUED",
+      "Name": {
+        "enUS": "Attack UED",
+        "ruRU": "Attack UED"
+      }
+    },
+    {
+      "id": "PeenemundeMRLSLM",
+      "Name": "-"
+    },
+    {
+      "id": "UEDPenemundeStopAttack",
+      "Name": {
+        "ruRU": "Прерывание атаки"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "UEDArmorLevel1",
+    "PeenemundeMRLS",
+    "PeenemundeMRLS",
+    "UEDArmorLevel2",
+    "UEDArmorLevel3",
+    "UEDVehicalsLevel1",
+    "UEDVehicalsLevel2",
+    "UEDVehicalsLevel3",
+    "UpgradePenemundeRange",
+    "TeleportationNodeTrain",
+    "UEDPeenemundeMRLSDeath",
+    "PeenemundeMRLS_Death",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "TeleportationNode"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "moveUED,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в указанную точку или следовать за указанной целью. При этом они не будут вступать в бой с возможным противником."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Приказать выбранным боевым единицам прекратить выполнение всех задач и остановиться."
+      }
+    },
+    {
+      "AbilCmd": "moveUED,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Приказать выбранным боевым единицам оставаться на месте и атаковать противника в зоне досягаемости, при этом не преследуя его и не приближаясь к нему, чтобы вступить в бой."
+      }
+    },
+    {
+      "AbilCmd": "moveUED,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Приказать выбранным боевым единицам курсировать между текущей позицией и выбранной точкой. Обнаружив противника, они будут приближаться на расстояние атаки и вступать в бой."
+      }
+    },
+    {
+      "AbilCmd": "PeenemundeMRLSLM,Execute",
+      "id": "PrecisionStrikeDescription",
+      "Icon": "btn-ability-hornerhan-raven-analyzetarget",
+      "Name": {
+        "enUS": "Peenemunde weapons",
+        "ruRU": "Оружие пенемюнде"
+      },
+      "Tooltip": {
+        "enUS": "Fires a cruise missile at the point where the target was, setting fire to the area. When hit, it deals <b>5</b> damage. Causes <b>10</b> damage in sec and lasts 4 seconds.",
+        "ruRU": "Выпускает крылатую ракету в точку где находилась цель, поджигая местность. При попадании наносит <b>5</b> урона. В огне наносит <b>10</b> урона в сек. Длится 4 сек."
+      }
+    },
+    {
+      "AbilCmd": "UEDPenemundeStopAttack,On",
+      "id": "UEDButtonStopAttackPenemunde",
+      "Icon": "btn-ability-zeratul-stalker-predectiveblink",
+      "Name": {
+        "enUS": "Scattered attack",
+        "ruRU": "Рассеянный бой"
+      },
+      "Tooltip": {
+        "enUS": "Orders the selected troops to attack strictly different targets.",
+        "ruRU": "Приказывает выбранным войскам атаковать строго разные цели."
+      }
+    },
+    {
+      "AbilCmd": "attackUED,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "move,AcquireMove",
+      "id": "AcquireMove",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Scan Move",
+        "ruRU": "Двигаться в режиме наблюдения "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Scan-moving units will not engage enemies.",
+        "ruRU": "Приказать выбранным боевым единицам отправиться в указанную точку или следовать за указанной единицей. Единицы, движущиеся в режиме наблюдения, не будут атаковать противников. "
+      }
+    },
+    {
+      "AbilCmd": "UEDPenemundeStopAttack,Off",
+      "id": "UEDButtonPenemundeCanAttack",
+      "Icon": "btn-ability-zeratul-stalker-phasebattery",
+      "Name": {
+        "enUS": "Standard attack",
+        "ruRU": "Стандартный бой"
+      },
+      "Tooltip": {
+        "enUS": "Allow firing in normal mode.",
+        "ruRU": "Разрешить вести огонь в обычном режиме."
+      }
+    },
+    {
+      "AbilCmd": "attackUED,Barrage",
+      "id": "AttackBarragePeenemunde",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack Ground Peenemunde"
+      },
+      "Tooltip": {
+        "enUS": "periodically attack target point"
+      }
+    }
+  ]
+}

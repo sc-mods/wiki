@@ -1,0 +1,973 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Arcane Sanctum"
+  },
+  "Description": {
+    "enUS": "Trains Priests, Sorceresses, and Spell Breakers. <br/>Also contains spell upgrades for Priests and Sorceresses, Control Magic, and Magic Sentry."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 4,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Vision",
+  "Race": "Human",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1050,
+  "LifeMax": 1050,
+  "LifeArmorName": "-",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.5,
+  "SeparationRadius": 1.5,
+  "MinimapRadius": 1.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "PreventDefeat",
+    "PenaltyRevealed",
+    "TownAlert",
+    "NoPortraitTalk"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "hars",
+  "HotkeyAlias": "hars",
+  "SelectAlias": "hars",
+  "SubgroupAlias": "hars",
+  "OccludeHeight": 0,
+  "TacticalAI": "ARal",
+  "AIEvaluateAlias": "hars",
+  "ReviveType": "hars",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "hars/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "hars/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Classic",
+  "LifeArmorFormula": {
+    "NegativeArmorMultiplier": 0,
+    "NegativeDamageBase": 0.94,
+    "PositiveArmorMultiplier": 0,
+    "PositiveDamageRatio": 0.06
+  },
+  "LifeArmorTip": "ARMORTIP_FORT",
+  "SpeedDisplayFlags": {
+    "CollapseBuffed": 1
+  },
+  "Acceleration": 1000,
+  "BehaviorArray": [
+    "hars",
+    "War3_Unit",
+    "SuppressXPGrantOnKill",
+    "Buns",
+    "Abds"
+  ],
+  "WeaponArray": [
+    {
+      "Link": "hars1",
+      "Turret": "Attu"
+    },
+    {
+      "Link": "hars2",
+      "Turret": "Attu"
+    }
+  ],
+  "InnerRadius": 0.6875,
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "id": "hars",
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField"
+  ],
+  "AbilArray": [
+    "War3_Buildable",
+    "harsTrain",
+    "ARal",
+    "Aque",
+    "Rhpt",
+    "Rhst",
+    "Rhse",
+    "Rhss"
+  ],
+  "CostCategory": "Technology",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/War3_Buildable",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "War3_Buildable",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/CONSTRUCTING",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "MaxBuilders": 2147483648,
+          "PowerBuildBonusRate": 0.6,
+          "PowerBuildCostFactor": 0.15,
+          "id": "War3_Buildable"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "War3_Buildable,Cancel",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/Aque",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "Aque",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "CmdCancelTrain"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CmdCancelTrain"
+            }
+          },
+          "QueueSize": 7,
+          "id": "Aque"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aque,CancelLast",
+        "id": "CmdCancel",
+        "Icon": "renee_war3_btncancel",
+        "Name": {
+          "enUS": "Cancel"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current un-issued order and allows you to select a different order."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "ARal,Rally1",
+        "id": "CmdRally",
+        "Icon": "renee_war3_btnrallypoint",
+        "Name": {
+          "enUS": "Set Rally Point"
+        },
+        "Tooltip": {
+          "enUS": "Orders units that pop out of the building to immediately attack move to the targeted area. You can rally point gold mines or trees to auto-harvest. You can rally point a unit to have new units follow it when they finish building."
+        },
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hmpr",
+            "Requirements": "hmpr"
+          },
+          "Unit": [
+            "hmpr"
+          ],
+          "Time": 28
+        },
+        "Unit": [
+          "hmpr"
+        ],
+        "Time": 28,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "harsTrain,Train1",
+        "id": "hmpr",
+        "Icon": "renee_war3_btnpriest",
+        "Name": {
+          "enUS": "Train Priest"
+        },
+        "Tooltip": {
+          "enUS": "Supporting spellcaster. Can initially cast Heal, which increases the life of wounded units. Can also learn Dispel Magic and Inner Fire. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hsor",
+            "Requirements": "hsor"
+          },
+          "Unit": [
+            "hsor"
+          ],
+          "Time": 30
+        },
+        "Unit": [
+          "hsor"
+        ],
+        "Time": 30,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "harsTrain,Train2",
+        "id": "hsor",
+        "Icon": "renee_war3_btnsorceress",
+        "Name": {
+          "enUS": "Train Sorceress"
+        },
+        "Tooltip": {
+          "enUS": "Versatile spellcaster. Can initially cast Slow, which decreases movement and attack speed on enemy units. Can also learn Invisibility and Polymorph. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "hspt",
+            "Requirements": "hspt"
+          },
+          "Unit": [
+            "hspt"
+          ],
+          "Time": 28
+        },
+        "Unit": [
+          "hspt"
+        ],
+        "Time": 28,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "harsTrain,Train3",
+        "id": "hspt",
+        "Icon": "renee_war3_btnspellbreaker",
+        "Name": {
+          "enUS": "Train Spell Breaker"
+        },
+        "Tooltip": {
+          "enUS": "Elven warrior trained to destroy spellcasters. Initially has Spell Steal, which manipulates buffs to your advantage, Spell Immunity and Feedback. Can also learn Control Magic. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Upgrade": "Rhpt",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Rhpt",
+            "Requirements": "Rhpt"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 50
+          },
+          "Time": 60,
+          "Upgrade": "Rhpt"
+        },
+        "Time": 60,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rhpt,Research1",
+        "id": "Rhpt",
+        "Icon": "renee_war3_btnpriestadept",
+        "Name": {
+          "enUS": "Priest Adept Training"
+        },
+        "Tooltip": {
+          "enUS": "Increases Priests' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Dispel Magic."
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Upgrade": "Rhpt",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Rhpt2",
+            "Requirements": "Rhpt2"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 150
+          },
+          "Time": 75,
+          "Upgrade": "Rhpt"
+        },
+        "Time": 75,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rhpt,Research2",
+        "id": "Rhpt2",
+        "Icon": "renee_war3_btnpriestmaster",
+        "Name": {
+          "enUS": "Priest Master Training"
+        },
+        "Tooltip": {
+          "enUS": "Increases Priests' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Inner Fire."
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Upgrade": "Rhst",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Rhst",
+            "Requirements": "Rhst"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 50
+          },
+          "Time": 60,
+          "Upgrade": "Rhst"
+        },
+        "Time": 60,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rhst,Research1",
+        "id": "Rhst",
+        "Icon": "renee_war3_btnsorceressadept",
+        "Name": {
+          "enUS": "Sorceress Adept Training"
+        },
+        "Tooltip": {
+          "enUS": "Increases Sorceresses' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Invisibility."
+        },
+        "Hotkey": "O"
+      },
+      {
+        "Upgrade": "Rhst",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Rhst2",
+            "Requirements": "Rhst2"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 150
+          },
+          "Time": 75,
+          "Upgrade": "Rhst"
+        },
+        "Time": 75,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rhst,Research2",
+        "id": "Rhst2",
+        "Icon": "renee_war3_btnsorceressmaster",
+        "Name": {
+          "enUS": "Sorceress Master Training"
+        },
+        "Tooltip": {
+          "enUS": "Increases Sorceresses' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Polymorph."
+        },
+        "Hotkey": "O"
+      },
+      {
+        "Upgrade": "Rhss",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Rhss",
+            "Requirements": "Rhss"
+          },
+          "Resource": {
+            "Minerals": 75,
+            "Vespene": 75
+          },
+          "Time": 45,
+          "Upgrade": "Rhss"
+        },
+        "Time": 45,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rhss,Research1",
+        "id": "Rhss",
+        "Icon": "renee_war3_btncontrolmagic",
+        "Name": {
+          "enUS": "Research Control Magic"
+        },
+        "Tooltip": {
+          "enUS": "Gives Spell Breakers the ability to take control of enemy summoned units."
+        },
+        "Hotkey": "G"
+      },
+      {
+        "Upgrade": "Rhse",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Rhse",
+            "Requirements": "Rhse"
+          },
+          "Resource": {
+            "Minerals": 50,
+            "Vespene": 50
+          },
+          "Time": 30,
+          "Upgrade": "Rhse"
+        },
+        "Time": 30,
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rhse,Research1",
+        "id": "Rhse",
+        "Icon": "renee_war3_btnmagicalsentry",
+        "Name": {
+          "enUS": "Research Magic Sentry"
+        },
+        "Tooltip": {
+          "enUS": "Provides Human towers with the ability to detect invisible units."
+        },
+        "Hotkey": "M"
+      }
+    ]
+  },
+  "Attributes": [
+    "Structure",
+    "Mechanical",
+    "User1"
+  ],
+  "FogVisibility": "Snapshot",
+  "PlacementFootprint": "Footprint3x3",
+  "AttackTargetPriority": 11,
+  "ResourceDamageLeechFilters": "Self;-",
+  "ResourceDamageLeech": {
+    "Spell": {
+      "Amount": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "CostResource": {
+    "Minerals": 150,
+    "Vespene": 150
+  },
+  "RepairTime": 70,
+  "SightBonus": [
+    7.0312,
+    4.6875
+  ],
+  "SubgroupPriority": 5,
+  "Footprint": "Footprint3x3Contour",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "HotkeyCategory": "UI/HUMAN",
+  "defType": "FORT",
+  "Icon": "renee_war3_btnarcanesanctum",
+  "LifeArmorIcon": "infocard-armor-fort.tga",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "War3_Unit",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "War3_Unit"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "SuppressXPGrantOnKill",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "SuppressXPGrantOnKill"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Buns",
+      "Icon": "renee_war3_btnunsummonbuilding",
+      "Name": {
+        "enUS": "Unsummon"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Abds",
+      "Icon": "renee_war3_btntemp",
+      "Name": {
+        "enUS": "Blight Dispel Small"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "War3_Buildable",
+      "Name": {
+        "enUS": "War3_Buildable"
+      }
+    },
+    {
+      "id": "harsTrain",
+      "Name": {
+        "enUS": "Train"
+      }
+    },
+    {
+      "id": "ARal",
+      "Name": {
+        "enUS": "Rally"
+      }
+    },
+    {
+      "id": "Aque",
+      "Name": {
+        "enUS": "Queue"
+      }
+    },
+    {
+      "id": "Rhpt",
+      "Name": {
+        "enUS": "Priest Adept Training"
+      }
+    },
+    {
+      "id": "Rhst",
+      "Name": {
+        "enUS": "Sorceress Adept Training"
+      }
+    },
+    {
+      "id": "Rhse",
+      "Name": {
+        "enUS": "Research Magic Sentry"
+      }
+    },
+    {
+      "id": "Rhss",
+      "Name": {
+        "enUS": "Research Control Magic"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "Rhac",
+    "hars",
+    "AHbu",
+    "Rgfo",
+    "hars",
+    "harsCount"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [
+    "Rhpt",
+    "Rhst",
+    "Rhss",
+    "Rhse"
+  ],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "hpea",
+    "nhew"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "War3_Buildable,Cancel",
+      "id": "CmdCancel",
+      "Icon": "renee_war3_btncancel",
+      "Name": {
+        "enUS": "Cancel"
+      },
+      "Tooltip": {
+        "enUS": "Drops the current un-issued order and allows you to select a different order."
+      }
+    },
+    {
+      "AbilCmd": "Aque,CancelLast",
+      "id": "CmdCancel",
+      "Icon": "renee_war3_btncancel",
+      "Name": {
+        "enUS": "Cancel"
+      },
+      "Tooltip": {
+        "enUS": "Drops the current un-issued order and allows you to select a different order."
+      }
+    },
+    {
+      "AbilCmd": "ARal,Rally1",
+      "id": "CmdRally",
+      "Icon": "renee_war3_btnrallypoint",
+      "Name": {
+        "enUS": "Set Rally Point"
+      },
+      "Tooltip": {
+        "enUS": "Orders units that pop out of the building to immediately attack move to the targeted area. You can rally point gold mines or trees to auto-harvest. You can rally point a unit to have new units follow it when they finish building."
+      }
+    },
+    {
+      "AbilCmd": "harsTrain,Train1",
+      "id": "hmpr",
+      "Icon": "renee_war3_btnpriest",
+      "Name": {
+        "enUS": "Train Priest"
+      },
+      "Tooltip": {
+        "enUS": "Supporting spellcaster. Can initially cast Heal, which increases the life of wounded units. Can also learn Dispel Magic and Inner Fire. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "harsTrain,Train2",
+      "id": "hsor",
+      "Icon": "renee_war3_btnsorceress",
+      "Name": {
+        "enUS": "Train Sorceress"
+      },
+      "Tooltip": {
+        "enUS": "Versatile spellcaster. Can initially cast Slow, which decreases movement and attack speed on enemy units. Can also learn Invisibility and Polymorph. <br/><br/><span style=\"color: ffcc00\">Attacks land and air units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "harsTrain,Train3",
+      "id": "hspt",
+      "Icon": "renee_war3_btnspellbreaker",
+      "Name": {
+        "enUS": "Train Spell Breaker"
+      },
+      "Tooltip": {
+        "enUS": "Elven warrior trained to destroy spellcasters. Initially has Spell Steal, which manipulates buffs to your advantage, Spell Immunity and Feedback. Can also learn Control Magic. <br/><br/><span style=\"color: ffcc00\">Attacks land units.</span>"
+      }
+    },
+    {
+      "AbilCmd": "Rhpt,Research1",
+      "id": "Rhpt",
+      "Icon": "renee_war3_btnpriestadept",
+      "Name": {
+        "enUS": "Priest Adept Training"
+      },
+      "Tooltip": {
+        "enUS": "Increases Priests' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Dispel Magic."
+      }
+    },
+    {
+      "AbilCmd": "Rhpt,Research2",
+      "id": "Rhpt2",
+      "Icon": "renee_war3_btnpriestmaster",
+      "Name": {
+        "enUS": "Priest Master Training"
+      },
+      "Tooltip": {
+        "enUS": "Increases Priests' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Inner Fire."
+      }
+    },
+    {
+      "AbilCmd": "Rhst,Research1",
+      "id": "Rhst",
+      "Icon": "renee_war3_btnsorceressadept",
+      "Name": {
+        "enUS": "Sorceress Adept Training"
+      },
+      "Tooltip": {
+        "enUS": "Increases Sorceresses' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Invisibility."
+      }
+    },
+    {
+      "AbilCmd": "Rhst,Research2",
+      "id": "Rhst2",
+      "Icon": "renee_war3_btnsorceressmaster",
+      "Name": {
+        "enUS": "Sorceress Master Training"
+      },
+      "Tooltip": {
+        "enUS": "Increases Sorceresses' mana capacity, mana regeneration rate, hit points, and gives them the ability to cast Polymorph."
+      }
+    },
+    {
+      "AbilCmd": "Rhss,Research1",
+      "id": "Rhss",
+      "Icon": "renee_war3_btncontrolmagic",
+      "Name": {
+        "enUS": "Research Control Magic"
+      },
+      "Tooltip": {
+        "enUS": "Gives Spell Breakers the ability to take control of enemy summoned units."
+      }
+    },
+    {
+      "AbilCmd": "Rhse,Research1",
+      "id": "Rhse",
+      "Icon": "renee_war3_btnmagicalsentry",
+      "Name": {
+        "enUS": "Research Magic Sentry"
+      },
+      "Tooltip": {
+        "enUS": "Provides Human towers with the ability to detect invisible units."
+      }
+    }
+  ]
+}

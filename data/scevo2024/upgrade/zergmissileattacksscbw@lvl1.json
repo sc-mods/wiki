@@ -1,0 +1,70 @@
+{
+  "id": "ZergMissileAttacksSCBW@Lvl1",
+  "Icon": "btn-upgrade-zerg-missileattacks-level1",
+  "Name": "Upgrade/Name/ZergMissileAttacksSCBW@Lvl1",
+  "class": "CUpgrade",
+  "Flags": {
+    "UpgradeCheat": 1,
+    "IgnoreInvalidReferenceInTemplate": 1
+  },
+  "MaxLevel": 1,
+  "Alert": "UpgradeComplete",
+  "ScoreCount": "WeaponTechnologyCount",
+  "ScoreValue": "WeaponTechnologyValue",
+  "WebPriority": 0,
+  "LeaderAlias": "ZergMissileAttacksSCBW",
+  "EditorCategories": "Race:Zerg,UpgradeType:AttackBonus",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "DataCollection": "ZergMissileAttacksSCBW",
+  "Race": "BWZe",
+  "ScoreAmount": 200,
+  "ScoreResult": "BuildOrder",
+  "EffectArrayTemplate": [
+    {
+      "Reference": "Weapon,^ParamId^Weapon,Level",
+      "Value": "1"
+    },
+    {
+      "Reference": "Effect,^ParamId^Weapon@Damage,Amount",
+      "Value": "{DataCollection,^ParamId^,UpgradeInfoWeapon[0].DamagePerDice}"
+    },
+    {
+      "Reference": "Effect,^ParamId^Weapon@DamageExpl,Amount",
+      "Value": "{DataCollection,^ParamId^,UpgradeInfoWeapon[0].DamagePerDice}"
+    },
+    {
+      "Reference": "Accumulator,^ParamId^Weapon@Damage,Amount",
+      "Value": "{DataCollection,^ParamId^,UpgradeInfoWeapon[0].DamagePerDice}"
+    },
+    {
+      "Operation": "Set",
+      "Reference": "Weapon,^ParamId^Weapon,Icon",
+      "Value": "Assets\\Textures\\btn-upgrade-zerg-missileattacks-level1.dds"
+    },
+    {
+      "Reference": "Effect,^ParamId^Weapon@DamageAccum,Amount",
+      "Value": "{DataCollection,^ParamId^,UpgradeInfoWeapon[0].DamagePerDice}"
+    },
+    {
+      "Reference": "Effect,^ParamId^Weapon@DamageExpl,AttributeBonus[Armored]",
+      "Value": "1"
+    }
+  ],
+  "BonusResourcePerLevel": {
+    "Minerals": 75,
+    "Vespene": 75
+  },
+  "LeaderLevel": 1,
+  "EffectArray": [
+    {
+      "Reference": "Effect,HydraliskSCBWWeapon@DamageAccum,AttributeBonus[Armored]",
+      "Value": "1"
+    }
+  ],
+  "icon": "Assets\\Textures\\btn-upgrade-zerg-missileattacks-level1.dds"
+}

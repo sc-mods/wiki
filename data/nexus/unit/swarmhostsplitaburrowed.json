@@ -1,0 +1,670 @@
+{
+  "Name": "Swarm Host",
+  "Description": "Siege unit that attacks while rooted or burrowed by spawning flying Locusts. Flying Locusts are faster and deal more damage, but have less life than ground Locusts.**Locusts can attack ground units**",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZergA",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 120,
+  "LifeMax": 120,
+  "LifeArmorName": "Zerg Ground Carapace",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 360,
+  "Radius": 0.8125,
+  "SeparationRadius": 0,
+  "MinimapRadius": 0.5,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Coop",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "Cloaked",
+    "Buried",
+    "AISplash",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SwarmHostSplitA",
+  "HotkeyAlias": "SwarmHostSplitA",
+  "SelectAlias": "SwarmHostSplitABurrowed",
+  "SubgroupAlias": "SwarmHostSplitABurrowed",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SwarmHostSplitABurrowed",
+  "AIEvaluateAlias": "SwarmHostSplitA",
+  "ReviveType": "SwarmHostSplitABurrowed",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "SwarmHostSplitABurrowed/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "SwarmHostSplitABurrowed/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "TechAliasArray": [
+    "Alias_SwarmHostSplitA"
+  ],
+  "GlossaryAlias": "SwarmHostSplitA",
+  "ShieldArmorName": "Mutated Shell",
+  "Facing": 45,
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow"
+  ],
+  "Attributes": [
+    "Armored",
+    "Biological"
+  ],
+  "Sight": 10,
+  "Food": -3,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 200,
+    "Vespene": 100
+  },
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "BurrowSwarmHost",
+        "Icon": "btn-upgrade-zerg-swarmhostburrow",
+        "Tooltip": "Allows Swarm Hosts to burrow. When burrowed, they cannot be seen without detection.",
+        "Name": "Burrow"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "RapidIncubation",
+        "Icon": "btn-upgrade-zerg-rapidincubation",
+        "Tooltip": "Locusts spawn 20% faster.",
+        "Name": "Evolve Rapid Incubation",
+        "Hotkey": "A"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "LocustSpeed",
+        "Icon": "btn-missing-kaeo",
+        "Tooltip": "Locusts move 20% faster.",
+        "Name": "Locust Speed"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "HotSPressurizedGlands",
+        "Icon": "btn-upgrade-zerg-pressurizedglands",
+        "Tooltip": "Locusts can attack both ground and air units.",
+        "Name": "Evolve Pressurized Glands",
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Delay": 0.1
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Delay": 0.1,
+                "Duration": 1
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Delay": 0.1,
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 0.1,
+                "Duration": 1
+              }
+            }
+          },
+          "Unit": "SwarmHostSplitA",
+          "RandomDelayMax": 0.5
+        },
+        "Unit": "SwarmHostSplitA",
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "MorphToSwarmHostSplitA,Execute",
+        "id": "SwarmHostUprootUnburrow",
+        "Icon": "btn-ability-zerg-upburrow-color",
+        "Tooltip": "Unburrows the Swarm Host. Prevents it from spawning, but allows it to move about freely.",
+        "Name": "Unburrow",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackBuilding",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/LocustFlyingLaunch",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Zerg,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "LocustFlyingLaunch",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AllowMovement": 1,
+            "NoDeceleration": 1
+          },
+          "Effect": [
+            "LocustFlyingCreateSet"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "LocustFlyingLaunch",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "LocustLaunch"
+            }
+          },
+          "FollowRange": 5,
+          "Range": [
+            25
+          ],
+          "Arc": 360,
+          "Cost": [
+            {
+              "Cooldown": {
+                "Location": "Unit",
+                "TimeUse": 15
+              }
+            }
+          ],
+          "id": "LocustFlyingLaunch"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "LocustFlyingLaunch,Execute",
+        "id": "LocustFlyingLaunch",
+        "Icon": "btn-unit-zerg-locustflyer",
+        "Tooltip": "Sends flying Locusts to target location.",
+        "Name": "Spawn Locusts",
+        "Hotkey": "C"
+      }
+    ]
+  },
+  "InnerRadius": 0.5,
+  "LifeArmor": 1,
+  "LifeRegenRate": 0.2734,
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "Subtitle": "UnitSubtitle/SwarmHostSplitA",
+  "SubgroupPriority": 118,
+  "HotkeyCategory": "Unit/Category/ZergEvolved",
+  "id": "SwarmHostSplitABurrowed",
+  "Icon": "btn-unit-zerg-swarmhost-carrion",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level0",
+  "ShieldArmorIcon": "btn-upgrade-zerg-swarmfrenzy",
+  "Weapons": [
+    {
+      "id": "LocustFlyingLaunch",
+      "Icon": "btn-unit-zerg-locustflyer",
+      "Name": "Locust Spawn",
+      "Amount": 15,
+      "Kind": "Ranged",
+      "TargetFilters": "Ground",
+      "Range": 15,
+      "Period": 15
+    },
+    {
+      "id": "LocustFlyingLaunchPressurizedGlands",
+      "Icon": "btn-unit-zerg-locustflyer",
+      "Name": "Locust Spawn",
+      "Amount": 15,
+      "Kind": "Ranged",
+      "TargetFilters": "",
+      "Range": 15,
+      "Period": 15
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "SwarmHostPressurizedGlands"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "que1",
+      "Name": "Queue (1)"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "MorphToSwarmHostSplitA",
+      "Name": "Morph To Swarm Host - Carrion"
+    },
+    {
+      "id": "LocustFlyingLaunch",
+      "Name": "Locust Flying Launch"
+    }
+  ],
+  "$Upgrades": [
+    "IsSwarmHostSplitABurrowed",
+    "MorphToSwarmHostSplitABurrowed",
+    "SwarmHostSplitABurrowed",
+    "SwarmHostBurrowedSound",
+    "ZagaraCommander",
+    "K5CreepBonuses",
+    "SwarmHostSplitA",
+    "ZergGroundArmorsLevel1",
+    "ZergGroundArmorsLevel2",
+    "ZergGroundArmorsLevel3",
+    "ZergMissileWeaponsLevel1",
+    "ZergMissileWeaponsLevel2",
+    "ZergMissileWeaponsLevel3",
+    "SwarmHostLocustRange",
+    "SwarmHostSplitABurrowedSplat",
+    "ZagaraVoidCoopCreepBonuses",
+    "ZagaraVoidCoopReducedUnitCost"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "LocustFlying"
+  ],
+  "$Research": [],
+  "$Morph": [
+    "SwarmHostSplitA"
+  ],
+  "$Phase": [],
+  "$Phased": "SwarmHostSplitA",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "MorphToSwarmHostSplitA,Execute",
+      "id": "SwarmHostUprootUnburrow",
+      "Icon": "btn-ability-zerg-upburrow-color",
+      "Tooltip": "Unburrows the Swarm Host. Prevents it from spawning, but allows it to move about freely.",
+      "Name": "Unburrow"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackBuilding",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "LocustFlyingLaunch,Execute",
+      "id": "LocustFlyingLaunch",
+      "Icon": "btn-unit-zerg-locustflyer",
+      "Tooltip": "Sends flying Locusts to target location.",
+      "Name": "Spawn Locusts"
+    }
+  ]
+}

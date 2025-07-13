@@ -1,0 +1,232 @@
+{
+  "Name": "Supply Depot",
+  "Description": "Provides supply.<br/>Supply allows you to create more units.<br/>Supply Depots can be lowered to allow units to walk over them.",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Terr",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 400,
+  "LifeMax": 400,
+  "LifeArmorName": "Terran Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.25,
+  "SeparationRadius": 1.25,
+  "MinimapRadius": 1.25,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SupplyDepot",
+  "HotkeyAlias": "SupplyDepot",
+  "SelectAlias": "SupplyDepot",
+  "SubgroupAlias": "SupplyDepotLowered",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SupplyDepotLowered",
+  "AIEvaluateAlias": "SupplyDepotLowered",
+  "ReviveType": "SupplyDepotLowered",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "SupplyDepotLowered/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "SupplyDepotLowered/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "TechAliasArray": [
+    "Alias_SupplyDepot"
+  ],
+  "Facing": 315,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "LifeArmor": 1,
+  "Food": 8,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 100
+  },
+  "RepairTime": 30,
+  "AttackTargetPriority": 11,
+  "Footprint": "Footprint2x2Underground",
+  "SubgroupPriority": 4,
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Small"
+  ],
+  "Sight": 9,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "EffectArray": {
+                "Start": "SupplyDepotMorphingApplyBehavior"
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.3
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Duration": 1.3
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.3
+              }
+            }
+          },
+          "Unit": "SupplyDepot",
+          "CollideRange": 0
+        },
+        "Unit": "SupplyDepot",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SupplyDepotRaise,Execute",
+        "id": "Raise",
+        "Icon": "btn-building-terran-supplydepot",
+        "Tooltip": "Raises the structure, preventing ground units from moving across it.",
+        "Name": "Raise",
+        "Hotkey": "R"
+      }
+    ]
+  },
+  "id": "SupplyDepotLowered",
+  "Icon": "btn-building-terran-supplydepotlowered",
+  "LifeArmorIcon": "btn-upgrade-terran-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "TerranBuildingBurnDown"
+    },
+    {
+      "id": "FireSuppressionSystem",
+      "Icon": "btn-upgrade-swann-firesuppressionsystem",
+      "Tooltip": "This structure's fire is being extinguished and is repairing itself to 50% of its maximum life."
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "SupplyDepotRaise",
+      "Name": "Raise"
+    }
+  ],
+  "$Upgrades": [
+    "SupplyDepotLower",
+    "SupplyDepotLowered",
+    "TerranBuildingArmor",
+    "MasterySwannBuildingHealth",
+    "TerranBuildingArmorRaynor",
+    "IsSupplyDepotLowered",
+    "NovaCommander",
+    "TerranBuildingLand",
+    "SupplyDepot",
+    "SupplyDropModel",
+    "HHDoubleSupply",
+    "SupplyDepotLowered",
+    "SupplyDepotSkin",
+    "MasteryRaynorBuildingHealth",
+    "ExtraSupply",
+    "SupplyDepotLoweredCooldowns"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "SupplyDepot"
+  ],
+  "$Phase": [],
+  "$Phased": "SupplyDepot",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "SupplyDepotRaise,Execute",
+      "id": "Raise",
+      "Icon": "btn-building-terran-supplydepot",
+      "Tooltip": "Raises the structure, preventing ground units from moving across it.",
+      "Name": "Raise"
+    }
+  ]
+}

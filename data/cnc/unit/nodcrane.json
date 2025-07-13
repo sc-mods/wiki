@@ -1,0 +1,1480 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Crane"
+  },
+  "Description": {
+    "enUS": "Cranes reinforce the production capability of the Nod Construction Yard by adding one extra building production queue. Cranes can not build defensive structures, superweapons, or the Redeemer Engineering Facility."
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "Nod",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 800,
+  "LifeMax": 800,
+  "LifeArmorName": {
+    "enUS": "Nod Building Armor"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.75,
+  "SeparationRadius": 1.75,
+  "MinimapRadius": 1.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:CNC",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "PreventDefeat",
+    "PenaltyRevealed",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "NodCrane",
+  "HotkeyAlias": "NodCrane",
+  "SelectAlias": "NodCrane",
+  "SubgroupAlias": "NodConstructionYard",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "NodCrane",
+  "AIEvaluateAlias": "NodCrane",
+  "ReviveType": "NodCrane",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "NodCrane/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "NodCrane/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "ScoreResult": "BuildOrder",
+  "GlossaryAlias": "NodCrane",
+  "Sight": 9,
+  "AttackTargetPriority": 11,
+  "ScoreMakeCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "ScoreKillCostFactor": {
+    "Minerals": 1,
+    "Vespene": 1
+  },
+  "Facing": 45,
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "CostCategory": "Technology",
+  "AbilArray": [
+    "BuildInProgress",
+    "que5PassiveCancelToSelection",
+    "NodBuild",
+    "NodDefenseBuild"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5PassiveCancelToSelection",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5PassiveCancelToSelection",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1,
+            "Passive": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel",
+              "Flags": {
+                "ToSelection": 1
+              }
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "AbilSetId": "QueueCancelToSelection",
+          "QueueSize": 5,
+          "id": "que5PassiveCancelToSelection"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "BLD",
+        "id": "NodBuild",
+        "Icon": "btn-command-terran-buildstructure",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "DEF",
+        "id": "NodBuildAdvanced",
+        "Icon": "btn-command-terran-buildadvancedstructure",
+        "Name": "-",
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5PassiveCancelToSelection",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5PassiveCancelToSelection",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1,
+            "Passive": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel",
+              "Flags": {
+                "ToSelection": 1
+              }
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "AbilSetId": "QueueCancelToSelection",
+          "QueueSize": 5,
+          "id": "que5PassiveCancelToSelection"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": "-"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      }
+    ],
+    "BLD": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NodTiberiumRefinery"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "NodTiberiumRefinery",
+          "Time": 3
+        },
+        "Unit": "NodTiberiumRefinery",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 14
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "NodBuild,Build1",
+        "id": "NodTiberiumRefinery",
+        "Icon": "nodtiberiumrefinery",
+        "Name": {
+          "enUS": "Build Tiberium Refinery"
+        },
+        "Tooltip": {
+          "enUS": "Produces Harvesters to allow the gathering of resources. Processes and stores Tiberium"
+        },
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NodPowerPlant"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "NodPowerPlant",
+          "Time": 3
+        },
+        "Unit": "NodPowerPlant",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 12
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "NodBuild,Build2",
+        "id": "NodPowerPlant",
+        "Icon": "nodpowerplanticon",
+        "Name": {
+          "enUS": "Build a power plant"
+        },
+        "Tooltip": {
+          "enUS": "Provides power and supply."
+        },
+        "Hotkey": "W"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NodCrane",
+            "Requirements": "BuildNodCrane"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "NodCrane",
+          "Time": 3
+        },
+        "Unit": "NodCrane",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "NodBuild,Build11",
+        "id": "NodCrane",
+        "Icon": "nodcraneicon",
+        "Name": {
+          "enUS": "Build Crane"
+        },
+        "Tooltip": {
+          "enUS": "Cranes reinforce the production capability of the Nod Construction Yard by adding one extra building production queue. Cranes can not build defensive structures, superweapons, or the Redeemer Engineering Facility."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NodHand",
+            "Requirements": "BuildNodHand"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "NodHand",
+          "Time": 3
+        },
+        "Unit": "NodHand",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "NodBuild,Build4",
+        "id": "NodHand",
+        "Icon": "nodhandicon",
+        "Name": {
+          "enUS": "Build the Hand of Nod"
+        },
+        "Tooltip": {
+          "enUS": "Produces Nod infantry"
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NodWarFactory",
+            "Requirements": "BuildNodWarFactory"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "NodWarFactory",
+          "Time": 3
+        },
+        "Unit": "NodWarFactory",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "NodBuild,Build5",
+        "id": "NodWarFactory",
+        "Icon": "nodwarfactoryicon",
+        "Name": {
+          "enUS": "Build War Factory"
+        },
+        "Tooltip": {
+          "enUS": "Nod vehicle production facility. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- Bike<br/>- Raider<br/>- Scorpion Tank<br/>- Nod MCV"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NodAirTower",
+            "Requirements": "BuildNodAirTower"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "NodAirTower",
+          "Time": 3
+        },
+        "Unit": "NodAirTower",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "NodBuild,Build7",
+        "id": "NodAirTower",
+        "Icon": "nodairtower",
+        "Name": {
+          "enUS": "Build Air Tower"
+        },
+        "Tooltip": {
+          "enUS": "Aircraft Production Facility. Each Air Tower provides docking bays for up to four Vertigo Bombers, where they are rearmed."
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NodRedeemerFacility",
+            "State": "Restricted",
+            "Requirements": "BuildNodRedeemerFacility"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Link": "Abil/NodBuild",
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Link": "Abil/NodBuild",
+            "Location": "Unit"
+          },
+          "Unit": "NodRedeemerFacility",
+          "Time": 3
+        },
+        "Unit": "NodRedeemerFacility",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "NodBuildAdvanced,Build14",
+        "id": "NodRedeemerFacility",
+        "Icon": "nodredeemerfacilityicon",
+        "Name": {
+          "enUS": "Build Redeemer Engineering Facility"
+        },
+        "Tooltip": {
+          "enUS": "The Redeemer Engineering Facility can build all Nod vehicles like a standard War Factory, and is the only structure capable of deploying Nod's epic unit -- the Redeemer.<br/>Only one Nod Redeemer Engineering Facility can be built at a time per player. Cannot be captured."
+        },
+        "Hotkey": "W"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NodOperationsCenter",
+            "Requirements": "BuildNodOperationsCenter"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "NodOperationsCenter",
+          "Time": 3
+        },
+        "Unit": "NodOperationsCenter",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "NodBuild,Build6",
+        "id": "NodOperationsCenter",
+        "Icon": "nodoperationscentericon",
+        "Name": {
+          "enUS": "Build Operations Center"
+        },
+        "Tooltip": {
+          "enUS": "The Operations Center contains advanced communications arrays required for Nod's higher-tier technologies and can deploy counter-intelligence support powers"
+        },
+        "Hotkey": "Z"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NodShrine",
+            "Requirements": "BuildNodShrine"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "NodShrine",
+          "Time": 3
+        },
+        "Unit": "NodShrine",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "NodBuild,Build8",
+        "id": "NodShrine",
+        "Icon": "nodshrine",
+        "Name": {
+          "enUS": "Build Secret Shrine"
+        },
+        "Tooltip": {
+          "enUS": "Nod's Secret Shrine contains special training rituals necessary to deploy advanced infantry. It can also be used to research advancements that substantially improve the effectiveness of most Nod infantry squads."
+        },
+        "Hotkey": "X"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NodTechLab",
+            "Requirements": "BuildNodTechLab"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "NodTechLab",
+          "Time": 3
+        },
+        "Unit": "NodTechLab",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "NodBuild,Build9",
+        "id": "NodTechLab",
+        "Icon": "nodtechlab",
+        "Name": {
+          "enUS": "Build Tech Lab"
+        },
+        "Tooltip": {
+          "enUS": "When a Tech Lab is present, the Brotherhood of Nod can deploy its most advanced military equipment, as well as research upgrades to its lower-tech vehicles."
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      }
+    ],
+    "DEF": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NodChemicalPlant",
+            "Requirements": "BuildNodTiberiumSilo"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "NodTiberiumSilo",
+          "Time": 3
+        },
+        "Unit": "NodTiberiumSilo",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "NodDefenseBuild,Build7",
+        "id": "NodTiberiumSilo",
+        "Icon": "nodtiberiumsilo",
+        "Name": {
+          "enUS": "Liquefied Tiberium Silo"
+        },
+        "Tooltip": {
+          "enUS": "Built on a gas spring and used to collect high-energy gas."
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "NodAirSupport",
+            "State": "Restricted",
+            "Requirements": "BuildNodAirSupport"
+          },
+          "Charge": {
+            "CountMax": 1,
+            "CountUse": 1,
+            "Location": "Unit",
+            "TimeStart": 40,
+            "TimeUse": 40,
+            "Flags": {
+              "EnableChargeTimeQueuing": 1
+            }
+          },
+          "Cooldown": {
+            "Location": "Unit"
+          },
+          "Unit": "NodAirSupport",
+          "Time": 3
+        },
+        "Unit": "NodAirSupport",
+        "Time": 3,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "NodDefenseBuild,Build6",
+        "id": "NodAirSupport",
+        "Icon": "nodairsupport",
+        "Name": {
+          "enUS": "Build Air Support"
+        },
+        "Tooltip": {
+          "enUS": "Air Support Towers have four landing pads for aircraft. They can repair and rearm, but cannot construct aircraft.<br/>"
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Прервать постройку "
+        },
+        "Tooltip": "-"
+      }
+    ]
+  },
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "SubgroupPriority": 3,
+  "id": "NodCrane",
+  "BehaviorArray": [
+    "FireSuppressionSystem",
+    "NodBuildingsunits",
+    "NodLaserFence",
+    "Deployable",
+    "CNCTabConstruction",
+    "CNCConstructionRadiusMedium"
+  ],
+  "EffectArray": {
+    "Birth": "NodStructureSpawnSet"
+  },
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": {
+    "enUS": "Nod Laser Fencing"
+  },
+  "CostResource": {
+    "Minerals": 150
+  },
+  "RepairTime": 65,
+  "ScoreMake": 150,
+  "ScoreKill": 150,
+  "GlossaryPriority": 252,
+  "Icon": "nodcrane",
+  "LifeArmorIcon": "fxnod_enhancedshieldsupgrade",
+  "ShieldArmorIcon": "nodlaserfencing",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "NodBuildingsunits",
+      "Icon": "nodmilitant",
+      "Name": {
+        "enUS": "Generate armed squads"
+      },
+      "Tooltip": {
+        "enUS": "Enlightened units will be spawned after death."
+      }
+    },
+    {
+      "id": "NodLaserFence",
+      "Icon": "btn-missing-kaeo",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "id": "Deployable",
+      "Icon": "btn-building-protoss-pylon",
+      "Name": {
+        "enUS": "Deploying"
+      },
+      "Tooltip": {
+        "enUS": "This unit is being materialized"
+      }
+    },
+    {
+      "id": "CNCTabConstruction",
+      "Icon": "btn-missing-kaeo",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "id": "CNCConstructionRadiusMedium",
+      "Icon": "btn-building-protoss-pylon",
+      "Name": "-",
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "-"
+    },
+    {
+      "id": "que5PassiveCancelToSelection",
+      "Name": {
+        "ruRU": "Queue (5) Passive (Cancel to Selection)"
+      }
+    },
+    {
+      "id": "NodBuild",
+      "Name": {
+        "enUS": "Nod Build"
+      }
+    },
+    {
+      "id": "NodDefenseBuild",
+      "Name": {
+        "enUS": "Nod Build Defense"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "NodBuild",
+    "NodCrane",
+    "NodLaserFencing",
+    "NodCrane",
+    "NodCrane",
+    "IsNodCrane",
+    "UQ_NodCrane"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "NodTiberiumRefinery",
+    "NodPowerPlant",
+    "NodCrane",
+    "NodHand",
+    "NodWarFactory",
+    "NodAirTower",
+    "NodOperationsCenter",
+    "NodShrine",
+    "NodTechLab",
+    "NodTiberiumSilo",
+    "NodAirSupport",
+    "NodMilitant"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "NodConstructionYard",
+    "NodCrane"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Прервать постройку "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "que5PassiveCancelToSelection,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Прервать постройку "
+      },
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "NodBuild,Build1",
+      "id": "NodTiberiumRefinery",
+      "Icon": "nodtiberiumrefinery",
+      "Name": {
+        "enUS": "Build Tiberium Refinery"
+      },
+      "Tooltip": {
+        "enUS": "Produces Harvesters to allow the gathering of resources. Processes and stores Tiberium"
+      }
+    },
+    {
+      "AbilCmd": "NodBuild,Build2",
+      "id": "NodPowerPlant",
+      "Icon": "nodpowerplanticon",
+      "Name": {
+        "enUS": "Build a power plant"
+      },
+      "Tooltip": {
+        "enUS": "Provides power and supply."
+      }
+    },
+    {
+      "AbilCmd": "NodBuild,Build11",
+      "id": "NodCrane",
+      "Icon": "nodcraneicon",
+      "Name": {
+        "enUS": "Build Crane"
+      },
+      "Tooltip": {
+        "enUS": "Cranes reinforce the production capability of the Nod Construction Yard by adding one extra building production queue. Cranes can not build defensive structures, superweapons, or the Redeemer Engineering Facility."
+      }
+    },
+    {
+      "AbilCmd": "NodBuild,Build4",
+      "id": "NodHand",
+      "Icon": "nodhandicon",
+      "Name": {
+        "enUS": "Build the Hand of Nod"
+      },
+      "Tooltip": {
+        "enUS": "Produces Nod infantry"
+      }
+    },
+    {
+      "AbilCmd": "NodBuild,Build5",
+      "id": "NodWarFactory",
+      "Icon": "nodwarfactoryicon",
+      "Name": {
+        "enUS": "Build War Factory"
+      },
+      "Tooltip": {
+        "enUS": "Nod vehicle production facility. <br/><br/><span style=\"color: ffff8a\">Enable:</span><br/>- Bike<br/>- Raider<br/>- Scorpion Tank<br/>- Nod MCV"
+      }
+    },
+    {
+      "AbilCmd": "NodBuild,Build7",
+      "id": "NodAirTower",
+      "Icon": "nodairtower",
+      "Name": {
+        "enUS": "Build Air Tower"
+      },
+      "Tooltip": {
+        "enUS": "Aircraft Production Facility. Each Air Tower provides docking bays for up to four Vertigo Bombers, where they are rearmed."
+      }
+    },
+    {
+      "AbilCmd": "NodBuildAdvanced,Build14",
+      "id": "NodRedeemerFacility",
+      "Icon": "nodredeemerfacilityicon",
+      "Name": {
+        "enUS": "Build Redeemer Engineering Facility"
+      },
+      "Tooltip": {
+        "enUS": "The Redeemer Engineering Facility can build all Nod vehicles like a standard War Factory, and is the only structure capable of deploying Nod's epic unit -- the Redeemer.<br/>Only one Nod Redeemer Engineering Facility can be built at a time per player. Cannot be captured."
+      }
+    },
+    {
+      "AbilCmd": "NodBuild,Build6",
+      "id": "NodOperationsCenter",
+      "Icon": "nodoperationscentericon",
+      "Name": {
+        "enUS": "Build Operations Center"
+      },
+      "Tooltip": {
+        "enUS": "The Operations Center contains advanced communications arrays required for Nod's higher-tier technologies and can deploy counter-intelligence support powers"
+      }
+    },
+    {
+      "AbilCmd": "NodBuild,Build8",
+      "id": "NodShrine",
+      "Icon": "nodshrine",
+      "Name": {
+        "enUS": "Build Secret Shrine"
+      },
+      "Tooltip": {
+        "enUS": "Nod's Secret Shrine contains special training rituals necessary to deploy advanced infantry. It can also be used to research advancements that substantially improve the effectiveness of most Nod infantry squads."
+      }
+    },
+    {
+      "AbilCmd": "NodBuild,Build9",
+      "id": "NodTechLab",
+      "Icon": "nodtechlab",
+      "Name": {
+        "enUS": "Build Tech Lab"
+      },
+      "Tooltip": {
+        "enUS": "When a Tech Lab is present, the Brotherhood of Nod can deploy its most advanced military equipment, as well as research upgrades to its lower-tech vehicles."
+      }
+    },
+    {
+      "AbilCmd": "NodDefenseBuild,Build7",
+      "id": "NodTiberiumSilo",
+      "Icon": "nodtiberiumsilo",
+      "Name": {
+        "enUS": "Liquefied Tiberium Silo"
+      },
+      "Tooltip": {
+        "enUS": "Built on a gas spring and used to collect high-energy gas."
+      }
+    },
+    {
+      "AbilCmd": "NodDefenseBuild,Build6",
+      "id": "NodAirSupport",
+      "Icon": "nodairsupport",
+      "Name": {
+        "enUS": "Build Air Support"
+      },
+      "Tooltip": {
+        "enUS": "Air Support Towers have four landing pads for aircraft. They can repair and rearm, but cannot construct aircraft.<br/>"
+      }
+    }
+  ]
+}

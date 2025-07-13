@@ -1,0 +1,309 @@
+{
+  "Name": "Fel Stalker",
+  "Description": "Demonic beast that casts Mana Burn. <br/><br/><span style=\"color: #ffcc00\">Attacks land units.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 4,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Vision",
+  "Race": "Demon",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 750,
+  "LifeMax": 750,
+  "Mover": "foot",
+  "StationaryTurningRate": 720,
+  "TurningRate": 499.9218,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "nfel",
+  "HotkeyAlias": "nfel",
+  "SelectAlias": "nfel",
+  "SubgroupAlias": "nfel",
+  "OccludeHeight": 0,
+  "TacticalAI": "Ambb",
+  "AIEvaluateAlias": "nfel",
+  "ReviveType": "nfel",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "nfel/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "nfel/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "LifeArmorTip": "ARMORTIP_LARGE",
+  "Acceleration": 1000,
+  "Mob": "Classic",
+  "LifeArmorFormula": {
+    "NegativeArmorMultiplier": 0,
+    "NegativeDamageBase": 0.94,
+    "PositiveArmorMultiplier": 0,
+    "PositiveDamageRatio": 0.06
+  },
+  "SpeedDisplayFlags": {
+    "CollapseBuffed": 1
+  },
+  "KillDisplay": "Never",
+  "RankDisplay": "Never",
+  "InnerRadius": 0.375,
+  "id": "nfel",
+  "Collide": [
+    "Ground",
+    "ForceField"
+  ],
+  "CostCategory": "Army",
+  "ResourceDamageLeechFilters": "-;Player,Ally,Air,Ground,Hover,HarvestableResource,Destructible,Item,Buried,Dead,Invulnerable",
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Move",
+        "id": "CmdMove",
+        "Tooltip": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "CmdStop",
+        "Tooltip": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,HoldPos",
+        "id": "CmdHoldPos",
+        "Tooltip": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "Amov,Patrol",
+        "id": "CmdPatrol",
+        "Tooltip": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Aatk,Execute",
+        "id": "CmdAttack",
+        "Tooltip": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "Ambb,0",
+        "id": "Ambb",
+        "Tooltip": "Sends a bolt of negative energy that burns 100 points of a target enemy unit's mana. The mana combusts, dealing damage equal to the amount of mana burned.",
+        "Name": "Mana Burn",
+        "Hotkey": "B"
+      }
+    ]
+  },
+  "Attributes": [
+    "Massive"
+  ],
+  "KillXP": 115,
+  "CostResource": {
+    "Minerals": 320,
+    "Vespene": 50
+  },
+  "Food": -4,
+  "KillResource": {
+    "Minerals": 22
+  },
+  "EnergyMax": 200,
+  "EnergyStart": 200,
+  "LifeArmor": 3,
+  "Speed": 2.7343,
+  "RepairTime": 50,
+  "SightBonus": [
+    10.9375,
+    6.25
+  ],
+  "EnergyRegenRate": 0.5,
+  "LifeRegenRate": 0.5,
+  "SubgroupPriority": 1,
+  "DeathTime": 90,
+  "CargoSize": 1,
+  "PlaneArray": [
+    "Ground"
+  ],
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "defType": "LARGE",
+  "Icon": "renee_war3_btnfelhound",
+  "LifeArmorIcon": "infocard-armor-large.tga",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "id": "nfel1",
+      "Name": "Type: <span style=\"color: #ffcc00\">Chaos</span>",
+      "Amount": 24,
+      "Kind": "Melee",
+      "TargetFilters": "",
+      "Range": 0.7812,
+      "Period": 1.35
+    },
+    {}
+  ],
+  "Behaviors": [
+    {},
+    {
+      "id": "War3_Unit"
+    },
+    {
+      "id": "War3_ArmyBlastRemove"
+    },
+    {
+      "id": "CreepUnitTriggerNotice"
+    },
+    {
+      "id": "ACsp",
+      "Icon": "renee_war3_btnsleep"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "Amov",
+      "Name": "Move"
+    },
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "HigherCliffMiss",
+      "Name": "Higher Cliff Miss"
+    },
+    {
+      "id": "Aatk",
+      "Name": "Attack"
+    },
+    {
+      "id": "Ambb",
+      "Name": "Mana Burn"
+    }
+  ],
+  "$Upgrades": [
+    "ndmgTrain",
+    "nfel",
+    "ndkeTrain",
+    "ndkwTrain",
+    "nfel",
+    "nfel",
+    "nfelCount"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Producers": [
+    "ndke",
+    "ndkw",
+    "ndmg"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "Amov,Move",
+      "id": "CmdMove",
+      "Tooltip": "Orders your units to move to the target area while ignoring enemy units and attacks. Issuing a move order onto a target unit will cause your unit to follow the target using move orders.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "CmdStop",
+      "Tooltip": "Orders your units to stop whatever order they were previously given. Units that have been told to stop will attack enemy units and move to engage nearby enemies.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "Amov,HoldPos",
+      "id": "CmdHoldPos",
+      "Tooltip": "Orders your units to stand where they are and attack units that are within range. When on Hold Position your units will not chase down enemy units that run away, nor move to engage ranged attackers.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "Amov,Patrol",
+      "id": "CmdPatrol",
+      "Tooltip": "Orders your units to continually move from their current position to the targeted area until given another command. Units on patrol will move to engage enemy units that come within range. Issuing a patrol order onto a target unit will cause your unit to imitate the targeted unit's behavior.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "Aatk,Execute",
+      "id": "CmdAttack",
+      "Tooltip": "Orders your units to move to the target area and attack any enemy units they see on the way. If you order them to attack a specific unit, your units will ignore other enemy units and will attack the targeted unit until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "Ambb,0",
+      "id": "Ambb",
+      "Tooltip": "Sends a bolt of negative energy that burns 100 points of a target enemy unit's mana. The mana combusts, dealing damage equal to the amount of mana burned.",
+      "Name": "Mana Burn"
+    }
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "相位力场",
+    "enUS": "Phase Field"
+  },
+  "Description": {
+    "zhCN": "生成一道永久存在阻拦地面部队移动的相位力场。<br/><span style=\"color: #ffff8a\">相位力场中的敌方单位无法移动。</span>",
+    "enUS": "Generates a permanent phase field that blocks the movement of ground troops. <br/><span style=\"color: #ffff8a\">Enemy units within the phase field cannot move. </span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 0,
+  "DeathRevealDuration": 0,
+  "DeathRevealType": "Snapshot",
+  "Race": "ProG",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 10,
+  "LifeMax": 10,
+  "LifeArmorName": {
+    "enUS": "None",
+    "ruRU": "Нет "
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.5,
+  "SeparationRadius": 0,
+  "MinimapRadius": 1.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "Uncloakable",
+    "Unradarable",
+    "Destructible",
+    "NoScore",
+    "ForceCollisionCheck"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ForceFieldG",
+  "HotkeyAlias": "ForceFieldG",
+  "SelectAlias": "ForceFieldG",
+  "SubgroupAlias": "ForceFieldG",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ForceFieldG",
+  "AIEvaluateAlias": "ForceFieldG",
+  "ReviveType": "ForceFieldG",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ForceFieldG/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ForceFieldG/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Attributes": [
+    "Structure"
+  ],
+  "ShieldsStart": 300,
+  "ShieldsMax": 300,
+  "ShieldArmor": 6,
+  "ShieldArmorName": {
+    "zhCN": "<span style=\"color: #ffff8a\">超载等离子护盾</span>",
+    "enUS": "<span style=\"color: #ffff8a\">Overload Plasma Shield</span>"
+  },
+  "Sight": 1.5,
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "ForceFieldCancel"
+  ],
+  "BehaviorArray": [
+    "ForceFieldG"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilEffectInstant",
+          "Name": "Abil/Name/ForceFieldCancel",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Protoss,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ForceFieldCancel",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1
+          },
+          "Effect": [
+            "SuicideNoShieldG"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "ForceFieldCancel",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "ForceFieldCancelG"
+            }
+          },
+          "id": "ForceFieldCancel"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ForceFieldCancel,Execute",
+        "id": "ForceFieldCancelG",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "zhCN": "<span style=\"color: #ffff8a\">取消</span>",
+          "enUS": "<span style=\"color: #ffff8a\">Cancel</span>"
+        },
+        "Tooltip": {
+          "zhCN": "摧毁所选的力场。",
+          "enUS": "Destroy selected force field."
+        },
+        "Hotkey": "Esc"
+      }
+    ]
+  },
+  "InnerRadius": 0.5,
+  "PlacementFootprint": "Footprint3x3ForceField",
+  "SubgroupPriority": 31,
+  "GlossaryCategory": "Unit/Category/GoldenProtoss",
+  "HotkeyCategory": "Unit/Category/GoldenProtoss",
+  "id": "ForceFieldG",
+  "Icon": "btn-ability-protoss-forcefield-color",
+  "ShieldArmorIcon": "btn-ability-mengsk-marauder-selfabsorbshield",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "ForceFieldG",
+      "Icon": "btn-ability-protoss-forcefield-color",
+      "Name": {
+        "zhCN": "力场禁锢搜索",
+        "enUS": "Force field confinement search"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "ForceFieldCancel",
+      "Name": {
+        "zhCN": "力场崩解",
+        "enUS": "Force Field Collapse"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "ForceFieldG",
+    "ForceFieldG",
+    "ForceFieldG",
+    "ForceFieldG",
+    "NotForceFieldG"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "ForceFieldCancel,Execute",
+      "id": "ForceFieldCancelG",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "zhCN": "<span style=\"color: #ffff8a\">取消</span>",
+        "enUS": "<span style=\"color: #ffff8a\">Cancel</span>"
+      },
+      "Tooltip": {
+        "zhCN": "摧毁所选的力场。",
+        "enUS": "Destroy selected force field."
+      }
+    }
+  ]
+}

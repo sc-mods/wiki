@@ -1,0 +1,595 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Drone",
+    "zhCN": "Drone",
+    "koKR": "Drone"
+  },
+  "Description": {
+    "enUS": "Basic worker unit. Can harvest minerals and vespene gas. Can mutate into structures.<br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>",
+    "zhCN": "Basic worker unit. Can harvest minerals and vespene gas. Can mutate into structures.<br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>",
+    "koKR": "Basic worker unit. Can harvest minerals and vespene gas. Can mutate into structures.<br/><br/><span style=\"color: #ffff8a\">Can attack ground units.</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "BWZe",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 40,
+  "LifeMax": 40,
+  "LifeArmorName": "-",
+  "Mover": "Burrowed",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.375,
+  "SeparationRadius": 0,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "Worker",
+    "PreventDestroy",
+    "Cloaked",
+    "Buried",
+    "AIThreatGround"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "DroneSCBW",
+  "HotkeyAlias": "DroneSCBW",
+  "SelectAlias": "DroneSCBW",
+  "SubgroupAlias": "DroneSCBW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "DroneSCBW@Burrowed",
+  "AIEvaluateAlias": "DroneSCBW",
+  "ReviveType": "DroneSCBW@Burrowed",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "DroneSCBW@Burrowed/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "DroneSCBW@Burrowed/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "EnergyRegenRate": 0.5,
+  "id": "DroneSCBW@Burrowed",
+  "LifeRegenRate": 0.2734,
+  "GlossaryCategory": "",
+  "HotkeyCategory": "",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow"
+  ],
+  "Attributes": [
+    "Light",
+    "Biological"
+  ],
+  "Sight": 4,
+  "Food": -1,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 50
+  },
+  "AttackTargetPriority": 20,
+  "AIOverideTargetPriority": 10,
+  "AbilArray": [
+    "DroneSCBW@BurrowUp"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackWorker",
+        "Icon": "btn-command-attack",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            }
+          },
+          "Unit": "DroneSCBW",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "DroneSCBW",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@BurrowUp,Execute",
+        "id": "BurrowUpSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Duration": 1
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.166
+              }
+            }
+          },
+          "Unit": "DefilerSCBW@Burrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "DefilerSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "DefilerSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.8332
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.1665
+              }
+            }
+          },
+          "Unit": "DroneSCBW@Burrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "DroneSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "DroneSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Delay": 1.333
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.166
+              }
+            }
+          },
+          "Unit": "HydraliskSCBW@Burrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "HydraliskSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "HydraliskSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 1.5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.8332
+              }
+            }
+          },
+          "Unit": "UltraliskSCBW@Burrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "UltraliskSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -4
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UltraliskSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.333
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1
+              }
+            }
+          },
+          "Unit": "ZerglingSCBW@Burrowed",
+          "RandomDelayMax": 0.3703
+        },
+        "Unit": "ZerglingSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 25,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -0.5
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZerglingSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 2
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 1.5
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.8332
+              }
+            }
+          },
+          "Unit": "UltraliskSCBW@Burrowed",
+          "RandomDelayMax": 0.25
+        },
+        "Unit": "UltraliskSCBW@Burrowed",
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -4
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UltraliskSCBW@BurrowDown,Execute",
+        "id": "BurrowDownSCBW",
+        "Name": "-",
+        "Tooltip": "-",
+        "Hotkey": "D"
+      }
+    ]
+  },
+  "InnerRadius": 0.3125,
+  "ScoreKill": 50,
+  "SubgroupPriority": 60,
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "TechAliasArray": [
+    "DroneSCBW"
+  ],
+  "TacticalAIThink": "AIThinkDroneSCBW",
+  "Icon": "btn-unit-collection-drone-remastered",
+  "Model": "Drone_Remastered",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level0",
+  "ShieldArmorIcon": "btn-upgrade-zerg-swarmfrenzy",
+  "Weapons": [],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "DroneSCBW@BurrowUp",
+      "Name": {
+        "enUS": "Unburrow",
+        "zhCN": "Unburrow",
+        "koKR": "Unburrow"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "DroneSCBW@BurrowDown",
+    "DroneSCBW@Burrowed",
+    "DroneSCBW@BurrowedSplat",
+    "DroneSCBW",
+    "IsDroneSCBW@Burrowed",
+    "DroneSCBW@Burrowed"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "DroneSCBW"
+  ],
+  "$Phase": [],
+  "$Phased": "DroneSCBW",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackWorker",
+      "Icon": "btn-command-attack",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "DroneSCBW@BurrowUp,Execute",
+      "id": "BurrowUpSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "DefilerSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "DroneSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "HydraliskSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "UltraliskSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "ZerglingSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    },
+    {
+      "AbilCmd": "UltraliskSCBW@BurrowDown,Execute",
+      "id": "BurrowDownSCBW",
+      "Name": "-",
+      "Tooltip": "-"
+    }
+  ]
+}

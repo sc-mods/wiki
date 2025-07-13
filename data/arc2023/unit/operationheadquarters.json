@@ -1,0 +1,1646 @@
+{
+  "Name": "Operation Headquarters",
+  "Description": "Primary structure. Used to receive gathered resources. Capable of deploying all UED structures aside from additional Operation Headquarters.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Salvagers<br/>- Beacons",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "UED",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1800,
+  "LifeMax": 1800,
+  "LifeArmorName": "UED Adaptive Staballoy Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 2.5,
+  "SeparationRadius": 2.5,
+  "MinimapRadius": 2.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventReveal",
+    "PreventDefeat",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "TownCamera",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "OperationHeadquarters",
+  "HotkeyAlias": "OperationHeadquarters",
+  "SelectAlias": "OperationHeadquarters",
+  "SubgroupAlias": "OperationHeadquarters",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "CommandCenter",
+  "AIEvaluateAlias": "OperationHeadquarters",
+  "ReviveType": "OperationHeadquarters",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "OperationHeadquarters/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "OperationHeadquarters/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 315,
+  "Mob": "Multiplayer",
+  "ResourceDropOff": {
+    "Minerals": 1,
+    "Vespene": 1,
+    "Terrazine": 1,
+    "Custom": 1
+  },
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Phased",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "Sight": 11,
+  "Food": 15,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 400
+  },
+  "RepairTime": 100,
+  "AttackTargetPriority": 11,
+  "EffectArray": {
+    "Create": "CCCreateSet",
+    "Birth": "CCBirthSet"
+  },
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ToSelection": 1
+            },
+            "DefaultButtonFace": "Salvager"
+          },
+          "Unit": [
+            "Salvager"
+          ],
+          "Time": 17
+        },
+        "Unit": [
+          "Salvager"
+        ],
+        "Time": 17,
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "OperationHeadquartersTrain,Train1",
+        "id": "Salvager",
+        "Icon": "btn-unit-terran-watcher",
+        "Tooltip": "Basic resource gathering unit for the Directorate army.**Can attack ground units**",
+        "Name": "Construct Salvager",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "RallyOperationHeadquarters,Rally1",
+        "id": "RallyUED",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Tooltip": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+        "Name": "Set Rally Point",
+        "Hotkey": "U"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5CancelToSelection",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5CancelToSelection",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel",
+              "Flags": {
+                "ToSelection": 1
+              }
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "AbilSetId": "QueueCancelToSelection",
+          "QueueSize": 5,
+          "id": "que5CancelToSelection"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5CancelToSelection,CancelLast",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/UEDCalldownStructure",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:UED,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "UEDCalldownStructure",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Cancel"
+          },
+          "Alert": "BuildComplete",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 1,
+            "PeonMaintained": 0,
+            "RangeIncludesBuilding": 0
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "OperationHeadquarters"
+              },
+              "ValidatorArray": [
+                "HasVision"
+              ],
+              "Unit": "OperationHeadquarters",
+              "Time": 100
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "BuildArsenal"
+              },
+              "ValidatorArray": [
+                "HasVision"
+              ],
+              "Unit": "Arsenal",
+              "Time": 26
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "VespenePurificationPlant"
+              },
+              "ValidatorArray": [
+                "HasVespene",
+                "HasVision"
+              ],
+              "Unit": "VespenePurificationPlant",
+              "Time": 30
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "TeleportationNode",
+                "Requirements": "HaveArsenal"
+              },
+              "ValidatorArray": [
+                "HasVision"
+              ],
+              "Unit": "TeleportationNode",
+              "Time": 66
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "TachyonRelay",
+                "Requirements": "HaveStarshipMaintenancePlant"
+              },
+              "ValidatorArray": [
+                "HasVision"
+              ],
+              "Unit": "TachyonRelay",
+              "Time": 35
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "FieldBureau",
+                "Requirements": "HaveTacticsAcademy"
+              },
+              "ValidatorArray": [
+                "HasVision"
+              ],
+              "Unit": "FieldBureau",
+              "Time": 40
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "MilitaryResearchStation",
+                "Requirements": "HaveMunitionsFactoryOrStarshipMaintenance"
+              },
+              "ValidatorArray": [
+                "HasVision"
+              ],
+              "Unit": "MilitaryResearchStation",
+              "Time": 90
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "MunitionsFactory",
+                "Requirements": "HaveTacticsAcademy"
+              },
+              "ValidatorArray": [
+                "HasVision"
+              ],
+              "Unit": "MunitionsFactory",
+              "Time": 55
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "StarshipMaintenancePlant",
+                "Requirements": "HaveTacticsAcademy"
+              },
+              "ValidatorArray": [
+                "HasVision"
+              ],
+              "Unit": "StarshipMaintenancePlant",
+              "Time": 50
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "TacticsAcademy",
+                "Requirements": "HaveTeleportationNode"
+              },
+              "ValidatorArray": [
+                "HasVision"
+              ],
+              "Unit": "TacticsAcademy",
+              "Time": 50
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                },
+                "DefaultButtonFace": "ResourceDoublingFieldBuild",
+                "Requirements": "HaveTacticsAcademy"
+              },
+              "ValidatorArray": [
+                "HasMinerals",
+                "HasVision"
+              ],
+              "Unit": "EnrichmentTower",
+              "Time": 27
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              },
+              "Time": 70
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0
+                }
+              }
+            }
+          },
+          "Range": [
+            500
+          ],
+          "id": "UEDCalldownStructure"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDCalldownStructure,Halt",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/CalldownEnrichmentTower",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:UED,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "CalldownEnrichmentTower",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1,
+            "Transient": 1
+          },
+          "Effect": [
+            "CreatUnitTowerMining"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "CalldownEnrichmentTower",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "CalldownEnrichmentTower",
+              "Requirements": "UseTowerMining"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 150,
+                "Vespene": 150
+              },
+              "Cooldown": {
+                "Location": "Player",
+                "TimeUse": 100
+              }
+            }
+          ],
+          "Placeholder": "EnrichmentTower",
+          "TargetFilters": [
+            "Visible;Player,Ally,Enemy,Stasis,UnderConstruction"
+          ],
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "ProducedUnitArray": [
+            "EnrichmentTower"
+          ],
+          "PlaceUnit": "EnrichmentTower",
+          "CursorEffect": [
+            "SearchAreaMineralDruse"
+          ],
+          "id": "CalldownEnrichmentTower"
+        },
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "CalldownEnrichmentTower,Execute",
+        "id": "CalldownEnrichmentTower",
+        "Icon": "btn-structure-ued-sensortower",
+        "Tooltip": "Being installed next to mineral druses allows you to extract more minerals.",
+        "Name": "Calldown Enrichment Tower",
+        "Hotkey": "E"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "0002",
+        "id": "UEDBuildEazy",
+        "Icon": "ued_construction_basic",
+        "Tooltip": "Request basic structures from the orbiting fleet.",
+        "Name": "Calldown basic structures",
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "0003",
+        "id": "UEDBuildAdvanced",
+        "Icon": "ued_construction_adv",
+        "Tooltip": "Request advanced structures from the orbiting fleet.",
+        "Name": "Calldown advanced structures",
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/WarpUEDBeacon",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "AbilityorEffectType:Units,Race:UED",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "WarpUEDBeacon",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Offensive",
+          "AutoCastFilters": "Visible;Player,Ally",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 0,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 1
+          },
+          "Effect": [
+            "CreatUnitBeacon"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "WarpUEDBeacon",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1
+              },
+              "DefaultButtonFace": "BuildBeacon"
+            }
+          },
+          "FollowRange": 5,
+          "Cost": [
+            {
+              "Resource": {
+                "Minerals": 50
+              },
+              "Charge": {
+                "CountMax": 3,
+                "CountStart": 1,
+                "CountUse": 1,
+                "TimeStart": 10,
+                "TimeUse": 10
+              }
+            }
+          ],
+          "Range": [
+            500
+          ],
+          "Arc": 360,
+          "Marker": {
+            "Duration": 5
+          },
+          "PlaceUnit": "BeaconUED",
+          "id": "WarpUEDBeacon"
+        },
+        "Cost": {
+          "Minerals": 50,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "WarpUEDBeacon,Execute",
+        "id": "BuildBeacon",
+        "Icon": "btn-unit-terran-nova-shredder",
+        "Tooltip": "UED engineering vehicle. Can be deployed at a specified site in order to calldown Operation Headquarters from orbit.",
+        "Name": "Request Beacon",
+        "Hotkey": "A"
+      }
+    ],
+    "0002": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "Submenu",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "BuildArsenal"
+          },
+          "ValidatorArray": [
+            "HasVision"
+          ],
+          "Unit": "Arsenal",
+          "Time": 26
+        },
+        "Unit": "Arsenal",
+        "Time": 26,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDCalldownStructure,Build2",
+        "id": "BuildArsenal",
+        "Icon": "btn-building-supplydepotbronze",
+        "Tooltip": "Provides Logistics Capacity.<br/>Logistics allow you to deploy additional units.<br/>Can be transformed into a variety of defense towers.",
+        "Name": "Calldown Arsenal",
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "VespenePurificationPlant"
+          },
+          "ValidatorArray": [
+            "HasVespene",
+            "HasVision"
+          ],
+          "Unit": "VespenePurificationPlant",
+          "Time": 30
+        },
+        "Unit": "VespenePurificationPlant",
+        "Time": 30,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDCalldownStructure,Build3",
+        "id": "VespenePurificationPlant",
+        "Icon": "btn-structure-ued-refineryautomated",
+        "Tooltip": "Calldown onto a Vespene Geyser to allow harvesting of vespene gas.",
+        "Name": "Calldown Vespene Purification Plant",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "TeleportationNode",
+            "Requirements": "HaveArsenal"
+          },
+          "ValidatorArray": [
+            "HasVision"
+          ],
+          "Unit": "TeleportationNode",
+          "Time": 66
+        },
+        "Unit": "TeleportationNode",
+        "Time": 66,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDCalldownStructure,Build4",
+        "id": "TeleportationNode",
+        "Icon": "btn-ued-teleportation-node",
+        "Tooltip": "Universal production structure for the Directorate army, capable of deploying any combat units.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Garmrs<br/>- Strike Troopers<br/>- Enrichment Towers",
+        "Name": "Calldown Teleportation Node",
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "TacticsAcademy",
+            "Requirements": "HaveTeleportationNode"
+          },
+          "ValidatorArray": [
+            "HasVision"
+          ],
+          "Unit": "TacticsAcademy",
+          "Time": 50
+        },
+        "Unit": "TacticsAcademy",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDCalldownStructure,Build10",
+        "id": "TacticsAcademy",
+        "Icon": "btn-structure-ued-sciencefacility",
+        "Tooltip": "Infantry support structure. Provides equipment authorizations and unlocks research projects that enhance all infantry units.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Taranises<br/>- Lazaruses<br/>- Drakkar APCs<br/>- Goliath combat robots<br/>- Defense Towers",
+        "Name": "Calldown Tactics Academy",
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "OperationHeadquarters"
+          },
+          "ValidatorArray": [
+            "HasVision"
+          ],
+          "Unit": "OperationHeadquarters",
+          "Time": 100
+        },
+        "Unit": "OperationHeadquarters",
+        "Time": 100,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 15
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDCalldownStructure,Build1",
+        "id": "OperationHeadquarters",
+        "Icon": "btn-structure-ued-biodome",
+        "Tooltip": "Primary structure. Used to receive gathered resources. Capable of deploying all UED structures aside from additional Operation Headquarters.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Salvagers<br/>- Beacons",
+        "Name": "Calldown Operation Headquarters",
+        "Hotkey": "R"
+      }
+    ],
+    "0003": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "Submenu",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "FieldBureau",
+            "Requirements": "HaveTacticsAcademy"
+          },
+          "ValidatorArray": [
+            "HasVision"
+          ],
+          "Unit": "FieldBureau",
+          "Time": 40
+        },
+        "Unit": "FieldBureau",
+        "Time": 40,
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDCalldownStructure,Build6",
+        "id": "FieldBureau",
+        "Icon": "btn-structure-ued-merccompound",
+        "Tooltip": "An upgrade structure that supports Political Advisors.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Political Advisors",
+        "Name": "Calldown Field Bureau",
+        "Hotkey": "D"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "MunitionsFactory",
+            "Requirements": "HaveTacticsAcademy"
+          },
+          "ValidatorArray": [
+            "HasVision"
+          ],
+          "Unit": "MunitionsFactory",
+          "Time": 55
+        },
+        "Unit": "MunitionsFactory",
+        "Time": 55,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDCalldownStructure,Build8",
+        "id": "MunitionsFactory",
+        "Icon": "btn-ued-munitions-factory",
+        "Tooltip": "Vehicle support structure. Provides equipment authorizations for basic vehicles.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Crimson Eyes<br/>- Napoleon MBT<br/>- Typhoon LMT",
+        "Name": "Calldown Munitions Factory",
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "StarshipMaintenancePlant",
+            "Requirements": "HaveTacticsAcademy"
+          },
+          "ValidatorArray": [
+            "HasVision"
+          ],
+          "Unit": "StarshipMaintenancePlant",
+          "Time": 50
+        },
+        "Unit": "StarshipMaintenancePlant",
+        "Time": 50,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDCalldownStructure,Build9",
+        "id": "StarshipMaintenancePlant",
+        "Icon": "btn-ued-starship-plant",
+        "Tooltip": "Starship support structure. Provides equipment authorizations for basic vessels.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Crimson Eyes<br/>- Strikefighters<br/>- Valkyries<br/>- Transport Shuttles<br/>- Support Shuttles",
+        "Name": "Calldown Starship Maintenance Plant",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "MilitaryResearchStation",
+            "Requirements": "HaveMunitionsFactoryOrStarshipMaintenance"
+          },
+          "ValidatorArray": [
+            "HasVision"
+          ],
+          "Unit": "MilitaryResearchStation",
+          "Time": 90
+        },
+        "Unit": "MilitaryResearchStation",
+        "Time": 90,
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDCalldownStructure,Build7",
+        "id": "MilitaryResearchStation",
+        "Icon": "btn-ued-engineering",
+        "Tooltip": "Advanced upgrade structure. Unlocks various equipment authorizations for spacecraft & vehicles.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Peenemunde MRLS<br/>- Citadel AAT",
+        "Name": "Calldown Military Research Station",
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "TachyonRelay",
+            "Requirements": "HaveStarshipMaintenancePlant"
+          },
+          "ValidatorArray": [
+            "HasVision"
+          ],
+          "Unit": "TachyonRelay",
+          "Time": 35
+        },
+        "Unit": "TachyonRelay",
+        "Time": 35,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UEDCalldownStructure,Build5",
+        "id": "TachyonRelay",
+        "Icon": "btn-ued-tychon_relay",
+        "Tooltip": "Long-range communications array. Provides equipment authorizations for the Directorate Navy assets.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Honorguards",
+        "Name": "Calldown Tachyon Relay",
+        "Hotkey": "A"
+      }
+    ]
+  },
+  "Footprint": "Footprint5x5Contour",
+  "PlacementFootprint": "Footprint5x5DropOff",
+  "ScoreMake": 400,
+  "ScoreKill": 400,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 32,
+  "TacticalAIThink": "AIThinkCommandCenter",
+  "TechAliasArray": [
+    "Alias_OperationHeadquarters"
+  ],
+  "GlossaryPriority": 30,
+  "HotkeyCategory": "Unit/Category/UEDUnits",
+  "TechTreeProducedUnitArray": [
+    "SCV",
+    "PlanetaryFortress",
+    "OrbitalCommand"
+  ],
+  "id": "OperationHeadquarters",
+  "Icon": "btn-structure-ued-biodome",
+  "LifeArmorIcon": "btn-upgrade-stetmann-mechagroundplating-level1",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "CommandCenterKnockbackBehavior"
+    },
+    {
+      "id": "UEDConstructionVisionDebuff"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "que5CancelToSelection",
+      "Name": "Queue (5) (Cancel To Selection)"
+    },
+    {
+      "id": "OperationHeadquartersTrain",
+      "Name": "Train (Operation Headquarters)"
+    },
+    {
+      "id": "RallyOperationHeadquarters",
+      "Name": "Operation Headquarters - Rally"
+    },
+    {
+      "id": "CalldownEnrichmentTower",
+      "Name": "Calldown Enrichment Tower"
+    },
+    {
+      "id": "WarpUEDBeacon",
+      "Name": "WarpUEDBeacon"
+    },
+    {
+      "id": "UEDCalldownStructure",
+      "Name": "UED Calldown Structure"
+    },
+    {}
+  ],
+  "$Upgrades": [
+    "UED",
+    "OperationHeadquarters",
+    "BeaconBuild",
+    "UpgradeTowerMining",
+    "ValidateComandCentrUED",
+    "UEDCalldownStructure",
+    "UEDPlacementDummy",
+    "OperationHeadquarters",
+    "OperationHeadquartersSplat",
+    "CountUnitOperationHeadquartersCompleteOnly4096103108TechTreeCheat",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "Salvager",
+    "Arsenal",
+    "VespenePurificationPlant",
+    "TeleportationNode",
+    "TacticsAcademy",
+    "OperationHeadquarters",
+    "FieldBureau",
+    "MunitionsFactory",
+    "StarshipMaintenancePlant",
+    "MilitaryResearchStation",
+    "TachyonRelay",
+    "EnrichmentTower",
+    "BeaconUED"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "BeaconUED",
+    "OperationHeadquarters"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "OperationHeadquartersTrain,Train1",
+      "id": "Salvager",
+      "Icon": "btn-unit-terran-watcher",
+      "Tooltip": "Basic resource gathering unit for the Directorate army.**Can attack ground units**",
+      "Name": "Construct Salvager"
+    },
+    {
+      "AbilCmd": "RallyOperationHeadquarters,Rally1",
+      "id": "RallyUED",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Tooltip": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+      "Name": "Set Rally Point"
+    },
+    {
+      "AbilCmd": "que5CancelToSelection,CancelLast",
+      "id": "Cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "UEDCalldownStructure,Halt",
+      "id": "Cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "CalldownEnrichmentTower,Execute",
+      "id": "CalldownEnrichmentTower",
+      "Icon": "btn-structure-ued-sensortower",
+      "Tooltip": "Being installed next to mineral druses allows you to extract more minerals.",
+      "Name": "Calldown Enrichment Tower"
+    },
+    {
+      "AbilCmd": "WarpUEDBeacon,Execute",
+      "id": "BuildBeacon",
+      "Icon": "btn-unit-terran-nova-shredder",
+      "Tooltip": "UED engineering vehicle. Can be deployed at a specified site in order to calldown Operation Headquarters from orbit.",
+      "Name": "Request Beacon"
+    },
+    {
+      "AbilCmd": "UEDCalldownStructure,Build2",
+      "id": "BuildArsenal",
+      "Icon": "btn-building-supplydepotbronze",
+      "Tooltip": "Provides Logistics Capacity.<br/>Logistics allow you to deploy additional units.<br/>Can be transformed into a variety of defense towers.",
+      "Name": "Calldown Arsenal"
+    },
+    {
+      "AbilCmd": "UEDCalldownStructure,Build3",
+      "id": "VespenePurificationPlant",
+      "Icon": "btn-structure-ued-refineryautomated",
+      "Tooltip": "Calldown onto a Vespene Geyser to allow harvesting of vespene gas.",
+      "Name": "Calldown Vespene Purification Plant"
+    },
+    {
+      "AbilCmd": "UEDCalldownStructure,Build4",
+      "id": "TeleportationNode",
+      "Icon": "btn-ued-teleportation-node",
+      "Tooltip": "Universal production structure for the Directorate army, capable of deploying any combat units.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Garmrs<br/>- Strike Troopers<br/>- Enrichment Towers",
+      "Name": "Calldown Teleportation Node"
+    },
+    {
+      "AbilCmd": "UEDCalldownStructure,Build10",
+      "id": "TacticsAcademy",
+      "Icon": "btn-structure-ued-sciencefacility",
+      "Tooltip": "Infantry support structure. Provides equipment authorizations and unlocks research projects that enhance all infantry units.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Taranises<br/>- Lazaruses<br/>- Drakkar APCs<br/>- Goliath combat robots<br/>- Defense Towers",
+      "Name": "Calldown Tactics Academy"
+    },
+    {
+      "AbilCmd": "UEDCalldownStructure,Build1",
+      "id": "OperationHeadquarters",
+      "Icon": "btn-structure-ued-biodome",
+      "Tooltip": "Primary structure. Used to receive gathered resources. Capable of deploying all UED structures aside from additional Operation Headquarters.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Salvagers<br/>- Beacons",
+      "Name": "Calldown Operation Headquarters"
+    },
+    {
+      "AbilCmd": "UEDCalldownStructure,Build6",
+      "id": "FieldBureau",
+      "Icon": "btn-structure-ued-merccompound",
+      "Tooltip": "An upgrade structure that supports Political Advisors.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Political Advisors",
+      "Name": "Calldown Field Bureau"
+    },
+    {
+      "AbilCmd": "UEDCalldownStructure,Build8",
+      "id": "MunitionsFactory",
+      "Icon": "btn-ued-munitions-factory",
+      "Tooltip": "Vehicle support structure. Provides equipment authorizations for basic vehicles.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Crimson Eyes<br/>- Napoleon MBT<br/>- Typhoon LMT",
+      "Name": "Calldown Munitions Factory"
+    },
+    {
+      "AbilCmd": "UEDCalldownStructure,Build9",
+      "id": "StarshipMaintenancePlant",
+      "Icon": "btn-ued-starship-plant",
+      "Tooltip": "Starship support structure. Provides equipment authorizations for basic vessels.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Crimson Eyes<br/>- Strikefighters<br/>- Valkyries<br/>- Transport Shuttles<br/>- Support Shuttles",
+      "Name": "Calldown Starship Maintenance Plant"
+    },
+    {
+      "AbilCmd": "UEDCalldownStructure,Build7",
+      "id": "MilitaryResearchStation",
+      "Icon": "btn-ued-engineering",
+      "Tooltip": "Advanced upgrade structure. Unlocks various equipment authorizations for spacecraft & vehicles.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Peenemunde MRLS<br/>- Citadel AAT",
+      "Name": "Calldown Military Research Station"
+    },
+    {
+      "AbilCmd": "UEDCalldownStructure,Build5",
+      "id": "TachyonRelay",
+      "Icon": "btn-ued-tychon_relay",
+      "Tooltip": "Long-range communications array. Provides equipment authorizations for the Directorate Navy assets.<br/><br/><span style=\"color: #ffff8a\">Enables:</span><br/>- Honorguards",
+      "Name": "Calldown Tachyon Relay"
+    }
+  ]
+}

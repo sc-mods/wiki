@@ -1,0 +1,2364 @@
+{
+  "Name": {
+    "enUS": "SCV",
+    "zhCN": "SCV",
+    "koKR": "SCV"
+  },
+  "Description": {
+    "enUS": "Basic worker unit. Can gather resources, build Terran structures, and repair.**Can attack ground units**",
+    "zhCN": "基础工作单位。用于采集资源、建造人类建筑和修理。<br/><br/><span style=\"color: #ffff8a\">可以对地。</span>",
+    "koKR": "기본 일꾼 유닛입니다. 자원을 채취하고, 테란 구조물을 건설하며, 구조물과 유닛을 수리할 수 있습니다.<br/><br/><span style=\"color: #ffff8a\">지상 유닛 공격 가능</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "BWTe",
+  "DefaultAcquireLevel": "Defensive",
+  "Response": "Flee",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 45,
+  "LifeMax": 45,
+  "LifeArmorName": {
+    "enUS": "Terran Infantry Armor",
+    "ruRU": "Terran Infantry Armor"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "UseLineOfSight",
+    "Worker",
+    "PreventDestroy"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SCVSCBW",
+  "HotkeyAlias": "SCVSCBW",
+  "SelectAlias": "SCVSCBW",
+  "SubgroupAlias": "SCVSCBW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "SCVSCBW",
+  "AIEvaluateAlias": "SCVSCBW",
+  "ReviveType": "SCVSCBW",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33,
+      "Turn": 33
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "SCVSCBW/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "SCVSCBW/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "EnergyRegenRate": 0.5,
+  "id": "SCVSCBW",
+  "GlossaryCategory": "Unit/Category/TerranUnitsSCBW",
+  "HotkeyCategory": "Unit/Category/TerranUnitsSCBW",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Biological",
+    "Light",
+    "Mechanical",
+    "Hover"
+  ],
+  "Speed": 2.8125,
+  "Acceleration": 2.5,
+  "LateralAcceleration": 46,
+  "Sight": 8,
+  "Food": -1,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 50
+  },
+  "BuildTime": 17,
+  "RepairTime": 16.667,
+  "AttackTargetPriority": 20,
+  "AIOverideTargetPriority": 10,
+  "DamageDealtXP": 1,
+  "DamageTakenXP": 1,
+  "KillXP": 10,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Name": {
+          "enUS": "Move",
+          "ruRU": "Двигаться"
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+          "ruRU": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies."
+        },
+        "Hotkey": "M"
+      },
+      {
+        "Info": {
+          "class": "CAbilStop",
+          "Name": "Abil/Name/stop",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "stop",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Stop",
+          "CmdButtonArray": {
+            "Stop": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Stop"
+            },
+            "HoldFire": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "HoldFireSpecial"
+            },
+            "Cheer": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Cheer"
+            },
+            "Dance": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Dance"
+            }
+          },
+          "id": "stop"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Stop",
+          "ruRU": "Отставить"
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to cancel all orders and stop moving.",
+          "ruRU": "Orders selected units to cancel all orders and stop moving."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Name": {
+          "enUS": "Hold Position",
+          "ruRU": "Удерживать позицию"
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+          "ruRU": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage."
+        },
+        "Hotkey": "H"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackWorker",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать"
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilMove",
+          "Name": "Abil/Name/move",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Move",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointMove_Void\\WayPointMove_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Move",
+              "Color": "255,35,125,255",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "move",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Move": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Move"
+            },
+            "Patrol": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MovePatrol"
+            },
+            "HoldPos": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "MoveHoldPosition"
+            },
+            "AcquireMove": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AcquireMove"
+            },
+            "Turn": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Turn"
+            }
+          },
+          "FleeRange": 5,
+          "FleeTime": 5,
+          "FollowRangeSlop": 1,
+          "FollowAcquireRange": 6,
+          "MinPatrolDistance": 1,
+          "id": "move"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Name": {
+          "enUS": "Patrol",
+          "ruRU": "Патрулировать"
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+          "ruRU": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies."
+        },
+        "Hotkey": "P"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/SCVSCBW@Repair",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVSCBW@Repair",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 0.2,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Visible;Neutral,Enemy",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 1,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AutoCast": 1,
+            "AutoCastOffOwnerLeave": 1,
+            "ReExecutable": 1,
+            "Smart": 1,
+            "PassengerAcquirePassengers": 1
+          },
+          "Effect": [
+            "SCVSCBW@Repair"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "SCVSCBW@Repair",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 0,
+            "Prep": 0,
+            "Cast": 0,
+            "Channel": 0
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "RequiresRepairTarget",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "SCVSCBW@Repair"
+            }
+          },
+          "FollowRange": 5,
+          "Alignment": "Positive",
+          "AbilSetId": "Repair",
+          "TargetFilters": [
+            "Mechanical,Visible;Self,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden"
+          ],
+          "AutoCastRange": 7,
+          "Marker": {
+            "MatchFlags": {
+              "Link": 0
+            },
+            "MismatchFlags": {
+              "Id": 0
+            }
+          },
+          "InheritAttackPriorityArray": {
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "id": "SCVSCBW@Repair"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@Repair,Execute",
+        "id": "SCVSCBW@Repair",
+        "Icon": "btn-ability-terran-repair",
+        "Name": {
+          "enUS": "Repair",
+          "zhCN": "维修",
+          "koKR": "수리"
+        },
+        "Tooltip": {
+          "enUS": "Restores life to mechanical units and structures at the cost of resources.",
+          "zhCN": "消耗资源为机械单位和建筑恢复生命值。",
+          "koKR": "자원을 소모하여 기계 유닛과 구조물의 체력을 복구합니다."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Submenu",
+        "SubmenuCardId": "Bld1",
+        "id": "SCVSCBW@Build",
+        "Icon": "btn-command-terran-buildstructure",
+        "Name": {
+          "enUS": "Build Structure",
+          "zhCN": "建造建筑",
+          "koKR": "구조물 건설"
+        },
+        "Tooltip": {
+          "enUS": "A list of basic structures.",
+          "zhCN": "基础建筑列表。",
+          "koKR": "기본 구조물의 목록입니다."
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Submenu",
+        "SubmenuCardId": "Bld2",
+        "id": "SCVSCBW@BuildAdv",
+        "Icon": "btn-command-terran-buildadvancedstructure",
+        "Name": {
+          "enUS": "Build Advanced Structure",
+          "zhCN": "建造高级建筑",
+          "koKR": "고급 구조물 건설"
+        },
+        "Tooltip": {
+          "enUS": "A list of advanced structures.",
+          "zhCN": "高级建筑列表。",
+          "koKR": "고급 구조물의 목록입니다."
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "class": "CAbilBuild",
+          "Name": "Abil/Name/SCVSCBW@Build",
+          "TechPlayer": "Owner",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVSCBW@Build",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "HaltCmdButton": {
+            "DefaultButtonFace": "Cancel"
+          },
+          "Alert": "BuildComplete",
+          "ErrorAlert": "Error",
+          "FlagArray": {
+            "BestUnit": 1,
+            "Cancelable": 1,
+            "IgnoreUnitBuildTime": 0,
+            "PeonMaintained": 1,
+            "RangeIncludesBuilding": 1,
+            "Interruptible": 1,
+            "PeonDisableCollision": 1,
+            "AutoHarvest": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -0.75,
+              "Vespene": -0.75,
+              "Terrazine": -0.75,
+              "Custom": -0.75
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "InfoArray": {
+            "Build1": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed",
+                "DefaultButtonFace": "CommandCenterSCBW",
+                "Requirements": "CommandCenterSCBW"
+              },
+              "Unit": "CommandCenterSCBW"
+            },
+            "Build2": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed",
+                "DefaultButtonFace": "SupplyDepotSCBW",
+                "Requirements": "SupplyDepotSCBW"
+              },
+              "Unit": "SupplyDepotSCBW"
+            },
+            "Build3": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed",
+                "DefaultButtonFace": "RefinerySCBW",
+                "Requirements": "RefinerySCBW"
+              },
+              "ValidatorArray": [
+                "HasVespene"
+              ],
+              "Unit": "RefinerySCBW"
+            },
+            "Build4": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed",
+                "DefaultButtonFace": "BarracksSCBW",
+                "Requirements": "BarracksSCBW"
+              },
+              "Unit": "BarracksSCBW"
+            },
+            "Build5": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed",
+                "DefaultButtonFace": "EngineeringBaySCBW",
+                "Requirements": "EngineeringBaySCBW"
+              },
+              "Unit": "EngineeringBaySCBW"
+            },
+            "Build6": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed",
+                "DefaultButtonFace": "MissileTurretSCBW",
+                "Requirements": "MissileTurretSCBW"
+              },
+              "Unit": "MissileTurretSCBW"
+            },
+            "Build7": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed",
+                "DefaultButtonFace": "BunkerSCBW",
+                "Requirements": "BunkerSCBW"
+              },
+              "Unit": "BunkerSCBW"
+            },
+            "Build8": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed",
+                "DefaultButtonFace": "RefinerySCBW",
+                "Requirements": "RefinerySCBW"
+              },
+              "Unit": "RefinerySCBW@Rich"
+            },
+            "Build9": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed",
+                "DefaultButtonFace": "AcademySCBW",
+                "Requirements": "AcademySCBW"
+              },
+              "Unit": "AcademySCBW"
+            },
+            "Build10": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build11": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build12": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build13": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build14": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build15": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build16": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build17": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build18": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build19": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build20": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build21": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build22": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build23": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build24": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build25": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build26": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build27": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build28": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build29": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            },
+            "Build30": {
+              "Button": {
+                "Flags": {
+                  "AllowMinimap": 0,
+                  "UseDefaultButton": 1,
+                  "CreateDefaultButton": 1
+                },
+                "State": "Suppressed"
+              }
+            }
+          },
+          "DefaultButtonCardId": "Bld1",
+          "id": "SCVSCBW@Build",
+          "FidgetDelayMin": 5,
+          "FidgetDelayMax": 10,
+          "ConstructionMover": "Construction"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@Build,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Name": {
+          "enUS": "Halt",
+          "ruRU": "Приостановить"
+        },
+        "Tooltip": {
+          "enUS": "Halts construction of this structure. The partial construction will remain.",
+          "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить."
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "class": "CAbilHarvest",
+          "Name": "Abil/Name/SCVSCBW@Harvest",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Terran,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "SCVSCBW@Harvest",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "CmdButtonArray": {
+            "Gather": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "SCVSCBW@Harvest"
+            },
+            "Return": {
+              "Flags": {
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "SCVSCBW@ReturnCargo"
+            }
+          },
+          "AcquireRadius": 10,
+          "AbilSetId": "Harv",
+          "ReservedMarker": {
+            "Link": "Abil/HarvestDefault"
+          },
+          "ResourceAllowed": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceAcquire": {
+            "Minerals": 1
+          },
+          "ResourceDestroy": {
+            "Minerals": 1,
+            "Vespene": 1
+          },
+          "ResourceAmountMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "ResourceTimeMultiplier": {
+            "Minerals": 1,
+            "Vespene": 1,
+            "Terrazine": 1,
+            "Custom": 1
+          },
+          "UninterruptibleArray": {
+            "WaitToReturn": 1
+          },
+          "id": "SCVSCBW@Harvest"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@Harvest,Gather",
+        "id": "SCVSCBW@Harvest",
+        "Icon": "btn-ability-terran-gather",
+        "Name": {
+          "enUS": "Gather",
+          "zhCN": "采集",
+          "koKR": "채취"
+        },
+        "Tooltip": {
+          "enUS": "Orders SCV to gather resources from a selected Mineral Field or Vespene Geyser.",
+          "zhCN": "命令SCV从选中的矿脉或瓦斯气泉采集资源。",
+          "koKR": "선택한 미네랄 지대나 베스핀 가이저에서 SCV가 자원을 채취합니다."
+        },
+        "Hotkey": "G"
+      }
+    ],
+    "Bld1": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "CommandCenterSCBW",
+            "Requirements": "CommandCenterSCBW"
+          },
+          "Unit": "CommandCenterSCBW"
+        },
+        "Unit": "CommandCenterSCBW",
+        "Cost": {
+          "Minerals": 350,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 15
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@Build,Build1",
+        "id": "CommandCenterSCBW",
+        "Icon": "btn-building-terran-commandcenter@scbw",
+        "Name": {
+          "enUS": "Build Command Center",
+          "zhCN": "建造指挥中心",
+          "koKR": "커맨드 센터 건설"
+        },
+        "Tooltip": {
+          "enUS": "Primary structure. Used to receive gathered resources. Can use the Lift Off ability and can build a <span class=\"style-TooltipHighlightSCBW\"><b>Comsat Station</b></span> or <span class=\"style-TooltipHighlightSCBW\"><b>Nuclear Silo</b></span> add-ons.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>SCV</b>",
+          "zhCN": "基础建筑，用于接收采集到的资源。自体可以升空。可以建造一座<span class=\"style-TooltipHighlightSCBW\"><b>Comsat Station</b></span>或<span class=\"style-TooltipHighlightSCBW\"><b>Nuclear Silo</b></span>作为附属建筑。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- <b>SCV</b>",
+          "koKR": "주 건물입니다. 채취한 자원을 수집합니다. 이륙을 사용할 수 있고, <span class=\"style-TooltipHighlightSCBW\"><b>Comsat Station</b></span>이나 <span class=\"style-TooltipHighlightSCBW\"><b>Nuclear Silo</b></span> 애드온을 부착할 수 있습니다.<br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>SCV</b>"
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "SupplyDepotSCBW",
+            "Requirements": "SupplyDepotSCBW"
+          },
+          "Unit": "SupplyDepotSCBW"
+        },
+        "Unit": "SupplyDepotSCBW",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@Build,Build2",
+        "id": "SupplyDepotSCBW",
+        "Icon": "btn-building-terran-supplydepot@scbw",
+        "Name": {
+          "enUS": "Build Supply Depot",
+          "zhCN": "建造补给站",
+          "koKR": "서플라이 디포 건설"
+        },
+        "Tooltip": {
+          "enUS": "Provides supply.<br/>Supply allows you to create more units.",
+          "zhCN": "提供补给。<br/>提高本方单位数量上限。",
+          "koKR": "보급품을 공급합니다.<br/>보급품을 늘리면 더 많은 유닛을 훈련할 수 있습니다."
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "RefinerySCBW",
+            "Requirements": "RefinerySCBW"
+          },
+          "ValidatorArray": [
+            "HasVespene"
+          ],
+          "Unit": "RefinerySCBW"
+        },
+        "Unit": "RefinerySCBW",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@Build,Build3",
+        "id": "RefinerySCBW",
+        "Icon": "btn-building-terran-refinery",
+        "Name": {
+          "enUS": "Build Refinery",
+          "zhCN": "建造精炼厂",
+          "koKR": "리파이너리 건설"
+        },
+        "Tooltip": {
+          "enUS": "Built over a <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> to allow harvesting of vespene gas.",
+          "zhCN": "建造在<span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span>上，用于采集高能瓦斯。",
+          "koKR": "베스핀 가스 채취를 위해 <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> 위에 건설하는 구조물입니다."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "BarracksSCBW",
+            "Requirements": "BarracksSCBW"
+          },
+          "Unit": "BarracksSCBW"
+        },
+        "Unit": "BarracksSCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@Build,Build4",
+        "id": "BarracksSCBW",
+        "Icon": "btn-building-terran-barracks",
+        "Name": {
+          "enUS": "Build Barracks",
+          "zhCN": "建造兵营",
+          "koKR": "배럭 건설"
+        },
+        "Tooltip": {
+          "enUS": "Trains Terran Infantry units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Marine</b><br/>- <b>Bunker</b>s from <b>SCV</b>s",
+          "zhCN": "步兵训练设施。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- <b>Marine</b><br/>- <b>Firebat</b><br/>- <b>SCV</b>可以建造<b>Bunker</b>",
+          "koKR": "보병 생산 시설입니다.<br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>Marine</b><br/>- <b>Bunker</b> (<b>SCV</b> 건설)"
+        },
+        "Hotkey": "B"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "EngineeringBaySCBW",
+            "Requirements": "EngineeringBaySCBW"
+          },
+          "Unit": "EngineeringBaySCBW"
+        },
+        "Unit": "EngineeringBaySCBW",
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@Build,Build5",
+        "id": "EngineeringBaySCBW",
+        "Icon": "btn-building-terran-engineeringbay",
+        "Name": {
+          "enUS": "Build Engineering Bay",
+          "zhCN": "建造工程站",
+          "koKR": "엔지니어링 베이 건설"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for Terran infantry. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Missile Turret</b>s from <b>SCV</b>s",
+          "zhCN": "为人类步兵提供升级方案。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- <b>SCV</b>可以建造<b>Missile Turret</b>",
+          "koKR": "테란 보병을 업그레이드합니다.<br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>Missile Turret</b> (<b>SCV</b> 건설)"
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "MissileTurretSCBW",
+            "Requirements": "MissileTurretSCBW"
+          },
+          "Unit": "MissileTurretSCBW"
+        },
+        "Unit": "MissileTurretSCBW",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@Build,Build6",
+        "id": "MissileTurretSCBW",
+        "Icon": "btn-building-terran-missileturret",
+        "Name": {
+          "enUS": "Build Missile Turret",
+          "zhCN": "建造导弹塔",
+          "koKR": "미사일 터렛 건설"
+        },
+        "Tooltip": {
+          "enUS": "Anti-air defensive structure.**Can attack air units**<br/><span style=\"color: FFE303\">Detector</span>",
+          "zhCN": "防空建筑。<br/><br/><span style=\"color: #ffff8a\">可以对空。</span><br/><span style=\"color: FFE303\">侦测单位</span>",
+          "koKR": "대공 방어 구조물입니다. 공중 유닛 공격 가능</span><br/><span style=\"color: FFE303\">디텍터</span>"
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "BunkerSCBW",
+            "Requirements": "BunkerSCBW"
+          },
+          "Unit": "BunkerSCBW"
+        },
+        "Unit": "BunkerSCBW",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@Build,Build7",
+        "id": "BunkerSCBW",
+        "Icon": "btn-building-terran-bunker",
+        "Name": {
+          "enUS": "Build Bunker",
+          "zhCN": "建造地堡",
+          "koKR": "벙커 건설"
+        },
+        "Tooltip": {
+          "enUS": "Defensive structure. <br/>Infantry fights from inside. <br/><br/><span style=\"color: #ffff8a\">Bonus: +1 range to units inside.</span>",
+          "zhCN": "防御工事。<br/>步兵单位在地堡内作战。<br/><br/><span style=\"color: #ffff8a\">效果加成：舱载单位射程增加1。</span>",
+          "koKR": "방어 구조물입니다. <br/>보병들이 내부에서 적을 공격할 수 있습니다.<br/><br/><span style=\"color: #ffff8a\">추가 효과: 유닛 사거리 1만큼 증가.</span>"
+        },
+        "Hotkey": "U"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "RefinerySCBW",
+            "Requirements": "RefinerySCBW"
+          },
+          "Unit": "RefinerySCBW@Rich"
+        },
+        "Unit": "RefinerySCBW@Rich",
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@Build,Build8",
+        "id": "RefinerySCBW",
+        "Icon": "btn-building-terran-refinery",
+        "Name": {
+          "enUS": "Build Refinery",
+          "zhCN": "建造精炼厂",
+          "koKR": "리파이너리 건설"
+        },
+        "Tooltip": {
+          "enUS": "Built over a <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> to allow harvesting of vespene gas.",
+          "zhCN": "建造在<span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span>上，用于采集高能瓦斯。",
+          "koKR": "베스핀 가스 채취를 위해 <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> 위에 건설하는 구조물입니다."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "AcademySCBW",
+            "Requirements": "AcademySCBW"
+          },
+          "Unit": "AcademySCBW"
+        },
+        "Unit": "AcademySCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@Build,Build9",
+        "id": "AcademySCBW",
+        "Icon": "btn-building-terran-academy@scbw",
+        "Name": {
+          "enUS": "Build Academy",
+          "zhCN": "建造研究院",
+          "koKR": "아카데미 건설"
+        },
+        "Tooltip": {
+          "enUS": "Contains upgrades for Terran infantry units. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Firebat</b> at the <b>Barracks</b><br/>- <b>Medic</b> at the <b>Barracks</b>",
+          "zhCN": "为人类步兵单位提供升级方案。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- 可在<b>Barracks</b>中训练<b>Firebat</b> <br/>- 可在<b>Barracks</b>中训练<b>Medic</b>",
+          "koKR": "테란 보병을 업그레이드 합니다.<br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>Firebat</b> (<b>Barracks</b>)<br/>- <b>Medic</b> (<b>Barracks</b>)"
+        },
+        "Hotkey": "A"
+      }
+    ],
+    "Bld2": [
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "CancelSubmenu",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить"
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий."
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "FactorySCBW",
+            "Requirements": "FactorySCBW"
+          },
+          "Unit": "FactorySCBW"
+        },
+        "Unit": "FactorySCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@BuildAdv,Build11",
+        "id": "FactorySCBW",
+        "Icon": "btn-building-terran-factory",
+        "Name": {
+          "enUS": "Build Factory",
+          "zhCN": "建造重工厂",
+          "koKR": "팩토리 건설"
+        },
+        "Tooltip": {
+          "enUS": "Vehicle-production facility. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Vulture</b>s",
+          "zhCN": "战车生产设施。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- <b>Vulture</b>",
+          "koKR": "차량 생산 시설입니다.<br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>Vulture</b>"
+        },
+        "Hotkey": "F"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "StarportSCBW",
+            "Requirements": "StarportSCBW"
+          },
+          "Unit": "StarportSCBW"
+        },
+        "Unit": "StarportSCBW",
+        "Cost": {
+          "Minerals": 150,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@BuildAdv,Build12",
+        "id": "StarportSCBW",
+        "Icon": "btn-building-terran-starport",
+        "Name": {
+          "enUS": "Build Starport",
+          "zhCN": "建造星港",
+          "koKR": "스타포트 건설"
+        },
+        "Tooltip": {
+          "enUS": "Air-unit production facility. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Wraith</b>s",
+          "zhCN": "空中单位生产设施。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- <b>Wraith</b>s",
+          "koKR": "공중 유닛 생산 시설입니다.<br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>Scout</b><br/>- <b>Corsair</b>"
+        },
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "ScienceFacilitySCBW",
+            "Requirements": "ScienceFacilitySCBW"
+          },
+          "Unit": "ScienceFacilitySCBW"
+        },
+        "Unit": "ScienceFacilitySCBW",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 150,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@BuildAdv,Build13",
+        "id": "ScienceFacilitySCBW",
+        "Icon": "btn-building-terran-sciencefacility@scbw",
+        "Name": {
+          "enUS": "Build Science Facility",
+          "zhCN": "建造科学站",
+          "koKR": "사이언스 퍼실리티 건설"
+        },
+        "Tooltip": {
+          "enUS": "Advanced research facility. Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Science Vessel</b>s</span> <br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- <b>Science Vessel</b>s at the <b>Starport</b>",
+          "zhCN": "高级研究设施。为<span class=\"style-TooltipHighlightSCBW\"><b>Science Vessel</b></span>提供升级方案。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <b>Science Vessel</b>",
+          "koKR": "고급 연구 시설입니다. <span class=\"style-TooltipHighlightSCBW\"><b>Science Vessel</b></span>을 업그레이드합니다.<br/><br/><span style=\"color: ffff8a\">사용 가능:</span><br/>- <b>Science Vessel</b> (<b>Starport</b>)"
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "UseDefaultButton": 1,
+              "CreateDefaultButton": 1
+            },
+            "State": "Suppressed",
+            "DefaultButtonFace": "ArmorySCBW",
+            "Requirements": "ArmorySCBW"
+          },
+          "Unit": "ArmorySCBW"
+        },
+        "Unit": "ArmorySCBW",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "SCVSCBW@BuildAdv,Build14",
+        "id": "ArmorySCBW",
+        "Icon": "btn-building-terran-armory",
+        "Name": {
+          "enUS": "Build Armory",
+          "zhCN": "建造军械库",
+          "koKR": "아머리 건설"
+        },
+        "Tooltip": {
+          "enUS": "Contains weapon and armor upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Factory</b></span> and <span class=\"style-TooltipHighlightSCBW\"><b>Starport</b></span> units. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Goliath</b> at the <b>Factory</b><br/>- <b>Valkyrie</b> at the <b>Starport</b>",
+          "zhCN": "为<span class=\"style-TooltipHighlightSCBW\"><b>Factory</b></span>和<span class=\"style-TooltipHighlightSCBW\"><b>Starport</b></span>制造的单位提供武器和护甲升级方案。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- 可以在<b>Factory</b>中制造<b>Goliath</b><br/>- 可以在<b>Starport</b>中制造<b>Valkyrie</b>",
+          "koKR": "<span class=\"style-TooltipHighlightSCBW\"><b>Factory</b></span>와 <span class=\"style-TooltipHighlightSCBW\"><b>Starport</b></span>에서 생산하는 유닛의 공격력과 방어력을 업그레이드합니다. <br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>Goliath</b> (<b>Factory</b>)<br/>- <b>Valkyrie</b> (<b>Starport</b>)"
+        },
+        "Hotkey": "A"
+      }
+    ]
+  },
+  "InnerRadius": 0.3125,
+  "CargoSize": 1,
+  "ScoreMake": 50,
+  "ScoreKill": 50,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 58,
+  "GlossaryPriority": 10,
+  "TacticalAIThink": "AIThinkSCVSCBW",
+  "Icon": "btn-unit-terran-scv@scbw",
+  "LifeArmorIcon": "btn-upgrade-terran-infantryarmorlevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "id": "SCVSCBWWeapon",
+      "Icon": "btn-upgrade-terran-infantryweaponslevel0",
+      "Name": {
+        "enUS": "Fusion Cutter",
+        "zhCN": "熔枪",
+        "koKR": "융합 절단기"
+      },
+      "Amount": 5,
+      "Kind": "Melee",
+      "TargetFilters": "Ground",
+      "Range": 0.2,
+      "Period": 1.5
+    }
+  ],
+  "Behaviors": [],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Stop"
+      }
+    },
+    {
+      "id": "attack",
+      "Name": {
+        "ruRU": "Attack",
+        "enUS": "Attack"
+      }
+    },
+    {
+      "id": "move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Move"
+      }
+    },
+    {
+      "id": "SCVSCBW@Build",
+      "Name": {
+        "enUS": "Build",
+        "zhCN": "建造",
+        "koKR": "건설"
+      }
+    },
+    {
+      "id": "SCVSCBW@BuildAdv",
+      "Name": {
+        "enUS": "Build",
+        "zhCN": "建造",
+        "koKR": "건설"
+      }
+    },
+    {
+      "id": "SCVSCBW@Repair",
+      "Name": {
+        "enUS": "Repair",
+        "zhCN": "维修",
+        "koKR": "수리"
+      }
+    },
+    {
+      "id": "SCVSCBW@Harvest",
+      "Name": {
+        "enUS": "Gather",
+        "zhCN": "采集",
+        "koKR": "채취"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "Button/Tooltip/CommandCenterSCBW",
+    "SCVSCBW",
+    "Button/Tooltip/InfestedCommandCenterSCBW@Flying",
+    "Button/Tooltip/BarracksSCBW",
+    "Button/Tooltip/EngineeringBaySCBW",
+    "SCVSCBW@AllowUnit",
+    "CommandCenterSCBW@Train",
+    "Button/Tooltip/CommandCenterSCBW@Flying",
+    "CommandCenterSCBW",
+    "BWTe",
+    "SCVSCBW",
+    "IsSCVSCBW",
+    "NotSCVSCBW",
+    "CasterIsSCVSCBW",
+    "SCVSCBW"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "CommandCenterSCBW",
+    "SupplyDepotSCBW",
+    "RefinerySCBW",
+    "BarracksSCBW",
+    "EngineeringBaySCBW",
+    "MissileTurretSCBW",
+    "BunkerSCBW",
+    "RefinerySCBW@Rich",
+    "AcademySCBW",
+    "FactorySCBW",
+    "StarportSCBW",
+    "ScienceFacilitySCBW",
+    "ArmorySCBW"
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "AbilTrainHolderSCBW",
+    "CommandCenterSCBW"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Name": {
+        "enUS": "Move",
+        "ruRU": "Двигаться"
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "ruRU": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies."
+      }
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Stop",
+        "ruRU": "Отставить"
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to cancel all orders and stop moving.",
+        "ruRU": "Orders selected units to cancel all orders and stop moving."
+      }
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Name": {
+        "enUS": "Hold Position",
+        "ruRU": "Удерживать позицию"
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "ruRU": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackWorker",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать"
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed."
+      }
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Name": {
+        "enUS": "Patrol",
+        "ruRU": "Патрулировать"
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "ruRU": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies."
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@Repair,Execute",
+      "id": "SCVSCBW@Repair",
+      "Icon": "btn-ability-terran-repair",
+      "Name": {
+        "enUS": "Repair",
+        "zhCN": "维修",
+        "koKR": "수리"
+      },
+      "Tooltip": {
+        "enUS": "Restores life to mechanical units and structures at the cost of resources.",
+        "zhCN": "消耗资源为机械单位和建筑恢复生命值。",
+        "koKR": "자원을 소모하여 기계 유닛과 구조물의 체력을 복구합니다."
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@Build,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Name": {
+        "enUS": "Halt",
+        "ruRU": "Приостановить"
+      },
+      "Tooltip": {
+        "enUS": "Halts construction of this structure. The partial construction will remain.",
+        "ruRU": "Приостановить сооружение этого строения. Впоследствии его можно будет продолжить."
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@Harvest,Gather",
+      "id": "SCVSCBW@Harvest",
+      "Icon": "btn-ability-terran-gather",
+      "Name": {
+        "enUS": "Gather",
+        "zhCN": "采集",
+        "koKR": "채취"
+      },
+      "Tooltip": {
+        "enUS": "Orders SCV to gather resources from a selected Mineral Field or Vespene Geyser.",
+        "zhCN": "命令SCV从选中的矿脉或瓦斯气泉采集资源。",
+        "koKR": "선택한 미네랄 지대나 베스핀 가이저에서 SCV가 자원을 채취합니다."
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@Build,Build1",
+      "id": "CommandCenterSCBW",
+      "Icon": "btn-building-terran-commandcenter@scbw",
+      "Name": {
+        "enUS": "Build Command Center",
+        "zhCN": "建造指挥中心",
+        "koKR": "커맨드 센터 건설"
+      },
+      "Tooltip": {
+        "enUS": "Primary structure. Used to receive gathered resources. Can use the Lift Off ability and can build a <span class=\"style-TooltipHighlightSCBW\"><b>Comsat Station</b></span> or <span class=\"style-TooltipHighlightSCBW\"><b>Nuclear Silo</b></span> add-ons.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>SCV</b>",
+        "zhCN": "基础建筑，用于接收采集到的资源。自体可以升空。可以建造一座<span class=\"style-TooltipHighlightSCBW\"><b>Comsat Station</b></span>或<span class=\"style-TooltipHighlightSCBW\"><b>Nuclear Silo</b></span>作为附属建筑。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- <b>SCV</b>",
+        "koKR": "주 건물입니다. 채취한 자원을 수집합니다. 이륙을 사용할 수 있고, <span class=\"style-TooltipHighlightSCBW\"><b>Comsat Station</b></span>이나 <span class=\"style-TooltipHighlightSCBW\"><b>Nuclear Silo</b></span> 애드온을 부착할 수 있습니다.<br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>SCV</b>"
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@Build,Build2",
+      "id": "SupplyDepotSCBW",
+      "Icon": "btn-building-terran-supplydepot@scbw",
+      "Name": {
+        "enUS": "Build Supply Depot",
+        "zhCN": "建造补给站",
+        "koKR": "서플라이 디포 건설"
+      },
+      "Tooltip": {
+        "enUS": "Provides supply.<br/>Supply allows you to create more units.",
+        "zhCN": "提供补给。<br/>提高本方单位数量上限。",
+        "koKR": "보급품을 공급합니다.<br/>보급품을 늘리면 더 많은 유닛을 훈련할 수 있습니다."
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@Build,Build3",
+      "id": "RefinerySCBW",
+      "Icon": "btn-building-terran-refinery",
+      "Name": {
+        "enUS": "Build Refinery",
+        "zhCN": "建造精炼厂",
+        "koKR": "리파이너리 건설"
+      },
+      "Tooltip": {
+        "enUS": "Built over a <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> to allow harvesting of vespene gas.",
+        "zhCN": "建造在<span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span>上，用于采集高能瓦斯。",
+        "koKR": "베스핀 가스 채취를 위해 <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> 위에 건설하는 구조물입니다."
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@Build,Build4",
+      "id": "BarracksSCBW",
+      "Icon": "btn-building-terran-barracks",
+      "Name": {
+        "enUS": "Build Barracks",
+        "zhCN": "建造兵营",
+        "koKR": "배럭 건설"
+      },
+      "Tooltip": {
+        "enUS": "Trains Terran Infantry units.<br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Marine</b><br/>- <b>Bunker</b>s from <b>SCV</b>s",
+        "zhCN": "步兵训练设施。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- <b>Marine</b><br/>- <b>Firebat</b><br/>- <b>SCV</b>可以建造<b>Bunker</b>",
+        "koKR": "보병 생산 시설입니다.<br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>Marine</b><br/>- <b>Bunker</b> (<b>SCV</b> 건설)"
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@Build,Build5",
+      "id": "EngineeringBaySCBW",
+      "Icon": "btn-building-terran-engineeringbay",
+      "Name": {
+        "enUS": "Build Engineering Bay",
+        "zhCN": "建造工程站",
+        "koKR": "엔지니어링 베이 건설"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for Terran infantry. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Missile Turret</b>s from <b>SCV</b>s",
+        "zhCN": "为人类步兵提供升级方案。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- <b>SCV</b>可以建造<b>Missile Turret</b>",
+        "koKR": "테란 보병을 업그레이드합니다.<br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>Missile Turret</b> (<b>SCV</b> 건설)"
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@Build,Build6",
+      "id": "MissileTurretSCBW",
+      "Icon": "btn-building-terran-missileturret",
+      "Name": {
+        "enUS": "Build Missile Turret",
+        "zhCN": "建造导弹塔",
+        "koKR": "미사일 터렛 건설"
+      },
+      "Tooltip": {
+        "enUS": "Anti-air defensive structure.**Can attack air units**<br/><span style=\"color: FFE303\">Detector</span>",
+        "zhCN": "防空建筑。<br/><br/><span style=\"color: #ffff8a\">可以对空。</span><br/><span style=\"color: FFE303\">侦测单位</span>",
+        "koKR": "대공 방어 구조물입니다. 공중 유닛 공격 가능</span><br/><span style=\"color: FFE303\">디텍터</span>"
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@Build,Build7",
+      "id": "BunkerSCBW",
+      "Icon": "btn-building-terran-bunker",
+      "Name": {
+        "enUS": "Build Bunker",
+        "zhCN": "建造地堡",
+        "koKR": "벙커 건설"
+      },
+      "Tooltip": {
+        "enUS": "Defensive structure. <br/>Infantry fights from inside. <br/><br/><span style=\"color: #ffff8a\">Bonus: +1 range to units inside.</span>",
+        "zhCN": "防御工事。<br/>步兵单位在地堡内作战。<br/><br/><span style=\"color: #ffff8a\">效果加成：舱载单位射程增加1。</span>",
+        "koKR": "방어 구조물입니다. <br/>보병들이 내부에서 적을 공격할 수 있습니다.<br/><br/><span style=\"color: #ffff8a\">추가 효과: 유닛 사거리 1만큼 증가.</span>"
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@Build,Build8",
+      "id": "RefinerySCBW",
+      "Icon": "btn-building-terran-refinery",
+      "Name": {
+        "enUS": "Build Refinery",
+        "zhCN": "建造精炼厂",
+        "koKR": "리파이너리 건설"
+      },
+      "Tooltip": {
+        "enUS": "Built over a <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> to allow harvesting of vespene gas.",
+        "zhCN": "建造在<span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span>上，用于采集高能瓦斯。",
+        "koKR": "베스핀 가스 채취를 위해 <span class=\"style-TooltipHighlightSCBW\"><b>Vespene Geyser</b></span> 위에 건설하는 구조물입니다."
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@Build,Build9",
+      "id": "AcademySCBW",
+      "Icon": "btn-building-terran-academy@scbw",
+      "Name": {
+        "enUS": "Build Academy",
+        "zhCN": "建造研究院",
+        "koKR": "아카데미 건설"
+      },
+      "Tooltip": {
+        "enUS": "Contains upgrades for Terran infantry units. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Firebat</b> at the <b>Barracks</b><br/>- <b>Medic</b> at the <b>Barracks</b>",
+        "zhCN": "为人类步兵单位提供升级方案。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- 可在<b>Barracks</b>中训练<b>Firebat</b> <br/>- 可在<b>Barracks</b>中训练<b>Medic</b>",
+        "koKR": "테란 보병을 업그레이드 합니다.<br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>Firebat</b> (<b>Barracks</b>)<br/>- <b>Medic</b> (<b>Barracks</b>)"
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@BuildAdv,Build11",
+      "id": "FactorySCBW",
+      "Icon": "btn-building-terran-factory",
+      "Name": {
+        "enUS": "Build Factory",
+        "zhCN": "建造重工厂",
+        "koKR": "팩토리 건설"
+      },
+      "Tooltip": {
+        "enUS": "Vehicle-production facility. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Vulture</b>s",
+        "zhCN": "战车生产设施。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- <b>Vulture</b>",
+        "koKR": "차량 생산 시설입니다.<br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>Vulture</b>"
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@BuildAdv,Build12",
+      "id": "StarportSCBW",
+      "Icon": "btn-building-terran-starport",
+      "Name": {
+        "enUS": "Build Starport",
+        "zhCN": "建造星港",
+        "koKR": "스타포트 건설"
+      },
+      "Tooltip": {
+        "enUS": "Air-unit production facility. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Wraith</b>s",
+        "zhCN": "空中单位生产设施。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- <b>Wraith</b>s",
+        "koKR": "공중 유닛 생산 시설입니다.<br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>Scout</b><br/>- <b>Corsair</b>"
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@BuildAdv,Build13",
+      "id": "ScienceFacilitySCBW",
+      "Icon": "btn-building-terran-sciencefacility@scbw",
+      "Name": {
+        "enUS": "Build Science Facility",
+        "zhCN": "建造科学站",
+        "koKR": "사이언스 퍼실리티 건설"
+      },
+      "Tooltip": {
+        "enUS": "Advanced research facility. Contains upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Science Vessel</b>s</span> <br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>- <b>Science Vessel</b>s at the <b>Starport</b>",
+        "zhCN": "高级研究设施。为<span class=\"style-TooltipHighlightSCBW\"><b>Science Vessel</b></span>提供升级方案。<br/><br/><span style=\"color: ffff8a\">开启：</span><br/>- <b>Science Vessel</b>",
+        "koKR": "고급 연구 시설입니다. <span class=\"style-TooltipHighlightSCBW\"><b>Science Vessel</b></span>을 업그레이드합니다.<br/><br/><span style=\"color: ffff8a\">사용 가능:</span><br/>- <b>Science Vessel</b> (<b>Starport</b>)"
+      }
+    },
+    {
+      "AbilCmd": "SCVSCBW@BuildAdv,Build14",
+      "id": "ArmorySCBW",
+      "Icon": "btn-building-terran-armory",
+      "Name": {
+        "enUS": "Build Armory",
+        "zhCN": "建造军械库",
+        "koKR": "아머리 건설"
+      },
+      "Tooltip": {
+        "enUS": "Contains weapon and armor upgrades for <span class=\"style-TooltipHighlightSCBW\"><b>Factory</b></span> and <span class=\"style-TooltipHighlightSCBW\"><b>Starport</b></span> units. <br/><br/><span class=\"style-TooltipHighlightSCBW\">Enables:</span><br/>- <b>Goliath</b> at the <b>Factory</b><br/>- <b>Valkyrie</b> at the <b>Starport</b>",
+        "zhCN": "为<span class=\"style-TooltipHighlightSCBW\"><b>Factory</b></span>和<span class=\"style-TooltipHighlightSCBW\"><b>Starport</b></span>制造的单位提供武器和护甲升级方案。<br/><br/><span class=\"style-TooltipHighlightSCBW\">开启：</span><br/>- 可以在<b>Factory</b>中制造<b>Goliath</b><br/>- 可以在<b>Starport</b>中制造<b>Valkyrie</b>",
+        "koKR": "<span class=\"style-TooltipHighlightSCBW\"><b>Factory</b></span>와 <span class=\"style-TooltipHighlightSCBW\"><b>Starport</b></span>에서 생산하는 유닛의 공격력과 방어력을 업그레이드합니다. <br/><br/><span class=\"style-TooltipHighlightSCBW\">사용 가능:</span><br/>- <b>Goliath</b> (<b>Factory</b>)<br/>- <b>Valkyrie</b> (<b>Starport</b>)"
+      }
+    }
+  ]
+}

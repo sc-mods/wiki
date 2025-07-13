@@ -1,0 +1,631 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "zhCN": "梦魇虫",
+    "enUS": "Nightmare Worm"
+  },
+  "Description": {
+    "zhCN": "重型远程火炮单位。可以使用梦魇轰炸技能。<br/><br/><span style=\"color: #ffff8a\">可以对地。</span>",
+    "enUS": "Heavy long-range artillery unit. Can use the Nightmare Bombing skill. <br/><br/><span style=\"color: #ffff8a\">Can target the ground. </span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZerW",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 275,
+  "LifeMax": 275,
+  "LifeArmorName": {
+    "zhCN": "利维坦地面生物甲壳",
+    "enUS": "Leviathan ground creature carapace"
+  },
+  "Mover": "Burrowed",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 720,
+  "Radius": 0.8125,
+  "SeparationRadius": 0.8125,
+  "MinimapRadius": 0.75,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "Cloaked",
+    "Buried",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "RavagerW",
+  "HotkeyAlias": "RavagerW",
+  "SelectAlias": "RavagerW",
+  "SubgroupAlias": "RavagerW",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "RavagerBurrowed",
+  "AIEvaluateAlias": "Ravager",
+  "ReviveType": "RavagerWBurrowed",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "RavagerWBurrowed/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "RavagerWBurrowed/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow"
+  ],
+  "Attributes": [
+    "Armored",
+    "Biological",
+    "Massive"
+  ],
+  "LifeArmor": 5,
+  "LifeRegenRate": 5,
+  "ShieldArmorName": {
+    "zhCN": "装甲外壳",
+    "enUS": "Armored Shell"
+  },
+  "SpeedMultiplierCreep": 1.3,
+  "Acceleration": 1000,
+  "LateralAcceleration": 46.0625,
+  "Sight": 6,
+  "Food": -4,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 325,
+    "Vespene": 200
+  },
+  "AttackTargetPriority": 20,
+  "AbilArray": [
+    "BurrowRavagerUpW"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "class": "CAbilAttack",
+          "Name": "Abil/Name/attack",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/attack",
+          "OrderArray": [
+            {
+              "DisplayType": "Attack",
+              "Color": "255,255,0,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "attack",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "AbilSetId": "Attack",
+          "Alignment": "Negative",
+          "AcquireFilters": "-;Player,Ally,Neutral,Dead,Hidden,Invulnerable,Benign",
+          "SmartFilters": "-;Player,Ally",
+          "SupportedFilters": "-;Self,Outer",
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "Attack"
+            },
+            "Towards": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackTowards"
+            },
+            "Barrage": {
+              "Flags": {
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "AttackBarrage"
+            }
+          },
+          "MaxAttackSpeedMultiplier": 128,
+          "MinAttackSpeedMultiplier": 0.25,
+          "AcquirePriority": 2,
+          "id": "attack"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Name": {
+          "enUS": "Attack",
+          "ruRU": "Атаковать "
+        },
+        "Tooltip": {
+          "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+          "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+        },
+        "Hotkey": "A"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Duration": 0.4443
+              }
+            }
+          },
+          "Unit": "RavagerW",
+          "RandomDelayMax": 0.1
+        },
+        "Unit": "RavagerW",
+        "Cost": {
+          "Minerals": 325,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -4
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowRavagerUpW,Execute",
+        "id": "BurrowUpW",
+        "Icon": "btn-ability-zerg-upburrow-color",
+        "Name": {
+          "zhCN": "出地",
+          "enUS": "Out of the ground"
+        },
+        "Tooltip": {
+          "zhCN": "命令单位钻回地表。",
+          "enUS": "Order units to drill back to the surface."
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Actor": {
+              "DurationArray": {
+                "Duration": 0.5556
+              }
+            },
+            "Collide": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 0.5556
+              }
+            }
+          },
+          "Unit": "RavagerWBurrowed",
+          "RandomDelayMax": 0.1
+        },
+        "Unit": "RavagerWBurrowed",
+        "Cost": {
+          "Minerals": 325,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -4
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BurrowRavagerDownW,Execute",
+        "id": "BurrowDownW",
+        "Icon": "btn-ability-zerg-burrow-color",
+        "Name": {
+          "zhCN": "潜地",
+          "enUS": "Burrow"
+        },
+        "Tooltip": {
+          "zhCN": "命令单位潜入地下。单位潜地后无法移动或攻击，但处于隐形状态。",
+          "enUS": "Order units to go underground. A unit cannot move or attack while burrowed, but is invisible."
+        },
+        "Hotkey": "D"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "ZergShieldW",
+        "Icon": "btn-upgrade-lwthd",
+        "Name": {
+          "zhCN": "装甲外壳",
+          "enUS": "Armored Shell"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">拥有护盾</span><br/>护盾在脱战长时间后缓慢恢复，拥有较高的护甲。<br/>在菌毯上时能够更快恢复护盾。",
+          "enUS": "<span style=\"color: #ffff8a\">Has a shield</span><br/>The shield recovers slowly after being out of combat for a long time, and has higher armor. <br/>Restores shields faster while on creep."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "RavagerIonExplosionW",
+        "Icon": "btn-ability-zerg-abathur-corrosivebilelargew",
+        "Name": {
+          "zhCN": "离子电浆",
+          "enUS": "Ion Plasma"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">梦魇虫</span>的攻击命中后将生成一团电浆，使其中的敌人移动速度降低并受到伤害。<br/><span style=\"color: #ffff8a\">梦魇虫</span>的攻击能够对建筑和重型单位造成大量伤害。",
+          "enUS": "<span style=\"color: #ffff8a\">Nightmare Bug</span>'s attack will generate a ball of plasma, causing enemies within to slow down their movement speed and take damage. <br/><span style=\"color: #ffff8a\">The Nightmare Bug</span>'s attacks can cause heavy damage to structures and heavy units."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "EvolveGlialRegenerationWR",
+        "Icon": "btn-upgrade-zerg-glialreconstitution",
+        "Name": {
+          "zhCN": "神经胶原重组",
+          "enUS": "Neural collagen reorganization"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">梦魇虫</span>的移动速度提高<span style=\"color: #ffff8a\">20%</span>。<br/><span style=\"color: #ffff8a\">梦魇虫</span>的最大生命提高。",
+          "enUS": "<span style=\"color: #ffff8a\">Nightmare Bug</span>'s movement speed is increased by <span style=\"color: #ffff8a\">20%</span>. <br/><span style=\"color: #ffff8a\">Nightmare Bug</span>'s maximum health is increased."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "RapidRegenerationWR",
+        "Icon": "btn-ability-zerg-rapidregeneration-color",
+        "Name": {
+          "zhCN": "极速再生",
+          "enUS": "Extremely fast regeneration"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">梦魇虫</span>在潜地时能够快速恢复生命值与护盾值。",
+          "enUS": "<span style=\"color: #ffff8a\">Nightmare Bug</span> can quickly regenerate health and shields while burrowing."
+        }
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "NightmareShelling",
+        "Icon": "potentbile_coopw",
+        "Name": {
+          "zhCN": "梦魇炮击",
+          "enUS": "Nightmare Bombardment"
+        },
+        "Tooltip": {
+          "zhCN": "<span style=\"color: #ffff8a\">梦魇虫</span>的射弹将命中地面，造成范围法术伤害。<br/><span style=\"color: #ffff8a\">梦魇虫</span>的射程提升<span style=\"color: #ffff8a\">3</span>。",
+          "enUS": "<span style=\"color: #ffff8a\">Nightmare Bug</span>'s projectiles will hit the ground, causing area-of-effect spell damage. <br/><span style=\"color: #ffff8a\">Nightmare Bug</span>'s range increased by <span style=\"color: #ffff8a\">3</span>."
+        }
+      }
+    ]
+  },
+  "InnerRadius": 0.6875,
+  "ScoreKill": 350,
+  "SubgroupPriority": 16,
+  "KillDisplay": "Always",
+  "RankDisplay": "Always",
+  "Subtitle": "UnitSubtitle/RavagerW",
+  "ShieldArmor": 6,
+  "ShieldRegenDelay": 20,
+  "ShieldRegenRate": 2,
+  "ShieldRegenRateCreep": 2,
+  "KillXP": 50,
+  "BehaviorArray": [
+    "RavagerWBehavior",
+    "RoachRegenDummyW"
+  ],
+  "id": "RavagerWBurrowed",
+  "Icon": "btn-unit-collection-webby-ravager",
+  "LifeArmorIcon": "btn-upgrade-zerg-groundcarapace-level3w",
+  "ShieldArmorIcon": "btn-upgrade-lwthd",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "RavagerWBehavior",
+      "Icon": "btn-unit-collection-webby-ravager",
+      "Name": {
+        "zhCN": "破坏者行为",
+        "enUS": "Vandal behavior"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "RoachRegenDummyW",
+      "Icon": "btn-upgrade-zerg-stukov-regenrate",
+      "Name": {
+        "zhCN": "蟑螂恢复",
+        "enUS": "Cockroach Recovery"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BurrowRavagerUpW",
+      "Name": {
+        "zhCN": "出地(破坏者)",
+        "enUS": "Out of Earth (Destroyer)"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "BurrowRavagerDownW",
+    "RavagerWBurrowed",
+    "RavagerBurrowedSplatW",
+    "RavagerW"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "RavagerW"
+  ],
+  "$Phase": [],
+  "$Phased": "RavagerW",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Name": {
+        "enUS": "Attack",
+        "ruRU": "Атаковать "
+      },
+      "Tooltip": {
+        "enUS": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "ruRU": "Приказать выбранным боевым единицам двигаться в выбранную точку, вступая в бой с противниками, которые встретятся по пути. Указав в качестве цели конкретную боевую единицу, вы прикажете атаковать ее до уничтожения."
+      }
+    },
+    {
+      "AbilCmd": "BurrowRavagerUpW,Execute",
+      "id": "BurrowUpW",
+      "Icon": "btn-ability-zerg-upburrow-color",
+      "Name": {
+        "zhCN": "出地",
+        "enUS": "Out of the ground"
+      },
+      "Tooltip": {
+        "zhCN": "命令单位钻回地表。",
+        "enUS": "Order units to drill back to the surface."
+      }
+    },
+    {
+      "AbilCmd": "BurrowRavagerDownW,Execute",
+      "id": "BurrowDownW",
+      "Icon": "btn-ability-zerg-burrow-color",
+      "Name": {
+        "zhCN": "潜地",
+        "enUS": "Burrow"
+      },
+      "Tooltip": {
+        "zhCN": "命令单位潜入地下。单位潜地后无法移动或攻击，但处于隐形状态。",
+        "enUS": "Order units to go underground. A unit cannot move or attack while burrowed, but is invisible."
+      }
+    }
+  ]
+}

@@ -1,0 +1,446 @@
+{
+  "Name": "Aloe",
+  "Description": "Carrier transport. Loaded with Raptor fighter to attack air targets. Can Heal and switch into Defender Mode to provide increased healing and ground support.<br/><br/><c val=\"#ColorAttackInfo\">Can attack air units.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 400,
+  "LifeMax": 400,
+  "LifeArmorName": "Umojan Ship Plating",
+  "Mover": "Fly",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.25,
+  "SeparationRadius": 1.25,
+  "MinimapRadius": 1.25,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "AIThreatGround",
+    "AIThreatAir",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UmojanAloe",
+  "HotkeyAlias": "UmojanAloe",
+  "SelectAlias": "UmojanAloe",
+  "SubgroupAlias": "UmojanAloe",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UmojanAIAloe",
+  "AIEvaluateAlias": "UmojanAloe",
+  "ReviveType": "UmojanAloe",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UmojanAloe/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UmojanAloe/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Air"
+  ],
+  "Collide": [
+    "Flying"
+  ],
+  "LifeArmor": 1,
+  "EnergyStart": 50,
+  "EnergyMax": 200,
+  "EnergyRegenRate": 0.5625,
+  "ShieldsStart": 200,
+  "ShieldsMax": 200,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": "Umojan Plasma Shields",
+  "Speed": 2.5,
+  "Acceleration": 3.5,
+  "Sight": 10,
+  "Height": 3.75,
+  "VisionHeight": 4,
+  "Food": -8,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 450,
+    "Vespene": 250
+  },
+  "RepairTime": 60,
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "Attack",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanAloeHangar,Ammo1",
+        "id": "UmojanRaptor",
+        "Icon": "btn-unit-terran-valkyrie",
+        "Tooltip": "Builds Raptor that automatically attack the Aloe's target. Aloe may not attack air targets without Raptors.<br/><br/><c val=\"#ColorAttackInfo\">Can attack air units.</span>",
+        "Name": "Build Raptor",
+        "Hotkey": "I"
+      },
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "HangarQueue5,CancelLast",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanAloeMorphtoAG,Execute",
+        "id": "UmojanAloeAGMode",
+        "Icon": "btn-unit-collection-liberatormorph-umojan",
+        "Tooltip": "Deploys into Defender Mode. In this mode Aloe can also inflict single target damage to ground units and can heal multiple nearby biological allies. Aloe in this mode cannot move.",
+        "Name": "Defender Mode",
+        "Hotkey": "D"
+      },
+      {
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanAloeHealUnit,Execute",
+        "id": "UmojanAloeHealSingle",
+        "Icon": "btn-ability-terran-heal-color",
+        "Tooltip": "Heals one nearby friendly biological units.<br/><br/><span style=\"color: #f078ff\">Heals <b>10</b> life per seconds, at a rate of <b>1.50</b> energy per 10 life.</span>",
+        "Name": "Heal",
+        "Hotkey": "E"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanSendRecon,Execute",
+        "id": "UmojanSendRecon",
+        "Icon": "btn-upgrade-terran-nova-detector",
+        "Tooltip": "Send a Nightwish stealth recon craft to targeted position.<br/>The Nightwish will circle the area until recalled, destroyed or at more than <b>17</b> units.<br/><br/><span style=\"color: #FFE303\">Detector</span>",
+        "Name": "Send Recon",
+        "Hotkey": "R"
+      },
+      {
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanRecallRecon,Execute",
+        "id": "UmojanRecallRecon",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Recall the Nightwish.",
+        "Name": "Recall Recon",
+        "Hotkey": "C"
+      }
+    ]
+  },
+  "ScoreMake": 700,
+  "ScoreKill": 700,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 15,
+  "TechAliasArray": [
+    "Alias_Umojan_Aloe"
+  ],
+  "GlossaryCategory": "Unit/Category/UmojanUnits",
+  "GlossaryPriority": 130,
+  "GlossaryStrongArray": [
+    "VikingFighter",
+    "Mutalisk",
+    "Phoenix"
+  ],
+  "GlossaryWeakArray": [
+    "Battlecruiser",
+    "Corruptor",
+    "Carrier"
+  ],
+  "HotkeyCategory": "Unit/Category/UmojanUnits",
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Massive"
+  ],
+  "EquipmentArray": [
+    {
+      "Weapon": "UmojanRaptors"
+    }
+  ],
+  "EffectArray": {
+    "Death": "UmojanAloeSendCarrierKillOf"
+  },
+  "id": "UmojanAloe",
+  "Icon": "btn-unit-terran-liberator-umojan",
+  "LifeArmorIcon": "btn-upgrade-terran-shipplatinglevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "id": "UmojanRaptorLaunch",
+      "Icon": "btn-unit-terran-griffon",
+      "Name": "Raptor Launch",
+      "Amount": 5,
+      "Kind": "Ranged",
+      "TargetFilters": "Air",
+      "Range": 8,
+      "Period": 0.5
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "UmojanTrackerCarrier"
+    },
+    {
+      "id": "UmojanAloeHealSoloTracker"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "UmojanAloeMorphtoAG",
+      "Name": "Morph to AG"
+    },
+    {
+      "id": "UmojanAloeHealUnit",
+      "Name": "Heal Unit"
+    },
+    {
+      "id": "UmojanAloeHangar"
+    },
+    {
+      "id": "HangarQueue5",
+      "Name": "Queue (5) (Hangar)"
+    },
+    {
+      "id": "UmojanSendRecon",
+      "Name": "Send Recon"
+    },
+    {
+      "id": "UmojanRecallRecon",
+      "Name": "Recall Recon"
+    }
+  ],
+  "$Upgrades": [
+    "UmojanSecondaryHangar",
+    "UmojanAloe",
+    "UmojanAloeAG",
+    "UmojanAloeMorphtoAA",
+    "UmojanStarportTrain",
+    "UmojanStarport",
+    "UmojanAloe",
+    "UmojanShieldsLevel2",
+    "UmojanShields",
+    "UmojanShieldsLevel3",
+    "UmojanAloeMorphModel",
+    "UmojanShipPlatingLevel1",
+    "UmojanShipPlating",
+    "UmojanShipPlatingLevel2",
+    "UmojanShipPlatingLevel3",
+    "UmojanShipWeaponsLevel1",
+    "UmojanShipWeapons",
+    "UmojanShipWeaponsLevel2",
+    "UmojanShipWeaponsLevel3",
+    "UmojanShieldsLevel1",
+    "UmojanAloeAGMorphModel",
+    "UmojanAloeAGRange"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "UmojanRaptor",
+    "UmojanNightwish"
+  ],
+  "$Research": [],
+  "$Morph": [
+    "UmojanAloeAG"
+  ],
+  "$Producers": [
+    "UmojanStarport"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "Attack",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "UmojanAloeHangar,Ammo1",
+      "id": "UmojanRaptor",
+      "Icon": "btn-unit-terran-valkyrie",
+      "Tooltip": "Builds Raptor that automatically attack the Aloe's target. Aloe may not attack air targets without Raptors.<br/><br/><c val=\"#ColorAttackInfo\">Can attack air units.</span>",
+      "Name": "Build Raptor"
+    },
+    {
+      "AbilCmd": "HangarQueue5,CancelLast",
+      "id": "Cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "UmojanAloeMorphtoAG,Execute",
+      "id": "UmojanAloeAGMode",
+      "Icon": "btn-unit-collection-liberatormorph-umojan",
+      "Tooltip": "Deploys into Defender Mode. In this mode Aloe can also inflict single target damage to ground units and can heal multiple nearby biological allies. Aloe in this mode cannot move.",
+      "Name": "Defender Mode"
+    },
+    {
+      "AbilCmd": "UmojanAloeHealUnit,Execute",
+      "id": "UmojanAloeHealSingle",
+      "Icon": "btn-ability-terran-heal-color",
+      "Tooltip": "Heals one nearby friendly biological units.<br/><br/><span style=\"color: #f078ff\">Heals <b>10</b> life per seconds, at a rate of <b>1.50</b> energy per 10 life.</span>",
+      "Name": "Heal"
+    },
+    {
+      "AbilCmd": "UmojanSendRecon,Execute",
+      "id": "UmojanSendRecon",
+      "Icon": "btn-upgrade-terran-nova-detector",
+      "Tooltip": "Send a Nightwish stealth recon craft to targeted position.<br/>The Nightwish will circle the area until recalled, destroyed or at more than <b>17</b> units.<br/><br/><span style=\"color: #FFE303\">Detector</span>",
+      "Name": "Send Recon"
+    },
+    {
+      "AbilCmd": "UmojanRecallRecon,Execute",
+      "id": "UmojanRecallRecon",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Recall the Nightwish.",
+      "Name": "Recall Recon"
+    }
+  ]
+}

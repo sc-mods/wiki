@@ -1,0 +1,917 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Airstrip"
+  },
+  "Description": {
+    "enUS": "Aircraft production facility.<br/><br/><span style=\"color: ffff8a\">Enables:</span><br/>-  <b>Raptor Jet</b><br/>-  <b>Osprey</b><br/>-  <b>Condor</b>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "UPLL",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1250,
+  "LifeMax": 1250,
+  "LifeArmorName": {
+    "enUS": "UPL Building Plating"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.625,
+  "SeparationRadius": 1.625,
+  "MinimapRadius": 1.625,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UPLAirstrip",
+  "HotkeyAlias": "UPLAirstrip",
+  "SelectAlias": "UPLAirstrip",
+  "SubgroupAlias": "UPLAirstrip",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "Factory",
+  "AIEvaluateAlias": "UPLAirstrip",
+  "ReviveType": "UPLAirstrip",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "UPLAirstrip/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "UPLAirstrip/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "Sight": 9,
+  "AttackTargetPriority": 11,
+  "AbilArray": [
+    "BuildInProgress",
+    "que5",
+    "Rally",
+    "UPLAirstripTrain",
+    "UPLAirstripResearch"
+  ],
+  "BehaviorArray": [
+    "UnderConstruction"
+  ],
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "QueueSize": 5,
+          "id": "que5"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+          "ruRU": "Отменить текущий приказ и отдать следующий. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {},
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "Rally,Rally1",
+        "id": "Rally",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Name": {
+          "enUS": "Set Rally Point",
+          "ruRU": "Задать точку сбора "
+        },
+        "Tooltip": {
+          "enUS": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+          "ruRU": "Отправляет созданные войска в указанную точку. Рабочие, отправленные на месторождение минералов или веспена, автоматически начнут добычу ресурсов."
+        },
+        "Hotkey": "Y"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLTrainRaptorJet"
+          },
+          "Unit": [
+            "RaptorJet"
+          ],
+          "Time": 42
+        },
+        "Unit": [
+          "RaptorJet"
+        ],
+        "Time": 42,
+        "Cost": {
+          "Minerals": 225,
+          "Vespene": 125,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLAirstripTrain,Train1",
+        "id": "UPLTrainRaptorJet",
+        "Icon": "btn-unit-upl-raptofighterjet",
+        "Name": {
+          "enUS": "Build Raptor Jet"
+        },
+        "Tooltip": {
+          "enUS": "Air-superiority fighter.**Can Attack air units**"
+        },
+        "Hotkey": "W"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLTrainOsprey"
+          },
+          "Unit": [
+            "Osprey"
+          ],
+          "Time": 65
+        },
+        "Unit": [
+          "Osprey"
+        ],
+        "Time": 65,
+        "Cost": {
+          "Minerals": 275,
+          "Vespene": 125,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -3
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLAirstripTrain,Train2",
+        "id": "UPLTrainOsprey",
+        "Icon": "btn-unit-upl-ospreyhelicopter",
+        "Name": {
+          "enUS": "Build Osprey"
+        },
+        "Tooltip": {
+          "enUS": "Anti-ground attack Helicopter and Infantry Transport**Can attack ground and air units**. Becomes a detector unit when transporting a Infantry Officer Inside."
+        },
+        "Hotkey": "Q"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLSeekerDrone"
+          },
+          "Unit": [
+            "UPLSeekerDrone"
+          ],
+          "Time": 8.4
+        },
+        "Unit": [
+          "UPLSeekerDrone"
+        ],
+        "Time": 8.4,
+        "Cost": {
+          "Minerals": 75,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -1
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLAirstripTrain,Train5",
+        "id": "UPLSeekerDrone",
+        "Icon": "seekerdroneicon",
+        "Name": {
+          "enUS": "Train Seeker Drone"
+        },
+        "Tooltip": {
+          "enUS": "Small air unit with self explode ability, powerful if they manage to hit many energy units and building."
+        },
+        "Hotkey": "E"
+      },
+      {
+        "Upgrade": "RaptorCloakAbilUpgrade",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1
+            },
+            "DefaultButtonFace": "RaptorCloakAbilUpgrade",
+            "Requirements": "LearnRaptorCloakAbilUpgrade"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 75
+          },
+          "Time": 150,
+          "Upgrade": "RaptorCloakAbilUpgrade"
+        },
+        "Time": 150,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 75,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLAirstripResearch,Research1",
+        "id": "RaptorCloakAbilUpgrade",
+        "Icon": "btn-ability-upl-metamateria-suit",
+        "Name": {
+          "enUS": "Research Metamateria Coating"
+        },
+        "Tooltip": {
+          "enUS": "Enables <span style=\"color: FFFF80\"><b>Raptor Jet</b>s</span>  to use <span style=\"color: FFFF80\"><b>Metamateria Coating</b> </span>ability. This allows <span style=\"color: FFFF80\"><b>Raptor Jet</b>s</span> to become temporarily cloaked when activated, unless the unit is revealed by detectors or effects. Also enable cloaking for landed <span style=\"color: FFFF80\"><b>Condor</b>s</span>."
+        },
+        "Hotkey": "C"
+      },
+      {
+        "Upgrade": "FrancineFuelInjection",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0,
+              "ShowInGlossary": 1
+            },
+            "DefaultButtonFace": "FrancineFuelInjection",
+            "Requirements": "LearnFrancineFuelInjection"
+          },
+          "Resource": {
+            "Minerals": 225,
+            "Vespene": 225
+          },
+          "Time": 180,
+          "Upgrade": "FrancineFuelInjection"
+        },
+        "Time": 180,
+        "Cost": {
+          "Minerals": 225,
+          "Vespene": 225,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLAirstripResearch,Research2",
+        "id": "FrancineFuelInjection",
+        "Icon": "btn-ability-upl-advancedenergyprocessing",
+        "Name": {
+          "enUS": "Research Francine Fuel Injection"
+        },
+        "Tooltip": {
+          "enUS": "Increases movement speed of <span style=\"color: FFFF8A\"><b>Condor</b>s</span> and <span style=\"color: FFFF8A\"><b>Osprey</b>s</span>."
+        },
+        "Hotkey": "Z"
+      },
+      {
+        "Upgrade": "UPLRaptorIncendiary",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ResearchRaptorIncendiary",
+            "Requirements": "LearnRaptorIncendiary"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 100
+          },
+          "Time": 90,
+          "Upgrade": "UPLRaptorIncendiary"
+        },
+        "Time": 90,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLAirstripResearch,Research4",
+        "id": "ResearchRaptorIncendiary",
+        "Icon": "btn-ability-upl-thermite",
+        "Name": {
+          "enUS": "Research Plasma Infused White Phosphorous"
+        },
+        "Tooltip": {
+          "enUS": "Given **Raptor Jet** burning attack, which makes targets burn for 3 seconds, receiving additional <b>5</b> Damage / sec</span>"
+        },
+        "Hotkey": "X"
+      },
+      {
+        "Upgrade": "SeekerShell",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "SeekerShell",
+            "Requirements": "LearnSeekerShell"
+          },
+          "Resource": {
+            "Minerals": 200,
+            "Vespene": 200
+          },
+          "Time": 168,
+          "Upgrade": "SeekerShell"
+        },
+        "Time": 168,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 200,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLAirstripResearch,Research5",
+        "id": "SeekerShell",
+        "Icon": "btn-upgrade-seekerdrone-permanentlycloaked",
+        "Name": {
+          "enUS": "Seeker Shell"
+        },
+        "Tooltip": {
+          "enUS": "Increase <span style=\"color: 80FFFF\">20 vital</span> for **Seeker Drone**."
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLTrainCondor"
+          },
+          "Unit": [
+            "Condor"
+          ],
+          "Time": 75
+        },
+        "Unit": [
+          "Condor"
+        ],
+        "Time": 75,
+        "Cost": {
+          "Minerals": 200,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLAirstripTrain,Train3",
+        "id": "UPLTrainCondor",
+        "Icon": "btn-unit-upl-condortransport",
+        "Name": {
+          "enUS": "Build Condor"
+        },
+        "Tooltip": {
+          "enUS": "Reinforced Aerial Transport with great air vision. <br/><br/><span style=\"color: FFE303\">Detector</span>"
+        },
+        "Hotkey": "R"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLTrainBehemoth"
+          },
+          "Unit": [
+            "UPLBehemoth"
+          ],
+          "Time": 90
+        },
+        "Unit": [
+          "UPLBehemoth"
+        ],
+        "Time": 90,
+        "Cost": {
+          "Minerals": 400,
+          "Vespene": 300,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -6
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLAirstripTrain,Train4",
+        "id": "UPLTrainBehemoth",
+        "Icon": "btn-starship",
+        "Name": {
+          "enUS": "Build Behemoth"
+        },
+        "Tooltip": {
+          "enUS": "Slow, Massive anti-ground bombing cruiser, excel at delivering devastating damage to land units below them. Can cause friendly fire.  **Can attack ground and air units**"
+        },
+        "Hotkey": "B"
+      }
+    ]
+  },
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 3,
+  "GlossaryCategory": "Unit/Category/0UPLBuildings",
+  "GlossaryPriority": 32,
+  "HotkeyCategory": "Unit/Category/UPLUnits",
+  "id": "UPLAirstrip",
+  "Facing": 315,
+  "LifeArmor": 1,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 150,
+    "Vespene": 100
+  },
+  "RepairTime": 50,
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "ScoreMake": 300,
+  "ScoreKill": 300,
+  "TechAliasArray": [
+    "Alias_UPLManufacturingFacility"
+  ],
+  "TechTreeProducedUnitArray": [
+    "RaptorJet",
+    "Osprey",
+    "Condor"
+  ],
+  "DataCollection": "UPLManufacturingFacility",
+  "DeathTime": 0.5,
+  "DeadFootprint": "Footprint3x3Contour",
+  "Icon": "btn-building-upl-uplairstrip",
+  "Model": "UPLAirstrip",
+  "LifeArmorIcon": "btn-upgrade-upl-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "UnderConstruction",
+      "Name": {
+        "enUS": "Under Construction",
+        "ruRU": "Under Construction"
+      },
+      "Tooltip": "-"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "que5",
+      "Name": {
+        "ruRU": "Queue (5)",
+        "enUS": "Queue (5)"
+      }
+    },
+    {
+      "id": "Rally",
+      "Name": {
+        "enUS": "Rally",
+        "ruRU": "Rally"
+      }
+    },
+    {
+      "id": "UPLAirstripTrain",
+      "Name": {
+        "enUS": "Train"
+      }
+    },
+    {
+      "id": "UPLAirstripResearch",
+      "Name": {
+        "enUS": "Research"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "CountUnitUPLAirstripCompleteOnly829831931TechTreeCheat",
+    "UPLAirstrip",
+    "IsUPLAirstrip",
+    "UPLBuild",
+    "CountUnitUPLAirstripCompleteOnly881126796TechTreeCheat",
+    "UPLAirstrip",
+    "UPLAirstripSplat",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "RaptorJet",
+    "Osprey",
+    "UPLSeekerDrone",
+    "Condor",
+    "UPLBehemoth"
+  ],
+  "$Research": [
+    "RaptorCloakAbilUpgrade",
+    "FrancineFuelInjection",
+    "UPLRaptorIncendiary",
+    "SeekerShell"
+  ],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "MiningDrone"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Drops the current order without performing it, and allows you to select a different order.",
+        "ruRU": "Отменить текущий приказ и отдать следующий. "
+      }
+    },
+    {
+      "AbilCmd": "Rally,Rally1",
+      "id": "Rally",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Name": {
+        "enUS": "Set Rally Point",
+        "ruRU": "Задать точку сбора "
+      },
+      "Tooltip": {
+        "enUS": "Sends constructed units to the designated point. Workers rallied to resources will begin gathering automatically.",
+        "ruRU": "Отправляет созданные войска в указанную точку. Рабочие, отправленные на месторождение минералов или веспена, автоматически начнут добычу ресурсов."
+      }
+    },
+    {
+      "AbilCmd": "UPLAirstripTrain,Train1",
+      "id": "UPLTrainRaptorJet",
+      "Icon": "btn-unit-upl-raptofighterjet",
+      "Name": {
+        "enUS": "Build Raptor Jet"
+      },
+      "Tooltip": {
+        "enUS": "Air-superiority fighter.**Can Attack air units**"
+      }
+    },
+    {
+      "AbilCmd": "UPLAirstripTrain,Train2",
+      "id": "UPLTrainOsprey",
+      "Icon": "btn-unit-upl-ospreyhelicopter",
+      "Name": {
+        "enUS": "Build Osprey"
+      },
+      "Tooltip": {
+        "enUS": "Anti-ground attack Helicopter and Infantry Transport**Can attack ground and air units**. Becomes a detector unit when transporting a Infantry Officer Inside."
+      }
+    },
+    {
+      "AbilCmd": "UPLAirstripTrain,Train5",
+      "id": "UPLSeekerDrone",
+      "Icon": "seekerdroneicon",
+      "Name": {
+        "enUS": "Train Seeker Drone"
+      },
+      "Tooltip": {
+        "enUS": "Small air unit with self explode ability, powerful if they manage to hit many energy units and building."
+      }
+    },
+    {
+      "AbilCmd": "UPLAirstripResearch,Research1",
+      "id": "RaptorCloakAbilUpgrade",
+      "Icon": "btn-ability-upl-metamateria-suit",
+      "Name": {
+        "enUS": "Research Metamateria Coating"
+      },
+      "Tooltip": {
+        "enUS": "Enables <span style=\"color: FFFF80\"><b>Raptor Jet</b>s</span>  to use <span style=\"color: FFFF80\"><b>Metamateria Coating</b> </span>ability. This allows <span style=\"color: FFFF80\"><b>Raptor Jet</b>s</span> to become temporarily cloaked when activated, unless the unit is revealed by detectors or effects. Also enable cloaking for landed <span style=\"color: FFFF80\"><b>Condor</b>s</span>."
+      }
+    },
+    {
+      "AbilCmd": "UPLAirstripResearch,Research2",
+      "id": "FrancineFuelInjection",
+      "Icon": "btn-ability-upl-advancedenergyprocessing",
+      "Name": {
+        "enUS": "Research Francine Fuel Injection"
+      },
+      "Tooltip": {
+        "enUS": "Increases movement speed of <span style=\"color: FFFF8A\"><b>Condor</b>s</span> and <span style=\"color: FFFF8A\"><b>Osprey</b>s</span>."
+      }
+    },
+    {
+      "AbilCmd": "UPLAirstripResearch,Research4",
+      "id": "ResearchRaptorIncendiary",
+      "Icon": "btn-ability-upl-thermite",
+      "Name": {
+        "enUS": "Research Plasma Infused White Phosphorous"
+      },
+      "Tooltip": {
+        "enUS": "Given **Raptor Jet** burning attack, which makes targets burn for 3 seconds, receiving additional <b>5</b> Damage / sec</span>"
+      }
+    },
+    {
+      "AbilCmd": "UPLAirstripResearch,Research5",
+      "id": "SeekerShell",
+      "Icon": "btn-upgrade-seekerdrone-permanentlycloaked",
+      "Name": {
+        "enUS": "Seeker Shell"
+      },
+      "Tooltip": {
+        "enUS": "Increase <span style=\"color: 80FFFF\">20 vital</span> for **Seeker Drone**."
+      }
+    },
+    {
+      "AbilCmd": "UPLAirstripTrain,Train3",
+      "id": "UPLTrainCondor",
+      "Icon": "btn-unit-upl-condortransport",
+      "Name": {
+        "enUS": "Build Condor"
+      },
+      "Tooltip": {
+        "enUS": "Reinforced Aerial Transport with great air vision. <br/><br/><span style=\"color: FFE303\">Detector</span>"
+      }
+    },
+    {
+      "AbilCmd": "UPLAirstripTrain,Train4",
+      "id": "UPLTrainBehemoth",
+      "Icon": "btn-starship",
+      "Name": {
+        "enUS": "Build Behemoth"
+      },
+      "Tooltip": {
+        "enUS": "Slow, Massive anti-ground bombing cruiser, excel at delivering devastating damage to land units below them. Can cause friendly fire.  **Can attack ground and air units**"
+      }
+    }
+  ]
+}

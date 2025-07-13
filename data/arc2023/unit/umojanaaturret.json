@@ -1,0 +1,350 @@
+{
+  "Name": "Anti-Air Turret",
+  "Description": "Anti-air defensive structure.<br/><br/><c val=\"#ColorAttackInfo\">Can attack air units.</span><br/><span style=\"color: #FFE303\">Detector</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 250,
+  "LifeMax": 250,
+  "LifeArmorName": "Umojan Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.75,
+  "SeparationRadius": 0.75,
+  "MinimapRadius": 0.75,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "AIDefense",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UmojanAATurret",
+  "HotkeyAlias": "UmojanAATurret",
+  "SelectAlias": "UmojanAATurret",
+  "SubgroupAlias": "UmojanAATurret",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "MissileTurret",
+  "AIEvaluateAlias": "UmojanAATurret",
+  "ReviveType": "UmojanAATurret",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UmojanAATurret/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UmojanAATurret/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Phased",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "ShieldsStart": 250,
+  "ShieldsMax": 250,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": "Umojan Plasma Shields",
+  "Sight": 11,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 100
+  },
+  "RepairTime": 25,
+  "AttackTargetPriority": 19,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Halt",
+        "id": "Halt",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+        "Name": "Halt",
+        "Hotkey": "T"
+      },
+      {
+        "Row": 2,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "Detector",
+        "Icon": "btn-status-detector",
+        "Tooltip": "This unit can detect cloaked, burrowed, and hallucinated units.",
+        "Name": "Detector"
+      },
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackBuilding",
+        "Icon": "btn-command-attack",
+        "Tooltip": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel4MCS",
+        "Icon": "btn-upgrade-stetmann-hivestetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/>Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.<br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.</span>",
+        "Name": "Power Overcharge 3"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel3MCS",
+        "Icon": "btn-upgrade-stetmann-lairstetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/>Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.</span><br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Power Overcharge 2"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel2MCS",
+        "Icon": "btn-upgrade-stetmann-hatcherystetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.</span><br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Power Overcharge 1"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel1MCS",
+        "Icon": "btn-ability-mengsk-thor-bigboycover",
+        "Tooltip": "<span style=\"color: #55FFFF\">Normal Power Level: Normal operation speed, no shield.</span><br/>Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.<br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Normal Power Level"
+      },
+      {
+        "Row": 2,
+        "Column": 2,
+        "Type": "SelectBuilder",
+        "id": "SelectBuilder",
+        "Icon": "btn-upgrade-terran-weaponrefit",
+        "Tooltip": "Selects the unit constructing this structure.",
+        "Name": "Select Builder",
+        "Hotkey": "Q"
+      }
+    ]
+  },
+  "Footprint": "Footprint2x2Contour",
+  "PlacementFootprint": "Footprint2x2",
+  "ScoreMake": 100,
+  "ScoreKill": 100,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 3,
+  "GlossaryCategory": "Unit/Category/UmojanUnits",
+  "GlossaryPriority": 60,
+  "GlossaryStrongArray": [
+    "Banshee",
+    "Mutalisk",
+    "VoidRay"
+  ],
+  "GlossaryWeakArray": [
+    "Marine",
+    "Zergling",
+    "Zealot"
+  ],
+  "HotkeyCategory": "Unit/Category/UmojanUnits",
+  "id": "UmojanAATurret",
+  "Icon": "btn-building-terran-missileturret",
+  "LifeArmorIcon": "btn-upgrade-terran-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "Turret": "MissileTurret",
+      "id": "UmojanPhaseDisruptors",
+      "Icon": "btn-ability-mengsk-ghost-staticempblast",
+      "Name": "Phase Disruptors",
+      "Amount": 32,
+      "Kind": "Ranged",
+      "TargetFilters": "Air",
+      "Range": 7,
+      "Period": 1.45
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "UmojanPowerUpgradeOtherBuilding"
+    },
+    {
+      "id": "UmojanPowerUpgradeHiddenConstructionSpeed"
+    },
+    {
+      "id": "Detector11",
+      "Icon": "btn-status-detector"
+    },
+    {
+      "id": "UnderConstruction"
+    },
+    {
+      "id": "UmojanPowerLevel0"
+    },
+    {
+      "id": "UmojanPowerLevel1"
+    },
+    {
+      "id": "UmojanPowerLevel2"
+    },
+    {
+      "id": "UmojanPowerLevel3"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    }
+  ],
+  "$Upgrades": [
+    "UmojanAATurret",
+    "UmojanAATurret",
+    "UmojanHiSecAutoTracking",
+    "UmojanBuildTower",
+    "UmojanShieldsLevel2",
+    "UmojanShields",
+    "UmojanShieldsLevel3",
+    "UmojanBuildNorns",
+    "UmojanShieldsLevel1",
+    "UmojanBuild"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Producers": [
+    "UmojanEngineeringTower",
+    "UmojanMCS",
+    "UmojanNorns"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Halt",
+      "id": "Halt",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Halts construction of this structure. The partial construction will remain.",
+      "Name": "Halt"
+    },
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackBuilding",
+      "Icon": "btn-command-attack",
+      "Tooltip": "Targets and attacks the target unit until it is destroyed or moves out of range.",
+      "Name": "Attack"
+    }
+  ]
+}

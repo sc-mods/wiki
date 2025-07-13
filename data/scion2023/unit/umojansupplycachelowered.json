@@ -1,0 +1,394 @@
+{
+  "Name": "Supply Cache",
+  "Description": "Provides supply.<br/>Supply allows you to create more units.<br/>Supply Cache can be lowered to allow units to walk over them.<br/><br/>Can be upgraded to provide <span style=\"color: #00FFFF\">Power Levels</span>.",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 400,
+  "LifeMax": 400,
+  "LifeArmorName": "Umojan Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.25,
+  "SeparationRadius": 1.25,
+  "MinimapRadius": 1.25,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "SupplyDepot",
+  "HotkeyAlias": "UmojanSupplyCache",
+  "SelectAlias": "SupplyDepot",
+  "SubgroupAlias": "UmojanSupplyCacheLowered",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UmojanSupplyCacheLowered",
+  "AIEvaluateAlias": "UmojanSupplyCacheLowered",
+  "ReviveType": "UmojanSupplyCacheLowered",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UmojanSupplyCacheLowered/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UmojanSupplyCacheLowered/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Facing": 315,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "ShieldsStart": 400,
+  "ShieldsMax": 400,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": "Umojan Plasma Shields",
+  "Sight": 9,
+  "Food": 8,
+  "CostCategory": "Economy",
+  "CostResource": {
+    "Minerals": 100
+  },
+  "RepairTime": 30,
+  "AttackTargetPriority": 11,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "EffectArray": {
+                "Start": "SupplyDepotMorphingApplyBehavior"
+              }
+            },
+            "Actor": {
+              "DurationArray": {
+                "Duration": 1.3
+              }
+            },
+            "Mover": {
+              "DurationArray": {
+                "Duration": 1.3
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 1.3
+              }
+            }
+          },
+          "Unit": "UmojanSupplyCache",
+          "CollideRange": 0
+        },
+        "Unit": "UmojanSupplyCache",
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanSupplyCacheRaise,Execute",
+        "id": "UmojanRaise",
+        "Icon": "btn-building-terran-supplydepot",
+        "Tooltip": "Raises the structure, preventing ground units from moving across it.",
+        "Name": "Raise",
+        "Hotkey": "R"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "AbilCmd": "",
+        "id": "UmojanPowerLevel4MCS",
+        "Icon": "btn-upgrade-stetmann-hivestetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/>Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.<br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.</span>",
+        "Name": "Power Overcharge 3"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "AbilCmd": "",
+        "id": "UmojanPowerLevel3MCS",
+        "Icon": "btn-upgrade-stetmann-lairstetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/>Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.</span><br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Power Overcharge 2"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "AbilCmd": "",
+        "id": "UmojanPowerLevel2MCS",
+        "Icon": "btn-upgrade-stetmann-hatcherystetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.</span><br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Power Overcharge 1"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel1MCS",
+        "Icon": "btn-ability-mengsk-thor-bigboycover",
+        "Tooltip": "<span style=\"color: #55FFFF\">Normal Power Level: Normal operation speed, no shield.</span><br/>Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.<br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Normal Power Level"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "Passive",
+        "id": "UmojanPowerLevel2MCS",
+        "Icon": "btn-upgrade-stetmann-hatcherystetellitebonus",
+        "Tooltip": "Normal Power Level: Normal operation speed, no shield.<br/><span style=\"color: #55FFFF\">Power Overcharge 1: Operate +<b>5</b>% faster. <b>25</b>% of max HP as max shield.</span><br/>Power Overcharge 2: Operate +<b>10</b>% faster. <b>50</b>% of max HP as max shield.<br/>Power Overcharge 3: Operate +<b>15</b>% faster. <b>100</b>% of max HP as max shield.",
+        "Name": "Power Overcharge 1"
+      },
+      {
+        "Info": {
+          "SectionArray": {
+            "Abils": {
+              "DurationArray": {
+                "Delay": 15
+              }
+            },
+            "Stats": {
+              "DurationArray": {
+                "Delay": 15
+              }
+            }
+          },
+          "Score": 1,
+          "Unit": "UmojanEnergyGenerator"
+        },
+        "Unit": "UmojanEnergyGenerator",
+        "Cost": {
+          "Minerals": 125,
+          "Vespene": 25,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 8
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanUpgradetoEnergyGenerator,Execute",
+        "id": "UmojanUpgradetoEnergyGenerator",
+        "Icon": "wireframe-terran-umojanlabgenerator",
+        "Tooltip": "Provide energy to nearby structure, increasing shield and production speed.",
+        "Name": "Upgrade to Energy Generator",
+        "Hotkey": "U"
+      }
+    ]
+  },
+  "Footprint": "Footprint2x2Underground",
+  "PlacementFootprint": "",
+  "ScoreMake": 0,
+  "ScoreKill": 100,
+  "ScoreResult": "",
+  "SubgroupPriority": 3,
+  "TechAliasArray": [
+    "Alias_Umojan_SupplyCache"
+  ],
+  "GlossaryPriority": 0,
+  "HotkeyCategory": "Unit/Category/TerranUnits",
+  "GlossaryCategory": "",
+  "id": "UmojanSupplyCacheLowered",
+  "Icon": "btn-building-terran-supplydepotlowered",
+  "LifeArmorIcon": "btn-upgrade-terran-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "UmojanPowerUpgradeOtherBuilding"
+    },
+    {
+      "id": "UmojanPowerUpgradeHiddenConstructionSpeed"
+    },
+    {
+      "id": "UmojanPowerLevel0"
+    },
+    {
+      "id": "UmojanPowerLevel1"
+    },
+    {
+      "id": "UmojanPowerLevel2"
+    },
+    {
+      "id": "UmojanPowerLevel3"
+    },
+    {
+      "id": "UmojanPowerSourceDummy",
+      "Icon": "wireframe-terran-umojanlabgenerator"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "UmojanSupplyCacheRaise",
+      "Name": "Raise"
+    }
+  ],
+  "$Upgrades": [
+    "UmojanSupplyCacheLower",
+    "UmojanSupplyCacheLowered",
+    "UmojanSupplyCache",
+    "UmojanSupplyCacheLowered",
+    "UmojanShieldsLevel2",
+    "UmojanShields",
+    "UmojanShieldsLevel3",
+    "UmojanShieldsLevel1"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [
+    "UmojanSupplyCache",
+    "UmojanEnergyGenerator"
+  ],
+  "$Phase": [],
+  "$Phased": "UmojanSupplyCache",
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "UmojanSupplyCacheRaise,Execute",
+      "id": "UmojanRaise",
+      "Icon": "btn-building-terran-supplydepot",
+      "Tooltip": "Raises the structure, preventing ground units from moving across it.",
+      "Name": "Raise"
+    },
+    {
+      "AbilCmd": "UmojanUpgradetoEnergyGenerator,Execute",
+      "id": "UmojanUpgradetoEnergyGenerator",
+      "Icon": "wireframe-terran-umojanlabgenerator",
+      "Tooltip": "Provide energy to nearby structure, increasing shield and production speed.",
+      "Name": "Upgrade to Energy Generator"
+    }
+  ]
+}

@@ -1,0 +1,886 @@
+{
+  "Name": "R & D Facility",
+  "Description": "Research and Development.  <br/><br/>Research upgrades for your forces.",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "UPL",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 1250,
+  "LifeMax": 1250,
+  "LifeArmorName": "UPL Building Plating",
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 1.5,
+  "SeparationRadius": 1.5,
+  "MinimapRadius": 1.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UPLRnDFacility",
+  "HotkeyAlias": "UPLRnDFacility",
+  "SelectAlias": "UPLRnDFacility",
+  "SubgroupAlias": "UPLRnDFacility",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UPLRnDFacility",
+  "AIEvaluateAlias": "UPLRnDFacility",
+  "ReviveType": "UPLRnDFacility",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UPLRnDFacility/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UPLRnDFacility/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "Sight": 9,
+  "AttackTargetPriority": 11,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Halt",
+              "Flags": {
+                "ToSelection": 1
+              }
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 3,
+        "Type": "SelectBuilder",
+        "id": "UPLSelectBuilder",
+        "Tooltip": "Selects the unit constructing this structure.",
+        "Name": "Select Builder",
+        "Hotkey": "U"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "QueueSize": 5,
+          "id": "que5"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Upgrade": "UPLInfantryWeaponsLevel1",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLInfantryWeaponsLevel1",
+            "Requirements": "LearnUPLInfantryWeapon1"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 100
+          },
+          "Time": 160,
+          "Upgrade": "UPLInfantryWeaponsLevel1"
+        },
+        "Time": 160,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLRnDFacilityResearch,Research1",
+        "id": "UPLInfantryWeaponsLevel1",
+        "Icon": "btn-upgrades-upl-infantryweapons-lvl1",
+        "Tooltip": "Upgrades the damage dealt by infantry units.",
+        "Name": "Upgrade Infantry Weapons Level 1",
+        "Hotkey": "Q"
+      },
+      {
+        "Upgrade": "UPLInfantryWeaponsLevel2",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLInfantryWeaponsLevel2",
+            "Requirements": "LearnUPLInfantryWeapon2"
+          },
+          "Resource": {
+            "Minerals": 175,
+            "Vespene": 175
+          },
+          "Time": 190,
+          "Upgrade": "UPLInfantryWeaponsLevel2"
+        },
+        "Time": 190,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLRnDFacilityResearch,Research2",
+        "id": "UPLInfantryWeaponsLevel2",
+        "Icon": "btn-upgrades-upl-infantryweapons-lvl2",
+        "Tooltip": "Further upgrades the damage dealt by infantry units.",
+        "Name": "Upgrade Infantry Weapons Level 2",
+        "Hotkey": "Q"
+      },
+      {
+        "Upgrade": "UPLInfantryWeaponsLevel3",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLInfantryWeaponsLevel3",
+            "Requirements": "LearnUPLInfantryWeapon3"
+          },
+          "Resource": {
+            "Minerals": 250,
+            "Vespene": 250
+          },
+          "Time": 220,
+          "Upgrade": "UPLInfantryWeaponsLevel3"
+        },
+        "Time": 220,
+        "Cost": {
+          "Minerals": 250,
+          "Vespene": 250,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLRnDFacilityResearch,Research3",
+        "id": "UPLInfantryWeaponsLevel3",
+        "Icon": "btn-upgrades-upl-infantryweapons-lvl3",
+        "Tooltip": "Maximizes the damage dealt by infantry units.",
+        "Name": "Upgrade Infantry Weapons Level 3",
+        "Hotkey": "Q"
+      },
+      {
+        "Upgrade": "UPLInfantryArmorLevel1",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLInfantryArmorLevel1",
+            "Requirements": "LearnUPLInfantryArmor1"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 100
+          },
+          "Time": 160,
+          "Upgrade": "UPLInfantryArmorLevel1"
+        },
+        "Time": 160,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLRnDFacilityResearch,Research4",
+        "id": "UPLInfantryArmorLevel1",
+        "Icon": "btn-upgrades-upl-infantryarmor-lvl1",
+        "Tooltip": "Upgrades the armor of infantry units.",
+        "Name": "Upgrade Infantry Armor Level 1",
+        "Hotkey": "W"
+      },
+      {
+        "Upgrade": "UPLInfantryArmorLevel2",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLInfantryArmorLevel2",
+            "Requirements": "LearnUPLInfantryArmor2"
+          },
+          "Resource": {
+            "Minerals": 175,
+            "Vespene": 175
+          },
+          "Time": 190,
+          "Upgrade": "UPLInfantryArmorLevel2"
+        },
+        "Time": 190,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLRnDFacilityResearch,Research5",
+        "id": "UPLInfantryArmorLevel2",
+        "Icon": "btn-upgrades-upl-infantryarmor-lvl2",
+        "Tooltip": "Further upgrades the armor of infantry units.",
+        "Name": "Upgrade Infantry Armor Level 2",
+        "Hotkey": "W"
+      },
+      {
+        "Upgrade": "UPLInfantryArmorLevel3",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLInfantryArmorLevel3",
+            "Requirements": "LearnUPLInfantryArmor3"
+          },
+          "Resource": {
+            "Minerals": 250,
+            "Vespene": 250
+          },
+          "Time": 220,
+          "Upgrade": "UPLInfantryArmorLevel3"
+        },
+        "Time": 220,
+        "Cost": {
+          "Minerals": 250,
+          "Vespene": 250,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLRnDFacilityResearch,Research6",
+        "id": "UPLInfantryArmorLevel3",
+        "Icon": "btn-upgrades-upl-infantryarmor-lvl3",
+        "Tooltip": "Maximizes the armor of infantry units.",
+        "Name": "Upgrade Infantry Armor Level 3",
+        "Hotkey": "W"
+      },
+      {
+        "Upgrade": "UPLVehicleWeaponsLevel1",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLVehicleWeaponsLevel1",
+            "Requirements": "LearnUPLVehicleWeapon1"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 100
+          },
+          "Time": 160,
+          "Upgrade": "UPLVehicleWeaponsLevel1"
+        },
+        "Time": 160,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLRnDFacilityResearch,Research10",
+        "id": "UPLVehicleWeaponsLevel1",
+        "Icon": "btn-upgrades-upl-vehicleweapons-lvl1",
+        "Tooltip": "Upgrades the damage dealt by ground vehicles.",
+        "Name": "Upgrade Vehicle Weapons Level 1",
+        "Hotkey": "A"
+      },
+      {
+        "Upgrade": "UPLVehicleWeaponsLevel2",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLVehicleWeaponsLevel2",
+            "Requirements": "LearnUPLVehicleWeapon2"
+          },
+          "Resource": {
+            "Minerals": 175,
+            "Vespene": 175
+          },
+          "Time": 190,
+          "Upgrade": "UPLVehicleWeaponsLevel2"
+        },
+        "Time": 190,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLRnDFacilityResearch,Research11",
+        "id": "UPLVehicleWeaponsLevel2",
+        "Icon": "btn-upgrades-upl-vehicleweapons-lvl2",
+        "Tooltip": "Further upgrades the damage dealt by ground vehicles.",
+        "Name": "Upgrade Vehicle Weapons Level 2",
+        "Hotkey": "A"
+      },
+      {
+        "Upgrade": "UPLVehicleWeaponsLevel3",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLVehicleWeaponsLevel3",
+            "Requirements": "LearnUPLVehicleWeapon3"
+          },
+          "Resource": {
+            "Minerals": 250,
+            "Vespene": 250
+          },
+          "Time": 220,
+          "Upgrade": "UPLVehicleWeaponsLevel3"
+        },
+        "Time": 220,
+        "Cost": {
+          "Minerals": 250,
+          "Vespene": 250,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLRnDFacilityResearch,Research12",
+        "id": "UPLVehicleWeaponsLevel3",
+        "Icon": "btn-upgrades-upl-vehicleweapons-lvl3",
+        "Tooltip": "Maximizes the damage dealt by ground vehicles.",
+        "Name": "Upgrade Vehicle Weapons Level 3",
+        "Hotkey": "A"
+      },
+      {
+        "Upgrade": "UPLVehiclePlatingLevel1",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLVehiclePlatingLevel1",
+            "Requirements": "LearnUPLVehicleArmor1"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 100
+          },
+          "Time": 160,
+          "Upgrade": "UPLVehiclePlatingLevel1"
+        },
+        "Time": 160,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLRnDFacilityResearch,Research7",
+        "id": "UPLVehiclePlatingLevel1",
+        "Icon": "btn-upgrades-upl-vehicleplating-lvl1",
+        "Tooltip": "Upgrades the armor of ground vehicles.",
+        "Name": "Upgrade Vehicle Plating Level 1",
+        "Hotkey": "S"
+      },
+      {
+        "Upgrade": "UPLVehiclePlatingLevel2",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLVehiclePlatingLevel2",
+            "Requirements": "LearnUPLVehicleArmor2"
+          },
+          "Resource": {
+            "Minerals": 175,
+            "Vespene": 175
+          },
+          "Time": 190,
+          "Upgrade": "UPLVehiclePlatingLevel2"
+        },
+        "Time": 190,
+        "Cost": {
+          "Minerals": 175,
+          "Vespene": 175,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLRnDFacilityResearch,Research8",
+        "id": "UPLVehiclePlatingLevel2",
+        "Icon": "btn-upgrades-upl-vehicleplating-lvl2",
+        "Tooltip": "Further upgrades the armor of ground vehicles.",
+        "Name": "Upgrade Vehicle Plating Level 2",
+        "Hotkey": "S"
+      },
+      {
+        "Upgrade": "UPLVehiclePlatingLevel3",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "UPLVehiclePlatingLevel3",
+            "Requirements": "LearnUPLVehicleArmor3"
+          },
+          "Resource": {
+            "Minerals": 250,
+            "Vespene": 250
+          },
+          "Time": 220,
+          "Upgrade": "UPLVehiclePlatingLevel3"
+        },
+        "Time": 220,
+        "Cost": {
+          "Minerals": 250,
+          "Vespene": 250,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UPLRnDFacilityResearch,Research9",
+        "id": "UPLVehiclePlatingLevel3",
+        "Icon": "btn-upgrades-upl-vehicleplating-lvl3",
+        "Tooltip": "Maximizes the armor of ground vehicles.",
+        "Name": "Upgrade Vehicle Plating Level 3",
+        "Hotkey": "S"
+      }
+    ]
+  },
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 3,
+  "GlossaryCategory": "Unit/Category/0UPLBuildings",
+  "GlossaryPriority": 21,
+  "HotkeyCategory": "Unit/Category/UPLUnits",
+  "id": "UPLRnDFacility",
+  "Facing": 315,
+  "LifeArmor": 1,
+  "CostCategory": "Technology",
+  "CostResource": {
+    "Minerals": 150,
+    "Vespene": 50
+  },
+  "RepairTime": 45,
+  "Footprint": "Footprint3x3Contour",
+  "PlacementFootprint": "Footprint3x3",
+  "ScoreMake": 200,
+  "ScoreKill": 200,
+  "TechAliasArray": [
+    "Alias_UPLForwardOperatingBase"
+  ],
+  "TechTreeProducedUnitArray": [
+    "InfantryOfficer"
+  ],
+  "DeathTime": 0.5,
+  "DeadFootprint": "Footprint3x3Contour",
+  "Icon": "btn-building-upl-uplr&d",
+  "LifeArmorIcon": "btn-upgrade-upl-buildingarmor",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "UnderConstruction"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "que5",
+      "Name": "Queue (5)"
+    },
+    {
+      "id": "UPLRnDFacilityResearch",
+      "Name": "Research"
+    }
+  ],
+  "$Upgrades": [
+    "UPLBuild",
+    "UPLRnDFacility",
+    "IsUPLRnDFacility",
+    "UPLRnDFacility",
+    "UPLRnDFacilitySplat",
+    "UPLRnDFacility"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [
+    "UPLInfantryWeaponsLevel1",
+    "UPLInfantryWeaponsLevel2",
+    "UPLInfantryWeaponsLevel3",
+    "UPLInfantryArmorLevel1",
+    "UPLInfantryArmorLevel2",
+    "UPLInfantryArmorLevel3",
+    "UPLVehicleWeaponsLevel1",
+    "UPLVehicleWeaponsLevel2",
+    "UPLVehicleWeaponsLevel3",
+    "UPLVehiclePlatingLevel1",
+    "UPLVehiclePlatingLevel2",
+    "UPLVehiclePlatingLevel3"
+  ],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "MiningDrone"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "UPLRnDFacilityResearch,Research1",
+      "id": "UPLInfantryWeaponsLevel1",
+      "Icon": "btn-upgrades-upl-infantryweapons-lvl1",
+      "Tooltip": "Upgrades the damage dealt by infantry units.",
+      "Name": "Upgrade Infantry Weapons Level 1"
+    },
+    {
+      "AbilCmd": "UPLRnDFacilityResearch,Research2",
+      "id": "UPLInfantryWeaponsLevel2",
+      "Icon": "btn-upgrades-upl-infantryweapons-lvl2",
+      "Tooltip": "Further upgrades the damage dealt by infantry units.",
+      "Name": "Upgrade Infantry Weapons Level 2"
+    },
+    {
+      "AbilCmd": "UPLRnDFacilityResearch,Research3",
+      "id": "UPLInfantryWeaponsLevel3",
+      "Icon": "btn-upgrades-upl-infantryweapons-lvl3",
+      "Tooltip": "Maximizes the damage dealt by infantry units.",
+      "Name": "Upgrade Infantry Weapons Level 3"
+    },
+    {
+      "AbilCmd": "UPLRnDFacilityResearch,Research4",
+      "id": "UPLInfantryArmorLevel1",
+      "Icon": "btn-upgrades-upl-infantryarmor-lvl1",
+      "Tooltip": "Upgrades the armor of infantry units.",
+      "Name": "Upgrade Infantry Armor Level 1"
+    },
+    {
+      "AbilCmd": "UPLRnDFacilityResearch,Research5",
+      "id": "UPLInfantryArmorLevel2",
+      "Icon": "btn-upgrades-upl-infantryarmor-lvl2",
+      "Tooltip": "Further upgrades the armor of infantry units.",
+      "Name": "Upgrade Infantry Armor Level 2"
+    },
+    {
+      "AbilCmd": "UPLRnDFacilityResearch,Research6",
+      "id": "UPLInfantryArmorLevel3",
+      "Icon": "btn-upgrades-upl-infantryarmor-lvl3",
+      "Tooltip": "Maximizes the armor of infantry units.",
+      "Name": "Upgrade Infantry Armor Level 3"
+    },
+    {
+      "AbilCmd": "UPLRnDFacilityResearch,Research10",
+      "id": "UPLVehicleWeaponsLevel1",
+      "Icon": "btn-upgrades-upl-vehicleweapons-lvl1",
+      "Tooltip": "Upgrades the damage dealt by ground vehicles.",
+      "Name": "Upgrade Vehicle Weapons Level 1"
+    },
+    {
+      "AbilCmd": "UPLRnDFacilityResearch,Research11",
+      "id": "UPLVehicleWeaponsLevel2",
+      "Icon": "btn-upgrades-upl-vehicleweapons-lvl2",
+      "Tooltip": "Further upgrades the damage dealt by ground vehicles.",
+      "Name": "Upgrade Vehicle Weapons Level 2"
+    },
+    {
+      "AbilCmd": "UPLRnDFacilityResearch,Research12",
+      "id": "UPLVehicleWeaponsLevel3",
+      "Icon": "btn-upgrades-upl-vehicleweapons-lvl3",
+      "Tooltip": "Maximizes the damage dealt by ground vehicles.",
+      "Name": "Upgrade Vehicle Weapons Level 3"
+    },
+    {
+      "AbilCmd": "UPLRnDFacilityResearch,Research7",
+      "id": "UPLVehiclePlatingLevel1",
+      "Icon": "btn-upgrades-upl-vehicleplating-lvl1",
+      "Tooltip": "Upgrades the armor of ground vehicles.",
+      "Name": "Upgrade Vehicle Plating Level 1"
+    },
+    {
+      "AbilCmd": "UPLRnDFacilityResearch,Research8",
+      "id": "UPLVehiclePlatingLevel2",
+      "Icon": "btn-upgrades-upl-vehicleplating-lvl2",
+      "Tooltip": "Further upgrades the armor of ground vehicles.",
+      "Name": "Upgrade Vehicle Plating Level 2"
+    },
+    {
+      "AbilCmd": "UPLRnDFacilityResearch,Research9",
+      "id": "UPLVehiclePlatingLevel3",
+      "Icon": "btn-upgrades-upl-vehicleplating-lvl3",
+      "Tooltip": "Maximizes the armor of ground vehicles.",
+      "Name": "Upgrade Vehicle Plating Level 3"
+    }
+  ]
+}

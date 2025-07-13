@@ -1,0 +1,491 @@
+{
+  "Name": "Shadowguard",
+  "Description": "Infiltration unit. Can use Snipe and Cloak abilities. Can also call down Tactical Nukes.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground and air units.</span>",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "TerU",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 100,
+  "LifeMax": 100,
+  "LifeArmorName": "Umojan Infantry Armor",
+  "Mover": "Ground",
+  "StationaryTurningRate": 999.8437,
+  "TurningRate": 999.8437,
+  "Radius": 0.375,
+  "SeparationRadius": 0.375,
+  "MinimapRadius": 0.375,
+  "EditorCategories": "ObjectType:Unit,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1.2,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Turnable",
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDestroy",
+    "UseLineOfSight",
+    "ArmySelect"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "UmojanShadowguard",
+  "HotkeyAlias": "UmojanShadowguard",
+  "SelectAlias": "UmojanShadowguard",
+  "SubgroupAlias": "UmojanShadowguard",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "UmojanAIShadowguard",
+  "AIEvaluateAlias": "UmojanShadowguard",
+  "ReviveType": "UmojanShadowguard",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 33,
+      "Anim": 33,
+      "Turn": 33
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "UmojanShadowguard/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "UmojanShadowguard/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Mob": "Multiplayer",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Ground",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Biological",
+    "Psionic"
+  ],
+  "EnergyStart": 50,
+  "EnergyMax": 200,
+  "EnergyRegenRate": 0.5625,
+  "ShieldsStart": 100,
+  "ShieldsMax": 100,
+  "ShieldRegenDelay": 10,
+  "ShieldRegenRate": 2,
+  "ShieldArmorName": "Umojan Plasma Shields",
+  "Speed": 2.25,
+  "Acceleration": 1000,
+  "LateralAcceleration": 46.0625,
+  "Sight": 11,
+  "VisionHeight": 1,
+  "Food": -4,
+  "CostCategory": "Army",
+  "CostResource": {
+    "Minerals": 150,
+    "Vespene": 200
+  },
+  "RepairTime": 40,
+  "AttackTargetPriority": 20,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Move",
+        "id": "Move",
+        "Icon": "btn-command-move",
+        "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+        "Name": "Move",
+        "Hotkey": "M"
+      },
+      {
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "stop,Stop",
+        "id": "Stop",
+        "Icon": "btn-command-stop",
+        "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+        "Name": "Stop",
+        "Hotkey": "S"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,HoldPos",
+        "id": "MoveHoldPosition",
+        "Icon": "btn-command-holdposition",
+        "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+        "Name": "Hold Position",
+        "Hotkey": "H"
+      },
+      {
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "move,Patrol",
+        "id": "MovePatrol",
+        "Icon": "btn-command-patrol",
+        "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+        "Name": "Patrol",
+        "Hotkey": "P"
+      },
+      {
+        "Row": 1,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "GhostHoldFire,Execute",
+        "id": "GhostHoldFire",
+        "Icon": "btn-ability-terran-holdfire",
+        "Tooltip": "Orders selected units to holster their weapons and avoid engaging enemies, unless given a direct command. Units holding fire will flee if attacked.",
+        "Name": "Hold Fire",
+        "Hotkey": "F"
+      },
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "TacNukeStrike,Cancel",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanSabotage,Cancel",
+        "id": "Cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "attack,Execute",
+        "id": "AttackGhost",
+        "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+        "Name": "Attack",
+        "Hotkey": "A"
+      },
+      {
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanTacNukeStrike,Execute",
+        "id": "NukeCalldown",
+        "Icon": "btn-ability-terran-nuclearstrike-color",
+        "Tooltip": "Calls down a Nuclear Strike at a target location. Nukes take <b>20</b> to land, but they deal up to 300 (+200 vs. structures) damage in a large radius.",
+        "Name": "Tac Nuke Strike",
+        "Hotkey": "N"
+      },
+      {
+        "Row": 1,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "GhostWeaponsFree,Execute",
+        "id": "WeaponsFree",
+        "Icon": "btn-ability-terran-weaponsfree",
+        "Tooltip": "Orders selected units to fire at will. They will engage enemy units within range and chase them as normal.",
+        "Name": "Weapons Free",
+        "Hotkey": "G"
+      },
+      {
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "UmojanPermanentlyCloakedShadowguard",
+        "Icon": "btn-techupgrade-terran-criussuit",
+        "Tooltip": "The Shadowguard is permanently cloaked.",
+        "Name": "Permanently Cloaked"
+      },
+      {
+        "Row": 2,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanSnipe,Execute",
+        "id": "UmojanSniperRound",
+        "Icon": "btn-ability-terran-snipe-color",
+        "Tooltip": "A careful shot, dealing <b>150</b> damage. Ignores armor.<br/><br/><c val=\"#ColorAttackInfo\">Can only target psionic.</span>",
+        "Name": "Sniper Psi-Round",
+        "Hotkey": "R"
+      },
+      {
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanSabotage,Execute",
+        "id": "UmojanSabotage",
+        "Icon": "btn-upgrade-terran-recalibratedexplosives",
+        "Tooltip": "Sabotage the targeted building over <b>10</b> seconds. The building is deactivated during the sabotage and will take <b>750</b> damage at the end.",
+        "Name": "Sabotage",
+        "Hotkey": "O"
+      },
+      {
+        "Row": 2,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanLockdown,Execute",
+        "id": "UmojanLockdown",
+        "Icon": "btn-upgrade-stetmann-corruptormissileaoe",
+        "Tooltip": "Targeted unit is stunned for <b>8</b> seconds (<b>3</b> seconds against heroic units).",
+        "Name": "Lockdown",
+        "Hotkey": "D"
+      },
+      {
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "UmojanAskForMountShadowguard,Execute",
+        "id": "UmojanBattlecat",
+        "Icon": "btn-unit-terran-predator",
+        "Tooltip": "Anti-infantry specialist that deals area damage with each attack. Can be mounted by infantry. Can be upgraded to use Blink.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+        "Name": "Build Battlecat",
+        "Hotkey": "B"
+      }
+    ]
+  },
+  "InnerRadius": 0.375,
+  "CargoSize": 2,
+  "ScoreMake": 350,
+  "ScoreKill": 350,
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 18,
+  "GlossaryCategory": "Unit/Category/UmojanUnits",
+  "GlossaryPriority": 50,
+  "HotkeyCategory": "Unit/Category/UmojanUnits",
+  "id": "UmojanShadowguard",
+  "Icon": "btn-unit-terran-ghost-umojan",
+  "LifeArmorIcon": "btn-upgrade-terran-infantryarmorlevel0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [
+    {
+      "id": "UmojanK1XCanisterRifle",
+      "Icon": "btn-upgrade-terran-infantryweaponslevel0",
+      "Name": "K-1X Canister Rifle",
+      "Amount": 15,
+      "AttributeBonus": {
+        "Light": 25,
+        "Psionic": 25,
+        "Heroic": 25
+      },
+      "Kind": "Ranged",
+      "TargetFilters": "",
+      "Range": 6,
+      "Period": 1.5
+    }
+  ],
+  "Behaviors": [
+    {
+      "id": "UmojanShadowPermaCloak",
+      "Icon": "btn-ability-hornerhan-wraith-permanentcloak"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "stop",
+      "Name": "Stop"
+    },
+    {
+      "id": "attack",
+      "Name": "Attack"
+    },
+    {
+      "id": "move",
+      "Name": "Move"
+    },
+    {
+      "id": "GhostHoldFire",
+      "Name": "Hold Fire"
+    },
+    {
+      "id": "GhostWeaponsFree",
+      "Name": "Weapons Free"
+    },
+    {
+      "id": "UmojanSnipe",
+      "Name": "Sniper"
+    },
+    {
+      "id": "UmojanSabotage",
+      "Name": "Sabotage"
+    },
+    {
+      "id": "UmojanLockdown",
+      "Name": "Lockdown"
+    },
+    {
+      "id": "UmojanTacNukeStrike",
+      "Name": "Nuclear Strike"
+    },
+    {
+      "id": "UmojanAskForMountShadowguard",
+      "Name": "Ask For Mount (Shadowguard)"
+    }
+  ],
+  "$Upgrades": [
+    "UmojanIsShadowguard",
+    "UmojanShadowguard",
+    "UmojanLockdown",
+    "UmojanIsShadowguardCaster",
+    "UmojanPersonalCloaking",
+    "UmojanBattlecatLancerCreateShadowguard",
+    "UmojanInfantryWeaponsLevel1",
+    "UmojanInfantryWeapons",
+    "UmojanInfantryWeaponsLevel2",
+    "UmojanInfantryWeaponsLevel3",
+    "UmojanShadowguard",
+    "UmojanInfantryArmorLevel1",
+    "UmojanInfantryArmor",
+    "UmojanInfantryArmorLevel2",
+    "UmojanInfantryArmorLevel3",
+    "UmojanGhostAcademy",
+    "UmojanShieldsLevel2",
+    "UmojanShields",
+    "UmojanShieldsLevel3",
+    "UmojanShieldsLevel1",
+    "UmojanBarracksTrain",
+    "UmojanBarracks",
+    "UmojanAIUnitThreatensShadowguard"
+  ],
+  "$Requirements": [],
+  "$Production": [],
+  "$Research": [],
+  "$Morph": [],
+  "$Producers": [
+    "UmojanBarracks"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "move,Move",
+      "id": "Move",
+      "Icon": "btn-command-move",
+      "Tooltip": "Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.",
+      "Name": "Move"
+    },
+    {
+      "AbilCmd": "stop,Stop",
+      "id": "Stop",
+      "Icon": "btn-command-stop",
+      "Tooltip": "Orders selected units to cancel all orders and stop moving.",
+      "Name": "Stop"
+    },
+    {
+      "AbilCmd": "move,HoldPos",
+      "id": "MoveHoldPosition",
+      "Icon": "btn-command-holdposition",
+      "Tooltip": "Orders selected units to stay where they are and attack enemies that are within range. Units will neither chase down enemies nor move to engage.",
+      "Name": "Hold Position"
+    },
+    {
+      "AbilCmd": "move,Patrol",
+      "id": "MovePatrol",
+      "Icon": "btn-command-patrol",
+      "Tooltip": "Orders selected units to patrol between their current position and the target area. Units will attack enemies and move to engage nearby enemies.",
+      "Name": "Patrol"
+    },
+    {
+      "AbilCmd": "GhostHoldFire,Execute",
+      "id": "GhostHoldFire",
+      "Icon": "btn-ability-terran-holdfire",
+      "Tooltip": "Orders selected units to holster their weapons and avoid engaging enemies, unless given a direct command. Units holding fire will flee if attacked.",
+      "Name": "Hold Fire"
+    },
+    {
+      "AbilCmd": "TacNukeStrike,Cancel",
+      "id": "Cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "UmojanSabotage,Cancel",
+      "id": "Cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "attack,Execute",
+      "id": "AttackGhost",
+      "Tooltip": "Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.",
+      "Name": "Attack"
+    },
+    {
+      "AbilCmd": "UmojanTacNukeStrike,Execute",
+      "id": "NukeCalldown",
+      "Icon": "btn-ability-terran-nuclearstrike-color",
+      "Tooltip": "Calls down a Nuclear Strike at a target location. Nukes take <b>20</b> to land, but they deal up to 300 (+200 vs. structures) damage in a large radius.",
+      "Name": "Tac Nuke Strike"
+    },
+    {
+      "AbilCmd": "GhostWeaponsFree,Execute",
+      "id": "WeaponsFree",
+      "Icon": "btn-ability-terran-weaponsfree",
+      "Tooltip": "Orders selected units to fire at will. They will engage enemy units within range and chase them as normal.",
+      "Name": "Weapons Free"
+    },
+    {
+      "AbilCmd": "UmojanSnipe,Execute",
+      "id": "UmojanSniperRound",
+      "Icon": "btn-ability-terran-snipe-color",
+      "Tooltip": "A careful shot, dealing <b>150</b> damage. Ignores armor.<br/><br/><c val=\"#ColorAttackInfo\">Can only target psionic.</span>",
+      "Name": "Sniper Psi-Round"
+    },
+    {
+      "AbilCmd": "UmojanSabotage,Execute",
+      "id": "UmojanSabotage",
+      "Icon": "btn-upgrade-terran-recalibratedexplosives",
+      "Tooltip": "Sabotage the targeted building over <b>10</b> seconds. The building is deactivated during the sabotage and will take <b>750</b> damage at the end.",
+      "Name": "Sabotage"
+    },
+    {
+      "AbilCmd": "UmojanLockdown,Execute",
+      "id": "UmojanLockdown",
+      "Icon": "btn-upgrade-stetmann-corruptormissileaoe",
+      "Tooltip": "Targeted unit is stunned for <b>8</b> seconds (<b>3</b> seconds against heroic units).",
+      "Name": "Lockdown"
+    },
+    {
+      "AbilCmd": "UmojanAskForMountShadowguard,Execute",
+      "id": "UmojanBattlecat",
+      "Icon": "btn-unit-terran-predator",
+      "Tooltip": "Anti-infantry specialist that deals area damage with each attack. Can be mounted by infantry. Can be upgraded to use Blink.<br/><br/><c val=\"#ColorAttackInfo\">Can attack ground units.</span>",
+      "Name": "Build Battlecat"
+    }
+  ]
+}

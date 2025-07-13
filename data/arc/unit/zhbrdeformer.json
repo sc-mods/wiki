@@ -1,0 +1,559 @@
+{
+  "class": "CUnit",
+  "Name": {
+    "enUS": "Deformer"
+  },
+  "Description": {
+    "enUS": "Support structure. Recharges <span style=\"color: #Void\">Void</span> energy of nearby units.<br/><br/><span style=\"color: FFE303\">Detector</span>"
+  },
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZHBR",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 200,
+  "LifeMax": 200,
+  "LifeArmorName": {
+    "enUS": "Building Plating"
+  },
+  "Mover": "Ground",
+  "StationaryTurningRate": 720,
+  "TurningRate": 720,
+  "Radius": 0.5,
+  "SeparationRadius": 0.5,
+  "MinimapRadius": 0.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Melee",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "ZHBRDeformer",
+  "HotkeyAlias": "ZHBRDeformer",
+  "SelectAlias": "ZHBRDeformer",
+  "SubgroupAlias": "ZHBRDeformer",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "ZHBRDeformer",
+  "AIEvaluateAlias": "ZHBRDeformer",
+  "ReviveType": "ZHBRDeformer",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": [
+    {
+      "Charge": {
+        "Link": "ZHBRDeformer/Revive",
+        "Location": "Unit"
+      },
+      "Cooldown": {
+        "Link": "ZHBRDeformer/Revive",
+        "Location": "Unit"
+      }
+    }
+  ],
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Phased",
+    "Small"
+  ],
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Attributes": [
+    "Armored",
+    "Structure"
+  ],
+  "ShieldArmorName": {
+    "enUS": "Protection"
+  },
+  "HotkeyCategory": "Unit/Category/ZHBRUnits",
+  "SubgroupPriority": 2,
+  "DataCollection": "ZHBRDeformer",
+  "BehaviorArray": [
+    "ZHBRCommon@BuildersTracker",
+    "ZHBRVoid@PowerUser",
+    "ZHBRRestorationShield",
+    "Detector11"
+  ],
+  "AbilArray": [
+    "BuildInProgress",
+    "ZHBRStructureTeleport@Deformer",
+    "ZHBREnergation@Energation"
+  ],
+  "LifeArmor": 1,
+  "Facing": 315,
+  "ScoreResult": "BuildOrder",
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "CancelBuilding",
+        "Icon": "btn-command-cancel",
+        "Name": {
+          "enUS": "Cancel Building",
+          "ruRU": "Отменить "
+        },
+        "Tooltip": {
+          "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+          "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+        },
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilEffectTarget",
+          "Name": "Abil/Name/ZHBREnergation@Energation",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:ZHBR,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointAttack_Void\\WayPointAttack_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "ZHBREnergation@Energation",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "RangeSlop": 1,
+          "ArcSlop": 11.25,
+          "AutoCastAcquireLevel": "Defensive",
+          "AutoCastFilters": "Visible;Self,Ally,Neutral,Enemy,Structure,Worker,Missile,UnderConstruction,Dead,Hidden",
+          "Flags": {
+            "AbortOnAllianceChange": 1,
+            "CancelResetAutoCast": 0,
+            "ChannelingMinimum": 1,
+            "RangeUseCasterRadius": 1,
+            "ReApproachable": 1,
+            "RequireTargetVision": 1,
+            "WaitToSpend": 1,
+            "UpdateChargesOnLevelChange": 1,
+            "BestUnit": 0,
+            "AutoCast": 1,
+            "AutoCastOn": 1,
+            "ReExecutable": 1,
+            "Smart": 1
+          },
+          "Effect": [
+            "ZHBREnergation@Restore"
+          ],
+          "EffectRange": [
+            "0,1000"
+          ],
+          "AINotifyEffect": "ZHBREnergation@Restore",
+          "RefundArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1
+          },
+          "RefundFraction": {
+            "Resource": {
+              "Minerals": -1,
+              "Vespene": -1,
+              "Terrazine": -1,
+              "Custom": -1
+            },
+            "Charge": -1,
+            "Cooldown": -1
+          },
+          "UseMarkerArray": {
+            "Approach": 0,
+            "Prep": 0,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "PauseableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "PreemptableArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1,
+            "Finish": 1
+          },
+          "ValidatedArray": {
+            "Approach": 1,
+            "Prep": 1,
+            "Cast": 1,
+            "Channel": 1
+          },
+          "DefaultError": "MustTargetUnit",
+          "AcquirePriority": 3,
+          "SetLastTarget": "Unknown",
+          "VeterancyLevelMin": 0,
+          "VeterancyLevelSkip": 0,
+          "CmdButtonArray": {
+            "Execute": {
+              "Flags": {
+                "ShowInGlossary": 1,
+                "ToSelection": 1
+              },
+              "DefaultButtonFace": "ZHBREnergation"
+            },
+            "Cancel": {
+              "Flags": {
+                "ToSelection": 1,
+                "UseDefaultButton": 1,
+                "CreateDefaultButton": 1
+              },
+              "DefaultButtonFace": "Stop"
+            }
+          },
+          "FollowRange": 5,
+          "TargetFilters": [
+            "CanHaveEnergy,Visible;Self,Ally,Neutral,Enemy,Missile,UnderConstruction,Dead,Hidden"
+          ],
+          "Range": [
+            7
+          ],
+          "Arc": 360,
+          "AutoCastRange": 7,
+          "AutoCastValidatorArray": [
+            "ZHBREnergation@CasterHasEnergy",
+            "ZHBREnergation@AutocastCheckCombine"
+          ],
+          "CancelableArray": {
+            "Channel": 1
+          },
+          "id": "ZHBREnergation@Energation"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBREnergation@Energation,Execute",
+        "id": "ZHBREnergation",
+        "Icon": "btn-ability-zeratul-warpprism-transferlink",
+        "Name": {
+          "enUS": "Energation"
+        },
+        "Tooltip": {
+          "enUS": "Restores up to <b>11</b> <span style=\"color: #Void\">Void</span> energy per second. Every <b>0.5</b> <span style=\"color: #Void\">Void</span> restored drains 1 <span style=\"color: f078ff\">Energy</span>."
+        },
+        "Hotkey": "V"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            }
+          }
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "ZHBRStructureTeleport@Deformer,Build11",
+        "id": "ZHBRStructureTeleport",
+        "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+        "Name": {
+          "enUS": "Teleport Structure"
+        },
+        "Tooltip": {
+          "enUS": "Teleport structure to target location over <span style=\"color: ffff8a\"><b>14</b> seconds</span>."
+        },
+        "Hotkey": "T"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "Detector",
+        "Icon": "btn-status-detector",
+        "Name": {
+          "enUS": "Detector",
+          "ruRU": "Детектор "
+        },
+        "Tooltip": {
+          "enUS": "This unit can detect cloaked, burrowed, and hallucinated units.",
+          "ruRU": "Эта боевая единица может обнаруживать замаскированные или закопанные войска, а также распознавать иллюзии."
+        }
+      }
+    ]
+  },
+  "AttackTargetPriority": 11,
+  "Mob": "Multiplayer",
+  "Sight": 9,
+  "ShieldArmorTip": "Unit/ShieldArmorTooltip/ZHBRShields",
+  "EffectArray": {
+    "Birth": "ZHBRRaceControl@AddTrackedUnit"
+  },
+  "id": "ZHBRDeformer",
+  "EnergyStart": 100,
+  "EnergyMax": 100,
+  "EnergyRegenRate": 0.5625,
+  "ShieldsMax": 100,
+  "ShieldRegenRate": 10,
+  "Footprint": "Footprint2x2Contour",
+  "PlacementFootprint": "Footprint2x2",
+  "CostResource": {
+    "Minerals": 100
+  },
+  "CostCategory": "Technology",
+  "GlossaryPriority": 24,
+  "Icon": "btn-building-zhybrid-deformer",
+  "LifeArmorIcon": "amonshards _armor",
+  "ShieldArmorIcon": "btn-ability-zhybrid-protection",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "ZHBRCommon@BuildersTracker",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Builders Tracker"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRVoid@PowerUser",
+      "Icon": "btn-missing-kaeo",
+      "Name": {
+        "enUS": "Power User"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "ZHBRRestorationShield",
+      "Icon": "btn-ability-zeratul-warpprism-shieldboosters",
+      "Name": {
+        "enUS": "Restoration Shield"
+      },
+      "Tooltip": "-"
+    },
+    {
+      "id": "Detector11",
+      "Icon": "btn-status-detector",
+      "Name": {
+        "enUS": "Detector",
+        "ruRU": "Детектор "
+      },
+      "Tooltip": {
+        "enUS": "This unit can detect cloaked or burrowed units within its sight range.",
+        "ruRU": "Эта боевая единица может обнаруживать замаскированные или закопанные войска в поле обзора."
+      }
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": {
+        "enUS": "Build in Progress",
+        "ruRU": "Build in Progress"
+      }
+    },
+    {
+      "id": "ZHBRStructureTeleport@Deformer",
+      "Name": {
+        "enUS": "Structure Teleport (Deformer)"
+      }
+    },
+    {
+      "id": "ZHBREnergation@Energation",
+      "Name": {
+        "enUS": "Energation"
+      }
+    }
+  ],
+  "$Upgrades": [
+    "ZHBRMinionBuild",
+    "ZHBRDeformer",
+    "ZHBRStructureTeleport@Deformer",
+    "ZHBRMinionBuild@Main",
+    "ZHBRStructureTeleport",
+    "ZHBRCommon@IsDeformer",
+    "ZHBRDeformer",
+    "ZHBRDeformer",
+    null
+  ],
+  "$Requirements": [],
+  "$Production": [
+    null
+  ],
+  "$Research": [],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [
+    "ZHBRRaceControl",
+    "ZHBRMinion"
+  ],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "CancelBuilding",
+      "Icon": "btn-command-cancel",
+      "Name": {
+        "enUS": "Cancel Building",
+        "ruRU": "Отменить "
+      },
+      "Tooltip": {
+        "enUS": "Cancels construction of this structure, destroying the structure and giving a partial refund.",
+        "ruRU": "Отменить сооружение этого строения, уничтожив его и получив частичную компенсацию. "
+      }
+    },
+    {
+      "AbilCmd": "ZHBREnergation@Energation,Execute",
+      "id": "ZHBREnergation",
+      "Icon": "btn-ability-zeratul-warpprism-transferlink",
+      "Name": {
+        "enUS": "Energation"
+      },
+      "Tooltip": {
+        "enUS": "Restores up to <b>11</b> <span style=\"color: #Void\">Void</span> energy per second. Every <b>0.5</b> <span style=\"color: #Void\">Void</span> restored drains 1 <span style=\"color: f078ff\">Energy</span>."
+      }
+    },
+    {
+      "AbilCmd": "ZHBRStructureTeleport@Deformer,Build11",
+      "id": "ZHBRStructureTeleport",
+      "Icon": "btn-ability-zeratul-warpprism-autounloadon",
+      "Name": {
+        "enUS": "Teleport Structure"
+      },
+      "Tooltip": {
+        "enUS": "Teleport structure to target location over <span style=\"color: ffff8a\"><b>14</b> seconds</span>."
+      }
+    }
+  ]
+}

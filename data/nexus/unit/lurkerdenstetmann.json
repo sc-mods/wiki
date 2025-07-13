@@ -1,0 +1,791 @@
+{
+  "Name": "Mecha Lurker Den",
+  "Description": "<span style=\"color: #ffff8a\">Enables:</span><br/>- Mecha Lurkers from Mecha Hydralisks",
+  "DeathRevealFilters": "Visible;Player,Ally,Neutral,Missile,Dead,Hidden",
+  "DeathRevealRadius": 3,
+  "DeathRevealDuration": 4,
+  "DeathRevealType": "Snapshot",
+  "Race": "ZergM",
+  "DefaultAcquireLevel": "Offensive",
+  "Response": "Acquire",
+  "ResourceState": "Unknown",
+  "ResourceType": "Unknown",
+  "LifeStart": 850,
+  "LifeMax": 850,
+  "LifeArmorName": "Mecha Zerg Building Armor",
+  "Mover": "Ground",
+  "StationaryTurningRate": 719.4726,
+  "TurningRate": 719.4726,
+  "Radius": 1.5,
+  "SeparationRadius": 1.5,
+  "MinimapRadius": 1.5,
+  "EditorCategories": "ObjectType:Structure,ObjectFamily:Coop",
+  "TacticalAIFilters": "-;Player,Ally,Neutral",
+  "AIEvalFactor": 1,
+  "Mass": 0.4,
+  "FlagArray": [
+    "Movable",
+    "Unclickable",
+    "Unhighlightable",
+    "Untooltipable",
+    "KillCredit",
+    "ShowResources",
+    "ClearRallyOnTargetLost",
+    "PlayerRevivable",
+    "CameraFollow",
+    "PreventDefeat",
+    "PreventDestroy",
+    "PenaltyRevealed",
+    "UseLineOfSight",
+    "TownAlert",
+    "NoPortraitTalk",
+    "ArmorDisabledWhileConstructing"
+  ],
+  "EditorFlags": [
+    "BlockStructures"
+  ],
+  "PushPriority": 10,
+  "LeaderAlias": "LurkerDenStetmann",
+  "HotkeyAlias": "LurkerDenStetmann",
+  "SelectAlias": "LurkerDenStetmann",
+  "SubgroupAlias": "LurkerDenStetmann",
+  "OccludeHeight": 0.75,
+  "TacticalAI": "LurkerDenMP",
+  "AIEvaluateAlias": "LurkerDenMP",
+  "ReviveType": "LurkerDenMP",
+  "PawnItemReduction": 1,
+  "Fidget": {
+    "DelayMax": 30,
+    "DelayMin": 10,
+    "DistanceMax": 4,
+    "DistanceMin": 1,
+    "TurnAngle": 90,
+    "TurningRate": 90,
+    "ChanceArray": {
+      "Idle": 100
+    }
+  },
+  "ReviveInfoBase": {
+    "Charge": {
+      "Link": "LurkerDenMP/Revive",
+      "Location": "Unit"
+    },
+    "Cooldown": {
+      "Link": "LurkerDenMP/Revive",
+      "Location": "Unit"
+    }
+  },
+  "InnerRadiusSafetyMultiplier": 1,
+  "ArmorType": "Unknown",
+  "$tokens": {
+    "ID": {
+      "type": "string",
+      "value": ""
+    }
+  },
+  "HotkeyCategory": "Unit/Category/ZergMecha",
+  "Facing": 29.9926,
+  "Mob": "Multiplayer",
+  "FogVisibility": "Snapshot",
+  "PlaneArray": [
+    "Ground"
+  ],
+  "Collide": [
+    "Burrow",
+    "Ground",
+    "Structure",
+    "RoachBurrow",
+    "ForceField",
+    "Locust",
+    "Small"
+  ],
+  "Attributes": [
+    "Armored",
+    "Mechanical",
+    "Structure"
+  ],
+  "LifeArmor": 1,
+  "Sight": 9,
+  "CostResource": {
+    "Minerals": 250,
+    "Vespene": 150
+  },
+  "AttackTargetPriority": 11,
+  "CardLayouts": {
+    "Root": [
+      {
+        "Info": {
+          "class": "CAbilBuildable",
+          "Name": "Abil/Name/BuildInProgress",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Units",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "BuildInProgress",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "Activity": "UI/Building",
+          "VitalStartFactor": {
+            "Life": 0.1,
+            "Shields": 0.1,
+            "Energy": 1
+          },
+          "CmdButtonArray": {
+            "Cancel": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "Halt": {
+              "DefaultButtonFace": "Cancel"
+            }
+          },
+          "id": "BuildInProgress"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "BuildInProgress,Cancel",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Info": {
+          "class": "CAbilQueue",
+          "Name": "Abil/Name/que5",
+          "TechPlayer": "Upkeep",
+          "EditorCategories": "Race:Neutral,AbilityorEffectType:Structures",
+          "TargetMessage": "Abil/TargetMessage/DefaultTargetMessage",
+          "OrderArray": [
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            },
+            {
+              "DisplayType": "Confirm",
+              "Color": "255,0,255,0",
+              "Model": "Assets\\UI\\Cursors\\WayPointConfirm_Void\\WayPointConfirm_Void.m3",
+              "LineTexture": "Assets\\Textures\\WayPointLine.dds"
+            }
+          ],
+          "SharedFlags": {
+            "DisableWhileDead": 1
+          },
+          "DataCollection": "que5",
+          "$tokens": {
+            "ID": {
+              "type": "string",
+              "value": ""
+            }
+          },
+          "QueueCount": 1,
+          "Flags": {
+            "BestUnit": 1,
+            "NotifyAddOn": 1,
+            "Passive": 1
+          },
+          "CmdButtonArray": {
+            "CancelLast": {
+              "DefaultButtonFace": "Cancel"
+            },
+            "CancelSlot": {
+              "DefaultButtonFace": "CancelSlot"
+            }
+          },
+          "QueueSize": 5,
+          "id": "que5"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "que5,CancelLast",
+        "id": "Cancel",
+        "Icon": "btn-command-cancel",
+        "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+        "Name": "Cancel",
+        "Hotkey": "Esc"
+      },
+      {
+        "Upgrade": "HydraliskStetmannMovementSpeed",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ResearchHydraliskStetmannMovementSpeed",
+            "Requirements": "LearnHydraliskStetmannMovementSpeed"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 100
+          },
+          "Time": 60,
+          "Upgrade": "HydraliskStetmannMovementSpeed"
+        },
+        "Time": 60,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 0,
+        "Type": "AbilCmd",
+        "AbilCmd": "HydraliskDenStetmannResearch,Research1",
+        "id": "ResearchHydraliskStetmannMovementSpeed",
+        "Icon": "btn-upgrade-stetmann-mechamuscularaugments",
+        "Tooltip": "Increases the movement speed of **Mecha Hydralisks** by <b>50</b>%.",
+        "Name": "Research Hydra-lic Augments",
+        "Hotkey": "A"
+      },
+      {
+        "Upgrade": "HydraliskStetmannDamage",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ResearchHydraliskStetmannDamage",
+            "Requirements": "LearnHydraliskStetmannDamage"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 100
+          },
+          "Time": 90,
+          "Upgrade": "HydraliskStetmannDamage"
+        },
+        "Time": 90,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "HydraliskDenStetmannResearch,Research3",
+        "id": "ResearchHydraliskStetmannDamage",
+        "Icon": "btn-upgrade-stetmann-mechahydraliskmissiledamage",
+        "Tooltip": "Allows the **Mecha Hydralisk** to replace its anti-air Needle Spine weapon with a more powerful Erudition Missile armament.",
+        "Name": "Research Erudition Missile Launchers",
+        "Hotkey": "C"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "ResearchHydraliskRangeLocked",
+        "Tooltip": "This upgrade unlocks at Commander Level 8.",
+        "Name": "Research Tyr-Class Targeting System"
+      },
+      {
+        "Upgrade": "HydraliskStetmannRange",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ResearchHydraliskStetmannRange",
+            "Requirements": "LearnHydraliskStetmannRange"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 100
+          },
+          "Time": 90,
+          "Upgrade": "HydraliskStetmannRange"
+        },
+        "Time": 90,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 2,
+        "Type": "AbilCmd",
+        "AbilCmd": "HydraliskDenStetmannResearch,Research2",
+        "id": "ResearchHydraliskStetmannRange",
+        "Icon": "btn-upgrade-stetmann-mechahydraliskmissilerange",
+        "Tooltip": "Increases the <span style=\"color: #ffff8a\">Mecha Hydralisk's</span> anti-air weapon range by <b>3</b>.",
+        "Name": "Research Tyr-Class Targeting System",
+        "Hotkey": "F"
+      },
+      {
+        "Upgrade": "LurkerStetmannTunnelingBurstRange",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ResearchLurkerStetmannTunnelingBurstRange",
+            "Requirements": "LearnLurkerStetmannTunnelingBurstRange"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 100
+          },
+          "Time": 90,
+          "Upgrade": "LurkerStetmannTunnelingBurstRange"
+        },
+        "Time": 90,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 3,
+        "Type": "AbilCmd",
+        "AbilCmd": "HydraliskDenStetmannResearch,Research4",
+        "id": "ResearchLurkerStetmannTunnelingBurstRange",
+        "Icon": "btn-upgrade-stetmann-lurkertunnelingburstrange",
+        "Tooltip": "Increases the maximum range of the <span style=\"color: #ffff8a\">Mecha Lurker's</span> Tunnel of TERROR Algorithm by <b>6</b>.",
+        "Name": "Research Extended Tunnel of TERROR Algorithm",
+        "Hotkey": "T"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "Passive",
+        "id": "ResearchChannelingSpinesLocked",
+        "Tooltip": "This upgrade unlocks at Commander Level 8.",
+        "Name": "Research Focused Strike Algorithm"
+      },
+      {
+        "Upgrade": "LurkerStetmannChannelingSpines",
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "ReserachLurkerStetmannChannelingSpines",
+            "Requirements": "LearnLurkerStetmannChannelingSpines"
+          },
+          "Resource": {
+            "Minerals": 100,
+            "Vespene": 100
+          },
+          "Time": 90,
+          "Upgrade": "LurkerStetmannChannelingSpines"
+        },
+        "Time": 90,
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 100,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 0,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "HydraliskDenStetmannResearch,Research5",
+        "id": "ReserachLurkerStetmannChannelingSpines",
+        "Icon": "btn-ability-stetmann-lurkerchannelingspines",
+        "Tooltip": "Allows the **Mecha Lurker** to concentrate its fire on a target unit, dealing <b>50</b> damage to a small area around that unit for <b>10</b> seconds or until the unit is destroyed.",
+        "Name": "Research Focused Strike Algorithm",
+        "Hotkey": "S"
+      },
+      {
+        "Info": {
+          "SetFilters": "-;RawResource,HarvestableResource"
+        },
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 4,
+        "Type": "AbilCmd",
+        "AbilCmd": "RallyBuildingStetmann,Rally1",
+        "id": "RallyStetmannBuilding",
+        "Icon": "btn-ability-terran-setrallypoint",
+        "Tooltip": "Sends recycled units to the designated point.",
+        "Name": "Set Rally Point",
+        "Hotkey": "Y"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "HydraliskStetmannRespawnLocked",
+        "Tooltip": "This ability unlocks at Commander Level 9.",
+        "Name": "Recycle Mecha Hydralisk"
+      },
+      {
+        "Info": {
+          "Button": {
+            "Flags": {
+              "AllowMinimap": 0
+            },
+            "DefaultButtonFace": "HydraliskStetmannRespawn"
+          },
+          "Charge": {
+            "Flags": {
+              "RestoreAllChargesOnCooldown": 1
+            },
+            "CountMax": 1000,
+            "CountUse": 1,
+            "Location": "Player"
+          },
+          "Cooldown": {
+            "Location": "Player"
+          },
+          "Unit": [
+            "HydraliskStetmann"
+          ],
+          "Flags": {
+            "AutoCast": 1,
+            "AutoCastOn": 1
+          }
+        },
+        "Unit": [
+          "HydraliskStetmann"
+        ],
+        "Cost": {
+          "Minerals": 100,
+          "Vespene": 50,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": -2
+        },
+        "Row": 2,
+        "Column": 1,
+        "Type": "AbilCmd",
+        "AbilCmd": "HydraliskStetmannRespawn,Train1",
+        "id": "HydraliskStetmannRespawn",
+        "Icon": "btn-ability-stetmann-hydraliskrespawn",
+        "Tooltip": "For each <b>-Infinity</b> **Mecha Hydralisk Remnant** collected by **Stetellites**, **Gary**, and **Super Gary**, a **Mecha Hydralisk** will respawn here at no cost.<br/>",
+        "Name": "Recycle Mecha Hydralisk",
+        "Hotkey": "B"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "DualQueueLocked",
+        "Tooltip": "This ability unlocks at Commander Level 15.",
+        "Name": "Science Multiplier"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 2,
+        "Column": 2,
+        "Type": "Passive",
+        "id": "StetmannDualQueue",
+        "Icon": "btn-upgrade-stetmann-dualqueue",
+        "Tooltip": "This building can research two upgrades at once.",
+        "Name": "Science Multiplier",
+        "Hotkey": "E"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 0,
+        "Type": "Passive",
+        "id": "HydraliskStetmannPassive",
+        "Icon": "btn-unit-zerg-hydralisk-mecha",
+        "Tooltip": "Mecha Hydralisk Den enables you to morph Mecha Hydralisks.",
+        "Name": "Mecha Hydralisk"
+      },
+      {
+        "Cost": {
+          "Minerals": 0,
+          "Vespene": 0,
+          "Terazine": 0,
+          "Custom": 0,
+          "Energy": 0,
+          "Life": 0,
+          "Shields": 0,
+          "Food": 0
+        },
+        "Row": 1,
+        "Column": 1,
+        "Type": "Passive",
+        "id": "LurkerStetmannPassive",
+        "Icon": "btn-unit-zerg-lurker-mecha",
+        "Tooltip": "Mecha Lurker Den enables you to morph Mecha Lurkers from Mecha Hydralisks.",
+        "Name": "Mecha Lurker"
+      }
+    ]
+  },
+  "Footprint": "Footprint3x3CreepNormalContour",
+  "PlacementFootprint": "Footprint3x3CreepNormal",
+  "ScoreResult": "BuildOrder",
+  "SubgroupPriority": 28,
+  "TechAliasArray": [
+    "Alias_HydraliskDenStetmann"
+  ],
+  "GlossaryPriority": 10,
+  "TechTreeUnlockedUnitArray": [
+    "LurkerMP"
+  ],
+  "RepairTime": 40,
+  "id": "LurkerDenStetmann",
+  "Icon": "btn-building-zerg-lurkerden-mecha",
+  "LifeArmorIcon": "btn-upgrade-stetmann-mechagroundplating-level0",
+  "ShieldArmorIcon": "btn-upgrade-protoss-shieldslevel0",
+  "Weapons": [],
+  "Behaviors": [
+    {
+      "id": "ChronoBoostTarget"
+    },
+    {
+      "id": "StetmannBuildingDoubleQueue"
+    },
+    {
+      "id": "ZergBuildingStetmannDies6"
+    },
+    {
+      "id": "TerranBuildingBurnDown"
+    }
+  ],
+  "Abilities": [
+    {
+      "id": "BuildInProgress",
+      "Name": "Build in Progress"
+    },
+    {
+      "id": "que5",
+      "Name": "Queue (5)"
+    },
+    {
+      "id": "HydraliskDenStetmannResearch",
+      "Name": "Research"
+    },
+    {
+      "id": "RallyBuildingStetmann",
+      "Name": "Rally Building Stetmann"
+    },
+    {
+      "id": "HydraliskStetmannRespawn",
+      "Name": "Hydralisk Respawn"
+    }
+  ],
+  "$Upgrades": [
+    "CountUnitLurkerDenStetmannCompleteOnly3524451459TechTreeCheat",
+    "LurkerDenStetmann",
+    "CountUnitLurkerDenStetmannCompleteOnlyTechTreeCheat",
+    "UpgradeToLurkerDenStetmann",
+    "MasteryStetmannStructureMorphRate",
+    "CountUnitLurkerDenStetmannCompleteOnly1236643295TechTreeCheat",
+    "LurkerDen_Stetmann_COOP_Splat",
+    "HydraliskDenStetmann",
+    "LurkerDenStetmannBuild",
+    "LurkerDenStetmann"
+  ],
+  "$Requirements": [],
+  "$Production": [
+    "HydraliskStetmann"
+  ],
+  "$Research": [
+    "HydraliskStetmannMovementSpeed",
+    "HydraliskStetmannDamage",
+    "HydraliskStetmannRange",
+    "LurkerStetmannTunnelingBurstRange",
+    "LurkerStetmannChannelingSpines"
+  ],
+  "$Morph": [],
+  "$Phase": [],
+  "$Producers": [],
+  "$Commands": [
+    {
+      "AbilCmd": "BuildInProgress,Cancel",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "que5,CancelLast",
+      "id": "Cancel",
+      "Icon": "btn-command-cancel",
+      "Tooltip": "Drops the current order without performing it, and allows you to select a different order.",
+      "Name": "Cancel"
+    },
+    {
+      "AbilCmd": "HydraliskDenStetmannResearch,Research1",
+      "id": "ResearchHydraliskStetmannMovementSpeed",
+      "Icon": "btn-upgrade-stetmann-mechamuscularaugments",
+      "Tooltip": "Increases the movement speed of **Mecha Hydralisks** by <b>50</b>%.",
+      "Name": "Research Hydra-lic Augments"
+    },
+    {
+      "AbilCmd": "HydraliskDenStetmannResearch,Research3",
+      "id": "ResearchHydraliskStetmannDamage",
+      "Icon": "btn-upgrade-stetmann-mechahydraliskmissiledamage",
+      "Tooltip": "Allows the **Mecha Hydralisk** to replace its anti-air Needle Spine weapon with a more powerful Erudition Missile armament.",
+      "Name": "Research Erudition Missile Launchers"
+    },
+    {
+      "AbilCmd": "HydraliskDenStetmannResearch,Research2",
+      "id": "ResearchHydraliskStetmannRange",
+      "Icon": "btn-upgrade-stetmann-mechahydraliskmissilerange",
+      "Tooltip": "Increases the <span style=\"color: #ffff8a\">Mecha Hydralisk's</span> anti-air weapon range by <b>3</b>.",
+      "Name": "Research Tyr-Class Targeting System"
+    },
+    {
+      "AbilCmd": "HydraliskDenStetmannResearch,Research4",
+      "id": "ResearchLurkerStetmannTunnelingBurstRange",
+      "Icon": "btn-upgrade-stetmann-lurkertunnelingburstrange",
+      "Tooltip": "Increases the maximum range of the <span style=\"color: #ffff8a\">Mecha Lurker's</span> Tunnel of TERROR Algorithm by <b>6</b>.",
+      "Name": "Research Extended Tunnel of TERROR Algorithm"
+    },
+    {
+      "AbilCmd": "HydraliskDenStetmannResearch,Research5",
+      "id": "ReserachLurkerStetmannChannelingSpines",
+      "Icon": "btn-ability-stetmann-lurkerchannelingspines",
+      "Tooltip": "Allows the **Mecha Lurker** to concentrate its fire on a target unit, dealing <b>50</b> damage to a small area around that unit for <b>10</b> seconds or until the unit is destroyed.",
+      "Name": "Research Focused Strike Algorithm"
+    },
+    {
+      "AbilCmd": "RallyBuildingStetmann,Rally1",
+      "id": "RallyStetmannBuilding",
+      "Icon": "btn-ability-terran-setrallypoint",
+      "Tooltip": "Sends recycled units to the designated point.",
+      "Name": "Set Rally Point"
+    },
+    {
+      "AbilCmd": "HydraliskStetmannRespawn,Train1",
+      "id": "HydraliskStetmannRespawn",
+      "Icon": "btn-ability-stetmann-hydraliskrespawn",
+      "Tooltip": "For each <b>-Infinity</b> **Mecha Hydralisk Remnant** collected by **Stetellites**, **Gary**, and **Super Gary**, a **Mecha Hydralisk** will respawn here at no cost.<br/>",
+      "Name": "Recycle Mecha Hydralisk"
+    }
+  ]
+}
