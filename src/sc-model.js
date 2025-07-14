@@ -1,4 +1,4 @@
-export const MODELS_BASE = 'https://star-mods.github.io/assets/models/';
+export const MODELS_BASE = 'https://star-assets.github.io/models-glb/';
 
 import { Core } from "./lib/data.js";
 import * as modelPlayer from "./lib/three/Player.js";

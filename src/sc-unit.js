@@ -52,6 +52,16 @@ class ScUnit extends Core {
     this.querySelector("[data-section=weapons]").style.display == u.Weapons?.length ? "block" : "none"
     this.querySelector("[data-section=upgrades]").style.display == upgrades.length ? "block" : "none"
 
+    this.querySelector("[data-section=model-render]").style.display = u.Model ? "block" : "none"
+
+    if(u.Model){
+      let div = this.querySelector("[data-section=model-render]")
+      div.innerHTML = ''
+      let img = document.createElement("img")
+      img.className = 'model-render'
+      img.src = `https://star-assets.github.io/models-png/${u.Model.toLowerCase()}.png`
+      div.appendChild(img)
+    }
 
     let key = `${this.mod}:unit:${u.id}`
     const lifeTemplate = (field,showArmor) => {
@@ -198,6 +208,9 @@ class ScUnit extends Core {
               <p data-section="attributes"></p>
             </div>
             <div class="unit-short-stats unit-stats" data-section="vitals">
+            </div>
+
+            <div data-section="model-render">
             </div>
           </div>
         </div>

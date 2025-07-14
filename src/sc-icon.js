@@ -1,4 +1,4 @@
-export const ICON_BASE = 'https://star-mods.github.io/assets/icons/';
+export const ICON_BASE = 'https://star-assets.github.io/buttons-png/';
 
 class SCIcon extends HTMLElement {
   static get observedAttributes() {
@@ -40,7 +40,7 @@ class SCIcon extends HTMLElement {
     };
     tempImg.onerror = () => {
       // Optional: set fallback icon
-      this._img.src = ICON_BASE + 'fallback.png';
+      this._img.src = ICON_BASE + 'btn-missing-kaeo.png';
       this._img.style.opacity = '1';
     };
     tempImg.src = src;

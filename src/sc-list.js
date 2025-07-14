@@ -69,6 +69,7 @@ class ScList extends Core {
     this.list?.forEach(uid => {
       const unit = this.datasource[uid];
       if (!unit) return;
+      if(unit.$Phased)return;
       let key = `${this.mod}:${paramName}:${unit.id}`
 
       const li = document.createElement('li');
@@ -79,14 +80,13 @@ class ScList extends Core {
         a.classList.add('selected');
       }
       a.setAttribute("data-tooltip","true");
+
+      // unit.$Phase?.length && console.log(unit.$Phase) c
       const templateTooltip = document.createElement('div');
       templateTooltip.className = 'tooltip-data'
       templateTooltip.innerHTML =  `
         <h3><b i18n="${key}:Name"></b></h3>
-        <div class="sc-unit-details-content">
-            <p i18n="${key}:Description"></p>
-        </div>
-      `
+        <div class="sc-unit-details-content"><p i18n="${key}:Description"></p></div>`
       a.appendChild(templateTooltip);
 
 
@@ -96,6 +96,38 @@ class ScList extends Core {
       a.appendChild(icon);
 
       li.appendChild(a);
+
+      if(unit.$Phase?.length){
+
+        let ulp = document.createElement('ul');
+        ulp.className = 'phase-units'
+        for(let phasedUnit of unit.$Phase){
+          const unit = this.datasource[phasedUnit];
+          let key = `${this.mod}:${paramName}:${unit.id}`
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = `?mod=${this.mod}&faction=${this.faction}&${paramName}=${unit.id}`;
+          if (unit.id === this[this.selectedparamName]) {
+            a.classList.add('selected');
+          }
+          a.setAttribute("data-tooltip","true");
+          li.appendChild(a);
+          const templateTooltip = document.createElement('div');
+          templateTooltip.className = 'tooltip-data'
+          templateTooltip.innerHTML =  `
+            <h3><b i18n="${key}:Name"></b></h3>
+            <div class="sc-unit-details-content"><p i18n="${key}:Description"></p></div>`
+          a.appendChild(templateTooltip);
+          
+          const icon = document.createElement('sc-icon');
+          icon.setAttribute('icon', unit.Icon);
+          icon.setAttribute('alt', this.i18n(unit.Name));
+          a.appendChild(icon);
+          ulp.appendChild(li);
+        }
+        li.appendChild(ulp);
+      }
+
       ul.appendChild(li);
 
       this._unitLinks.set(unit.id, a);

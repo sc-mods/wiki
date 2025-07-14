@@ -1,5 +1,6 @@
 // export  const DATA_BASE = 'https://star-mods.github.io/assets/data/';
-export  const DATA_BASE = 'https://star-mods.github.io/assets/data/';
+// export  const DATA_BASE = 'https://star-mods.github.io/assets/data/';
+export  const DATA_BASE = './data/';
 
 const _cache = new Map();     // Map<type:key, data>
 const _promises = new Map();  // Map<type:key, Promise>
