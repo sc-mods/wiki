@@ -40,7 +40,7 @@ class ScLanguage extends HTMLElement {
 
   _updateUI() {
     let currentLang = getLang();
-    if(currentLang == "enUS")currentLang = "en" //todo
+    if(currentLang == "enUS")currentLang = "enEN" //todo
     this.querySelector("#lang-image").setAttribute("src",`https://star-assets.github.io/lang/${currentLang.substring(2).toLowerCase()}.svg`)
   }
 }
