@@ -1,8 +1,7 @@
-export const MODELS_BASE = 'https://star-assets.github.io/models-glb/';
+import { Core } from "./data.js";
+import "./../lib/canvas-attribute-model-src/canvas-attribute-model-src.js";
 
-import { Core } from "./lib/data.js";
-import * as modelPlayer from "./lib/three/Player.js";
-// import * as modelPlayer from "./lib/three/js-3d-model-viewer.js";
+export const MODELS_BASE = 'https://star-assets.github.io/models-glb/';
 
 class ScModel extends Core {
   static get observedAttributes() {
@@ -12,83 +11,79 @@ class ScModel extends Core {
   constructor() {
     super();
     this.data = null;
-    this.scene = null;
-    this.viewerElement = null;
+    this.canvas = null;
   }
 
-  load () {
+  load() {
     this.innerHTML = `
       <div id="viewer" class="viewer-small">
         <div class="viewer-inner" id="viewer-inner">
+          <canvas id="model-canvas" auto-rotate mouse-rotate></canvas>
           <div title="Fullscreen Preview" class="fullscreen-button" id="fullscreen">⛶</div>
-          <div title="Fullscreen Preview" class="fullscreen-button" id="fullscreen-exit">✖</div>
+          <div title="Exit Fullscreen" class="fullscreen-button" id="fullscreen-exit">✖</div>
         </div>
       </div>
     `;
-    this.initScene();
+    this.initCanvasControls();
     this.reload();
   }
 
   async reload() {
-    if (!this.scene || !this.mod || !this.unit) {
-      this.style.display = 'none'
-      return
+    if (!this.mod || !this.unit) {
+      this.style.display = 'none';
+      return;
     }
-    this.style.display = 'block'
-    const data = await this.loadData(this.mod,'unit', this.unit);
+    this.style.display = 'block';
+    const data = await this.loadData(this.mod, 'unit', this.unit);
     this.data = data;
     this.loadModel();
   }
-   exitFullScreen() {
+
+  exitFullScreen() {
     if (document.fullscreenElement) {
       document.exitFullscreen();
     }
   }
-  initScene() {
-    // Даем DOM время на отрисовку
-    // setTimeout(() => {
-    this.viewerElement = this.querySelector('#viewer-inner');
-    // const viewer = this.querySelector('#viewer');
+
+  initCanvasControls() {
+    this.container = this.querySelector('#viewer-inner')
+    this.canvas = this.querySelector('#model-canvas');
+
+    this.canvas.addEventListener('mouseenter', () => {
+        this.canvas.setAttribute('auto-rotate-paused', 'true');
+    });
+
+    this.canvas.addEventListener('mouseleave', () => {
+        this.canvas.removeAttribute('auto-rotate-paused');
+    });
+
     const fullscreenBtn = this.querySelector('#fullscreen');
     const fullscreenExitBtn = this.querySelector('#fullscreen-exit');
-    if (!this.viewerElement || !fullscreenBtn) return;
 
-    try{
-      this.scene = modelPlayer.prepareScene(this.viewerElement, {
-        width: 400,
-        height: 250,
-        background: '#3a4d63'
-      });
-      modelPlayer.resetCamera(this.scene);
-    }
-    catch(e){
-      this.scene = null;
-      this.style.display = 'none'
+    fullscreenBtn?.addEventListener('click', () => {
+      this.container?.requestFullscreen();
+    });
+
+    fullscreenExitBtn?.addEventListener('click', () => {
+      this.exitFullScreen();
+    })
+  }
+  loadModel() {
+    if (!this.data || !this.canvas) return;
+
+    const modelUrl = this.data.Model ? MODELS_BASE + this.data.Model + '.glb' : null;
+    if (!modelUrl) {
+      this.querySelector('#viewer').style.display = 'none';
       return;
     }
 
-    fullscreenBtn.addEventListener('click', () => {
-      modelPlayer.goFullScreen(this.querySelector("#viewer-inner"));
-    });
-    fullscreenExitBtn.addEventListener('click', () => {
-      this.exitFullScreen()
-    });
+    // Remove and re-append canvas to trigger MutationObserver if needed
+    const canvas = this.canvas;
+    // setTimeout(() => {
+      canvas.setAttribute('model-src', modelUrl);
     // }, 0);
   }
 
-  loadModel() {
-    if (!this.data) return;
-    modelPlayer.clearScene(this.scene);
-    modelPlayer.resetCamera(this.scene);
-
-    const viewer = this.querySelector('#viewer');
-    if (this.data.Model) {
-      viewer.style.display = 'block';
-      modelPlayer.loadGlb(this.scene, MODELS_BASE + this.data.Model + '.glb', () => {});
-    } else {
-      viewer.style.display = 'none';
-    }
-  }
 
   update(field, value, old) {
     this.reload();

@@ -1,7 +1,8 @@
-import "./lib/jszip.js";
-import {Core} from "./lib/data.js";
-import * as THREE from './lib/three/three.js';
-import { DDSLoader } from './lib/three/DDSLoader.js';
+
+import {Core} from "./data.js";
+import "./../lib/jszip.js";
+import * as THREE from './../lib/three/three.js';
+import { DDSLoader } from './../lib/three/DDSLoader.js';
 
 class DDSBatchRenderer {
   constructor(width, height) {
@@ -217,7 +218,7 @@ class ScUpload extends Core {
     }
 
     // Prse XML
-    const xmlTextOriginal = await zip.file("base.sc2data/gamedata/actordata.xml").async("text");
+    const xmlTextOriginal = await zip.file("cnc-data.SC2Mod/Base.SC2Data/GameData/ActorData.xml").async("text");
 
     if (xmlTextOriginal) {
 
@@ -244,7 +245,7 @@ class ScUpload extends Core {
     }
 
 
-    this.renderDDSFromZip(zip,"base.sc2assets/assets/textures/ai_avatar_loading.dds");
+    this.renderDDSFromZip(zip,"cnc-data.SC2Mod/base.sc2assets/assets/Images/Slim_GroupUnitButtonBGImage.dds");
 
 
 

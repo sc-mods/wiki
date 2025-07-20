@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Multiple GLB Viewers</title>
+  <script src="./canvas-attribute-model-src.js" type="module"></script>
+  <style>
+    body {
+      margin: 0;
+      background-color: #222;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px;
+      background-image: url("https://cdn.prod.website-files.com/65d251b77dd9a48526b6c4ef/65d251b77dd9a48526b6c599_Dot1.png");
+      background-position: 0 0, 0 0;
+      background-size: 18px;
+      background-repeat: repeat;
+      height: 100%;
+  }
+    canvas{
+        background: #00000030;
+        border-radius: 10px;
+        cursor: grab;
+    }
+  </style>
+</head>
+<body>
+
+<canvas width="200" height="200" rotation="0.5" auto-rotate mouse-rotate model-src="https://star-assets.github.io/models-glb/Marauder.glb"></canvas>
+<canvas width="200" height="200" rotation="0.5" mouse-rotate model-src="https://star-assets.github.io/models-glb/Adept.glb"></canvas>
+<canvas width="200" height="200" rotation="0.5" mouse-rotate model-src="https://star-assets.github.io/models-glb/Hydralisk.glb"></canvas>
+
+<div>
+  <input type="text" id="modelUrlInput" placeholder="Enter model filename (e.g., spaceship.glb)" />
+  <button id="addModelButton">Add Model</button>
+</div>
+
+<div id="canvasContainer" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;"></div>
+
+<script >
+
+document.querySelectorAll('canvas[model-src]').forEach(setupCanvas);
+  function setupCanvas(canvas){
+    canvas.addEventListener('mouseenter', () => {
+        canvas.setAttribute('auto-rotate-paused', 'true');
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+        canvas.removeAttribute('auto-rotate-paused');
+    });
+  }
+
+  document.getElementById('addModelButton').addEventListener('click', () => {
+    const input = document.getElementById('modelUrlInput');
+    const filename = input.value.trim();
+
+    if (!filename) {
+        alert('Please enter a model filename.');
+        return;
+    }
+    // Construct full model URL
+    const fullUrl = `https://star-assets.github.io/models-glb/${filename}.glb`;
+    // Create canvas element
+    const canvas = document.createElement('canvas');
+    canvas.width = 200
+    canvas.height = 200;
+    canvas.setAttribute('model-src', fullUrl);
+    canvas.setAttribute('mouse-rotate', 'true');
+    canvas.setAttribute('auto-rotate', '0.01');
+    document.getElementById('canvasContainer').appendChild(canvas);
+    setupCanvas(canvas)
+});
+
+</script>
+
+</body>
+</html>

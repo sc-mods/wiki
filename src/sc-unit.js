@@ -1,4 +1,4 @@
-import {Core} from "./lib/data.js";
+import {Core} from "./data.js";
 
 class ScUnit extends Core {
   static get observedAttributes() {
@@ -209,7 +209,6 @@ class ScUnit extends Core {
             </div>
             <div class="unit-short-stats unit-stats" data-section="vitals">
             </div>
-
             <div data-section="model-render">
             </div>
           </div>
@@ -224,7 +223,6 @@ class ScUnit extends Core {
           <div class="table-container" data-section="stats">
           </div>
         </details>
-
         <details data-section="weapons" open data-open-state="weapons">
           <summary><p class="sc-unit-category" i18n="weapon-stats"></p></summary>
           <div data-section="weapons-list" class="weapons-list"></div>

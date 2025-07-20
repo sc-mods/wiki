@@ -1,5 +1,5 @@
 
-import {Core, isTouchDevice} from "./lib/data.js";
+import {Core, isTouchDevice} from "./data.js";
 
 class ScMods extends Core {
   static get observedAttributes() {
@@ -70,7 +70,6 @@ class ScMods extends Core {
           dropdownBtn.style.display = 'none'
         }
 
-
         const versionList = document.createElement('ul');
         versionList.classList.add('version-list');
 
@@ -93,7 +92,7 @@ class ScMods extends Core {
           if (faction) versionParams.set('faction', faction);
 
           versionLink.href = `?${versionParams.toString()}`;
-          versionLink.dataset.modid = version.id; // ✅ add this line
+          versionLink.dataset.modid = version.id;
 
           versionSpan.textContent = this.i18n(version.name);
           versionLi.appendChild(versionLink);

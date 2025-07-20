@@ -12,7 +12,7 @@ import './sc-upload.js';
 import './sc-weapon.js';
 import './sc-button.js';
 // import './parser/index.js';
-import {Core} from "./lib/data.js";
+import {Core} from "./data.js";
 
 
 
@@ -82,9 +82,9 @@ class ScWiki extends Core {
 
     this.innerHTML = `
       <header>
-<!--        <sc-upload></sc-upload>-->
-          <sc-mods></sc-mods>
-          <div class="separator"></div>
+        <sc-upload></sc-upload>
+        <sc-mods></sc-mods>
+        <div class="separator"></div>
         <sc-factions></sc-factions>
       </header>
       <section>
@@ -98,7 +98,6 @@ class ScWiki extends Core {
       </section>
       <sc-language></sc-language>
       <a title="Join All Races Discord Server" target="_blank" class="btn-discord" href="https://discord.gg/8T4MUA3xXr"><span></span></a>
-
     `
 
 

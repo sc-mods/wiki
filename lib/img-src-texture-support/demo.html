@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DDS Image Demo</title>
+  <style>
+    body { font-family: sans-serif; background: #202020; color: #ddd; padding: 20px; }
+    img {  }
+    .dropzone { border: 2px dashed #888; padding: 20px; margin-top: 20px; text-align: center; color: #aaa; }
+  </style>
+  <script src="./img-src-texture-support.js" type="module"></script>
+</head>
+<body>
+
+  <h1>DDS Image Renderer Demo</h1>
+
+  <p>All <code>&lt;img src=".dds"&gt;</code> will be rendered natively with WebGL.<br>
+  Works for static and dynamically added images.</p>
+
+  <h3>Example:</h3>
+
+  <!-- Example DDS image (change path to your own asset if needed) -->
+  <img src="https://star-assets.github.io/buttons/2goldplatdia0.dds" alt="Example DDS">
+  <img src="https://star-assets.github.io/buttons/Storm_UI_HUD_Tracer_Blink_4of4.dds" alt="Example DDS">
+  <img src="https://star-assets.github.io/buttons-png/Storm_UI_Quest_Event_Lucha2_DiaLog_ReWard_Portrait_Right.dds1" alt="Missing DDS">
+  <img src="https://star-assets.github.io/buttons-png/Storm_UI_Quest_Event_Lucha2_DiaLog_ReWard_Portrait_Right.png1" alt="Missing PNG">
+
+
+
+  <h3>Dynamic Load:</h3>
+
+  <button id="addDynamic">Add DDS Image Dynamically</button>
+
+  <div class="dropzone" id="dropzone">
+    Drag & drop DDS files here to test
+  </div>
+
+  <script type="module">
+    
+    // Dynamic DDS image add button
+    document.getElementById("addDynamic").addEventListener("click", () => {
+      const img = document.createElement('img');
+      img.src = "./assets/example.dds";
+      img.width = 128;
+      img.height = 128;
+      document.body.appendChild(img);
+    });
+
+    // Drag & drop support for local DDS files
+    const dropzone = document.getElementById('dropzone');
+    dropzone.addEventListener('dragover', e => {
+      e.preventDefault();
+      dropzone.style.borderColor = '#fff';
+    });
+
+    dropzone.addEventListener('dragleave', e => {
+      e.preventDefault();
+      dropzone.style.borderColor = '#888';
+    });
+
+    dropzone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropzone.style.borderColor = '#888';
+
+      const file = e.dataTransfer.files[0];
+      if (!file.name.toLowerCase().endsWith('.dds')) {
+        alert("Please drop a DDS file.");
+        return;
+      }
+
+      const url = URL.createObjectURL(file);
+      const img = document.createElement('img');
+      img.src = url;
+      document.body.appendChild(img);
+    });
+  </script>
+
+</body>
+</html>

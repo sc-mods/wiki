@@ -1,4 +1,4 @@
-import {getLang, setLang, i18n} from './lib/lang.js';
+import {getLang, setLang, i18n} from './lang.js';
 
 class ScLanguage extends HTMLElement {
   constructor() {

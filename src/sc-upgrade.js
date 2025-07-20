@@ -1,4 +1,4 @@
-import {Core} from "./lib/data.js";
+import {Core} from "./data.js";
 
 class ScUpgrade extends Core {
   static get observedAttributes() {
